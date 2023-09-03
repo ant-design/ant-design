@@ -7,6 +7,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
+import theme from '../theme';
 import Compact from './Compact';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
@@ -52,11 +53,39 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     ...otherProps
   } = props;
 
+  const { token } = theme.useToken();
+
+  const spaceSizeMap = {
+    small: token.paddingXS,
+    middle: token.padding,
+    large: token.paddingLG,
+  } as const;
+
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
+
+  const isValidGapHorizontalSize = isValidGapNumber(horizontalSize);
 
   const isValidGapVerticalSize = isValidGapNumber(verticalSize);
 
-  const isValidGapHorizontalSize = isValidGapNumber(horizontalSize);
+  const realHorizontalSize = React.useMemo<number>(() => {
+    if (isValidGapHorizontalSize) {
+      return horizontalSize;
+    }
+    if (isPresetSize(horizontalSize)) {
+      return spaceSizeMap[horizontalSize!];
+    }
+    return 0;
+  }, [horizontalSize]);
+
+  const realVerticalSize = React.useMemo<number>(() => {
+    if (isValidGapVerticalSize) {
+      return verticalSize;
+    }
+    if (isPresetSize(verticalSize)) {
+      return spaceSizeMap[verticalSize!];
+    }
+    return 0;
+  }, [verticalSize]);
 
   const childNodes = toArray(children, { keepEmpty: true });
 
@@ -112,8 +141,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const spaceContext = React.useMemo<SpaceContextType>(
     () => ({
-      horizontalSize: isValidGapHorizontalSize ? horizontalSize : 0,
-      verticalSize: isValidGapVerticalSize ? verticalSize : 0,
+      horizontalSize: realHorizontalSize,
+      verticalSize: realVerticalSize,
       latestIndex,
       supportFlexGap,
     }),
