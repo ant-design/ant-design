@@ -1,6 +1,5 @@
 'use client';
 
-import type { ReactElement } from 'react';
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
@@ -356,10 +355,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   );
 
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
-  const shouldWrapSSR = iconPrefixCls !== parentContext.iconPrefixCls;
   const csp = customCsp || parentContext.csp;
-
-  const wrapSSR = useStyle(iconPrefixCls, csp);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
@@ -471,7 +467,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   let childNode = (
     <>
       <PropWarning dropdownMatchSelectWidth={dropdownMatchSelectWidth} />
-      {shouldWrapSSR ? wrapSSR(children as ReactElement) : children}
+      {children}
     </>
   );
 
