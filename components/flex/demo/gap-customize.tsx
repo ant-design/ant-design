@@ -2,10 +2,10 @@ import React from 'react';
 import { Button, Flex, Slider } from 'antd';
 
 const App: React.FC = () => {
-  const [gap, setGap] = React.useState<number>(8);
+  const [gap, setGap] = React.useState<React.CSSProperties['gap']>(8);
   return (
     <>
-      <Slider value={gap} onChange={setGap} />
+      <Slider value={gap as number} onChange={setGap} />
       <br />
       <br />
       <Flex gap={gap}>

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import type { CSSProperties } from 'react';
 import { Button, Flex, Segmented } from 'antd';
 import { alignItemsValues, justifyContentValues } from 'antd/es/flex/classNames';
 
@@ -9,14 +10,14 @@ const boxStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [justifyContent, setJustifyContent] = React.useState<CSSProperties['justifyContent']>('space-around');
+  const [justify, setJustify] = useState<CSSProperties['justifyContent']>('space-around');
   const [alignItems, setAlignItems] = React.useState<CSSProperties['alignItems']>('center');
   return (
     <>
       <Segmented
-        value={justifyContent}
+        value={justify}
         options={justifyContentValues as unknown as string[]}
-        onChange={(value) => setJustifyContent(value as string)}
+        onChange={(value) => setJustify(value as string)}
       />
       <br />
       <br />
@@ -27,7 +28,7 @@ const App: React.FC = () => {
       />
       <br />
       <br />
-      <Flex style={boxStyle} justify={justifyContent} align={alignItems}>
+      <Flex style={boxStyle} justify={justify} align={alignItems}>
         <Button type="primary">Primary</Button>
         <Button type="primary">Primary</Button>
         <Button type="primary">Primary</Button>
