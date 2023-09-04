@@ -686,7 +686,3 @@ const MyInput = (props) => (
   <MyInput />
 </Form.Item>;
 ```
-
-```
-
-```
