@@ -8,12 +8,6 @@ import useLocale from '../../../hooks/useLocale';
 import useFetch from '../../../hooks/useFetch';
 
 const useStyle = createStyles(({ token, css }) => ({
-  history: css`
-    position: absolute;
-    top: 0;
-    inset-inline-end: 0;
-  `,
-
   li: css`
     // white-space: pre;
   `,
@@ -158,7 +152,6 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
   return (
     <>
       <Button
-        className={styles.history}
         icon={<HistoryOutlined />}
         onClick={() => {
           setShow(true);

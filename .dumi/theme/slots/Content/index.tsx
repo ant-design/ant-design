@@ -12,6 +12,7 @@ import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
 import ComponentChangelog from '../../common/ComponentChangelog';
+import ViewSourceCode from '../../common/ViewSourceCode';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import Footer from '../Footer';
@@ -246,7 +247,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                   />
                 )}
               </Space>
-              {pathname.startsWith('/components/') && <ComponentChangelog pathname={pathname} />}
             </Typography.Title>
           ) : null}
           {/* 添加作者、时间等信息 */}
@@ -275,6 +275,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             </Typography.Paragraph>
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
+          <Space>
+            {pathname.startsWith('/components/') && <ComponentChangelog pathname={pathname} />}
+            {!pathname.startsWith('/components/overview') && <ViewSourceCode pathname={pathname} />}
+          </Space>
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           {(meta.frontmatter?.zhihu_url ||
             meta.frontmatter?.yuque_url ||
