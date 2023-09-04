@@ -12,13 +12,13 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         center
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -48,13 +48,13 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         start
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -84,13 +84,13 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         end
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -120,13 +120,13 @@ exports[`renders components/space/demo/align.tsx extend context correctly 1`] = 
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         baseline
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -159,13 +159,13 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     Space
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -178,7 +178,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="ant-upload-wrapper"
@@ -8400,7 +8400,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-vertical"
@@ -8433,7 +8433,7 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-vertical"
@@ -15260,7 +15260,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -15273,7 +15273,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -15286,7 +15286,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-dashed"
@@ -15321,13 +15321,13 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15340,13 +15340,13 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15441,7 +15441,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="ant-popover-disabled-compatible-wrapper"
@@ -15543,7 +15543,7 @@ exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     1
   </div>
@@ -15588,7 +15588,7 @@ Array [
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <div
           style="width: 150px; height: 100px; background: red;"
@@ -15596,7 +15596,7 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <div
           style="width: 150px; height: 100px; background: red;"
@@ -15604,7 +15604,7 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <div
           style="width: 150px; height: 100px; background: red;"
@@ -15696,7 +15696,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -15709,7 +15709,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -15722,7 +15722,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-dashed"
@@ -15757,7 +15757,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 4px;"
+    style="margin-right: 4px;"
   >
     <a
       class="ant-typography"
@@ -15767,7 +15767,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-inline-end: 4px;"
+    style="margin-right: 4px;"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -15776,7 +15776,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
   </span>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 4px;"
+    style="margin-right: 4px;"
   >
     <a
       class="ant-typography"
@@ -15786,7 +15786,7 @@ exports[`renders components/space/demo/split.tsx extend context correctly 1`] = 
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-inline-end: 4px;"
+    style="margin-right: 4px;"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -15919,7 +15919,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15932,7 +15932,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15945,7 +15945,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15958,7 +15958,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15971,7 +15971,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15984,7 +15984,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -15997,7 +15997,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16010,7 +16010,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16023,7 +16023,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16036,7 +16036,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16049,7 +16049,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16062,7 +16062,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16075,7 +16075,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16088,7 +16088,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16101,7 +16101,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16114,7 +16114,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16127,7 +16127,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16140,7 +16140,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -16153,7 +16153,7 @@ exports[`renders components/space/demo/wrap.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 16px;"
+    style="margin-right: 8px; padding-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"

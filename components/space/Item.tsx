@@ -8,6 +8,7 @@ export interface ItemProps {
   children: React.ReactNode;
   index: number;
   direction?: 'horizontal' | 'vertical';
+  marginDirection: 'marginLeft' | 'marginRight';
   split?: React.ReactNode;
   wrap?: boolean;
   style?: React.CSSProperties;
@@ -17,6 +18,7 @@ const Item: React.FC<ItemProps> = ({
   className,
   direction,
   index,
+  marginDirection,
   children,
   split,
   wrap,
@@ -34,7 +36,8 @@ const Item: React.FC<ItemProps> = ({
       }
     } else {
       style = {
-        ...(index < latestIndex && { marginInlineEnd: horizontalSize / (split ? 2 : 1) }),
+        // Compatible IE, cannot use `marginInlineEnd`
+        ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
         ...(wrap && { paddingBottom: verticalSize }),
       };
     }

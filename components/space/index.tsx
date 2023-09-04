@@ -115,6 +115,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     customClassNames?.item ?? space?.classNames?.item,
   );
 
+  const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
+
   // Calculate latest one
   let latestIndex = 0;
   const nodes = childNodes.map<React.ReactNode>((child, i) => {
@@ -130,6 +132,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
         key={key}
         direction={direction}
         index={i}
+        marginDirection={marginDirection}
         split={split}
         wrap={wrap}
         style={styles?.item ?? space?.styles?.item}

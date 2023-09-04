@@ -69,8 +69,8 @@ describe('Space', () => {
     );
 
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
-    expect(items[0]?.style.marginInlineEnd).toBe('10px');
-    expect(items[1]?.style.marginInlineEnd).toBe('');
+    expect(items[0]?.style.marginRight).toBe('10px');
+    expect(items[1]?.style.marginRight).toBe('');
   });
 
   it('should render vertical space width customize size', () => {
@@ -225,7 +225,7 @@ describe('Space', () => {
     );
     expect(
       container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
-    ).toEqual('margin-inline-end: 8px; color: red;');
+    ).toEqual('margin-right: 8px; color: red;');
   });
 
   it('should isPresetSize & isValidGapNumber work', () => {
