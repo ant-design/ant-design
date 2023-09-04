@@ -5,7 +5,7 @@ const fs = require('fs');
 const includeUseClient = (filename) =>
   fs.readFileSync(filename).toString().includes('"use client"');
 
-if (process.env.LIB_MODE === 'dist') {
+if (process.env.LIB_DIR === 'dist') {
   $('dist/*')
     .isFile()
     .assert("doesn't contain use client", (filename) => !includeUseClient(filename));
