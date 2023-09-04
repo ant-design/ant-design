@@ -134,7 +134,7 @@ exports[`renders components/tag/demo/animation.tsx extend context correctly 2`] 
 exports[`renders components/tag/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  style="flex-wrap: wrap; margin-bottom: 0px;"
 >
   <div
     class="ant-space-item"
@@ -234,7 +234,7 @@ exports[`renders components/tag/demo/borderless.tsx extend context correctly 1`]
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -325,7 +325,7 @@ Array [
   />,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -489,7 +489,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -580,7 +580,7 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
   />
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -707,7 +707,7 @@ Array [
   </span>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -769,7 +769,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -894,7 +894,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -949,7 +949,7 @@ exports[`renders components/tag/demo/colorful.tsx extend context correctly 2`] =
 exports[`renders components/tag/demo/colorful-inverse.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  style="flex-wrap: wrap; margin-bottom: 0px;"
 >
   <div
     class="ant-space-item"
@@ -1069,7 +1069,7 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
 exports[`renders components/tag/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  style="flex-wrap: wrap; margin-bottom: 0px;"
 >
   <div
     class="ant-space-item"
@@ -1207,7 +1207,7 @@ exports[`renders components/tag/demo/component-token.tsx extend context correctl
 exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  style="flex-wrap: wrap; margin-bottom: 0px;"
 >
   <div
     class="ant-space-item"
@@ -1215,7 +1215,7 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      style="flex-wrap: wrap; margin-bottom: 0px;"
     >
       <div
         class="ant-space-item"
@@ -1427,7 +1427,7 @@ exports[`renders components/tag/demo/draggable.tsx extend context correctly 2`] 
 exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  style="flex-wrap: wrap; margin-bottom: 0px;"
 >
   <div
     class="ant-space-item"
@@ -1576,7 +1576,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"
@@ -1641,7 +1641,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    style="flex-wrap: wrap; margin-bottom: 0px;"
   >
     <div
       class="ant-space-item"

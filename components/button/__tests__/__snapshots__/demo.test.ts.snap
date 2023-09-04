@@ -3,7 +3,7 @@
 exports[`renders components/button/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -162,7 +162,7 @@ exports[`renders components/button/demo/block.tsx correctly 1`] = `
 exports[`renders components/button/demo/chinese-chars-loading.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -387,7 +387,7 @@ exports[`renders components/button/demo/component-token.tsx correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
@@ -435,7 +435,7 @@ exports[`renders components/button/demo/component-token.tsx correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
@@ -487,7 +487,7 @@ exports[`renders components/button/demo/component-token.tsx correctly 1`] = `
 exports[`renders components/button/demo/danger.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -700,7 +700,7 @@ Array [
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap:wrap"
+        style="flex-wrap:wrap;margin-bottom:-8px"
       >
         <div
           class="ant-space-item"
@@ -860,7 +860,7 @@ Array [
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap:wrap"
+        style="flex-wrap:wrap;margin-bottom:-8px"
       >
         <div
           class="ant-space-item"
@@ -1429,7 +1429,7 @@ exports[`renders components/button/demo/disabled.tsx correctly 1`] = `
 exports[`renders components/button/demo/ghost.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center site-button-ghost-wrapper"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -1496,7 +1496,7 @@ exports[`renders components/button/demo/icon.tsx correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
@@ -1656,7 +1656,7 @@ exports[`renders components/button/demo/icon.tsx correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
@@ -2100,7 +2100,7 @@ exports[`renders components/button/demo/loading.tsx correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
@@ -2214,7 +2214,7 @@ exports[`renders components/button/demo/loading.tsx correctly 1`] = `
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap"
+      style="flex-wrap:wrap;margin-bottom:-8px"
     >
       <div
         class="ant-space-item"
@@ -2463,7 +2463,7 @@ Array [
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap:wrap"
+        style="flex-wrap:wrap;margin-bottom:-8px"
       >
         <div
           class="ant-space-item"
@@ -2524,7 +2524,7 @@ Array [
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center"
-        style="flex-wrap:wrap"
+        style="flex-wrap:wrap;margin-bottom:-8px"
       >
         <div
           class="ant-space-item"

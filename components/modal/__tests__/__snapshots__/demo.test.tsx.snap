@@ -372,7 +372,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
 exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -894,7 +894,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
 exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"

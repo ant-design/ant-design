@@ -2923,7 +2923,7 @@ exports[`renders components/dropdown/demo/custom-dropdown.tsx extend context cor
 exports[`renders components/dropdown/demo/dropdown-button.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -7093,7 +7093,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap;"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
       <div
         class="ant-space-item"
@@ -7660,7 +7660,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap;"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
       <div
         class="ant-space-item"

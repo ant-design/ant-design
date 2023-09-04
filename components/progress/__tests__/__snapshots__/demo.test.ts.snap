@@ -3,7 +3,7 @@
 exports[`renders components/progress/demo/circle.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -397,7 +397,7 @@ Array [
 exports[`renders components/progress/demo/circle-mini.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -1192,7 +1192,7 @@ Array [
 exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -1407,7 +1407,7 @@ Array [
 exports[`renders components/progress/demo/format.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap"
+  style="flex-wrap:wrap;margin-bottom:-8px"
 >
   <div
     class="ant-space-item"
@@ -1582,7 +1582,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap"
+    style="flex-wrap:wrap;margin-bottom:-8px"
   >
     <div
       class="ant-space-item"
@@ -1835,7 +1835,7 @@ exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap"
+    style="flex-wrap:wrap;margin-bottom:-8px"
   >
     <div
       class="ant-space-item"
@@ -2420,7 +2420,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap"
+    style="flex-wrap:wrap;margin-bottom:-8px"
   >
     <div
       class="ant-space-item"
@@ -2573,7 +2573,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap"
+    style="flex-wrap:wrap;margin-bottom:-8px"
   >
     <div
       class="ant-space-item"

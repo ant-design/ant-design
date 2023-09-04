@@ -411,7 +411,7 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
 exports[`renders components/select/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -996,7 +996,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 2`] =
 exports[`renders components/select/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -1293,7 +1293,7 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 2`
 exports[`renders components/select/demo/coordinate.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -2103,7 +2103,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
 exports[`renders components/select/demo/debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; width: 500px; position: relative; z-index: 1; border: 1px solid red; background-color: rgb(255, 255, 255);"
+  style="flex-wrap: wrap; margin-bottom: -8px; width: 500px; position: relative; z-index: 1; border: 1px solid red; background-color: rgb(255, 255, 255);"
 >
   <div
     class="ant-space-item"
@@ -5965,7 +5965,7 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 2`
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -10591,7 +10591,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 2`] 
 exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"

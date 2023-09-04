@@ -3,7 +3,7 @@
 exports[`renders components/progress/demo/circle.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -427,7 +427,7 @@ exports[`renders components/progress/demo/circle-micro.tsx extend context correc
 exports[`renders components/progress/demo/circle-mini.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -1274,7 +1274,7 @@ exports[`renders components/progress/demo/component-token.tsx extend context cor
 exports[`renders components/progress/demo/dashboard.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -1493,7 +1493,7 @@ exports[`renders components/progress/demo/dynamic.tsx extend context correctly 2
 exports[`renders components/progress/demo/format.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap;"
+  style="flex-wrap: wrap; margin-bottom: -8px;"
 >
   <div
     class="ant-space-item"
@@ -1670,7 +1670,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
@@ -1923,7 +1923,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
@@ -2514,7 +2514,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
@@ -2688,7 +2688,7 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap;"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
