@@ -124,8 +124,8 @@ const Alert: React.FC<AlertProps> = (props) => {
 
     warning(
       !closeText,
-      'deprecated',
       'Alert',
+      'deprecated',
       '`closeText` is deprecated. Please use `closeIcon` instead.',
     );
   }
