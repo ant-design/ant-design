@@ -1,6 +1,5 @@
 import { presetPrimaryColors } from '@ant-design/colors';
 
-import { devUseWarning } from '../_util/warning';
 import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
 
