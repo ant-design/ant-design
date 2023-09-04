@@ -105,7 +105,9 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space-item')).toHaveStyle('color: red;');
+    expect(container.querySelector('.ant-space-item')).toHaveStyle(
+      'margin-right: 8px; color: red;',
+    );
   });
 
   it('Should Space style works', () => {
