@@ -15520,6 +15520,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   >
     <div
       class="config-row config-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="config-col config-form-item-control"
@@ -15574,6 +15575,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
   >
     <div
       class="config-row config-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="config-col config-form-item-control"
@@ -15629,6 +15631,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
   >
     <div
       class="config-row config-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="config-col config-form-item-control"
@@ -15683,6 +15686,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
   >
     <div
       class="config-row config-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="config-col config-form-item-control"
@@ -15737,6 +15741,7 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
   >
     <div
       class="config-row config-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="config-col config-form-item-control"
@@ -15791,6 +15796,7 @@ exports[`ConfigProvider components Form normal 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -15845,6 +15851,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   >
     <div
       class="ant-row prefix-Form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col prefix-Form-item-control"
@@ -15893,6 +15900,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
 exports[`ConfigProvider components Grid configProvider 1`] = `
 <div
   class="config-row"
+  style="column-gap: 0;"
 >
   <div
     class="config-col config-col-1"
@@ -15903,6 +15911,7 @@ exports[`ConfigProvider components Grid configProvider 1`] = `
 exports[`ConfigProvider components Grid configProvider componentDisabled 1`] = `
 <div
   class="config-row"
+  style="column-gap: 0;"
 >
   <div
     class="config-col config-col-1"
@@ -15913,6 +15922,7 @@ exports[`ConfigProvider components Grid configProvider componentDisabled 1`] = `
 exports[`ConfigProvider components Grid configProvider componentSize large 1`] = `
 <div
   class="config-row"
+  style="column-gap: 0;"
 >
   <div
     class="config-col config-col-1"
@@ -15923,6 +15933,7 @@ exports[`ConfigProvider components Grid configProvider componentSize large 1`] =
 exports[`ConfigProvider components Grid configProvider componentSize middle 1`] = `
 <div
   class="config-row"
+  style="column-gap: 0;"
 >
   <div
     class="config-col config-col-1"
@@ -15933,6 +15944,7 @@ exports[`ConfigProvider components Grid configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Grid configProvider componentSize small 1`] = `
 <div
   class="config-row"
+  style="column-gap: 0;"
 >
   <div
     class="config-col config-col-1"
@@ -15943,6 +15955,7 @@ exports[`ConfigProvider components Grid configProvider componentSize small 1`] =
 exports[`ConfigProvider components Grid normal 1`] = `
 <div
   class="ant-row"
+  style="column-gap: 0;"
 >
   <div
     class="ant-col ant-col-1"
@@ -15953,6 +15966,7 @@ exports[`ConfigProvider components Grid normal 1`] = `
 exports[`ConfigProvider components Grid prefixCls 1`] = `
 <div
   class="prefix-row"
+  style="column-gap: 0;"
 >
   <div
     class="prefix-col prefix-col-1"

@@ -2227,6 +2227,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
   >
     <div
       class="ant-row ant-row-middle"
+      style="column-gap: 0;"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -2636,6 +2637,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
   >
     <div
       class="ant-row ant-row-middle"
+      style="column-gap: 0;"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -3263,6 +3265,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
   >
     <div
       class="ant-row ant-row-middle"
+      style="column-gap: 0;"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -3899,6 +3902,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
   >
     <div
       class="ant-row ant-row-middle"
+      style="column-gap: 0;"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -4312,6 +4316,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
   >
     <div
       class="ant-row ant-row-middle"
+      style="column-gap: 0;"
     >
       <div
         class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"

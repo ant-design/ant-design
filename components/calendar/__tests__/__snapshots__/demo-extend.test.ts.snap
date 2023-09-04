@@ -6355,7 +6355,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
       </h4>
       <div
         class="ant-row"
-        style="margin-left: -4px; margin-right: -4px;"
+        style="margin-left: -4px; margin-right: -4px; column-gap: 8px;"
       >
         <div
           class="ant-col"

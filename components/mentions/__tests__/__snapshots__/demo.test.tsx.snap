@@ -65,6 +65,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -105,6 +106,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -147,6 +149,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"

@@ -4434,6 +4434,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"

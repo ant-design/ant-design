@@ -9,7 +9,7 @@ Array [
   >
     <div
       class="ant-row"
-      style="margin-left:-12px;margin-right:-12px"
+      style="margin-left:-12px;margin-right:-12px;column-gap:24px"
     >
       <div
         class="ant-col ant-col-8"
@@ -20,6 +20,7 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -64,6 +65,7 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -163,6 +165,7 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -207,6 +210,7 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -251,6 +255,7 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -350,6 +355,7 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -467,6 +473,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -505,6 +512,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -574,6 +582,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -614,6 +623,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -653,6 +663,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-label"
@@ -691,6 +702,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-label"
@@ -761,6 +773,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-label"
@@ -909,6 +922,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-control"
@@ -943,6 +957,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-label ant-col-sm-24 ant-col-xl-24"
@@ -981,6 +996,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-label ant-col-sm-24 ant-col-xl-24"
@@ -1050,6 +1066,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-control ant-col-sm-24 ant-col-xl-24"
@@ -1087,6 +1104,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1235,6 +1253,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-12 ant-form-item-label"
@@ -1282,6 +1301,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -1320,6 +1340,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -1413,6 +1434,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -1466,6 +1488,7 @@ exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -1504,6 +1527,7 @@ exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -1597,6 +1621,7 @@ exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -1650,6 +1675,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1695,6 +1721,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1740,6 +1767,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -1776,6 +1804,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1876,6 +1905,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -1948,6 +1978,7 @@ exports[`renders components/form/demo/dependencies.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -1986,6 +2017,7 @@ exports[`renders components/form/demo/dependencies.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -2066,6 +2098,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2117,6 +2150,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2191,6 +2225,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2227,6 +2262,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2315,6 +2351,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2403,6 +2440,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2491,6 +2529,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2561,6 +2600,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2674,6 +2714,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2778,6 +2819,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2813,6 +2855,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2864,6 +2907,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2945,6 +2989,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2984,6 +3029,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -3047,6 +3093,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3083,6 +3130,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3119,6 +3167,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3156,6 +3205,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3192,6 +3242,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3228,6 +3279,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3265,6 +3317,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3314,6 +3367,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3363,6 +3417,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3413,6 +3468,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3458,6 +3514,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3503,6 +3560,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3558,6 +3616,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
@@ -3648,6 +3707,7 @@ exports[`renders components/form/demo/dynamic-form-item.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
@@ -3686,6 +3746,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -3740,6 +3801,7 @@ exports[`renders components/form/demo/dynamic-form-items.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -3825,6 +3887,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-col-6 ant-form-item-label"
@@ -3862,6 +3925,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx correctly 1
         >
           <div
             class="ant-row ant-form-item-row"
+            style="column-gap:0"
           >
             <div
               class="ant-col ant-col-6 ant-form-item-label"
@@ -3932,6 +3996,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -3957,6 +4022,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
             >
               <div
                 class="ant-row ant-form-item-row"
+                style="column-gap:0"
               >
                 <div
                   class="ant-col ant-form-item-control"
@@ -4016,6 +4082,7 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx correctly 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -4053,6 +4120,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -4092,6 +4160,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -4130,6 +4199,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control"
@@ -4168,6 +4238,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control"
@@ -4205,6 +4276,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -4243,6 +4315,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-form-item-control"
@@ -4262,6 +4335,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -4317,6 +4391,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -4375,6 +4450,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -4412,6 +4488,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -4449,6 +4526,7 @@ exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -4503,6 +4581,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -4567,6 +4646,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -4622,6 +4702,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -4677,6 +4758,7 @@ exports[`renders components/form/demo/inline-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -4715,6 +4797,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -4773,6 +4856,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -4870,6 +4954,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -4964,6 +5049,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -5000,6 +5086,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -5036,6 +5123,7 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control"
@@ -5073,6 +5161,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
@@ -5113,6 +5202,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
@@ -5153,6 +5243,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
@@ -5201,6 +5292,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -5239,6 +5331,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -5276,6 +5369,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -5381,6 +5475,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -5418,6 +5513,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -5453,6 +5549,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -5489,6 +5586,7 @@ exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -5544,6 +5642,7 @@ exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -5599,6 +5698,7 @@ exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -5645,6 +5745,7 @@ exports[`renders components/form/demo/normal-login.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -5687,6 +5788,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5724,6 +5826,7 @@ exports[`renders components/form/demo/ref-item.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -5775,6 +5878,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -5813,6 +5917,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -5882,6 +5987,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -5951,6 +6057,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6012,6 +6119,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6133,6 +6241,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6246,6 +6355,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6424,6 +6534,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6488,6 +6599,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6538,6 +6650,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6631,6 +6744,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -6653,7 +6767,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               class="ant-row"
-              style="margin-left:-4px;margin-right:-4px"
+              style="margin-left:-4px;margin-right:-4px;column-gap:8px"
             >
               <div
                 class="ant-col ant-col-12"
@@ -6696,6 +6810,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -6740,6 +6855,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -6775,6 +6891,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6894,6 +7011,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6953,6 +7071,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -7018,6 +7137,7 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -7054,6 +7174,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7148,6 +7269,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7183,6 +7305,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7270,6 +7393,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7357,6 +7481,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7444,6 +7569,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7513,6 +7639,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7616,6 +7743,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7666,6 +7794,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7713,6 +7842,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -7785,6 +7915,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -7857,6 +7988,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -7929,6 +8061,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8043,6 +8176,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8157,6 +8291,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8232,6 +8367,7 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -8269,6 +8405,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -8306,6 +8443,7 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
+        style="column-gap:0"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -8428,6 +8566,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -8466,6 +8605,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -8504,6 +8644,7 @@ exports[`renders components/form/demo/validate-only.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -8562,6 +8703,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -8597,6 +8739,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -8690,6 +8833,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -8798,6 +8942,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -8911,6 +9056,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -8963,6 +9109,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9084,6 +9231,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9177,6 +9325,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9271,6 +9420,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9298,6 +9448,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             >
               <div
                 class="ant-row"
+                style="column-gap:0"
               >
                 <div
                   class="ant-col ant-col-8"
@@ -9458,6 +9609,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9786,6 +9938,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9878,6 +10031,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -9968,6 +10122,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -10011,6 +10166,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-12 ant-col-offset-6 ant-form-item-control"
@@ -10067,6 +10223,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10104,6 +10261,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10168,6 +10326,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10236,6 +10395,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10304,6 +10464,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10372,6 +10533,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10441,6 +10603,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10534,6 +10697,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10630,6 +10794,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10766,6 +10931,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10879,6 +11045,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -10992,6 +11159,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11105,6 +11273,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11131,6 +11300,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             >
               <div
                 class="ant-row ant-form-item-row"
+                style="column-gap:0"
               >
                 <div
                   class="ant-col ant-form-item-control"
@@ -11196,6 +11366,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             >
               <div
                 class="ant-row ant-form-item-row"
+                style="column-gap:0"
               >
                 <div
                   class="ant-col ant-form-item-control"
@@ -11260,6 +11431,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11395,6 +11567,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11488,6 +11661,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11578,6 +11752,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11695,6 +11870,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11765,6 +11941,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -11874,6 +12051,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -11913,6 +12091,7 @@ exports[`renders components/form/demo/warning-only.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -11969,6 +12148,7 @@ exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap:0"
     >
       <div
         class="ant-col ant-col-7 ant-form-item-label"

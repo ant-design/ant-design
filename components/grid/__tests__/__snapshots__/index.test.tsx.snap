@@ -3,7 +3,7 @@
 exports[`Grid renders wrapped Col correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -10px; margin-right: -10px;"
+  style="margin-left: -10px; margin-right: -10px; column-gap: 20px;"
 >
   <div>
     <div
@@ -21,6 +21,7 @@ exports[`Grid renders wrapped Col correctly 1`] = `
 exports[`Grid rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-row ant-row-rtl"
+  style="column-gap: 0;"
 />
 `;
 
@@ -39,12 +40,13 @@ exports[`Grid should render Col 1`] = `
 exports[`Grid should render Row 1`] = `
 <div
   class="ant-row"
+  style="column-gap: 0;"
 />
 `;
 
 exports[`Grid when typeof gutter is object array in large screen 1`] = `
 <div
   class="ant-row"
-  style="margin: -200px -20px -200px -20px; row-gap: 400px;"
+  style="margin-left: -20px; margin-right: -20px; column-gap: 40px; row-gap: 400px;"
 />
 `;

@@ -3797,7 +3797,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
       </h4>
       <div
         class="ant-row"
-        style="margin-left:-4px;margin-right:-4px"
+        style="margin-left:-4px;margin-right:-4px;column-gap:8px"
       >
         <div
           class="ant-col"

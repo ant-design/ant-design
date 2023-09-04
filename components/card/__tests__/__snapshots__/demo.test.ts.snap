@@ -492,7 +492,7 @@ exports[`renders components/card/demo/grid-card.tsx correctly 1`] = `
 exports[`renders components/card/demo/in-column.tsx correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-left:-8px;margin-right:-8px;column-gap:16px"
 >
   <div
     class="ant-col ant-col-8"

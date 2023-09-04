@@ -3,6 +3,7 @@
 exports[`renders components/anchor/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-row"
+  style="column-gap:0"
 >
   <div
     class="ant-col ant-col-16"
@@ -81,6 +82,7 @@ exports[`renders components/anchor/demo/basic.tsx correctly 1`] = `
 exports[`renders components/anchor/demo/component-token.tsx correctly 1`] = `
 <div
   class="ant-row"
+  style="column-gap:0"
 >
   <div
     class="ant-col ant-col-16"
@@ -558,6 +560,7 @@ exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
 exports[`renders components/anchor/demo/replace.tsx correctly 1`] = `
 <div
   class="ant-row"
+  style="column-gap:0"
 >
   <div
     class="ant-col ant-col-16"
@@ -707,6 +710,7 @@ exports[`renders components/anchor/demo/targetOffset.tsx correctly 1`] = `
 <div>
   <div
     class="ant-row"
+    style="column-gap:0"
   >
     <div
       class="ant-col ant-col-18"

@@ -9,6 +9,7 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -42,6 +43,7 @@ exports[`Form Form item hidden should work 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -78,6 +80,7 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
       cccc="bbbb"
       class="ant-row ant-form-item-row"
       data-text="123"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -106,6 +109,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -157,6 +161,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -231,6 +236,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -267,6 +273,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -356,6 +363,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -445,6 +453,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -534,6 +543,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -604,6 +614,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -717,6 +728,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -821,6 +833,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -856,6 +869,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -907,6 +921,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -959,6 +974,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -998,6 +1014,7 @@ exports[`Form form should support disabled 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
+      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -1062,6 +1079,7 @@ exports[`Form rtl render component should be rendered correctly in RTL direction
 >
   <div
     class="ant-row ant-row-rtl ant-form-item-row"
+    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-form-item-control ant-col-rtl"

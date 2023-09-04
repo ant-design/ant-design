@@ -642,7 +642,7 @@ Array [
             >
               <div
                 class="ant-row"
-                style="margin-left: -8px; margin-right: -8px;"
+                style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
               >
                 <div
                   class="ant-col ant-col-12"
@@ -653,6 +653,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -697,6 +698,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -754,7 +756,7 @@ Array [
               </div>
               <div
                 class="ant-row"
-                style="margin-left: -8px; margin-right: -8px;"
+                style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
               >
                 <div
                   class="ant-col ant-col-12"
@@ -765,6 +767,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -943,6 +946,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -1115,7 +1119,7 @@ Array [
               </div>
               <div
                 class="ant-row"
-                style="margin-left: -8px; margin-right: -8px;"
+                style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
               >
                 <div
                   class="ant-col ant-col-12"
@@ -1126,6 +1130,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -1304,6 +1309,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -2519,7 +2525,7 @@ Array [
               </div>
               <div
                 class="ant-row"
-                style="margin-left: -8px; margin-right: -8px;"
+                style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
               >
                 <div
                   class="ant-col ant-col-24"
@@ -2530,6 +2536,7 @@ Array [
                   >
                     <div
                       class="ant-row ant-form-item-row"
+                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-label"
@@ -3789,6 +3796,7 @@ Array [
             </p>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -3821,6 +3829,7 @@ Array [
             </div>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -3853,6 +3862,7 @@ Array [
             </div>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -3885,6 +3895,7 @@ Array [
             </div>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-24"
@@ -3912,6 +3923,7 @@ Array [
             </p>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -3944,6 +3956,7 @@ Array [
             </div>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -3978,6 +3991,7 @@ Array [
             </div>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-24"
@@ -4005,6 +4019,7 @@ Array [
             </p>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -4037,6 +4052,7 @@ Array [
             </div>
             <div
               class="ant-row"
+              style="column-gap: 0;"
             >
               <div
                 class="ant-col ant-col-24"
