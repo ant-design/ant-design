@@ -49,7 +49,9 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
       // if do not match, do nothing
-      if (!screen[breakpoint]) continue;
+      if (!screen[breakpoint]) {
+        continue;
+      }
       const curVal = oriProp[breakpoint];
       if (curVal !== undefined) {
         setProp(curVal);
@@ -167,7 +169,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginRight = horizontalGutter;
   }
 
-  [rowStyle.columnGap, rowStyle.rowGap] = gutters;
+  [, rowStyle.rowGap] = gutters;
 
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.

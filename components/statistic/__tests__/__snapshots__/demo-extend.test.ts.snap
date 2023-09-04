@@ -3,7 +3,7 @@
 exports[`renders components/statistic/demo/animated.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
@@ -63,7 +63,7 @@ exports[`renders components/statistic/demo/animated.tsx extend context correctly
 exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
@@ -166,7 +166,7 @@ exports[`renders components/statistic/demo/basic.tsx extend context correctly 2`
 exports[`renders components/statistic/demo/card.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
@@ -314,7 +314,7 @@ exports[`renders components/statistic/demo/card.tsx extend context correctly 2`]
 exports[`renders components/statistic/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
@@ -417,7 +417,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
 exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
@@ -519,7 +519,7 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
 exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"

@@ -4,7 +4,6 @@ exports[`renders components/grid/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-24"
@@ -14,7 +13,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-12"
@@ -29,7 +27,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-8"
@@ -49,7 +46,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-6"
@@ -91,7 +87,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-start"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -126,7 +121,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-center"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -161,7 +155,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-end"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -196,7 +189,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-between"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -231,7 +223,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-around"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -266,7 +257,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-evenly"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -308,7 +298,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-center ant-row-top"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -359,7 +348,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-around ant-row-middle"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -410,7 +398,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-between ant-row-bottom"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-4"
@@ -468,7 +455,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-6 ant-col-order-4"
@@ -503,7 +489,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
@@ -545,7 +530,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col"
@@ -572,7 +556,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col"
@@ -599,7 +582,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col"
@@ -616,7 +598,6 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-no-wrap"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col"
@@ -654,7 +635,7 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+    style="margin-left: -8px; margin-right: -8px;"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
@@ -709,7 +690,7 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left: -4px; margin-right: -4px; column-gap: 8px;"
+    style="margin-left: -4px; margin-right: -4px;"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
@@ -764,7 +745,7 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; column-gap: 16px; row-gap: 24px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
@@ -856,7 +837,6 @@ exports[`renders components/grid/demo/offset.tsx extend context correctly 1`] = 
 Array [
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-8"
@@ -871,7 +851,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-6 ant-col-offset-6"
@@ -886,7 +865,6 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-12 ant-col-offset-6"
@@ -1251,7 +1229,7 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; column-gap: 16px; row-gap: 16px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
   >
     <div
       class="ant-col ant-col-6"
@@ -1321,7 +1299,7 @@ Array [
   Another Row:,
   <div
     class="ant-row"
-    style="margin-left: -8px; margin-right: -8px; column-gap: 16px; row-gap: 16px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
   >
     <div
       class="ant-col ant-col-6"
@@ -1388,7 +1366,6 @@ exports[`renders components/grid/demo/playground.tsx extend context correctly 2`
 exports[`renders components/grid/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="column-gap: 0;"
 >
   <div
     class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
@@ -1413,7 +1390,6 @@ exports[`renders components/grid/demo/responsive.tsx extend context correctly 2`
 exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="column-gap: 0;"
 >
   <div
     class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
@@ -1438,7 +1414,6 @@ exports[`renders components/grid/demo/responsive-more.tsx extend context correct
 exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="column-gap: 0;"
 >
   <div
     class="ant-col ant-col-18 ant-col-push-6"

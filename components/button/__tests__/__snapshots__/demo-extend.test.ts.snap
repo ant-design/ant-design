@@ -550,7 +550,6 @@ exports[`renders components/button/demo/debug-block.tsx extend context correctly
 >
   <div
     class="ant-row ant-form-item-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-form-item-control"

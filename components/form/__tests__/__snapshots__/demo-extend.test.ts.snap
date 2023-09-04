@@ -9,7 +9,7 @@ Array [
   >
     <div
       class="ant-row"
-      style="margin-left: -12px; margin-right: -12px; column-gap: 24px;"
+      style="margin-left: -12px; margin-right: -12px;"
     >
       <div
         class="ant-col ant-col-8"
@@ -20,7 +20,6 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -65,7 +64,6 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -245,7 +243,6 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -290,7 +287,6 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -335,7 +331,6 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -515,7 +510,6 @@ Array [
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -635,7 +629,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -674,7 +667,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -744,7 +736,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -785,7 +776,6 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -827,7 +817,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-label"
@@ -866,7 +855,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-label"
@@ -937,7 +925,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-label"
@@ -1191,7 +1178,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-24 ant-form-item-control"
@@ -1226,7 +1212,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label ant-col-sm-24 ant-col-xl-24"
@@ -1265,7 +1250,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label ant-col-sm-24 ant-col-xl-24"
@@ -1335,7 +1319,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-control ant-col-sm-24 ant-col-xl-24"
@@ -1373,7 +1356,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1627,7 +1609,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-12 ant-form-item-label"
@@ -1677,7 +1658,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -1716,7 +1696,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -1907,7 +1886,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -1963,7 +1941,6 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -2002,7 +1979,6 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -2193,7 +2169,6 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -2249,7 +2224,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -2316,7 +2290,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -2383,7 +2356,6 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -2422,7 +2394,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -2604,7 +2575,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -2679,7 +2649,6 @@ exports[`renders components/form/demo/dependencies.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -2718,7 +2687,6 @@ exports[`renders components/form/demo/dependencies.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -2801,7 +2769,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2853,7 +2820,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2928,7 +2894,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -2965,7 +2930,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -3110,7 +3074,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -3295,7 +3258,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -3437,7 +3399,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -4064,7 +4025,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5279,7 +5239,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5384,7 +5343,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5420,7 +5378,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5472,7 +5429,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5554,7 +5510,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5594,7 +5549,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-col-4 ant-form-item-label"
@@ -5679,7 +5633,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5716,7 +5669,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5775,7 +5727,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5835,7 +5786,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5872,7 +5822,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5931,7 +5880,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -5991,7 +5939,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6041,7 +5988,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6113,7 +6059,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6186,7 +6131,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6232,7 +6176,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6300,7 +6243,6 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6380,7 +6322,6 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
@@ -6471,7 +6412,6 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
@@ -6512,7 +6452,6 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -6567,7 +6506,6 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -6655,7 +6593,6 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-col-6 ant-form-item-label"
@@ -6693,7 +6630,6 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
         >
           <div
             class="ant-row ant-form-item-row"
-            style="column-gap: 0;"
           >
             <div
               class="ant-col ant-col-6 ant-form-item-label"
@@ -6770,7 +6706,6 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -6796,7 +6731,6 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
             >
               <div
                 class="ant-row ant-form-item-row"
-                style="column-gap: 0;"
               >
                 <div
                   class="ant-col ant-form-item-control"
@@ -6856,7 +6790,6 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -6896,7 +6829,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -6936,7 +6868,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -6975,7 +6906,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control"
@@ -7014,7 +6944,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control"
@@ -7054,7 +6983,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -7093,7 +7021,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-form-item-control"
@@ -7113,7 +7040,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -7169,7 +7095,6 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -7236,7 +7161,6 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -7274,7 +7198,6 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -7312,7 +7235,6 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -7369,7 +7291,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -7434,7 +7355,6 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -7490,7 +7410,6 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -7546,7 +7465,6 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -7587,7 +7505,6 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -7629,7 +7546,6 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -7712,7 +7628,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7807,7 +7722,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7844,7 +7758,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -7881,7 +7794,6 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control"
@@ -7921,7 +7833,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
@@ -7962,7 +7873,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
@@ -8003,7 +7913,6 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
@@ -8054,7 +7963,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -8093,7 +8001,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -8131,7 +8038,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -8237,7 +8143,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -8275,7 +8180,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-8 ant-form-item-label"
@@ -8311,7 +8215,6 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -8350,7 +8253,6 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -8406,7 +8308,6 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -8462,7 +8363,6 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -8509,7 +8409,6 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -8554,7 +8453,6 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -8592,7 +8490,6 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -8646,7 +8543,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8685,7 +8581,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8755,7 +8650,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8825,7 +8719,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -8906,7 +8799,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9116,7 +9008,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9310,7 +9201,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9569,7 +9459,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9646,7 +9535,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9697,7 +9585,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9888,7 +9775,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -9911,7 +9797,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           >
             <div
               class="ant-row"
-              style="margin-left: -4px; margin-right: -4px; column-gap: 8px;"
+              style="margin-left: -4px; margin-right: -4px;"
             >
               <div
                 class="ant-col ant-col-12"
@@ -9954,7 +9840,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -9999,7 +9884,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -10037,7 +9921,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -10157,7 +10040,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -10236,7 +10118,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -10321,7 +10202,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -10360,7 +10240,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -10455,7 +10334,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -10491,7 +10369,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -10635,7 +10512,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -10819,7 +10695,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -10960,7 +10835,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -11586,7 +11460,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -11690,7 +11563,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -11741,7 +11613,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-4 ant-form-item-label"
@@ -11791,7 +11662,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -12420,7 +12290,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -14401,7 +14270,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -14666,7 +14534,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -15882,7 +15749,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -17912,7 +17778,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -19355,7 +19220,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -19395,7 +19259,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -19433,7 +19296,6 @@ Array [
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -19558,7 +19420,6 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -19597,7 +19458,6 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -19636,7 +19496,6 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -19697,7 +19556,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -19733,7 +19591,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -19907,7 +19764,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20095,7 +19951,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20209,7 +20064,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20262,7 +20116,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20403,7 +20256,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20497,7 +20349,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20592,7 +20443,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -20620,7 +20470,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             >
               <div
                 class="ant-row"
-                style="column-gap: 0;"
               >
                 <div
                   class="ant-col ant-col-8"
@@ -20781,7 +20630,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -21110,7 +20958,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -21203,7 +21050,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -21294,7 +21140,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-6 ant-form-item-label"
@@ -21703,7 +21548,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-12 ant-col-offset-6 ant-form-item-control"
@@ -21762,7 +21606,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -21822,7 +21665,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -21887,7 +21729,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -21978,7 +21819,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -22047,7 +21887,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -22116,7 +21955,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -22208,7 +22046,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -22858,7 +22695,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -24322,7 +24158,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -25560,7 +25395,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -25772,7 +25606,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -25938,7 +25771,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -26150,7 +25982,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -26177,7 +26008,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             >
               <div
                 class="ant-row ant-form-item-row"
-                style="column-gap: 0;"
               >
                 <div
                   class="ant-col ant-form-item-control"
@@ -26821,7 +26651,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             >
               <div
                 class="ant-row ant-form-item-row"
-                style="column-gap: 0;"
               >
                 <div
                   class="ant-col ant-form-item-control"
@@ -27442,7 +27271,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -27578,7 +27406,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -27672,7 +27499,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -27763,7 +27589,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -27881,7 +27706,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -27952,7 +27776,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-6"
@@ -28086,7 +27909,6 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -28126,7 +27948,6 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-control"
@@ -28185,7 +28006,6 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-7 ant-form-item-label"

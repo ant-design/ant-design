@@ -671,7 +671,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -743,7 +742,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -889,7 +887,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -1081,7 +1078,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -1180,7 +1176,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -1399,7 +1394,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -1631,7 +1625,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
   >
     <div
       class="ant-row ant-form-item-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"

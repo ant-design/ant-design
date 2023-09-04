@@ -826,7 +826,6 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
   >
     <div
       class="ant-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-12"
@@ -964,7 +963,6 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
   >
     <div
       class="ant-row"
-      style="column-gap: 0;"
     >
       <div
         class="ant-col ant-col-12"

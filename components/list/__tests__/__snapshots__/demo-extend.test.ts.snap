@@ -837,7 +837,7 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-row"
-        style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+        style="margin-left: -8px; margin-right: -8px;"
       >
         <div
           style="width: 25%; max-width: 25%;"
@@ -1000,7 +1000,7 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
             style="width: 25%; max-width: 25%;"
@@ -1227,7 +1227,7 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
             style="width: 25%; max-width: 25%;"
@@ -1454,7 +1454,7 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+          style="margin-left: -8px; margin-right: -8px;"
         >
           <div
             style="width: 25%; max-width: 25%;"
@@ -2262,7 +2262,7 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
     >
       <div
         class="ant-row"
-        style="margin-left: -8px; margin-right: -8px; column-gap: 16px;"
+        style="margin-left: -8px; margin-right: -8px;"
       >
         <div
           style="width: 100%; max-width: 100%;"

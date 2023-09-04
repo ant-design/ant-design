@@ -61,7 +61,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -100,7 +99,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -509,7 +507,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -585,7 +582,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -661,7 +657,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -738,7 +733,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -771,7 +765,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-row ant-form-item-row"
-                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-control"
@@ -873,7 +866,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-row ant-form-item-row"
-                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-control"
@@ -979,7 +971,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     >
       <div
         class="ant-row ant-form-item-row"
-        style="column-gap: 0;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -1012,7 +1003,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-row ant-form-item-row"
-                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-control"
@@ -1113,7 +1103,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   >
                     <div
                       class="ant-row ant-form-item-row"
-                      style="column-gap: 0;"
                     >
                       <div
                         class="ant-col ant-form-item-control"

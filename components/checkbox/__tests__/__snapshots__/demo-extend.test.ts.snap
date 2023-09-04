@@ -729,7 +729,6 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
 >
   <div
     class="ant-row"
-    style="column-gap: 0;"
   >
     <div
       class="ant-col ant-col-8"
