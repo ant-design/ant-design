@@ -71,10 +71,10 @@ export const Footer: React.FC<
   let footerNode;
   if (typeof footer === 'function' || typeof footer === 'undefined') {
     footerNode = (
-      <>
+      <ModalContextProvider value={btnCtxValueMemo}>
         <NormalCancelBtn />
         <NormalOkBtn />
-      </>
+      </ModalContextProvider>
     );
     if (typeof footer === 'function') {
       footerNode = footer(footerNode, {
@@ -86,9 +86,5 @@ export const Footer: React.FC<
     footerNode = footer;
   }
 
-  return (
-    <DisabledContextProvider disabled={false}>
-      <ModalContextProvider value={btnCtxValueMemo}>{footerNode}</ModalContextProvider>
-    </DisabledContextProvider>
-  );
+  return <DisabledContextProvider disabled={false}>{footerNode}</DisabledContextProvider>;
 };
