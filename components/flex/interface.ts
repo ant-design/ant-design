@@ -1,8 +1,9 @@
 import type React from 'react';
 
+import type { AnyObject } from '../_util/type';
 import type { SizeType } from '../config-provider/SizeContext';
 
-export interface FlexProps<P = any> extends React.HTMLAttributes<HTMLElement> {
+export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLElement> {
   prefixCls?: string;
   rootClassName?: string;
   direction?: React.CSSProperties['flexDirection'];
@@ -12,5 +13,5 @@ export interface FlexProps<P = any> extends React.HTMLAttributes<HTMLElement> {
   flex?: React.CSSProperties['flex'];
   gap?: React.CSSProperties['gap'] | SizeType;
   children: React.ReactNode;
-  component?: React.ComponentType<P>;
+  component?: React.ElementType<P>;
 }
