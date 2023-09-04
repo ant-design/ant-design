@@ -285,7 +285,7 @@ jobs:
         run: npm run compile
 
       - name: check
-        run: node ./tests/dekko/lib.test.js
+        run: node ./tests/dekko/lib.test.js && node ./test/dekko/use-client.test.js
     needs: setup
 
   compiled-module-test:
