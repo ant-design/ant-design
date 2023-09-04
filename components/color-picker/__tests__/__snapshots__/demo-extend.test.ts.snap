@@ -2234,7 +2234,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end: 8px;"
+          style="margin-right: 8px;"
         >
           <div
             class="ant-col"
@@ -2645,7 +2645,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end: 8px;"
+          style="margin-right: 8px;"
         >
           <div
             class="ant-col"
@@ -3273,7 +3273,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end: 8px;"
+          style="margin-right: 8px;"
         >
           <div
             class="ant-col"
@@ -3911,7 +3911,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end: 8px;"
+          style="margin-right: 8px;"
         >
           <span>
             Add title:
@@ -4325,7 +4325,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end: 8px;"
+          style="margin-right: 8px;"
         >
           <span>
             Horizontal layout:
@@ -6305,7 +6305,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-space ant-space-vertical"

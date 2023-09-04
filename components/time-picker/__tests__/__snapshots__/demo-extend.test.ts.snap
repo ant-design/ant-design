@@ -7,7 +7,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -1336,7 +1336,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -16220,7 +16220,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-large"
@@ -17658,7 +17658,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker"

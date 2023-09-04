@@ -105,7 +105,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-inline-end:16px"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -161,7 +161,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-inline-end:16px"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -222,7 +222,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-inline-end:16px"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -2144,7 +2144,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2159,7 +2159,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2248,7 +2248,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2263,7 +2263,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2352,7 +2352,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2367,7 +2367,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2456,7 +2456,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2471,7 +2471,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2560,7 +2560,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2575,7 +2575,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2664,7 +2664,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2679,7 +2679,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2768,7 +2768,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2783,7 +2783,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2872,7 +2872,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2887,7 +2887,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2976,7 +2976,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2991,7 +2991,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3080,7 +3080,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3095,7 +3095,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5388,7 +5388,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5403,7 +5403,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5492,7 +5492,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5507,7 +5507,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5596,7 +5596,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5611,7 +5611,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5700,7 +5700,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5715,7 +5715,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5804,7 +5804,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5819,7 +5819,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5908,7 +5908,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5923,7 +5923,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6012,7 +6012,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6027,7 +6027,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6116,7 +6116,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6131,7 +6131,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6220,7 +6220,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6235,7 +6235,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6324,7 +6324,7 @@ Array [
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6339,7 +6339,7 @@ Array [
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-inline-end:8px"
+                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -13304,7 +13304,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-inline-end:16px"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -13363,7 +13363,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-inline-end:16px"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -13427,7 +13427,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-inline-end:16px"
+                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -15185,7 +15185,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15193,7 +15193,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15273,7 +15273,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15281,7 +15281,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15361,7 +15361,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15369,7 +15369,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15850,7 +15850,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15858,7 +15858,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15938,7 +15938,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15946,7 +15946,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16026,7 +16026,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16034,7 +16034,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16515,7 +16515,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16523,7 +16523,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16603,7 +16603,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16611,7 +16611,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16691,7 +16691,7 @@ Array [
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16699,7 +16699,7 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-inline-end:16px"
+                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -17665,7 +17665,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Invite
@@ -17723,7 +17723,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Invite
@@ -17786,7 +17786,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-inline-end:16px"
+                          style="margin-right:16px"
                         >
                           <a>
                             Invite
@@ -17902,7 +17902,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -17915,7 +17915,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -25745,7 +25745,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       CheckStrictly:
     </div>
@@ -26055,7 +26055,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       Fixed first column:
     </div>

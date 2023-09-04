@@ -1837,7 +1837,7 @@ Array [
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end:8px"
+          style="margin-right:8px"
         >
           <span>
             Pagination Position:
@@ -1919,7 +1919,7 @@ Array [
       >
         <div
           class="ant-space-item"
-          style="margin-inline-end:8px"
+          style="margin-right:8px"
         >
           <span>
             Pagination Align:
@@ -2764,7 +2764,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2802,7 +2802,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -2840,7 +2840,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -2930,7 +2930,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2968,7 +2968,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -3006,7 +3006,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -3096,7 +3096,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -3134,7 +3134,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -3172,7 +3172,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-inline-end:8px"
+                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"

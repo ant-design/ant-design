@@ -5690,7 +5690,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5703,7 +5703,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5716,7 +5716,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -5729,7 +5729,7 @@ exports[`renders components/input/demo/focus.tsx extend context correctly 1`] = 
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px; padding-bottom: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -9377,7 +9377,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <span
           class="ant-input-affix-wrapper ant-input-password"

@@ -215,7 +215,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 16px;"
+    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -242,7 +242,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 16px;"
+    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -312,7 +312,7 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-spin-nested-loading"
@@ -357,7 +357,7 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 8px;"
+        style="margin-right: 8px;"
       >
         <div
           class="ant-spin-nested-loading"

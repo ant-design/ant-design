@@ -19,7 +19,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -32,7 +32,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -193,7 +193,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -206,7 +206,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -353,7 +353,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -366,7 +366,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -527,7 +527,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -540,7 +540,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"

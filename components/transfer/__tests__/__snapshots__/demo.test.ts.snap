@@ -3758,7 +3758,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <button
         aria-checked="false"
@@ -7832,7 +7832,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <button
         aria-checked="false"

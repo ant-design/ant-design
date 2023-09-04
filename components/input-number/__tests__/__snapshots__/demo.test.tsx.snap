@@ -1070,7 +1070,7 @@ exports[`renders components/input-number/demo/debug-token.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -1406,7 +1406,7 @@ exports[`renders components/input-number/demo/formatter.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -1572,7 +1572,7 @@ exports[`renders components/input-number/demo/keyboard.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number"
@@ -1683,7 +1683,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px"
+    style="margin-right:8px"
   >
     <div
       class="ant-input-number ant-input-number-out-of-range"
@@ -2155,7 +2155,7 @@ exports[`renders components/input-number/demo/size.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-input-number ant-input-number-lg"
@@ -2236,7 +2236,7 @@ exports[`renders components/input-number/demo/size.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-input-number"

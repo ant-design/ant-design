@@ -87,7 +87,7 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-qrcode"
@@ -345,7 +345,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px; padding-bottom: 8px;"
+    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-qrcode"
@@ -450,7 +450,7 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-qrcode"

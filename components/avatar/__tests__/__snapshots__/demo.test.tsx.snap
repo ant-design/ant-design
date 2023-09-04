@@ -6,7 +6,7 @@ exports[`renders components/avatar/demo/badge.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:24px"
+    style="margin-right:24px"
   >
     <span
       class="ant-badge"
@@ -106,7 +106,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end:16px;padding-bottom:16px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -135,7 +135,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end:16px;padding-bottom:16px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
@@ -163,7 +163,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end:16px;padding-bottom:16px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -228,7 +228,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end:16px;padding-bottom:16px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -257,7 +257,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end:16px;padding-bottom:16px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
@@ -285,7 +285,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end:16px;padding-bottom:16px"
+        style="margin-right:16px;padding-bottom:16px"
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -407,7 +407,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <span
         class="ant-badge"
@@ -534,7 +534,7 @@ exports[`renders components/avatar/demo/fallback.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px"
+    style="margin-right:8px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -860,7 +860,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px;padding-bottom:8px"
+      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -873,7 +873,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px;padding-bottom:8px"
+      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -954,7 +954,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:16px;padding-bottom:16px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -982,7 +982,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:16px;padding-bottom:16px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -997,7 +997,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:16px;padding-bottom:16px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1013,7 +1013,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:16px;padding-bottom:16px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1025,7 +1025,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:16px;padding-bottom:16px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1038,7 +1038,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:16px;padding-bottom:16px"
+    style="margin-right:16px;padding-bottom:16px"
   >
     <span
       class="ant-avatar ant-avatar-circle"

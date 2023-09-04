@@ -152,7 +152,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -164,7 +164,7 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -211,7 +211,7 @@ Array [
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end: 8px;"
+      style="margin-right: 8px;"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -279,7 +279,7 @@ Array [
     >
       <div
         class="ant-space-item"
-        style="margin-inline-end: 16px; padding-bottom: 16px;"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -334,7 +334,7 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 16px; padding-bottom: 16px;"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -389,7 +389,7 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 16px; padding-bottom: 16px;"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"
@@ -486,7 +486,7 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-inline-end: 16px; padding-bottom: 16px;"
+        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <div
           class="ant-form-item"

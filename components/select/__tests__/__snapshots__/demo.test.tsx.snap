@@ -80,7 +80,7 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -146,7 +146,7 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
@@ -213,7 +213,7 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
@@ -538,7 +538,7 @@ exports[`renders components/select/demo/bordered.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
@@ -679,7 +679,7 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -1023,7 +1023,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <input
       class="ant-input"
@@ -1034,7 +1034,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -1096,7 +1096,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -1213,7 +1213,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <span
       class="debug-align"
@@ -2178,7 +2178,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -2264,7 +2264,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-inline-end:8px"
+      style="margin-right:8px"
     >
       <button
         aria-checked="false"
@@ -3376,7 +3376,7 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end:8px;padding-bottom:8px"
+    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"

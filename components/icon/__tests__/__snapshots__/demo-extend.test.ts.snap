@@ -6,7 +6,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="home"
@@ -30,7 +30,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="setting"
@@ -54,7 +54,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -78,7 +78,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="sync"
@@ -102,7 +102,7 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -159,7 +159,7 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -180,7 +180,7 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -230,7 +230,7 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -296,7 +296,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -318,7 +318,7 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -370,7 +370,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -392,7 +392,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -414,7 +414,7 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -466,7 +466,7 @@ exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] 
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -499,7 +499,7 @@ exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <span
       aria-label="heart"

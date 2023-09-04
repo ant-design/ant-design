@@ -44861,7 +44861,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-picker"
@@ -57662,7 +57662,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
 >
   <div
     class="ant-space-item"
-    style="margin-inline-end: 8px;"
+    style="margin-right: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
