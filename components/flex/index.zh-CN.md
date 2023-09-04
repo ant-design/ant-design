@@ -41,7 +41,7 @@ tag: New
 | align | 设置元素在交叉轴方向上的对齐方式 | 参考[align-items](https://developer.mozilla.org/zh-CN/docs/Web/CSS/align-items) | normal |  |
 | flex | flex CSS 简写属性 | 参考[flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex) | normal |  |
 | gap | 设置网格之间的间隙 | `small` \| `middle` \| `large` \| `string` \| `number` | - |  |
-| component | 自定义元素类型 | React.ComponentType | `div` |  |
+| component | 自定义元素类型 | React.ElementType | `div` |  |
 
 ## Design Token
 

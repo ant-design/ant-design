@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | align | Sets the alignment of elements in the direction of the cross axis | 参考[align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | normal |  |
 | flex | flex CSS shorthand properties | 参考[flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) | normal |  |
 | gap | Sets the gap between grids | `small` \| `middle` \| `large` \| `string` \| `number` | - |  |
-| component | custom element type | React.ComponentType | `div` |  |
+| component | custom element type | React.ElementType | `div` |  |
 
 ## Design Token
 
