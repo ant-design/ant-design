@@ -15,9 +15,9 @@ export interface ComponentToken {
 }
 
 export interface FlexToken extends FullToken<'Flex'> {
-  flexGapSmallSize: number;
-  flexGapMiddleSize: number;
-  flexGapLargeSize: number;
+  flexGapSM: number;
+  flexGap: number;
+  flexGapLG: number;
 }
 
 const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
