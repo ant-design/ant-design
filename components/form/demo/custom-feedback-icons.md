@@ -1,6 +1,6 @@
 ## zh-CN
 
-自定义反馈图标可以通过 `hasFeedback={{icons}}` 或 `<form FeedbackIcons={icons}` 传递（`Form.Item` 必须具有 `hasFeedback` 属性）。
+自定义反馈图标可以通过 `hasFeedback={{ icons: ... }}` 或 `<Form FeedbackIcons={icons}>` 传递（`Form.Item` 必须具有 `hasFeedback` 属性）。
 
 ## en-US
 
