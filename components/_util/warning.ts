@@ -22,7 +22,12 @@ if (process.env.NODE_ENV !== 'production') {
 type TypeWarning = (
   valid: boolean,
   component: string,
-  type: 'deprecated' | 'usage',
+  /**
+   * - deprecated: Some API will be removed in future but still support now.
+   * - usage: Some API usage is not correct.
+   * - breaking: Breaking change like API is removed.
+   */
+  type: 'deprecated' | 'usage' | 'breaking',
   message?: string,
 ) => void;
 

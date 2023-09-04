@@ -489,7 +489,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   if (Object.keys(validateMessages).length > 0) {
     childNode = (
       <ValidateMessagesContext.Provider value={validateMessages}>
-        {children}
+        {childNode}
       </ValidateMessagesContext.Provider>
     );
   }
