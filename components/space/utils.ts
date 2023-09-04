@@ -13,7 +13,10 @@ export function isValidGapNumber(size: SpaceSize): size is number {
   return typeof size === 'number' && !Number.isNaN(size);
 }
 
-export const getRealSize = (sizeMap: any, value: SpaceSize): number => {
+export const getRealSize = (
+  sizeMap: Record<NonNullable<SpaceSize>, number>,
+  value: SpaceSize,
+): number => {
   if (isPresetSize(value)) {
     return sizeMap[value!];
   }
