@@ -17,6 +17,15 @@ if (process.env.LIB_DIR === 'dist') {
   $('{es,lib}/*/index.js')
     .isFile()
     .assert('contain use client', (filename) => includeUseClient(filename));
+
+  // check tsx files
+  $('{es,lib}/typography/*.js')
+    .isFile()
+    .assert('contain use client', (filename) => includeUseClient(filename));
+
+  $('{es,lib}/typography/Base/*.js')
+    .isFile()
+    .assert('contain use client', (filename) => includeUseClient(filename));
 }
 
 // eslint-disable-next-line no-console
