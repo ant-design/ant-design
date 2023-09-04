@@ -134,9 +134,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
           customIcon.props.onClick(e);
         }
       },
-      onMouseDown: (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        e.preventDefault();
-      },
       className: `${prefixCls}-list-item-action`,
       disabled,
     };
