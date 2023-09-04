@@ -4,4 +4,4 @@
 
 ## en-US
 
-Custom feedback icons can be passed by `hasFeedback={{icons}}` or `<form feedbackIcons={icons}` (`Form.Item` must has `hasFeedback` attribute).
+Custom feedback icons can be passed by `hasFeedback={{ icons: ... }}` or `<Form feedbackIcons={icons}>` (`Form.Item` must has `hasFeedback` attribute).
