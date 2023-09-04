@@ -188,6 +188,12 @@ jobs:
         if: ${{ matrix.module == 'dist' }}
         run: node ./tests/dekko/dist.test.js
 
+      - name: check use client
+        if: ${{ matrix.module == 'dist' }}
+        run: node ./tests/dekko/use-client.test.js
+        env:
+          LIB_DIR: dist
+
       # dom test
       - name: dom test
         if: ${{ matrix.module == 'dom' }}
@@ -286,6 +292,10 @@ jobs:
 
       - name: check
         run: node ./tests/dekko/lib.test.js
+
+      - name: check use client
+        run: node ./tests/dekko/use-client.test.js
+
     needs: setup
 
   compiled-module-test:
