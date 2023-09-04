@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
