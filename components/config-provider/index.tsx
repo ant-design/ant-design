@@ -357,6 +357,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
+  useStyle(iconPrefixCls, csp);
+
   const mergedTheme = useTheme(theme, parentContext.theme);
 
   if (process.env.NODE_ENV !== 'production') {
