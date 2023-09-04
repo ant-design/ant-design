@@ -5,15 +5,15 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
-const FunCom = React.forwardRef<HTMLDivElement, {}>((_, ref) => (
-  <div className="test-fc" ref={ref}>
+const FunCom = React.forwardRef<HTMLDivElement, { className?: string }>((props, ref) => (
+  <div className={props.className} ref={ref}>
     test FC
   </div>
 ));
 
-class ClassCom<P = any> extends React.PureComponent<P> {
+class ClassCom extends React.PureComponent<{ className?: string }> {
   render() {
-    return <div className="test-cls">test Class</div>;
+    return <div className={this.props.className}>test Class</div>;
   }
 }
 
@@ -28,24 +28,16 @@ describe('Flex', () => {
   });
   it('Component work', () => {
     const testFcRef = React.createRef<HTMLDivElement>();
-    const testClsRef = React.createRef<HTMLDivElement>();
+    const testClsRef = React.createRef<ClassCom>();
     const { container, rerender } = render(<Flex>test</Flex>);
     expect(container.querySelector<HTMLDivElement>('.ant-flex')?.tagName).toBe('DIV');
     rerender(<Flex component="span">test</Flex>);
     expect(container.querySelector<HTMLSpanElement>('.ant-flex')?.tagName).toBe('SPAN');
-    rerender(
-      <Flex component={FunCom} ref={testFcRef}>
-        test
-      </Flex>,
-    );
-    expect(container.querySelector<HTMLDivElement>('.test-fc')?.textContent).toBe('test FC');
+    rerender(<Flex component={(props) => <FunCom {...props} ref={testFcRef} />}>test</Flex>);
+    expect(container.querySelector<HTMLDivElement>('.ant-flex')?.textContent).toBe('test FC');
     expect(testFcRef.current).toBeTruthy();
-    rerender(
-      <Flex component={ClassCom} ref={testClsRef}>
-        test
-      </Flex>,
-    );
-    expect(container.querySelector<HTMLDivElement>('.test-cls')?.textContent).toBe('test Class');
+    rerender(<Flex component={(props) => <ClassCom {...props} ref={testClsRef} />}>test</Flex>);
+    expect(container.querySelector<HTMLDivElement>('.ant-flex')?.textContent).toBe('test Class');
     expect(testClsRef.current).toBeTruthy();
   });
 });
