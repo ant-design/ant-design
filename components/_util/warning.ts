@@ -21,8 +21,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 type TypeWarning = (
   valid: boolean,
-  type: 'deprecated',
   component: string,
+  type: 'deprecated' | 'usage',
   message?: string,
 ) => void;
 
@@ -32,14 +32,17 @@ export interface WarningContextProps {
 
 export const WarningContext = React.createContext<WarningContextProps>({});
 
-export const useWarning: () => TypeWarning =
-  // This is only work in development.
-  // In production it will always return noop
+/**
+ * This is a hook but we not named as `useWarning`
+ * since this is only used in development.
+ * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition
+ */
+export const devUseWarning: () => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? () => {
         const { deprecated } = React.useContext(WarningContext);
 
-        const typeWarning: TypeWarning = (valid, type, component, message) => {
+        const typeWarning: TypeWarning = (valid, component, type, message) => {
           if (deprecated !== false || type !== 'deprecated') {
             warning(valid, component, message);
           }
