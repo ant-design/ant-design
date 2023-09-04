@@ -189,9 +189,10 @@ jobs:
         run: node ./tests/dekko/dist.test.js
 
       - name: check use client
+        if: ${{ matrix.module == 'dist' }}
         run: node ./tests/dekko/use-client.test.js
         env:
-          LIB_DIR: 'dist'
+          LIB_DIR: dist
 
       # dom test
       - name: dom test
