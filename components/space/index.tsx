@@ -7,13 +7,13 @@ import toArray from 'rc-util/lib/Children/toArray';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import Compact from './Compact';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
-import { isPresetSize, isValidGapNumber } from './utils';
+import { getRealSize, isPresetSize } from './utils';
 
 export { SpaceContext } from './context';
 
@@ -53,7 +53,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     ...otherProps
   } = props;
 
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const spaceSizeMap = {
     small: token.paddingXS,
@@ -63,25 +63,9 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
-  const realHorizontalSize = React.useMemo<number>(() => {
-    if (isPresetSize(horizontalSize)) {
-      return spaceSizeMap[horizontalSize!];
-    }
-    if (isValidGapNumber(horizontalSize)) {
-      return horizontalSize;
-    }
-    return 0;
-  }, [horizontalSize]);
+  const realHorizontalSize = getRealSize(spaceSizeMap, horizontalSize);
 
-  const realVerticalSize = React.useMemo<number>(() => {
-    if (isPresetSize(verticalSize)) {
-      return spaceSizeMap[verticalSize!];
-    }
-    if (isValidGapNumber(verticalSize)) {
-      return verticalSize;
-    }
-    return 0;
-  }, [verticalSize]);
+  const realVerticalSize = getRealSize(spaceSizeMap, verticalSize);
 
   const childNodes = toArray(children, { keepEmpty: true });
 
