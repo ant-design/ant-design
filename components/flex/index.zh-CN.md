@@ -1,6 +1,6 @@
 ---
 category: Components
-subtitle: 弹性布局组件
+subtitle: 弹性布局
 group: 布局
 title: Flex
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SMzgSJZE_AwAAAAAAAAAAAAADrJ8AQ/original
@@ -8,7 +8,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 tag: New
 ---
 
-弹性布局组件。自 `5.9.0` 版本开始提供该组件。
+弹性布局。自 `5.9.0` 版本开始提供该组件。
 
 ## 何时使用
 
