@@ -63,26 +63,22 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
-  const isValidGapHorizontalSize = isValidGapNumber(horizontalSize);
-
-  const isValidGapVerticalSize = isValidGapNumber(verticalSize);
-
   const realHorizontalSize = React.useMemo<number>(() => {
-    if (isValidGapHorizontalSize) {
-      return horizontalSize;
-    }
     if (isPresetSize(horizontalSize)) {
       return spaceSizeMap[horizontalSize!];
+    }
+    if (isValidGapNumber(horizontalSize)) {
+      return horizontalSize;
     }
     return 0;
   }, [horizontalSize]);
 
   const realVerticalSize = React.useMemo<number>(() => {
-    if (isValidGapVerticalSize) {
-      return verticalSize;
-    }
     if (isPresetSize(verticalSize)) {
       return spaceSizeMap[verticalSize!];
+    }
+    if (isValidGapNumber(verticalSize)) {
+      return verticalSize;
     }
     return 0;
   }, [verticalSize]);
@@ -164,13 +160,13 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
     // Patch for gap not support
     if (!supportFlexGap) {
-      gapStyle.marginBottom = -realHorizontalSize;
+      gapStyle.marginBottom = -realVerticalSize;
     }
   }
 
   if (supportFlexGap) {
-    gapStyle.rowGap = realVerticalSize;
     gapStyle.columnGap = realHorizontalSize;
+    gapStyle.rowGap = realVerticalSize;
   }
 
   return wrapSSR(
