@@ -1,3 +1,5 @@
+import * as React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
@@ -7,17 +9,16 @@ import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
-import { useCallback, useMemo, useState } from 'react';
+
 import type { AnyObject } from '../../_util/type';
-import warning from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Radio from '../../radio';
 import type {
-  ColumnType,
   ColumnsType,
+  ColumnType,
   ExpandType,
   GetPopupContainer,
   GetRowKey,
@@ -106,6 +107,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     getPopupContainer,
   } = config;
 
+  const warning = devUseWarning();
+
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
     selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
@@ -180,6 +183,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       warning(
         !('checked' in checkboxProps || 'defaultChecked' in checkboxProps),
         'Table',
+        'usage',
         'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
       );
     });
@@ -320,6 +324,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                 warning(
                   false,
                   'Table',
+                  'deprecated',
                   '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
                 );
                 onSelectInvert(keys);
@@ -364,6 +369,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         warning(
           !columns.includes(SELECTION_COLUMN),
           'Table',
+          'usage',
           '`rowSelection` is not config but `SELECTION_COLUMN` exists in the `columns`.',
         );
 
@@ -517,6 +523,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             warning(
               typeof checkboxProps?.indeterminate !== 'boolean',
               'Table',
+              'usage',
               'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
             );
           } else {
@@ -664,6 +671,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       warning(
         cloneColumns.filter((col) => col === SELECTION_COLUMN).length <= 1,
         'Table',
+        'usage',
         'Multiple `SELECTION_COLUMN` exist in `columns`.',
       );
 

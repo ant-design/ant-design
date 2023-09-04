@@ -1,16 +1,17 @@
 'use client';
 
+import type { CSSProperties } from 'react';
+import * as React from 'react';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type {
   TooltipProps as RcTooltipProps,
   TooltipRef as RcTooltipRef,
 } from 'rc-tooltip/lib/Tooltip';
-import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { CSSProperties } from 'react';
-import * as React from 'react';
+
 import type { PresetColorType } from '../_util/colors';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
@@ -18,7 +19,7 @@ import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoCompactStyle } from '../space/Compact';
 import theme from '../theme';
@@ -219,6 +220,8 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   } = React.useContext(ConfigContext);
 
   // ============================== Ref ===============================
+  const warning = devUseWarning();
+
   const tooltipRef = React.useRef<RcTooltipRef>(null);
 
   const forceAlign = () => {
@@ -228,7 +231,12 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   React.useImperativeHandle(ref, () => ({
     forceAlign,
     forcePopupAlign: () => {
-      warning(false, 'Tooltip', '`forcePopupAlign` is align to `forceAlign` instead.');
+      warning(
+        false,
+        'Tooltip',
+        'deprecated',
+        '`forcePopupAlign` is align to `forceAlign` instead.',
+      );
       forceAlign();
     },
   }));
@@ -245,6 +253,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       warning(
         !(deprecatedName in props),
         'Tooltip',
+        'deprecated',
         `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
@@ -252,12 +261,14 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     warning(
       !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
       'Tooltip',
+      'usage',
       '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
     );
 
     warning(
       !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
       'Tooltip',
+      'deprecated',
       '`arrowPointAtCenter` in `arrow` is deprecated, please use `pointAtCenter` instead.',
     );
   }

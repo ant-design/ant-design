@@ -7,7 +7,7 @@ import omit from 'rc-util/lib/omit';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -148,10 +148,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtual,
   } = props;
 
+  const warning = devUseWarning();
+
   if (process.env.NODE_ENV !== 'production') {
     warning(
       !(typeof rowKey === 'function' && rowKey.length > 1),
       'Table',
+      'usage',
       '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   }
@@ -378,7 +381,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }
 
     const { current = 1, total, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
-    warning(current > 0, 'Table', '`current` should be positive number.');
+    warning(current > 0, 'Table', 'usage', '`current` should be positive number.');
 
     // Dynamic table data
     if (mergedData.length < total!) {
@@ -386,6 +389,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         warning(
           false,
           'Table',
+          'usage',
           '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
         );
         return mergedData.slice((current - 1) * pageSize, current * pageSize);

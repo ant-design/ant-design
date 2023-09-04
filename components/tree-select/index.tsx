@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';
@@ -7,18 +8,18 @@ import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import genPurePanel from '../_util/PurePanel';
+
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
@@ -122,27 +123,33 @@ const InternalTreeSelect = <
   } = React.useContext(ConfigContext);
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       multiple !== false || !treeCheckable,
       'TreeSelect',
+      'usage',
       '`multiple` will always be `true` when `treeCheckable` is true',
     );
 
     warning(
       !dropdownClassName,
       'TreeSelect',
+      'deprecated',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
 
     warning(
       dropdownMatchSelectWidth === undefined,
       'Select',
+      'deprecated',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
 
     warning(
       !('showArrow' in props),
       'TreeSelect',
+      'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
   }

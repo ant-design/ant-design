@@ -1,10 +1,11 @@
 'use client';
 
-import type { Dayjs } from 'dayjs';
 import * as React from 'react';
+import type { Dayjs } from 'dayjs';
+
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 
@@ -32,17 +33,23 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
   ({ addon, renderExtraFooter, ...restProps }, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning();
+
+      warning(
+        !addon,
+        'TimePicker',
+        'deprecated',
+        '`addon` is deprecated. Please use `renderExtraFooter` instead.',
+      );
+    }
+
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
       }
 
       if (addon) {
-        warning(
-          false,
-          'TimePicker',
-          '`addon` is deprecated. Please use `renderExtraFooter` instead.',
-        );
         return addon;
       }
       return undefined;

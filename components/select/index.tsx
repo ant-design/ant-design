@@ -1,24 +1,25 @@
 'use client';
 
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
+import * as React from 'react';
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import genPurePanel from '../_util/PurePanel';
+
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
@@ -224,21 +225,26 @@ const InternalSelect = <
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !dropdownClassName,
       'Select',
+      'deprecated',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
 
     warning(
       dropdownMatchSelectWidth === undefined,
       'Select',
+      'deprecated',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
 
     warning(
       !('showArrow' in props),
       'Select',
+      'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
   }
