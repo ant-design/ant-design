@@ -191,7 +191,7 @@ jobs:
       - name: check use client
         run: node ./tests/dekko/use-client.test.js
         env:
-          LIB_DIR: ${{ matrix.module }}
+          LIB_DIR: 'dist'
 
       # dom test
       - name: dom test
@@ -291,6 +291,10 @@ jobs:
 
       - name: check
         run: node ./tests/dekko/lib.test.js
+
+      - name: check use client
+        run: node ./tests/dekko/use-client.test.js
+
     needs: setup
 
   compiled-module-test:
