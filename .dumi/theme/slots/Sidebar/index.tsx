@@ -1,10 +1,11 @@
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
-import MobileMenu from 'rc-drawer';
-import React, { useContext } from 'react';
-import { Col, ConfigProvider, Menu } from 'antd';
+import React, { useContext, useState } from 'react';
+import { Col, ConfigProvider, Menu, Drawer } from 'antd';
+import { DoubleRightOutlined } from '@ant-design/icons';
 import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
+import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls, fontFamily, colorSplit } = token;
@@ -116,6 +117,19 @@ const useStyle = createStyles(({ token, css }) => {
         overflow-y: auto;
       }
     `,
+    drawerTrigger: css`
+      position: fixed;
+      top: 72px;
+      left: 0;
+      z-index: 10;
+      padding: 2px 6px;
+      color: #777;
+      font-size: 12px;
+      background: #fff;
+      border-radius: 0 4px 4px 0;
+      box-shadow: 0 1px 4px -2px #00000021, 0 2px 8px #00000014, 0 8px 16px 4px #0000000a;
+      transition: all .3s;
+    `,
   };
 });
 
@@ -127,6 +141,9 @@ const Sidebar: React.FC = () => {
   const [menuItems, selectedKey] = useMenu();
   const isDark = theme.includes('dark');
   const { colorBgContainer } = useTheme();
+
+  const [, lang] = useLocale();
+  const isZhCN = lang === 'cn';
 
   const menuChild = (
     <ConfigProvider
@@ -144,8 +161,25 @@ const Sidebar: React.FC = () => {
     </ConfigProvider>
   );
 
+  // fix: https://github.com/ant-design/ant-design/issues/44142
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return isMobile ? (
-    <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
+    <>
+      <a onClick={showDrawer} className={styles.drawerTrigger}>
+        <DoubleRightOutlined />
+        {isZhCN ? '目录' : 'TOC'}
+      </a>
+      <Drawer key="Mobile-menu" placement="left" onClose={onClose} open={open}>
+        {menuChild}
+      </Drawer>
+    </>
   ) : (
     <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className={styles.mainMenu}>
       <section className="main-menu-inner">{menuChild}</section>
