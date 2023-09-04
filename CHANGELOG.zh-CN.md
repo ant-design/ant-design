@@ -16,6 +16,29 @@ tag: vVERSION
 
 ---
 
+## 5.8.6
+
+`2023-09-02`
+
+- 🛠 针对 CSSInJS 加载 styles 大小进行了优化。
+  - 🛠 Notification 和 Message 组件只有在展示时才会插入对应样式。[#44488](https://github.com/ant-design/ant-design/pull/44488)
+  - 🛠 剥离 Tag 状态与预设颜色样式，现在只有当使用的使用才会生成它们。[#44512](https://github.com/ant-design/ant-design/pull/44512)
+  - 🛠 剥离 Button 紧凑模式样式，现在只有当使用了 Space.Compact 才会生成对应样式。[#44475](https://github.com/ant-design/ant-design/pull/44475)
+- 📦 移除 `@ant-design/icons` 依赖 `lodash/camelCase` 以优化 bundle size。[ant-design-icons#595](https://github.com/ant-design/ant-design-icons/pull/595)
+- Form
+  - 🐞 修复 Form.Item 设置 `wrapperCol.span` 为 `0` 时，子元素不隐藏的问题。[#44485](https://github.com/ant-design/ant-design/pull/44485) [#44472](https://github.com/ant-design/ant-design/pull/44472) [@crazyair](https://github.com/crazyair)
+  - 🐞 修复 Form `labelCol` 设置为 24 时，会使 `wrapperCol` 设置 24 失效的问题。[#44541](https://github.com/ant-design/ant-design/pull/44541)
+- 🐞 修复 Watermark 组件在 `content` 是空字符串时报错的问题。[#44501](https://github.com/ant-design/ant-design/pull/44501)
+- 🐞 修复 ColorPicker 禁用时依然能弹出选择窗口的问题。[#44466](https://github.com/ant-design/ant-design/pull/44466) [@RedJue](https://github.com/RedJue)
+- 🐞 修复 Transfer 点击 Checkbox 时有时会触发两次选择行为的问题。[#44471](https://github.com/ant-design/ant-design/pull/44471) [@kovsu](https://github.com/kovsu)
+- 🐞 修复 Typography 使用 `ellipsis` 时滚动条闪动的问题。[#43058](https://github.com/ant-design/ant-design/pull/43058) [@bbb169](https://github.com/bbb169)
+- Slider
+  - 🐞 修复 Slider 滑块可拖拽区域范围异常的问题。[#44503](https://github.com/ant-design/ant-design/pull/44503) [@BoyYangzai](https://github.com/BoyYangzai) [@yoyo837](https://github.com/yoyo837)
+  - ⌨️ 优化 Slider `aria-orientation` 可访问性属性。[react-component/slider#859](https://github.com/react-component/slider/pull/859) [@5im0n](https://github.com/5im0n)
+- 🐞 修复 Steps `type="nav"` 垂直导航步骤条的最后一项箭头没隐藏的问题。[#44582](https://github.com/ant-design/ant-design/pull/44582) [@ohhoney1](https://github.com/ohhoney1)
+- TypeScript
+  - 🤖 修复 Upload 文件状态定义，移除未使用过的 `success` 状态。[#44468](https://github.com/ant-design/ant-design/pull/44468)
+
 ## 5.8.5
 
 `2023-08-28`
@@ -68,7 +91,7 @@ tag: vVERSION
 - 🐞 修复 `@ant-design/cssinjs` 版本小于 `1.15.0` 时 Design Token 部分丢失的问题。[#44091](https://github.com/ant-design/ant-design/pull/44091) [@MadCcc](https://github.com/MadCcc)
 - 💄 修复 Badge `status="processing"` 和 `dot` 配合使用时，波纹样式异常的问题。[#44153](https://github.com/ant-design/ant-design/pull/44153)
 - 💄 修复 Descriptions 组件自行嵌套时的边框样式问题。[#43454](https://github.com/ant-design/ant-design/pull/43454) [@Yuiai01](https://github.com/Yuiai01)
-- 💄 修复 Pagination 上下页切换按钮 `transition`` 丢失的问题。[#44030](https://github.com/ant-design/ant-design/pull/44030)
+- 💄 修复 Pagination 上下页切换按钮 `transition` 丢失的问题。[#44030](https://github.com/ant-design/ant-design/pull/44030)
 - 💄 修复 Popconfirm 按钮组意外换行的问题。[#44022](https://github.com/ant-design/ant-design/pull/44022) [@MuxinFeng](https://github.com/MuxinFeng)
 - 💄 优化 Image 组件预览操作图标的样式。[#44141](https://github.com/ant-design/ant-design/pull/44141) [@MadCcc](https://github.com/MadCcc)
 - 💄 优化 Input 和 InputNumber 在大尺寸下的字体大小。[#44000](https://github.com/ant-design/ant-design/pull/44000) [@MuxinFeng](https://github.com/MuxinFeng)
@@ -183,13 +206,13 @@ tag: vVERSION
   - 🆕 ColorPicker 支持 `onChangeComplete`。[#43370](https://github.com/ant-design/ant-design/pull/43370) [@RedJue](https://github.com/RedJue)
   - 🆕 ColorPicker 支持 `panelRender`。[#43134](https://github.com/ant-design/ant-design/pull/43134) [@RedJue](https://github.com/RedJue)
   - 🆕 ColorPicker 支持 `size`。[#43116](https://github.com/ant-design/ant-design/pull/43116) [@RedJue](https://github.com/RedJue)
-- 🆕 Alert、Drawer、Modal、Notifaction、Tag、Tabs 均已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮。 [#42828](https://github.com/ant-design/ant-design/discussions/42828) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Alert、Drawer、Modal、Notifaction、Tag、Tabs 均已支持通过设置 `closeIcon` 为 null 或 false 隐藏关闭按钮。[#42828](https://github.com/ant-design/ant-design/discussions/42828) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Anchor 添加 `replace` 属性。[#43006](https://github.com/ant-design/ant-design/pull/43006) [@ds1371dani](https://github.com/ds1371dani)
 - 🆕 Image 支持 `imageRender`、`toolbarRender` 属性以支持预览图和工具栏的自定义渲染，还支持了 `onTransform`、`minScale`、`maxScale` 等新属性，Image.PreviewGroup 支持 `items` 属性传入列表数据，并修复了 img 标签的原生属性没有传递给预览图的问题。[#43075](https://github.com/ant-design/ant-design/pull/43075) [@linxianxi](https://github.com/linxianxi)
 - 🆕 修改 Image 预览图的布局风格，`preview` 属性支持 `closeIcon`，Image.PreviewGroup 支持 `fallback` 属性，修复加载预览资源提前加载的问题。[#43167](https://github.com/ant-design/ant-design/pull/43167) [@linxianxi](https://github.com/linxianxi)
 - 🛠 InputNumber 使用 rc-input 进行重构。[#43000](https://github.com/ant-design/ant-design/pull/43000) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🛠 解决 vite、rollup、meteor、microbundle 等构建工具中遇到的循环依赖问题，并增加相关的检测。[#42750](https://github.com/ant-design/ant-design/pull/42750)，感谢 [@jrr997](https://github.com/jrr997)、[@kiner-tang](https://github.com/kiner-tang) 和 [@MuxinFeng](https://github.com/MuxinFeng) 的贡献。
-- 🐞 移除 Anchor/CollapsePanel/Input.Group 组件中 `className` 属性的默认值（空字符串）。 [#43481](https://github.com/ant-design/ant-design/pull/43481) [@thinkasany](https://github.com/thinkasany)
+- 🐞 移除 Anchor/CollapsePanel/Input.Group 组件中 `className` 属性的默认值（空字符串）。[#43481](https://github.com/ant-design/ant-design/pull/43481) [@thinkasany](https://github.com/thinkasany)
 - 🐞 修复 Upload 上传进度条延迟消失且丢失动画效果的问题。[#43471](https://github.com/ant-design/ant-design/pull/43471)
 - 🐞 为 Menu 中组件 Token `colorItemBgSelected` 添加废弃警告。[#43461](https://github.com/ant-design/ant-design/pull/43461) [@MadCcc](https://github.com/MadCcc)
 - 🐞 杂项：修复样式特性支持检测时部分浏览器因为未重绘导致出现滚动条的问题。[#43358](https://github.com/ant-design/ant-design/pull/43358) [@LeeeeeeM](https://github.com/LeeeeeeM)
@@ -482,7 +505,7 @@ tag: vVERSION
 `2023-04-19`
 
 - 🐞 修复 FloatButton 警告: findDOMNode is deprecated in StrictMode.。[#41833](https://github.com/ant-design/ant-design/pull/41833) [@fourcels](https://github.com/fourcels)
-- 🐞 杂项：箭头元素兼容旧版本不支持 `clip-path: path()` 的浏览器。 [#41872](https://github.com/ant-design/ant-design/pull/41872)
+- 🐞 杂项：箭头元素兼容旧版本不支持 `clip-path: path()` 的浏览器。[#41872](https://github.com/ant-design/ant-design/pull/41872)
 - 🐞 修复 Layout.Sider 切换主题时存在背景切换延迟的问题。[#41828](https://github.com/ant-design/ant-design/pull/41828)
 - 🐞 修复 Tour 的 `type="primary"` 时箭头的颜色仍为白色的问题。[#41761](https://github.com/ant-design/ant-design/pull/41761)
 - 🐞 优化 Form 字段绑定，现在会忽略在 Form.Item 内的注释不再作为子组件进行绑定。[#41771](https://github.com/ant-design/ant-design/pull/41771)
@@ -810,7 +833,7 @@ tag: vVERSION
 
 `2023-01-15`
 
-- 🐞 修复 Checkbox 组件 label 不对齐的问题。 [#40208](https://github.com/ant-design/ant-design/pull/40208)
+- 🐞 修复 Checkbox 组件 label 不对齐的问题。[#40208](https://github.com/ant-design/ant-design/pull/40208)
 - 🐞 修复 Button 水波纹效果有时会使得布局抖动的问题。[#40192](https://github.com/ant-design/ant-design/pull/40192)
 - 🐞 修复 Select 组件会卡住的问题。[#40158](https://github.com/ant-design/ant-design/pull/40158) [@helloqian12138](https://github.com/helloqian12138)
 - 🐞 修复 Timeline 组件自定义颜色显示错误类名和对齐溢出的问题。[#39394](https://github.com/ant-design/ant-design/pull/39394) [@Wxh16144](https://github.com/Wxh16144)
@@ -897,7 +920,7 @@ tag: vVERSION
 - 🐞 修复 Card 只有 `extra` 时标题栏高度不足的问题。[#39646](https://github.com/ant-design/ant-design/pull/39646) [@JarvisArt](https://github.com/JarvisArt)
 - 🐞 修复 Row 组件 `justify` 和 `align` 属性，动态改变不生效的问题。[#39704](https://github.com/ant-design/ant-design/pull/39704) [@candy4290](https://github.com/candy4290)
 - 🐞 修复 App 中 `children` 使用相同 key 的警告。[#39695](https://github.com/ant-design/ant-design/pull/39695) [@Kamahl19](https://github.com/Kamahl19)，[#39701](https://github.com/ant-design/ant-design/pull/39701) [@li-jia-nan](https://github.com/li-jia-nan)
-- 💄 Image 组件预览交互优化. [#39812](https://github.com/ant-design/ant-design/pull/39812) [@JarvisArt](https://github.com/JarvisArt)
+- 💄 Image 组件预览交互优化。[#39812](https://github.com/ant-design/ant-design/pull/39812) [@JarvisArt](https://github.com/JarvisArt)
 - 💄 修复 Table 筛选菜单选中背景色和菜单阴影样式。[#39805](https://github.com/ant-design/ant-design/pull/39805)
 - TypeScript
   - 🤖 修复部分 Design Token 缺少类型提示的问题。[#39754](https://github.com/ant-design/ant-design/pull/39754)
