@@ -1,3 +1,4 @@
+import * as React from 'react';
 import rcWarning, { resetWarned } from 'rc-util/lib/warning';
 
 export { resetWarned };
@@ -17,5 +18,35 @@ if (process.env.NODE_ENV !== 'production') {
     }
   };
 }
+
+type TypeWarning = (
+  valid: boolean,
+  type: 'deprecated',
+  component: string,
+  message?: string,
+) => void;
+
+export interface WarningContextProps {
+  deprecated?: boolean;
+}
+
+export const WarningContext = React.createContext<WarningContextProps>({});
+
+export const useWarning: () => TypeWarning =
+  // This is only work in development.
+  // In production it will always return noop
+  process.env.NODE_ENV !== 'production'
+    ? () => {
+        const { deprecated } = React.useContext(WarningContext);
+
+        const typeWarning: TypeWarning = (valid, type, component, message) => {
+          if (deprecated !== false || type !== 'deprecated') {
+            warning(valid, component, message);
+          }
+        };
+
+        return typeWarning;
+      }
+    : () => noop;
 
 export default warning;
