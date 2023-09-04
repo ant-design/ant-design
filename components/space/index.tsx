@@ -4,16 +4,14 @@ import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import { useToken } from '../theme/internal';
 import Compact from './Compact';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
-import { getRealSize, isPresetSize } from './utils';
+import { isPresetSize, isValidGapNumber } from './utils';
 
 export { SpaceContext } from './context';
 
@@ -53,23 +51,17 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     ...otherProps
   } = props;
 
-  const [, token] = useToken();
-
-  const spaceSizeMap = {
-    small: token.paddingXS,
-    middle: token.padding,
-    large: token.paddingLG,
-  } as const;
-
   const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
 
-  const realHorizontalSize = getRealSize(spaceSizeMap, horizontalSize);
+  const isPresetVerticalSize = isPresetSize(verticalSize);
 
-  const realVerticalSize = getRealSize(spaceSizeMap, verticalSize);
+  const isPresetHorizontalSize = isPresetSize(horizontalSize);
+
+  const isValidVerticalSize = isValidGapNumber(verticalSize);
+
+  const isValidHorizontalSize = isValidGapNumber(horizontalSize);
 
   const childNodes = toArray(children, { keepEmpty: true });
-
-  const supportFlexGap = useFlexGapSupport();
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
@@ -83,8 +75,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
-      [`${prefixCls}-gap-row-${verticalSize}`]: supportFlexGap && isPresetSize(verticalSize),
-      [`${prefixCls}-gap-col-${horizontalSize}`]: supportFlexGap && isPresetSize(horizontalSize),
+      [`${prefixCls}-gap-row-${verticalSize}`]: isPresetVerticalSize,
+      [`${prefixCls}-gap-col-${horizontalSize}`]: isPresetHorizontalSize,
     },
     className,
     rootClassName,
@@ -94,8 +86,6 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     `${prefixCls}-item`,
     customClassNames?.item ?? space?.classNames?.item,
   );
-
-  const marginDirection = directionConfig === 'rtl' ? 'marginLeft' : 'marginRight';
 
   // Calculate latest one
   let latestIndex = 0;
@@ -110,11 +100,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
       <Item
         className={itemClassName}
         key={key}
-        direction={direction}
         index={i}
-        marginDirection={marginDirection}
         split={split}
-        wrap={wrap}
         style={styles?.item ?? space?.styles?.item}
       >
         {child}
@@ -122,15 +109,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     );
   });
 
-  const spaceContext = React.useMemo<SpaceContextType>(
-    () => ({
-      horizontalSize: realHorizontalSize,
-      verticalSize: realVerticalSize,
-      latestIndex,
-      supportFlexGap,
-    }),
-    [horizontalSize, verticalSize, latestIndex, supportFlexGap],
-  );
+  const spaceContext = React.useMemo<SpaceContextType>(() => ({ latestIndex }), [latestIndex]);
 
   // =========================== Render ===========================
   if (childNodes.length === 0) {
@@ -141,16 +120,14 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   if (wrap) {
     gapStyle.flexWrap = 'wrap';
-
-    // Patch for gap not support
-    if (!supportFlexGap) {
-      gapStyle.marginBottom = -realVerticalSize;
-    }
   }
 
-  if (supportFlexGap) {
-    gapStyle.columnGap = realHorizontalSize;
-    gapStyle.rowGap = realVerticalSize;
+  if (!isPresetHorizontalSize && isValidHorizontalSize) {
+    gapStyle.columnGap = horizontalSize;
+  }
+
+  if (!isPresetVerticalSize && isValidVerticalSize) {
+    gapStyle.rowGap = verticalSize;
   }
 
   return wrapSSR(

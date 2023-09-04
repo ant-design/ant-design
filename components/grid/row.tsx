@@ -1,10 +1,11 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import classNames from 'classnames';
+
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
+import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
@@ -102,8 +103,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const mergeJustify = useMergePropByScreen(justify, curScreens);
 
-  const supportFlexGap = useFlexGapSupport();
-
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
   const responsiveObserver = useResponsiveObserver();
@@ -169,20 +168,20 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginRight = horizontalGutter;
   }
 
-  if (supportFlexGap) {
-    // Set gap direct if flex gap support
-    [, rowStyle.rowGap] = gutters;
-  } else if (verticalGutter) {
+  if (verticalGutter) {
     rowStyle.marginTop = verticalGutter;
     rowStyle.marginBottom = verticalGutter;
   }
 
+  [, rowStyle.rowGap] = gutters;
+
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.
   const [gutterH, gutterV] = gutters;
-  const rowContext = React.useMemo(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
-    [gutterH, gutterV, wrap, supportFlexGap],
+
+  const rowContext = React.useMemo<RowContextState>(
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),
+    [gutterH, gutterV, wrap],
   );
 
   return wrapSSR(

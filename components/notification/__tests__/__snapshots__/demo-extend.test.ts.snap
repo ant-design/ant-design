@@ -55,11 +55,10 @@ exports[`renders components/notification/demo/duration.tsx extend context correc
 exports[`renders components/notification/demo/hooks.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -134,11 +133,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -216,11 +214,10 @@ exports[`renders components/notification/demo/hooks.tsx extend context correctly
 exports[`renders components/notification/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -295,11 +292,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -374,11 +370,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -569,11 +564,10 @@ exports[`renders components/notification/demo/with-btn.tsx extend context correc
 
 exports[`renders components/notification/demo/with-icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -586,7 +580,6 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -599,7 +592,6 @@ exports[`renders components/notification/demo/with-icon.tsx extend context corre
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"

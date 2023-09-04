@@ -550,11 +550,10 @@ Array [
       style="text-align: right;"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary"
@@ -567,7 +566,6 @@ Array [
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -19509,11 +19507,10 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -21562,11 +21559,10 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -27963,11 +27959,10 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"

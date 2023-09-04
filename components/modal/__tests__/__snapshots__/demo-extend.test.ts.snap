@@ -379,12 +379,11 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
 
 exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -397,7 +396,6 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -410,7 +408,6 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -423,7 +420,6 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -493,11 +489,10 @@ exports[`renders components/modal/demo/footer.tsx extend context correctly 2`] =
 
 exports[`renders components/modal/demo/footer-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -527,11 +522,10 @@ exports[`renders components/modal/demo/footer-render.tsx extend context correctl
 
 exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -544,7 +538,6 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -557,7 +550,6 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -587,11 +579,10 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 2`] = 
 
 exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -925,12 +916,11 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
 
 exports[`renders components/modal/demo/static-info.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -943,7 +933,6 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -956,7 +945,6 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -969,7 +957,6 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
