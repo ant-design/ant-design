@@ -6,7 +6,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { isPresetSize, isValidGapNumber } from '../utils';
 
 describe('Space', () => {
   mountTest(Space);
@@ -226,16 +225,5 @@ describe('Space', () => {
     expect(
       container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
     ).toEqual('margin-right: 8px; color: red;');
-  });
-
-  it('should isPresetSize & isValidGapNumber work', () => {
-    const r1 = isPresetSize(0);
-    const r2 = isValidGapNumber(0);
-    const r3 = isPresetSize('small');
-    const r4 = isValidGapNumber(10);
-    expect(r1).toBeFalsy();
-    expect(r2).toBeFalsy();
-    expect(r3).toBeTruthy();
-    expect(r4).toBeTruthy();
   });
 });
