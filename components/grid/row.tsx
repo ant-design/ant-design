@@ -161,19 +161,13 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
   const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
-  const verticalGutter = gutters[1] != null && gutters[1] > 0 ? gutters[1] / -2 : undefined;
 
   if (horizontalGutter) {
     rowStyle.marginLeft = horizontalGutter;
     rowStyle.marginRight = horizontalGutter;
   }
 
-  if (verticalGutter) {
-    rowStyle.marginTop = verticalGutter;
-    rowStyle.marginBottom = verticalGutter;
-  }
-
-  [, rowStyle.rowGap] = gutters;
+  [rowStyle.columnGap, rowStyle.rowGap] = gutters;
 
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.
