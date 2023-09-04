@@ -1,5 +1,7 @@
 import * as React from 'react';
+
 import { SpaceContext } from './context';
+import type { SpaceContextType } from './context';
 
 export interface ItemProps {
   className: string;
@@ -23,7 +25,7 @@ const Item: React.FC<ItemProps> = ({
   style: customStyle,
 }) => {
   const { horizontalSize, verticalSize, latestIndex, supportFlexGap } =
-    React.useContext(SpaceContext);
+    React.useContext<SpaceContextType>(SpaceContext);
 
   let style: React.CSSProperties = {};
 
@@ -34,6 +36,7 @@ const Item: React.FC<ItemProps> = ({
       }
     } else {
       style = {
+        // Compatible IE, cannot use `marginInlineEnd`
         ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
         ...(wrap && { paddingBottom: verticalSize }),
       };

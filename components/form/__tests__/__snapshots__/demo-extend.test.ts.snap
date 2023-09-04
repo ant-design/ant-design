@@ -2215,6 +2215,177 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
 
 exports[`renders components/form/demo/control-ref.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="custom-feedback-icons"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-wrap: nowrap;"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
+            id="custom-feedback-icons_custom-feedback-test-item_help"
+            role="alert"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            />
+          </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
+  </div>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item2"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item2"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-wrap: nowrap;"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
+            id="custom-feedback-icons_custom-feedback-test-item2_help"
+            role="alert"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            />
+          </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="submit"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-inline"

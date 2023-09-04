@@ -53,6 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
+<code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -68,6 +69,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
 | fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#forminstance) | - |  |
+| feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | ({status:ValidateStatus, errors: ReactNode, warnings: ReactNode}) => Record<ValidateStatus,ReactNode> | - | 5.9.0 |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  |
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
 | labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 |
@@ -123,7 +125,7 @@ const validateMessages = {
 | extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | ReactNode | - |  |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any\[]) => any | - |  |
 | getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
-| hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |  |
+| hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 此外，它还可以通过 Icons 属性获取反馈图标。 | boolean \| {icons:({status:ValidateStatus, errors: ReactNode, warnings: ReactNode}) => Record<ValidateStatus,ReactNode>} | false |  |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode | - |  |
 | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |

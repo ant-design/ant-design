@@ -1641,6 +1641,133 @@ exports[`renders components/form/demo/control-ref.tsx correctly 1`] = `
 </form>
 `;
 
+exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="custom-feedback-icons"
+  style="max-width:600px"
+>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item2"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item2"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="submit"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-inline"

@@ -1,16 +1,19 @@
 'use client';
 
+import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
-import * as React from 'react';
+
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
+import { useToken } from '../theme/internal';
 import Compact from './Compact';
-import Item from './Item';
-
 import { SpaceContextProvider } from './context';
+import type { SpaceContextType } from './context';
+import Item from './Item';
 import useStyle from './style';
+import { getRealSize, isPresetSize } from './utils';
 
 export { SpaceContext } from './context';
 
@@ -29,16 +32,6 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
   classNames?: { item: string };
   styles?: { item: React.CSSProperties };
-}
-
-const spaceSize = {
-  small: 8,
-  middle: 16,
-  large: 24,
-};
-
-function getNumberSize(size: SpaceSize) {
-  return typeof size === 'string' ? spaceSize[size] : size || 0;
 }
 
 const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
@@ -60,23 +53,29 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     ...otherProps
   } = props;
 
-  const supportFlexGap = useFlexGapSupport();
+  const [, token] = useToken();
 
-  const [horizontalSize, verticalSize] = React.useMemo(
-    () =>
-      ((Array.isArray(size) ? size : [size, size]) as [SpaceSize, SpaceSize]).map((item) =>
-        getNumberSize(item),
-      ),
-    [size],
-  );
+  const spaceSizeMap = {
+    small: token.paddingXS,
+    middle: token.padding,
+    large: token.paddingLG,
+  } as const;
+
+  const [horizontalSize, verticalSize] = Array.isArray(size) ? size : ([size, size] as const);
+
+  const realHorizontalSize = getRealSize(spaceSizeMap, horizontalSize);
+
+  const realVerticalSize = getRealSize(spaceSizeMap, verticalSize);
 
   const childNodes = toArray(children, { keepEmpty: true });
+
+  const supportFlexGap = useFlexGapSupport();
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const cn = classNames(
+  const cls = classNames(
     prefixCls,
     space?.className,
     hashId,
@@ -84,6 +83,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
       [`${prefixCls}-align-${mergedAlign}`]: mergedAlign,
+      [`${prefixCls}-gap-row-${verticalSize}`]: supportFlexGap && isPresetSize(verticalSize),
+      [`${prefixCls}-gap-col-${horizontalSize}`]: supportFlexGap && isPresetSize(horizontalSize),
     },
     className,
     rootClassName,
@@ -98,7 +99,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   // Calculate latest one
   let latestIndex = 0;
-  const nodes = childNodes.map((child, i) => {
+  const nodes = childNodes.map<React.ReactNode>((child, i) => {
     if (child !== null && child !== undefined) {
       latestIndex = i;
     }
@@ -121,8 +122,13 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     );
   });
 
-  const spaceContext = React.useMemo(
-    () => ({ horizontalSize, verticalSize, latestIndex, supportFlexGap }),
+  const spaceContext = React.useMemo<SpaceContextType>(
+    () => ({
+      horizontalSize: realHorizontalSize,
+      verticalSize: realVerticalSize,
+      latestIndex,
+      supportFlexGap,
+    }),
     [horizontalSize, verticalSize, latestIndex, supportFlexGap],
   );
 
@@ -138,24 +144,20 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
     // Patch for gap not support
     if (!supportFlexGap) {
-      gapStyle.marginBottom = -verticalSize;
+      gapStyle.marginBottom = -realVerticalSize;
     }
   }
 
   if (supportFlexGap) {
-    gapStyle.columnGap = horizontalSize;
-    gapStyle.rowGap = verticalSize;
+    gapStyle.columnGap = realHorizontalSize;
+    gapStyle.rowGap = realVerticalSize;
   }
 
   return wrapSSR(
     <div
       ref={ref}
-      className={cn}
-      style={{
-        ...gapStyle,
-        ...space?.style,
-        ...style,
-      }}
+      className={cls}
+      style={{ ...gapStyle, ...space?.style, ...style }}
       {...otherProps}
     >
       <SpaceContextProvider value={spaceContext}>{nodes}</SpaceContextProvider>

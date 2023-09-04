@@ -59,7 +59,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   } = props;
 
   const itemPrefixCls = `${prefixCls}-item`;
-  const { requiredMark } = React.useContext(FormContext);
+  const { requiredMark, feedbackIcons } = React.useContext(FormContext);
 
   // ======================== Margin ========================
   const itemRef = React.useRef<HTMLDivElement>(null);
@@ -111,24 +111,29 @@ export default function ItemHolder(props: ItemHolderProps) {
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
     if (hasFeedback) {
+      const customIcons = (hasFeedback !== true && hasFeedback.icons) || feedbackIcons;
+      const customIconNode =
+        mergedValidateStatus &&
+        customIcons?.({ status: mergedValidateStatus, errors, warnings })?.[mergedValidateStatus];
       const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
-      feedbackIcon = IconNode ? (
-        <span
-          className={classNames(
-            `${itemPrefixCls}-feedback-icon`,
-            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
-          )}
-        >
-          <IconNode />
-        </span>
-      ) : null;
+      feedbackIcon =
+        customIconNode !== false && IconNode ? (
+          <span
+            className={classNames(
+              `${itemPrefixCls}-feedback-icon`,
+              `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
+            )}
+          >
+            {customIconNode || <IconNode />}
+          </span>
+        ) : null;
     }
 
     return {
       status: mergedValidateStatus,
       errors,
       warnings,
-      hasFeedback,
+      hasFeedback: !!hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
     };
