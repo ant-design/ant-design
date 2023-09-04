@@ -9,8 +9,8 @@ const boxStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => {
-  const [justifyContent, setJustifyContent] = React.useState<string>('space-around');
-  const [alignItems, setAlignItems] = React.useState<string>('center');
+  const [justifyContent, setJustifyContent] = React.useState<CSSProperties['justifyContent']>('space-around');
+  const [alignItems, setAlignItems] = React.useState<CSSProperties['alignItems']>('center');
   return (
     <>
       <Segmented
