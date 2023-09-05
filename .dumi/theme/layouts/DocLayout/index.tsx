@@ -54,11 +54,14 @@ const DocLayout: React.FC = () => {
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
 
-  const isIndexPage =
-    ['', '/'].some((path) => path === pathname) ||
-    ['/index'].some((path) => pathname.startsWith(path));
+  const isIndexPage = useMemo(
+    () =>
+      ['', '/'].some((path) => path === pathname) ||
+      ['/index'].some((path) => pathname.startsWith(path)),
+    [pathname],
+  );
 
-  // gen default title and description for index page, other pages should have their own title and description by dumi
+  // gen default title and description for index page, other pages should have their own title and description by definitions in markdown files
   const [showDefaultTitle, setShowDefaultTitle] = useState(!!isIndexPage);
   const [showDefaultDesc, setShowDefaultDesc] = useState(!!isIndexPage);
 
@@ -70,15 +73,15 @@ const DocLayout: React.FC = () => {
     }
   }, []);
 
-  // turn off default title and description render if we have prerender ones
+  // show default title and description in index page or in where we don't have prerender ones
   useLayoutEffect(() => {
-    if (!hasTitle()) {
+    if (isIndexPage || !hasTitle()) {
       setShowDefaultTitle(true);
     }
-    if (!hasMeta('description')) {
+    if (isIndexPage || !hasMeta('description')) {
       setShowDefaultDesc(true);
     }
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
