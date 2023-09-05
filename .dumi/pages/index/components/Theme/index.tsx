@@ -483,6 +483,7 @@ export default function Theme() {
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}
                 items={sideMenuItems}
+                expandIcon={false}
               />
             </Sider>
             <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>

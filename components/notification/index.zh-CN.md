@@ -78,7 +78,7 @@ config 参数如下：
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
-| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
 
 ### 全局配置
 
@@ -110,9 +110,9 @@ notification.config({
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
-| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Notification"></ComponentTokenTable>
 

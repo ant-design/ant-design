@@ -101,22 +101,20 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx correctly 1`] =
 
 exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
   style="display:flex"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <div
             class="ant-col"
@@ -152,17 +150,15 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <div
             class="ant-col"
@@ -203,11 +199,10 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
       class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <div
             class="ant-col"
@@ -246,21 +241,19 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <span>
             Add title:
@@ -296,11 +289,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
       class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <span>
             Horizontal layout:
@@ -373,18 +365,16 @@ exports[`renders components/color-picker/demo/pure-panel.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <div
-      class="ant-space ant-space-vertical"
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-bottom:8px"
       >
         <div
           class="ant-color-picker-trigger ant-color-picker-sm"
@@ -401,7 +391,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-bottom:8px"
       >
         <div
           class="ant-color-picker-trigger"
@@ -438,11 +427,10 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-vertical"
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-bottom:8px"
       >
         <div
           class="ant-color-picker-trigger ant-color-picker-sm"
@@ -464,7 +452,6 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-bottom:8px"
       >
         <div
           class="ant-color-picker-trigger"
@@ -512,11 +499,10 @@ exports[`renders components/color-picker/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-color-picker-trigger"
@@ -538,7 +524,6 @@ exports[`renders components/color-picker/demo/text-render.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-color-picker-trigger"
