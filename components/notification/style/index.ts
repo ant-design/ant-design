@@ -64,7 +64,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     '0%': {
       maxHeight: token.animationMaxHeight,
       marginBottom: notificationMarginBottom,
-      opacity: 1,
     },
 
     '100%': {
@@ -265,7 +264,7 @@ export default genComponentStyleHook(
       notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,
-      notificationStackLayer: 5,
+      notificationStackLayer: 3,
     });
 
     return [
