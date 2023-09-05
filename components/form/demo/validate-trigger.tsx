@@ -1,26 +1,38 @@
 import React from 'react';
-import { Form, Input } from 'antd';
+import { Alert, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <Form name="trigger" style={{ maxWidth: 600 }} layout="vertical" autoComplete="off">
-    <Form.Item label="Field A" name="field_a" validateTrigger="onBlur" rules={[{ required: true }]}>
+    <Alert message="Use 'max' rule, continue type chars to see it" />
+
+    <Form.Item
+      hasFeedback
+      label="Field A"
+      name="field_a"
+      validateTrigger="onBlur"
+      rules={[{ max: 3 }]}
+    >
       <Input placeholder="Validate required onBlur" />
     </Form.Item>
 
-    <Form.Item label="Field B" name="field_b" validateDebounce={1000} rules={[{ required: true }]}>
+    <Form.Item
+      hasFeedback
+      label="Field B"
+      name="field_b"
+      validateDebounce={1000}
+      rules={[{ max: 3 }]}
+    >
       <Input placeholder="Validate required debounce after 1s" />
     </Form.Item>
 
     <Form.Item
+      hasFeedback
       label="Field C"
       name="field_c"
       validateFirst
-      rules={[
-        { required: true, message: 'This message will show when failed' },
-        { required: true, message: 'This message will never show' },
-      ]}
+      rules={[{ max: 6 }, { max: 3, message: 'Continue input to exceed 6 chars' }]}
     >
-      <Input placeholder="Validate required one by one" />
+      <Input placeholder="Validate one by one" />
     </Form.Item>
   </Form>
 );
