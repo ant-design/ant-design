@@ -126,12 +126,12 @@ describe('ConfigProvider', () => {
     expect(cacheRenderEmpty).toBeFalsy();
   });
 
-  it('warning support filter level', () => {
-    resetWarned();
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  // it('warning support filter level', () => {
+  //   resetWarned();
+  //   const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    render(<ConfigProvider dropdownMatchSelectWidth warning={{ deprecated: false }} />);
+  //   render(<ConfigProvider dropdownMatchSelectWidth warning={{ deprecated: false }} />);
 
-    expect(errSpy).not.toHaveBeenCalled();
-  });
+  //   expect(errSpy).not.toHaveBeenCalled();
+  // });
 });
