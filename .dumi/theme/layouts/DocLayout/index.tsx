@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import zhCN from 'antd/es/locale/zh_CN';
 import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
@@ -27,6 +27,24 @@ const locales = {
   },
 };
 
+const hasTitle = () => {
+  const title = document.querySelector('title');
+  if (title && title.innerHTML !== '') {
+    return true;
+  }
+  return false;
+};
+
+const hasMeta = (name: string) => {
+  const metaTags = document.getElementsByTagName('meta');
+  for (let i = 0; i < metaTags.length; i++) {
+    if (metaTags[i].getAttribute('name') === name && metaTags[i].getAttribute('content') !== '') {
+      return true;
+    }
+  }
+  return false;
+};
+
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
@@ -36,11 +54,29 @@ const DocLayout: React.FC = () => {
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
 
+  const isIndexPage =
+    ['', '/'].some((path) => path === pathname) ||
+    ['/index'].some((path) => pathname.startsWith(path));
+
+  // gen default title and description for index page, other pages should have their own title and description by dumi
+  const [showDefaultTitle, setShowDefaultTitle] = useState(!!isIndexPage);
+  const [showDefaultDesc, setShowDefaultDesc] = useState(!!isIndexPage);
+
   useLayoutEffect(() => {
     if (lang === 'cn') {
       dayjs.locale('zh-cn');
     } else {
       dayjs.locale('en');
+    }
+  }, []);
+
+  // turn off default title and description render if we have prerender ones
+  useLayoutEffect(() => {
+    if (!hasTitle()) {
+      setShowDefaultTitle(true);
+    }
+    if (!hasMeta('description')) {
+      setShowDefaultDesc(true);
     }
   }, []);
 
@@ -98,13 +134,13 @@ const DocLayout: React.FC = () => {
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />
-        <title>{locale?.title}</title>
+        {showDefaultTitle && <title>{locale?.title}</title>}
+        {showDefaultTitle && <meta property="og:title" content={locale?.title} />}
+        {showDefaultDesc && <meta name="description" content={locale.description} />}
         <link
           sizes="144x144"
           href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
         />
-        <meta name="description" content={locale.description} />
-        <meta property="og:title" content={locale?.title} />
         <meta property="og:description" content={locale.description} />
         <meta property="og:type" content="website" />
         <meta
