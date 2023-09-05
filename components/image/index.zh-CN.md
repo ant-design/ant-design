@@ -42,7 +42,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | alt | 图像描述 | string | - | 4.6.0 |
 | fallback | 加载失败容错地址 | string | - | 4.6.0 |
 | height | 图像高度 | string \| number | - | 4.6.0 |
-| placeholder | 加载占位, 为 `true` 时使用默认占位 | ReactNode | - | 4.6.0 |
+| placeholder | 加载占位，为 `true` 时使用默认占位 | ReactNode | - | 4.6.0 |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true | 4.6.0 [PreviewType](#previewyype):4.7.0 |
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
@@ -162,6 +162,6 @@ type TransformAction =
 }
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Image"></ComponentTokenTable>

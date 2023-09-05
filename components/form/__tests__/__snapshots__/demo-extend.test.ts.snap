@@ -5415,6 +5415,7 @@ Array [
                 />
                 <div
                   aria-disabled="true"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
@@ -19989,6 +19990,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               </div>
               <div
                 aria-disabled="false"
+                aria-orientation="horizontal"
                 aria-valuemax="100"
                 aria-valuemin="0"
                 aria-valuenow="0"

@@ -1,24 +1,26 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
 import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import { FormContext, NoStyleItemContext } from '../context';
+import type { FormInstance } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
-import { FormContext, NoStyleItemContext } from '../context';
+import useChildren from '../hooks/useChildren';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
+import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
-import useChildren from '../hooks/useChildren';
-import useStyle from '../style';
-import type { FormInstance } from '../Form';
+import StatusProvider from './StatusProvider';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -213,7 +215,19 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
-      return baseChildren;
+      return (
+        <StatusProvider
+          prefixCls={prefixCls}
+          hasFeedback={props.hasFeedback}
+          validateStatus={props.validateStatus}
+          meta={meta}
+          errors={mergedErrors}
+          warnings={mergedWarnings}
+          noStyle
+        >
+          {baseChildren}
+        </StatusProvider>
+      );
     }
 
     return (
