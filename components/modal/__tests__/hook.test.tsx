@@ -487,6 +487,6 @@ describe('Modal.hook', () => {
     });
     await waitFakeTimer();
 
-    expect(lastResult).toBeFalsy();
+    expect(lastResult).toBe(false);
   });
 });
