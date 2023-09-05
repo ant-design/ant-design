@@ -1,7 +1,7 @@
 ## zh-CN
 
-使用 `gap` 自定义子元素之间的间距。
+嵌套使用，可以实现更复杂的布局。
 
 ## en-US
 
-Set the gap between child elements.
+Nesting can achieve more complex layouts.
