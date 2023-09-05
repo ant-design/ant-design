@@ -1,5 +1,3 @@
-'use client';
-
 import type { MenuRef as RcMenuRef } from 'rc-menu';
 import { ItemGroup } from 'rc-menu';
 import * as React from 'react';

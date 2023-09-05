@@ -1,5 +1,3 @@
-'use client';
-
 import InternalCard from './Card';
 import Grid from './Grid';
 import Meta from './Meta';
