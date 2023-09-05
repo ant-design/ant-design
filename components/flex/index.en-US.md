@@ -18,11 +18,9 @@ Flex. Available since `5.9.0`.
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/vertical.tsx">vertical</code>
 <code src="./demo/align.tsx">align</code>
-<code src="./demo/gap.tsx">gap</code>
-<code src="./demo/gap-customize.tsx">customize gap</code>
 <code src="./demo/wrap.tsx">Wrap</code>
+<code src="./demo/combination.tsx">combination</code>
 
 ## API
 
