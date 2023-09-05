@@ -1,6 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-
 import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
