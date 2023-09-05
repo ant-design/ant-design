@@ -1,8 +1,8 @@
 import type { GenerateStyle } from '../../theme/internal';
 import type { NotificationToken } from '.';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { NotificationPlacement } from 'antd/es/notification/interface';
-import { NotificationPlacements } from 'antd/es/notification/interface';
+import type { NotificationPlacement } from '../interface';
+import { NotificationPlacements } from '../interface';
 
 const placementAlignProperty: Record<NotificationPlacement, 'left' | 'right' | null> = {
   topLeft: 'left',
