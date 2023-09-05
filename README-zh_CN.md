@@ -78,6 +78,10 @@ npm install antd --save
 yarn add antd
 ```
 
+```bash
+pnpm add antd
+```
+
 ## 🔨 示例
 
 ```jsx
