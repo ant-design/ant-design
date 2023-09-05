@@ -25,7 +25,6 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
-      position: 'relative',
       '&-rtl': {
         direction: 'rtl',
       },
