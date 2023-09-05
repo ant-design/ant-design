@@ -265,7 +265,7 @@ export default genComponentStyleHook(
       notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,
-      notificationStackLayer: 3,
+      notificationStackLayer: 5,
     });
 
     return [
