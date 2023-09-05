@@ -30,7 +30,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
-<code src="./demo/stack.tsx">Stack</code>
+<code src="./demo/stack.tsx" version="5.10.0">Stack</code>
 <code src="./demo/basic.tsx">Static Method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
