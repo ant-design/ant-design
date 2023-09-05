@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+
 import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
   genActiveStyle,
@@ -682,7 +683,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         textAlign: 'center',
 
         '&-extra': {
-          padding: `0 ${paddingSM}`,
+          padding: `0 ${paddingSM}px`,
           lineHeight: `${textHeight - 2 * lineWidth}px`,
           textAlign: 'start',
 
