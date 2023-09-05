@@ -925,6 +925,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1040,6 +1041,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1155,6 +1157,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="2"

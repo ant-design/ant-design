@@ -50,6 +50,6 @@ demo:
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | value | 当前选中的值 | string \| number |  |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Segmented"></ComponentTokenTable>

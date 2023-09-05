@@ -15,7 +15,7 @@ jobs:
       require-result: ${{ steps.contributors.outputs.content }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Read contributors.json
         id: contributors
         uses: juliangruber/read-file-action@v1

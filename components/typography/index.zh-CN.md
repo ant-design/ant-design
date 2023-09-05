@@ -156,7 +156,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开时的回调 | function(event) | - |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Typography"></ComponentTokenTable>
 

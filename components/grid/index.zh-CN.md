@@ -87,6 +87,6 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Grid"></ComponentTokenTable>

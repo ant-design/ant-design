@@ -1,5 +1,3 @@
-'use client';
-
 /* eslint-disable react/no-array-index-key */
 import classNames from 'classnames';
 import * as React from 'react';

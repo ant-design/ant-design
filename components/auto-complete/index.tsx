@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';

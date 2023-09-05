@@ -51,7 +51,7 @@ OK, you should now see a blue primary button displayed on the page. Next you can
 
 We are successfully running antd components now, go build your own application!
 
-## Use the Pages Router of Next.js
+## Using Pages Router
 
 If you are using the Pages Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
@@ -155,7 +155,7 @@ export default Home;
 
 For more detailed information, please refer to [with-nextjs-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style).
 
-## Using Next.js App Router
+## Using App Router
 
 If you are using the App Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
