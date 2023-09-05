@@ -15,6 +15,10 @@ const useStyle = createStyles(({ token, css }) => ({
   ref: css`
     margin-left: ${token.marginXS}px;
   `,
+
+  btn: css`
+    color: ${token.colorTextSecondary};
+  `,
 }));
 
 export interface ComponentChangelogProps {
@@ -152,6 +156,8 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
   return (
     <>
       <Button
+        size="small"
+        className={styles.btn}
         icon={<HistoryOutlined />}
         onClick={() => {
           setShow(true);
