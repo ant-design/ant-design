@@ -47,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | Trigger of ColorPicker | React.ReactNode | - | |
 | defaultValue | Default value of color | string \| `Color` | - | |
+| defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
 | disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
