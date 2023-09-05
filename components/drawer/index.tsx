@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';

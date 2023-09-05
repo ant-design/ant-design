@@ -1,5 +1,3 @@
-'use client';
-
 import Dragger from './Dragger';
 import type { UploadProps } from './Upload';
 import InternalUpload, { LIST_IGNORE } from './Upload';

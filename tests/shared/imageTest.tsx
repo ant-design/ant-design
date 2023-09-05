@@ -75,16 +75,20 @@ export default function imageTest(component: React.ReactElement) {
       styleStr,
     );
 
-    await page.waitForSelector('#end-of-screen');
+    await page.waitForSelector('#end-of-screen', {
+      timeout: 0,
+    });
 
     const image = await page.screenshot({
       fullPage: true,
+      captureBeyondViewport: true,
+      optimizeForSpeed: true,
     });
 
     expect(image).toMatchImageSnapshot();
 
     MockDate.reset();
-    page.removeListener('request', onRequestHandle);
+    page.off('request', onRequestHandle);
   });
 }
 

@@ -136,7 +136,7 @@ const validateMessages = {
 | messageVariables | 默认验证字段的信息 | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
 | normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
-| noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
+| noStyle | 为 `true` 时不带样式，作为纯字段控件使用。当自身没有 `validateStatus` 而父元素存在有 `validateStatus` 的 Form.Item 会继承父元素的 `validateStatus` | boolean | false |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#rule)\[] | - |  |
@@ -146,7 +146,7 @@ const validateMessages = {
 | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
+| valuePropName | 子节点的值的属性，如 Switch、Checkbox 的是 `checked`。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
@@ -534,6 +534,16 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
+
+### Switch、Checkbox 为什么不能绑定数据？
+
+Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
+
+```tsx | pure
+<Form.Item name="fieldA" valuePropName="checked">
+  <Switch />
+</Form.Item>
+```
 
 ### 自定义 validator 没有效果
 
