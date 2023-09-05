@@ -1,17 +1,18 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
-import Dialog from './Modal';
 import type { ModalFuncProps, ModalLocale } from './interface';
+import Dialog from './Modal';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -172,6 +173,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closeIcon,
     modalRender,
     focusTriggerAfterClose,
+    onConfirm,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -211,7 +213,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
           { [`${confirmPrefixCls}-centered`]: !!props.centered },
           wrapClassName,
         )}
-        onCancel={() => close?.({ triggerCancel: true })}
+        onCancel={() => {
+          close?.({ triggerCancel: true });
+          onConfirm?.(false);
+        }}
         open={open}
         title=""
         footer={null}
