@@ -1,10 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type {
-  NotificationAPI,
-  NotificationConfig as RcNotificationConfig,
-} from 'rc-notification/lib';
+import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
