@@ -3,11 +3,10 @@
 exports[`renders components/tabs/demo/animated.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="true"
@@ -4554,12 +4553,11 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 2`] = `[
 exports[`renders components/tabs/demo/position.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="margin-bottom: 24px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       Tab position:
     </div>

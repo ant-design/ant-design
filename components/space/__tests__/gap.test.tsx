@@ -6,7 +6,6 @@ import { render } from '../../../tests/utils';
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
   isStyleSupport: () => true,
-  detectFlexGapSupported: () => true,
 }));
 
 describe('flex gap', () => {
