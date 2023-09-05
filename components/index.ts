@@ -1,5 +1,3 @@
-'use client';
-
 export type { Breakpoint } from './_util/responsiveObserver';
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';

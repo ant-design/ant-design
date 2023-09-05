@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';

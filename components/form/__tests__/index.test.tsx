@@ -1,15 +1,16 @@
-import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
+import type { ColProps } from 'antd/es/grid';
+import classNames from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import { AlertFilled } from '@ant-design/icons';
-import type { ColProps } from 'antd/es/grid';
+
 import type { FormInstance } from '..';
 import Form from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -1407,38 +1408,91 @@ describe('Form', () => {
     expect(subFormInstance).toBe(formInstance);
   });
 
-  it('noStyle should not affect status', () => {
-    const Demo: React.FC = () => (
-      <Form>
-        <Form.Item validateStatus="error" noStyle>
-          <Select className="custom-select" />
-        </Form.Item>
-        <Form.Item validateStatus="error">
+  describe('noStyle with status', () => {
+    it('noStyle should not affect status', async () => {
+      const Demo: React.FC = () => (
+        <Form>
+          {/* should change status */}
+          <Form.Item validateStatus="error" noStyle>
+            <Select className="custom-select" />
+          </Form.Item>
+
+          {/* should follow parent status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle>
+              <Select className="custom-select-b" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle validateStatus="warning">
+              <Select className="custom-select-c" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
           <Form.Item noStyle>
-            <Select className="custom-select-b" />
+            <Form.Item validateStatus="warning">
+              <Select className="custom-select-d" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-        <Form.Item validateStatus="error">
-          <Form.Item noStyle validateStatus="warning">
-            <Select className="custom-select-c" />
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle validateStatus="">
+              <Select className="custom-select-e" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-        <Form.Item noStyle>
-          <Form.Item validateStatus="warning">
-            <Select className="custom-select-d" />
+        </Form>
+      );
+      const { container } = render(<Demo />);
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-e')).not.toHaveClass(
+        'ant-select-status-error',
+      );
+      expect(container.querySelector('.custom-select-e')).toHaveClass('ant-select-in-form-item');
+    });
+
+    it('parent pass status', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item label="name">
+            <Form.Item name="first" noStyle rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item name="last" noStyle>
+              <Input />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-      </Form>
-    );
-    const { container } = render(<Demo />);
-    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+        </Form>,
+      );
+
+      // Input and set back to empty
+      await changeValue(0, 'Once');
+      await changeValue(0, '');
+
+      expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toEqual(
+        "'first' is required",
+      );
+
+      expect(container.querySelectorAll('input')[0]).toHaveClass('ant-input-status-error');
+      expect(container.querySelectorAll('input')[1]).not.toHaveClass('ant-input-status-error');
+    });
   });
 
   it('should not affect Popup children style', () => {

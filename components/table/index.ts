@@ -1,5 +1,3 @@
-'use client';
-
 import { type TablePaginationConfig, type TableProps } from './InternalTable';
 import Table from './Table';
 

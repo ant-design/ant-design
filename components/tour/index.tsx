@@ -1,5 +1,3 @@
-'use client';
-
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 import React, { useContext } from 'react';
