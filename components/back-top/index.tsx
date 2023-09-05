@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';

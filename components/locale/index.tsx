@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 

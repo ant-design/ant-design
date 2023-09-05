@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';

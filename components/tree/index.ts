@@ -1,5 +1,3 @@
-'use client';
-
 import type RcTree from 'rc-tree';
 import type { BasicDataNode } from 'rc-tree';
 import { TreeNode } from 'rc-tree';

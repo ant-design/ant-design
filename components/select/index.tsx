@@ -1,5 +1,3 @@
-'use client';
-
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import * as React from 'react';
 import classNames from 'classnames';

@@ -1,5 +1,3 @@
-'use client';
-
 import type { CountdownProps } from './Countdown';
 import Countdown from './Countdown';
 import type { StatisticProps } from './Statistic';

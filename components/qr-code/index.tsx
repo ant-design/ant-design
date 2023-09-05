@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useContext } from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import classNames from 'classnames';

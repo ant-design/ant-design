@@ -20,6 +20,7 @@ import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
+import StatusProvider from './StatusProvider';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -34,6 +35,12 @@ export type ValidateStatus = typeof ValidateStatuses[number];
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
 type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
+
+export type FeedbackIcons = (itemStatus: {
+  status: ValidateStatus;
+  errors?: React.ReactNode[];
+  warnings?: React.ReactNode[];
+}) => { [key in ValidateStatus]?: React.ReactNode };
 
 interface MemoInputProps {
   value: any;
@@ -62,7 +69,7 @@ export interface FormItemProps<Values = any>
   rootClassName?: string;
   children?: ChildrenType<Values>;
   id?: string;
-  hasFeedback?: boolean;
+  hasFeedback?: boolean | { icons: FeedbackIcons };
   validateStatus?: ValidateStatus;
   required?: boolean;
   hidden?: boolean;
@@ -214,7 +221,19 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
-      return baseChildren;
+      return (
+        <StatusProvider
+          prefixCls={prefixCls}
+          hasFeedback={props.hasFeedback}
+          validateStatus={props.validateStatus}
+          meta={meta}
+          errors={mergedErrors}
+          warnings={mergedWarnings}
+          noStyle
+        >
+          {baseChildren}
+        </StatusProvider>
+      );
     }
 
     return (

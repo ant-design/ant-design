@@ -1,5 +1,3 @@
-'use client';
-
 import type { CSSProperties } from 'react';
 import * as React from 'react';
 import type { BuildInPlacements } from '@rc-component/trigger';
