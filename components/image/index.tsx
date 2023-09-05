@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';

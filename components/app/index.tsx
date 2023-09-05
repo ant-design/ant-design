@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
