@@ -13,5 +13,5 @@ export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLEleme
   flex?: React.CSSProperties['flex'];
   gap?: React.CSSProperties['gap'] | SizeType;
   children: React.ReactNode;
-  component?: React.ElementType<P>;
+  component?: React.ComponentType<P>;
 }

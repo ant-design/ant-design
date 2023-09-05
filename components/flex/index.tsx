@@ -4,14 +4,14 @@ import React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
+import { isPresetSize } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
-import createFlexClassNames from './classNames';
 import type { FlexProps } from './interface';
 import useStyle from './style';
-import { createContainer, isPresetSize } from './utils';
+import createFlexClassNames from './utils';
 
-const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
+const FlexBox = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
@@ -20,7 +20,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     flex,
     gap,
     children,
-    component = 'div',
+    component: Component = 'div',
     ...otherProps
   } = props;
 
@@ -34,8 +34,6 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const Container = createContainer(component);
-
   const mergedCls = classNames(
     className,
     rootClassName,
@@ -45,7 +43,7 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     createFlexClassNames(prefixCls, props),
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-gap-${gap}`]: gap && isPresetSize(gap),
+      [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),
     },
   );
 
@@ -60,14 +58,14 @@ const FlexBox = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   }
 
   return wrapSSR(
-    <Container
+    <Component
       ref={ref}
       className={mergedCls}
       style={mergedStyle}
       {...omit(otherProps, ['direction', 'justify', 'wrap', 'align'])}
     >
       {children}
-    </Container>,
+    </Component>,
   );
 });
 

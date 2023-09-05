@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { CSSProperties } from 'react';
 import { Button, Flex, Segmented } from 'antd';
-import { alignItemsValues, justifyContentValues } from 'antd/es/flex/classNames';
+import { alignItemsValues, justifyContentValues } from 'antd/es/flex/utils';
 
 const boxStyle: React.CSSProperties = {
   width: '100%',

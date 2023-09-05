@@ -7,7 +7,7 @@ import {
   flexDirectionValues,
   flexWrapValues,
   justifyContentValues,
-} from '../classNames';
+} from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
