@@ -45,6 +45,7 @@ export type ColorPickerProps = Omit<
   placement?: TriggerPlacement;
   trigger?: TriggerType;
   format?: keyof typeof ColorFormat;
+  defaultFormat?: keyof typeof ColorFormat;
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
@@ -73,6 +74,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     value,
     defaultValue,
     format,
+    defaultFormat,
     allowClear = false,
     presets,
     children,
@@ -114,6 +116,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   });
   const [formatValue, setFormatValue] = useMergedState(format, {
     value: format,
+    defaultValue: defaultFormat,
     onChange: onFormatChange,
   });
 
