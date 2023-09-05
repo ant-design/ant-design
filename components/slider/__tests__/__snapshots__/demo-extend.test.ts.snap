@@ -818,12 +818,11 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
 
 exports[`renders components/slider/demo/input-number.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-row"

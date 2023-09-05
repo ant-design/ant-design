@@ -68,7 +68,7 @@ describe('Space', () => {
     );
 
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
-    expect(items[0]?.style.marginRight).toBe('10px');
+    expect(items[0]?.style.marginRight).toBe('');
     expect(items[1]?.style.marginRight).toBe('');
   });
 
@@ -81,7 +81,7 @@ describe('Space', () => {
     );
 
     const items = container.querySelectorAll<HTMLDivElement>('div.ant-space-item');
-    expect(items[0]?.style.marginBottom).toBe('10px');
+    expect(items[0]?.style.marginBottom).toBe('');
     expect(items[1]?.style.marginBottom).toBe('');
   });
 
@@ -224,6 +224,6 @@ describe('Space', () => {
     );
     expect(
       container.querySelector<HTMLDivElement>('.ant-space-item')?.getAttribute('style'),
-    ).toEqual('margin-right: 8px; color: red;');
+    ).toEqual('color: red;');
   });
 });

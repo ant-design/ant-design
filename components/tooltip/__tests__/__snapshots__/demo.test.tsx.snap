@@ -188,11 +188,10 @@ exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
 
 exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -302,12 +301,11 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -320,7 +318,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -333,7 +330,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -346,7 +342,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -359,7 +354,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -372,7 +366,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -385,7 +378,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -398,7 +390,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -411,7 +402,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -424,7 +414,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -437,7 +426,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -450,7 +438,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -463,7 +450,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -486,12 +472,11 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -504,7 +489,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -517,7 +501,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -530,7 +513,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -553,11 +535,10 @@ exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1
 
 exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="ant-tooltip-disabled-compatible-wrapper"
@@ -577,7 +558,6 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <input
       class="ant-input ant-input-disabled"
@@ -589,7 +569,6 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <div
       class="ant-input-number ant-input-number-disabled"
@@ -668,7 +647,6 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
