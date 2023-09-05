@@ -410,12 +410,11 @@ exports[`renders components/select/demo/automatic-tokenization.tsx extend contex
 
 exports[`renders components/select/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -596,7 +595,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
@@ -719,7 +717,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
@@ -841,7 +838,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -995,12 +991,11 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 2`] =
 
 exports[`renders components/select/demo/bordered.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
@@ -1164,7 +1159,6 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow ant-select-disabled"
@@ -1292,12 +1286,11 @@ exports[`renders components/select/demo/bordered.tsx extend context correctly 2`
 
 exports[`renders components/select/demo/coordinate.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -1444,7 +1437,6 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -1730,12 +1722,11 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
         style="margin: 8px 0px;"
       />
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         style="padding: 0px 8px 4px;"
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <input
             class="ant-input"
@@ -2102,12 +2093,11 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
 
 exports[`renders components/select/demo/debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px; width: 500px; position: relative; z-index: 1; border: 1px solid red; background-color: rgb(255, 255, 255);"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap; width: 500px; position: relative; z-index: 1; border: 1px solid red; background-color: rgb(255, 255, 255);"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <input
       class="ant-input"
@@ -2118,7 +2108,6 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
@@ -2312,7 +2301,6 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -2557,7 +2545,6 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <span
       class="debug-align"
@@ -2567,7 +2554,6 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4712,12 +4698,11 @@ exports[`renders components/select/demo/label-in-value.tsx extend context correc
 
 exports[`renders components/select/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -5964,12 +5949,11 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 2`
 
 exports[`renders components/select/demo/option-label-center.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -6284,11 +6268,10 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
                   class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         aria-label="China"
@@ -6340,11 +6323,10 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
                   class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         aria-label="USA"
@@ -6370,11 +6352,10 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
                   class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         aria-label="Japan"
@@ -6400,11 +6381,10 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
                   class="ant-select-item-option-content"
                 >
                   <div
-                    class="ant-space ant-space-horizontal ant-space-align-center"
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                   >
                     <div
                       class="ant-space-item"
-                      style="margin-right: 8px;"
                     >
                       <span
                         aria-label="Korea"
@@ -6702,12 +6682,11 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
   style="height: 100%; min-height: 500px; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="position: absolute; top: 0px; left: 50%; transform: translateX(-50%);"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -6793,7 +6772,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -6992,12 +6970,11 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
 
 exports[`renders components/select/demo/responsive.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -8687,12 +8664,11 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
     style="width: 100%;"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
         class="ant-select ant-select-single ant-select-show-arrow"
@@ -9247,7 +9223,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <div
         class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -10337,12 +10312,11 @@ exports[`renders components/select/demo/size.tsx extend context correctly 2`] = 
 
 exports[`renders components/select/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-status-error ant-select-single ant-select-show-arrow"
@@ -10590,12 +10564,11 @@ exports[`renders components/select/demo/status.tsx extend context correctly 2`] 
 
 exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -10776,7 +10749,6 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"

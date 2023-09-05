@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';

@@ -1,4 +1,5 @@
 {
+  "$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
   "formatter": {
     "enabled": true,
     "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*"],

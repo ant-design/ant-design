@@ -392,11 +392,10 @@ exports[`renders components/segmented/demo/controlled-two.tsx extend context cor
 
 exports[`renders components/segmented/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -615,11 +614,10 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 2
 
 exports[`renders components/segmented/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-disabled"
@@ -768,11 +766,10 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 
 exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -929,11 +926,10 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
 
 exports[`renders components/segmented/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-lg"
@@ -1017,7 +1013,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -1189,11 +1184,10 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 2`]
 
 exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div>
       <div
@@ -1260,7 +1254,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div>
       <div
