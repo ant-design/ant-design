@@ -82,7 +82,7 @@ const ListItem = React.forwardRef(
 
     // Delay to show the progress bar
     const [showProgress, setShowProgress] = React.useState(false);
-    const progressRafRef = React.useRef<NodeJS.Timer | null>(null);
+    const progressRafRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
     React.useEffect(() => {
       progressRafRef.current = setTimeout(() => {
         setShowProgress(true);
@@ -125,7 +125,7 @@ const ListItem = React.forwardRef(
         icon = (
           <a
             className={aClassName}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
             href={file.url || file.thumbUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -188,7 +188,7 @@ const ListItem = React.forwardRef(
             title={file.name}
             {...linkProps}
             href={file.url}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
           >
             {file.name}
           </a>,
@@ -198,7 +198,7 @@ const ListItem = React.forwardRef(
           <span
             key="view"
             className={listItemNameClass}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
             title={file.name}
           >
             {file.name}
@@ -215,7 +215,7 @@ const ListItem = React.forwardRef(
         target="_blank"
         rel="noopener noreferrer"
         style={file.url || file.thumbUrl ? undefined : previewStyle}
-        onClick={e => onPreview(file, e)}
+        onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
       >
         {typeof customPreviewIcon === 'function'
@@ -277,7 +277,7 @@ const ListItem = React.forwardRef(
     const listContainerNameClass = classNames(`${prefixCls}-list-${listType}-container`, className);
     const item =
       mergedStatus === 'error' ? (
-        <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+        <Tooltip title={message} getPopupContainer={(node) => node.parentNode as HTMLElement}>
           {dom}
         </Tooltip>
       ) : (
