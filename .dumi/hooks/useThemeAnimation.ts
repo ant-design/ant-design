@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 
 import theme from '../../components/theme';
 
@@ -37,10 +37,12 @@ const useThemeAnimation = () => {
     isDark: false,
     event: null,
   });
+  // @ts-ignore
+  const isApiAvailable = useMemo(() => typeof document.startViewTransition === 'function', []);
 
   const startAnimaTheme = () => {
     const { isDark, event } = animateRef.current;
-    if (!event) return;
+    if (!(event && isApiAvailable)) return;
     const x = event.clientX;
     const y = event.clientY;
     const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
@@ -75,10 +77,13 @@ const useThemeAnimation = () => {
     animateRef.current.event = event;
   };
 
+  // inject transition style
   useEffect(() => {
-    const style = document.createElement('style');
-    style.innerHTML = viewTransitionStyle;
-    document.head.append(style);
+    if (isApiAvailable) {
+      const style = document.createElement('style');
+      style.innerHTML = viewTransitionStyle;
+      document.head.append(style);
+    }
   }, []);
 
   useEffect(() => {
