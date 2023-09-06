@@ -33,7 +33,6 @@ const genStackChildrenStyle = (token: NotificationToken): CSSObject => {
   const childrenStyle: CSSObject = {};
   for (let i = 1; i < token.notificationStackLayer; i++) {
     childrenStyle[`&:nth-last-child(${i + 1})`] = {
-      // width: token.width - token.paddingXS * 2 * i,
       overflow: 'hidden',
 
       [`& > ${token.componentCls}-notice`]: {
@@ -46,7 +45,6 @@ const genStackChildrenStyle = (token: NotificationToken): CSSObject => {
   return {
     [`&:not(:nth-last-child(-n+${token.notificationStackLayer}))`]: {
       opacity: 0,
-      // width: token.width - token.paddingXS * 2 * 3,
       overflow: 'hidden',
       color: 'transparent',
       pointerEvents: 'none',
@@ -60,7 +58,7 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
   return {
     [`${componentCls}-stack`]: {
       [`& > ${componentCls}-notice-wrapper`]: {
-        transition: 'all 0.3s',
+        transition: `all ${token.motionDurationSlow}`,
         position: 'absolute',
 
         ...genStackChildrenStyle(token),
