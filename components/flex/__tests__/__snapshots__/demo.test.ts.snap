@@ -282,25 +282,15 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
         >
           “antd is an enterprise-class UI design language and React UI library.”
         </h3>
-        <div
-          class="ant-flex ant-flex-direction-column ant-flex-align-flex-start"
+        <a
+          class="ant-btn ant-btn-primary"
+          href="https://ant.design"
+          target="_blank"
         >
-          <a
-            class="ant-btn ant-btn-link"
-            href="https://github.com/afc163"
-            style="padding:0"
-            target="_blank"
-          >
-            <span>
-              afc163
-            </span>
-          </a>
-          <h5
-            class="ant-typography"
-          >
-            ant-design author
-          </h5>
-        </div>
+          <span>
+            Go HomePage
+          </span>
+        </a>
       </div>
     </div>
   </div>
