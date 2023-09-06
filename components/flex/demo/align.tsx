@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { CSSProperties } from 'react';
-import { Button, Flex, Radio } from 'antd';
-import type { RadioChangeEvent } from 'antd';
+import { Button, Flex, Segmented } from 'antd';
+import type { SegmentedProps } from 'antd/es/segmented';
 
 const boxStyle: React.CSSProperties = {
   width: '100%',
@@ -10,39 +10,30 @@ const boxStyle: React.CSSProperties = {
   border: '1px solid #40a9ff',
 };
 
+const justifyOptions = [
+  'flex-start',
+  'center',
+  'flex-end',
+  'space-between',
+  'space-around',
+  'space-evenly',
+];
+
+const alignOptions = ['flex-start', 'center', 'flex-end'];
+
 const App: React.FC = () => {
   const [justify, setJustify] = useState<CSSProperties['justifyContent']>('space-around');
   const [alignItems, setAlignItems] = useState<CSSProperties['alignItems']>('center');
-  const onChangeJustify = (e: RadioChangeEvent) => {
-    setJustify(e.target.value);
-  };
-  const onChangeAlignItems = (e: RadioChangeEvent) => {
-    setAlignItems(e.target.value);
-  };
   return (
     <>
       <p>Select justify :</p>
       <br />
-      <Radio.Group value={justify} onChange={onChangeJustify}>
-        {['flex-start', 'center', 'flex-end', 'space-between', 'space-around', 'space-evenly'].map(
-          (jus) => (
-            <Radio key={jus} value={jus}>
-              {jus}
-            </Radio>
-          ),
-        )}
-      </Radio.Group>
+      <Segmented options={justifyOptions} onChange={setJustify as SegmentedProps['onChange']} />
       <br />
       <br />
       <p>Select align :</p>
       <br />
-      <Radio.Group value={alignItems} onChange={onChangeAlignItems}>
-        {['flex-start', 'center', 'flex-end'].map((ali) => (
-          <Radio key={ali} value={ali}>
-            {ali}
-          </Radio>
-        ))}
-      </Radio.Group>
+      <Segmented options={alignOptions} onChange={setAlignItems as SegmentedProps['onChange']} />
       <br />
       <br />
       <Flex style={boxStyle} justify={justify} align={alignItems}>

@@ -482,6 +482,21 @@ const GlobalStyle: React.FC = () => {
           }
         }
 
+        [id='flex-demo-basic'] {
+          .code-box-demo {
+            .ant-flex {
+              div {
+                width: 25%;
+                height: 54px;
+                background-color: ${demoGridColor};
+                &:nth-child(2n + 1) {
+                  background: ${new TinyColor(demoGridColor).setAlpha(0.75).toHex8String()};
+                }
+              }
+            }
+          }
+        }
+
         [id='components-grid-demo-playground'],
         [id='components-grid-demo-gutter'] {
           > .code-box-demo ${antCls}-row > div {

@@ -30,6 +30,7 @@ import type {
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
+  FlexConfig,
   PopupOverflow,
   Theme,
   ThemeConfig,
@@ -190,7 +191,7 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-  flex?: ComponentStyleConfig;
+  flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
    */

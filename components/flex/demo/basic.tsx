@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Flex, Radio } from 'antd';
+import { Flex, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 
 const App: React.FC = () => {
@@ -19,21 +19,10 @@ const App: React.FC = () => {
       <br />
       <br />
       <Flex direction={direction}>
-        <Card size="small" hoverable>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-        <Card size="small" hoverable>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-        <Card size="small" hoverable>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
+        <div />
+        <div />
+        <div />
+        <div />
       </Flex>
     </>
   );

@@ -5,6 +5,7 @@ import type { Options } from 'scroll-into-view-if-needed';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
+import type { FlexProps } from '../flex/interface';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
@@ -58,6 +59,10 @@ export interface BadgeConfig extends ComponentStyleConfig {
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
+}
+
+export interface FlexConfig extends ComponentStyleConfig {
+  direction?: FlexProps['direction'];
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -153,7 +158,7 @@ export interface ConfigConsumerProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-  flex?: ComponentStyleConfig;
+  flex?: FlexConfig;
   wave?: WaveConfig;
 }
 

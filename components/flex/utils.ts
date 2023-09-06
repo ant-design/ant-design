@@ -80,7 +80,10 @@ const genMergedAlignCls = (
   };
 };
 
-const createFlexClassNames = (prefixCls: string, props: FlexProps) => {
+const createFlexClassNames = (
+  prefixCls: string,
+  props: Pick<FlexProps, 'direction' | 'wrap' | 'justify' | 'align'>,
+) => {
   const { direction, wrap, justify, align } = props;
   return classNames({
     ...genClsWrap(prefixCls, wrap),

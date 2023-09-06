@@ -7,123 +7,97 @@ Array [
   </p>,
   <br />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-segmented"
   >
-    <label
-      class="ant-radio-wrapper"
+    <div
+      class="ant-segmented-group"
     >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="flex-start"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        flex-start
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="center"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        center
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="flex-end"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        flex-end
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="space-between"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        space-between
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
-    >
-      <span
-        class="ant-radio ant-wave-target ant-radio-checked"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="space-around"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        space-around
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="space-evenly"
         />
-        <span
-          class="ant-radio-inner"
+        <div
+          class="ant-segmented-item-label"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
         />
-      </span>
-      <span>
-        space-evenly
-      </span>
-    </label>
+        <div
+          class="ant-segmented-item-label"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="space-between"
+        >
+          space-between
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="space-around"
+        >
+          space-around
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="space-evenly"
+        >
+          space-evenly
+        </div>
+      </label>
+    </div>
   </div>,
   <br />,
   <br />,
@@ -132,66 +106,55 @@ Array [
   </p>,
   <br />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-segmented"
   >
-    <label
-      class="ant-radio-wrapper"
+    <div
+      class="ant-segmented-group"
     >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="flex-start"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        flex-start
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
-    >
-      <span
-        class="ant-radio ant-wave-target ant-radio-checked"
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="center"
         />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        center
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
+        <div
+          class="ant-segmented-item-label"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
       >
         <input
-          class="ant-radio-input"
+          class="ant-segmented-item-input"
           type="radio"
-          value="flex-end"
         />
-        <span
-          class="ant-radio-inner"
+        <div
+          class="ant-segmented-item-label"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
         />
-      </span>
-      <span>
-        flex-end
-      </span>
-    </label>
+        <div
+          class="ant-segmented-item-label"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+    </div>
   </div>,
   <br />,
   <br />,
@@ -285,57 +248,10 @@ Array [
   <div
     class="ant-flex ant-flex-direction-row"
   >
-    <div
-      class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
-    >
-      <div
-        class="ant-card-body"
-      >
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
-    </div>
-    <div
-      class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
-    >
-      <div
-        class="ant-card-body"
-      >
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
-    </div>
-    <div
-      class="ant-card ant-card-bordered ant-card-hoverable ant-card-small"
-    >
-      <div
-        class="ant-card-body"
-      >
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-        <p>
-          Card content
-        </p>
-      </div>
-    </div>
+    <div />
+    <div />
+    <div />
+    <div />
   </div>,
 ]
 `;
@@ -343,7 +259,7 @@ Array [
 exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
-  style="width:530px"
+  style="width:620px"
 >
   <div
     class="ant-card-body"
@@ -354,8 +270,8 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
     >
       <img
         alt=""
-        src="https://tailwindcss.com/_next/static/media/sarah-dayan.de9b3815.jpg"
-        style="display:block;width:192px"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        style="display:block;width:273px"
       />
       <div
         class="ant-flex ant-flex-justify-space-between ant-flex-direction-column ant-flex-align-flex-start"
@@ -371,18 +287,18 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
         >
           <a
             class="ant-btn ant-btn-link"
-            href="https://github.com/zombieJ"
+            href="https://github.com/afc163"
             style="padding:0"
             target="_blank"
           >
             <span>
-              zombieJ
+              afc163
             </span>
           </a>
           <h5
             class="ant-typography"
           >
-            ant-design team core munber
+            ant-design author
           </h5>
         </div>
       </div>
@@ -393,10 +309,6 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
 
 exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
 Array [
-  <p>
-    Select gap :
-  </p>,
-  <br />,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -458,38 +370,27 @@ Array [
         large
       </span>
     </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="customize"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        customize
+      </span>
+    </label>
   </div>,
   <br />,
-  <br />,
-  <p>
-    Custom gap :
-  </p>,
-  <br />,
-  <div
-    class="ant-slider ant-slider-horizontal"
-  >
-    <div
-      class="ant-slider-rail"
-    />
-    <div
-      class="ant-slider-track"
-      style="left:0%;width:8%"
-    />
-    <div
-      class="ant-slider-step"
-    />
-    <div
-      aria-disabled="false"
-      aria-orientation="horizontal"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="8"
-      class="ant-slider-handle"
-      role="slider"
-      style="left:8%;transform:translateX(-50%)"
-      tabindex="0"
-    />
-  </div>,
   <br />,
   <div
     class="ant-flex ant-flex-gap-small"
