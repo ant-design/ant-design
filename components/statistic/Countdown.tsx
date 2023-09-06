@@ -19,12 +19,12 @@ function getTime(value?: countdownValueType) {
   return new Date(value as valueType).getTime();
 }
 
-const Countdown: React.FC<CountdownProps> = props => {
+const Countdown: React.FC<CountdownProps> = (props) => {
   const { value, format = 'HH:mm:ss', onChange, onFinish } = props;
 
   const forceUpdate = useForceUpdate();
 
-  const countdown = React.useRef<NodeJS.Timer | null>(null);
+  const countdown = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const stopTimer = () => {
     onFinish?.();
