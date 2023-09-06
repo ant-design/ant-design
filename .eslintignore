@@ -30,3 +30,5 @@ coverage
 scripts/previewEditor/**/*
 jest-stare
 locale
+.dumi
+report.html
