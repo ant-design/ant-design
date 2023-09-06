@@ -1,10 +1,12 @@
+import React from 'react';
 import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
+import { FloatButton } from 'antd';
+import { useTheme } from 'antd-style';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 // import { Motion } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, Link, useLocation } from 'dumi';
-import React from 'react';
-import { useTheme } from 'antd-style';
-import { FloatButton } from 'antd';
+
+import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
@@ -22,6 +24,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
 
   // const isMotionOff = value.includes('motion-off');
   const isHappyWork = value.includes('happy-work');
+  const isDark = value.includes('dark');
+
+  const toggleAnimateTheme = useThemeAnimation();
 
   return (
     <FloatButton.Group
@@ -42,9 +47,12 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
       </Link>
       <FloatButton
         icon={<DarkTheme />}
-        type={value.includes('dark') ? 'primary' : 'default'}
-        onClick={() => {
-          if (value.includes('dark')) {
+        type={isDark ? 'primary' : 'default'}
+        onClick={(e) => {
+          // Toggle animate when switch theme
+          toggleAnimateTheme(e, isDark);
+
+          if (isDark) {
             onChange(value.filter((theme) => theme !== 'dark'));
           } else {
             onChange([...value, 'dark']);
