@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 4.24.14
+
+`2023-09-06`
+
+- 🐞 修复 Breadcrumb 使用 `menu` 属性时出现 `overlay` 废弃警告的问题。[#43917](https://github.com/ant-design/ant-design/pull/44578) [@whalesink](https://github.com/whalesink)
+- 🐞 修复 Upload gif 缩略图不会动的问题。[#44129](https://github.com/ant-design/ant-design/pull/44129) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 ConfigProvider 抛出 `rc-util/lib/utils/set` 不存在的问题。[#44630](https://github.com/ant-design/ant-design/pull/44630) [@varown](https://github.com/varown)
+
 ## 4.24.13
 
 `2023-08-03`
