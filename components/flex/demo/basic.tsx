@@ -1,24 +1,25 @@
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Flex, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 
 const App: React.FC = () => {
-  const [direction, setDirection] = React.useState<React.CSSProperties['flexDirection']>('row');
+  const [vertical, setVertical] = React.useState<boolean>(false);
   const onChange = (e: RadioChangeEvent) => {
-    setDirection(e.target.value);
+    setVertical(e.target.value);
   };
   return (
     <>
-      <Radio.Group value={direction} onChange={onChange}>
-        {['row', 'column'].map((dir) => (
-          <Radio key={dir} value={dir}>
-            {dir}
+      <Radio.Group value={vertical} onChange={onChange}>
+        {[true, false].map((ver, i) => (
+          <Radio key={i} value={ver}>
+            vertical is {ver.toString()}
           </Radio>
         ))}
       </Radio.Group>
       <br />
       <br />
-      <Flex direction={direction}>
+      <Flex vertical={vertical}>
         <div />
         <div />
         <div />

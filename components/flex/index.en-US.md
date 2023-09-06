@@ -33,7 +33,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | style | custom style | React.CSSProperties | - |  |
 | className | custom className | string | - |  |
-| direction | Defines the direction of the flex main axis | reference [flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) | row |  |
+| vertical | Is direction of the flex vertical | boolean | `false` |  |
 | wrap | Set whether the element is displayed in a single line or in multiple lines | reference [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) | nowrap |  |
 | justify | Sets the alignment of elements in the direction of the main axis | reference [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) | normal |  |
 | align | Sets the alignment of elements in the direction of the cross axis | reference [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | normal |  |

@@ -18,7 +18,7 @@ const App: React.FC = () => (
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style={imgStyle}
       />
-      <Flex direction="column" align="flex-start" justify="space-between" style={{ padding: 32 }}>
+      <Flex vertical align="flex-start" justify="space-between" style={{ padding: 32 }}>
         <Typography.Title level={3}>
           “antd is an enterprise-class UI design language and React UI library.”
         </Typography.Title>

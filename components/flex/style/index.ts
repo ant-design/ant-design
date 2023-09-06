@@ -2,12 +2,7 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import {
-  alignItemsValues,
-  flexDirectionValues,
-  flexWrapValues,
-  justifyContentValues,
-} from '../utils';
+import { alignItemsValues, flexWrapValues, justifyContentValues } from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -43,6 +38,9 @@ const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       display: 'flex',
+      '&-vertical': {
+        flexDirection: 'column',
+      },
       '&-rtl': {
         direction: 'rtl',
       },
@@ -88,15 +86,6 @@ const genAlignItemsStyle: GenerateStyle<FlexToken> = (token) => {
   return alignStyle;
 };
 
-const genFlexDirectionStyle: GenerateStyle<FlexToken> = (token) => {
-  const { componentCls } = token;
-  const directionStyle: CSSInterpolation = {};
-  flexDirectionValues.forEach((value) => {
-    directionStyle[`${componentCls}-direction-${value}`] = { flexDirection: value };
-  });
-  return directionStyle;
-};
-
 const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   const { componentCls } = token;
   const justifyStyle: CSSInterpolation = {};
@@ -117,7 +106,6 @@ export default genComponentStyleHook<'Flex'>('Flex', (token) => {
     genFlexGapStyle(flexToken),
     genFlexWrapStyle(flexToken),
     genAlignItemsStyle(flexToken),
-    genFlexDirectionStyle(flexToken),
     genJustifyContentStyle(flexToken),
   ];
 });

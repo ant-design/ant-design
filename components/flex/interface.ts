@@ -6,7 +6,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 export interface FlexProps<P = AnyObject> extends React.HTMLAttributes<HTMLElement> {
   prefixCls?: string;
   rootClassName?: string;
-  direction?: React.CSSProperties['flexDirection'];
+  vertical?: boolean;
   wrap?: React.CSSProperties['flexWrap'];
   justify?: React.CSSProperties['justifyContent'];
   align?: React.CSSProperties['alignItems'];

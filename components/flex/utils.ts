@@ -2,8 +2,6 @@ import classNames from 'classnames';
 
 import type { FlexProps } from './interface';
 
-export const flexDirectionValues = ['row', 'row-reverse', 'column', 'column-reverse'] as const;
-
 export const flexWrapValues = ['wrap', 'nowrap', 'wrap-reverse'] as const;
 
 export const justifyContentValues = [
@@ -58,38 +56,12 @@ const genClsJustify = (prefixCls: string, justify: FlexProps['justify']) => {
   return justifyCls;
 };
 
-const genClsDirection = (prefixCls: string, direction: FlexProps['direction']) => {
-  const directionCls: Record<PropertyKey, boolean> = {};
-  flexDirectionValues.forEach((cssKey) => {
-    directionCls[`${prefixCls}-direction-${cssKey}`] = direction === cssKey;
-  });
-  return directionCls;
-};
-
-const genMergedAlignCls = (
-  prefixCls: string,
-  align: FlexProps['align'],
-  direction: FlexProps['direction'],
-) => {
-  if (align) {
-    return genClsAlign(prefixCls, align);
-  }
-  return {
-    ...genClsAlign(prefixCls, align),
-    [`${prefixCls}-align-stretch`]: direction === 'column' || direction === 'column-reverse',
-  };
-};
-
-const createFlexClassNames = (
-  prefixCls: string,
-  props: Pick<FlexProps, 'direction' | 'wrap' | 'justify' | 'align'>,
-) => {
-  const { direction, wrap, justify, align } = props;
+const createFlexClassNames = (prefixCls: string, props: FlexProps) => {
+  const { wrap, justify, align } = props;
   return classNames({
     ...genClsWrap(prefixCls, wrap),
+    ...genClsAlign(prefixCls, align),
     ...genClsJustify(prefixCls, justify),
-    ...genClsDirection(prefixCls, direction),
-    ...genMergedAlignCls(prefixCls, align, direction),
   });
 };
 

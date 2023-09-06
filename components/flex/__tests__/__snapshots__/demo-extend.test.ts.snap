@@ -159,7 +159,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-flex ant-flex-justify-space-around ant-flex-align-center"
+    class="ant-flex ant-flex-align-center ant-flex-justify-space-around"
     style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid #40a9ff;"
   >
     <button
@@ -206,6 +206,25 @@ Array [
     class="ant-radio-group ant-radio-group-outline"
   >
     <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="true"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        vertical is true
+      </span>
+    </label>
+    <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
@@ -215,40 +234,21 @@ Array [
           checked=""
           class="ant-radio-input"
           type="radio"
-          value="row"
+          value="false"
         />
         <span
           class="ant-radio-inner"
         />
       </span>
       <span>
-        row
-      </span>
-    </label>
-    <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="column"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        column
+        vertical is false
       </span>
     </label>
   </div>,
   <br />,
   <br />,
   <div
-    class="ant-flex ant-flex-direction-row"
+    class="ant-flex"
   >
     <div />
     <div />
@@ -278,7 +278,7 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
         style="display: block; width: 273px;"
       />
       <div
-        class="ant-flex ant-flex-justify-space-between ant-flex-direction-column ant-flex-align-flex-start"
+        class="ant-flex ant-flex-align-flex-start ant-flex-justify-space-between ant-flex-vertical"
         style="padding: 32px;"
       >
         <h3

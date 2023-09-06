@@ -34,7 +34,7 @@ tag: New
 | --- | --- | --- | --- | --- |
 | style | 自定义样式 | React.CSSProperties | - |  |
 | className | 自定义类名 | string | - |  |
-| direction | 定义flex主轴的方向 | 参考 [flex-direction](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-direction) | row |  |
+| vertical | flex 主轴的方向是否垂直 | boolean | `false` |
 | wrap | 设置元素单行显示还是多行显示 | 参考 [flex-wrap](https://developer.mozilla.org/zh-CN/docs/Web/CSS/flex-wrap) | nowrap |  |
 | justify | 设置元素在主轴方向上的对齐方式 | 参考 [justify-content](https://developer.mozilla.org/zh-CN/docs/Web/CSS/justify-content) | normal |  |
 | align | 设置元素在交叉轴方向上的对齐方式 | 参考 [align-items](https://developer.mozilla.org/zh-CN/docs/Web/CSS/align-items) | normal |  |

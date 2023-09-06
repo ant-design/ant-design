@@ -62,7 +62,7 @@ export interface ButtonConfig extends ComponentStyleConfig {
 }
 
 export interface FlexConfig extends ComponentStyleConfig {
-  direction?: FlexProps['direction'];
+  vertical?: FlexProps['vertical'];
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
