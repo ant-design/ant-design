@@ -25,6 +25,8 @@ describe('Flex', () => {
     expect(container.querySelector('.ant-flex')).toHaveStyle({ justifyContent: 'center' });
     rerender(<Flex flex="0 1 auto">test</Flex>);
     expect(container.querySelector('.ant-flex')).toHaveStyle({ flex: '0 1 auto' });
+    rerender(<Flex gap={100}>test</Flex>);
+    expect(container.querySelector('.ant-flex')).toHaveStyle({ gap: '100px' });
   });
   it('Component work', () => {
     const testFcRef = React.createRef<HTMLDivElement>();
