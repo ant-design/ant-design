@@ -3,19 +3,12 @@ import { Button, Flex, Radio, Slider } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 const App: React.FC = () => {
-  const [gapSize, setGapSize] = React.useState<SizeType | number | 'customize'>('small');
-
-  const [showSlider, setShowSlider] = React.useState<boolean>(gapSize === 'customize');
+  const [gapSize, setGapSize] = React.useState<SizeType | 'customize'>('small');
+  const [customGapSize, setCustomGapSize] = React.useState<number>(0);
 
   return (
     <>
-      <Radio.Group
-        value={gapSize}
-        onChange={(e) => {
-          setGapSize(e.target.value);
-          setShowSlider(e.target.value === 'customize');
-        }}
-      >
+      <Radio.Group value={gapSize} onChange={(e) => setGapSize(e.target.value)}>
         {['small', 'middle', 'large', 'customize'].map((size) => (
           <Radio key={size} value={size}>
             {size}
@@ -24,13 +17,13 @@ const App: React.FC = () => {
       </Radio.Group>
       <br />
       <br />
-      {showSlider && (
+      {gapSize === 'customize' && (
         <>
-          <Slider value={typeof gapSize === 'number' ? gapSize : 0} onChange={setGapSize} />
+          <Slider value={customGapSize} onChange={setCustomGapSize} />
           <br />
         </>
       )}
-      <Flex gap={gapSize}>
+      <Flex gap={gapSize !== 'customize' ? gapSize : customGapSize}>
         <Button type="primary">Primary</Button>
         <Button>Default</Button>
         <Button type="dashed">Dashed</Button>

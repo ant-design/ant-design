@@ -22,8 +22,8 @@ const justifyOptions = [
 const alignOptions = ['flex-start', 'center', 'flex-end'];
 
 const App: React.FC = () => {
-  const [justify, setJustify] = useState<CSSProperties['justifyContent']>('space-around');
-  const [alignItems, setAlignItems] = useState<CSSProperties['alignItems']>('center');
+  const [justify, setJustify] = useState<CSSProperties['justifyContent']>(justifyOptions[0]);
+  const [alignItems, setAlignItems] = useState<CSSProperties['alignItems']>(alignOptions[0]);
   return (
     <>
       <p>Select justify :</p>
