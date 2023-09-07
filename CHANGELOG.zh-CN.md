@@ -36,7 +36,7 @@ tag: vVERSION
 - 🆕 ColorPicker 组件支持 `defaultFormat` 属性。[#44487](https://github.com/ant-design/ant-design/pull/44487) [@CYBYOB](https://github.com/CYBYOB)
 - 🆕 `customFeedbackIcons` 属性添加到 `Form.Item` 组件，并与 `hasFeedback` 一起用作默认反馈图标，此 props 将反馈图标替换为给定的图标。[#43894](https://github.com/ant-design/ant-design/pull/43894) [@gldio](https://github.com/gldio)
 - 🐞 修复 Space 的预设 `size` 不会跟随 Design Token 的问题，现在紧凑模式也会正确处理对应的间距数值。[#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🐞 修复 Upload 组件点击某文件的下载按钮后，鼠标移出该文件，仍展示下载按钮的问题。[#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
+- 🐞 修复 Upload 组件点击某文件的下载按钮后，鼠标移出该文件时仍展示下载按钮的问题。[#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
 - 🆕 Segmented 组件新增 `itemSelectedColor` 的组件 Token。[#44570](https://github.com/ant-design/ant-design/pull/44570) [@xiaozisong](https://github.com/xiaozisong)
 - 💄 修复 ConfigProvider `tag.className` 与 `tag.style` 无法作用于 Tag.CheckableTag 的问题。[#44602](https://github.com/ant-design/ant-design/pull/44602)
 - 🆕 Modal 页脚 `footer` 支持自定义函数渲染。[#44318](https://github.com/ant-design/ant-design/pull/44318) [@RedJue](https://github.com/RedJue)
