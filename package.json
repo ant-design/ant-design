@@ -119,6 +119,7 @@
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.10.0",
     "@rc-component/trigger": "^1.15.0",
+    "@types/jsdom": "^21.1.2",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
