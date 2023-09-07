@@ -8,7 +8,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 tag: New
 ---
 
-弹性布局。自 `5.9.0` 版本开始提供该组件。
+弹性布局。自 `5.10.0` 版本开始提供该组件。
 
 ## 何时使用
 
@@ -26,7 +26,7 @@ tag: New
 
 ## API
 
-> 自 `antd@5.9.0` 版本开始提供该组件。
+> 自 `antd@5.10.0` 版本开始提供该组件。
 
 通用属性参考：[通用属性](/docs/react/common-props)
 

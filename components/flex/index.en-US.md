@@ -7,7 +7,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 tag: New
 ---
 
-Flex. Available since `5.9.0`.
+Flex. Available since `5.10.0`.
 
 ## When To Use
 
@@ -25,7 +25,7 @@ Flex. Available since `5.9.0`.
 
 ## API
 
-> This component is available since `antd@5.9.0`.
+> This component is available since `antd@5.10.0`.
 
 Common props ref：[Common props](/docs/react/common-props)
 
