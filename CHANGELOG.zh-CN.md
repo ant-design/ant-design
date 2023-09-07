@@ -31,7 +31,7 @@ tag: vVERSION
 - 🐞 修复 Input 默认按钮存在多余阴影问题。[#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
 - 🐞 修复 Modal 的 hooks 调用通过按键 `esc` 关闭时无法正确触发 await 的问题。[#44646](https://github.com/ant-design/ant-design/pull/44646)
 - 💄 修复 date-picker 自定义页脚样式问题。[#44642](https://github.com/ant-design/ant-design/pull/44642) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 feat: ColorPicker support defaultFormat。[#44487](https://github.com/ant-design/ant-design/pull/44487) [@CYBYOB](https://github.com/CYBYOB)
+- 🆕 feat: ColorPicker 支持 defaultFormat。[#44487](https://github.com/ant-design/ant-design/pull/44487) [@CYBYOB](https://github.com/CYBYOB)
 - 🆕 `customFeedbackIcons` 属性添加到 `Form.Item` 组件，并与 `hasFeedback` 一起用作默认反馈图标，此 props 将反馈图标替换为给定的图标。[#43894](https://github.com/ant-design/ant-design/pull/43894) [@gldio](https://github.com/gldio)
 - 🐞 修复 Space 的预设 `size` 不会跟随 Design Token 的问题，现在紧凑模式也会正确处理对应的间距数值。[#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复点击某文件的下载按钮后，鼠标移出该文件，仍展示下载按钮的问题。[#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
