@@ -53,7 +53,7 @@ tag: vVERSION
 - 🆕 Avatar 支持使用 ConfigProvider 配置 size。[#44288](https://github.com/ant-design/ant-design/pull/44288) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 List 支持使用 ConfigProvider 的 componentSize 配置 size。[#44267](https://github.com/ant-design/ant-design/pull/44267) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 Button `fontSizeSM` token 不生效的问题。[#44217](https://github.com/ant-design/ant-design/pull/44217) [@CHENGTIANG](https://github.com/CHENGTIANG)
-- 🆕 Cascader 支持 autoClearSearchValue。[#44033](https://github.com/ant-design/ant-design/pull/44033) [@linxianxi](https://github.com/linxianxi)
+- 🆕 Cascader 支持 `autoClearSearchValue` 属性。[#44033](https://github.com/ant-design/ant-design/pull/44033) [@linxianxi](https://github.com/linxianxi)
 - 支持 rootClassName
   - 🆕 AutoComplete 支持 rootClassName。[#44055](https://github.com/ant-design/ant-design/pull/44055) [@kiner-tang](https://github.com/kiner-tang)
   - 🆕 Badge.Ribbon 支持 rootClassName。[#44056](https://github.com/ant-design/ant-design/pull/44056) [@kiner-tang](https://github.com/kiner-tang)
