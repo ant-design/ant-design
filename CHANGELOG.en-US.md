@@ -16,6 +16,73 @@ tag: vVERSION
 
 ---
 
+## 5.9.0
+
+`2023-09-07`
+
+- 🔥 Table 支持 `virtual` 属性开启虚拟滚动。[#44349](https://github.com/ant-design/ant-design/pull/44349)
+- 🔥 Form `validateFields` 支持 `recursive` 以校验所有包含路径的字段。[#44130](https://github.com/ant-design/ant-design/pull/44130)
+- 🔥 Form.Item 支持 `validateDebounce` 以配置校验防抖。[#44633](https://github.com/ant-design/ant-design/pull/44633)
+- 🆕 Button 组件新增 `contentFontSize` `contentFontSizeSM` `contentFontSizeLG` 三个组件 token ，用于定制各个尺寸下的字体大小。[#44257](https://github.com/ant-design/ant-design/pull/44257) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Form `requiredMark` 支持自定义渲染。[#44073](https://github.com/ant-design/ant-design/pull/44073)
+- 🐞 修复 Form.Item 配置 `noStyle` 时，被绑定的元素无法消费 `useStatus` 的问题。[#44576](https://github.com/ant-design/ant-design/pull/44576)
+- 🆕 Tabs 组件添加新组件 Token `itemColor`，用于控制常态 tab 的文本颜色。[#44201](https://github.com/ant-design/ant-design/pull/44201) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Tag 被 Popover/Popconfirm 包裹时，Hover 会导致 `font-size` 错误的问题。[#44663](https://github.com/ant-design/ant-design/pull/44663)
+- 🐞 修复 Input 默认按钮存在多余阴影问题。[#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
+- 🐞 修复 Modal 的 hooks 调用通过按键 `esc` 关闭时无法正确触发 await 的问题。[#44646](https://github.com/ant-design/ant-design/pull/44646)
+- 💄 修复 date-picker 自定义页脚样式问题。[#44642](https://github.com/ant-design/ant-design/pull/44642) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 feat: ColorPicker support defaultFormat。[#44487](https://github.com/ant-design/ant-design/pull/44487) [@CYBYOB](https://github.com/CYBYOB)
+- 🆕 `customFeedbackIcons` 属性添加到 `Form.Item` 组件，并与 `hasFeedback` 一起用作默认反馈图标，此 props 将反馈图标替换为给定的图标。[#43894](https://github.com/ant-design/ant-design/pull/43894) [@gldio](https://github.com/gldio)
+- 🐞 修复 Space 的预设 `size` 不会跟随 Design Token 的问题，现在紧凑模式也会正确处理对应的间距数值。[#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复点击某文件的下载按钮后，鼠标移出该文件，仍展示下载按钮的问题。[#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
+- 🆕 Segmented 组件新增 `itemSelectedColor` 的组件 Token。[#44570](https://github.com/ant-design/ant-design/pull/44570) [@xiaozisong](https://github.com/xiaozisong)
+- 💄 修复 ConfigProvider `tag.className` 与 `tag.style` 无法作用于 Tag.CheckableTag 的问题。[#44602](https://github.com/ant-design/ant-design/pull/44602)
+- 💄 重构 Modal.ConfirmModal 结构以修复 `width: fit-content` 导致宽度异常问题以及大量文本下的样式断行问题。抽离 confirm 样式至懒加载以优化 SSR 下的样式尺寸。[#44557](https://github.com/ant-design/ant-design/pull/44557)
+- 🆕 Modal 页脚支持自定义函数渲染。[#44318](https://github.com/ant-design/ant-design/pull/44318) [@RedJue](https://github.com/RedJue)
+- 🆕 Descriptions 的 `items.span` 支持响应式设置。[#44534](https://github.com/ant-design/ant-design/pull/44534)
+- 🆕 Tabs 组件 `indicatorSize` 支持通过 ConfigProvider 全局配置。[#44517](https://github.com/ant-design/ant-design/pull/44517) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Tabs 组件新增 `indicatorLength` 属性，用于自定义指示条的长度。[#44406](https://github.com/ant-design/ant-design/pull/44406) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Transfer 组件 filterOption 函数新增 direction 入参。[#44417](https://github.com/ant-design/ant-design/pull/44417) [@Zian502](https://github.com/Zian502)
+- 🆕 Input.Search 组件支持在 onSearch 方法中接受 source 参数。[#44457](https://github.com/ant-design/ant-design/pull/44457) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Input 组件新增组件 Token 用于定制激活态阴影。[#44410](https://github.com/ant-design/ant-design/pull/44410) [@MadCcc](https://github.com/MadCcc)
+- 💄 Progress 调整 `circle` 和 `dashboard` 的线性渐变色为锥形渐变色。[#44404](https://github.com/ant-design/ant-design/pull/44404)
+- 🆕 Radio 组件新增组件 Token，用于定制填充按钮选中时的颜色。[#44389](https://github.com/ant-design/ant-design/pull/44389) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Tour 组件间距支持横向偏移量。[#44377](https://github.com/ant-design/ant-design/pull/44377) [@RedJue](https://github.com/RedJue)
+- 💄 修复 Select 配置的 `getPopupContainer` 容器有 `transform: scale` 样式时，弹出框宽度与输入框不一致的情况。[#44378](https://github.com/ant-design/ant-design/pull/44378)
+- 🆕 Tour 组件支持通过 `closeIcon` 来自定义关闭按钮。[#44312](https://github.com/ant-design/ant-design/pull/44312) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Avatar 支持使用 ConfigProvider 配置 size。[#44288](https://github.com/ant-design/ant-design/pull/44288) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 List 支持使用 ConfigProvider 的 componentSize 配置 size。[#44267](https://github.com/ant-design/ant-design/pull/44267) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Button `fontSizeSM` token 不生效的问题。[#44217](https://github.com/ant-design/ant-design/pull/44217) [@CHENGTIANG](https://github.com/CHENGTIANG)
+- 🆕 Cascader 支持 autoClearSearchValue。[#44033](https://github.com/ant-design/ant-design/pull/44033) [@linxianxi](https://github.com/linxianxi)
+- 支持 rootClassName
+  - 🆕 AutoComplete 支持 rootClassName。[#44055](https://github.com/ant-design/ant-design/pull/44055) [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 Badge.Ribbon 支持 rootClassName。[#44056](https://github.com/ant-design/ant-design/pull/44056) [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 Input.TextArea 支持 rootClassName。[#44058](https://github.com/ant-design/ant-design/pull/44058) [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 RangePicker 支持 rootClassName。[#44057](https://github.com/ant-design/ant-design/pull/44057) [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 TimePicker 支持 rootClassName。[#44059](https://github.com/ant-design/ant-design/pull/44059) [@kiner-tang](https://github.com/kiner-tang)
+  - 🆕 Upload 组件支持 rootClassName。[#44060](https://github.com/ant-design/ant-design/pull/44060) [@kiner-tang](https://github.com/kiner-tang)
+- 迁移 less 变量到 Token
+  - 将 `Alert` 组件的 less 变量迁移到 Token。[#42142](https://github.com/ant-design/ant-design/pull/42142) [@linhf123](https://github.com/linhf123)
+  - 将 Tree 组件的 less 变量迁移到组件 Token。[#44282](https://github.com/ant-design/ant-design/pull/44282) [@MadCcc](https://github.com/MadCcc)
+  - 将 Cascader 组件的 less 变量迁移到组件 Token。[#44261](https://github.com/ant-design/ant-design/pull/44261) [@MadCcc](https://github.com/MadCcc)
+  - 将 Layout 组件的 less 变量迁移到 Design Token。[#44174](https://github.com/ant-design/ant-design/pull/44174) [@MadCcc](https://github.com/MadCcc)
+  - 将 Table 组件的 less 变量迁移到 Design Token。[#44118](https://github.com/ant-design/ant-design/pull/44118) [@MadCcc](https://github.com/MadCcc)
+  - Watermark 现在可以在嵌套的 Modal 和 Drawer 组件中生效。[#44104](https://github.com/ant-design/ant-design/pull/44104)
+  - 将 Button 组件的 less 变量迁移到组件 Token。[#44090](https://github.com/ant-design/ant-design/pull/44090) [@MadCcc](https://github.com/MadCcc)
+  - 将 Switch 组件的 less 变量迁移到 Token。[#42192](https://github.com/ant-design/ant-design/pull/42192) [@Yuiai01](https://github.com/Yuiai01)
+  - 将 Select 组件的 less 变量迁移到组件 Token。[#44228](https://github.com/ant-design/ant-design/pull/44228) [@MadCcc](https://github.com/MadCcc)
+  - 将 Badge 的 less 变量迁移到 Token。[#42778](https://github.com/ant-design/ant-design/pull/42778) [@Wxh16144](https://github.com/Wxh16144)
+  - 迁移 Form 组件的 less 变量。[#42774](https://github.com/ant-design/ant-design/pull/42774) [@poyiding](https://github.com/poyiding)
+  - 迁移 TimePicker 组件的 less token。[#42607](https://github.com/ant-design/ant-design/pull/42607) [@poyiding](https://github.com/poyiding)
+  - 将 Spin 组件的 less 变量迁移到组件 Token。[#44334](https://github.com/ant-design/ant-design/pull/44334) [@MadCcc](https://github.com/MadCcc)
+  - 将 Input 组件的 less 变量迁移到组件 Token。[#44325](https://github.com/ant-design/ant-design/pull/44325) [@MadCcc](https://github.com/MadCcc)
+  - 添加 Progress 的 Component Token。[#42757](https://github.com/ant-design/ant-design/pull/42757) [@hms181231](https://github.com/hms181231)
+  - 添加 Divider 的 Component Token。[#42627](https://github.com/ant-design/ant-design/pull/42627) [@hms181231](https://github.com/hms181231)
+- 🛠 移除 Space 和 Grid 对于旧版 IE 浏览器兼容逻辑，减少打包产物体积。[#44620](https://github.com/ant-design/ant-design/pull/44620) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 把 `theme.useToken` 替换成内部的 `useInternalToken`。[#44670](https://github.com/ant-design/ant-design/pull/44670) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 从 tree 中导出 BasicDataNode 类型。[#44624](https://github.com/ant-design/ant-design/pull/44624) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.8.6
 
 `2023-09-02`
