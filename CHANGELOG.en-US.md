@@ -34,7 +34,7 @@ tag: vVERSION
 - 🐞 Fixed an issue where using Modal's hooks to close it with the `esc` key didn't correctly trigger the `await`. [#44646](https://github.com/ant-design/ant-design/pull/44646)
 - 💄 Fixed the custom footer style issue in the date-picker component. [#44642](https://github.com/ant-design/ant-design/pull/44642) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 feat: ColorPicker now supports `defaultFormat`. [#44487](https://github.com/ant-design/ant-design/pull/44487) [@CYBYOB](https://github.com/CYBYOB)
-- 🆕 Added the `customFeedbackIcons` attribute to the `Form.Item` component, used in conjunction with `hasFeedback` as the default feedback icon. This prop replaces the feedback icon with the given icon. [#43894](https://github.com/ant-design/ant-design/pull/43894) [@gldio](https://github.com/gldio)
+- 🆕 Form supports `feedbackIcons` and Form.Item supports `hasFeedback={{ icons: ... }}`, now feedback icons could be customized in both ways. [#43894](https://github.com/ant-design/ant-design/pull/43894) [@gldio](https://github.com/gldio)
 - 🐞 Fixed the issue where the preset `size` of Space did not follow the Design Token, now compact mode correctly handles the corresponding spacing values. [#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fixed the issue where the download button would still be displayed after clicking on it and moving the mouse out of the file. [#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
 - 🆕 Added the `itemSelectedColor` component token to the Segmented component. [#44570](https://github.com/ant-design/ant-design/pull/44570) [@xiaozisong](https://github.com/xiaozisong)
