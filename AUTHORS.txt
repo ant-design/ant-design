@@ -67,6 +67,7 @@ Andrey G
 Andrzej Dybionka
 André
 Andrés
+Andy Hsu
 AndyJin
 Ankit Babbar
 Antee
@@ -310,11 +311,14 @@ Golevka
 Googleplex
 Gourav Saini
 Graeme Yeates
+Grant Chan
 Grant Klinsing
 Gray Choi
 Guan Hao
 Guan Yu Pan (Jacky)
 Guichi Zhao
+Gunay
+Gundsambuu
 Guojun Wang
 Guru Mahendran
 HJin.me
@@ -505,6 +509,7 @@ Knut Olav Bøhmer
 Kodai Nakamura
 Kol Chen
 Konrad Machlowski
+Konv Suu
 Krishna Dubagunta
 Krishna Singh
 KuangPengfei
@@ -790,6 +795,7 @@ Sebastian Blade
 Sebastian Busch
 Semro
 Sepush
+Serene Ding
 Sergey Kachanovskiy
 Sergey Levkovich
 Sergey Volynkin
@@ -885,6 +891,7 @@ Vemund Santi
 Vic
 Victor
 Victor Repkow
+Victor Ye
 Vijay Thirugnanam
 Vincent Zhang
 Vineet Srivastav
@@ -914,7 +921,9 @@ Will Chen
 Will Soares
 William Bergeron-Drouin
 William Cai
+William Entriken
 William Stein
+Wing
 WingGao
 Winme
 Wu Haotian
@@ -946,6 +955,7 @@ Yann Normand
 Yann Pringault
 Yash Joshi
 Yasin Uslu
+Yee
 Yevhen Hryhorevskyi
 Yiming
 Yogesh
@@ -1072,6 +1082,7 @@ corneyl
 csr632
 daczczcz1
 dainli
+dally_G
 damon.chen
 david.lv
 davidhatten
@@ -1161,6 +1172,7 @@ isakol
 itibbers
 iugo
 j3l11234
+janily
 jasonslyvia
 jasonxia23
 jeessy2
@@ -1198,6 +1210,7 @@ klouskingsley
 ko
 konakona
 kossel
+kouchao
 kristof0425
 kuang
 kun sam
@@ -1354,7 +1367,7 @@ undefined
 unknown
 ustccjw
 vaakian X
-vagusx
+vagusX
 valleykid
 vaytsel
 veveue
@@ -1385,6 +1398,7 @@ wizawu
 wleven
 wonyun
 woodsand
+wving5
 wwwxy
 wx1322
 xiaofan2406
@@ -1396,6 +1410,7 @@ xiejiahe
 xilihuasi
 xinhui.zxh
 xliez
+xr0master
 xrkffgg
 xuqiang
 xyb
@@ -1526,10 +1541,12 @@ zz
 松子
 林煌东
 柚子男
+梓安
 沐霖
 炒米粉
 烽宁
 爱but的苍蝇
+猫猫
 王小王
 王林涛
 王浩
@@ -1543,12 +1560,14 @@ zz
 竹尔
 米老朱
 精武陈真
+红
 红果汁
 约修亚
 翁润雨
 臧甲彬 fadeaway
 舜岳
 苏秦
+苟培烜
 英布
 菠萝吹雪
 萧琚
