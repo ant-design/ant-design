@@ -32,9 +32,11 @@ group:
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
 <code src="./demo/replace.tsx" iframe="200">替换历史中的 href</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
-<code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/component-token.tsx" iframe="800" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Anchor Props
 
@@ -74,6 +76,6 @@ group:
 | target | 该属性指定在何处显示链接的资源 | string    | -      |      |
 | title  | 文字内容                       | ReactNode | -      |      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Anchor"></ComponentTokenTable>

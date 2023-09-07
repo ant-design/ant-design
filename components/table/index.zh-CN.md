@@ -109,6 +109,8 @@ const columns = [
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Table
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -171,7 +173,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
 | className | 列样式类名 | string | - |  |
-| colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
+| colSpan | 表头列合并，设置为 0 时，不渲染 | number | - |  |
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultFilteredValue | 默认筛选值 | string\[] | - |  |
 | filterResetToDefaultFilteredValue | 点击重置按钮的时候，是否恢复默认筛选值 | boolean | false |  |
@@ -240,7 +242,7 @@ const columns = [
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
 | showExpandColumn | 设置是否展示行展开列 | boolean | true | 4.18.0 |
-| onExpand | 点击展开图标时触发 | function(expanded, record) | - |  |
+| onExpand | 点击展开图标时触发 | function(record, event) | - |  |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - |  |
 
 ### rowSelection
@@ -288,9 +290,9 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
+import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 interface User {
   key: number;
@@ -327,7 +329,7 @@ export default Demo;
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Table"></ComponentTokenTable>
 

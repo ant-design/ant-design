@@ -1,9 +1,9 @@
 /* eslint-disable no-console */
+const { spawnSync } = require('child_process');
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
 const dayjs = require('dayjs');
 const chalk = require('chalk');
-const { spawnSync } = require('child_process');
 const relativeTime = require('dayjs/plugin/relativeTime');
 
 dayjs.extend(relativeTime);
@@ -44,6 +44,7 @@ const DEPRECIATED_VERSION = {
     'https://github.com/ant-design/ant-design/issues/43654',
     'https://github.com/ant-design/ant-design/issues/43684',
   ],
+  '5.8.0': ['https://github.com/ant-design/ant-design/issues/43943'],
 };
 
 function matchDeprecated(version) {

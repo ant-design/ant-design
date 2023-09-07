@@ -38,7 +38,7 @@ export default function imageTest(component: React.ReactElement) {
     MockDate.set(dayjs('2016-11-22').valueOf());
     page.on('request', onRequestHandle);
     await page.goto(`file://${process.cwd()}/tests/index.html`);
-    await page.addStyleTag({ path: `${process.cwd()}/dist/reset.css` });
+    await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
     await page.addStyleTag({ content: '*{animation: none!important;}' });
 
     const cache = createCache();
@@ -55,6 +55,9 @@ export default function imageTest(component: React.ReactElement) {
             </div>
           ))}
         </App>
+        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0, overflow: 'hidden' }}>
+          end of screen
+        </div>
       </StyleProvider>
     );
 
@@ -72,14 +75,20 @@ export default function imageTest(component: React.ReactElement) {
       styleStr,
     );
 
+    await page.waitForSelector('#end-of-screen', {
+      timeout: 0,
+    });
+
     const image = await page.screenshot({
       fullPage: true,
+      captureBeyondViewport: true,
+      optimizeForSpeed: true,
     });
 
     expect(image).toMatchImageSnapshot();
 
     MockDate.reset();
-    page.removeListener('request', onRequestHandle);
+    page.off('request', onRequestHandle);
   });
 }
 

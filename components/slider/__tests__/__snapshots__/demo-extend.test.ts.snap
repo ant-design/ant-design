@@ -17,6 +17,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -60,6 +61,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -89,6 +91,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -141,6 +144,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -158,6 +163,7 @@ Array [
     />
     <div
       aria-disabled="true"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -192,7 +198,7 @@ Array [
       class="ant-slider-rail"
     />
     <div
-      class="ant-slider-track ant-slider-track-1"
+      class="ant-slider-track ant-slider-track-1 ant-slider-track-draggable"
       style="left: 20%; width: 30%;"
     />
     <div
@@ -200,6 +206,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -229,6 +236,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -275,6 +283,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="30"
@@ -322,6 +331,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="20"
@@ -351,6 +361,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="50"
@@ -415,6 +426,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="26"
@@ -444,6 +456,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="37"
@@ -506,6 +519,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/draggableTrack.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
@@ -514,7 +529,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
     class="ant-slider-rail"
   />
   <div
-    class="ant-slider-track ant-slider-track-1"
+    class="ant-slider-track ant-slider-track-1 ant-slider-track-draggable"
     style="left: 20%; width: 30%;"
   />
   <div
@@ -522,6 +537,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="20"
@@ -551,6 +567,7 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
   </div>
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="50"
@@ -581,6 +598,8 @@ exports[`renders components/slider/demo/draggableTrack.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/slider/demo/draggableTrack.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/event.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -598,6 +617,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -641,6 +661,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -670,6 +691,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -700,6 +722,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/slider/demo/event.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/slider/demo/icon-slider.tsx extend context correctly 1`] = `
 <div
@@ -739,6 +763,7 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="20"
       aria-valuemin="0"
       aria-valuenow="0"
@@ -789,6 +814,8 @@ exports[`renders components/slider/demo/icon-slider.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/slider/demo/icon-slider.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/input-number.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -819,6 +846,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             aria-disabled="false"
+            aria-orientation="horizontal"
             aria-valuemax="20"
             aria-valuemin="1"
             aria-valuenow="1"
@@ -955,6 +983,7 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
           />
           <div
             aria-disabled="false"
+            aria-orientation="horizontal"
             aria-valuemax="1"
             aria-valuemin="0"
             aria-valuenow="0"
@@ -1070,6 +1099,8 @@ exports[`renders components/slider/demo/input-number.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/slider/demo/input-number.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/mark.tsx extend context correctly 1`] = `
 Array [
   <h4>
@@ -1107,6 +1138,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1197,6 +1229,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="26"
@@ -1226,6 +1259,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1315,6 +1349,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1408,6 +1443,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1501,6 +1537,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="37"
@@ -1562,6 +1599,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/mark.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/reverse.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1579,6 +1618,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -1622,6 +1662,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="20"
@@ -1651,6 +1692,7 @@ Array [
     </div>
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="50"
@@ -1703,6 +1745,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/reverse.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/show-tooltip.tsx extend context correctly 1`] = `
 <div
   class="ant-slider ant-slider-horizontal"
@@ -1719,6 +1763,7 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="30"
@@ -1749,6 +1794,8 @@ exports[`renders components/slider/demo/show-tooltip.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/slider/demo/show-tooltip.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/tip-formatter.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1766,6 +1813,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
@@ -1809,6 +1857,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="0"
@@ -1838,6 +1887,8 @@ Array [
 ]
 `;
 
+exports[`renders components/slider/demo/tip-formatter.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/slider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1858,6 +1909,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="30"
@@ -1905,6 +1957,7 @@ Array [
       />
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="20"
@@ -1934,6 +1987,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="50"
@@ -1998,6 +2052,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="26"
@@ -2027,6 +2082,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="vertical"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="37"
@@ -2088,3 +2144,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/slider/demo/vertical.tsx extend context correctly 2`] = `[]`;

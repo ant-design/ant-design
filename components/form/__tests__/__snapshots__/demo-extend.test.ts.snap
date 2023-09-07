@@ -96,11 +96,11 @@ Array [
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="advanced_search_field-1_list_0"
                           aria-autocomplete="list"
                           aria-controls="advanced_search_field-1_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="advanced_search_field-1_list"
                           aria-required="true"
                           autocomplete="off"
@@ -363,11 +363,11 @@ Array [
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="advanced_search_field-4_list_0"
                           aria-autocomplete="list"
                           aria-controls="advanced_search_field-4_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="advanced_search_field-4_list"
                           aria-required="true"
                           autocomplete="off"
@@ -617,6 +617,8 @@ Array [
 ]
 `;
 
+exports[`renders components/form/demo/advanced-search.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
@@ -750,7 +752,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-checked"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
@@ -801,6 +803,8 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/col-24-debug.tsx extend context correctly 1`] = `
 Array [
@@ -986,13 +990,14 @@ Array [
                               aria-hidden="true"
                               data-icon="close"
                               fill="currentColor"
+                              fill-rule="evenodd"
                               focusable="false"
                               height="1em"
                               viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
-                                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                               />
                             </svg>
                           </span>
@@ -1008,11 +1013,11 @@ Array [
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="basic_select_list_0"
                           aria-autocomplete="list"
                           aria-controls="basic_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="basic_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1416,13 +1421,14 @@ Array [
                               aria-hidden="true"
                               data-icon="close"
                               fill="currentColor"
+                              fill-rule="evenodd"
                               focusable="false"
                               height="1em"
                               viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
-                                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                               />
                             </svg>
                           </span>
@@ -1438,11 +1444,11 @@ Array [
                         style="width: 0px;"
                       >
                         <input
-                          aria-activedescendant="select_list_0"
                           aria-autocomplete="list"
                           aria-controls="select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1641,6 +1647,8 @@ Array [
 ]
 `;
 
+exports[`renders components/form/demo/col-24-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/control-hooks.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -1722,11 +1730,11 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="control-hooks_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="control-hooks_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="control-hooks_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -1922,6 +1930,8 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
 </form>
 `;
 
+exports[`renders components/form/demo/control-hooks.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/control-ref.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -2003,11 +2013,11 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="control-ref_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="control-ref_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="control-ref_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -2203,6 +2213,8 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
 </form>
 `;
 
+exports[`renders components/form/demo/control-ref.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
@@ -2252,11 +2264,11 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2420,13 +2432,151 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
 </form>
 `;
 
+exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/form/demo/dependencies.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+  id="dependencies"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-alert ant-alert-info"
+    data-show="true"
+    role="alert"
+  >
+    <span
+      aria-label="info-circle"
+      class="anticon anticon-info-circle ant-alert-icon"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="info-circle"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+        />
+      </svg>
+    </span>
+    <div
+      class="ant-alert-content"
+    >
+      <div
+        class="ant-alert-message"
+      >
+         Try modify \`Password2\` and then modify \`Password\`
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="dependencies_password"
+          title="Password"
+        >
+          Password
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input"
+              id="dependencies_password"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="dependencies_password2"
+          title="Confirm Password"
+        >
+          Confirm Password
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              aria-required="true"
+              class="ant-input"
+              id="dependencies_password2"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <article
+    class="ant-typography"
+  >
+    <p>
+      Only Update when
+      <code>
+        password2
+      </code>
+       updated:
+    </p>
+    <pre>
+      {}
+    </pre>
+  </article>
+</form>
+`;
+
+exports[`renders components/form/demo/dependencies.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
   >
     <span
-      class="ant-checkbox ant-checkbox-checked"
+      class="ant-checkbox ant-wave-target ant-checkbox-checked"
     >
       <input
         checked=""
@@ -2475,7 +2625,7 @@ Array [
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
               >
                 <span
-                  class="ant-checkbox ant-checkbox-disabled"
+                  class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                 >
                   <input
                     class="ant-checkbox-input"
@@ -2528,7 +2678,7 @@ Array [
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-disabled"
+                    class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
                       class="ant-radio-input"
@@ -2548,7 +2698,7 @@ Array [
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
                 >
                   <span
-                    class="ant-radio ant-radio-disabled"
+                    class="ant-radio ant-wave-target ant-radio-disabled"
                   >
                     <input
                       class="ant-radio-input"
@@ -2641,11 +2791,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2789,6 +2939,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2972,6 +3123,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -5161,14 +5313,11 @@ Array [
                             viewBox="64 64 896 896"
                             width="1em"
                           >
-                            <defs>
-                              <style />
-                            </defs>
                             <path
                               d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                             />
                             <path
-                              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                             />
                           </svg>
                         </span>
@@ -5266,6 +5415,7 @@ Array [
                 />
                 <div
                   aria-disabled="true"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
@@ -5301,6 +5451,8 @@ Array [
   </form>,
 ]
 `;
+
+exports[`renders components/form/demo/disabled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/disabled-input-debug.tsx extend context correctly 1`] = `
 <form
@@ -5988,6 +6140,8 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
 </form>
 `;
 
+exports[`renders components/form/demo/disabled-input-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/dynamic-form-item.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -6031,14 +6185,11 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6069,14 +6220,11 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6121,6 +6269,8 @@ exports[`renders components/form/demo/dynamic-form-item.tsx extend context corre
 </form>
 `;
 
+exports[`renders components/form/demo/dynamic-form-item.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/dynamic-form-items.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
@@ -6164,14 +6314,11 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
                     viewBox="64 64 896 896"
                     width="1em"
                   >
-                    <defs>
-                      <style />
-                    </defs>
                     <path
                       d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                     />
                     <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                      d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                     />
                   </svg>
                 </span>
@@ -6216,6 +6363,8 @@ exports[`renders components/form/demo/dynamic-form-items.tsx extend context corr
 </form>
 `;
 
+exports[`renders components/form/demo/dynamic-form-items.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
@@ -6224,263 +6373,157 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item"
+    style="display: flex; row-gap: 16px; flex-direction: column;"
   >
     <div
-      class="ant-row ant-form-item-row"
+      class="ant-card ant-card-bordered ant-card-small"
     >
       <div
-        class="ant-col ant-form-item-label"
-      >
-        <label
-          class="ant-form-item-required"
-          for="dynamic_form_complex_area"
-          title="Area"
-        >
-          Area
-        </label>
-      </div>
-      <div
-        class="ant-col ant-form-item-control"
+        class="ant-card-head"
       >
         <div
-          class="ant-form-item-control-input"
+          class="ant-card-head-wrapper"
         >
           <div
-            class="ant-form-item-control-input-content"
+            class="ant-card-head-title"
+          >
+            Item 1
+          </div>
+          <div
+            class="ant-card-extra"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <div
+          class="ant-form-item"
+        >
+          <div
+            class="ant-row ant-form-item-row"
           >
             <div
-              aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-col ant-col-6 ant-form-item-label"
+            >
+              <label
+                class=""
+                for="dynamic_form_complex_items_0_name"
+                title="Name"
+              >
+                Name
+              </label>
+            </div>
+            <div
+              class="ant-col ant-col-18 ant-form-item-control"
             >
               <div
-                class="ant-select-selector"
+                class="ant-form-item-control-input"
               >
-                <span
-                  class="ant-select-selection-search"
+                <div
+                  class="ant-form-item-control-input-content"
                 >
                   <input
-                    aria-activedescendant="dynamic_form_complex_area_list_0"
-                    aria-autocomplete="list"
-                    aria-controls="dynamic_form_complex_area_list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    aria-owns="dynamic_form_complex_area_list"
-                    aria-required="true"
-                    autocomplete="off"
-                    class="ant-select-selection-search-input"
-                    id="dynamic_form_complex_area"
-                    readonly=""
-                    role="combobox"
-                    style="opacity: 0;"
-                    type="search"
-                    unselectable="on"
+                    class="ant-input"
+                    id="dynamic_form_complex_items_0_name"
+                    type="text"
                     value=""
                   />
-                </span>
-                <span
-                  class="ant-select-selection-placeholder"
-                />
+                </div>
               </div>
-              <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+          >
+            <div
+              class="ant-col ant-col-6 ant-form-item-label"
+            >
+              <label
+                class=""
+                title="List"
               >
-                <div>
+                List
+              </label>
+            </div>
+            <div
+              class="ant-col ant-col-18 ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
                   <div
-                    id="dynamic_form_complex_area_list"
-                    role="listbox"
-                    style="height: 0px; width: 0px; overflow: hidden;"
+                    style="display: flex; flex-direction: column; row-gap: 16px;"
                   >
-                    <div
-                      aria-label="Beijing"
-                      aria-selected="false"
-                      id="dynamic_form_complex_area_list_0"
-                      role="option"
+                    <button
+                      class="ant-btn ant-btn-dashed ant-btn-block"
+                      type="button"
                     >
-                      Beijing
-                    </div>
-                    <div
-                      aria-label="Shanghai"
-                      aria-selected="false"
-                      id="dynamic_form_complex_area_list_1"
-                      role="option"
-                    >
-                      Shanghai
-                    </div>
-                  </div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position: relative;"
-                  >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto;"
-                    >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          style="display: flex; flex-direction: column;"
-                        >
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active"
-                            title="Beijing"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              Beijing
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-selected="false"
-                            class="ant-select-item ant-select-item-option"
-                            title="Shanghai"
-                          >
-                            <div
-                              class="ant-select-item-option-content"
-                            >
-                              Shanghai
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                      <span>
+                        + Add Sub Item
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select: none;"
-                unselectable="on"
-              >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-form-item"
-  >
-    <div
-      class="ant-row ant-form-item-row"
+    <button
+      class="ant-btn ant-btn-dashed ant-btn-block"
+      type="button"
     >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <button
-              class="ant-btn ant-btn-dashed ant-btn-block"
-              type="button"
-            >
-              <span
-                class="ant-btn-icon"
-              >
-                <span
-                  aria-label="plus"
-                  class="anticon anticon-plus"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="plus"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <defs>
-                      <style />
-                    </defs>
-                    <path
-                      d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                    />
-                    <path
-                      d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                    />
-                  </svg>
-                </span>
-              </span>
-              <span>
-                Add sights
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      <span>
+        + Add Item
+      </span>
+    </button>
   </div>
-  <div
-    class="ant-form-item"
+  <article
+    class="ant-typography"
   >
-    <div
-      class="ant-row ant-form-item-row"
-    >
-      <div
-        class="ant-col ant-form-item-control"
-      >
-        <div
-          class="ant-form-item-control-input"
-        >
-          <div
-            class="ant-form-item-control-input-content"
-          >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="submit"
-            >
-              <span>
-                Submit
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <pre>
+      {
+  "items": [
+    {}
+  ]
+}
+    </pre>
+  </article>
 </form>
 `;
+
+exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend context correctly 1`] = `
 <form
@@ -6550,14 +6593,11 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
                               viewBox="64 64 896 896"
                               width="1em"
                             >
-                              <defs>
-                                <style />
-                              </defs>
                               <path
                                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                               />
                               <path
-                                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
                               />
                             </svg>
                           </span>
@@ -6606,6 +6646,8 @@ exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend con
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/dynamic-form-items-no-style.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 1`] = `
 <form
@@ -6709,7 +6751,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -6759,6 +6801,8 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
 </form>
 `;
 
+exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/form-context.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -6799,6 +6843,25 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
               value=""
             />
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-16 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          />
         </div>
       </div>
     </div>
@@ -6898,6 +6961,12 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 </form>
 `;
 
+exports[`renders components/form/demo/form-context.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Form.Item] \`name\` is only used for validate React element. If you are using Form.Item as layout display, please remove \`name\` instead.",
+]
+`;
+
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
 <div>
   <button
@@ -6910,6 +6979,8 @@ exports[`renders components/form/demo/form-in-modal.tsx extend context correctly
   </button>
 </div>
 `;
+
+exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/form-item-path.tsx extend context correctly 1`] = `
 <form
@@ -7038,6 +7109,8 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
 </form>
 `;
 
+exports[`renders components/form/demo/form-item-path.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/global-state.tsx extend context correctly 1`] = `
 Array [
   <form
@@ -7100,6 +7173,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/form/demo/global-state.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/inline-login.tsx extend context correctly 1`] = `
 <form
@@ -7248,6 +7323,8 @@ exports[`renders components/form/demo/inline-login.tsx extend context correctly 
 </form>
 `;
 
+exports[`renders components/form/demo/inline-login.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/label-debug.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -7369,6 +7446,8 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/label-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = `
 <form
@@ -7572,6 +7651,8 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
 </form>
 `;
 
+exports[`renders components/form/demo/layout.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -7699,6 +7780,8 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
@@ -7989,6 +8072,8 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
 </form>
 `;
 
+exports[`renders components/form/demo/nest-messages.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/normal-login.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal login-form"
@@ -8123,7 +8208,7 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-checked"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
@@ -8186,6 +8271,8 @@ exports[`renders components/form/demo/normal-login.tsx extend context correctly 
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/normal-login.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] = `
 <form
@@ -8273,6 +8360,8 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
   </button>
 </form>
 `;
+
+exports[`renders components/form/demo/ref-item.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/register.tsx extend context correctly 1`] = `
 <form
@@ -8577,6 +8666,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_residence_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="register_residence_list"
                     aria-required="true"
                     autocomplete="off"
@@ -8726,13 +8816,14 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-hidden="true"
                     data-icon="close-circle"
                     fill="currentColor"
+                    fill-rule="evenodd"
                     focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                      d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                     />
                   </svg>
                 </span>
@@ -8790,11 +8881,11 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="register_prefix_list_0"
                           aria-autocomplete="list"
                           aria-controls="register_prefix_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="register_prefix_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -9058,11 +9149,11 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         class="ant-select-selection-search"
                       >
                         <input
-                          aria-activedescendant="register_suffix_list_0"
                           aria-autocomplete="list"
                           aria-controls="register_suffix_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="Search"
                           aria-owns="register_suffix_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -9231,11 +9322,11 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="register_website_list_-1"
                     aria-autocomplete="list"
                     aria-controls="register_website_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="register_website_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9357,11 +9448,11 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="register_gender_list_0"
                     aria-autocomplete="list"
                     aria-controls="register_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="register_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9594,7 +9685,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -9649,6 +9740,8 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/register.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/required-mark.tsx extend context correctly 1`] = `
 <form
@@ -9947,6 +10040,8 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
 </form>
 `;
 
+exports[`renders components/form/demo/required-mark.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal ant-form-default"
@@ -10116,11 +10211,11 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10263,6 +10358,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10445,6 +10541,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -11363,6 +11460,8 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 1`] = `
 <form
@@ -18959,6 +19058,8 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
 </form>
 `;
 
+exports[`renders components/form/demo/time-related-controls.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/useWatch.tsx extend context correctly 1`] = `
 Array [
   <form
@@ -19118,6 +19219,8 @@ Array [
 ]
 `;
 
+exports[`renders components/form/demo/useWatch.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/validate-only.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
@@ -19253,6 +19356,8 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
 </form>
 `;
 
+exports[`renders components/form/demo/validate-only.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/validate-other.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -19331,11 +19436,11 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="validate_other_select_list_0"
                     aria-autocomplete="list"
                     aria-controls="validate_other_select_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="validate_other_select_list"
                     aria-required="true"
                     autocomplete="off"
@@ -19512,11 +19617,11 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                       style="width: 0px;"
                     >
                       <input
-                        aria-activedescendant="validate_other_select-multiple_list_0"
                         aria-autocomplete="list"
                         aria-controls="validate_other_select-multiple_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="validate_other_select-multiple_list"
                         aria-required="true"
                         autocomplete="off"
@@ -19885,6 +19990,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               </div>
               <div
                 aria-disabled="false"
+                aria-orientation="horizontal"
                 aria-valuemax="100"
                 aria-valuemin="0"
                 aria-valuenow="0"
@@ -19992,7 +20098,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -20011,7 +20117,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -20030,7 +20136,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
@@ -20186,7 +20292,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox ant-checkbox-checked"
+                      class="ant-checkbox ant-wave-target ant-checkbox-checked"
                     >
                       <input
                         checked=""
@@ -20211,7 +20317,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+                      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
                     >
                       <input
                         checked=""
@@ -20237,7 +20343,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20261,7 +20367,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20285,7 +20391,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20309,7 +20415,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     style="line-height: 32px;"
                   >
                     <span
-                      class="ant-checkbox"
+                      class="ant-checkbox ant-wave-target"
                     >
                       <input
                         class="ant-checkbox-input"
@@ -20997,11 +21103,11 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -21301,6 +21407,8 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/validate-other.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 1`] = `
 <form
@@ -21706,13 +21814,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -23975,13 +24084,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -25129,11 +25239,11 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25286,13 +25396,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -25343,6 +25454,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25427,13 +25539,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -25506,6 +25619,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -27152,13 +27266,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -27334,13 +27449,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -27380,13 +27496,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -27449,13 +27566,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -27516,13 +27634,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       aria-hidden="true"
                       data-icon="close-circle"
                       fill="currentColor"
+                      fill-rule="evenodd"
                       focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                       />
                     </svg>
                   </span>
@@ -27542,13 +27661,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                         aria-hidden="true"
                         data-icon="close-circle"
                         fill="currentColor"
+                        fill-rule="evenodd"
                         focusable="false"
                         height="1em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
                         <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                          d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                         />
                       </svg>
                     </span>
@@ -27590,6 +27710,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
@@ -27686,6 +27808,8 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/warning-only.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/without-form-create.tsx extend context correctly 1`] = `
 <form
@@ -27822,3 +27946,5 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
   </div>
 </form>
 `;
+
+exports[`renders components/form/demo/without-form-create.tsx extend context correctly 2`] = `[]`;

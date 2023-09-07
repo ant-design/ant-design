@@ -1,14 +1,14 @@
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
-import { Col, Modal, Popover, Row, Select } from 'antd';
 import classNames from 'classnames';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { Col, Popover, Row, Select } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
-import { getThemeConfig, ping } from '../../utils';
+import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import Logo from './Logo';
@@ -25,11 +25,13 @@ const useStyle = createStyles(({ token, css }) => {
 
   return {
     header: css`
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
+      backdrop-filter: blur(8px);
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
@@ -107,16 +109,6 @@ const useStyle = createStyles(({ token, css }) => {
   };
 });
 
-const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
-
-function disableAntdMirrorModal() {
-  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
-}
-
-function shouldOpenAntdMirrorModal() {
-  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
-}
-
 interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
@@ -125,7 +117,6 @@ interface HeaderState {
 
 // ================================= Header =================================
 const Header: React.FC = () => {
-  const [isClient, setIsClient] = React.useState(false);
   const [, lang] = useLocale();
 
   const { pkg } = useSiteData();
@@ -137,7 +128,7 @@ const Header: React.FC = () => {
     searching: false,
   });
   const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
-  const pingTimer = useRef<NodeJS.Timeout | null>(null);
+  const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
 
@@ -164,34 +155,8 @@ const Header: React.FC = () => {
   }, [location]);
 
   useEffect(() => {
-    setIsClient(typeof window !== 'undefined');
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
-    pingTimer.current = ping((status) => {
-      if (status !== 'timeout' && status !== 'error') {
-        if (
-          // process.env.NODE_ENV === 'production' &&
-          window.location.host !== 'ant-design.antgroup.com' &&
-          shouldOpenAntdMirrorModal()
-        ) {
-          Modal.confirm({
-            title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～',
-            okText: '🚀 立刻前往',
-            cancelText: '不再弹出',
-            closable: true,
-            zIndex: 99999,
-            onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
-              disableAntdMirrorModal();
-            },
-            onCancel() {
-              disableAntdMirrorModal();
-            },
-          });
-        }
-      }
-    });
     return () => {
       window.removeEventListener('resize', onWindowResize);
       if (pingTimer.current) {
@@ -271,7 +236,6 @@ const Header: React.FC = () => {
   const sharedProps: SharedProps = {
     isZhCN,
     isRTL,
-    isClient,
   };
 
   const navigationNode = (

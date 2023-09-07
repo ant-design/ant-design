@@ -1,6 +1,6 @@
 import { DownOutlined } from '@ant-design/icons';
-import { Dropdown, Space } from 'antd';
 import React from 'react';
+import { Dropdown, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space>

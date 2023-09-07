@@ -27,6 +27,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | autoFocus | 组件自动获取焦点 | boolean | false |
@@ -48,6 +50,18 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Switch"></ComponentTokenTable>
+
+## FAQ
+
+### 为什么在 Form.Item 下不能绑定数据？
+
+Form.Item 默认绑定值属性到 `value` 上，而 Switch 的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
+
+```tsx | pure
+<Form.Item name="fieldA" valuePropName="checked">
+  <Switch />
+</Form.Item>
+```

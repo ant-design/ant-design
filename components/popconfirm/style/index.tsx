@@ -65,6 +65,7 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 
       [`${componentCls}-buttons`]: {
         textAlign: 'end',
+        whiteSpace: 'nowrap',
 
         button: {
           marginInlineStart: marginXS,
@@ -84,5 +85,8 @@ export default genComponentStyleHook(
     return {
       zIndexPopup: zIndexPopupBase + 60,
     };
+  },
+  {
+    resetStyle: false,
   },
 );

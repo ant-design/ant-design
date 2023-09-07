@@ -1,5 +1,4 @@
-'use client';
-
+import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -15,18 +14,18 @@ import type {
 import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import genPurePanel from '../_util/PurePanel';
+
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
@@ -40,7 +39,7 @@ import useStyle from './style';
 // - Hover opacity style
 // - Search filter match case
 
-export { BaseOptionType, DefaultOptionType };
+export type { BaseOptionType, DefaultOptionType };
 
 export type FieldNamesType = FieldNames;
 
@@ -119,6 +118,11 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
   UnionCascaderProps<DataNodeType> & {
     multiple?: boolean;
     size?: SizeType;
+    /**
+     * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+     *   default behavior, you can hide it by setting `suffixIcon` to null.
+     */
+    showArrow?: boolean;
     disabled?: boolean;
     bordered?: boolean;
     placement?: SelectCommonPlacement;
@@ -194,6 +198,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       'Cascader',
       '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
+
+    warning(
+      !('showArrow' in props),
+      'Cascader',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   // =================== No Found ====================
@@ -267,14 +277,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // ===================== Icons =====================
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     hasFeedback,
     feedbackIcon,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     multiple,
     prefixCls,
+    componentName: 'Cascader',
   });
 
   // ===================== Placement =====================
@@ -286,6 +297,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   }, [placement, isRtl]);
 
   const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ==================== Render =====================
   const renderNode = (
@@ -314,12 +327,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}
-      allowClear={allowClear}
+      allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
       loadingIcon={loadingIcon}
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
@@ -328,7 +340,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
-      showArrow={hasFeedback || mergedShowArrow}
     />
   );
 

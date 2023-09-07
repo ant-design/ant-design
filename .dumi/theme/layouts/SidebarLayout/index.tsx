@@ -5,10 +5,10 @@ import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';
 import Sidebar from '../../slots/Sidebar';
 
-const useStyle = createStyles(({ css }) => ({
+const useStyle = createStyles(({ css, token }) => ({
   main: css`
     display: flex;
-    margin-top: 40px;
+    margin-top: ${token.contentMarginTop}px;
   `,
 }));
 

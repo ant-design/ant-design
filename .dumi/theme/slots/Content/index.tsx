@@ -1,16 +1,17 @@
 import { CalendarOutlined } from '@ant-design/icons';
 import { createStyles, useTheme } from 'antd-style';
 import ContributorsList from '@qixian.cs/github-contributors-list';
-import { Affix, Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import classNames from 'classnames';
 import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import { Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';
 import PrevAndNext from '../../common/PrevAndNext';
+import ComponentChangelog from '../../common/ComponentChangelog';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import Footer from '../Footer';
@@ -43,6 +44,9 @@ const useStyle = createStyles(({ token, css }) => {
         }
       }
     `,
+    listMobile: css`
+      margin: 1em 0 !important;
+    `,
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
@@ -51,16 +55,17 @@ const useStyle = createStyles(({ token, css }) => {
       }
     `,
     tocWrapper: css`
-      position: absolute;
-      top: 8px;
+      position: fixed;
+      top: ${token.headerHeight + token.contentMarginTop}px;
       inset-inline-end: 0;
       width: 160px;
-      margin: 12px 0;
+      margin: 0 0 12px 0;
       padding: 8px 0;
       padding-inline: 4px 8px;
       backdrop-filter: blur(8px);
       border-radius: ${token.borderRadius}px;
       box-sizing: border-box;
+      z-index: 1000;
 
       .toc-debug {
         color: ${token.purple6};
@@ -114,7 +119,7 @@ const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
   </li>
 );
 
-const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
+const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   useLayoutEffect(() => {
@@ -123,9 +128,12 @@ const AuthorAvatar = ({ name, avatar }: { name: string; avatar: string }) => {
     img.onload = () => setLoading(false);
     img.onerror = () => setError(true);
   }, []);
-
-  if (error) return null;
-  if (loading) return <Skeleton.Avatar size="small" active />;
+  if (error) {
+    return null;
+  }
+  if (loading) {
+    return <Skeleton.Avatar size="small" active />;
+  }
   return (
     <Avatar size="small" src={avatar} alt={name}>
       {name}
@@ -140,7 +148,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { formatMessage } = useIntl();
   const { styles } = useStyle();
   const token = useTheme();
-  const { direction } = useContext(SiteContext);
+  const { direction, isMobile } = useContext(SiteContext);
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const debugDemos = useMemo(
@@ -178,15 +186,6 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
 
   const isRTL = direction === 'rtl';
 
-  // support custom author info in frontmatter
-  // e.g.
-  // ---
-  // author:
-  //   - name: qixian
-  //     avatar: https://avatars.githubusercontent.com/u/11746742?v=4
-  //   - name: yutingzhao1991
-  //     avatar: https://avatars.githubusercontent.com/u/5378891?v=4
-  // ---
   const mergedAuthorInfos = useMemo(() => {
     const { author } = meta.frontmatter;
     if (!author) {
@@ -207,7 +206,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <Affix>
+        {!!meta.frontmatter.toc && (
           <section className={styles.tocWrapper}>
             <Anchor
               className={styles.toc}
@@ -232,20 +231,22 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
               }))}
             />
           </section>
-        </Affix>
+        )}
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
-            <Typography.Title style={{ fontSize: 30 }}>
-              {meta.frontmatter?.title}
-              {meta.frontmatter.subtitle && (
-                <span style={{ marginLeft: 12 }}>{meta.frontmatter.subtitle}</span>
-              )}
-              {!pathname.startsWith('/components/overview') && (
-                <EditButton
-                  title={<FormattedMessage id="app.content.edit-page" />}
-                  filename={meta.frontmatter.filename}
-                />
-              )}
+            <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
+              <Space size="small">
+                {meta.frontmatter?.title}
+                {meta.frontmatter?.subtitle}
+
+                {!pathname.startsWith('/components/overview') && (
+                  <EditButton
+                    title={<FormattedMessage id="app.content.edit-page" />}
+                    filename={meta.frontmatter.filename}
+                  />
+                )}
+              </Space>
+              {pathname.startsWith('/components/') && <ComponentChangelog pathname={pathname} />}
             </Typography.Title>
           ) : null}
           {/* 添加作者、时间等信息 */}
@@ -286,10 +287,10 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
           )}
           {meta.frontmatter.filename && (
             <ContributorsList
+              cache
               repo="ant-design"
               owner="ant-design"
-              className={styles.contributorsList}
-              cache
+              className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}
               fileName={meta.frontmatter.filename}
               renderItem={(item, loading) => {
                 if (!item || loading) {

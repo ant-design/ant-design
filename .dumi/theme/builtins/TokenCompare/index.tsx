@@ -1,10 +1,10 @@
 // 用于 color.md 中的颜色对比
 import React from 'react';
 import classNames from 'classnames';
-import { theme, Space } from 'antd';
 import { TinyColor } from '@ctrl/tinycolor';
-import tokenMeta from 'antd/es/version/token-meta.json';
 import { createStyles } from 'antd-style';
+import tokenMeta from 'antd/es/version/token-meta.json';
+import { Space, theme } from 'antd';
 import useLocale from '../../../hooks/useLocale';
 
 const useStyle = createStyles(({ token, css }) => {
@@ -29,7 +29,7 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       justify-content: center;
-
+      color: rgba(0,0,0,0.88);
       border-right: 1px solid rgba(0, 0, 0, 0.1);
     `,
 

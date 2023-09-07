@@ -3,7 +3,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import type { SelectCommonPlacement } from '../_util/motion';
 import type { DirectionType } from '../config-provider';
-import type { PickerLocale } from './generatePicker';
+import type { PickerLocale, PickerProps } from './generatePicker';
 
 export function getPlaceholder(
   locale: PickerLocale,
@@ -126,6 +126,11 @@ export function getTimeProps<DateType, DisabledTime>(
   const firstFormat = toArray(format)[0];
   const showTimeObj = { ...props };
 
+  // https://github.com/ant-design/ant-design/issues/44275
+  if (format && Array.isArray(format)) {
+    showTimeObj.format = firstFormat;
+  }
+
   if (firstFormat && typeof firstFormat === 'string') {
     if (!firstFormat.includes('s') && showSecond === undefined) {
       showTimeObj.showSecond = false;
@@ -159,4 +164,20 @@ export function getTimeProps<DateType, DisabledTime>(
   return {
     showTime: showTimeObj,
   };
+}
+
+type AllowClear = PickerProps<unknown>['allowClear'];
+type ClearIcon = PickerProps<unknown>['clearIcon'];
+
+export function mergeAllowClear(
+  allowClear: AllowClear,
+  clearIcon: ClearIcon,
+  defaultClearIcon: NonNullable<ClearIcon>,
+) {
+  if (allowClear === false) {
+    return false;
+  }
+
+  const defaults = { clearIcon: clearIcon ?? defaultClearIcon };
+  return typeof allowClear === 'object' ? { ...defaults, ...allowClear } : defaults;
 }

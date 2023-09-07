@@ -35,6 +35,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Tag
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -52,6 +54,6 @@ demo:
 | checked  | 设置标签的选中状态   | boolean           | false  |
 | onChange | 点击标签时触发的回调 | (checked) => void | -      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Tag"></ComponentTokenTable>

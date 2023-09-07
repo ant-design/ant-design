@@ -1,7 +1,4 @@
 /* eslint-disable react/button-has-type */
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
 import React, {
   Children,
   createRef,
@@ -11,19 +8,24 @@ import React, {
   useMemo,
   useState,
 } from 'react';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
+
 import warning from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import IconWrapper from './IconWrapper';
-import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import IconWrapper from './IconWrapper';
+import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
+import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -145,7 +147,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
   useEffect(() => {
-    let delayTimer: NodeJS.Timer | null = null;
+    let delayTimer: ReturnType<typeof setTimeout> | null = null;
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
@@ -285,11 +287,18 @@ const InternalButton: React.ForwardRefRenderFunction<
     >
       {iconNode}
       {kids}
+
+      {/* Styles: compact */}
+      {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 
   if (!isUnBorderedButtonType(type)) {
-    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
+    buttonNode = (
+      <Wave component="Button" disabled={!!innerLoading}>
+        {buttonNode}
+      </Wave>
+    );
   }
 
   return wrapSSR(buttonNode);

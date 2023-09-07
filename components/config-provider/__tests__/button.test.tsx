@@ -1,6 +1,6 @@
 import { SearchOutlined } from '@ant-design/icons';
-import Button from 'antd/es/button';
 import React from 'react';
+import Button from 'antd/es/button';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 

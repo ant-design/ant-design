@@ -9,6 +9,7 @@ import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import { withPureRenderTheme } from '../_util/PurePanel';
 
 export interface PurePanelProps
   extends Omit<PanelProps, 'prefixCls'>,
@@ -80,4 +81,4 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   );
 };
 
-export default PurePanel;
+export default withPureRenderTheme(PurePanel);

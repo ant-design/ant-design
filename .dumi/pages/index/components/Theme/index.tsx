@@ -1,10 +1,12 @@
+import * as React from 'react';
+import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { createStyles, css, useTheme } from 'antd-style';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -16,28 +18,33 @@ import {
   Menu,
   Radio,
   Space,
-  Typography,
   theme,
+  Typography,
 } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
-import * as React from 'react';
 import classNames from 'classnames';
+import { useLocation } from 'dumi';
+
+import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
+import Link from '../../../../theme/common/Link';
 import SiteContext from '../../../../theme/slots/SiteContext';
+import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
+import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
 import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
-import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
 
 const { Header, Content, Sider } = Layout;
 
-const TokenChecker = () => {
+const TokenChecker: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') {
     console.log('Demo Token:', theme.useToken());
   }
@@ -87,12 +94,12 @@ const useStyle = createStyles(({ token, cx }) => {
   const { carousel } = getCarouselStyle();
 
   const demo = css`
-      overflow: hidden;
-      background: rgba(240, 242, 245, 0.25);
-      backdrop-filter: blur(50px);
-      box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
-      transition: all ${token.motionDurationSlow};
-    `;
+    overflow: hidden;
+    background: rgba(240, 242, 245, 0.25);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
+    transition: all ${token.motionDurationSlow};
+  `;
 
   return {
     demo,
@@ -177,12 +184,6 @@ const useStyle = createStyles(({ token, cx }) => {
       }
     `,
 
-    logoImgPureColor: css`
-      img {
-        transform: translate3d(-30px, 0, 0);
-      }
-    `,
-
     transBg: css`
       background: transparent !important;
     `,
@@ -245,6 +246,10 @@ function getTitleColor(colorPrimary: string | Color, isLight?: boolean) {
     case '#F2BD27':
       return undefined;
 
+    case '#5A54F9':
+    case '#E0282E':
+      return '#FFF';
+
     default:
       return color.toHsb().b < 0.7 ? '#FFF' : undefined;
   }
@@ -277,17 +282,43 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
     colorPrimary: PINK_COLOR,
     borderRadius: 16,
   },
+  v4: {
+    ...defaultTheme.token,
+  },
 };
+
+function rgbToColorMatrix(color: string) {
+  const rgb = new TinyColor(color).toRgb();
+  const { r, g, b } = rgb;
+
+  const normalize = (value) => value / 255;
+  const invertValue = normalize(r) * 100;
+  const sepiaValue = 100;
+  const saturateValue = Math.max(normalize(r), normalize(g), normalize(b)) * 10000;
+  const hueRotateValue =
+    ((Math.atan2(
+      Math.sqrt(3) * (normalize(g) - normalize(b)),
+      2 * normalize(r) - normalize(g) - normalize(b),
+    ) *
+      180) /
+      Math.PI +
+      360) %
+    360;
+
+  return `invert(${invertValue}%) sepia(${sepiaValue}%) saturate(${saturateValue}%) hue-rotate(${hueRotateValue}deg)`;
+}
 
 export default function Theme() {
   const { styles } = useStyle();
   const token = useTheme();
-  const [locale] = useLocale(locales);
+  const [locale, lang] = useLocale(locales);
+  const isZhCN = lang === 'cn';
+  const { search } = useLocation();
 
   const [themeData, setThemeData] = React.useState<ThemeData>(ThemeDefault);
 
   const onThemeChange = (_: Partial<ThemeData>, nextThemeData: ThemeData) => {
-    setThemeData(nextThemeData);
+    setThemeData({ ...ThemesInfo[nextThemeData.themeType], ...nextThemeData });
   };
 
   const { compact, themeType, colorPrimary, ...themeToken } = themeData;
@@ -307,8 +338,12 @@ export default function Theme() {
       algorithms.push(theme.compactAlgorithm);
     }
 
+    if (themeType === 'v4') {
+      algorithms.push(defaultAlgorithm);
+    }
+
     return algorithms;
-  }, [isLight, compact]);
+  }, [isLight, compact, themeType]);
 
   // ================================ Themes ================================
   React.useEffect(() => {
@@ -316,11 +351,20 @@ export default function Theme() {
       ...ThemeDefault,
       themeType,
       ...ThemesInfo[themeType],
-    } as any;
+    };
 
     setThemeData(mergedData);
     form.setFieldsValue(mergedData);
   }, [themeType]);
+
+  const isRootDark = useDark();
+
+  React.useEffect(() => {
+    onThemeChange(null, {
+      ...themeData,
+      themeType: isRootDark ? 'dark' : 'default',
+    });
+  }, [isRootDark]);
 
   // ================================ Tokens ================================
   const closestColor = getClosetColor(colorPrimaryValue);
@@ -382,6 +426,7 @@ export default function Theme() {
                 // colorItemBgActive: 'rgba(255,255,255,0.2)',
                 // colorItemBgSelected: 'rgba(255,255,255,0.2)',
               },
+          ...(themeType === 'v4' ? defaultTheme.components : {}),
         },
       }}
     >
@@ -399,19 +444,15 @@ export default function Theme() {
           >
             {/* Logo */}
             <div className={styles.logo}>
-              <div
-                className={classNames(
-                  styles.logoImg,
-                  closestColor !== DEFAULT_COLOR && styles.logoImgPureColor,
-                )}
-              >
+              <div className={styles.logoImg}>
                 <img
                   src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
                   style={{
                     filter:
                       closestColor === DEFAULT_COLOR
                         ? undefined
-                        : `drop-shadow(30px 0 0 ${logoColor})`,
+                        : // : `drop-shadow(30px 0 0 ${logoColor})`,
+                          rgbToColorMatrix(logoColor),
                   }}
                   alt=""
                 />
@@ -445,21 +486,32 @@ export default function Theme() {
               />
             </Sider>
             <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>
-              <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>
-                  <HomeOutlined />
-                </Breadcrumb.Item>
-                <Breadcrumb.Item menu={{ items: subMenuItems }}>Design</Breadcrumb.Item>
-                <Breadcrumb.Item>Themes</Breadcrumb.Item>
-              </Breadcrumb>
+              <Breadcrumb
+                style={{ margin: '16px 0' }}
+                items={[
+                  { title: <HomeOutlined /> },
+                  { title: 'Design', menu: { items: subMenuItems } },
+                  { title: 'Themes' },
+                ]}
+              />
               <Content>
                 <Typography.Title level={2}>{locale.customizeTheme}</Typography.Title>
                 <Card
                   title={locale.myTheme}
                   extra={
                     <Space>
-                      <Button type="default">{locale.toDef}</Button>
-                      <Button type="primary">{locale.toUse}</Button>
+                      <Link to={utils.getLocalizedPathname('/theme-editor', isZhCN, search)}>
+                        <Button type="default">{locale.toDef}</Button>
+                      </Link>
+                      <Link
+                        to={utils.getLocalizedPathname(
+                          '/docs/react/customize-theme',
+                          isZhCN,
+                          search,
+                        )}
+                      >
+                        <Button type="primary">{locale.toUse}</Button>
+                      </Link>
                     </Space>
                   }
                 >
@@ -467,8 +519,8 @@ export default function Theme() {
                     form={form}
                     initialValues={themeData}
                     onValuesChange={onThemeChange}
-                    labelCol={{ span: 4 }}
-                    wrapperCol={{ span: 20 }}
+                    labelCol={{ span: 3 }}
+                    wrapperCol={{ span: 21 }}
                     className={styles.form}
                   >
                     <Form.Item label={locale.titleTheme} name="themeType">
@@ -500,13 +552,13 @@ export default function Theme() {
   const posStyle: React.CSSProperties = {
     position: 'absolute',
   };
-  const leftTopImageStyle = {
+  const leftTopImageStyle: React.CSSProperties = {
     left: '50%',
     transform: 'translate3d(-900px, 0, 0)',
     top: -100,
     height: 500,
   };
-  const rightBottomImageStyle = {
+  const rightBottomImageStyle: React.CSSProperties = {
     right: '50%',
     transform: 'translate3d(750px, 0, 0)',
     bottom: -100,

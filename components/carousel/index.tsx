@@ -1,9 +1,8 @@
-'use client';
-
+import * as React from 'react';
 import type { Settings } from '@ant-design/react-slick';
 import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -16,6 +15,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   style?: React.CSSProperties;
   prefixCls?: string;
   rootClassName?: string;
+  id?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
@@ -42,6 +42,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
     className: customClassName,
     style,
+    id,
     ...otherProps
   } = props;
   const { getPrefixCls, direction, carousel } = React.useContext(ConfigContext);
@@ -106,7 +107,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
   );
 
   return wrapSSR(
-    <div className={className}>
+    <div className={className} id={id}>
       <SlickCarousel
         ref={slickRef}
         {...newProps}
@@ -114,6 +115,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
         dotsClass={dsClass}
         arrows={arrows}
         draggable={draggable}
+        verticalSwiping={vertical}
         waitForAnimate={waitForAnimate}
       />
     </div>,

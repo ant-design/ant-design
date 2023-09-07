@@ -9,6 +9,7 @@ demo:
 group:
   title: 数据展示
   order: 5
+tag: New
 ---
 
 能够将文本转换生成二维码的组件，支持自定义配色和 Logo 配置，自 `antd@5.1.0` 版本开始提供该组件。
@@ -34,6 +35,8 @@ group:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 > 自 `antd@5.1.0` 版本开始提供该组件。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -50,7 +53,7 @@ group:
 | status | 二维码状态 | `active \| expired \| loading ` | `active` |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="QRCode"></ComponentTokenTable>
 

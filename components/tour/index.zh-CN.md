@@ -7,6 +7,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8CC_Tbe3_e4AAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*nF6hQpM0XtEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
+tag: New
 ---
 
 用于分步引导用户了解产品功能的气泡组件。自 `5.0.0` 版本开始提供该组件。
@@ -26,6 +27,8 @@ demo:
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Tour
 
@@ -61,6 +64,6 @@ demo:
 | prevButtonProps | 上一步按钮的属性 | `{ children: ReactNode; onClick: Function }` | - |  |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 `scrollIntoViewOptions` 属性 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Tour"></ComponentTokenTable>

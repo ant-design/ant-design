@@ -629,6 +629,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="1"
@@ -1224,7 +1225,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -1244,7 +1245,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1263,7 +1264,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -1957,6 +1958,7 @@ Array [
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="1"

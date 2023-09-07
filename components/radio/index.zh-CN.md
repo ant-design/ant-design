@@ -35,6 +35,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Radio/Radio.Button
 
 <!-- prettier-ignore -->
@@ -72,6 +74,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Radio"></ComponentTokenTable>

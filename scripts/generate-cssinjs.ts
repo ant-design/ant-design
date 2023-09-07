@@ -1,5 +1,5 @@
-import { globSync } from 'glob';
 import path from 'path';
+import { globSync } from 'glob';
 import React from 'react';
 
 type StyleFn = (prefix?: string) => void;
@@ -14,7 +14,7 @@ export const styleFiles = globSync(
   path.join(
     process.cwd(),
     'components/!(version|config-provider|icon|auto-complete|col|row|time-picker|qrcode)/style/index.?(ts|tsx)',
-  ),
+  ).split(path.sep).join('/'),
 );
 
 export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions) =>

@@ -1,5 +1,7 @@
 ---
-order: 3
+group:
+  title: 如何使用
+order: 2
 title: 在 Umi 中使用
 ---
 

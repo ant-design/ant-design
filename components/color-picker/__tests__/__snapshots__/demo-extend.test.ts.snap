@@ -134,11 +134,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -296,7 +296,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -384,6 +384,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/color-picker/demo/allowClear.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/base.tsx extend context correctly 1`] = `
 Array [
@@ -516,11 +518,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -678,7 +680,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -766,6 +768,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/color-picker/demo/base.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/change-completed.tsx extend context correctly 1`] = `
 <div
@@ -900,11 +904,11 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1062,7 +1066,7 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -1150,6 +1154,8 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/change-completed.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 1`] = `
 Array [
@@ -1282,11 +1288,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1444,7 +1450,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -1532,6 +1538,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
@@ -1669,11 +1677,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -1831,7 +1839,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -1919,6 +1927,295 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/color-picker/demo/disabled.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-color-picker-trigger"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute;"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-color-picker-inner-content"
+          >
+            <div
+              class="ant-color-picker-panel"
+            >
+              <div
+                class="ant-color-picker-select"
+              >
+                <div
+                  class="ant-color-picker-palette"
+                  style="position: relative;"
+                >
+                  <div
+                    style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                  >
+                    <div
+                      class="ant-color-picker-handler"
+                      style="background-color: rgb(22, 119, 255);"
+                    />
+                  </div>
+                  <div
+                    class="ant-color-picker-saturation"
+                    style="background-color: rgb(0, 0, 0);"
+                  />
+                </div>
+              </div>
+              <div
+                class="ant-color-picker-slider-container"
+              >
+                <div
+                  class="ant-color-picker-slider-group ant-color-picker-slider-group-disabled-alpha"
+                >
+                  <div
+                    class="ant-color-picker-slider ant-color-picker-slider-hue"
+                  >
+                    <div
+                      class="ant-color-picker-palette"
+                      style="position: relative;"
+                    >
+                      <div
+                        style="position: absolute; left: 0px; top: 0px; z-index: 1;"
+                      >
+                        <div
+                          class="ant-color-picker-handler ant-color-picker-handler-sm"
+                          style="background-color: rgb(0, 0, 0);"
+                        />
+                      </div>
+                      <div
+                        class="ant-color-picker-gradient"
+                        style="position: absolute; inset: 0;"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-color-block"
+                >
+                  <div
+                    class="ant-color-picker-color-block-inner"
+                    style="background: rgb(22, 119, 255);"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-color-picker-input-container"
+            >
+              <div
+                class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+              >
+                <div
+                  class="ant-select-selector"
+                >
+                  <span
+                    class="ant-select-selection-search"
+                  >
+                    <input
+                      aria-autocomplete="list"
+                      aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      aria-label="Search"
+                      aria-owns="rc_select_TEST_OR_SSR_list"
+                      autocomplete="off"
+                      class="ant-select-selection-search-input"
+                      id="rc_select_TEST_OR_SSR"
+                      readonly=""
+                      role="combobox"
+                      style="opacity: 0;"
+                      type="search"
+                      unselectable="on"
+                      value=""
+                    />
+                  </span>
+                  <span
+                    class="ant-select-selection-item"
+                    title="HEX"
+                  >
+                    HEX
+                  </span>
+                </div>
+                <div
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 68px;"
+                >
+                  <div>
+                    <div
+                      id="rc_select_TEST_OR_SSR_list"
+                      role="listbox"
+                      style="height: 0px; width: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-label="HEX"
+                        aria-selected="true"
+                        id="rc_select_TEST_OR_SSR_list_0"
+                        role="option"
+                      >
+                        hex
+                      </div>
+                      <div
+                        aria-label="HSB"
+                        aria-selected="false"
+                        id="rc_select_TEST_OR_SSR_list_1"
+                        role="option"
+                      >
+                        hsb
+                      </div>
+                    </div>
+                    <div
+                      class="rc-virtual-list"
+                      style="position: relative;"
+                    >
+                      <div
+                        class="rc-virtual-list-holder"
+                        style="max-height: 256px; overflow-y: auto;"
+                      >
+                        <div>
+                          <div
+                            class="rc-virtual-list-holder-inner"
+                            style="display: flex; flex-direction: column;"
+                          >
+                            <div
+                              aria-selected="true"
+                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              title="HEX"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HEX
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              aria-selected="false"
+                              class="ant-select-item ant-select-item-option"
+                              title="HSB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HSB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              aria-selected="false"
+                              class="ant-select-item ant-select-item-option"
+                              title="RGB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                RGB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-arrow"
+                  style="user-select: none;"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="down"
+                    class="anticon anticon-down ant-select-suffix"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="down"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-color-picker-input"
+              >
+                <span
+                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm"
+                >
+                  <span
+                    class="ant-input-prefix"
+                  >
+                    #
+                  </span>
+                  <input
+                    class="ant-input ant-input-sm"
+                    type="text"
+                    value="1677ff"
+                  />
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/format.tsx extend context correctly 1`] = `
 <div
@@ -2071,11 +2368,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -2233,7 +2530,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                             <input
                               class="ant-input ant-input-sm"
                               type="text"
-                              value="1677FF"
+                              value="1677ff"
                             />
                           </span>
                         </div>
@@ -2482,11 +2779,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -3110,11 +3407,11 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
+                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -3596,6 +3893,8 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/color-picker/demo/format.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/panel-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -3761,11 +4060,11 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 class="ant-select-selection-search"
                               >
                                 <input
-                                  aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="Search"
                                   aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -3923,7 +4222,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               <input
                                 class="ant-input ant-input-sm"
                                 type="text"
-                                value="1677FF"
+                                value="1677ff"
                               />
                             </span>
                           </div>
@@ -4594,11 +4893,11 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                   class="ant-select-selection-search"
                                 >
                                   <input
-                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                     aria-autocomplete="list"
                                     aria-controls="rc_select_TEST_OR_SSR_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
+                                    aria-label="Search"
                                     aria-owns="rc_select_TEST_OR_SSR_list"
                                     autocomplete="off"
                                     class="ant-select-selection-search-input"
@@ -4756,7 +5055,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                 <input
                                   class="ant-input ant-input-sm"
                                   type="text"
-                                  value="1677FF"
+                                  value="1677ff"
                                 />
                               </span>
                             </div>
@@ -4851,6 +5150,8 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/panel-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/presets.tsx extend context correctly 1`] = `
 Array [
@@ -4983,11 +5284,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -5145,7 +5446,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -5605,6 +5906,8 @@ Array [
 ]
 `;
 
+exports[`renders components/color-picker/demo/presets.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/pure-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-left: 100px;"
@@ -5742,11 +6045,11 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -5904,7 +6207,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677FF"
+                      value="1677ff"
                     />
                   </span>
                 </div>
@@ -5993,6 +6296,8 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/pure-panel.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/size.tsx extend context correctly 1`] = `
 <div
@@ -6138,11 +6443,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -6300,7 +6605,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <input
                           class="ant-input ant-input-sm"
                           type="text"
-                          value="1677FF"
+                          value="1677ff"
                         />
                       </span>
                     </div>
@@ -6520,11 +6825,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -6682,7 +6987,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <input
                           class="ant-input ant-input-sm"
                           type="text"
-                          value="1677FF"
+                          value="1677ff"
                         />
                       </span>
                     </div>
@@ -6901,11 +7206,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -7063,7 +7368,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <input
                           class="ant-input ant-input-sm"
                           type="text"
-                          value="1677FF"
+                          value="1677ff"
                         />
                       </span>
                     </div>
@@ -7296,11 +7601,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -7458,7 +7763,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <input
                           class="ant-input ant-input-sm"
                           type="text"
-                          value="1677FF"
+                          value="1677ff"
                         />
                       </span>
                     </div>
@@ -7683,11 +7988,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -7845,7 +8150,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <input
                           class="ant-input ant-input-sm"
                           type="text"
-                          value="1677FF"
+                          value="1677ff"
                         />
                       </span>
                     </div>
@@ -8069,11 +8374,11 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="Search"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -8231,7 +8536,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                         <input
                           class="ant-input ant-input-sm"
                           type="text"
-                          value="1677FF"
+                          value="1677ff"
                         />
                       </span>
                     </div>
@@ -8322,6 +8627,8 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 1`] = `
 <div
@@ -8465,11 +8772,11 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -8627,7 +8934,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677FF"
+                      value="1677ff"
                     />
                   </span>
                 </div>
@@ -8854,11 +9161,11 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -9016,7 +9323,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677FF"
+                      value="1677ff"
                     />
                   </span>
                 </div>
@@ -9259,11 +9566,11 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                       class="ant-select-selection-search"
                     >
                       <input
-                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="Search"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -9421,7 +9728,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677FF"
+                      value="1677ff"
                     />
                   </span>
                 </div>
@@ -9510,6 +9817,8 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
   </div>
 </div>
 `;
+
+exports[`renders components/color-picker/demo/text-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 1`] = `
 Array [
@@ -9639,11 +9948,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -9801,7 +10110,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -9889,6 +10198,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/color-picker/demo/trigger.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 1`] = `
 Array [
@@ -10021,11 +10332,11 @@ Array [
                     class="ant-select-selection-search"
                   >
                     <input
-                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -10183,7 +10494,7 @@ Array [
                   <input
                     class="ant-input ant-input-sm"
                     type="text"
-                    value="1677FF"
+                    value="1677ff"
                   />
                 </span>
               </div>
@@ -10271,3 +10582,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/color-picker/demo/trigger-event.tsx extend context correctly 2`] = `[]`;

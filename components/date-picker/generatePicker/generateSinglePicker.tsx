@@ -19,7 +19,12 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, getTimeProps, transPlacement2DropdownAlign } from '../util';
+import {
+  getPlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
@@ -54,6 +59,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           dropdownClassName,
           disabled: customDisabled,
           status: customStatus,
+          clearIcon,
+          allowClear,
           ...restProps
         } = props;
 
@@ -139,12 +146,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
             suffixIcon={suffixNode}
             dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-            clearIcon={<CloseCircleFilled />}
             prevIcon={<span className={`${prefixCls}-prev-icon`} />}
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-            allowClear
             transitionName={`${rootPrefixCls}-slide-up`}
             {...additionalProps}
             {...restProps}
@@ -178,6 +183,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               rootClassName,
               popupClassName || dropdownClassName,
             )}
+            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
           />,
         );
       },

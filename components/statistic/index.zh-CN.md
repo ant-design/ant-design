@@ -28,6 +28,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 #### Statistic
 
 | 参数             | 说明               | 类型                 | 默认值 | 版本  |
@@ -56,6 +58,6 @@ demo:
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Statistic"></ComponentTokenTable>

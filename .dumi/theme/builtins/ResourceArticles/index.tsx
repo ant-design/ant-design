@@ -3,8 +3,8 @@ import * as React from 'react';
 import { Suspense } from 'react';
 import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
-import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import { createStyles } from 'antd-style';
+import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
 import type { Article, Authors } from '../../../pages/index/components/util';
 import { useSiteData } from '../../../pages/index/components/util';
 import useLocale from '../../../hooks/useLocale';
@@ -51,8 +51,10 @@ const useStyle = createStyles(({ token, css }) => {
         padding: 0;
         font-size: 14px;
         list-style: none;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
-
       ${antCls}-avatar > img {
         max-width: unset;
       }
@@ -95,7 +97,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-const Articles = () => {
+const Articles: React.FC = () => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
   const { articles = { cn: [], en: [] }, authors = [] } = useSiteData();
@@ -113,10 +115,16 @@ const Articles = () => {
 
   const yearList = Object.keys(mergedData).sort((a, b) => Number(b) - Number(a));
 
-  return yearList.length ? (
-    <Tabs>
-      {yearList.map((year) => (
-        <Tabs.TabPane tab={`${year}${isZhCN ? ' 年' : ''}`} key={year}>
+  if (yearList.length === 0) {
+    return null;
+  }
+
+  return (
+    <Tabs
+      items={yearList.map((year) => ({
+        key: year,
+        label: `${year}${isZhCN ? ' 年' : ''}`,
+        children: (
           <table>
             <tbody>
               <tr>
@@ -133,15 +141,14 @@ const Articles = () => {
               </tr>
             </tbody>
           </table>
-        </Tabs.TabPane>
-      ))}
-    </Tabs>
-  ) : null;
+        ),
+      }))}
+    />
+  );
 };
 
 export default () => {
   const { styles } = useStyle();
-
   return (
     <div id="articles" className={styles.articles}>
       <Suspense fallback={<Skeleton active />}>

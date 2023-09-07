@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
@@ -105,6 +103,7 @@ export interface TransferProps<RecordType> {
   oneWay?: boolean;
   pagination?: PaginationType;
   status?: InputStatus;
+  selectionsIcon?: React.ReactNode;
 }
 
 const Transfer = <RecordType extends TransferItem = TransferItem>(
@@ -130,6 +129,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    selectionsIcon,
     filterOption,
     render,
     footer,
@@ -374,6 +374,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
+        selectionsIcon={selectionsIcon}
         {...listLocale}
       />
       <Operation
@@ -412,6 +413,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}
         pagination={mergedPagination}
+        selectionsIcon={selectionsIcon}
         {...listLocale}
       />
     </div>,

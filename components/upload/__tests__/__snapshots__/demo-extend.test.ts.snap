@@ -33,14 +33,11 @@ Array [
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -84,14 +81,11 @@ Array [
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -106,6 +100,8 @@ Array [
   </span>,
 ]
 `;
+
+exports[`renders components/upload/demo/avatar.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] = `
 <span
@@ -162,6 +158,8 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
   />
 </span>
 `;
+
+exports[`renders components/upload/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/component-token.tsx extend context correctly 1`] = `
 <span
@@ -461,6 +459,8 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
 </span>
 `;
 
+exports[`renders components/upload/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/customize-progress-bar.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
@@ -516,6 +516,8 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
   />
 </span>
 `;
+
+exports[`renders components/upload/demo/customize-progress-bar.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/defaultFileList.tsx extend context correctly 1`] = `
 <span
@@ -815,6 +817,8 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
 </span>
 `;
 
+exports[`renders components/upload/demo/defaultFileList.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/directory.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
@@ -872,6 +876,8 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
   />
 </span>
 `;
+
+exports[`renders components/upload/demo/directory.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = `
 <span
@@ -935,6 +941,8 @@ exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = 
   />
 </span>
 `;
+
+exports[`renders components/upload/demo/drag.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/drag-sorting.tsx extend context correctly 1`] = `
 Array [
@@ -1445,6 +1453,8 @@ Array [
   />,
 ]
 `;
+
+exports[`renders components/upload/demo/drag-sorting.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/file-type.tsx extend context correctly 1`] = `
 <span
@@ -2104,14 +2114,11 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -2126,6 +2133,8 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
   </div>
 </span>
 `;
+
+exports[`renders components/upload/demo/file-type.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`] = `
 <span
@@ -2259,6 +2268,8 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
 </span>
 `;
 
+exports[`renders components/upload/demo/fileList.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/max-count.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2382,6 +2393,8 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/upload/demo/max-count.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/picture-card.tsx extend context correctly 1`] = `
 <span
@@ -2929,14 +2942,11 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -2951,6 +2961,8 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
   </div>
 </span>
 `;
+
+exports[`renders components/upload/demo/picture-card.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/picture-circle.tsx extend context correctly 1`] = `
 <span
@@ -3231,14 +3243,11 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -3253,6 +3262,8 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
   </div>
 </span>
 `;
+
+exports[`renders components/upload/demo/picture-circle.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/picture-style.tsx extend context correctly 1`] = `
 Array [
@@ -3851,6 +3862,8 @@ Array [
 ]
 `;
 
+exports[`renders components/upload/demo/picture-style.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/preview-file.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
@@ -3907,6 +3920,8 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
 </span>
 `;
 
+exports[`renders components/upload/demo/preview-file.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/transform-file.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
@@ -3962,6 +3977,8 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
   />
 </span>
 `;
+
+exports[`renders components/upload/demo/transform-file.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend context correctly 1`] = `
 <span
@@ -4279,6 +4296,8 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
 </span>
 `;
 
+exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/upload-manually.tsx extend context correctly 1`] = `
 Array [
   <span
@@ -4347,6 +4366,8 @@ Array [
 ]
 `;
 
+exports[`renders components/upload/demo/upload-manually.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/upload/demo/upload-png-only.tsx extend context correctly 1`] = `
 <span
   class="ant-upload-wrapper"
@@ -4402,6 +4423,8 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
   />
 </span>
 `;
+
+exports[`renders components/upload/demo/upload-png-only.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend context correctly 1`] = `
 <form
@@ -4493,3 +4516,5 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
   </div>
 </form>
 `;
+
+exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend context correctly 2`] = `[]`;

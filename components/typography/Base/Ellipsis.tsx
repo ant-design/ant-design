@@ -74,7 +74,7 @@ type WalkingState =
   | typeof DONE_WITH_ELLIPSIS
   | typeof DONE_WITHOUT_ELLIPSIS;
 
-const Ellipsis = ({
+const Ellipsis: React.FC<EllipsisProps> = ({
   enabledMeasure,
   children,
   text,
@@ -82,10 +82,12 @@ const Ellipsis = ({
   fontSize,
   rows,
   onEllipsis,
-}: EllipsisProps) => {
+}) => {
   const [[startLen, midLen, endLen], setCutLength] = React.useState<
     [startLen: number, midLen: number, endLen: number]
   >([0, 0, 0]);
+  // record last done with ellipsis width
+  const [lastLen, setLastLen] = React.useState(0);
   const [walkingState, setWalkingState] = React.useState<WalkingState>(NONE);
 
   const [singleRowHeight, setSingleRowHeight] = React.useState(0);
@@ -98,6 +100,10 @@ const Ellipsis = ({
 
   const mergedChildren = React.useMemo(() => {
     if (!enabledMeasure || walkingState !== DONE_WITH_ELLIPSIS) {
+      // if has lastLen, use it as temporary width to avoid lots of text to squeeze space.
+      if (lastLen && walkingState !== DONE_WITHOUT_ELLIPSIS && enabledMeasure)
+        return children(sliceNodes(nodeList, lastLen), lastLen < totalLen);
+
       return children(nodeList, false);
     }
 
@@ -153,6 +159,7 @@ const Ellipsis = ({
           setCutLength([nextStartLen, nextMidLen, nextEndLen]);
         } else {
           setWalkingState(DONE_WITH_ELLIPSIS);
+          setLastLen(midLen);
           onEllipsis(true);
         }
       }

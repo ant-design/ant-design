@@ -25,6 +25,7 @@ Used when the user needs to customize the color selection.
 <code src="./demo/change-completed.tsx">Color change completed</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>
+<code src="./demo/disabled-alpha.tsx">Disabled Alpha</code>
 <code src="./demo/allowClear.tsx">Clear Color</code>
 <code src="./demo/trigger.tsx">Custom Trigger</code>
 <code src="./demo/trigger-event.tsx">Custom Trigger Event</code>
@@ -34,6 +35,8 @@ Used when the user needs to customize the color selection.
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@5.5.0`.
 
@@ -45,6 +48,7 @@ Used when the user needs to customize the color selection.
 | children | Trigger of ColorPicker | React.ReactNode | - | |
 | defaultValue | Default value of color | string \| `Color` | - | |
 | disabled | Disable ColorPicker | boolean | - | |
+| disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
 | format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | Whether to show popup | boolean | - | |

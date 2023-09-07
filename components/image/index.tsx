@@ -1,9 +1,9 @@
-'use client';
-
+import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
-import RcImage, { type ImageProps } from 'rc-image';
-import * as React from 'react';
+import RcImage from 'rc-image';
+import type { ImageProps } from 'rc-image';
+
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
@@ -77,7 +77,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   );
 };
 
-export { ImageProps };
+export type { ImageProps };
 
 Image.PreviewGroup = PreviewGroup;
 

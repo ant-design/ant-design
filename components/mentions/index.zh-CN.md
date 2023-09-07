@@ -48,6 +48,8 @@ return (
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Mentions
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -90,6 +92,6 @@ return (
 | className | css 类名       | string              | -      |
 | style     | 选项样式       | React.CSSProperties | -      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Mentions"></ComponentTokenTable>

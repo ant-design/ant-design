@@ -1,21 +1,23 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react';
-import {
-  Space,
-  Typography,
-  Tour,
-  Tag,
-  DatePicker,
-  Alert,
-  Modal,
-  FloatButton,
-  Progress,
-  Carousel,
-} from 'antd';
-import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
+import {
+  Alert,
+  Carousel,
+  DatePicker,
+  FloatButton,
+  Modal,
+  Progress,
+  Space,
+  Tag,
+  Tour,
+  Typography,
+} from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
+
+import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
 import { getCarouselStyle } from './util';
@@ -55,40 +57,87 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }) => {
-  const { carousel } = getCarouselStyle();
+const useStyle = () => {
+  const isRootDark = useDark();
 
-  return {
-    card: css`
-      border-radius: ${token.borderRadius}px;
-      background: #f5f8ff;
-      padding: ${token.paddingXL}px;
-      flex: none;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
+  return createStyles(({ token }) => {
+    const { carousel } = getCarouselStyle();
 
-      > * {
+    return {
+      card: css`
+        border-radius: ${token.borderRadius}px;
+        border: 1px solid ${isRootDark ? token.colorBorder : 'transparent'};
+        background: ${isRootDark ? token.colorBgContainer : '#f5f8ff'};
+        padding: ${token.paddingXL}px;
         flex: none;
-      }
-    `,
-    cardCircle: css`
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      background: #1677ff;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: 0.1;
-    `,
-    mobileCard: css`
-      height: 395px;
-    `,
-    carousel,
-  };
-});
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        > * {
+          flex: none;
+        }
+      `,
+      cardCircle: css`
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: #1677ff;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.1;
+      `,
+      mobileCard: css`
+        height: 395px;
+      `,
+      carousel,
+    };
+  })();
+};
+
+const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index }) => {
+  const tagColor = type === 'new' ? 'processing' : 'warning';
+  const [locale] = useLocale(locales);
+  const tagText = type === 'new' ? locale.new : locale.update;
+  const { styles } = useStyle();
+  const { isMobile } = useContext(SiteContext);
+  const token = useTheme();
+
+  return (
+    <div className={classNames(styles.card, isMobile && styles.mobileCard)}>
+      {/* Decorator */}
+      <div
+        className={styles.cardCircle}
+        style={{
+          right: (index % 2) * -20 - 20,
+          bottom: (index % 3) * -40 - 20,
+        }}
+      />
+
+      {/* Title */}
+      <Space>
+        <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
+          {title}
+        </Typography.Title>
+        <Tag color={tagColor}>{tagText}</Tag>
+      </Space>
+
+      <div
+        style={{
+          marginTop: token.paddingLG,
+          flex: 'auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {node}
+      </div>
+    </div>
+  );
+};
 
 interface ComponentItemProps {
   title: React.ReactNode;
@@ -232,44 +281,6 @@ export default function ComponentsList() {
     ],
     [isMobile],
   );
-
-  const ComponentItem = ({ title, node, type, index }: ComponentItemProps) => {
-    const tagColor = type === 'new' ? 'processing' : 'warning';
-    const tagText = type === 'new' ? locale.new : locale.update;
-
-    return (
-      <div key={index} className={classNames(styles.card, isMobile && styles.mobileCard)}>
-        {/* Decorator */}
-        <div
-          className={styles.cardCircle}
-          style={{
-            right: (index % 2) * -20 - 20,
-            bottom: (index % 3) * -40 - 20,
-          }}
-        />
-
-        {/* Title */}
-        <Space>
-          <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
-            {title}
-          </Typography.Title>
-          <Tag color={tagColor}>{tagText}</Tag>
-        </Space>
-
-        <div
-          style={{
-            marginTop: token.paddingLG,
-            flex: 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {node}
-        </div>
-      </div>
-    );
-  };
 
   return isMobile ? (
     <div style={{ margin: '0 16px' }}>

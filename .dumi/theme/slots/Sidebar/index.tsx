@@ -1,8 +1,8 @@
 import { createStyles, useTheme } from 'antd-style';
-import { Col, ConfigProvider, Menu } from 'antd';
 import { useSidebarData } from 'dumi';
 import MobileMenu from 'rc-drawer';
 import React, { useContext } from 'react';
+import { Col, ConfigProvider, Menu } from 'antd';
 import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
 
@@ -105,10 +105,10 @@ const useStyle = createStyles(({ token, css }) => {
 
       .main-menu-inner {
         position: sticky;
-        top: 0;
+        top: ${token.headerHeight + token.contentMarginTop}px;
         width: 100%;
         height: 100%;
-        max-height: 100vh;
+        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
         overflow: hidden;
       }
 

@@ -1,5 +1,5 @@
-import { Anchor, Col, Row } from 'antd';
 import React from 'react';
+import { Anchor, Col, Row } from 'antd';
 
 const App: React.FC = () => (
   <Row>

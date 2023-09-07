@@ -38,6 +38,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 各类型共用的属性。
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
@@ -75,6 +77,6 @@ demo:
 | gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` | - |
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Progress"></ComponentTokenTable>

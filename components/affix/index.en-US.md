@@ -28,6 +28,8 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | offsetBottom | Offset from the bottom of the viewport (in pixels) | number | - |

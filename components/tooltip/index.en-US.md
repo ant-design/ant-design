@@ -27,8 +27,11 @@ A simple text popup tip.
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/disabled.tsx" debug>Disabled</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description                   | Type                         | Default |
 | -------- | ----------------------------- | ---------------------------- | ------- |
@@ -66,7 +69,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 ### Why sometime not work on HOC?
 
-Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onFocus`, `onClick` events.
+Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
 
 ### What's the placement logic?
 

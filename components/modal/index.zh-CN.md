@@ -23,16 +23,16 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
-<code src="./demo/confirm.tsx">确认对话框</code>
+<code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
 <code src="./demo/position.tsx">自定义位置</code>
 <code src="./demo/dark.tsx" debug>暗背景</code>
 <code src="./demo/button-props.tsx">自定义页脚按钮属性</code>
-<code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/modal-render.tsx">自定义渲染对话框</code>
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/static-info.tsx">静态方法</code>
+<code src="./demo/confirm.tsx">静态确认对话框</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
@@ -40,6 +40,8 @@ demo:
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -75,7 +77,7 @@ demo:
 
 #### 注意
 
-- `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+- `<Modal />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnClose`。
 - `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnClose` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
 - `Modal.method()` RTL 模式仅支持 hooks 用法。
 
@@ -103,7 +105,7 @@ demo:
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0 |
-| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
+| getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
@@ -168,7 +170,18 @@ React.useEffect(() => {
 return <div>{contextHolder}</div>;
 ```
 
-## Design Token
+`modal.confirm` 返回方法：
+
+- `destroy`：销毁当前窗口
+- `update`：更新当前窗口
+- `then`：Promise 链式调用，支持 `await` 操作。该方法为 Hooks 仅有
+
+```tsx
+//点击 `onOk` 时返回 `true`，点击 `onCancel` 时返回 `false`
+const confirmed = await modal.confirm({ ... });
+```
+
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 

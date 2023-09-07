@@ -167,6 +167,8 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/list/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -821,6 +823,8 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
@@ -980,6 +984,8 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/grid.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/grid-test.tsx extend context correctly 1`] = `
 Array [
@@ -1673,6 +1679,8 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/grid-test.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/infinite-load.tsx extend context correctly 1`] = `
 <div
   id="scrollableDiv"
@@ -1775,6 +1783,8 @@ exports[`renders components/list/demo/infinite-load.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/list/demo/infinite-load.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
@@ -1816,6 +1826,8 @@ exports[`renders components/list/demo/loadmore.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/loadmore.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/pagination.tsx extend context correctly 1`] = `
 Array [
@@ -2239,6 +2251,8 @@ Array [
 ]
 `;
 
+exports[`renders components/list/demo/pagination.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/list/demo/responsive.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
@@ -2468,6 +2482,8 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/responsive.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/simple.tsx extend context correctly 1`] = `
 Array [
@@ -2703,6 +2719,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/list/demo/simple.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] = `
 <div
@@ -3406,6 +3424,8 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/list/demo/vertical.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/list/demo/virtual-list.tsx extend context correctly 1`] = `
 <div

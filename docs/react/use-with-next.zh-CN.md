@@ -1,5 +1,7 @@
 ---
-order: 4
+group:
+  title: 如何使用
+order: 2
 title: 在 Next.js 中使用
 ---
 
@@ -49,7 +51,7 @@ export default Home;
 
 我们现在已经把 antd 组件成功运行起来了，开始开发你的应用吧！
 
-## 使用 Next.js 的 Pages Router
+## 使用 Pages Router
 
 如果你在 Next.js 当中使用了 Pages Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
@@ -153,7 +155,7 @@ export default Home;
 
 更多详细的细节可以参考 [with-nextjs-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)。
 
-## 使用 Next.js 的 App Router
+## 使用 App Router
 
 如果你在 Next.js 当中使用了 App Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
@@ -169,9 +171,10 @@ export default Home;
 import React from 'react';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import { useServerInsertedHTML } from 'next/navigation';
+import type Entity from '@ant-design/cssinjs/es/Cache';
 
 const StyledComponentsRegistry = ({ children }: { children: React.ReactNode }) => {
-  const cache = createCache();
+  const cache = React.useMemo<Entity>(() => createCache(), [createCache]);
   useServerInsertedHTML(() => (
     <style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(cache, true) }} />
   ));

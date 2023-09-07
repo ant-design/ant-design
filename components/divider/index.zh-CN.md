@@ -29,6 +29,8 @@ group:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | children | 嵌套的标题 | ReactNode | - |  |
@@ -40,6 +42,6 @@ group:
 | style | 分割线样式对象 | CSSProperties | - |  |
 | type | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Divider"></ComponentTokenTable>

@@ -84,7 +84,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     },
   );
 
-  let labelChildren = label;
+  let labelChildren: React.ReactNode = label;
 
   // Keep label is original where there should have no colon
   const computedColon = colon === true || (contextColon !== false && colon !== false);
@@ -100,7 +100,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   if (tooltipProps) {
     const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
-    const tooltipNode = (
+    const tooltipNode: React.ReactNode = (
       <Tooltip {...restTooltipProps}>
         {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip`, title: '' })}
       </Tooltip>

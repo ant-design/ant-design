@@ -1,5 +1,7 @@
 ---
-order: 4
+group:
+  title: Basic Usage
+order: 1
 title: Usage with create-react-app
 ---
 

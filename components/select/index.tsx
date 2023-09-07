@@ -1,5 +1,3 @@
-'use client';
-
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
@@ -47,6 +45,11 @@ export interface InternalSelectProps<
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
   bordered?: boolean;
+  /**
+   * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
+   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   */
+  showArrow?: boolean;
 }
 
 export interface SelectProps<
@@ -54,7 +57,7 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+    'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
@@ -89,12 +92,12 @@ const InternalSelect = <
     disabled: customDisabled,
     notFoundContent,
     status: customStatus,
-    showArrow,
     builtinPlacements,
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     direction: propDirection,
     style,
+    allowClear,
     ...props
   }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -133,7 +136,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
-  const mergedShowArrow = useShowArrow(showArrow);
+  const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
@@ -163,9 +166,13 @@ const InternalSelect = <
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
-    showArrow: mergedShowArrow,
+    showSuffixIcon,
     prefixCls,
+    showArrow: props.showArrow,
+    componentName: 'Select',
   });
+
+  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
     'suffixIcon',
@@ -226,6 +233,12 @@ const InternalSelect = <
       'Select',
       '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
+
+    warning(
+      !('showArrow' in props),
+      'Select',
+      '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
   }
 
   // ====================== Render =======================
@@ -245,15 +258,14 @@ const InternalSelect = <
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
-      inputIcon={suffixIcon}
+      suffixIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
       removeIcon={removeIcon}
-      clearIcon={clearIcon}
+      allowClear={mergedAllowClear}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
-      showArrow={hasFeedback || mergedShowArrow}
       disabled={mergedDisabled}
     />,
   );

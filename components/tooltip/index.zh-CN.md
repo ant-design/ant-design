@@ -29,8 +29,11 @@ demo:
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
+<code src="./demo/disabled.tsx" debug>禁用</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数  | 说明     | 类型                         | 默认值 |
 | ----- | -------- | ---------------------------- | ------ |
@@ -60,7 +63,7 @@ demo:
 | zIndex | 设置 Tooltip 的 `z-index` | number | - |  |
 | onOpenChange | 显示隐藏的回调 | (open: boolean) => void | - | 4.23.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 
@@ -68,7 +71,7 @@ demo:
 
 ### 为何有时候 HOC 组件无法生效？
 
-请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
 
 ### placement 的行为逻辑是什么？
 

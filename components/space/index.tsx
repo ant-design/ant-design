@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import * as React from 'react';

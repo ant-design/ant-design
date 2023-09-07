@@ -33,7 +33,8 @@ const Cell: React.FC<CellProps> = (props) => {
     content,
     colon,
   } = props;
-  const Component = component as any;
+
+  const Component = component as keyof JSX.IntrinsicElements;
 
   if (bordered) {
     return (

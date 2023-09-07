@@ -1,13 +1,31 @@
-import { extractStyle } from '@ant-design/cssinjs';
-import type { IApi, IRoute } from 'dumi';
-import ReactTechStack from 'dumi/dist/techStacks/react';
 import fs from 'fs';
 import path from 'path';
+import { createHash } from 'crypto';
+import type { IApi, IRoute } from 'dumi';
+import ReactTechStack from 'dumi/dist/techStacks/react';
 import chalk from 'chalk';
 import sylvanas from 'sylvanas';
-import { extractStaticStyle } from 'antd-style';
-import { createHash } from 'crypto';
+import createEmotionServer from '@emotion/server/create-instance';
 import localPackage from '../../package.json';
+
+function extractEmotionStyle(html: string) {
+  // copy from emotion ssr
+  // https://github.com/vercel/next.js/blob/deprecated-main/examples/with-emotion-vanilla/pages/_document.js
+  const styles = global.__ANTD_STYLE_CACHE_MANAGER_FOR_SSR__.getCacheList().map((cache) => {
+    const result = createEmotionServer(cache).extractCritical(html);
+    if (!result.css) return null;
+
+    const { css, ids } = result;
+
+    return {
+      key: cache.key,
+      css,
+      ids,
+      tag: `<style data-emotion="${cache.key} ${result.ids.join(' ')}">${result.css}</style>`,
+    };
+  });
+  return styles.filter(Boolean);
+}
 
 export const getHash = (str: string, length = 8) =>
   createHash('md5').update(str).digest('hex').slice(0, length);
@@ -50,10 +68,10 @@ class AntdReactTechStack extends ReactTechStack {
 const resolve = (p: string): string => require.resolve(p);
 
 const RoutesPlugin = (api: IApi) => {
-  const ssrCssFileName = `ssr-${Date.now()}.css`;
+  // const ssrCssFileName = `ssr-${Date.now()}.css`;
 
   const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
-    const fileName = `emotion-${key}.${getHash(hashKey)}.css`;
+    const fileName = `style-${key}.${getHash(hashKey)}.css`;
 
     const filePath = path.join(api.paths.absOutputPath, fileName);
 
@@ -65,8 +83,13 @@ const RoutesPlugin = (api: IApi) => {
     return fileName;
   };
 
-  const addLinkStyle = (html: string, cssFile: string) => {
+  const addLinkStyle = (html: string, cssFile: string, prepend = false) => {
     const prefix = api.userConfig.publicPath || api.config.publicPath;
+
+    if (prepend) {
+      return html.replace('<head>', `<head><link rel="stylesheet" href="${prefix + cssFile}">`);
+    }
+
     return html.replace('</head>', `<link rel="stylesheet" href="${prefix + cssFile}"></head>`);
   };
 
@@ -106,18 +129,26 @@ const RoutesPlugin = (api: IApi) => {
       .map((file) => {
         let globalStyles = '';
 
-        // extract all emotion style tags from body
-        file.content = file.content.replace(/<style data-emotion[\S\s]+?<\/style>/g, (s) => {
-          globalStyles += s;
+        // Debug for file content: uncomment this if need check raw out
+        // const tmpFileName = `_${file.path.replace(/\//g, '-')}`;
+        // const tmpFilePath = path.join(api.paths.absOutputPath, tmpFileName);
+        // fs.writeFileSync(tmpFilePath, file.content, 'utf8');
 
-          return '';
-        });
+        // extract all emotion style tags from body
+        file.content = file.content.replace(
+          /<style (data-emotion|data-sandpack)[\S\s]+?<\/style>/g,
+          (s) => {
+            globalStyles += s;
+
+            return '';
+          },
+        );
 
         // insert emotion style tags to head
         file.content = file.content.replace('</head>', `${globalStyles}</head>`);
 
         // 1. 提取 antd-style 样式
-        const styles = extractStaticStyle(file.content, { includeAntd: false });
+        const styles = extractEmotionStyle(file.content);
 
         // 2. 提取每个样式到独立 css 文件
         styles.forEach((result) => {
@@ -132,6 +163,20 @@ const RoutesPlugin = (api: IApi) => {
           file.content = addLinkStyle(file.content, cssFile);
         });
 
+        // Insert antd style to head
+        const matchRegex = /<style data-type="antd-cssinjs">(.*?)<\/style>/;
+        const matchList = file.content.match(matchRegex) || [];
+
+        let antdStyle = '';
+
+        matchList.forEach((text) => {
+          file.content = file.content.replace(text, '');
+          antdStyle += text.replace(matchRegex, '$1');
+        });
+
+        const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
+        file.content = addLinkStyle(file.content, cssFile, true);
+
         return file;
       }),
   );
@@ -139,27 +184,24 @@ const RoutesPlugin = (api: IApi) => {
   // add ssr css file to html
   api.modifyConfig((memo) => {
     memo.styles ??= [];
-    memo.styles.push(`/${ssrCssFileName}`);
+    // memo.styles.push(`/${ssrCssFileName}`);
 
     return memo;
   });
 
+  // zombieJ: Unique CSS file is large, we move to build css for each page.
+  // See the `modifyExportHTMLFiles` above.
+
   // generate ssr css file
-  api.onBuildHtmlComplete(() => {
-    // FIXME: This should not be empty @peachScript
-    const styleCache = (global as any)?.styleCache;
-    const styleText = styleCache ? extractStyle(styleCache) : '';
-    const styleTextWithoutStyleTag = styleText
-      .replace(/<style\s[^>]*>/g, '')
-      .replace(/<\/style>/g, '');
+  // api.onBuildHtmlComplete(() => {
+  //   const styleCache = (global as any)?.styleCache;
+  //   const styleText = styleCache ? extractStyle(styleCache) : '';
+  //   const styleTextWithoutStyleTag = styleText
+  //     .replace(/<style\s[^>]*>/g, '')
+  //     .replace(/<\/style>/g, '');
 
-    fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
-  });
-
-  api.modifyHTML(($) => {
-    $('head meta[name="viewport"]').attr('content', 'width=device-width');
-    return $;
-  });
+  //   fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
+  // });
 };
 
 export default RoutesPlugin;

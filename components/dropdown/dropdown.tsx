@@ -1,20 +1,22 @@
+import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import genPurePanel from '../_util/PurePanel';
+
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
+import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import useStyle from './style';
 
 const Placements = [
@@ -28,23 +30,10 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
-
-type Align = {
-  points?: [string, string];
-  offset?: [number, number];
-  targetOffset?: [number, number];
-  overflow?: {
-    adjustX?: boolean;
-    adjustY?: boolean;
-  };
-  useCssRight?: boolean;
-  useCssBottom?: boolean;
-  useCssTransform?: boolean;
-};
 
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
@@ -60,7 +49,7 @@ export interface DropdownProps {
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
-  align?: Align;
+  align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
@@ -185,7 +174,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 

@@ -73,6 +73,8 @@ const items: CollapseProps['items'] = [
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Collapse
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -103,6 +105,6 @@ const items: CollapseProps['items'] = [
 | key | 对应 activeKey | string \| number | - |  |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon） | boolean | true |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Collapse"></ComponentTokenTable>

@@ -38,6 +38,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ### Menu
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -144,6 +146,6 @@ Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于
 </div>
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Menu"></ComponentTokenTable>

@@ -1,5 +1,3 @@
-'use client';
-
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
@@ -97,7 +95,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
   const mergedStyle: React.CSSProperties = { ...SWITCH?.style, ...style };
 
   return wrapSSR(
-    <Wave>
+    <Wave component="Switch">
       <RcSwitch
         {...restProps}
         prefixCls={prefixCls}

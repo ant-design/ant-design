@@ -32,6 +32,8 @@ Previewable image.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ### Image
 
 | Property | Description | Type | Default | Version |
@@ -44,7 +46,6 @@ Previewable image.
 | src | Image path | string | - | 4.6.0 |
 | width | Image width | string \| number | - | 4.6.0 |
 | onError | Load failed callback | (event: Event) => void | - | 4.12.0 |
-| rootClassName | Add custom className for image root DOM and preview mode root DOM | string | - | 4.20.0 |
 
 Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
@@ -55,6 +56,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | visible | Whether the preview dialog is visible or not | boolean | - | - |
 | src | Custom preview src | string | - | 4.10.0 |
 | getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
+| movable | whether can be moved | boolean | true | 5.8.0 |
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |
 | rootClassName | The classname of the preview root DOM | string | - | 5.4.0 |
@@ -82,6 +84,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | --- | --- | --- | --- | --- |
 | visible | Whether the preview dialog is visible or not | boolean | - | - |
 | getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
+| movable | whether can be moved | boolean | true | 5.8.0 |
 | current | The index of the current preview | number | - | 4.12.0 |
 | mask | Thumbnail mask | ReactNode | - | 4.9.0 |
 | maskClassName | The className of the mask | string | - | 4.11.0 |

@@ -32,6 +32,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ```jsx
 <Pagination onChange={onChange} total={50} />
 ```
@@ -58,6 +60,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Pagination"></ComponentTokenTable>

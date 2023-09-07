@@ -108,15 +108,21 @@ export function previewImage(file: File | Blob): Promise<string> {
       ctx!.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
       const dataURL = canvas.toDataURL();
       document.body.removeChild(canvas);
-
+      window.URL.revokeObjectURL(img.src);
       resolve(dataURL);
     };
     img.crossOrigin = 'anonymous';
     if (file.type.startsWith('image/svg+xml')) {
       const reader = new FileReader();
-      reader.addEventListener('load', () => {
+      reader.onload = () => {
         if (reader.result) img.src = reader.result as string;
-      });
+      };
+      reader.readAsDataURL(file);
+    } else if (file.type.startsWith('image/gif')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (reader.result) resolve(reader.result as string);
+      };
       reader.readAsDataURL(file);
     } else {
       img.src = window.URL.createObjectURL(file);

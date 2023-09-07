@@ -269,7 +269,7 @@ describe('Descriptions', () => {
     expect(container).toHaveAttribute('aria-describedby', 'some-label');
   });
 
-  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set ', () => {
+  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set', () => {
     const { container } = render(
       <ConfigProvider componentSize="small">
         <Descriptions bordered>
@@ -278,5 +278,62 @@ describe('Descriptions', () => {
       </ConfigProvider>,
     );
     expect(container.querySelectorAll('.ant-descriptions-small')).toHaveLength(1);
+  });
+
+  it('should items work', () => {
+    const { container } = render(
+      <Descriptions
+        items={[
+          {
+            key: '1',
+            label: 'UserName',
+            children: 'Zhou Maomao',
+          },
+          {
+            key: '2',
+            label: 'Telephone',
+            children: '1810000000',
+          },
+          {
+            key: '3',
+            label: 'Live',
+            children: 'Hangzhou, Zhejiang',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-descriptions-item')).toBeTruthy();
+    expect(container.querySelectorAll('.ant-descriptions-item')).toHaveLength(3);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Descriptions nested within an Item are unaffected by the external borderless style', () => {
+    const { container } = render(
+      <Descriptions bordered>
+        <Descriptions.Item>
+          <Descriptions bordered={false} />
+        </Descriptions.Item>
+      </Descriptions>,
+    );
+
+    const nestDesc = container.querySelectorAll('.ant-descriptions')?.[1];
+    const view = nestDesc.querySelector('.ant-descriptions-view');
+    expect(getComputedStyle(view!).border).toBeFalsy();
+  });
+
+  it('Should Descriptions not throw react key prop error in jsx mode', () => {
+    render(
+      <Descriptions title="User Info">
+        <Descriptions.Item key="1" label="UserName">
+          Zhou Maomao
+        </Descriptions.Item>
+        <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`key` is not a prop'),
+      expect.anything(),
+      expect.anything(),
+    );
   });
 });

@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
@@ -35,6 +33,7 @@ export interface SliderTooltipProps {
   placement?: TooltipPlacement;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   formatter?: null | Formatter;
+  autoAdjustOverflow?: boolean;
 }
 
 export interface SliderBaseProps {
@@ -223,6 +222,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
     return (
       <SliderTooltip
+        {...tooltipProps}
         prefixCls={tooltipPrefixCls}
         title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
         open={open}

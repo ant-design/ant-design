@@ -79,6 +79,8 @@ exports[`renders components/anchor/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/anchor/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/anchor/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -158,6 +160,8 @@ exports[`renders components/anchor/demo/component-token.tsx extend context corre
 </div>
 `;
 
+exports[`renders components/anchor/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -228,6 +232,8 @@ exports[`renders components/anchor/demo/customizeHighlight.tsx extend context co
   </div>
 </div>
 `;
+
+exports[`renders components/anchor/demo/customizeHighlight.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/anchor/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
@@ -349,6 +355,8 @@ Array [
 ]
 `;
 
+exports[`renders components/anchor/demo/horizontal.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -417,6 +425,12 @@ exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correct
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Anchor] \`Anchor children\` is deprecated. Please use \`items\` instead.",
+]
 `;
 
 exports[`renders components/anchor/demo/onChange.tsx extend context correctly 1`] = `
@@ -489,6 +503,8 @@ exports[`renders components/anchor/demo/onChange.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/anchor/demo/onChange.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/anchor/demo/onClick.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -558,6 +574,8 @@ exports[`renders components/anchor/demo/onClick.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/anchor/demo/onClick.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/anchor/demo/replace.tsx extend context correctly 1`] = `
 <div
@@ -638,6 +656,8 @@ exports[`renders components/anchor/demo/replace.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/anchor/demo/replace.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/anchor/demo/static.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
@@ -707,6 +727,8 @@ exports[`renders components/anchor/demo/static.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/anchor/demo/static.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
 <div>
@@ -801,3 +823,5 @@ exports[`renders components/anchor/demo/targetOffset.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 2`] = `[]`;

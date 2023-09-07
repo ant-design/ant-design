@@ -194,6 +194,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
         display: 'flex !important',
         justifyContent: 'center',
         paddingInlineStart: 0,
+        margin: 0,
         listStyle: 'none',
 
         '&-bottom': {

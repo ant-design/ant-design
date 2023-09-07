@@ -1,21 +1,28 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
-import Dialog from './Modal';
 import type { ModalFuncProps, ModalLocale } from './interface';
+import Dialog from './Modal';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close?: (...args: any[]) => void;
+  /**
+   * `close` prop support `...args` that pass to the developer
+   * that we can not break this.
+   * Provider `onClose` for internal usage
+   */
+  onConfirm?: (confirmed: boolean) => void;
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
@@ -23,6 +30,11 @@ interface ConfirmDialogProps extends ModalFuncProps {
 
   /** @private Internal Usage. Do not override this */
   locale?: ModalLocale;
+
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 export function ConfirmContent(
@@ -35,6 +47,8 @@ export function ConfirmContent(
     onCancel,
     onOk,
     close,
+    onConfirm,
+    isSilent,
     okText,
     okButtonProps,
     cancelText,
@@ -89,8 +103,12 @@ export function ConfirmContent(
 
   const cancelButton = mergedOkCancel && (
     <ActionButton
+      isSilent={isSilent}
       actionFn={onCancel}
-      close={close}
+      close={(...args: any[]) => {
+        close?.(...args);
+        onConfirm?.(false);
+      }}
       autoFocus={autoFocusButton === 'cancel'}
       buttonProps={cancelButtonProps}
       prefixCls={`${rootPrefixCls}-btn`}
@@ -112,9 +130,13 @@ export function ConfirmContent(
         <div className={`${confirmPrefixCls}-btns`}>
           {cancelButton}
           <ActionButton
+            isSilent={isSilent}
             type={okType}
             actionFn={onOk}
-            close={close}
+            close={(...args: any[]) => {
+              close?.(...args);
+              onConfirm?.(true);
+            }}
             autoFocus={autoFocusButton === 'ok'}
             buttonProps={okButtonProps}
             prefixCls={`${rootPrefixCls}-btn`}
@@ -151,6 +173,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closeIcon,
     modalRender,
     focusTriggerAfterClose,
+    onConfirm,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -190,7 +213,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
           { [`${confirmPrefixCls}-centered`]: !!props.centered },
           wrapClassName,
         )}
-        onCancel={() => close?.({ triggerCancel: true })}
+        onCancel={() => {
+          close?.({ triggerCancel: true });
+          onConfirm?.(false);
+        }}
         open={open}
         title=""
         footer={null}

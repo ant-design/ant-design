@@ -1,12 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import type { SegmentedProps } from 'antd';
 import type { IntlShape } from 'react-intl';
-import { Segmented, Input, Empty, Affix } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
+import { Segmented, Input, Empty, Affix } from 'antd';
+import type { SegmentedProps } from 'antd';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
@@ -58,6 +58,7 @@ const IconSearch: React.FC = () => {
     searchKey: '',
     theme: ThemeType.Outlined,
   });
+  const token = useTheme();
 
   const newIconNames: string[] = [];
 
@@ -111,7 +112,6 @@ const IconSearch: React.FC = () => {
   }, [displayState.searchKey, displayState.theme]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
-  const token = useTheme();
   const { borderRadius, colorBgContainer } = token;
 
   const affixedStyle: CSSProperties = {
@@ -124,7 +124,7 @@ const IconSearch: React.FC = () => {
 
   return (
     <div className="markdown">
-      <Affix offsetTop={24} onChange={setSearchBarAffixed}>
+      <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
         <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
             size="large"

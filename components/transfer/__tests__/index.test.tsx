@@ -453,16 +453,16 @@ describe('Transfer', () => {
   });
 
   it('should add custom styles when their props are provided', () => {
-    const style = {
+    const style: React.CSSProperties = {
       backgroundColor: 'red',
     };
-    const leftStyle = {
+    const leftStyle: React.CSSProperties = {
       backgroundColor: 'blue',
     };
-    const rightStyle = {
+    const rightStyle: React.CSSProperties = {
       backgroundColor: 'red',
     };
-    const operationStyle = {
+    const operationStyle: React.CSSProperties = {
       backgroundColor: 'yellow',
     };
 
