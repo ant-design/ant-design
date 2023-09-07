@@ -31,7 +31,7 @@ async function execute() {
   all = _.sortBy(_.unionBy(all, 'author_email'), 'author_name');
 
   fs.writeFileSync(
-    path.join(cwd, 'AUTHORS.json'),
+    path.join(cwd, 'contributors.json'),
     JSON.stringify(
       Array.from(new Set<string>(all.map((authorItem) => authorItem.author_name))),
       null,
