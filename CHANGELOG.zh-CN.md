@@ -81,7 +81,7 @@ tag: vVERSION
 - 🛠 移除 Space 和 Grid 对于旧版 IE 浏览器兼容逻辑，减少打包产物体积。[#44620](https://github.com/ant-design/ant-design/pull/44620) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 把 `theme.useToken` 替换成内部的 `useInternalToken`。[#44670](https://github.com/ant-design/ant-design/pull/44670) [@li-jia-nan](https://github.com/li-jia-nan)
 - TypeScript
-  - 🤖 从 tree 中导出 BasicDataNode 类型。[#44624](https://github.com/ant-design/ant-design/pull/44624) [@kiner-tang](https://github.com/kiner-tang)
+  - 🤖 从 tree 中导出 `BasicDataNode` 类型。[#44624](https://github.com/ant-design/ant-design/pull/44624) [@kiner-tang](https://github.com/kiner-tang)
 
 ## 5.8.6
 
