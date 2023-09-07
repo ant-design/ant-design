@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-
 import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
 
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
 import useClips, { FontGap } from './useClips';
@@ -61,7 +60,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offset,
     children,
   } = props;
-  const { token } = theme.useToken();
+  const [, token] = useToken();
   const {
     color = token.colorFill,
     fontSize = token.fontSizeLG,

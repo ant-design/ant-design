@@ -1,12 +1,13 @@
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FC } from 'react';
-import React, { useMemo } from 'react';
+
 import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
-import theme from '../../theme';
+import { useToken } from '../../theme/internal';
 import type { Color } from '../color';
 import type { ColorPickerBaseProps, PresetsItem } from '../interface';
 import { generateColor } from '../util';
@@ -35,9 +36,7 @@ const isBright = (value: Color, bgColorToken: string) => {
 
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
-  const {
-    token: { colorBgElevated },
-  } = theme.useToken();
+  const [, token] = useToken();
   const [presetsValue] = useMergedState(genPresetColor(presets), {
     value: genPresetColor(presets),
     postState: genPresetColor,
@@ -68,7 +67,10 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
               className={classNames(`${colorPresetsPrefixCls}-color`, {
                 [`${colorPresetsPrefixCls}-color-checked`]:
                   presetColor.toHexString() === color?.toHexString(),
-                [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor, colorBgElevated),
+                [`${colorPresetsPrefixCls}-color-bright`]: isBright(
+                  presetColor,
+                  token.colorBgElevated,
+                ),
               })}
               onClick={() => handleClick(presetColor)}
             />
