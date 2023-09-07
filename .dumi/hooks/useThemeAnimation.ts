@@ -38,12 +38,11 @@ const useThemeAnimation = () => {
     isDark: false,
     event: null,
   });
-  // @ts-ignore
-  const isApiAvailable = typeof document.startViewTransition === 'function';
 
   const startAnimationTheme = () => {
     const { isDark, event } = animateRef.current;
-    if (!(event && isApiAvailable)) return;
+    // @ts-ignore
+    if (!(event && typeof document.startViewTransition === 'function')) return;
     const x = event.clientX;
     const y = event.clientY;
     const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
@@ -80,7 +79,8 @@ const useThemeAnimation = () => {
 
   // inject transition style
   useEffect(() => {
-    if (isApiAvailable) {
+    // @ts-ignore
+    if (typeof document.startViewTransition === 'function') {
       updateCSS(viewTransitionStyle, 'view-transition-style');
     }
   }, []);
