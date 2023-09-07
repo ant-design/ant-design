@@ -144,7 +144,7 @@ describe('Statistic', () => {
       jest.useFakeTimers();
       const onChange = jest.fn();
       const { rerender } = render(
-        <Statistic.Countdown value={Date.now() + 1000} onChange={onChange} isPaused={true} />,
+        <Statistic.Countdown value={Date.now() + 1000} onChange={onChange} isPaused />,
       );
 
       // Wait for some time and check if onChange has been called
