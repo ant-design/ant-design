@@ -1,29 +1,30 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import theme from '../../components/theme';
 
 const viewTransitionStyle = `
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-    }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
 
-    .dark::view-transition-old(root) {
-    z-index: 1;
-    }
+.dark::view-transition-old(root) {
+  z-index: 1;
+}
 
-    .dark::view-transition-new(root) {
-    z-index: 999;
-    }
+.dark::view-transition-new(root) {
+  z-index: 999;
+}
 
-    ::view-transition-old(root) {
-    z-index: 999;
-    }
+::view-transition-old(root) {
+  z-index: 999;
+}
 
-    ::view-transition-new(root) {
-    z-index: 1;
-    }
+::view-transition-new(root) {
+  z-index: 1;
+}
 `;
 
 const useThemeAnimation = () => {
@@ -38,9 +39,9 @@ const useThemeAnimation = () => {
     event: null,
   });
   // @ts-ignore
-  const isApiAvailable = useMemo(() => typeof document.startViewTransition === 'function', []);
+  const isApiAvailable = typeof document.startViewTransition === 'function';
 
-  const startAnimaTheme = () => {
+  const startAnimationTheme = () => {
     const { isDark, event } = animateRef.current;
     if (!(event && isApiAvailable)) return;
     const x = event.clientX;
@@ -72,7 +73,7 @@ const useThemeAnimation = () => {
       });
   };
 
-  const toggleAnimateTheme = (event: MouseEvent, isDark?: boolean) => {
+  const toggleAnimationTheme = (event: MouseEvent, isDark?: boolean) => {
     animateRef.current.isDark = isDark;
     animateRef.current.event = event;
   };
@@ -80,17 +81,16 @@ const useThemeAnimation = () => {
   // inject transition style
   useEffect(() => {
     if (isApiAvailable) {
-      const style = document.createElement('style');
-      style.innerHTML = viewTransitionStyle;
-      document.head.append(style);
+      updateCSS(viewTransitionStyle, 'view-transition-style');
     }
   }, []);
 
+  // start animation by light/dark change
   useEffect(() => {
-    startAnimaTheme();
+    startAnimationTheme();
   }, [colorBgElevated]);
 
-  return toggleAnimateTheme;
+  return toggleAnimationTheme;
 };
 
 export default useThemeAnimation;

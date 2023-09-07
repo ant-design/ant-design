@@ -26,7 +26,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const isHappyWork = value.includes('happy-work');
   const isDark = value.includes('dark');
 
-  const toggleAnimateTheme = useThemeAnimation();
+  const toggleAnimationTheme = useThemeAnimation();
 
   return (
     <FloatButton.Group
@@ -49,8 +49,8 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
         icon={<DarkTheme />}
         type={isDark ? 'primary' : 'default'}
         onClick={(e) => {
-          // Toggle animate when switch theme
-          toggleAnimateTheme(e, isDark);
+          // Toggle animation when switch theme
+          toggleAnimationTheme(e, isDark);
 
           if (isDark) {
             onChange(value.filter((theme) => theme !== 'dark'));
