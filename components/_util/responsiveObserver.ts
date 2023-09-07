@@ -1,4 +1,5 @@
 import React from 'react';
+
 import type { GlobalToken } from '../theme/interface';
 import { useToken } from '../theme/internal';
 
@@ -124,3 +125,14 @@ export default function useResponsiveObserver() {
     };
   }, [token]);
 }
+
+export const matchScreen = (screens: ScreenMap, screenSizes?: ScreenSizeMap) => {
+  if (screenSizes && typeof screenSizes === 'object') {
+    for (let i = 0; i < responsiveArray.length; i++) {
+      const breakpoint: Breakpoint = responsiveArray[i];
+      if (screens[breakpoint] && screenSizes[breakpoint] !== undefined) {
+        return screenSizes[breakpoint];
+      }
+    }
+  }
+};

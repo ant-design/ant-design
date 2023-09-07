@@ -1,16 +1,17 @@
-import type { InputToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
   genBasicInputStyle,
   genDisabledStyle,
   genPlaceholderStyle,
   genStatusStyle,
+  initComponentToken,
   initInputToken,
 } from '../../input/style';
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {
+export interface ComponentToken extends SharedComponentToken {
   /**
    * @desc 弹层 z-index
    * @descEN z-index of popup
@@ -28,7 +29,7 @@ export interface ComponentToken {
   controlItemWidth: number;
 }
 
-type MentionsToken = InputToken<FullToken<'Mentions'>>;
+type MentionsToken = FullToken<'Mentions'> & SharedInputToken;
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
@@ -40,8 +41,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     motionDurationSlow,
     lineHeight,
     controlHeight,
-    inputPaddingHorizontal,
-    inputPaddingVertical,
+    paddingInline,
+    paddingBlock,
     fontSize,
     colorBgElevated,
     paddingXXS,
@@ -79,7 +80,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       [`&-affix-wrapper ${componentCls}-suffix`]: {
         position: 'absolute',
         top: 0,
-        insetInlineEnd: inputPaddingHorizontal,
+        insetInlineEnd: paddingInline,
         bottom: 0,
         zIndex: 1,
         display: 'inline-flex',
@@ -93,7 +94,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         boxSizing: 'border-box',
         minHeight: controlHeight - 2,
         margin: 0,
-        padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
+        padding: `${paddingBlock}px ${paddingInline}px`,
         overflow: 'inherit',
         overflowX: 'hidden',
         overflowY: 'auto',
@@ -218,10 +219,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 export default genComponentStyleHook(
   'Mentions',
   (token) => {
-    const mentionsToken = initInputToken<FullToken<'Mentions'>>(token);
+    const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));
     return [genMentionsStyle(mentionsToken)];
   },
   (token) => ({
+    ...initComponentToken(token),
     dropdownHeight: 250,
     controlItemWidth: 100,
     zIndexPopup: token.zIndexPopupBase + 50,

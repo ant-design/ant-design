@@ -188,12 +188,7 @@ describe('DatePicker', () => {
 
   it('showTime should work correctly when format is Array', () => {
     const { container } = render(
-      <DatePicker
-        defaultValue={dayjs()}
-        showTime
-        format={['YYYY-MM-DD HH:mm']}
-        open
-      />,
+      <DatePicker defaultValue={dayjs()} showTime format={['YYYY-MM-DD HH:mm']} open />,
     );
     const fuousEvent = () => {
       fireEvent.focus(container.querySelector('input')!);

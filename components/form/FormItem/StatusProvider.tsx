@@ -6,8 +6,8 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import type { Meta } from 'rc-field-form/lib/interface';
 
-import type { ValidateStatus } from '.';
-import { FormItemInputContext, type FormItemStatusContextProps } from '../context';
+import type { FeedbackIcons, ValidateStatus } from '.';
+import { FormContext, FormItemInputContext, type FormItemStatusContextProps } from '../context';
 import { getStatus } from '../util';
 
 const iconMap = {
@@ -24,7 +24,7 @@ export interface StatusProviderProps {
   meta: Meta;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
-  hasFeedback?: boolean;
+  hasFeedback?: boolean | { icons?: FeedbackIcons };
   noStyle?: boolean;
 }
 
@@ -39,8 +39,16 @@ export default function StatusProvider({
   noStyle,
 }: StatusProviderProps) {
   const itemPrefixCls = `${prefixCls}-item`;
+  const { feedbackIcons } = React.useContext(FormContext);
 
-  const mergedValidateStatus = getStatus(errors, warnings, meta, null, hasFeedback, validateStatus);
+  const mergedValidateStatus = getStatus(
+    errors,
+    warnings,
+    meta,
+    null,
+    !!hasFeedback,
+    validateStatus,
+  );
 
   const { isFormItemInput: parentIsFormItemInput, status: parentStatus } =
     React.useContext(FormItemInputContext);
@@ -49,17 +57,22 @@ export default function StatusProvider({
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: React.ReactNode;
     if (hasFeedback) {
+      const customIcons = (hasFeedback !== true && hasFeedback.icons) || feedbackIcons;
+      const customIconNode =
+        mergedValidateStatus &&
+        customIcons?.({ status: mergedValidateStatus, errors, warnings })?.[mergedValidateStatus];
       const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
-      feedbackIcon = IconNode ? (
-        <span
-          className={classNames(
-            `${itemPrefixCls}-feedback-icon`,
-            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
-          )}
-        >
-          <IconNode />
-        </span>
-      ) : null;
+      feedbackIcon =
+        customIconNode !== false && IconNode ? (
+          <span
+            className={classNames(
+              `${itemPrefixCls}-feedback-icon`,
+              `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
+            )}
+          >
+            {customIconNode || <IconNode />}
+          </span>
+        ) : null;
     }
 
     let isFormItemInput: boolean | undefined = true;
@@ -75,7 +88,7 @@ export default function StatusProvider({
       status,
       errors,
       warnings,
-      hasFeedback,
+      hasFeedback: !!hasFeedback,
       feedbackIcon,
       isFormItemInput,
     };

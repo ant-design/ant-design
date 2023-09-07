@@ -10,6 +10,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
+import useSize from '../config-provider/hooks/useSize';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -93,7 +94,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   const {
     prefixCls: customizePrefixCls,
     shape,
-    size: customSize = 'default',
+    size: customSize,
     src,
     srcSet,
     icon,
@@ -106,7 +107,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const size = customSize === 'default' ? avatarCtx?.size : customSize;
+  const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'default');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),

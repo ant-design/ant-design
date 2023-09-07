@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
@@ -6,6 +7,54 @@ import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal'
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
+
+export interface ComponentToken {
+  /**
+   * @desc 必填项标记颜色
+   * @descEN Required mark color
+   */
+  labelRequiredMarkColor: string;
+  /**
+   * @desc 标签颜色
+   * @descEN Label color
+   */
+  labelColor: string;
+  /**
+   * @desc 标签字体大小
+   * @descEN Label font size
+   */
+  labelFontSize: number;
+  /**
+   * @desc 标签高度
+   * @descEN Label height
+   */
+  labelHeight: number;
+  /**
+   * @desc 标签冒号前间距
+   * @descEN Label colon margin-inline-start
+   */
+  labelColonMarginInlineStart: number;
+  /**
+   * @desc 标签冒号后间距
+   * @descEN Label colon margin-inline-end
+   */
+  labelColonMarginInlineEnd: number;
+  /**
+   * @desc 表单项间距
+   * @descEN Form item margin bottom
+   */
+  itemMarginBottom: number;
+  /**
+   * @desc 垂直布局标签内边距
+   * @descEN Vertical layout label padding
+   */
+  verticalLabelPadding: CSSProperties['padding'];
+  /**
+   * @desc 垂直布局标签外边距
+   * @descEN Vertical layout label margin
+   */
+  verticalLabelMargin: CSSProperties['margin'];
+}
 
 export interface FormToken extends FullToken<'Form'> {
   formItemCls: string;
@@ -115,13 +164,25 @@ const genFormStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
-  const { formItemCls, iconCls, componentCls, rootPrefixCls } = token;
+  const {
+    formItemCls,
+    iconCls,
+    componentCls,
+    rootPrefixCls,
+    labelRequiredMarkColor,
+    labelColor,
+    labelFontSize,
+    labelHeight,
+    labelColonMarginInlineStart,
+    labelColonMarginInlineEnd,
+    itemMarginBottom,
+  } = token;
 
   return {
     [formItemCls]: {
       ...resetComponent(token),
 
-      marginBottom: token.marginLG,
+      marginBottom: itemMarginBottom,
       verticalAlign: 'top',
 
       '&-with-help': {
@@ -171,9 +232,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           display: 'inline-flex',
           alignItems: 'center',
           maxWidth: '100%',
-          height: token.controlHeight,
-          color: token.colorTextHeading,
-          fontSize: token.fontSize,
+          height: labelHeight,
+          color: labelColor,
+          fontSize: labelFontSize,
 
           [`> ${iconCls}`]: {
             fontSize: token.fontSize,
@@ -184,7 +245,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           [`&${formItemCls}-required:not(${formItemCls}-required-mark-optional)::before`]: {
             display: 'inline-block',
             marginInlineEnd: token.marginXXS,
-            color: token.colorError,
+            color: labelRequiredMarkColor,
             fontSize: token.fontSize,
             fontFamily: 'SimSun, sans-serif',
             lineHeight: 1,
@@ -218,8 +279,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
             content: '":"',
             position: 'relative',
             marginBlock: 0,
-            marginInlineStart: token.marginXXS / 2,
-            marginInlineEnd: token.marginXS,
+            marginInlineStart: labelColonMarginInlineStart,
+            marginInlineEnd: labelColonMarginInlineEnd,
           },
 
           [`&${formItemCls}-no-colon::after`]: {
@@ -391,7 +452,8 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  padding: `0 0 ${token.paddingXS}px`,
+  padding: token.verticalLabelPadding,
+  margin: token.verticalLabelMargin,
   whiteSpace: 'initial',
   textAlign: 'start',
 
@@ -510,7 +572,17 @@ export default genComponentStyleHook(
       zoomIn,
     ];
   },
-  null,
+  (token) => ({
+    labelRequiredMarkColor: token.colorError,
+    labelColor: token.colorTextHeading,
+    labelFontSize: token.fontSize,
+    labelHeight: token.controlHeight,
+    labelColonMarginInlineStart: token.marginXXS / 2,
+    labelColonMarginInlineEnd: token.marginXS,
+    itemMarginBottom: token.marginLG,
+    verticalLabelPadding: `0 0 ${token.paddingXS}px`,
+    verticalLabelMargin: 0,
+  }),
   {
     // Let From style before the Grid
     // ref https://github.com/ant-design/ant-design/issues/44386

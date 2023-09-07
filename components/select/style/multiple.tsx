@@ -20,7 +20,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
-  const selectItemHeight = token.controlHeightSM;
+  const selectItemHeight = token.multipleSelectItemHeight;
   const [selectItemDist] = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
@@ -63,7 +63,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
 
         [`${componentCls}-disabled&`]: {
-          background: token.colorBgContainerDisabled,
+          background: token.multipleSelectorBgDisabled,
           cursor: 'not-allowed',
         },
 
@@ -95,7 +95,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
-        background: token.colorFillSecondary,
+        background: token.multipleItemBg,
+        border: `${token.lineWidth}px ${token.lineType} ${token.multipleItemBorderColor}`,
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
@@ -105,7 +106,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         paddingInlineEnd: token.paddingXS / 2,
 
         [`${componentCls}-disabled&`]: {
-          color: token.colorTextDisabled,
+          color: token.multipleItemColorDisabled,
+          borderColor: token.multipleItemBorderColorDisabled,
           cursor: 'not-allowed',
         },
 
@@ -196,7 +198,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
 
   const smallToken = mergeToken<SelectToken>(token, {
     controlHeight: token.controlHeightSM,
-    controlHeightSM: token.controlHeightXS,
+    multipleSelectItemHeight: token.controlHeightXS,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });
@@ -204,7 +206,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   const largeToken = mergeToken<SelectToken>(token, {
     fontSize: token.fontSizeLG,
     controlHeight: token.controlHeightLG,
-    controlHeightSM: token.controlHeight,
+    multipleSelectItemHeight: token.multipleItemHeightLG,
     borderRadius: token.borderRadiusLG,
     borderRadiusSM: token.borderRadius,
   });

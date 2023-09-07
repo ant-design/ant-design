@@ -1,3 +1,3 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('alert', { skip: ['loop-banner.tsx'] });
+extendTest('alert', { skip: ['loop-banner.tsx', 'component-token.tsx'] });
