@@ -116,11 +116,10 @@ exports[`renders components/radio/demo/basic.tsx extend context correctly 2`] = 
 
 exports[`renders components/radio/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -144,7 +143,6 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled"
@@ -169,7 +167,6 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -255,7 +252,6 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -1008,11 +1004,10 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
   class="ant-radio-group ant-radio-group-outline"
 >
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <label
         class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -1037,7 +1032,6 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <label
         class="ant-radio-wrapper"
@@ -1061,7 +1055,6 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
     </div>
     <div
       class="ant-space-item"
-      style="margin-bottom: 8px;"
     >
       <label
         class="ant-radio-wrapper"

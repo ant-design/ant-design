@@ -24,6 +24,7 @@ demo:
 <code src="./demo/text.tsx">文字和图标</code>
 <code src="./demo/size.tsx">两种大小</code>
 <code src="./demo/loading.tsx">加载中</code>
+<code src="./demo/component-token.tsx" debug>自定义组件 Token</code>
 
 ## API
 

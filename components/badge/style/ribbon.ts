@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import { prepareToken, type BadgeToken } from '.';
+import { prepareComponentToken, prepareToken, type BadgeToken } from '.';
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor } from '../../theme/internal';
@@ -71,8 +71,12 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(['Badge', 'Ribbon'], (token) => {
-  const badgeToken = prepareToken(token);
+export default genComponentStyleHook(
+  ['Badge', 'Ribbon'],
+  (token) => {
+    const badgeToken = prepareToken(token);
 
-  return [genRibbonStyle(badgeToken)];
-});
+    return [genRibbonStyle(badgeToken)];
+  },
+  prepareComponentToken,
+);

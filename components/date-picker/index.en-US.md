@@ -35,6 +35,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
 <code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -56,17 +57,17 @@ The default locale is en-US, if you need to use other languages, recommend to us
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
-import 'dayjs/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
+import 'dayjs/locale/zh-cn';
 
 <DatePicker locale={locale} />;
 ```
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
+import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import locale from 'antd/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />

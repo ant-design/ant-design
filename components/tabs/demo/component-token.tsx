@@ -22,6 +22,7 @@ const App: React.FC = () => (
           horizontalItemPaddingLG: `20px`,
           verticalItemPadding: `8px`,
           verticalItemMargin: `4px 0 0 0`,
+          itemColor: 'rgba(0,0,0,0.85)',
           itemSelectedColor: '#389e0d',
           itemHoverColor: '#d9f7be',
           itemActiveColor: '#b7eb8f',

@@ -3,7 +3,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 

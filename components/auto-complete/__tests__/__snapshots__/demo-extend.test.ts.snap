@@ -2067,12 +2067,11 @@ exports[`renders components/auto-complete/demo/options.tsx extend context correc
 
 exports[`renders components/auto-complete/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="display: flex;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
@@ -2251,12 +2250,11 @@ If you used to conditionally omit it with %s={condition && value}, pass %s={cond
 
 exports[`renders components/auto-complete/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"

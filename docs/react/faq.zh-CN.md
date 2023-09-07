@@ -109,11 +109,11 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 | 产品/版本 | 地址 |
 | --- | --- |
-| Ant Design 5.x  |  https://ant-design.antgroup.com <br />  https://ant-design.gitee.io   |
-| Ant Design 4.x  |  https://4x-ant-design.antgroup.com   |
-| Ant Design 3.x  |  https://ant-design-3x.gitee.io |
-| Ant Design 2.x  |  https://ant-design-2x.gitee.io |
-| Ant Design 1.x   |  https://ant-design-1x.gitee.io |
+| Ant Design 5.x | https://ant-design.antgroup.com <br /> https://ant-design.gitee.io |
+| Ant Design 4.x | https://4x-ant-design.antgroup.com |
+| Ant Design 3.x | https://ant-design-3x.gitee.io |
+| Ant Design 2.x | https://ant-design-2x.gitee.io |
+| Ant Design 1.x | https://ant-design-1x.gitee.io |
 | Ant Design Pro | https://ant-design-pro.gitee.io/ |
 | Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
 | Ant Design Mini | https://ant-design-mini.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |

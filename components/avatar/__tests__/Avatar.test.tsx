@@ -4,6 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('../../grid/hooks/useBreakpoint');
 
@@ -204,5 +205,20 @@ describe('Avatar Render', () => {
     expect(avatars?.[1]).toHaveClass('ant-avatar-circle');
     expect(avatars?.[2]).toHaveClass('ant-avatar-square');
     expect(avatars?.[3]).toHaveClass('ant-avatar-circle');
+  });
+
+  it('should apply the componentSize of CP', () => {
+    const { container } = render(
+      <>
+        <ConfigProvider componentSize="small">
+          <Avatar>test</Avatar>
+        </ConfigProvider>
+        <ConfigProvider componentSize="large">
+          <Avatar>test</Avatar>
+        </ConfigProvider>
+      </>,
+    );
+    expect(container.querySelector('.ant-avatar-sm')).toBeTruthy();
+    expect(container.querySelector('.ant-avatar-lg')).toBeTruthy();
   });
 });
