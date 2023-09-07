@@ -2,16 +2,16 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import { Helmet, useOutlet, useSiteData } from 'dumi';
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import zhCN from 'antd/es/locale/zh_CN';
 import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
-import Footer from '../../slots/Footer';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 import '../../static/style';
+import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
 
@@ -27,24 +27,6 @@ const locales = {
   },
 };
 
-const hasTitle = () => {
-  const title = document.querySelector('title');
-  if (title && title.innerHTML !== '') {
-    return true;
-  }
-  return false;
-};
-
-const hasMeta = (name: string) => {
-  const metaTags = document.getElementsByTagName('meta');
-  for (let i = 0; i < metaTags.length; i++) {
-    if (metaTags[i].getAttribute('name') === name && metaTags[i].getAttribute('content') !== '') {
-      return true;
-    }
-  }
-  return false;
-};
-
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
@@ -54,17 +36,6 @@ const DocLayout: React.FC = () => {
   const { direction } = useContext(SiteContext);
   const { loading } = useSiteData();
 
-  const isIndexPage = useMemo(
-    () =>
-      ['', '/'].some((path) => path === pathname) ||
-      ['/index'].some((path) => pathname.startsWith(path)),
-    [pathname],
-  );
-
-  // gen default title and description for index page, other pages should have their own title and description by definitions in markdown files
-  const [showDefaultTitle, setShowDefaultTitle] = useState(!!isIndexPage);
-  const [showDefaultDesc, setShowDefaultDesc] = useState(!!isIndexPage);
-
   useLayoutEffect(() => {
     if (lang === 'cn') {
       dayjs.locale('zh-cn');
@@ -72,16 +43,6 @@ const DocLayout: React.FC = () => {
       dayjs.locale('en');
     }
   }, []);
-
-  // show default title and description in index page or in where we don't have prerender ones
-  useLayoutEffect(() => {
-    if (isIndexPage || !hasTitle()) {
-      setShowDefaultTitle(true);
-    }
-    if (isIndexPage || !hasMeta('description')) {
-      setShowDefaultDesc(true);
-    }
-  }, [pathname]);
 
   useEffect(() => {
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
@@ -114,10 +75,9 @@ const DocLayout: React.FC = () => {
       ['/index'].some((path) => pathname.startsWith(path))
     ) {
       return (
-        <>
-          <div style={{ minHeight: '100vh' }}>{outlet}</div>
-          <Footer />
-        </>
+        <IndexLayout title={locale.title} desc={locale.description}>
+          {outlet}
+        </IndexLayout>
       );
     }
     if (pathname.startsWith('/docs/resource')) {
@@ -137,9 +97,6 @@ const DocLayout: React.FC = () => {
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />
-        {showDefaultTitle && <title>{locale?.title}</title>}
-        {showDefaultTitle && <meta property="og:title" content={locale?.title} />}
-        {showDefaultDesc && <meta name="description" content={locale.description} />}
         <link
           sizes="144x144"
           href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
