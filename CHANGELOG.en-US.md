@@ -23,6 +23,8 @@ tag: vVERSION
 - 🔥 Table component now supports the `virtual` attribute to enable virtual scrolling. [#44349](https://github.com/ant-design/ant-design/pull/44349)
 - 🔥 Form's `validateFields` now supports `recursive` to validate all fields with nested paths. [#44130](https://github.com/ant-design/ant-design/pull/44130)
 - 🔥 Form.Item now supports `validateDebounce` to configure validation debounce. [#44633](https://github.com/ant-design/ant-design/pull/44633)
+- 💄 Refactored the structure of Modal.ConfirmModal to fix the width abnormality caused by `width: fit-content` and the style line break issue with a large amount of text. Extracted confirm styles for lazy loading to optimize style size in SSR. [#44557](https://github.com/ant-design/ant-design/pull/44557)
+- 💄 Adjusted the linear gradient colors for `circle` and `dashboard` in Progress to conical gradients. [#44404](https://github.com/ant-design/ant-design/pull/44404)
 - 🆕 Button component has added three component tokens: `contentFontSize`, `contentFontSizeSM`, and `contentFontSizeLG`, allowing customization of font sizes for different sizes. [#44257](https://github.com/ant-design/ant-design/pull/44257) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Form's `requiredMark` now supports custom rendering. [#44073](https://github.com/ant-design/ant-design/pull/44073)
 - 🐞 Fixed an issue where Form.Item with `noStyle` configuration prevented the bound element from consuming `useStatus`. [#44576](https://github.com/ant-design/ant-design/pull/44576)
@@ -37,7 +39,6 @@ tag: vVERSION
 - 🐞 Fixed the issue where the download button would still be displayed after clicking on it and moving the mouse out of the file. [#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
 - 🆕 Added the `itemSelectedColor` component token to the Segmented component. [#44570](https://github.com/ant-design/ant-design/pull/44570) [@xiaozisong](https://github.com/xiaozisong)
 - 💄 Fixed the issue where `tag.className` and `tag.style` did not work on Tag.CheckableTag in ConfigProvider. [#44602](https://github.com/ant-design/ant-design/pull/44602)
-- 💄 Refactored the structure of Modal.ConfirmModal to fix the width abnormality caused by `width: fit-content` and the style line break issue with a large amount of text. Extracted confirm styles for lazy loading to optimize style size in SSR. [#44557](https://github.com/ant-design/ant-design/pull/44557)
 - 🆕 Added support for custom function rendering in the Modal footer. [#44318](https://github.com/ant-design/ant-design/pull/44318) [@RedJue](https://github.com/RedJue)
 - 🆕 Added responsive setting support for `items.span` in Descriptions. [#44534](https://github.com/ant-design/ant-design/pull/44534)
 - 🆕 Added support for global configuration of `indicatorSize` in Tabs component through ConfigProvider. [#44517](https://github.com/ant-design/ant-design/pull/44517) [@MadCcc](https://github.com/MadCcc)
@@ -45,7 +46,7 @@ tag: vVERSION
 - 🆕 Added the `direction` parameter to the `filterOption` function in the Transfer component. [#44417](https://github.com/ant-design/ant-design/pull/44417) [@Zian502](https://github.com/Zian502)
 - 🆕 Added support for the `source` parameter in the `onSearch` method of the Input.Search component. [#44457](https://github.com/ant-design/ant-design/pull/44457) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Added a component token to the Input component for customizing the shadow when activated. [#44410](https://github.com/ant-design/ant-design/pull/44410) [@MadCcc](https://github.com/MadCcc)
-- 💄 Adjusted the linear gradient colors for `circle` and `dashboard` in Progress to conical gradients. [#44404](https://github.com/ant-design/ant-design/pull/44404)
+
 - 🆕 Added a component token to the Radio component for customizing the color when the fill button is selected. [#44389](https://github.com/ant-design/ant-design/pull/44389) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Tour component now supports horizontal offset for spacing. [#44377](https://github.com/ant-design/ant-design/pull/44377) [@RedJue](https://github.com/RedJue)
 - 💄 Fixed the inconsistency in width between the dropdown and the input box when the container of Select component has `transform: scale` style configured in `getPopupContainer` option. [#44378](https://github.com/ant-design/ant-design/pull/44378)
@@ -54,8 +55,7 @@ tag: vVERSION
 - 🆕 List component now supports configuring size using ConfigProvider's `componentSize` option. [#44267](https://github.com/ant-design/ant-design/pull/44267) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fixed the issue where `fontSizeSM` token was not being applied to Button component. [#44217](https://github.com/ant-design/ant-design/pull/44217) [@CHENGTIANG](https://github.com/CHENGTIANG)
 - 🆕 Cascader component now supports `autoClearSearchValue` option. [#44033](https://github.com/ant-design/ant-design/pull/44033) [@linxianxi](https://github.com/linxianxi)
-- support rootClassName
- - Added support for `rootClassName` in [Upload](https://github.com/ant-design/ant-design/pull/44060),[AutoComplete](https://github.com/ant-design/ant-design/pull/44055),[Badge.Ribbon](https://github.com/ant-design/ant-design/pull/44056),[Input.TextArea](https://github.com/ant-design/ant-design/pull/44058),[RangePicker](https://github.com/ant-design/ant-design/pull/44057),[TimePicker](https://github.com/ant-design/ant-design/pull/44059) [@kiner-tang](https://github.com/kiner-tang). 
+- Added support for `rootClassName` in [Upload](https://github.com/ant-design/ant-design/pull/44060),[AutoComplete](https://github.com/ant-design/ant-design/pull/44055),[Badge.Ribbon](https://github.com/ant-design/ant-design/pull/44056),[Input.TextArea](https://github.com/ant-design/ant-design/pull/44058),[RangePicker](https://github.com/ant-design/ant-design/pull/44057),[TimePicker](https://github.com/ant-design/ant-design/pull/44059) [@kiner-tang](https://github.com/kiner-tang).
 - Added Component Token
   - Migrated less variables of Alert component to Tokens. [#42142](https://github.com/ant-design/ant-design/pull/42142) [@linhf123](https://github.com/linhf123)
   - Migrated less variables of Tree component to component Tokens. [#44282](https://github.com/ant-design/ant-design/pull/44282) [@MadCcc](https://github.com/MadCcc)
@@ -76,7 +76,7 @@ tag: vVERSION
 - 🛠 Remove compatibility logic for old versions of IE browser for Space and Grid components to reduce bundle size. [#44620](https://github.com/ant-design/ant-design/pull/44620) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 Replace `theme.useToken` with internal `useInternalToken`. [#44670](https://github.com/ant-design/ant-design/pull/44670) [@li-jia-nan](https://github.com/li-jia-nan)
 - TypeScript
-  - 🤖 Export BasicDataNode type from the tree. [#44624](https://github.com/ant-design/ant-design/pull/44624) [@kiner-tang](https://github.com/kiner-tang)
+  - 🤖 Export BasicDataNode type from the Tree. [#44624](https://github.com/ant-design/ant-design/pull/44624) [@kiner-tang](https://github.com/kiner-tang)
 
 ## 5.8.6
 
