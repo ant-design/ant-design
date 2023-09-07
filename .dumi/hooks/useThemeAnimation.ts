@@ -31,16 +31,27 @@ const useThemeAnimation = () => {
   const {
     token: { colorBgElevated },
   } = theme.useToken();
+
   const animateRef = useRef<{
-    isDark: boolean;
-    event: MouseEvent | null;
+    colorBgElevated: string;
   }>({
-    isDark: false,
-    event: null,
+    colorBgElevated,
   });
 
-  const startAnimationTheme = () => {
-    const { isDark, event } = animateRef.current;
+  const startAnimationTheme = (clipPath: string[], isDark: boolean) => {
+    document.documentElement.animate(
+      {
+        clipPath: isDark ? [...clipPath].reverse() : clipPath,
+      },
+      {
+        duration: 500,
+        easing: 'ease-in',
+        pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+      },
+    );
+  };
+
+  const toggleAnimationTheme = (event: MouseEvent, isDark: boolean) => {
     // @ts-ignore
     if (!(event && typeof document.startViewTransition === 'function')) return;
     const x = event.clientX;
@@ -49,7 +60,14 @@ const useThemeAnimation = () => {
 
     document
       // @ts-ignore
-      .startViewTransition(() => {
+      .startViewTransition(async () => {
+        // wait for theme change end
+        while (colorBgElevated === animateRef.current.colorBgElevated) {
+          // eslint-disable-next-line no-await-in-loop
+          await new Promise((resolve) => {
+            setTimeout(resolve, 1000 / 60);
+          });
+        }
         const root = document.documentElement;
         root.classList.remove(isDark ? 'dark' : 'light');
         root.classList.add(isDark ? 'light' : 'dark');
@@ -59,22 +77,8 @@ const useThemeAnimation = () => {
           `circle(0px at ${x}px ${y}px)`,
           `circle(${endRadius}px at ${x}px ${y}px)`,
         ];
-        document.documentElement.animate(
-          {
-            clipPath: isDark ? [...clipPath].reverse() : clipPath,
-          },
-          {
-            duration: 500,
-            easing: 'ease-in',
-            pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
-          },
-        );
+        startAnimationTheme(clipPath, isDark);
       });
-  };
-
-  const toggleAnimationTheme = (event: MouseEvent, isDark?: boolean) => {
-    animateRef.current.isDark = isDark;
-    animateRef.current.event = event;
   };
 
   // inject transition style
@@ -85,9 +89,11 @@ const useThemeAnimation = () => {
     }
   }, []);
 
-  // start animation by light/dark change
+  // // start animation by light/dark change
   useEffect(() => {
-    startAnimationTheme();
+    if (colorBgElevated !== animateRef.current.colorBgElevated) {
+      animateRef.current.colorBgElevated = colorBgElevated;
+    }
   }, [colorBgElevated]);
 
   return toggleAnimationTheme;
