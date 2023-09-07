@@ -50,7 +50,7 @@ tag: vVERSION
 - 💄 修复 Select 配置的 `getPopupContainer` 容器有 `transform: scale` 样式时，弹出框宽度与输入框不一致的情况。[#44378](https://github.com/ant-design/ant-design/pull/44378)
 - 🆕 Tour 组件支持通过 `closeIcon` 来自定义关闭按钮。[#44312](https://github.com/ant-design/ant-design/pull/44312) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Avatar 支持使用 ConfigProvider 配置 size。[#44288](https://github.com/ant-design/ant-design/pull/44288) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 List 支持使用 ConfigProvider 的 componentSize 配置 size。[#44267](https://github.com/ant-design/ant-design/pull/44267) [@Yuiai01](https://github.com/Yuiai01)
+- 🆕 List 支持使用 ConfigProvider 的 `componentSize` 配置 `size`。[#44267](https://github.com/ant-design/ant-design/pull/44267) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 Button `fontSizeSM` token 不生效的问题。[#44217](https://github.com/ant-design/ant-design/pull/44217) [@CHENGTIANG](https://github.com/CHENGTIANG)
 - 🆕 Cascader 支持 `autoClearSearchValue` 属性。[#44033](https://github.com/ant-design/ant-design/pull/44033) [@linxianxi](https://github.com/linxianxi)
 - 在 [Upload](https://github.com/ant-design/ant-design/pull/44060)、[AutoComplete](https://github.com/ant-design/ant-design/pull/44055)、[Badge.Ribbon](https://github.com/ant-design/ant-design/pull/44056)、[Input.TextArea](https://github.com/ant-design/ant-design/pull/44058)、[RangePicker](https://github.com/ant-design/ant-design/pull/44057)、[TimePicker](https://github.com/ant-design/ant-design/pull/44059) 中添加了对 `rootClassName` 的支持。[@kiner-tang](https://github.com/kiner-tang)。
