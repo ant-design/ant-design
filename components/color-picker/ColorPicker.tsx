@@ -17,7 +17,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import { useToken } from '../theme/internal';
+import theme from '../theme';
 import type { Color } from './color';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
@@ -103,7 +103,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
 
-  const [, token] = useToken();
+  const { token } = theme.useToken();
 
   const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
     value,

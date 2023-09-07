@@ -200,7 +200,6 @@ export default genComponentStyleHook(
     zIndexPopup: token.zIndexPopupBase + 30,
   }),
   {
-    resetStyle: false,
     deprecatedTokens: [['width', 'minWidth']],
   },
 );

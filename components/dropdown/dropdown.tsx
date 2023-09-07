@@ -1,22 +1,21 @@
-import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
-
+import type { AlignType } from '@rc-component/trigger';
+import * as React from 'react';
+import genPurePanel from '../_util/PurePanel';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
-import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import { useToken } from '../theme/internal';
+import theme from '../theme';
 import useStyle from './style';
 
 const Placements = [
@@ -174,7 +173,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const [, token] = useToken();
+  const { token } = theme.useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 

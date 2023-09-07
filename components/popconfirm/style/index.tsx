@@ -86,7 +86,4 @@ export default genComponentStyleHook(
       zIndexPopup: zIndexPopupBase + 60,
     };
   },
-  {
-    resetStyle: false,
-  },
 );
