@@ -23,7 +23,7 @@ tag: vVERSION
 - 🔥 Table 支持 `virtual` 属性开启虚拟滚动。[#44349](https://github.com/ant-design/ant-design/pull/44349)
 - 🔥 Form `validateFields` 支持 `recursive` 以校验所有包含路径的字段。[#44130](https://github.com/ant-design/ant-design/pull/44130)
 - 🔥 Form.Item 支持 `validateDebounce` 以配置校验防抖。[#44633](https://github.com/ant-design/ant-design/pull/44633)
-- 💄 重构 Modal.ConfirmModal 结构以修复 `width: fit-content` 导致宽度异常问题以及大量文本下的样式断行问题。抽离 confirm 样式至懒加载以优化 SSR 下的样式尺寸。[#44557](https://github.com/ant-design/ant-design/pull/44557)
+- 💄 重构 Modal.confirm 结构以修复 `width: fit-content` 导致宽度异常问题以及大量文本下的样式断行问题。抽离 confirm 样式至懒加载以优化 SSR 下的样式尺寸。[#44557](https://github.com/ant-design/ant-design/pull/44557)
 - 💄 Progress 调整 `circle` 和 `dashboard` 的线性渐变色为锥形渐变色。[#44404](https://github.com/ant-design/ant-design/pull/44404)
 - 🆕 Button 组件新增 `contentFontSize` `contentFontSizeSM` `contentFontSizeLG` 三个组件 token ，用于定制各个尺寸下的字体大小。[#44257](https://github.com/ant-design/ant-design/pull/44257) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Form `requiredMark` 支持自定义渲染。[#44073](https://github.com/ant-design/ant-design/pull/44073)
