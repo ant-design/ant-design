@@ -625,7 +625,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         textAlign: 'center',
 
         '&-extra': {
-          padding: `0 ${paddingSM}`,
+          padding: `0 ${paddingSM}px`,
           lineHeight: `${pickerTextHeight - 2 * lineWidth}px`,
           textAlign: 'start',
 

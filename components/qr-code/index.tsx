@@ -1,21 +1,20 @@
+import React, { useContext } from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
-import React, { useContext } from 'react';
+
 import warning from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
 
-const { useToken } = theme;
-
 const QRCode: React.FC<QRCodeProps> = (props) => {
-  const { token } = useToken();
+  const [, token] = useToken();
   const {
     value,
     type = 'canvas',
