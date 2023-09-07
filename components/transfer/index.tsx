@@ -88,7 +88,7 @@ export interface TransferProps<RecordType> {
   titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: string, item: RecordType) => boolean;
+  filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
     props: TransferListProps<RecordType>,

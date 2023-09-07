@@ -18,8 +18,12 @@ import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
+import type { FeedbackIcons } from './FormItem';
 
-export type RequiredMark = boolean | 'optional';
+export type RequiredMark =
+  | boolean
+  | 'optional'
+  | ((labelNode: React.ReactNode, info: { required: boolean }) => React.ReactNode);
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
@@ -32,6 +36,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
+  feedbackIcons?: FeedbackIcons;
   size?: SizeType;
   disabled?: boolean;
   scrollToFirstError?: Options | boolean;
@@ -64,6 +69,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     onFinishFailed,
     name,
     style,
+    feedbackIcons,
     ...restFormProps
   } = props;
 
@@ -129,8 +135,19 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
       form: wrapForm,
+      feedbackIcons,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark, wrapForm],
+    [
+      name,
+      labelAlign,
+      labelCol,
+      wrapperCol,
+      layout,
+      mergedColon,
+      mergedRequiredMark,
+      wrapForm,
+      feedbackIcons,
+    ],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);

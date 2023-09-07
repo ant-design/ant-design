@@ -324,12 +324,11 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
                 style="display:flex"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right:8px"
                 >
                   <div
                     class="ant-form-item"
@@ -563,12 +562,11 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
                 style="display:flex"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right:8px"
                 >
                   <div
                     class="ant-form-item"
@@ -797,4 +795,41 @@ exports[`renders components/watermark/demo/multi-line.tsx correctly 1`] = `
     style="height:500px"
   />
 </div>
+`;
+
+exports[`renders components/watermark/demo/portal.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Show Modal
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Show Drawer
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class=""
+    style="position:relative"
+  />,
+]
 `;

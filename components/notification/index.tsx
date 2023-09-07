@@ -201,7 +201,7 @@ function destroy(key: React.Key) {
 interface BaseMethods {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
-  config: any;
+  config: (config: GlobalConfigProps) => void;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;

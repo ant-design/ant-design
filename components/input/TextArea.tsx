@@ -21,6 +21,7 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   bordered?: boolean;
   size?: SizeType;
   status?: InputStatus;
+  rootClassName?: string;
 }
 
 export interface TextAreaRef {
@@ -39,6 +40,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     allowClear,
     showCount,
     classNames: classes,
+    rootClassName,
+    className,
     ...rest
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -87,6 +90,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       {...rest}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
+      className={classNames(className, rootClassName)}
       classes={{
         affixWrapper: classNames(
           `${prefixCls}-textarea-affix-wrapper`,

@@ -46,6 +46,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     items,
     animated,
     style,
+    indicatorSize,
     ...otherProps
   } = props;
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
@@ -105,6 +106,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       moreIcon={moreIcon}
       prefixCls={prefixCls}
       animated={mergedAnimated}
+      indicatorSize={indicatorSize ?? tabs?.indicatorSize}
     />,
   );
 };

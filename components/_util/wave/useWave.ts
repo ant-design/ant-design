@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from 'rc-util';
 import raf from 'rc-util/lib/raf';
 import showWaveEffect from './WaveEffect';
 import { ConfigContext } from '../../config-provider';

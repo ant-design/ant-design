@@ -29,6 +29,11 @@ export interface ComponentToken {
    * @descEN Background color of item when selected
    */
   itemSelectedBg: string;
+  /**
+   * @desc 选项选中时文字颜色
+   * @descEN Text color of item when selected
+   */
+  itemSelectedColor: string;
 }
 
 interface SegmentedToken extends FullToken<'Segmented'> {
@@ -109,7 +114,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-selected': {
           ...getItemSelectedStyle(token),
-          color: token.itemHoverColor,
+          color: token.itemSelectedColor,
         },
 
         '&::after': {
@@ -241,6 +246,7 @@ export default genComponentStyleHook(
       itemHoverBg: colorFillSecondary,
       itemSelectedBg: colorBgElevated,
       itemActiveBg: colorFill,
+      itemSelectedColor: colorText,
     };
   },
 );

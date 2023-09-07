@@ -11,6 +11,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableScrollThumbSize,
     tableScrollBg,
     zIndexTableSticky,
+    stickyScrollBarBorderRadius,
   } = token;
   const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
   return {
@@ -41,7 +42,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           '&-bar': {
             height: tableScrollThumbSize,
             backgroundColor: tableScrollThumbBg,
-            borderRadius: 100,
+            borderRadius: stickyScrollBarBorderRadius,
             transition: `all ${token.motionDurationSlow}, transform none`,
             position: 'absolute',
             bottom: 0,

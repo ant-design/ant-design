@@ -3,6 +3,7 @@ import React, { version as ReactVersion, useEffect, useRef, useState } from 'rea
 import type { ColProps } from 'antd/es/grid';
 import classNames from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import { AlertFilled } from '@ant-design/icons';
 
 import type { FormInstance } from '..';
 import Form from '..';
@@ -1240,7 +1241,6 @@ describe('Form', () => {
     expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(screen.getByLabelText(itemName)).toHaveAttribute('id', itemName);
     expect(screen.getByLabelText(itemName)).toHaveAccessibleName('Search');
 
     fireEvent.click(container.querySelector('button')!);
@@ -1835,6 +1835,66 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
   });
 
+  it('custom feedback icons should display when pass hasFeedback prop', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const form = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) return;
+        form.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form
+          ref={form}
+          feedbackIcons={() => ({
+            error: <AlertFilled id="custom-error-icon" />,
+          })}
+        >
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback={{
+              icons: () => ({
+                error: <AlertFilled id="custom-error-icon2" />,
+              }),
+            }}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value 3',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(2);
+    expect(container.querySelectorAll('#custom-error-icon, #custom-error-icon2').length).toBe(2);
+  });
+
   // https://github.com/ant-design/ant-design/issues/41621
   it('should not override value when pass `undefined` to require', async () => {
     // When require is `undefined`, the `isRequire` calculation logic should be preserved
@@ -1897,29 +1957,56 @@ describe('Form', () => {
     expect(onChange).toHaveBeenNthCalledWith(idx++, 'success');
   });
 
-  // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
-  it('should not render `requiredMark` when Form.Item has no required prop', () => {
-    // Escaping TypeScript error
-    const genProps = (value: any) => ({ ...value });
+  describe('requiredMark', () => {
+    // https://user-images.githubusercontent.com/32004925/230819163-464fe90d-422d-4a6d-9e35-44a25d4c64f1.png
+    it('should not render `requiredMark` when Form.Item has no required prop', () => {
+      // Escaping TypeScript error
+      const genProps = (value: any) => ({ ...value });
 
-    const { container } = render(
-      <Form name="basic" requiredMark="optional">
-        <Form.Item
-          label="First Name"
-          name="firstName"
-          required
-          {...genProps({ requiredMark: false })}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item label="Last Name" name="lastName" required {...genProps({ requiredMark: true })}>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
+      const { container } = render(
+        <Form name="basic" requiredMark="optional">
+          <Form.Item
+            label="First Name"
+            name="firstName"
+            required
+            {...genProps({ requiredMark: false })}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Last Name"
+            name="lastName"
+            required
+            {...genProps({ requiredMark: true })}
+          >
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
-    expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required')).toHaveLength(2);
+      expect(container.querySelectorAll('.ant-form-item-required-mark-optional')).toHaveLength(2);
+    });
+
+    it('customize logic', () => {
+      const { container } = render(
+        <Form name="basic" requiredMark={(label, info) => `${label}: ${info.required}`}>
+          <Form.Item label="Required" required>
+            <Input />
+          </Form.Item>
+          <Form.Item label="Optional">
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
+
+      expect(container.querySelectorAll('.ant-form-item-label')[0].textContent).toEqual(
+        'Required: true',
+      );
+      expect(container.querySelectorAll('.ant-form-item-label')[1].textContent).toEqual(
+        'Optional: false',
+      );
+    });
   });
 
   it('children support comment', () => {

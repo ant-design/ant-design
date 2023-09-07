@@ -58,6 +58,21 @@ export interface ComponentToken {
    */
   buttonSolidCheckedColor: string;
   /**
+   * @desc 单选框实色按钮选中时的背景色
+   * @descEN Background color of checked solid Radio button text
+   */
+  buttonSolidCheckedBg: string;
+  /**
+   * @desc 单选框实色按钮选中时的悬浮态背景色
+   * @descEN Background color of checked solid Radio button text when hover
+   */
+  buttonSolidCheckedHoverBg: string;
+  /**
+   * @desc 单选框实色按钮选中时的激活态背景色
+   * @descEN Background color of checked solid Radio button text when active
+   */
+  buttonSolidCheckedActiveBg: string;
+  /**
    * @desc 单选框右间距
    * @descEN Margin right of Radio button
    */
@@ -312,6 +327,9 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
     colorPrimary,
     colorPrimaryHover,
     colorPrimaryActive,
+    buttonSolidCheckedBg,
+    buttonSolidCheckedHoverBg,
+    buttonSolidCheckedActiveBg,
   } = token;
   return {
     [`${componentCls}-button-wrapper`]: {
@@ -467,19 +485,19 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
 
       [`${componentCls}-group-solid &-checked:not(${componentCls}-button-wrapper-disabled)`]: {
         color: buttonSolidCheckedColor,
-        background: colorPrimary,
-        borderColor: colorPrimary,
+        background: buttonSolidCheckedBg,
+        borderColor: buttonSolidCheckedBg,
 
         '&:hover': {
           color: buttonSolidCheckedColor,
-          background: colorPrimaryHover,
-          borderColor: colorPrimaryHover,
+          background: buttonSolidCheckedHoverBg,
+          borderColor: buttonSolidCheckedHoverBg,
         },
 
         '&:active': {
           color: buttonSolidCheckedColor,
-          background: colorPrimaryActive,
-          borderColor: colorPrimaryActive,
+          background: buttonSolidCheckedActiveBg,
+          borderColor: buttonSolidCheckedActiveBg,
         },
       },
 
@@ -545,6 +563,9 @@ export default genComponentStyleHook(
       colorTextDisabled,
       controlItemBgActiveDisabled,
       colorTextLightSolid,
+      colorPrimary,
+      colorPrimaryHover,
+      colorPrimaryActive,
     } = token;
 
     const dotPadding = 4; // Fixed value
@@ -561,6 +582,9 @@ export default genComponentStyleHook(
 
       // Radio buttons
       buttonSolidCheckedColor: colorTextLightSolid,
+      buttonSolidCheckedBg: colorPrimary,
+      buttonSolidCheckedHoverBg: colorPrimaryHover,
+      buttonSolidCheckedActiveBg: colorPrimaryActive,
       buttonBg: colorBgContainer,
       buttonCheckedBg: colorBgContainer,
       buttonColor: colorText,

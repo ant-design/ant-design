@@ -66,7 +66,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| object | - | - |
+| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| { number%: string } | - | - |
 | strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
 
 ### `type="dashboard"`
