@@ -1,5 +1,5 @@
 ---
-title: 实现一个颜色选择器
+title: 色彩模型与颜色选择器
 date: 2023-09-07
 author: Redjue
 ---

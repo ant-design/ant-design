@@ -1,5 +1,5 @@
 ---
-title: Implementing a Color Picker
+title: Color Models and Color Picker
 date: 2023-09-07
 author: Redjue
 ---
