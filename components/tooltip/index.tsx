@@ -1,14 +1,15 @@
+import type { CSSProperties } from 'react';
+import * as React from 'react';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcTooltip from 'rc-tooltip';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import type {
   TooltipProps as RcTooltipProps,
   TooltipRef as RcTooltipRef,
 } from 'rc-tooltip/lib/Tooltip';
-import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { CSSProperties } from 'react';
-import * as React from 'react';
+
 import type { PresetColorType } from '../_util/colors';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
@@ -19,12 +20,10 @@ import type { LiteralUnion } from '../_util/type';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoCompactStyle } from '../space/Compact';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
-
-const { useToken } = theme;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -208,7 +207,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   const mergedShowArrow = !!arrow;
 
-  const { token } = useToken();
+  const [, token] = useToken();
 
   const {
     getPopupContainer: getContextPopupContainer,
