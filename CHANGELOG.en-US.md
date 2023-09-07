@@ -55,12 +55,7 @@ tag: vVERSION
 - 🐞 Fixed the issue where `fontSizeSM` token was not being applied to Button component. [#44217](https://github.com/ant-design/ant-design/pull/44217) [@CHENGTIANG](https://github.com/CHENGTIANG)
 - 🆕 Cascader component now supports `autoClearSearchValue` option. [#44033](https://github.com/ant-design/ant-design/pull/44033) [@linxianxi](https://github.com/linxianxi)
 - support rootClassName
-  - Added support for `rootClassName` in AutoComplete component. [#44055](https://github.com/ant-design/ant-design/pull/44055) [@kiner-tang](https://github.com/kiner-tang)
-  - Added support for `rootClassName` in Badge.Ribbon component. [#44056](https://github.com/ant-design/ant-design/pull/44056) [@kiner-tang](https://github.com/kiner-tang)
-  - Added support for `rootClassName` in Input.TextArea component. [#44058](https://github.com/ant-design/ant-design/pull/44058) [@kiner-tang](https://github.com/kiner-tang)
-  - Added support for `rootClassName` in RangePicker component. [#44057](https://github.com/ant-design/ant-design/pull/44057) [@kiner-tang](https://github.com/kiner-tang)
-  - Added support for `rootClassName` in TimePicker component. [#44059](https://github.com/ant-design/ant-design/pull/44059) [@kiner-tang](https://github.com/kiner-tang)
-  - Added support for `rootClassName` in Upload component. [#44060](https://github.com/ant-design/ant-design/pull/44060) [@kiner-tang](https://github.com/kiner-tang)
+ - Added support for `rootClassName` in [Upload](https://github.com/ant-design/ant-design/pull/44060),[AutoComplete](https://github.com/ant-design/ant-design/pull/44055),[Badge.Ribbon](https://github.com/ant-design/ant-design/pull/44056),[Input.TextArea](https://github.com/ant-design/ant-design/pull/44058),[RangePicker](https://github.com/ant-design/ant-design/pull/44057),[TimePicker](https://github.com/ant-design/ant-design/pull/44059) [@kiner-tang](https://github.com/kiner-tang). 
 - Added Component Token
   - Migrated less variables of Alert component to Tokens. [#42142](https://github.com/ant-design/ant-design/pull/42142) [@linhf123](https://github.com/linhf123)
   - Migrated less variables of Tree component to component Tokens. [#44282](https://github.com/ant-design/ant-design/pull/44282) [@MadCcc](https://github.com/MadCcc)
