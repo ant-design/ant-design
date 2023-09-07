@@ -53,6 +53,20 @@ const genStackChildrenStyle = (token: NotificationToken): CSSObject => {
   };
 };
 
+const genStackedNoticeStyle = (token: NotificationToken): CSSObject => {
+  const childrenStyle: CSSObject = {};
+  for (let i = 1; i < token.notificationStackLayer; i++) {
+    childrenStyle[`&:nth-last-child(${i + 1})`] = {
+      background: 'transparent',
+      backdropFilter: 'blur(10px)',
+    };
+  }
+
+  return {
+    ...childrenStyle,
+  };
+};
+
 const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
   const { componentCls } = token;
   return {
@@ -62,6 +76,11 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
         position: 'absolute',
 
         ...genStackChildrenStyle(token),
+      },
+    },
+    [`${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
+      [`& > ${componentCls}-notice-wrapper`]: {
+        ...genStackedNoticeStyle(token),
       },
     },
     [`${componentCls}-stack${componentCls}-stack-expanded`]: {
