@@ -1,6 +1,7 @@
+import React from 'react';
 import dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import React from 'react';
+
 import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -112,6 +113,30 @@ describe('Statistic', () => {
 
       unmount();
       expect(onFinish).not.toHaveBeenCalled();
+      jest.clearAllTimers();
+      jest.useRealTimers();
+    });
+
+    it('should pause and start the countdown', async () => {
+      jest.useFakeTimers();
+      const onChange = jest.fn();
+      const { rerender } = render(
+        <Statistic.Countdown value={Date.now() + 1000} onChange={onChange} isPaused={true} />,
+      );
+
+      // Wait for some time and check if onChange has been called
+      await waitFakeTimer(500);
+      expect(onChange).not.toHaveBeenCalled();
+
+      // Now update the component to remove the pause
+      rerender(
+        <Statistic.Countdown value={Date.now() + 1000} onChange={onChange} isPaused={false} />,
+      );
+
+      // Wait for some time and check if onChange has been called
+      await waitFakeTimer(500);
+      expect(onChange).toHaveBeenCalled();
+
       jest.clearAllTimers();
       jest.useRealTimers();
     });
