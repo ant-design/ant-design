@@ -107,16 +107,17 @@ const useStyle = createStyles(({ token, css }) => {
 
 export interface ComponentsBlockProps {
   className?: string;
+  style?: React.CSSProperties;
 }
 
-const ComponentsBlock = React.forwardRef((props: ComponentsBlockProps, ref) => {
-  const { className } = props;
+const ComponentsBlock = (props: ComponentsBlockProps) => {
+  const { className, style } = props;
 
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
   return (
-    <div className={classNames(className, styles.holder)} ref={ref}>
+    <div className={classNames(className, styles.holder)} style={style}>
       <ModalPanel title="Ant Design 5.0" width="100%">
         {locale.text}
       </ModalPanel>
@@ -253,6 +254,6 @@ const ComponentsBlock = React.forwardRef((props: ComponentsBlockProps, ref) => {
       <Alert message="Ant Design love you!" type="success" />
     </div>
   );
-});
+};
 
 export default ComponentsBlock;

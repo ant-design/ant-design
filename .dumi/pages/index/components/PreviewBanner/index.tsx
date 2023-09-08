@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useState, startTransition } from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
@@ -86,12 +86,14 @@ export interface PreviewBannerProps {
   children?: React.ReactNode;
 }
 
-function transformElement(event, currentTarget, element) {
+function getTransformRotateStyle(event): React.CSSProperties {
   const multiple = 40;
-  const box = currentTarget.getBoundingClientRect();
+  const box = event.currentTarget.getBoundingClientRect();
   const calcX = -(event.clientY - box.y - box.height / 2) / multiple;
   const calcY = (event.clientX - box.x - box.width / 2) / multiple;
-  element.style.transform = `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`;
+  return {
+    transform: `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`,
+  };
 }
 
 export default function PreviewBanner(props: PreviewBannerProps) {
@@ -103,12 +105,11 @@ export default function PreviewBanner(props: PreviewBannerProps) {
   const token = useTheme();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
-  const antdElementsRef = useRef<HTMLDivElement>(null);
+  const [transformRotateStyle, setTransformRotateStyle] = useState();
 
   const onMouseMove = (event) => {
-    const { currentTarget } = event;
-    window.requestAnimationFrame(() => {
-      transformElement(event, currentTarget, antdElementsRef.current);
+    startTransition(() => {
+      setTransformRotateStyle(getTransformRotateStyle(event));
     });
   };
 
@@ -129,7 +130,7 @@ export default function PreviewBanner(props: PreviewBannerProps) {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} ref={antdElementsRef} />}
+        {!isMobile && <ComponentsBlock className={styles.block} style={transformRotateStyle} />}
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
