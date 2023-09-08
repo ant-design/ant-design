@@ -52,7 +52,7 @@ tag: vVERSION
 - 🐞 Fixed an issue where Input's default button had extra shadow. [#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
 - 🐞 Fixed an issue where using Modal's hooks to close it with the `esc` key didn't correctly trigger the `await`. [#44646](https://github.com/ant-design/ant-design/pull/44646)
 - 🐞 Fixed the issue where the preset `size` of Space did not follow the Design Token, now compact mode correctly handles the corresponding spacing values. [#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🐞 Fixed the issue where the download button would still be displayed after clicking on it and moving the mouse out of the file. [#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
+- 🐞 Fixed the issue in Upload where the download button would still be displayed after clicking on it and moving the mouse out of the file. [#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
 - 🐞 Fix FloatButton that margin not work with `href` in FloatButton.Group. [#44707](https://github.com/ant-design/ant-design/pull/44707) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 Fixed the issue where `fontSizeSM` token was not being applied to Button component. [#44217](https://github.com/ant-design/ant-design/pull/44217) [@CHENGTIANG](https://github.com/CHENGTIANG)
 - 🐞 The Watermark now works in nested Modal and Drawer components. [#44104](https://github.com/ant-design/ant-design/pull/44104)
