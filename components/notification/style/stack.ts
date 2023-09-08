@@ -59,6 +59,7 @@ const genStackedNoticeStyle = (token: NotificationToken): CSSObject => {
     childrenStyle[`&:nth-last-child(${i + 1})`] = {
       background: token.colorBgBlur,
       backdropFilter: 'blur(10px)',
+      '-webkit-backdrop-filter': 'blur(10px)',
     };
   }
 
