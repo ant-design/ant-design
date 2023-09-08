@@ -220,6 +220,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       '&-item': {
         display: 'flex',
         alignItems: 'center',
+        userSelect: 'none',
         minHeight: itemHeight,
         padding: `${itemPaddingBlock}px ${paddingSM}px`,
         transition: `all ${motionDurationSlow}`,
