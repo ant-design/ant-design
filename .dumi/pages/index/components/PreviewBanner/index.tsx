@@ -1,4 +1,4 @@
-import React, { useState, startTransition } from 'react';
+import React from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
@@ -8,6 +8,7 @@ import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import { GroupMask } from '../Group';
 import ComponentsBlock from './ComponentsBlock';
+import useMouseTransform from './useMouseTransform';
 
 const locales = {
   cn: {
@@ -86,16 +87,6 @@ export interface PreviewBannerProps {
   children?: React.ReactNode;
 }
 
-function getTransformRotateStyle(event): React.CSSProperties {
-  const multiple = 40;
-  const box = event.currentTarget.getBoundingClientRect();
-  const calcX = -(event.clientY - box.y - box.height / 2) / multiple;
-  const calcY = (event.clientX - box.x - box.width / 2) / multiple;
-  return {
-    transform: `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`,
-  };
-}
-
 export default function PreviewBanner(props: PreviewBannerProps) {
   const { children } = props;
 
@@ -105,16 +96,11 @@ export default function PreviewBanner(props: PreviewBannerProps) {
   const token = useTheme();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
-  const [transformRotateStyle, setTransformRotateStyle] = useState();
 
-  const onMouseMove = (event) => {
-    startTransition(() => {
-      setTransformRotateStyle(getTransformRotateStyle(event));
-    });
-  };
+  const [componentsBlockStyle, mouseEvents] = useMouseTransform();
 
   return (
-    <GroupMask onMouseMove={onMouseMove}>
+    <GroupMask {...mouseEvents}>
       {/* Image Left Top */}
       <img
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
@@ -130,7 +116,7 @@ export default function PreviewBanner(props: PreviewBannerProps) {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} style={transformRotateStyle} />}
+        {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
