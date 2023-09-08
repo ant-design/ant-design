@@ -275,27 +275,72 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const handleRightClear = () => onSearch?.('right', '');
 
-  const onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
+  const onItemSelect = (
+    direction: TransferDirection,
+    selectedKey: string,
+    checked: boolean,
+    isHoldingShiftKey: boolean,
+  ) => {
     const holder = [...(direction === 'left' ? sourceSelectedKeys : targetSelectedKeys)];
-    const index = holder.indexOf(selectedKey);
-    if (index > -1) {
-      holder.splice(index, 1);
+    const data = [...(direction === 'left' ? leftDataSource : rightDataSource)];
+
+    const currentSelectIndex = data?.findIndex((item) => item.key === selectedKey) || 0;
+    const firstSelectedIndex = data?.findIndex((item) => item.key === holder[0]);
+    const lastSelectedIndex = data?.findIndex((item) => item.key === holder[holder.length - 1]);
+
+    // Hold down the shift key and select multiple
+    if (isHoldingShiftKey) {
+      let startIndex = -1;
+      let endIndex = -1;
+
+      // TODO: selected（To be reconstructed）
+      if (!holder.length) {
+        startIndex = 0;
+        endIndex = currentSelectIndex;
+      } else if (holder.length === 1) {
+        startIndex = firstSelectedIndex;
+        endIndex = currentSelectIndex;
+      } else if (currentSelectIndex > lastSelectedIndex) {
+        startIndex = lastSelectedIndex;
+        endIndex = currentSelectIndex;
+      } else if (currentSelectIndex < lastSelectedIndex) {
+        startIndex = currentSelectIndex;
+        endIndex = lastSelectedIndex;
+      }
+
+      const addKeys =
+        data
+          ?.filter(
+            (item, index) => !holder.includes(item.key) && index >= startIndex && index <= endIndex,
+          )
+          .map((item) => item.key) || [];
+      holder.push(...addKeys);
+      console.log('addKeys', addKeys);
+      console.log('holder', holder);
+
+      // TODO: cancel selected
+    } else {
+      const index = holder.indexOf(selectedKey);
+      if (index > -1) {
+        holder.splice(index, 1);
+      }
+      if (checked) {
+        holder.push(selectedKey);
+      }
     }
-    if (checked) {
-      holder.push(selectedKey);
-    }
+
     handleSelectChange(direction, holder);
     if (!props.selectedKeys) {
       setStateKeys(direction, holder);
     }
   };
 
-  const onLeftItemSelect = (selectedKey: string, checked: boolean) => {
-    onItemSelect('left', selectedKey, checked);
+  const onLeftItemSelect = (selectedKey: string, checked: boolean, isHoldingShiftKey: boolean) => {
+    onItemSelect('left', selectedKey, checked, isHoldingShiftKey);
   };
 
-  const onRightItemSelect = (selectedKey: string, checked: boolean) => {
-    onItemSelect('right', selectedKey, checked);
+  const onRightItemSelect = (selectedKey: string, checked: boolean, isHoldingShiftKey: boolean) => {
+    onItemSelect('right', selectedKey, checked, isHoldingShiftKey);
   };
 
   const onRightItemRemove = (keys: string[]) => {
