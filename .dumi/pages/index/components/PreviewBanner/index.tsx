@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
@@ -103,11 +103,12 @@ export default function PreviewBanner(props: PreviewBannerProps) {
   const token = useTheme();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
+  const antdElementsRef = useRef<HTMLDivElement>(null);
 
   const onMouseMove = (event) => {
     const { currentTarget } = event;
     window.requestAnimationFrame(() => {
-      transformElement(event, currentTarget, document.getElementById('banner-antd-elements'));
+      transformElement(event, currentTarget, antdElementsRef.current);
     });
   };
 
@@ -128,7 +129,7 @@ export default function PreviewBanner(props: PreviewBannerProps) {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} id="banner-antd-elements" />}
+        {!isMobile && <ComponentsBlock className={styles.block} ref={antdElementsRef} />}
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
