@@ -37,6 +37,7 @@ tag: vVERSION
 - 🆕 Form supports `feedbackIcons` and Form.Item supports `hasFeedback={{ icons: ... }}`, now feedback icons could be customized in both ways. [#43894](https://github.com/ant-design/ant-design/pull/43894) [@gldio](https://github.com/gldio)
 - 🐞 Fixed the issue where the preset `size` of Space did not follow the Design Token, now compact mode correctly handles the corresponding spacing values. [#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fixed the issue where the download button would still be displayed after clicking on it and moving the mouse out of the file. [#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
+- 🐞 Fix FloatButton that margin not work with `href` in FloatButton.Group. [#44707](https://github.com/ant-design/ant-design/pull/44707) [@Yuiai01](https://github.com/Yuiai01)
 - 🆕 Added the `itemSelectedColor` component token to the Segmented component. [#44570](https://github.com/ant-design/ant-design/pull/44570) [@xiaozisong](https://github.com/xiaozisong)
 - 💄 Fixed the issue where `tag.className` and `tag.style` did not work on Tag.CheckableTag in ConfigProvider. [#44602](https://github.com/ant-design/ant-design/pull/44602)
 - 🆕 Added support for custom function rendering in the Modal footer. [#44318](https://github.com/ant-design/ant-design/pull/44318) [@RedJue](https://github.com/RedJue)
