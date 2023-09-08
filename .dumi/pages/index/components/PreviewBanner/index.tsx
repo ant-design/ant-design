@@ -81,8 +81,17 @@ const useStyle = () => {
     };
   })();
 };
+
 export interface PreviewBannerProps {
   children?: React.ReactNode;
+}
+
+function transformElement(event, currentTarget, element) {
+  const multiple = 40;
+  const box = currentTarget.getBoundingClientRect();
+  const calcX = -(event.clientY - box.y - box.height / 2) / multiple;
+  const calcY = (event.clientX - box.x - box.width / 2) / multiple;
+  element.style.transform = `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`;
 }
 
 export default function PreviewBanner(props: PreviewBannerProps) {
@@ -95,8 +104,15 @@ export default function PreviewBanner(props: PreviewBannerProps) {
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
+  const onMouseMove = (event) => {
+    const { currentTarget } = event;
+    window.requestAnimationFrame(() => {
+      transformElement(event, currentTarget, document.getElementById('banner-antd-elements'));
+    });
+  };
+
   return (
-    <GroupMask>
+    <GroupMask onMouseMove={onMouseMove}>
       {/* Image Left Top */}
       <img
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
@@ -112,7 +128,7 @@ export default function PreviewBanner(props: PreviewBannerProps) {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} />}
+        {!isMobile && <ComponentsBlock className={styles.block} id="banner-antd-elements" />}
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>

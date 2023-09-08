@@ -107,16 +107,17 @@ const useStyle = createStyles(({ token, css }) => {
 
 export interface ComponentsBlockProps {
   className?: string;
+  id?: string;
 }
 
 export default function ComponentsBlock(props: ComponentsBlockProps) {
-  const { className } = props;
+  const { className, id } = props;
 
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
 
   return (
-    <div className={classNames(className, styles.holder)}>
+    <div className={classNames(className, styles.holder)} id={id}>
       <ModalPanel title="Ant Design 5.0" width="100%">
         {locale.text}
       </ModalPanel>

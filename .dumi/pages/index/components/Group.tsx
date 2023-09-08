@@ -8,9 +8,10 @@ export interface GroupMaskProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   disabled?: boolean;
+  onMouseMove?: React.HTMLAttributes<HTMLDivElement>['onMouseMove'];
 }
 
-export function GroupMask({ children, style, disabled }: GroupMaskProps) {
+export function GroupMask({ children, style, disabled, onMouseMove }: GroupMaskProps) {
   const additionalStyle: React.CSSProperties = disabled
     ? {}
     : {
@@ -28,6 +29,7 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
         ...style,
         ...additionalStyle,
       }}
+      onMouseMove={onMouseMove}
     >
       {children}
     </div>
