@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
+import { removeCSS, updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 
 import theme from '../../components/theme';
 
@@ -39,16 +39,28 @@ const useThemeAnimation = () => {
   });
 
   const startAnimationTheme = (clipPath: string[], isDark: boolean) => {
-    document.documentElement.animate(
-      {
-        clipPath: isDark ? [...clipPath].reverse() : clipPath,
-      },
-      {
-        duration: 500,
-        easing: 'ease-in',
-        pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
-      },
+    updateCSS(
+      `
+    * {
+    transition: none !important;
+  }
+    `,
+      'disable-transition',
     );
+    document.documentElement
+      .animate(
+        {
+          clipPath: isDark ? [...clipPath].reverse() : clipPath,
+        },
+        {
+          duration: 500,
+          easing: 'ease-in',
+          pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        },
+      )
+      .addEventListener('finish', () => {
+        removeCSS('disable-transition');
+      });
   };
 
   const toggleAnimationTheme = (event: MouseEvent, isDark: boolean) => {
@@ -89,7 +101,6 @@ const useThemeAnimation = () => {
     }
   }, []);
 
-  // // start animation by light/dark change
   useEffect(() => {
     if (colorBgElevated !== animateRef.current.colorBgElevated) {
       animateRef.current.colorBgElevated = colorBgElevated;
