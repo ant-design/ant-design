@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.9.0
 
-`2023-09-07`
+`2023-09-08`
 
 - 🔥 Table component now supports the `virtual` attribute to enable virtual scrolling. [#44349](https://github.com/ant-design/ant-design/pull/44349)
 - 🔥 Form's `validateFields` now supports `recursive` to validate all fields with nested paths. [#44130](https://github.com/ant-design/ant-design/pull/44130)
