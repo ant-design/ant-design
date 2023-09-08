@@ -41,7 +41,7 @@ tag: vVERSION
 - 💄 修复 ConfigProvider `tag.className` 与 `tag.style` 无法作用于 Tag.CheckableTag 的问题。[#44602](https://github.com/ant-design/ant-design/pull/44602)
 - 🆕 Modal 页脚 `footer` 支持自定义函数渲染。[#44318](https://github.com/ant-design/ant-design/pull/44318) [@RedJue](https://github.com/RedJue)
 - 🆕 Descriptions 的 `items.span` 支持响应式设置。[#44534](https://github.com/ant-design/ant-design/pull/44534)
-- 🆕 Tabs 组件新增 `indicatorLength` 属性，用于自定义指示条的长度。[#44406](https://github.com/ant-design/ant-design/pull/44406)
+- 🆕 Tabs 组件新增 `indicatorSize` 属性，用于自定义指示条的长度。[#44406](https://github.com/ant-design/ant-design/pull/44406)
 - 🆕 Transfer 组件 `filterOption` 函数新增 `direction` 入参。[#44417](https://github.com/ant-design/ant-design/pull/44417) [@Zian502](https://github.com/Zian502)
 - 🆕 Input.Search 组件支持在 `onSearch` 方法中接受 `source` 参数。[#44457](https://github.com/ant-design/ant-design/pull/44457) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Input 组件新增组件 Token 用于定制激活态阴影。[#44410](https://github.com/ant-design/ant-design/pull/44410)
