@@ -78,7 +78,6 @@ const GlobalLayout: React.FC = () => {
         }
         if (key === 'theme') {
           const _theme = value.filter((t) => t !== 'light');
-          console.log(_theme);
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
             theme: _theme,
