@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.9.0
 
-`2023-09-07`
+`2023-09-08`
 
 - 🔥 Table 支持 `virtual` 属性开启虚拟滚动。[#44349](https://github.com/ant-design/ant-design/pull/44349)
 - 🔥 Form `validateFields` 支持 `recursive` 以校验所有包含路径的字段。[#44130](https://github.com/ant-design/ant-design/pull/44130)
