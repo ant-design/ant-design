@@ -24,7 +24,7 @@ In the `HSV` color model, each color can be represented by a triplet `(H, S, V)`
 
 ### HEX Color Model
 
-The `HEX` color model represents colors by hexadecimal numbers. The first two digits represent the value of red, the middle two digits represent the value of green, and the last two digits represent the value of blue. For example, red can be represented as `#FF0000`, green can be represented as `#00FF00`, and blue can be represented as `#0000FF`. As shown in the following figure: ![HEX](https://user-images.githubusercontent.com/21119589/266235167-fa4e9362-6b97-4966-b43f-14b6f7eb62a3.png)
+The `HEX` color model represents colors by hexadecimal numbers. The first two digits represent the value of red, the middle two digits represent the value of green, and the last two digits represent the value of blue. For example, red can be represented as `#FF0000`, green can be represented as `#00FF00`, and blue can be represented as `#0000FF`. As shown in the following figure: ![HEX](https://user-images.githubusercontent.com/21119589/266569791-7f6afedd-3b84-4ee1-8c98-d3d4b16e8317.png)
 
 This is also the most common way of representing colors because it can be used directly in CSS. Moreover, the representation is very simple, just convert the three numbers in the RGB color model to hexadecimal numbers.
 
