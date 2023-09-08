@@ -46,7 +46,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
     if (theme === 'compact') {
       return antdTheme.compactAlgorithm;
     }
-    return antdTheme.defaultAlgorithm;
+    return themes.includes('dark') ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm;
   });
 
 const GlobalLayout: React.FC = () => {
@@ -78,6 +78,7 @@ const GlobalLayout: React.FC = () => {
         }
         if (key === 'theme') {
           const _theme = value.filter((t) => t !== 'light');
+          console.log(_theme);
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
             theme: _theme,
