@@ -1,26 +1,28 @@
-import { useState, startTransition, type CSSProperties } from 'react';
+import React, { startTransition } from 'react';
 
-function getTransformRotateStyle(event, currentTarget, multiple): string {
-  const box = currentTarget.getBoundingClientRect();
+const getTransformRotateStyle = (
+  event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  multiple: number,
+): string => {
+  const box = event.currentTarget?.getBoundingClientRect();
   const calcX = -(event.clientY - box.y - box.height / 2) / multiple;
   const calcY = (event.clientX - box.x - box.width / 2) / multiple;
   return `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`;
-}
+};
 
 const useMouseTransform = ({ transitionDuration = 500, multiple = 36 } = {}) => {
-  const [componentsBlockStyle, setComponentsBlockStyle] = useState<CSSProperties>({});
+  const [componentsBlockStyle, setComponentsBlockStyle] = React.useState<React.CSSProperties>({});
 
-  const onMouseMove = (event) => {
-    const { currentTarget } = event;
+  const onMouseMove: React.MouseEventHandler<HTMLDivElement> = (event) => {
     startTransition(() => {
       setComponentsBlockStyle((style) => ({
         ...style,
-        transform: getTransformRotateStyle(event, currentTarget, multiple),
+        transform: getTransformRotateStyle(event, multiple),
       }));
     });
   };
 
-  const onMouseEnter = () => {
+  const onMouseEnter: React.MouseEventHandler<HTMLDivElement> = () => {
     startTransition(() => {
       setComponentsBlockStyle((style) => ({
         ...style,
@@ -38,7 +40,7 @@ const useMouseTransform = ({ transitionDuration = 500, multiple = 36 } = {}) => 
     }, transitionDuration);
   };
 
-  const onMouseLeave = () => {
+  const onMouseLeave: React.MouseEventHandler<HTMLDivElement> = () => {
     startTransition(() => {
       setComponentsBlockStyle((style) => ({
         ...style,
@@ -55,7 +57,7 @@ const useMouseTransform = ({ transitionDuration = 500, multiple = 36 } = {}) => 
       onMouseEnter,
       onMouseLeave,
     },
-  ];
+  ] as const;
 };
 
 export default useMouseTransform;

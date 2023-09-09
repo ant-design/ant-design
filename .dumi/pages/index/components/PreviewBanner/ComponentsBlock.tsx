@@ -110,7 +110,7 @@ export interface ComponentsBlockProps {
   style?: React.CSSProperties;
 }
 
-const ComponentsBlock = (props: ComponentsBlockProps) => {
+const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const { className, style } = props;
 
   const [locale] = useLocale(locales);
