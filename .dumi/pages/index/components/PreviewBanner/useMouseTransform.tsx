@@ -1,12 +1,12 @@
 import React, { startTransition } from 'react';
 
 const getTransformRotateStyle = (
-  event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  e: React.MouseEvent<HTMLDivElement, MouseEvent>,
   multiple: number,
 ): string => {
-  const box = event.currentTarget?.getBoundingClientRect();
-  const calcX = -(event.clientY - box.y - box.height / 2) / multiple;
-  const calcY = (event.clientX - box.x - box.width / 2) / multiple;
+  const { x = 0, y = 0, width = 0, height = 0 } = e.currentTarget?.getBoundingClientRect() || {};
+  const calcX = -(e.clientY - y - height / 2) / multiple;
+  const calcY = (e.clientX - x - width / 2) / multiple;
   return `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`;
 };
 
