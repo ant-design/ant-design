@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -11,6 +12,16 @@ export interface ComponentToken {
    * @descEN Background color of label
    */
   labelBg: string;
+  /**
+   * @desc 标签文字颜色
+   * @descEN Text color of label
+   */
+  labelColor: string;
+  /**
+   * @desc 标题文字颜色
+   * @descEN Text color of title
+   */
+  titleColor: string;
   /**
    * @desc 标题下间距
    * @descEN Bottom margin of title
@@ -32,6 +43,11 @@ export interface ComponentToken {
    */
   colonMarginLeft: number;
   /**
+   * @desc 内容区域文字颜色
+   * @descEN Text color of content
+   */
+  contentColor: string;
+  /**
    * @desc 额外区域文字颜色
    * @descEN Text color of extra area
    */
@@ -41,7 +57,7 @@ export interface ComponentToken {
 interface DescriptionsToken extends FullToken<'Descriptions'> {}
 
 const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
-  const { componentCls, labelBg } = token;
+  const { componentCls, labelBg, labelColor } = token;
   return {
     [`&${componentCls}-bordered`]: {
       [`> ${componentCls}-view`]: {
@@ -63,7 +79,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
             },
           },
           [`> ${componentCls}-item-label`]: {
-            color: token.colorTextSecondary,
+            color: labelColor,
             backgroundColor: labelBg,
             '&::after': {
               display: 'none',
@@ -113,7 +129,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-title`]: {
         ...textEllipsis,
         flex: 'auto',
-        color: token.colorText,
+        color: token.titleColor,
         fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeightLG,
@@ -140,7 +156,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         },
       },
       [`${componentCls}-item-label`]: {
-        color: token.colorTextTertiary,
+        color: token.labelColor,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
@@ -166,7 +182,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-item-content`]: {
         display: 'table-cell',
         flex: 1,
-        color: token.colorText,
+        color: token.contentColor,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         wordBreak: 'break-word',
@@ -213,10 +229,13 @@ export default genComponentStyleHook(
   },
   (token) => ({
     labelBg: token.colorFillAlter,
+    labelColor: token.colorTextSecondary,
+    titleColor: token.colorText,
     titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
     itemPaddingBottom: token.padding,
     colonMarginRight: token.marginXS,
     colonMarginLeft: token.marginXXS / 2,
+    contentColor: token.colorText,
     extraColor: token.colorText,
   }),
 );
