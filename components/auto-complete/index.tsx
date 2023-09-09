@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
 import * as React from 'react';
 import genPurePanel from '../_util/PurePanel';
 import { isValidElement } from '../_util/reactNode';
@@ -47,6 +48,50 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
   return child && child.type && (child.type.isSelectOption || child.type.isSelectOptGroup);
 }
 
+function Input(
+  props: {
+    inputElement: React.ReactElement;
+    onChange?: <T>(event: T) => {};
+    className?: string;
+  },
+  ref: React.ForwardedRef<{ focus: () => void }>,
+) {
+  let inputNode = props.inputElement || <input />;
+
+  const inputRef = React.useRef<HTMLInputElement>(null);
+
+  React.useImperativeHandle(ref, () => ({
+    focus: () => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    },
+  }));
+
+  inputNode = React.cloneElement(inputNode, {
+    ...omit(props, ['inputElement']),
+    ...inputNode.props,
+    className: classNames(props.className, inputNode?.props?.className),
+    ref: composeRef(
+      (inputNode as React.ComponentPropsWithRef<'input'>).ref as React.RefObject<HTMLInputElement>,
+      inputRef,
+    ),
+    onChange: (event: Event) => {
+      if (props.onChange) {
+        if (!event?.target) {
+          const e = { target: { value: event } };
+          props.onChange(e);
+        } else {
+          props.onChange(event);
+        }
+      }
+    },
+  });
+  return inputNode;
+}
+
+const InputRef = React.forwardRef(Input);
+
 const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteProps> = (
   props,
   ref,
@@ -72,7 +117,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     [customizeInput] = childNodes;
   }
 
-  const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
+  const getInputElement = customizeInput
+    ? (): React.ReactElement => <InputRef inputElement={customizeInput!} />
+    : undefined;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
