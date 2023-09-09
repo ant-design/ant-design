@@ -57,7 +57,7 @@ export interface ComponentToken {
 interface DescriptionsToken extends FullToken<'Descriptions'> {}
 
 const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
-  const { componentCls, labelBg, labelColor } = token;
+  const { componentCls, labelBg } = token;
   return {
     [`&${componentCls}-bordered`]: {
       [`> ${componentCls}-view`]: {
@@ -79,7 +79,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
             },
           },
           [`> ${componentCls}-item-label`]: {
-            color: labelColor,
+            color: token.colorTextSecondary,
             backgroundColor: labelBg,
             '&::after': {
               display: 'none',
@@ -229,7 +229,7 @@ export default genComponentStyleHook(
   },
   (token) => ({
     labelBg: token.colorFillAlter,
-    labelColor: token.colorTextSecondary,
+    labelColor: token.colorTextTertiary,
     titleColor: token.colorText,
     titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
     itemPaddingBottom: token.padding,
