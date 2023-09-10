@@ -87,7 +87,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 每创建一个 PR 时，利用 GitHub Action 自动尝试构建和部署该 PR。这样既可以确保文档正常，又可以预览该 PR 是否会对文档或者组件 Demo 产生影响。PR 部署分为多个 Job，具体流程如下：
 
-- 首先触发 [preview-start.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-start.yml) Job 对 PR 进行一个占位评论，告知开发者真正进行预览构建。也就是大家经常看到的 Preview Preparing...
+- 首先触发 [preview-start.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-start.yml) Job 对 PR 进行一个占位评论，告知开发者正在进行预览构建。也就是大家经常看到的 Preview Preparing...
 
 ![preview-preparing..](https://user-images.githubusercontent.com/32004925/231686636-eef933e6-2678-4e49-9552-babc50687644.png)
 
