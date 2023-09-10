@@ -220,6 +220,10 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       position: 'fixed',
       cursor: 'pointer',
       zIndex: 99,
+      // Do not remove the 'display: block' here.
+      // Deleting it will cause marginBottom to become ineffective.
+      // Ref: https://github.com/ant-design/ant-design/issues/44700
+      display: 'block',
       width: floatButtonSize,
       height: floatButtonSize,
       insetInlineEnd: token.floatButtonInsetInlineEnd,
