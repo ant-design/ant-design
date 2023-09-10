@@ -1,26 +1,33 @@
 import React, { startTransition } from 'react';
+import { ConfigProvider } from 'antd';
 
 const getTransformRotateStyle = (
-  e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+  currentTarget: EventTarget & HTMLDivElement,
   multiple: number,
+  isRTL: boolean,
 ): string => {
-  if (!e.currentTarget) {
-    return '';
-  }
-  const { x = 0, y = 0, width = 0, height = 0 } = e.currentTarget?.getBoundingClientRect() || {};
-  const calcX = -(e.clientY - y - height / 2) / multiple;
-  const calcY = (e.clientX - x - width / 2) / multiple;
-  return `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`;
+  const box = currentTarget?.getBoundingClientRect();
+  const calcX = -(event.clientY - box.y - box.height / 2) / multiple;
+  const calcY = (event.clientX - box.x - box.width / 2) / multiple;
+  return isRTL
+    ? `rotate3d(${24 + calcX}, ${83 + calcY}, -45, 57deg)`
+    : `rotate3d(${24 + calcX}, ${-83 + calcY}, 45, 57deg)`;
 };
 
 const useMouseTransform = ({ transitionDuration = 500, multiple = 36 } = {}) => {
   const [componentsBlockStyle, setComponentsBlockStyle] = React.useState<React.CSSProperties>({});
 
+  const { direction } = React.useContext(ConfigProvider.ConfigContext);
+
+  const isRTL = direction === 'rtl';
+
   const onMouseMove: React.MouseEventHandler<HTMLDivElement> = (event) => {
+    const { currentTarget } = event;
     startTransition(() => {
       setComponentsBlockStyle((style) => ({
         ...style,
-        transform: getTransformRotateStyle(event, multiple),
+        transform: getTransformRotateStyle(event, currentTarget, multiple, isRTL),
       }));
     });
   };

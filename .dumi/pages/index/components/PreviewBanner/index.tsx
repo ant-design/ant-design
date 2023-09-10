@@ -87,7 +87,7 @@ export interface PreviewBannerProps {
   children?: React.ReactNode;
 }
 
-export default function PreviewBanner(props: PreviewBannerProps) {
+const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
   const { children } = props;
 
   const [locale] = useLocale(locales);
@@ -133,9 +133,10 @@ export default function PreviewBanner(props: PreviewBannerProps) {
             <Button size="large">{locale.designLanguage}</Button>
           </Link>
         </Space>
-
         <div className={styles.child}>{children}</div>
       </div>
     </GroupMask>
   );
-}
+};
+
+export default PreviewBanner;
