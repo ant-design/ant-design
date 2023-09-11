@@ -46,11 +46,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           alignSelf: 'center',
         },
 
-        [`${componentCls}-selection-item`]: {
-          position: 'relative',
-          userSelect: 'none',
-        },
-
         [`${componentCls}-selection-placeholder`]: {
           transition: 'none',
           pointerEvents: 'none',
