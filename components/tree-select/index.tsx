@@ -22,7 +22,7 @@ import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
-import getIcons from '../select/utils/iconUtil';
+import useIcons from '../select/useIcons';
 import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
@@ -187,7 +187,7 @@ const InternalTreeSelect = <
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Icons =====================
-  const { suffixIcon, removeIcon, clearIcon } = getIcons({
+  const { suffixIcon, removeIcon, clearIcon } = useIcons({
     ...props,
     multiple: isMultiple,
     showSuffixIcon,

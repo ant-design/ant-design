@@ -23,7 +23,7 @@ import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useShowArrow from './useShowArrow';
-import getIcons from './utils/iconUtil';
+import useIcons from './useIcons';
 
 type RawValue = string | number;
 
@@ -162,7 +162,7 @@ const InternalSelect = <
   }
 
   // ===================== Icons =====================
-  const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+  const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
     ...props,
     multiple: isMultiple,
     hasFeedback,

@@ -30,7 +30,7 @@ import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
-import getIcons from '../select/utils/iconUtil';
+import useIcons from '../select/useIcons';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
@@ -283,7 +283,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
-  const { suffixIcon, removeIcon, clearIcon } = getIcons({
+  const { suffixIcon, removeIcon, clearIcon } = useIcons({
     ...props,
     hasFeedback,
     feedbackIcon,

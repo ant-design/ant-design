@@ -1,16 +1,17 @@
+import type { ReactNode } from 'react';
+import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import type { ReactNode } from 'react';
-import * as React from 'react';
-import warning from '../../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
-export default function getIcons({
+export default function useIcons({
   suffixIcon,
   clearIcon,
   menuItemSelectedIcon,
@@ -38,9 +39,12 @@ export default function getIcons({
   componentName: string;
 }) {
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !clearIcon,
       componentName,
+      'deprecated',
       '`clearIcon` is deprecated, please use `allowClear={{ clearIcon: React.ReactNode }}` instead.',
     );
   }
