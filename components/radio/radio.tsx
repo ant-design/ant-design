@@ -1,18 +1,18 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
+import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps } from './interface';
-
 import useStyle from './style';
-import Wave from '../_util/wave';
-import { TARGET_CLS } from '../_util/wave/interface';
 
 const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -23,7 +23,16 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 
-  warning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(
+      !('optionType' in props),
+      'Radio',
+      'usage',
+      '`optionType` is only support in Radio.Group.',
+    );
+  }
 
   const onChange = (e: RadioChangeEvent) => {
     props.onChange?.(e);

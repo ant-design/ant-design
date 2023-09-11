@@ -2,12 +2,12 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
-import type { Meta, NamePath } from 'rc-field-form/lib/interface';
+import type { Meta } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import warning from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormInstance } from '../Form';
@@ -80,13 +80,6 @@ export interface FormItemProps<Values = any>
   fieldKey?: React.Key | React.Key[];
 }
 
-function hasValidName(name?: NamePath): Boolean {
-  if (name === null) {
-    warning(false, 'Form.Item', '`null` is passed as `name` property');
-  }
-  return !(name === undefined || name === null);
-}
-
 function genEmptyMeta(): Meta {
   return {
     errors: [],
@@ -128,12 +121,19 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const mergedValidateTrigger =
     validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  const hasName = hasValidName(name);
+  const hasName = !(name === undefined || name === null);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  // ========================= Warn =========================
+  const warning = devUseWarning();
+
+  if (process.env.NODE_ENV !== 'production') {
+    warning(name !== null, 'Form.Item', 'usage', '`null` is passed as `name` property');
+  }
 
   // ========================= MISC =========================
   // Get `noStyle` required info
@@ -308,12 +308,14 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warning(
           !(shouldUpdate && dependencies),
           'Form.Item',
+          'usage',
           "`shouldUpdate` and `dependencies` shouldn't be used together. See https://u.ant.design/form-deps.",
         );
         if (Array.isArray(mergedChildren) && hasName) {
           warning(
             false,
             'Form.Item',
+            'usage',
             'A `Form.Item` with a `name` prop must have a single child element. For information on how to render more complex form items, see https://u.ant.design/complex-form-item.',
           );
           childNode = mergedChildren;
@@ -321,23 +323,27 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           warning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
+            'usage',
             'A `Form.Item` with a render function must have either `shouldUpdate` or `dependencies`.',
           );
           warning(
             !hasName,
             'Form.Item',
+            'usage',
             'A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
           );
         } else if (dependencies && !isRenderProps && !hasName) {
           warning(
             false,
             'Form.Item',
+            'usage',
             'Must set `name` or use a render function when `dependencies` is set.',
           );
         } else if (isValidElement(mergedChildren)) {
           warning(
             mergedChildren.props.defaultValue === undefined,
             'Form.Item',
+            'usage',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
           );
 
@@ -404,6 +410,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           warning(
             !mergedName.length,
             'Form.Item',
+            'usage',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
           childNode = mergedChildren as React.ReactNode;
