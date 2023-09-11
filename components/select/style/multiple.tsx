@@ -86,7 +86,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
-        position: 'relative',
         display: 'flex',
         flex: 'none',
         boxSizing: 'border-box',
@@ -100,7 +99,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-        userSelect: 'none',
         marginInlineEnd: FIXED_ITEM_MARGIN * 2,
         paddingInlineStart: token.paddingXS,
         paddingInlineEnd: token.paddingXS / 2,

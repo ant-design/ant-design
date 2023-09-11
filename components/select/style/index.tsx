@@ -217,7 +217,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
-  const { componentCls, inputPaddingHorizontalBase, iconCls } = token;
+  const { antCls, componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
   return {
     [componentCls]: {
@@ -239,7 +239,14 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       [`${componentCls}-selection-item`]: {
         flex: 1,
         fontWeight: 'normal',
+        position: 'relative',
+        userSelect: 'none',
         ...textEllipsis,
+
+        // https://github.com/ant-design/ant-design/issues/40421
+        [`> ${antCls}-typography`]: {
+          display: 'inline',
+        },
       },
 
       // ======================= Placeholder =======================
