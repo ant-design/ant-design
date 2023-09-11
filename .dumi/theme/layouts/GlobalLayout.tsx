@@ -39,15 +39,17 @@ const RESPONSIVE_MOBILE = 768;
 // }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
-  themes.map((theme) => {
-    if (theme === 'dark') {
-      return antdTheme.darkAlgorithm;
-    }
-    if (theme === 'compact') {
-      return antdTheme.compactAlgorithm;
-    }
-    return antdTheme.defaultAlgorithm;
-  });
+  themes
+    .map((theme) => {
+      if (theme === 'dark') {
+        return antdTheme.darkAlgorithm;
+      }
+      if (theme === 'compact') {
+        return antdTheme.compactAlgorithm;
+      }
+      return null;
+    })
+    .filter((item) => item);
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
