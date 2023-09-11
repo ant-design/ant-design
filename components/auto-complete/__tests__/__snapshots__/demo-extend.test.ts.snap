@@ -245,7 +245,7 @@ exports[`renders components/auto-complete/demo/borderless.tsx extend context cor
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width: 250px;"
 >
   <div
@@ -609,7 +609,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
 
 exports[`renders components/auto-complete/demo/certain-category.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
 ]
 `;
 
@@ -2352,7 +2352,7 @@ exports[`renders components/auto-complete/demo/status.tsx extend context correct
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+  class="ant-select ant-select-lg ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
   style="width: 300px;"
 >
   <div
@@ -2438,6 +2438,6 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
 
 exports[`renders components/auto-complete/demo/uncertain-category.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: [antd: AutoComplete] You need to control style self instead of setting \`size\` when using customize input.",
 ]
 `;
