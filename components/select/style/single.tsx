@@ -15,6 +15,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   return {
     [`${componentCls}-single${suffixCls}`]: {
       fontSize: token.fontSize,
+      height: token.controlHeight,
 
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
@@ -42,6 +43,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           padding: 0,
           lineHeight: `${selectHeightWithoutBorder}px`,
           transition: `all ${token.motionDurationSlow}, visibility 0s`,
+          alignSelf: 'center',
 
           // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
           '@supports (-moz-appearance: meterbar)': {
@@ -92,7 +94,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       [`&:not(${componentCls}-customize-input)`]: {
         [`${componentCls}-selector`]: {
           width: '100%',
-          height: token.controlHeight,
+          height: '100%',
           padding: `0 ${inputPaddingHorizontalBase}px`,
 
           [`${componentCls}-selection-search-input`]: {
