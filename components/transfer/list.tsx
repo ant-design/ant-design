@@ -52,7 +52,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onItemSelect: (key: string, check: boolean, isHoldingShiftKey: boolean) => void;
+  onItemSelect: (key: string, check: boolean, multiple?: boolean) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;

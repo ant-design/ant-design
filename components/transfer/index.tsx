@@ -1,5 +1,5 @@
 import type { ChangeEvent, CSSProperties } from 'react';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 import classNames from 'classnames';
 
 import type { InputStatus } from '../_util/statusUtils';
@@ -169,6 +169,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setTargetSelectedKeys,
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
+  // record last selected item index
+  const leftPrevSelectedIndexRef = useRef(-1);
+  const rightPrevSelectedIndexRef = useRef(-1);
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
 
@@ -237,6 +241,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     moveTo('right');
   };
 
+  const setPrevSelectedIndex = (direction: TransferDirection, value: number) => {
+    const isLeftDirection = direction === 'left';
+    if (isLeftDirection) {
+      leftPrevSelectedIndexRef.current = value;
+    } else {
+      rightPrevSelectedIndexRef.current = value;
+    }
+  };
+
   const onItemSelectAll = (
     direction: TransferDirection,
     keys: string[],
@@ -257,6 +270,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       handleSelectChange(direction, mergedCheckedKeys);
       return mergedCheckedKeys;
     });
+    setPrevSelectedIndex(direction, -1);
   };
 
   const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
@@ -275,76 +289,101 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const handleRightClear = () => onSearch?.('right', '');
 
+  const handleSingleSelect = (
+    direction: TransferDirection,
+    holder: Set<string>,
+    selectedKey: string,
+    checked: boolean,
+    currentSelectedIndex: number,
+  ) => {
+    const isSelected = holder.has(selectedKey);
+    if (isSelected) {
+      holder.delete(selectedKey);
+      setPrevSelectedIndex(direction, -1);
+    }
+    if (checked) {
+      holder.add(selectedKey);
+      setPrevSelectedIndex(direction, currentSelectedIndex);
+    }
+  };
+
+  const handleMultipleSelect = (
+    direction: TransferDirection,
+    data: KeyWise<RecordType>[],
+    holder: Set<string>,
+    currentSelectedIndex: number,
+  ) => {
+    const isLeftDirection = direction === 'left';
+    const prevSelectedIndexRef = isLeftDirection
+      ? leftPrevSelectedIndexRef
+      : rightPrevSelectedIndexRef;
+    // prevSelectedIndex reset case
+    if (prevSelectedIndexRef.current < 0) {
+      const selectedIndexArr: number[] = [];
+      data.forEach((item, idx) => {
+        if (Array.from(holder).includes(item.key)) {
+          selectedIndexArr.push(idx);
+        }
+      });
+      // nearest item between currentIndex and selectedIndexArr
+      let nearestIndex = selectedIndexArr[0];
+      selectedIndexArr.forEach((item) => {
+        if (Math.abs(item - currentSelectedIndex) < Math.abs(nearestIndex - currentSelectedIndex)) {
+          nearestIndex = item;
+        }
+      });
+      setPrevSelectedIndex(direction, nearestIndex);
+    }
+    // add/delete the selected range
+    const startIndex = Math.min(prevSelectedIndexRef.current, currentSelectedIndex);
+    const endIndex = Math.max(prevSelectedIndexRef.current, currentSelectedIndex);
+    const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => item.key);
+    const shouldSelected = rangeKeys.some((key) => !holder?.has(key));
+    rangeKeys.forEach((item) => {
+      if (shouldSelected) {
+        holder.add(item);
+        setPrevSelectedIndex(direction, endIndex);
+      } else {
+        holder.delete(item);
+        setPrevSelectedIndex(direction, -1);
+      }
+    });
+  };
+
   const onItemSelect = (
     direction: TransferDirection,
     selectedKey: string,
     checked: boolean,
-    isHoldingShiftKey: boolean,
+    multiple: boolean,
   ) => {
     const holder = [...(direction === 'left' ? sourceSelectedKeys : targetSelectedKeys)];
+    const holderSet = new Set(holder);
     const data = [...(direction === 'left' ? leftDataSource : rightDataSource)];
-
-    const currentSelectIndex = data?.findIndex((item) => item.key === selectedKey) || 0;
-    const firstSelectedIndex = data?.findIndex((item) => item.key === holder[0]);
-    const lastSelectedIndex = data?.findIndex((item) => item.key === holder[holder.length - 1]);
-
-    // Hold down the shift key and select multiple
-    if (isHoldingShiftKey) {
-      let startIndex = -1;
-      let endIndex = -1;
-
-      // TODO: selected（To be reconstructed）
-      if (!holder.length) {
-        startIndex = 0;
-        endIndex = currentSelectIndex;
-      } else if (holder.length === 1) {
-        startIndex = firstSelectedIndex;
-        endIndex = currentSelectIndex;
-      } else if (currentSelectIndex > lastSelectedIndex) {
-        startIndex = lastSelectedIndex;
-        endIndex = currentSelectIndex;
-      } else if (currentSelectIndex < lastSelectedIndex) {
-        startIndex = currentSelectIndex;
-        endIndex = lastSelectedIndex;
-      }
-
-      const addKeys =
-        data
-          ?.filter(
-            (item, index) => !holder.includes(item.key) && index >= startIndex && index <= endIndex,
-          )
-          .map((item) => item.key) || [];
-      holder.push(...addKeys);
-      console.log('addKeys', addKeys);
-      console.log('holder', holder);
-
-      // TODO: cancel selected
+    const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
+    // multiple select by hold down the shift key
+    if (multiple && holder.length > 0) {
+      handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
     } else {
-      const index = holder.indexOf(selectedKey);
-      if (index > -1) {
-        holder.splice(index, 1);
-      }
-      if (checked) {
-        holder.push(selectedKey);
-      }
+      handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
     }
-
-    handleSelectChange(direction, holder);
+    const holderArr = Array.from(holderSet);
+    handleSelectChange(direction, holderArr);
     if (!props.selectedKeys) {
-      setStateKeys(direction, holder);
+      setStateKeys(direction, holderArr);
     }
   };
 
-  const onLeftItemSelect = (selectedKey: string, checked: boolean, isHoldingShiftKey: boolean) => {
-    onItemSelect('left', selectedKey, checked, isHoldingShiftKey);
+  const onLeftItemSelect = (selectedKey: string, checked: boolean, multiple: boolean) => {
+    onItemSelect('left', selectedKey, checked, multiple);
   };
 
-  const onRightItemSelect = (selectedKey: string, checked: boolean, isHoldingShiftKey: boolean) => {
-    onItemSelect('right', selectedKey, checked, isHoldingShiftKey);
+  const onRightItemSelect = (selectedKey: string, checked: boolean, multiple: boolean) => {
+    onItemSelect('right', selectedKey, checked, multiple);
   };
 
   const onRightItemRemove = (keys: string[]) => {
     setStateKeys('right', []);
+    setPrevSelectedIndex('left', -1);
     onChange?.(
       targetKeys.filter((key) => !keys.includes(key)),
       'left',
