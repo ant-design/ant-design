@@ -209,6 +209,9 @@ export default genComponentStyleHook(
   }),
   {
     resetStyle: false,
-    deprecatedTokens: [['width', 'minWidth']],
+    deprecatedTokens: [
+      ['width', 'titleMinWidth'],
+      ['minWidth', 'titleMinWidth'],
+    ],
   },
 );
