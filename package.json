@@ -79,7 +79,7 @@
     "lint:md": "remark . -f -q",
     "lint:style": "tsx scripts/check-cssinjs.ts",
     "lint:script": "npm run component-changelog && eslint . --ext .js,.jsx,.ts,.tsx --cache",
-    "pre-publish": "npm run test-all -- --skip-build && node ./scripts/pre-publish-notice.js",
+    "pre-publish": "npm run test-all -- --skip-build && tsx ./scripts/pre-publish-notice.ts",
     "prettier": "prettier -c --write **/* --cache",
     "pub": "npm run version && npm run collect-token-statistic && npm run token-meta && antd-tools run pub",
     "biome:format": "biome format --write .",
