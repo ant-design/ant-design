@@ -3939,91 +3939,6 @@ Array [
 ]
 `;
 
-exports[`renders components/space/demo/customize.tsx correctly 1`] = `
-Array [
-  <div
-    class="ant-slider ant-slider-horizontal"
-  >
-    <div
-      class="ant-slider-rail"
-    />
-    <div
-      class="ant-slider-track"
-      style="left:0%;width:8%"
-    />
-    <div
-      class="ant-slider-step"
-    />
-    <div
-      aria-disabled="false"
-      aria-orientation="horizontal"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="8"
-      class="ant-slider-handle"
-      role="slider"
-      style="left:8%;transform:translateX(-50%)"
-      tabindex="0"
-    />
-  </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="column-gap:8px;row-gap:8px"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Default
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-dashed"
-        type="button"
-      >
-        <span>
-          Dashed
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-link"
-        type="button"
-      >
-        <span>
-          Link
-        </span>
-      </button>
-    </div>
-  </div>,
-]
-`;
-
 exports[`renders components/space/demo/debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
@@ -4178,7 +4093,7 @@ Array [
         />
       </span>
       <span>
-        Small
+        small
       </span>
     </label>
     <label
@@ -4197,7 +4112,7 @@ Array [
         />
       </span>
       <span>
-        Middle
+        middle
       </span>
     </label>
     <label
@@ -4216,7 +4131,26 @@ Array [
         />
       </span>
       <span>
-        Large
+        large
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="customize"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        customize
       </span>
     </label>
   </div>,
