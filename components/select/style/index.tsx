@@ -132,6 +132,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       input: {
         cursor: 'auto',
         color: 'inherit',
+        height: '100%',
       },
     },
 

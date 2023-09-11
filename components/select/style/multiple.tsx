@@ -146,6 +146,11 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
       },
 
+      // https://github.com/ant-design/ant-design/issues/44754
+      [`${selectOverflowPrefixCls}-item-suffix`]: {
+        height: '100%',
+      },
+
       [`${componentCls}-selection-search`]: {
         display: 'inline-flex',
         position: 'relative',
