@@ -44,11 +44,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           lineHeight: `${selectHeightWithoutBorder}px`,
           transition: `all ${token.motionDurationSlow}, visibility 0s`,
           alignSelf: 'center',
-
-          // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
-          '@supports (-moz-appearance: meterbar)': {
-            lineHeight: `${selectHeightWithoutBorder}px`,
-          },
         },
 
         [`${componentCls}-selection-item`]: {
