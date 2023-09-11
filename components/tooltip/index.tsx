@@ -20,12 +20,10 @@ import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoCompactStyle } from '../space/Compact';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 import { parseColor } from './util';
-
-const { useToken } = theme;
 
 export type { AdjustOverflow, PlacementsConfig };
 
@@ -209,7 +207,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   const mergedShowArrow = !!arrow;
 
-  const { token } = useToken();
+  const [, token] = useToken();
 
   const {
     getPopupContainer: getContextPopupContainer,

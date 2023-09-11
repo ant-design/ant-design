@@ -1,10 +1,11 @@
 /* eslint-disable no-console */
-const { spawnSync } = require('child_process');
-const fetch = require('isomorphic-fetch');
-const semver = require('semver');
-const dayjs = require('dayjs');
-const chalk = require('chalk');
-const relativeTime = require('dayjs/plugin/relativeTime');
+import { spawnSync } from 'child_process';
+import chalk from 'chalk';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import inquirer from 'inquirer';
+import fetch from 'isomorphic-fetch';
+import semver from 'semver';
 
 dayjs.extend(relativeTime);
 
@@ -45,14 +46,14 @@ const DEPRECIATED_VERSION = {
     'https://github.com/ant-design/ant-design/issues/43684',
   ],
   '5.8.0': ['https://github.com/ant-design/ant-design/issues/43943'],
-};
+} as const;
 
-function matchDeprecated(version) {
+function matchDeprecated(v: string) {
   const match = Object.keys(DEPRECIATED_VERSION).find((depreciated) =>
-    semver.satisfies(version, depreciated),
+    semver.satisfies(v, depreciated),
   );
 
-  const reason = DEPRECIATED_VERSION[match] || [];
+  const reason = DEPRECIATED_VERSION[match as keyof typeof DEPRECIATED_VERSION] || [];
 
   return {
     match,
@@ -72,7 +73,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   // }
 
   const { time, 'dist-tags': distTags } = await fetch('http://registry.npmjs.org/antd').then(
-    (res) => res.json(),
+    (res: Response) => res.json(),
   );
 
   console.log('🐚 Latest Conch Version:', chalk.green(distTags[CONCH_TAG] || 'null'), '\n');
@@ -128,11 +129,10 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   let defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
 
   // If default version is less than current, use current
-  if (semver.compare(defaultVersion, distTags[CONCH_TAG]) < 0) {
+  if (semver.compare(defaultVersion!, distTags[CONCH_TAG]) < 0) {
     defaultVersion = distTags[CONCH_TAG];
   }
 
-  const { default: inquirer } = await import('inquirer');
   // Selection
   let { conchVersion } = await inquirer.prompt([
     {
@@ -196,9 +196,6 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
     console.log(`🎃 Conch Version not change. Safe to ${chalk.green('ignore')}.`);
   } else {
     console.log('💾 Tagging Conch Version:', chalk.green(conchVersion));
-    spawnSync('npm', ['dist-tag', 'add', `antd@${conchVersion}`, CONCH_TAG], {
-      stdio: 'inherit',
-      stdin: 'inherit',
-    });
+    spawnSync('npm', ['dist-tag', 'add', `antd@${conchVersion}`, CONCH_TAG], { stdio: 'inherit' });
   }
 })();

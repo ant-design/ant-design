@@ -16,7 +16,7 @@ import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import useStyle from './style';
 
 const Placements = [
@@ -183,7 +183,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 

@@ -9,14 +9,12 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
 
-const { useToken } = theme;
-
 const QRCode: React.FC<QRCodeProps> = (props) => {
-  const { token } = useToken();
+  const [, token] = useToken();
   const {
     value,
     type = 'canvas',

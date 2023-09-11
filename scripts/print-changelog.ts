@@ -1,19 +1,22 @@
 /* eslint-disable no-await-in-loop, no-console */
-const { spawn } = require('child_process');
-const path = require('path');
-const chalk = require('chalk');
-const jsdom = require('jsdom');
-const jQuery = require('jquery');
-const fetch = require('isomorphic-fetch');
-const fs = require('fs-extra');
-const simpleGit = require('simple-git');
+import { spawn } from 'child_process';
+import path from 'path';
+import chalk from 'chalk';
+import fs from 'fs-extra';
+import inquirer from 'inquirer';
+import fetch from 'isomorphic-fetch';
+import jQuery from 'jquery';
+import jsdom from 'jsdom';
+import openWindow from 'open';
+import simpleGit from 'simple-git';
 
 const { JSDOM } = jsdom;
 const { window } = new JSDOM();
 const { document } = new JSDOM('').window;
+
 global.document = document;
 
-const $ = jQuery(window);
+const $ = jQuery<jsdom.DOMWindow>(window) as unknown as JQueryStatic;
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
@@ -43,7 +46,21 @@ const MAINTAINERS = [
 const cwd = process.cwd();
 const git = simpleGit(cwd);
 
-function getDescription(entity) {
+interface Line {
+  text: string;
+  element: JQuery<HTMLElement>;
+}
+
+interface PR {
+  pr?: string;
+  hash: string;
+  title: string;
+  author: string;
+  english: string;
+  chinese: string;
+}
+
+const getDescription = (entity?: Line): string => {
   if (!entity) {
     return '';
   }
@@ -51,11 +68,10 @@ function getDescription(entity) {
   let htmlContent = descEle.html();
   htmlContent = htmlContent.replace(/<code class="notranslate">([^<]*)<\/code>/g, '`$1`');
   return htmlContent.trim();
-}
+};
 
 async function printLog() {
   const tags = await git.tags();
-  const { default: inquirer } = await import('inquirer');
   const { fromVersion } = await inquirer.prompt([
     {
       type: 'list',
@@ -98,7 +114,7 @@ async function printLog() {
 
   const logs = await git.log({ from: fromVersion, to: toVersion });
 
-  let prList = [];
+  let prList: PR[] = [];
 
   for (let i = 0; i < logs.all.length; i += 1) {
     const { message, body, hash, author_name: author } = logs.all[i];
@@ -119,10 +135,10 @@ async function printLog() {
       const pr = prs[j];
 
       // Use jquery to get full html page since it don't need auth token
-      let res;
+      let res: any;
       let tryTimes = 0;
       const timeout = 30000;
-      let html;
+      let html: HTMLElement | undefined;
       const fetchPullRequest = async () => {
         try {
           res = await new Promise((resolve, reject) => {
@@ -130,7 +146,7 @@ async function printLog() {
               reject(new Error(`Fetch timeout of ${timeout}ms exceeded`));
             }, timeout);
             fetch(`https://github.com/ant-design/ant-design/pull/${pr}`)
-              .then((response) => {
+              .then((response: Response) => {
                 response.text().then((htmlRes) => {
                   html = htmlRes;
                   resolve(response);
@@ -150,17 +166,18 @@ async function printLog() {
         }
       };
       await fetchPullRequest();
-      if (res.url.includes('/issues/')) {
+      if (res?.url.includes('/issues/')) {
         continue;
       }
 
-      const $html = $(html);
+      const $html = $(html!);
 
-      const prTitle = $html.find(QUERY_TITLE).text().trim();
-      const prAuthor = $html.find(QUERY_AUTHOR).text().trim();
-      const prLines = $html.find(QUERY_DESCRIPTION_LINES);
+      const prTitle: string = $html.find(QUERY_TITLE).text().trim();
+      const prAuthor: string = $html.find(QUERY_AUTHOR).text().trim();
+      const prLines: JQuery<HTMLElement> = $html.find(QUERY_DESCRIPTION_LINES);
 
-      const lines = [];
+      const lines: Line[] = [];
+
       prLines.each(function getDesc() {
         lines.push({
           text: $(this).text().trim(),
@@ -170,6 +187,7 @@ async function printLog() {
 
       const english = getDescription(lines.find((line) => line.text.includes('🇺🇸 English')));
       const chinese = getDescription(lines.find((line) => line.text.includes('🇨🇳 Chinese')));
+
       if (english) {
         console.log(`  🇺🇸  ${english}`);
       }
@@ -206,11 +224,11 @@ async function printLog() {
 
   console.log('\n', chalk.green('Done. Here is the log:'));
 
-  function printPR(lang, postLang) {
+  function printPR(lang: string, postLang: (str?: string) => string) {
     prList.forEach((entity) => {
       const { pr, author, hash, title } = entity;
       if (pr) {
-        const str = postLang(entity[lang]);
+        const str = postLang(entity[lang as keyof PR]);
         let icon = '';
         if (str.toLowerCase().includes('fix') || str.includes('修复')) {
           icon = '🐞';
@@ -239,7 +257,8 @@ async function printLog() {
   console.log('\n');
   console.log(chalk.yellow('🇨🇳 Chinese changelog:'));
   console.log('\n');
-  printPR('chinese', (chinese) =>
+
+  printPR('chinese', (chinese: string) =>
     chinese[chinese.length - 1] === '。' || !chinese ? chinese : `${chinese}。`,
   );
 
@@ -248,7 +267,7 @@ async function printLog() {
   // English
   console.log(chalk.yellow('🇺🇸 English changelog:'));
   console.log('\n');
-  printPR('english', (english) => {
+  printPR('english', (english: string) => {
     english = english.trim();
     if (english[english.length - 1] !== '.' || !english) {
       english = `${english}.`;
@@ -269,19 +288,17 @@ async function printLog() {
   const ls = spawn(
     'npx',
     ['http-server', path.join(__dirname, 'previewEditor'), '-c-1', '-p', '2893'],
-    {
-      shell: true,
-    },
+    { shell: true },
   );
+
   ls.stdout.on('data', (data) => {
     console.log(data.toString());
   });
 
   console.log(chalk.green('Start changelog preview editor...'));
-  const { default: open } = await import('open');
 
   setTimeout(() => {
-    open('http://localhost:2893/');
+    openWindow('http://localhost:2893/');
   }, 1000);
 }
 
