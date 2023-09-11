@@ -3,7 +3,7 @@ import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -56,19 +56,21 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
 
   const [locale] = useLocale('QRCode');
 
-  if (!value) {
-    if (process.env.NODE_ENV !== 'production') {
-      warning(false, 'QRCode', 'need to receive `value` props');
-    }
-    return null;
-  }
-
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(!!value, 'QRCode', 'usage', 'need to receive `value` props');
+
     warning(
       !(icon && errorLevel === 'L'),
       'QRCode',
+      'usage',
       'ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
+  }
+
+  if (!value) {
+    return null;
   }
 
   const cls = classNames(prefixCls, className, rootClassName, hashId, {

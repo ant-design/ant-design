@@ -318,6 +318,57 @@ export default () => (
 
 Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
 
+## Multiple versions coexist
+
+We do not recommend multiple versions coexist, it will make the application more complex (such as style override, ConfigProvider not reused, etc.). It's better to use micro-applications such as [qiankun](https://qiankun.umijs.org/) for page level development.
+
+### Install v5 through alias
+
+```bash
+$ npm install --save antd-v5@npm:antd@5
+# or
+$ yarn add antd-v5@npm:antd@5
+# or
+$ pnpm add antd-v5@npm:antd@5
+```
+
+The package.json will be:
+
+```json
+{
+  "antd": "4.x",
+  "antd-v5": "npm:antd@5"
+}
+```
+
+Now, antd in your project is still v4, and antd-v5 is v5.
+
+```tsx
+import React from 'react';
+import { Button as Button4 } from 'antd'; // v4
+import { Button as Button5 } from 'antd-v5'; // v5
+
+export default () => (
+  <>
+    <Button4 />
+    <Button5 />
+  </>
+);
+```
+
+Then config `prefixCls` of ConfigProvider to avoid style conflict:
+
+```tsx
+import React from 'react';
+import { ConfigProvider as ConfigProvider5 } from 'antd-v5';
+
+export default () => (
+  <ConfigProvider5 prefixCls="ant5">
+    <MyApp />
+  </ConfigProvider5>
+);
+```
+
 ## Encounter problems
 
 If you encounter problems during the upgrade, please go to [GitHub issues](https://new-issue.ant.design/) for feedback. We will respond and improve this document as soon as possible.

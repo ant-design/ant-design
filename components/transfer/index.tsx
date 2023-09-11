@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -174,9 +174,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const rightPrevSelectedIndexRef = useRef(-1);
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !pagination || !children,
       'Transfer',
+      'usage',
       '`pagination` not support customize render list.',
     );
   }

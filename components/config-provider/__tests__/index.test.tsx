@@ -1,5 +1,6 @@
-import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { SmileOutlined } from '@ant-design/icons';
+
 import type { ConfigConsumerProps } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -123,4 +124,13 @@ describe('ConfigProvider', () => {
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
   });
+
+  // it('warning support filter level', () => {
+  //   resetWarned();
+  //   const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  //   render(<ConfigProvider dropdownMatchSelectWidth warning={{ deprecated: false }} />);
+
+  //   expect(errSpy).not.toHaveBeenCalled();
+  // });
 });

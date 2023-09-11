@@ -26,7 +26,6 @@ demo:
 <code src="./demo/line-mini.tsx">小型进度条</code>
 <code src="./demo/circle-micro.tsx">响应式进度圈</code>
 <code src="./demo/circle-mini.tsx">小型进度圈</code>
-<code src="./demo/circle-dynamic.tsx">进度圈动态展示</code>
 <code src="./demo/dynamic.tsx">动态展示</code>
 <code src="./demo/format.tsx">自定义文字格式</code>
 <code src="./demo/dashboard.tsx">仪表盘</code>
