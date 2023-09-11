@@ -6,7 +6,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 import type { Options } from 'scroll-into-view-if-needed';
 
-import warning, { WarningContext } from '../_util/warning';
+import warning from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { InputProps } from '../input';
@@ -562,11 +562,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   // ================================== Warning ===================================
-  if (memoedConfig.warning) {
-    childNode = (
-      <WarningContext.Provider value={memoedConfig.warning}>{childNode}</WarningContext.Provider>
-    );
-  }
+  // if (memoedConfig.warning) {
+  //   childNode = (
+  //     <WarningContext.Provider value={memoedConfig.warning}>{childNode}</WarningContext.Provider>
+  //   );
+  // }
 
   // =================================== Render ===================================
   if (componentDisabled !== undefined) {
