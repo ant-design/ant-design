@@ -39,7 +39,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
     popoverColor,
-    minWidth,
+    titleMinWidth,
     fontWeightStrong,
     popoverPadding,
     boxShadowSecondary,
@@ -92,7 +92,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-title`]: {
-          minWidth,
+          minWidth: titleMinWidth,
           marginBottom: marginXS,
           color: colorTextHeading,
           fontWeight: fontWeightStrong,
