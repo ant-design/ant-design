@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -11,6 +12,11 @@ export interface ComponentToken {
    * @descEN Background color of label
    */
   labelBg: string;
+  /**
+   * @desc 标题文字颜色
+   * @descEN Text color of title
+   */
+  titleColor: string;
   /**
    * @desc 标题下间距
    * @descEN Bottom margin of title
@@ -31,6 +37,11 @@ export interface ComponentToken {
    * @descEN Left margin of colon
    */
   colonMarginLeft: number;
+  /**
+   * @desc 内容区域文字颜色
+   * @descEN Text color of content
+   */
+  contentColor: string;
   /**
    * @desc 额外区域文字颜色
    * @descEN Text color of extra area
@@ -113,7 +124,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-title`]: {
         ...textEllipsis,
         flex: 'auto',
-        color: token.colorText,
+        color: token.titleColor,
         fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeightLG,
@@ -166,7 +177,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
       [`${componentCls}-item-content`]: {
         display: 'table-cell',
         flex: 1,
-        color: token.colorText,
+        color: token.contentColor,
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         wordBreak: 'break-word',
@@ -213,10 +224,12 @@ export default genComponentStyleHook(
   },
   (token) => ({
     labelBg: token.colorFillAlter,
+    titleColor: token.colorText,
     titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
     itemPaddingBottom: token.padding,
     colonMarginRight: token.marginXS,
     colonMarginLeft: token.marginXXS / 2,
+    contentColor: token.colorText,
     extraColor: token.colorText,
   }),
 );
