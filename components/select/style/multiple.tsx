@@ -54,6 +54,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
+        height: '100%',
         // Multiple is little different that horizontal is follow the vertical
         padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
         borderRadius: token.borderRadius,
@@ -87,6 +88,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
         display: 'flex',
+        alignSelf: 'center',
         flex: 'none',
         boxSizing: 'border-box',
         maxWidth: '100%',
@@ -184,7 +186,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       // ======================= Placeholder =======================
-      [`${componentCls}-selection-placeholder `]: {
+      [`${componentCls}-selection-placeholder`]: {
         position: 'absolute',
         top: '50%',
         insetInlineStart: token.inputPaddingHorizontalBase,
