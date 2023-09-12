@@ -11,7 +11,7 @@ import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { AnyObject } from '../../_util/type';
-import { deprecatedWarning, devUseWarning } from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
