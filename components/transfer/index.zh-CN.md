@@ -71,14 +71,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAA
 
 Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数：
 
-| 参数            | 说明           | 类型                                 | 版本 |
-| --------------- | -------------- | ------------------------------------ | ---- |
-| direction       | 渲染列表的方向 | `left` \| `right`                    |      |
-| disabled        | 是否禁用列表   | boolean                              |      |
-| filteredItems   | 过滤后的数据   | RecordType\[]                        |      |
-| selectedKeys    | 选中的条目     | string\[]                            |      |
-| onItemSelect    | 勾选条目       | (key: string, selected: boolean)     |      |
-| onItemSelectAll | 勾选一组条目   | (keys: string\[], selected: boolean) |      |
+| 参数 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| direction | 渲染列表的方向 | `left` \| `right` |  |
+| disabled | 是否禁用列表 | boolean |  |
+| filteredItems | 过滤后的数据 | RecordType\[] |  |
+| selectedKeys | 选中的条目 | string\[] |  |
+| onItemSelect | 勾选条目 | (key: string, selected: boolean, event?: React.MouseEvent) |  |
+| onItemSelectAll | 勾选一组条目 | (keys: string\[], selected: boolean) |  |
 
 #### 参考示例
 

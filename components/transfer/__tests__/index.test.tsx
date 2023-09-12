@@ -1,6 +1,7 @@
+import React, { useCallback, useEffect, useState } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { DefaultRecordType } from 'rc-table/lib/interface';
-import React, { useCallback, useEffect, useState } from 'react';
+
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -149,6 +150,28 @@ describe('Transfer', () => {
     );
     getByText('b').click();
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
+  });
+
+  it('multiple select by hold down the shift key', () => {
+    const handleSelectChange = jest.fn();
+    const { getByText } = render(
+      <Transfer
+        dataSource={[
+          { key: 'a', title: 'a' },
+          { key: 'b', title: 'b' },
+          { key: 'c', title: 'c' },
+        ]}
+        onSelectChange={handleSelectChange}
+        render={(item) => item.title}
+      />,
+    );
+    fireEvent.click(getByText('a'), {
+      shiftKey: true,
+    });
+    fireEvent.click(getByText('c'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenCalledWith(['a', 'b', 'c'], []);
   });
 
   it('should not check checkbox when component disabled', () => {
