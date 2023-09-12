@@ -11,7 +11,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import type { PickerProps, PickerTimeProps } from '.';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import { devUseWarning } from '../../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
@@ -115,12 +115,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
           );
 
-          warning(
-            !dropdownClassName,
-            displayName || 'DatePicker',
-            'deprecated',
-            '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-          );
+          const deprecatedWarningFn = deprecatedWarning(displayName || 'DatePicker');
+          deprecatedWarningFn(!dropdownClassName, 'dropdownClassName', 'popupClassName');
         }
 
         // ===================== Size =====================

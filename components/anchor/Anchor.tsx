@@ -5,7 +5,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -134,12 +134,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning();
 
-    warning(
-      !children,
-      'Anchor',
-      'deprecated',
-      '`Anchor children` is deprecated. Please use `items` instead.',
-    );
+    const deprecatedWarningFn = deprecatedWarning('Anchor');
+    deprecatedWarningFn(!children, 'Anchor children', 'items');
 
     warning(
       !(anchorDirection === 'horizontal' && items?.some((n) => 'children' in n)),

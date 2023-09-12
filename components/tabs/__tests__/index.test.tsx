@@ -122,7 +122,7 @@ describe('Tabs', () => {
     expect(container.querySelectorAll('.ant-tabs-tab')).toHaveLength(1);
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tabs] Tabs.TabPane is deprecated. Please use `items` directly.',
+      'Warning: [antd: Tabs] `Tabs.TabPane` is deprecated. Please use `items` instead.',
     );
     errorSpy.mockRestore();
   });

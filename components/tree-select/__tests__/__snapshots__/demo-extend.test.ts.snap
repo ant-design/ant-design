@@ -1637,7 +1637,7 @@ Array [
 
 exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: [antd: TreeSelect] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
 ]
 `;
 

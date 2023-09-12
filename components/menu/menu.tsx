@@ -9,7 +9,7 @@ import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './hooks/useItems';
@@ -88,12 +88,9 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
 
-    warning(
-      'items' in props && !children,
-      'Menu',
-      'deprecated',
-      '`children` will be removed in next major version. Please use `items` instead.',
-    );
+    const deprecatedWarningFn = deprecatedWarning('Menu');
+
+    deprecatedWarningFn('items' in props && !children, 'children', 'items');
   }
 
   overrideObj.validator?.({ mode });

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
@@ -35,14 +35,9 @@ const Timeline: CompoundedComponent = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Timeline');
 
-    warning(
-      !children,
-      'Timeline',
-      'deprecated',
-      '`Timeline.Item` is deprecated. Please use `items` instead.',
-    );
+    deprecatedWarningFn(!children, 'Timeline.Item', 'items');
   }
 
   // Style

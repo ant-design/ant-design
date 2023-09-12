@@ -11,7 +11,7 @@ import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
@@ -112,24 +112,15 @@ const Dropdown: CompoundedComponent = (props) => {
   const warning = devUseWarning();
 
   if (process.env.NODE_ENV !== 'production') {
+    const deprecatedWarningFn = deprecatedWarning('Dropdown');
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-      );
+      deprecatedWarningFn(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    warning(
-      !('overlay' in props),
-      'Dropdown',
-      'deprecated',
-      '`overlay` is deprecated. Please use `menu` instead.',
-    );
+    deprecatedWarningFn(!('overlay' in props), 'overlay', 'menu');
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -157,6 +148,7 @@ const Dropdown: CompoundedComponent = (props) => {
   }, [placement, direction]);
 
   if (process.env.NODE_ENV !== 'production') {
+    const deprecatedWarningFn = deprecatedWarning('Dropdown');
     if (placement.includes('Center')) {
       const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
       warning(
@@ -171,12 +163,7 @@ const Dropdown: CompoundedComponent = (props) => {
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      deprecatedWarningFn(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 

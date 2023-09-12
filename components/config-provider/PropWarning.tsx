@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 
 export interface PropWarningProps {
   dropdownMatchSelectWidth?: boolean;
@@ -11,13 +11,12 @@ export interface PropWarningProps {
  * This will be empty function in production.
  */
 const PropWarning = React.memo(({ dropdownMatchSelectWidth }: PropWarningProps) => {
-  const warning = devUseWarning();
+  const deprecatedWarningFn = deprecatedWarning('ConfigProvider');
 
-  warning(
+  deprecatedWarningFn(
     dropdownMatchSelectWidth === undefined,
-    'ConfigProvider',
-    'deprecated',
-    '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    'dropdownMatchSelectWidth',
+    'popupMatchSelectWidth',
   );
 
   return null;

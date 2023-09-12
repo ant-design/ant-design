@@ -7,7 +7,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
@@ -39,14 +39,9 @@ export default function useIcons({
   componentName: string;
 }) {
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning(componentName);
 
-    warning(
-      !clearIcon,
-      componentName,
-      'deprecated',
-      '`clearIcon` is deprecated, please use `allowClear={{ clearIcon: React.ReactNode }}` instead.',
-    );
+    deprecatedWarningFn(!clearIcon, 'clearIcon', 'allowClear={{ clearIcon: React.ReactNode }}');
   }
 
   // Clear Icon

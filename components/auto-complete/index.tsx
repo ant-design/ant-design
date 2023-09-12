@@ -7,7 +7,7 @@ import omit from 'rc-util/lib/omit';
 import genPurePanel from '../_util/PurePanel';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type {
@@ -112,13 +112,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('AutoComplete');
 
-    warning(
-      !('dataSource' in props),
-      'AutoComplete',
-      'deprecated',
-      '`dataSource` is deprecated, please use `options` instead.',
-    );
+    deprecatedWarningFn(!('dataSource' in props), 'dataSource', 'options');
 
     warning(
       !customizeInput || !('size' in props),
@@ -127,12 +123,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       'You need to control style self instead of setting `size` when using customize input.',
     );
 
-    warning(
-      !dropdownClassName,
-      'AutoComplete',
-      'deprecated',
-      '`dropdownClassName` is deprecated, please use `popupClassName` instead.',
-    );
+    deprecatedWarningFn(!dropdownClassName, 'dropdownClassName', 'popupClassName');
   }
 
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);

@@ -57,4 +57,20 @@ export const devUseWarning: () => TypeWarning =
       }
     : () => noop;
 
+export type DeprecatedWarning = (
+  component: string,
+) => (valid: boolean, oldProp: string, newProp: string) => void;
+
+export const deprecatedWarning: DeprecatedWarning = (component: string) => {
+  const warningFn = devUseWarning();
+  return (valid: boolean, oldProp: string, newProp: string) => {
+    warningFn(
+      valid,
+      component,
+      'deprecated',
+      `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.`,
+    );
+  };
+};
+
 export default warning;

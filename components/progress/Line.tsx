@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { getSize, getSuccessPercent, validProgress } from './utils';
@@ -99,14 +99,9 @@ const Line: React.FC<LineProps> = (props) => {
   const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Progress');
 
-    warning(
-      !('strokeWidth' in props),
-      'Progress',
-      'deprecated',
-      '`strokeWidth` is deprecated. Please use `size` instead.',
-    );
+    deprecatedWarningFn(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
   const percentStyle: React.CSSProperties = {

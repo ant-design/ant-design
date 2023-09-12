@@ -6,7 +6,7 @@ import Dialog from 'rc-dialog';
 import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
@@ -55,14 +55,9 @@ const Modal: React.FC<ModalProps> = (props) => {
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Modal');
 
-    warning(
-      !('visible' in props),
-      'Modal',
-      'deprecated',
-      `\`visible\` will be removed in next major version, please use \`open\` instead.`,
-    );
+    deprecatedWarningFn(!('visible' in props), 'visible', 'open');
   }
 
   const {

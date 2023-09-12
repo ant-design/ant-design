@@ -2,7 +2,7 @@ import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 
 import type { StepProps } from '.';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 
 function filter<T>(items: (T | null)[]): T[] {
   return items.filter((item) => item) as T[];
@@ -10,8 +10,8 @@ function filter<T>(items: (T | null)[]): T[] {
 
 export default function useLegacyItems(items?: StepProps[], children?: React.ReactNode) {
   if (process.env.NODE_ENV === 'test') {
-    const warning = devUseWarning();
-    warning(!children, 'Steps', 'deprecated', 'Step is deprecated. Please use `items` directly.');
+    const deprecatedWarningFn = deprecatedWarning('Menu');
+    deprecatedWarningFn(!children, 'Step', 'items');
   }
 
   if (items) {

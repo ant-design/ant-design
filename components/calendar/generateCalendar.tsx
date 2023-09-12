@@ -10,7 +10,7 @@ import type {
 } from 'rc-picker/lib/PickerPanel';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
@@ -125,32 +125,12 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning();
+      const deprecatedWarningFn = deprecatedWarning('Calendar');
 
-      warning(
-        !dateFullCellRender,
-        'Calendar',
-        'deprecated',
-        '`dateFullCellRender` is deprecated. Please use `fullCellRender` instead.',
-      );
-      warning(
-        !dateCellRender,
-        'Calendar',
-        'deprecated',
-        '`dateCellRender` is deprecated. Please use `cellRender` instead.',
-      );
-      warning(
-        !monthFullCellRender,
-        'Calendar',
-        'deprecated',
-        '`monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
-      );
-      warning(
-        !monthCellRender,
-        'Calendar',
-        'deprecated',
-        '`monthCellRender` is deprecated. Please use `cellRender` instead.',
-      );
+      deprecatedWarningFn(!dateFullCellRender, 'dateFullCellRender', 'fullCellRender');
+      deprecatedWarningFn(!dateCellRender, 'dateCellRender', 'cellRender');
+      deprecatedWarningFn(!monthFullCellRender, 'monthFullCellRender', 'fullCellRender');
+      deprecatedWarningFn(!monthCellRender, 'monthCellRender', 'cellRender');
     }
 
     // ====================== State =======================

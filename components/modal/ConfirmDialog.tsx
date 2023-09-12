@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
 import { getTransitionName } from '../_util/motion';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
@@ -190,14 +190,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Modal');
 
-    warning(
-      visible === undefined,
-      'Modal',
-      'deprecated',
-      `\`visible\` is deprecated, please use \`open\` instead.`,
-    );
+    deprecatedWarningFn(visible === undefined, 'visible', 'open');
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;

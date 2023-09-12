@@ -6,7 +6,7 @@ import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
 
 import { getTransitionName } from '../_util/motion';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 // CSSINJS
@@ -89,17 +89,13 @@ const Drawer: React.FC<DrawerProps> & {
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Drawer');
 
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Drawer',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      deprecatedWarningFn(!(deprecatedName in props), deprecatedName, newName);
     });
 
     if (getContainer !== undefined && props.style?.position === 'absolute') {

@@ -10,7 +10,7 @@ import CSSMotion from 'rc-motion';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { replaceElement } from '../_util/reactNode';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
@@ -120,15 +120,10 @@ const Alert: React.FC<AlertProps> = (props) => {
   const [closed, setClosed] = React.useState(false);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-
-    warning(
-      !closeText,
-      'Alert',
-      'deprecated',
-      '`closeText` is deprecated. Please use `closeIcon` instead.',
-    );
+    const deprecatedWarningFn = deprecatedWarning('Alert');
+    deprecatedWarningFn(!closeText, 'closeText', 'closeIcon');
   }
+
   const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);

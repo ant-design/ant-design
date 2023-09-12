@@ -10,7 +10,7 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
 import type { RangePickerProps } from '.';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import { devUseWarning } from '../../_util/warning';
+import { deprecatedWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
@@ -78,14 +78,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning();
+      const deprecatedWarningFn = deprecatedWarning('DatePicker.RangePicker');
 
-      warning(
-        !dropdownClassName,
-        'DatePicker.RangePicker',
-        'deprecated',
-        '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-      );
+      deprecatedWarningFn(!dropdownClassName, 'dropdownClassName', 'popupClassName');
     }
 
     // ===================== Size =====================

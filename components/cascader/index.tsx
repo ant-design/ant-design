@@ -20,7 +20,7 @@ import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -195,13 +195,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Cascader');
 
-    warning(
-      !dropdownClassName,
-      'Cascader',
-      'deprecated',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
+    deprecatedWarningFn(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
     warning(
       !('showArrow' in props),

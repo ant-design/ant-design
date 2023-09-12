@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 
-import { devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
@@ -50,14 +50,9 @@ const Group: React.FC<GroupProps> = (props) => {
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const deprecatedWarningFn = deprecatedWarning('Input.Group');
 
-    warning(
-      false,
-      'Input.Group',
-      'deprecated',
-      `'Input.Group' is deprecated. Please use 'Space.Compact' instead.`,
-    );
+    deprecatedWarningFn(false, 'Input.Group', 'Space.Compact');
   }
 
   return wrapSSR(

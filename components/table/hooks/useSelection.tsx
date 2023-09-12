@@ -11,7 +11,7 @@ import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { AnyObject } from '../../_util/type';
-import { devUseWarning } from '../../_util/warning';
+import { deprecatedWarning, devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
@@ -321,12 +321,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
               const keys = Array.from(keySet);
               if (onSelectInvert) {
-                warning(
-                  false,
-                  'Table',
-                  'deprecated',
-                  '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
-                );
+                const deprecatedWarningFn = deprecatedWarning('Table');
+                deprecatedWarningFn(false, 'onSelectInvert', 'onChange');
                 onSelectInvert(keys);
               }
 
