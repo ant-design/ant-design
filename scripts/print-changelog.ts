@@ -122,8 +122,10 @@ async function printLog() {
     const text = `${message} ${body}`;
 
     const match = text.match(/#\d+/g);
-    const prs = (match || []).map((pr) => pr.slice(1));
-    const validatePRs = [];
+
+    const prs = match?.map((pr) => pr.slice(1)) || [];
+
+    const validatePRs: PR[] = [];
 
     console.log(
       `[${i + 1}/${logs.all.length}]`,
@@ -135,26 +137,24 @@ async function printLog() {
       const pr = prs[j];
 
       // Use jquery to get full html page since it don't need auth token
-      let res: any;
+      let res: Response | undefined;
+      let html: string | undefined;
       let tryTimes = 0;
       const timeout = 30000;
-      let html: HTMLElement | undefined;
       const fetchPullRequest = async () => {
         try {
-          res = await new Promise((resolve, reject) => {
+          res = await new Promise<Response>((resolve, reject) => {
             setTimeout(() => {
               reject(new Error(`Fetch timeout of ${timeout}ms exceeded`));
             }, timeout);
             fetch(`https://github.com/ant-design/ant-design/pull/${pr}`)
-              .then((response: Response) => {
+              .then((response) => {
                 response.text().then((htmlRes) => {
                   html = htmlRes;
                   resolve(response);
                 });
               })
-              .catch((error) => {
-                reject(error);
-              });
+              .catch(reject);
           });
         } catch (err) {
           tryTimes++;
@@ -224,11 +224,11 @@ async function printLog() {
 
   console.log('\n', chalk.green('Done. Here is the log:'));
 
-  function printPR(lang: string, postLang: (str?: string) => string) {
+  function printPR(lang: string, postLang: (str: string) => string) {
     prList.forEach((entity) => {
       const { pr, author, hash, title } = entity;
       if (pr) {
-        const str = postLang(entity[lang as keyof PR]);
+        const str = postLang(entity[lang as keyof PR]!);
         let icon = '';
         if (str.toLowerCase().includes('fix') || str.includes('修复')) {
           icon = '🐞';
