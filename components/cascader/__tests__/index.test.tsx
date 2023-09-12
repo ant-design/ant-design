@@ -353,8 +353,7 @@ describe('Cascader', () => {
   });
 
   // FIXME: Move to `rc-tree-select` instead
-  // eslint-disable-next-line jest/no-disabled-tests
-  it.skip('should warning if not find `value` in `options`', () => {
+  it('should warning if not find `value` in `options`', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
     expect(errorSpy).toHaveBeenCalledWith(
