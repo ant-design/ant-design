@@ -321,8 +321,12 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
               const keys = Array.from(keySet);
               if (onSelectInvert) {
-                const deprecatedWarningFn = deprecatedWarning('Table');
-                deprecatedWarningFn(false, 'onSelectInvert', 'onChange');
+                warning(
+                  false,
+                  'Table',
+                  'deprecated',
+                  '`onSelectInvert` is deprecated. Please use `onChange` instead.',
+                );
                 onSelectInvert(keys);
               }
 
