@@ -152,7 +152,7 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
   });
 
-  it('multiple select by hold down the shift key', () => {
+  it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = jest.fn();
     const { getByText } = render(
       <Transfer
@@ -165,13 +165,50 @@ describe('Transfer', () => {
         render={(item) => item.title}
       />,
     );
-    fireEvent.click(getByText('a'), {
-      shiftKey: true,
-    });
+
+    fireEvent.click(getByText('a'));
     fireEvent.click(getByText('c'), {
       shiftKey: true,
     });
-    expect(handleSelectChange).toHaveBeenCalledWith(['a', 'b', 'c'], []);
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'b', 'c'], []);
+
+    fireEvent.click(getByText('b'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], []);
+  });
+
+  it('multiple select/deselect targetKeys by hold down the shift key', () => {
+    const handleSelectChange = jest.fn();
+    const { getByText } = render(
+      <Transfer
+        dataSource={[
+          { key: 'a', title: 'a' },
+          { key: 'b', title: 'b' },
+          { key: 'c', title: 'c' },
+          { key: 'd', title: 'd' },
+          { key: 'e', title: 'e' },
+          { key: 'f', title: 'f' },
+          { key: 'g', title: 'g' },
+        ]}
+        targetKeys={['a', 'b', 'c', 'd', 'e', 'f', 'g']}
+        onSelectChange={handleSelectChange}
+        render={(item) => item.title}
+      />,
+    );
+
+    fireEvent.click(getByText('b'));
+    fireEvent.click(getByText('d'));
+    fireEvent.click(getByText('f'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['b', 'd', 'e', 'f']);
+
+    fireEvent.click(getByText('f'));
+    fireEvent.click(getByText('g'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['b', 'd', 'e', 'f', 'g']);
   });
 
   it('should not check checkbox when component disabled', () => {
