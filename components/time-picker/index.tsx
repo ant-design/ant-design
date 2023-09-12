@@ -3,7 +3,7 @@ import type { Dayjs } from 'dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 

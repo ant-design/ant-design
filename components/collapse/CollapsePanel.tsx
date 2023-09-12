@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
 
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 
 export type CollapsibleType = 'header' | 'icon' | 'disabled';

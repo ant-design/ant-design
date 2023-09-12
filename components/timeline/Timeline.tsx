@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';

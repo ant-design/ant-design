@@ -8,7 +8,7 @@ import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';

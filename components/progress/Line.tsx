@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { getSize, getSuccessPercent, validProgress } from './utils';

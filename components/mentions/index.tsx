@@ -12,7 +12,7 @@ import { composeRef } from 'rc-util/lib/ref';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';

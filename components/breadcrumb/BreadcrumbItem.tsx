@@ -1,6 +1,6 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { deprecatedWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
