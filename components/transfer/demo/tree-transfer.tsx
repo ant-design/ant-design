@@ -56,8 +56,12 @@ const TreeTransfer: React.FC<TreeTransferProps> = ({ dataSource, targetKeys, ...
                 onCheck={(_, { node: { key } }) => {
                   onItemSelect(key as string, !isChecked(checkedKeys, key));
                 }}
-                onSelect={(_, { node: { key } }) => {
-                  onItemSelect(key as string, !isChecked(checkedKeys, key));
+                onSelect={(_, { node: { key }, nativeEvent }) => {
+                  onItemSelect(
+                    key as string,
+                    !isChecked(checkedKeys, key),
+                    nativeEvent as unknown as React.MouseEvent,
+                  );
                 }}
               />
             </div>
