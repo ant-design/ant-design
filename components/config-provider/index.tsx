@@ -1,6 +1,5 @@
 'use client';
 
-import type { ReactElement } from 'react';
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
