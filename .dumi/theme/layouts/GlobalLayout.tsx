@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, startTransition } from 'react';
 import {
   createCache,
   extractStyle,
@@ -84,7 +84,9 @@ const GlobalLayout: React.FC = () => {
             ...nextSearchParams,
             theme: _theme,
           });
-          setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
+          startTransition(() => {
+            setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
+          });
         }
       });
 
@@ -106,8 +108,6 @@ const GlobalLayout: React.FC = () => {
     setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
     // Handle isMobile
     updateMobileMode();
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-    setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
