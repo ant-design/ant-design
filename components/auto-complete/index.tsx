@@ -1,12 +1,13 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import genPurePanel from '../_util/PurePanel';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type {
@@ -33,6 +34,7 @@ export interface AutoCompleteProps<
     InternalSelectProps<ValueType, OptionType>,
     'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
+  /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
   popupClassName?: string;
@@ -102,11 +104,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
               );
             }
             default:
-              warning(
-                false,
-                'AutoComplete',
-                '`dataSource` is only supports type `string[] | Object[]`.',
-              );
               return undefined;
           }
         })
@@ -114,21 +111,26 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   }
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !('dataSource' in props),
       'AutoComplete',
+      'deprecated',
       '`dataSource` is deprecated, please use `options` instead.',
     );
 
     warning(
       !customizeInput || !('size' in props),
       'AutoComplete',
+      'usage',
       'You need to control style self instead of setting `size` when using customize input.',
     );
 
     warning(
       !dropdownClassName,
       'AutoComplete',
+      'deprecated',
       '`dropdownClassName` is deprecated, please use `popupClassName` instead.',
     );
   }

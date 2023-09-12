@@ -557,4 +557,9 @@ describe('ColorPicker', () => {
     fireEvent.click(container.querySelector('.active-btn')!);
     expect(document.body.querySelector('.ant-popover')).toBeFalsy();
   });
+
+  it('Should defaultFormat work', () => {
+    const { container } = render(<ColorPicker open defaultFormat="hsb" />);
+    expect(container.querySelector('.ant-color-picker-hsb-input')).toBeTruthy();
+  });
 });

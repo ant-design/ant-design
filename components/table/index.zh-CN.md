@@ -141,6 +141,7 @@ const columns = [
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
+| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 
 #### onRow 用法
 

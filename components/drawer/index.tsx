@@ -1,20 +1,20 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
-import * as React from 'react';
+
 import { getTransitionName } from '../_util/motion';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-import type { DrawerPanelProps } from './DrawerPanel';
-import DrawerPanel from './DrawerPanel';
-
 // CSSINJS
 import { NoCompactStyle } from '../space/Compact';
-import useStyle from './style';
 import { usePanelRef } from '../watermark/context';
+import type { DrawerPanelProps } from './DrawerPanel';
+import DrawerPanel from './DrawerPanel';
+import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
 type sizeType = typeof SizeTypes[number];
@@ -88,6 +88,8 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
@@ -95,6 +97,7 @@ const Drawer: React.FC<DrawerProps> & {
       warning(
         !(deprecatedName in props),
         'Drawer',
+        'deprecated',
         `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
       );
     });
@@ -103,6 +106,7 @@ const Drawer: React.FC<DrawerProps> & {
       warning(
         false,
         'Drawer',
+        'breaking',
         '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );
     }

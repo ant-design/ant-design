@@ -5,8 +5,8 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
-   * @desc 头像背景色
-   * @descEN Background color of Avatar
+   * @desc 头像尺寸
+   * @descEN Size of Avatar
    */
   containerSize: number;
   /**

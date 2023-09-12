@@ -249,12 +249,12 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {
+  it('DatePicker.RangePicker with defaultValue and showTime', () => {
     const startDate = dayjs('1982-02-12');
     const endDate = dayjs('1982-02-22');
 
     const { container } = render(
-      <DatePicker.RangePicker defaultPickerValue={[startDate, endDate]} showTime open />,
+      <DatePicker.RangePicker defaultValue={[startDate, endDate]} showTime open />,
     );
 
     const m = container.querySelector('.ant-picker-header-view .ant-picker-month-btn')?.innerHTML;

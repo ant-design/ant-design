@@ -1,21 +1,22 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
 import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import { forwardRef } from 'react';
+
 import initCollapseMotion from '../_util/motion';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
+import type { ItemType } from './hooks/useItems';
+import useItems from './hooks/useItems';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
-import type { ItemType } from './hooks/useItems';
-import useItems from './hooks/useItems';
 import useStyle from './style';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
@@ -70,23 +71,30 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
-  warning(
-    !('inlineCollapsed' in props && mode !== 'inline'),
-    'Menu',
-    '`inlineCollapsed` should only be used when `mode` is inline.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
 
-  warning(
-    !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-    'Menu',
-    '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-  );
+    warning(
+      !('inlineCollapsed' in props && mode !== 'inline'),
+      'Menu',
+      'usage',
+      '`inlineCollapsed` should only be used when `mode` is inline.',
+    );
 
-  warning(
-    'items' in props && !children,
-    'Menu',
-    '`children` will be removed in next major version. Please use `items` instead.',
-  );
+    warning(
+      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
+      'Menu',
+      'usage',
+      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+    );
+
+    warning(
+      'items' in props && !children,
+      'Menu',
+      'deprecated',
+      '`children` will be removed in next major version. Please use `items` instead.',
+    );
+  }
 
   overrideObj.validator?.({ mode });
 

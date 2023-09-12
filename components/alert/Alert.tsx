@@ -1,3 +1,5 @@
+import type { ReactElement } from 'react';
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
@@ -6,12 +8,10 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import type { ReactElement } from 'react';
-import * as React from 'react';
-import { replaceElement } from '../_util/reactNode';
-import warning from '../_util/warning';
-import { ConfigContext } from '../config-provider';
 
+import { replaceElement } from '../_util/reactNode';
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
 
@@ -118,8 +118,16 @@ const Alert: React.FC<AlertProps> = (props) => {
   } = props;
 
   const [closed, setClosed] = React.useState(false);
+
   if (process.env.NODE_ENV !== 'production') {
-    warning(!closeText, 'Alert', '`closeText` is deprecated. Please use `closeIcon` instead.');
+    const warning = devUseWarning();
+
+    warning(
+      !closeText,
+      'Alert',
+      'deprecated',
+      '`closeText` is deprecated. Please use `closeIcon` instead.',
+    );
   }
   const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
