@@ -192,6 +192,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     [sourceSelectedKeys, targetSelectedKeys],
   );
 
+  const setPrevSelectedIndex = (direction: TransferDirection, value: number) => {
+    const isLeftDirection = direction === 'left';
+    if (isLeftDirection) {
+      leftPrevSelectedIndexRef.current = value;
+    } else {
+      rightPrevSelectedIndexRef.current = value;
+    }
+  };
+
   const handleSelectChange = useCallback(
     (direction: TransferDirection, holder: string[]) => {
       if (direction === 'left') {
@@ -235,19 +244,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const moveToLeft = () => {
     moveTo('left');
+    setPrevSelectedIndex('left', -1);
   };
 
   const moveToRight = () => {
     moveTo('right');
-  };
-
-  const setPrevSelectedIndex = (direction: TransferDirection, value: number) => {
-    const isLeftDirection = direction === 'left';
-    if (isLeftDirection) {
-      leftPrevSelectedIndexRef.current = value;
-    } else {
-      rightPrevSelectedIndexRef.current = value;
-    }
+    setPrevSelectedIndex('right', -1);
   };
 
   const onItemSelectAll = (
@@ -356,9 +358,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     checked: boolean,
     multiple: boolean,
   ) => {
-    const holder = [...(direction === 'left' ? sourceSelectedKeys : targetSelectedKeys)];
+    const isLeftDirection = direction === 'left';
+    const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
     const holderSet = new Set(holder);
-    const data = [...(direction === 'left' ? leftDataSource : rightDataSource)];
+    const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
+      (item) => !item.disabled,
+    );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
     if (multiple && holder.length > 0) {
@@ -383,7 +388,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const onRightItemRemove = (keys: string[]) => {
     setStateKeys('right', []);
-    setPrevSelectedIndex('left', -1);
     onChange?.(
       targetKeys.filter((key) => !keys.includes(key)),
       'left',
