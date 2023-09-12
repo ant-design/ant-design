@@ -38,7 +38,7 @@ const App: React.FC = () => {
   };
 
   const handleInputConfirm = () => {
-    if (inputValue && tags.indexOf(inputValue) === -1) {
+    if (inputValue && !tags.includes(inputValue)) {
       setTags([...tags, inputValue]);
     }
     setInputVisible(false);
@@ -128,8 +128,8 @@ const App: React.FC = () => {
           onPressEnter={handleInputConfirm}
         />
       ) : (
-        <Tag style={tagPlusStyle} onClick={showInput}>
-          <PlusOutlined /> New Tag
+        <Tag style={tagPlusStyle} icon={<PlusOutlined />} onClick={showInput}>
+          New Tag
         </Tag>
       )}
     </Space>

@@ -489,20 +489,6 @@ const GlobalStyle: React.FC = () => {
             margin-bottom: 0;
           }
         }
-
-        .code-box {
-          .code-box-demo {
-            ${antCls}-space {
-              ${antCls}-space-item {
-                &:last-of-type {
-                  ${antCls}-tag {
-                    margin-inline-end: 0;
-                  }
-                }
-              }
-            }
-          }
-        }
       `}
     />
   );

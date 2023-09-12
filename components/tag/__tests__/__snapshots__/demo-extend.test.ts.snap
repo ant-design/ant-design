@@ -1242,7 +1242,9 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = 
           />
         </svg>
       </span>
-       New Tag
+      <span>
+        New Tag
+      </span>
     </span>
   </div>
 </div>
