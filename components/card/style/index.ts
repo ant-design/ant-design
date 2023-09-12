@@ -352,6 +352,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-body`]: {
         display: 'flex',
         flexWrap: 'wrap',
+        overflow: 'hidden',
       },
 
       [`&:not(${componentCls}-loading) ${componentCls}-body`]: {
