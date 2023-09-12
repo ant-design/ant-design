@@ -29,15 +29,6 @@ import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export function convertLegacyProps(
-  type?: LegacyButtonType,
-): Pick<BaseButtonProps, 'danger' | 'type'> {
-  if (type === 'danger') {
-    return { danger: true };
-  }
-  return { type };
-}
-
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
