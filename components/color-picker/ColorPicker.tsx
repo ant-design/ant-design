@@ -9,7 +9,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -151,9 +151,12 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !(disabledAlpha && isAlphaColor),
       'ColorPicker',
+      'usage',
       '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
     );
   }
