@@ -43,6 +43,7 @@ import { DisabledContextProvider } from './DisabledContext';
 import useConfig from './hooks/useConfig';
 import useTheme from './hooks/useTheme';
 import MotionWrapper from './MotionWrapper';
+import PropWarning from './PropWarning';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
@@ -89,7 +90,10 @@ export const configConsumerProps = [
 ];
 
 // These props is used by `useContext` directly in sub component
-const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPrefixCls'>[] = [
+const PASSED_PROPS: Exclude<
+  keyof ConfigConsumerProps,
+  'rootPrefixCls' | 'getPrefixCls' | 'warning'
+>[] = [
   'getTargetContainer',
   'getPopupContainer',
   'renderEmpty',
@@ -145,6 +149,10 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+
+  // TODO: wait for https://github.com/ant-design/ant-design/discussions/44551
+  // warning?: WarningContextProps;
+
   alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
@@ -334,16 +342,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     datePicker,
     flex,
     wave,
+    // warning: warningConfig,
   } = props;
-
-  // =================================== Warning ===================================
-  if (process.env.NODE_ENV !== 'production') {
-    warning(
-      dropdownMatchSelectWidth === undefined,
-      'ConfigProvider',
-      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
-    );
-  }
 
   // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
@@ -362,10 +362,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   );
 
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
-  const shouldWrapSSR = iconPrefixCls !== parentContext.iconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
-  const wrapSSR = useStyle(iconPrefixCls, csp);
+  useStyle(iconPrefixCls, csp);
 
   const mergedTheme = useTheme(theme, parentContext.theme);
 
@@ -434,6 +433,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     datePicker,
     flex,
     wave,
+    // warning: warningConfig,
   };
 
   const config = {
@@ -474,7 +474,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     [iconPrefixCls, csp],
   );
 
-  let childNode = shouldWrapSSR ? wrapSSR(children as ReactElement) : children;
+  let childNode = (
+    <>
+      <PropWarning dropdownMatchSelectWidth={dropdownMatchSelectWidth} />
+      {children}
+    </>
+  );
 
   const validateMessages = React.useMemo(
     () =>
@@ -490,7 +495,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   if (Object.keys(validateMessages).length > 0) {
     childNode = (
       <ValidateMessagesContext.Provider value={validateMessages}>
-        {children}
+        {childNode}
       </ValidateMessagesContext.Provider>
     );
   }
@@ -561,6 +566,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
   }
+
+  // ================================== Warning ===================================
+  // if (memoedConfig.warning) {
+  //   childNode = (
+  //     <WarningContext.Provider value={memoedConfig.warning}>{childNode}</WarningContext.Provider>
+  //   );
+  // }
 
   // =================================== Render ===================================
   if (componentDisabled !== undefined) {

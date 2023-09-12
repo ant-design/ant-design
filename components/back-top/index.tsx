@@ -1,13 +1,14 @@
+import * as React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -49,7 +50,14 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    warning(false, 'BackTop', '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.');
+    const warning = devUseWarning();
+
+    warning(
+      false,
+      'BackTop',
+      'deprecated',
+      '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.',
+    );
   }
 
   React.useEffect(() => {

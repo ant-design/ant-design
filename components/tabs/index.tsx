@@ -1,3 +1,4 @@
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
@@ -5,15 +6,15 @@ import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
-import TabPane, { type TabPaneProps } from './TabPane';
+import type { SizeType } from '../config-provider/SizeContext';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import useStyle from './style';
+import TabPane, { type TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -67,11 +68,16 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   }
   const rootPrefixCls = getPrefixCls();
 
-  warning(
-    !('onPrevClick' in props) && !('onNextClick' in props),
-    'Tabs',
-    '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(
+      !('onPrevClick' in props) && !('onNextClick' in props),
+      'Tabs',
+      'breaking',
+      '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
+    );
+  }
 
   const mergedItems = useLegacyItems(items, children);
 
