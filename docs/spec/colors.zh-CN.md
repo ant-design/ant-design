@@ -62,7 +62,6 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
   ```js
   import { blue } from '@ant-design/colors';
-
   console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', '#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
   console.log(blue.primary); // '#1890FF'
   ```

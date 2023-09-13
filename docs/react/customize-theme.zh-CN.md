@@ -63,10 +63,6 @@ const App: React.FC = () => (
 export default App;
 ```
 
-这将会得到一个以 <div style="display: inline-block; width: 16px; height: 16px; border-radius: 4px; background: #00b96b; vertical-align: text-bottom;"></div> `#00b96b` 为主色的主题，以 Button 组件为例可以看到相应的变化：
-
-![themed button](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CbF_RJfKEiwAAAAAAAAAAAAAARQnAQ)
-
 ### 使用预设算法
 
 通过修改算法可以快速生成风格迥异的主题，5.0 版本中默认提供三套预设算法，分别是:
@@ -333,9 +329,9 @@ const globalToken = getDesignToken();
 `getDesignToken` 和 ConfigProvider 一样，支持传入 `theme` 属性，用于获取指定主题的 Design Token。
 
 ```tsx
+import { createRoot } from 'react-dom/client';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
-import { createRoot } from 'react-dom/client';
 
 const { getDesignToken, useToken } = theme;
 
