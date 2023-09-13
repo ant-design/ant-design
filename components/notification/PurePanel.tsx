@@ -98,25 +98,26 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const [, hashId] = useStyle(prefixCls);
 
   return (
-    <Notice
-      {...restProps}
-      prefixCls={prefixCls}
-      className={classNames(className, hashId, `${noticePrefixCls}-pure-panel`)}
-      eventKey="pure"
-      duration={null}
-      closable={closable}
-      closeIcon={getCloseIcon(prefixCls, closeIcon)}
-      content={
-        <PureContent
-          prefixCls={noticePrefixCls}
-          icon={icon}
-          type={type}
-          message={message}
-          description={description}
-          btn={btn}
-        />
-      }
-    />
+    <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className)}>
+      <Notice
+        {...restProps}
+        prefixCls={prefixCls}
+        eventKey="pure"
+        duration={null}
+        closable={closable}
+        closeIcon={getCloseIcon(prefixCls, closeIcon)}
+        content={
+          <PureContent
+            prefixCls={noticePrefixCls}
+            icon={icon}
+            type={type}
+            message={message}
+            description={description}
+            btn={btn}
+          />
+        }
+      />
+    </div>
   );
 };
 
