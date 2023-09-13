@@ -52,6 +52,8 @@ jobs:
         uses: actions/checkout@v4
 
       - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
