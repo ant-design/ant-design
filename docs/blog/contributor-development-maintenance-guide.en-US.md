@@ -52,7 +52,7 @@ Back to the topic, what should we do if we find snapshot test failed after chang
    npm run test -u
    ```
 
-2. However, we should find what's going wrong if the diff of snapshot is not only cause by your modification this time. For example, you only modified the text, but found that classnames in snapshots have changed, which obviously does not meet expectations.
+2. However, we should find what's going wrong if the diff of snapshot is not only caused by your modification this time. For example, you only modified the text, but found that classnames in snapshots have changed, which obviously does not meet expectations.
 
    The common causes are as follows:
 
