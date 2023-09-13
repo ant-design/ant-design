@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react';
 import React from 'react';
+import { devUseWarning as useWarning } from '../warning';
 
 describe('Test warning', () => {
   let spy: jest.SpyInstance;
@@ -44,9 +45,9 @@ describe('Test warning', () => {
       expect(spy).not.toHaveBeenCalled();
     });
     it('should show warning when using devUseWarning', async () => {
-      const { devUseWarning } = await import('../warning');
       const App = () => {
-        const warning = devUseWarning('Test');
+        // Don't use dynamic import to fixed issue: TypeError: Cannot read properties of null (reading 'useContext')
+        const warning = useWarning('Test');
         warning(false, 'usage', 'test message');
         warning.deprecated(false, 'old prop', 'new prop');
         return null;
