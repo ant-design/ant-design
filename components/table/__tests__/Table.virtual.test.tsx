@@ -33,7 +33,7 @@ describe('Table.Virtual', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Table virtual />);
 
-    expect(errSpy).toHaveBeenCalledWith('Warning: `scroll.x` in virtual table must be number.');
+    expect(errSpy).toHaveBeenCalledWith('Warning: `scroll.y` in virtual table must be number.');
     errSpy.mockRestore();
   });
 });

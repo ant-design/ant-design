@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Switch, Table, Typography } from 'antd';
+import { Segmented, Space, Switch, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
 
 interface RecordType {
@@ -93,21 +93,28 @@ const columns: TableProps<RecordType>['columns'] = [
   },
 ];
 
-const data: RecordType[] = new Array(10000).fill(null).map((_, index) => ({
-  id: index,
-  firstName: `First_${index.toString(16)}`,
-  lastName: `Last_${index.toString(16)}`,
-  age: 25 + (index % 10),
-  address1: `New York No. ${index} Lake Park`,
-  address2: `London No. ${index} Lake Park`,
-  address3: `Sydney No. ${index} Lake Park`,
-}));
+const getData = (count: number) => {
+  const data: RecordType[] = new Array(count).fill(null).map((_, index) => ({
+    id: index,
+    firstName: `First_${index.toString(16)}`,
+    lastName: `Last_${index.toString(16)}`,
+    age: 25 + (index % 10),
+    address1: `New York No. ${index} Lake Park`,
+    address2: `London No. ${index} Lake Park`,
+    address3: `Sydney No. ${index} Lake Park`,
+  }));
+
+  return data;
+};
 
 const App = () => {
   const [fixed, setFixed] = React.useState(true);
   const [bordered, setBordered] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
   const [empty, setEmpty] = React.useState(false);
+  const [count, setCount] = React.useState(10000);
+
+  const data = React.useMemo(() => getData(count), [count]);
 
   const mergedColumns = React.useMemo<typeof fixedColumns>(() => {
     if (!fixed) {
@@ -160,6 +167,24 @@ const App = () => {
             onChange={() => setEmpty(!empty)}
             checkedChildren="Empty"
             unCheckedChildren="Empty"
+          />
+          <Segmented
+            value={count}
+            onChange={(value: number) => setCount(value)}
+            options={[
+              {
+                label: 'None',
+                value: 0,
+              },
+              {
+                label: 'Less',
+                value: 4,
+              },
+              {
+                label: 'Lot',
+                value: 10000,
+              },
+            ]}
           />
         </Space>
 
