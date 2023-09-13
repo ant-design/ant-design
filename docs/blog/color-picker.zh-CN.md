@@ -14,17 +14,17 @@ author: Redjue
 
 `RGB` 色彩模型是通过三原色（红、绿、蓝）的不同组合来表示色彩的，每个原色的取值范围是 0-255，三原色的组合可以表示 256<sup>3</sup> 种颜色，这些颜色可以组成一个立方体，如下图所示： ![RGB](https://user-images.githubusercontent.com/21119589/266228482-f1ff94b1-e7ca-40c5-8512-1bc5ab79c388.jpg)
 
-在 `RGB` 色彩模型中，每个颜色都可以用一个三元组 `(R, G, B)` 来表示，其中 `R` 表示红色的取值，`G` 表示绿色的取值，`B` 表示蓝色的取值。例如，红色可以表示为 <ColorChunk color="RGB(255, 0, 0)">RGB(255, 0, 0)</ColorChunk>，绿色可以表示为 <ColorChunk color="RGB(0, 255, 0)">RGB(0, 255, 0)</ColorChunk>，蓝色可以表示为 <ColorChunk color="RGB(0, 0, 255)">RGB(0, 0, 255)</ColorChunk>。
+在 `RGB` 色彩模型中，每个颜色都可以用一个三元组 `(R, G, B)` 来表示，其中 `R` 表示红色的取值，`G` 表示绿色的取值，`B` 表示蓝色的取值。例如，红色可以表示为 `(255, 0, 0)`，绿色可以表示为 `(0, 255, 0)`，蓝色可以表示为 `(0, 0, 255)`。
 
 ### HSV/HSB 色彩模型
 
 `HSV` 色彩模型是通过色相（Hue）、饱和度（Saturation）、明度（Value）来表示色彩的，其中色相的取值范围是 0-360，饱和度和明度的取值范围是 0-100。HSV 色彩模型可以用一个圆锥体来表示，如下图所示： ![HSV](https://user-images.githubusercontent.com/21119589/266231236-d68ad9d7-9654-4bc5-8489-7cc52f2aabb1.png)
 
-在 `HSV` 色彩模型中，每个颜色都可以用一个三元组 `(H, S, V)` 来表示，其中 `H` 表示色相的取值，`S` 表示饱和度的取值，`V` 表示明度的取值。例如，红色可以表示为 <ColorChunk color="HSV(0, 100, 100)">HSV(0, 100, 100)</ColorChunk>，绿色可以表示为 <ColorChunk color="HSV(120, 100, 100)">HSV(120, 100, 100)</ColorChunk>，蓝色可以表示为 <ColorChunk color="HSV(240, 100, 100)">HSV(240, 100, 100)</ColorChunk>。
+在 `HSV` 色彩模型中，每个颜色都可以用一个三元组 `(H, S, V)` 来表示，其中 `H` 表示色相的取值，`S` 表示饱和度的取值，`V` 表示明度的取值。例如，红色可以表示为 `(0, 100, 100)`，绿色可以表示为 `(120, 100, 100)`，蓝色可以表示为 `(240, 100, 100)`。
 
 ### HEX 色彩模型
 
-`HEX` 色彩模型是通过十六进制数来表示色彩的，其中前两位表示红色的取值，中间两位表示绿色的取值，后两位表示蓝色的取值。例如，红色可以表示为 <ColorChunk color="#FF0000">#FF0000</ColorChunk>，绿色可以表示为 <ColorChunk color="#00FF00">#00FF00</ColorChunk>，蓝色可以表示为 <ColorChunk color="#0000FF">#0000FF</ColorChunk>。如下图所示： ![HEX](https://user-images.githubusercontent.com/21119589/266569791-7f6afedd-3b84-4ee1-8c98-d3d4b16e8317.png)
+`HEX` 色彩模型是通过十六进制数来表示色彩的，其中前两位表示红色的取值，中间两位表示绿色的取值，后两位表示蓝色的取值。例如，红色可以表示为 `#FF0000`，绿色可以表示为 `#00FF00`，蓝色可以表示为 `#0000FF`。如下图所示： ![HEX](https://user-images.githubusercontent.com/21119589/266569791-7f6afedd-3b84-4ee1-8c98-d3d4b16e8317.png)
 
 这也是我们最常见的颜色表示方式，因为它可以直接在 CSS 中使用。而且表示方式非常简单，只需要将 RGB 色彩模型中的三个数字转换为十六进制数即可。
 
@@ -52,9 +52,7 @@ author: Redjue
 background-color: rgb(0, 106, 255);
 ```
 
-这样我们就得到一个明度和饱和度都为 100% 的蓝色
-
-<div style="display: inline-block; width: 300px; height: 200px; background-color: rgb(0, 106, 255);"></div>
+这样我们就得到一个明度和饱和度都为 100% 的蓝色 <img style="width:auto" src="https://user-images.githubusercontent.com/21119589/266240524-e40a2df7-c3c8-4ecc-aff9-10a4b2d645d7.png"/>
 
 2. 叠加明度
 
@@ -63,9 +61,7 @@ background-color: rgb(0, 106, 255);
 background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent);
 ```
 
-叠加明度图层后，我们得到了具有明度变化的蓝色
-
-<div style="display: inline-block; width: 300px; height: 200px; background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent);"></div>
+叠加明度图层后，我们得到了具有明度变化的蓝色 <img style="width:auto" src="https://user-images.githubusercontent.com/21119589/266242191-e31fd6e2-675b-455c-bc98-9df3b3c8be7f.png"/>
 
 3. 叠加饱和度
 
@@ -74,9 +70,7 @@ background-color: rgb(0, 106, 255);
 background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent), linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 ```
 
-叠加饱和度图层后，我们得到了具有明度变化和饱和度变化的蓝色
-
-<div style="display: inline-block; width: 300px; height: 200px; background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent), linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));"></div>
+叠加饱和度图层后，我们得到了具有明度变化和饱和度变化的蓝色 <img style="width:auto" src="https://user-images.githubusercontent.com/21119589/266243231-6d682bf5-fb74-4a8e-9930-19a604d1203f.png"/>
 
 至此我们就得到了一个拥有完整色相、饱和度、明度的颜色面板。
 
