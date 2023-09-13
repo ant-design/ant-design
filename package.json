@@ -45,7 +45,7 @@
   "unpkg": "dist/antd.min.js",
   "typings": "es/index.d.ts",
   "scripts": {
-    "prepare": "is-ci || husky install",
+    "prepare": "is-ci || husky install && dumi setup",
     "api-collection": "antd-tools run api-collection",
     "authors": "tsx scripts/generate-authors.ts",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
