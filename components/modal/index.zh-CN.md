@@ -23,6 +23,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/async.tsx">异步关闭</code>
 <code src="./demo/footer.tsx">自定义页脚</code>
+<code src="./demo/footer-render.tsx">自定义页脚渲染函数</code>
 <code src="./demo/hooks.tsx">使用 hooks 获得上下文</code>
 <code src="./demo/locale.tsx">国际化</code>
 <code src="./demo/manual.tsx">手动更新和移除</code>
@@ -54,7 +55,7 @@ demo:
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | ReactNode | (确定取消按钮) |  |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | (确定取消按钮) | 5.9.0 |
 | forceRender | 强制渲染 Modal | boolean | false |  |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
@@ -77,7 +78,7 @@ demo:
 
 #### 注意
 
-- `<Modal />` 默认关闭后状态不会自动清空, 如果希望每次打开都是新内容，请设置 `destroyOnClose`。
+- `<Modal />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnClose`。
 - `<Modal />` 和 Form 一起配合使用时，设置 `destroyOnClose` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<Form preserve={false} />`。
 - `Modal.method()` RTL 模式仅支持 hooks 用法。
 
@@ -104,8 +105,8 @@ demo:
 | className | 容器类名 | string | - |  |
 | closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | 内容 | ReactNode | - |  |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | ReactNode | - | 5.1.0 |
-| getContainer | 指定 Modal 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
+| getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
@@ -181,7 +182,15 @@ return <div>{contextHolder}</div>;
 const confirmed = await modal.confirm({ ... });
 ```
 
-## Design Token
+## footerRenderParams
+
+<!-- prettier-ignore -->
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| originNode | 默认节点 | React.ReactNode                   | -      |
+| extra      | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | -      |
+
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 

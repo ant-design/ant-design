@@ -1,5 +1,6 @@
 import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import type { BlockProps } from './Base';
 import Base from './Base';
 
@@ -18,14 +19,20 @@ const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {
   const { level = 1, ...restProps } = props;
   let component: keyof JSX.IntrinsicElements;
 
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(
+      TITLE_ELE_LIST.includes(level),
+      'Typography.Title',
+      'usage',
+      'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
+    );
+  }
+
   if (TITLE_ELE_LIST.includes(level)) {
     component = `h${level}`;
   } else {
-    warning(
-      false,
-      'Typography.Title',
-      'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
-    );
     component = 'h1';
   }
 

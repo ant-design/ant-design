@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
+
 import type { ModalProps } from '..';
 import Modal from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
@@ -114,7 +115,7 @@ describe('Modal', () => {
 
     render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Modal] `visible` will be removed in next major version, please use `open` instead.',
     );
 
     expect(document.querySelector('.ant-modal')).toBeTruthy();
@@ -130,5 +131,21 @@ describe('Modal', () => {
   it('should render custom footer', () => {
     render(<Modal open footer={<div className="custom-footer">footer</div>} />);
     expect(document.querySelector('.custom-footer')).toBeTruthy();
+  });
+
+  it('Should custom footer function work', () => {
+    render(
+      <Modal
+        open
+        footer={(_, { OkBtn, CancelBtn }) => (
+          <>
+            <OkBtn />
+            <CancelBtn />
+            <div className="custom-footer-ele">footer-ele</div>
+          </>
+        )}
+      />,
+    );
+    expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
 });

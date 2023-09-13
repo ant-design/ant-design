@@ -33,14 +33,11 @@ Array [
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -84,14 +81,11 @@ Array [
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -2120,14 +2114,11 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -2281,12 +2272,11 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 2`
 
 exports[`renders components/upload/demo/max-count.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 24px;"
   >
     <span
       class="ant-upload-wrapper"
@@ -2951,14 +2941,11 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>
@@ -3255,14 +3242,11 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs>
-                <style />
-              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
               <path
-                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
               />
             </svg>
           </span>

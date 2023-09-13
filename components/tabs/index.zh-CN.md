@@ -26,6 +26,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/centered.tsx">居中</code>
 <code src="./demo/icon.tsx">图标</code>
+<code src="./demo/custom-indicator.tsx">指示条</code>
 <code src="./demo/slide.tsx">滑动</code>
 <code src="./demo/extra.tsx">附加内容</code>
 <code src="./demo/size.tsx">大小</code>
@@ -50,10 +51,11 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | --- | --- | --- | --- | --- |
 | activeKey | 当前激活 tab 面板的 key | string | - |  |
 | addIcon | 自定义添加按钮 | ReactNode | - | 4.4.0 |
-| animated | 是否使用动画切换 Tabs` | boolean\| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
+| animated | 是否使用动画切换 Tabs | boolean\| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
+| indicatorSize | 自定义指示条长度，默认与 tab 等宽 | number \| (origin: number) => number | - | 5.9.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
@@ -83,6 +85,6 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | label | 选项卡头显示文字 | ReactNode | - |
 | children | 选项卡头显示内容 | ReactNode | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Tabs"></ComponentTokenTable>

@@ -51,11 +51,10 @@ exports[`renders components/skeleton/demo/basic.tsx correctly 1`] = `
 exports[`renders components/skeleton/demo/children.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="column-gap:16px;row-gap:16px;width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <h4
       style="margin-bottom:16px"
@@ -138,11 +137,10 @@ exports[`renders components/skeleton/demo/componentToken.tsx correctly 1`] = `
 exports[`renders components/skeleton/demo/element.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -154,7 +152,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -197,11 +194,10 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <div
         class="ant-skeleton ant-skeleton-element"
@@ -265,11 +261,10 @@ Array [
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-16px"
+      style="flex-wrap:wrap;column-gap:16px;row-gap:16px"
     >
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <div
           class="ant-form-item"
@@ -324,7 +319,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <div
           class="ant-form-item"
@@ -379,7 +373,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <div
           class="ant-form-item"
@@ -476,7 +469,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:16px;padding-bottom:16px"
       >
         <div
           class="ant-form-item"
@@ -592,7 +584,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:16px"
       >
         <div
           class="ant-form-item"

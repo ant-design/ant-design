@@ -1,17 +1,18 @@
-'use client';
-
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
+
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import useClosable from '../_util/hooks/useClosable';
 import type { LiteralUnion } from '../_util/type';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
+import PresetCmp from './style/presetCmp';
+import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
 
@@ -56,9 +57,12 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !('visible' in props),
       'Tag',
+      'deprecated',
       '`visible` is deprecated, please use `visible && <Tag />` instead.',
     );
   }
@@ -69,7 +73,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
   }, [props.visible]);
 
-  const isInternalColor = isPresetColor(color) || isPresetStatusColor(color);
+  const isPreset = isPresetColor(color);
+  const isStatus = isPresetStatusColor(color);
+  const isInternalColor = isPreset || isStatus;
 
   const tagStyle: React.CSSProperties = {
     backgroundColor: color && !isInternalColor ? color : undefined,
@@ -140,6 +146,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     <span {...props} ref={ref} className={tagClassName} style={tagStyle}>
       {kids}
       {mergedCloseIcon}
+      {isPreset && <PresetCmp key="preset" prefixCls={prefixCls} />}
+      {isStatus && <StatusCmp key="status" prefixCls={prefixCls} />}
     </span>
   );
 

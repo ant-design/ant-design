@@ -87,7 +87,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 每创建一个 PR 时，利用 GitHub Action 自动尝试构建和部署该 PR。这样既可以确保文档正常，又可以预览该 PR 是否会对文档或者组件 Demo 产生影响。PR 部署分为多个 Job，具体流程如下：
 
-- 首先触发 [preview-start.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-start.yml) Job 对 PR 进行一个占位评论，告知开发者真正进行预览构建。也就是大家经常看到的 Preview Preparing...
+- 首先触发 [preview-start.yml](https://github.com/ant-design/ant-design/blob/c6a7dbc09e709a8905aaa6c073593a1fed6bea14/.github/workflows/preview-start.yml) Job 对 PR 进行一个占位评论，告知开发者正在进行预览构建。也就是大家经常看到的 Preview Preparing...
 
 ![preview-preparing..](https://user-images.githubusercontent.com/32004925/231686636-eef933e6-2678-4e49-9552-babc50687644.png)
 
@@ -115,7 +115,7 @@ Ant Design 团队非常鼓励社区参与 Pull Request (PR)，可以先阅读 [�
 
 团队对于单元测试的态度非常谨慎，需要考虑组件在 React 的各个主要版本上的运行情况（通常为 16、17 和 18 这三个版本）如果是主分支的更新，还需要考虑项目构建产物（通常为 `dist`、`es` 以及 `lib`）在三个 React 版本上的运行情况。目前已知 Ant Design 所有组件共有 4000 多个测试用例。为了进一步提高测试效率，我们还搭建了分布式测试环境。
 
-所有这些功能都得益于 GitHub Action 的 [Job 矩阵策略](https://docs.github.com/zh/actions/using-jobs/using-a-matrix-for-your-jobs) ，使得我们可以一次性配置多个 Job 来执行测试任务, [Normal test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L141-L223) 和 [Module test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L294-L357) 是 Ant Design 利用矩阵策略测试相关的 Job。
+所有这些功能都得益于 GitHub Action 的 [Job 矩阵策略](https://docs.github.com/zh/actions/using-jobs/using-a-matrix-for-your-jobs) ，使得我们可以一次性配置多个 Job 来执行测试任务，[Normal test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L141-L223) 和 [Module test](https://github.com/ant-design/ant-design/blob/40fb753349c4f2be314c91dbb7e6f1a960097c19/.github/workflows/test.yml#L294-L357) 是 Ant Design 利用矩阵策略测试相关的 Job。
 
 ## 网站部署
 
@@ -176,7 +176,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code (检出代码)
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js (设置 node 版本)
         uses: actions/setup-node@v3
@@ -224,7 +224,7 @@ jobs:
 
 ### 添加缓存
 
-为了进一步优化安装依赖速度，我们可以添加 pnpm 缓存, 然后发起一个 Pull Request 验证上一个步骤：
+为了进一步优化安装依赖速度，我们可以添加 pnpm 缓存，然后发起一个 Pull Request 验证上一个步骤：
 
 ```yml
 # ...

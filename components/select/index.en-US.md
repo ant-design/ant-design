@@ -14,6 +14,7 @@ Select component to select value from options.
 
 - A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
+- You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
 
 ## Examples
 
@@ -45,6 +46,7 @@ Select component to select value from options.
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 

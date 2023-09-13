@@ -42,7 +42,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | alt | 图像描述 | string | - | 4.6.0 |
 | fallback | 加载失败容错地址 | string | - | 4.6.0 |
 | height | 图像高度 | string \| number | - | 4.6.0 |
-| placeholder | 加载占位, 为 `true` 时使用默认占位 | ReactNode | - | 4.6.0 |
+| placeholder | 加载占位，为 `true` 时使用默认占位 | ReactNode | - | 4.6.0 |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true | 4.6.0 [PreviewType](#previewyype):4.7.0 |
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
@@ -66,8 +66,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | maxScale | 最大放大倍数 | number | 50 | 5.7.0 |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
-| toolbarRender | 自定义工具栏 | (originalNode: React.ReactNode, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | (originalNode: React.ReactNode, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean) => void | - | - |
 
@@ -96,8 +96,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - | 5.7.0 |
 | forceRender | 强制渲染预览图 | boolean | - | - |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
-| toolbarRender | 自定义工具栏 | (originalNode: React.ReactNode, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
-| imageRender | 自定义预览内容 | (originalNode: React.ReactNode, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | 自定义工具栏 | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
+| imageRender | 自定义预览内容 | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - | 5.3.0 |
 | onVisibleChange | 当 `visible` 发生改变时的回调 | (visible: boolean, prevVisible: boolean, current: number) => void | - | current 参数 5.3.0 |
@@ -162,6 +162,6 @@ type TransformAction =
 }
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Image"></ComponentTokenTable>

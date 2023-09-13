@@ -25,7 +25,6 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/line-mini.tsx">Mini size progress bar</code>
 <code src="./demo/circle-micro.tsx">Responsive circular progress bar</code>
 <code src="./demo/circle-mini.tsx">Mini size circular progress bar</code>
-<code src="./demo/circle-dynamic.tsx">Dynamic circular progress bar</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
 <code src="./demo/format.tsx">Custom text format</code>
 <code src="./demo/dashboard.tsx">Dashboard</code>
@@ -65,7 +64,7 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - | - |
+| strokeColor | The color of circular progress, render gradient when passing an object | string \| { number%: string } | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
 
 ### `type="dashboard"`

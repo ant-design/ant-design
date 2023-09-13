@@ -1,11 +1,12 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Circle from './Circle';
@@ -15,10 +16,11 @@ import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
-export type ProgressType = (typeof ProgressTypes)[number];
+export type ProgressType = typeof ProgressTypes[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
 export type ProgressSize = 'default' | 'small';
-export type StringGradients = { [percentage: string]: string };
+export type StringGradients = Record<string, string>;
+
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 
@@ -38,7 +40,7 @@ export interface ProgressProps extends ProgressAriaProps {
   type?: ProgressType;
   percent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
-  status?: (typeof ProgressStatuses)[number];
+  status?: typeof ProgressStatuses[number];
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
@@ -82,7 +84,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     );
   }, [percent, props.success, props.successPercent]);
 
-  const progressStatus = React.useMemo<(typeof ProgressStatuses)[number]>(() => {
+  const progressStatus = React.useMemo<typeof ProgressStatuses[number]>(() => {
     if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
       return 'success';
     }
@@ -121,12 +123,38 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     warning(
       !('successPercent' in props),
       'Progress',
+      'deprecated',
       '`successPercent` is deprecated. Please use `success.percent` instead.',
     );
-    warning(!('width' in props), 'Progress', '`width` is deprecated. Please use `size` instead.');
+    warning(
+      !('width' in props),
+      'Progress',
+      'deprecated',
+      '`width` is deprecated. Please use `size` instead.',
+    );
+
+    if ((type === 'circle' || type === 'dashboard') && Array.isArray(size)) {
+      warning(
+        false,
+        'Progress',
+        'usage',
+        'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
+      );
+    }
+
+    if (props.success && 'progress' in props.success) {
+      warning(
+        false,
+        'Progress',
+        'deprecated',
+        '`success.progress` is deprecated. Please use `success.percent` instead.',
+      );
+    }
   }
 
   const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;

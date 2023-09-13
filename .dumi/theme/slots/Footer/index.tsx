@@ -102,7 +102,7 @@ const Footer: React.FC = () => {
       items: [
         {
           title: 'Ant Design Charts',
-          url: 'https://charts.ant.design',
+          url: isZhCN ? 'https://ant-design-charts.antgroup.com' : 'https://charts.ant.design',
           openExternal: true,
         },
         {
@@ -117,12 +117,12 @@ const Footer: React.FC = () => {
         },
         {
           title: 'Ant Design Mobile',
-          url: 'https://mobile.ant.design',
+          url: isZhCN ? 'https://ant-design-mobile.antgroup.com/zh' : 'https://mobile.ant.design',
           openExternal: true,
         },
         {
           title: 'Ant Design Mini',
-          url: 'https://mini.ant.design',
+          url: isZhCN ? 'https://ant-design-mini.antgroup.com/' : 'https://mini.ant.design',
           openExternal: true,
         },
         {
@@ -338,7 +338,7 @@ const Footer: React.FC = () => {
             />
           ),
           title: 'AntV',
-          url: 'https://antv.vision',
+          url: 'https://antv.antgroup.com',
           description: <FormattedMessage id="app.footer.antv.slogan" />,
           openExternal: true,
         },

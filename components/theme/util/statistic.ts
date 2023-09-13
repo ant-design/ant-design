@@ -67,7 +67,13 @@ export default function statisticToken<T extends object>(token: T) {
     });
 
     flush = (componentName, componentToken) => {
-      statistic[componentName] = { global: Array.from(tokenKeys!), component: componentToken };
+      statistic[componentName] = {
+        global: Array.from(tokenKeys!),
+        component: {
+          ...statistic[componentName]?.component,
+          ...componentToken,
+        },
+      };
     };
   }
 

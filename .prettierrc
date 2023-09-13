@@ -4,6 +4,8 @@
   "trailingComma": "all",
   "printWidth": 100,
   "proseWrap": "never",
+  "importOrder": ["^(react|react-dom)$", "^([a-z]|@[a-z])", "", ".*"],
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
   "overrides": [
     {
       "files": ".prettierrc",

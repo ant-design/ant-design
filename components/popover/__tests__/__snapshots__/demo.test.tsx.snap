@@ -182,12 +182,11 @@ exports[`renders components/popover/demo/arrow.tsx correctly 1`] = `
 
 exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap:wrap"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -200,7 +199,6 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -512,12 +510,11 @@ Array [
 
 exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap:wrap"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -530,7 +527,6 @@ exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -543,7 +539,6 @@ exports[`renders components/popover/demo/triggerType.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"

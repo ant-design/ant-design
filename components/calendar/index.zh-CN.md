@@ -20,6 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 <code src="./demo/notice-calendar.tsx" clientOnly>通知事项日历</code>
 <code src="./demo/card.tsx" clientOnly>卡片模式</code>
 <code src="./demo/select.tsx" clientOnly>选择功能</code>
+<code src="./demo/lunar.tsx" clientOnly>农历日历</code>
 <code src="./demo/customize-header.tsx" clientOnly>自定义头部</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -65,7 +66,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | onPanelChange | 日期面板变化回调 | function(date: Dayjs, mode: string) | - |  |
 | onSelect | 选择日期回调，包含来源信息 | function(date: Dayjs, info: { source: 'year' \| 'month' \| 'date' \| 'customize' }) | - | `info`: 5.6.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Calendar"></ComponentTokenTable>
 

@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
@@ -19,6 +17,7 @@ import Item from './Item';
 // CSSINJS
 import { ListContext } from './context';
 import useStyle from './style';
+import useSize from '../config-provider/hooks/useSize';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
@@ -83,7 +82,7 @@ function List<T>({
   loadMore,
   grid,
   dataSource = [],
-  size,
+  size: customizeSize,
   header,
   footer,
   loading = false,
@@ -154,10 +153,12 @@ function List<T>({
   }
   const isLoading = loadingProp && loadingProp.spinning;
 
+  const mergedSize = useSize(customizeSize);
+
   // large => lg
   // small => sm
   let sizeCls = '';
-  switch (size) {
+  switch (mergedSize) {
     case 'large':
       sizeCls = 'lg';
       break;

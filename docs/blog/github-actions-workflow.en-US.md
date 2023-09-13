@@ -40,7 +40,7 @@ As a feature on the GitHub platform, issues serve as a centralized information h
 
 ### Ensuring the Quality of Issues
 
-Ensuring issues contain sufficient information helps us to analyze and prioritize. We provide an [issue assistant](http://new-issue.ant.design) to standardize the process of creating issues. Additionally, we use GitHub Actions to check the issues created to auto close if it not pass the assistant's checks. Which will be labeled as [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid), aand leaving comment to remind the creator how to ask a question proporly.
+Ensuring issues contain sufficient information helps us to analyze and prioritize. We provide an [issue assistant](http://new-issue.ant.design) to standardize the process of creating issues. Additionally, we use GitHub Actions to check the issues created to auto close if it not pass the assistant's checks. Which will be labeled as [Invalid](https://github.com/ant-design/ant-design/issues?q=label%3AInvalid), and leaving comment to remind the creator how to ask a question properly.
 
 ![invalid-issue-preview](https://user-images.githubusercontent.com/32004925/231660945-509cf97c-43eb-4a1c-acd2-81eeedfe4a73.png)
 
@@ -173,7 +173,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v3

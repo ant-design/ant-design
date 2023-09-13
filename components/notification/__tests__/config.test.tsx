@@ -18,8 +18,8 @@ describe('notification.config', () => {
     await triggerMotionEnd();
 
     notification.config({
-      prefixCls: null,
-      getContainer: null,
+      prefixCls: undefined,
+      getContainer: undefined,
     });
 
     vi.useRealTimers();

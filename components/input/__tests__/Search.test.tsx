@@ -52,7 +52,7 @@ describe('Input.Search', () => {
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
   it('should trigger onSearch when click search button', () => {
@@ -62,7 +62,7 @@ describe('Input.Search', () => {
     );
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
   it('should trigger onSearch when click search button with text', () => {
@@ -72,7 +72,7 @@ describe('Input.Search', () => {
     );
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
   it('should trigger onSearch when click search button with customize button', () => {
@@ -86,7 +86,7 @@ describe('Input.Search', () => {
     );
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
   it('should trigger onSearch when click search button of native', () => {
@@ -105,7 +105,7 @@ describe('Input.Search', () => {
     );
     fireEvent.click(container.querySelector('button')!);
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
     expect(onButtonClick).toHaveBeenCalledTimes(1);
   });
 
@@ -114,7 +114,7 @@ describe('Input.Search', () => {
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
   // https://github.com/ant-design/ant-design/issues/34844
@@ -128,7 +128,7 @@ describe('Input.Search', () => {
     fireEvent.compositionEnd(container.querySelector('input')!);
     fireEvent.keyDown(container.querySelector('input')!, { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything());
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
   // https://github.com/ant-design/ant-design/issues/14785
@@ -150,7 +150,7 @@ describe('Input.Search', () => {
       <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
     );
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
+    expect(onSearch).toHaveBeenLastCalledWith('', expect.anything(), { source: 'clear' });
     expect(onChange).toHaveBeenCalled();
   });
 

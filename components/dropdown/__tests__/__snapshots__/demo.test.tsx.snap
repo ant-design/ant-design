@@ -113,11 +113,10 @@ exports[`renders components/dropdown/demo/basic.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Hover me
     </div>
@@ -162,11 +161,10 @@ exports[`renders components/dropdown/demo/custom-dropdown.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Hover me
     </div>
@@ -199,12 +197,11 @@ exports[`renders components/dropdown/demo/custom-dropdown.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap:wrap"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -249,7 +246,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -294,7 +290,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -341,7 +336,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -386,18 +380,16 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default ant-dropdown-trigger"
       type="button"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           Button
         </div>
@@ -429,7 +421,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -480,11 +471,10 @@ exports[`renders components/dropdown/demo/event.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Hover me, Click menu item
     </div>
@@ -517,7 +507,7 @@ exports[`renders components/dropdown/demo/event.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/icon-debug.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
@@ -571,11 +561,10 @@ exports[`renders components/dropdown/demo/item.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Hover me
     </div>
@@ -608,11 +597,10 @@ exports[`renders components/dropdown/demo/item.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -680,7 +668,6 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -748,7 +735,6 @@ exports[`renders components/dropdown/demo/loading.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -843,11 +829,10 @@ exports[`renders components/dropdown/demo/menu-full.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Hover to check menu style
     </div>
@@ -883,11 +868,10 @@ exports[`renders components/dropdown/demo/overlay-open.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Hover me
     </div>
@@ -920,19 +904,17 @@ exports[`renders components/dropdown/demo/overlay-open.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      style="flex-wrap:wrap"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -945,7 +927,6 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -958,7 +939,6 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -975,12 +955,11 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      style="flex-wrap:wrap"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -993,7 +972,6 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -1006,7 +984,6 @@ exports[`renders components/dropdown/demo/placement.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -1037,11 +1014,10 @@ exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
   class="ant-typography ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Selectable
     </div>
@@ -1077,11 +1053,10 @@ exports[`renders components/dropdown/demo/sub-menu.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Cascading menu
     </div>
@@ -1117,11 +1092,10 @@ exports[`renders components/dropdown/demo/trigger.tsx correctly 1`] = `
   class="ant-dropdown-trigger"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Click me
     </div>

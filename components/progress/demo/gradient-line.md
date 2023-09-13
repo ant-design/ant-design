@@ -1,7 +1,7 @@
 ## zh-CN
 
-`linear-gradient` 的封装。推荐只传两种颜色。
+渐变色封装，`circle` 与 `dashboard` 设置渐变时 `strokeLinecap` 会被忽略。
 
 ## en-US
 
-A package of `linear-gradient`. It is recommended to only pass two colors.
+Gradient encapsulation, `circle` and `dashboard` will ignore `strokeLinecap` when setting gradient.

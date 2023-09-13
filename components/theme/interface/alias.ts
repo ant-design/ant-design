@@ -580,6 +580,7 @@ export interface AliasToken extends MapToken {
   screenXXLMin: number;
 
   /**
+   * @deprecated
    * Used for DefaultButton, Switch which has default outline
    * @desc 默认样式的 Outline 颜色
    * @descEN Default style outline color.

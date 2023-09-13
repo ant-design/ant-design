@@ -16,6 +16,7 @@ import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 import Layout from '../../layout';
+import OverrideContext from '../OverrideContext';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
   writable: true,
@@ -1095,5 +1096,50 @@ describe('Menu', () => {
       </TriggerMockContext.Provider>,
     );
     expect(container.querySelector('.ant-menu.ant-menu-light.custom-popover')).toBeTruthy();
+  });
+
+  it('hide expand icon when pass null or false into expandIcon', () => {
+    const App = ({ expand }: { expand?: React.ReactNode }) => (
+      <Menu
+        expandIcon={expand}
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />
+    );
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeTruthy();
+
+    rerender(<App expand={null} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(<App expand={false} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: null }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: false }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 });

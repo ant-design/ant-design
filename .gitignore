@@ -67,3 +67,4 @@ __image_snapshots__/
 .husky/prepare-commit-msg
 
 .eslintcache
+.node-version

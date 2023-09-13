@@ -157,7 +157,7 @@ In a real world development, you may need a `YearPicker`, `MonthRangePicker` or 
 
 Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
 
-Likewise，`disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
+Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
 ### Workaround
 
@@ -260,7 +260,7 @@ If you encounter the above error, please check the current project `tsconfig.jso
 }
 ```
 
-The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when designing types
+The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
 
 ## The antd component reported an error when using the App Router of Next.js
 

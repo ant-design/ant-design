@@ -186,12 +186,11 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx correctly 1`
 exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
 <div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="border:1px solid red;margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -212,7 +211,6 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <div>
         Bamboo
@@ -243,12 +241,11 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="border:1px solid red;margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <label
         class="ant-radio-wrapper"
@@ -269,7 +266,6 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <div>
         Bamboo

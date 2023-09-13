@@ -2,11 +2,10 @@
 
 exports[`renders components/menu/demo/component-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
@@ -2549,6 +2548,7 @@ Array [
     </li>
     <li
       class="ant-menu-item-divider"
+      role="separator"
     />
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
