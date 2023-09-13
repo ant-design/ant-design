@@ -1,5 +1,4 @@
 import { render } from '@testing-library/react';
-import { devUseWarning } from '../warning';
 import React from 'react';
 
 describe('Test warning', () => {
@@ -45,6 +44,7 @@ describe('Test warning', () => {
       expect(spy).not.toHaveBeenCalled();
     });
     it('should show warning when using devUseWarning', async () => {
+      const { devUseWarning } = await import('../warning');
       const App = () => {
         const warning = devUseWarning('Test');
         warning(false, 'usage', 'test message');
@@ -89,6 +89,7 @@ describe('Test warning', () => {
     });
 
     it('should not show warning when using devUseWarning', async () => {
+      const { devUseWarning } = await import('../warning');
       const App = () => {
         const warning = devUseWarning('Test');
         warning(false, 'usage', 'test message');
