@@ -19,9 +19,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      - uses: oven-sh/setup-bun@v1
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -47,7 +45,7 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+        run: bun install
 
   lint:
     runs-on: ubuntu-latest
