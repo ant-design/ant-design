@@ -30,6 +30,7 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/stack.tsx" version="5.10.0">Stack</code>
 <code src="./demo/basic.tsx">Static Method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -74,6 +75,7 @@ The properties of config are as follows:
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
+| stack | Notifications will be stacked when amount is over threshold | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |
 | maxCount | Max Notification show, drop oldest if exceed limit | number | - | 4.17.0 |
 
