@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
-import type { ConfigConsumerProps } from '..';
+import type { ConfigConsumerProps, RenderEmptyHandler } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -106,7 +106,7 @@ describe('ConfigProvider', () => {
 
   it('render empty', () => {
     let rendered = false;
-    let cacheRenderEmpty;
+    let cacheRenderEmpty: RenderEmptyHandler | undefined;
 
     const App: React.FC = () => {
       const { renderEmpty } = React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -124,13 +124,4 @@ describe('ConfigProvider', () => {
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
   });
-
-  // it('warning support filter level', () => {
-  //   resetWarned();
-  //   const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-  //   render(<ConfigProvider dropdownMatchSelectWidth warning={{ deprecated: false }} />);
-
-  //   expect(errSpy).not.toHaveBeenCalled();
-  // });
 });
