@@ -14,13 +14,13 @@ Before we start implementing, we need to understand a concept: color models. A c
 
 The `RGB` color model represents colors by the combination of three primary colors (red, green, and blue). The value range of each primary color is 0-255, and the combination of the three primary colors can represent 256<sup>3</sup> colors. These colors can form a cube, as shown in the following figure: ![RGB](https://user-images.githubusercontent.com/21119589/266228482-f1ff94b1-e7ca-40c5-8512-1bc5ab79c388.jpg)
 
-In the `RGB` color model, each color can be represented by a triplet `(R, G, B)`, where `R` represents the value of red, `G` represents the value of green, and `B` represents the value of blue. For example, red can be represented as `(255, 0, 0)`, green can be represented as `(0, 255, 0)`, and blue can be represented as `(0, 0, 255)`.
+In the `RGB` color model, each color can be represented by a triplet `(R, G, B)`, where `R` represents the value of red, `G` represents the value of green, and `B` represents the value of blue. For example, red can be represented as `rgb(255, 0, 0)`, green can be represented as `rgb(0, 255, 0)`, and blue can be represented as `rgb(0, 0, 255)`.
 
 ### HSV/HSB Color Model
 
 The `HSV` color model represents colors by hue, saturation, and value. The value range of hue is 0-360, and the value range of saturation and value is 0-100. The `HSV` color model can be represented by a cone, as shown in the following figure: ![HSV](https://user-images.githubusercontent.com/21119589/266231236-d68ad9d7-9654-4bc5-8489-7cc52f2aabb1.png)
 
-In the `HSV` color model, each color can be represented by a triplet `(H, S, V)`, where `H` represents the value of hue, `S` represents the value of saturation, and `V` represents the value of value. For example, red can be represented as `(0, 100, 100)`, green can be represented as `(120, 100, 100)`, and blue can be represented as `(240, 100, 100)`.
+In the `HSV` color model, each color can be represented by a triplet `(H, S, V)`, where `H` represents the value of hue, `S` represents the value of saturation, and `V` represents the value of value. For example, red can be represented as `hsv(0, 100, 100)`, green can be represented as `hsv(120, 100, 100)`, and blue can be represented as `hsv(240, 100, 100)`.
 
 ### HEX Color Model
 

@@ -46,20 +46,18 @@ If the above palettes do not meet your needs, you can choose a main color below,
 
 We provide JavaScript usage for developers.
 
-- **JavaScript**
+```bash
+npm install @ant-design/colors
+```
 
-  ```
-  npm install @ant-design/colors
-  ```
+```js
+import { blue } from '@ant-design/colors';
 
-  ```js
-  import { blue } from '@ant-design/colors';
+console.log(blue); // ['#E6F4FF', '#BAE0FF', '#91CAFF', '#69B1FF', '#4096FF', '#1677FF', '#0958D9', '#003EB3', '#002C8C', '#001D66']
+console.log(blue.primary); // '#1677FF'
+```
 
-  console.log(blue); // ['#E6F4FF', '#BAE0FF', '#91CAFF', '#69B1FF', '#4096FF', '#1677FF', '#0958D9', '#003EB3', '#002C8C', '#001D66']
-  console.log(blue.primary); // '#1677FF'
-  ```
-
-  More APIs: [@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
+More APIs: [@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
 
 ---
 

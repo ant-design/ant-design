@@ -54,20 +54,18 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 我们为程序员提供了色板的 JavaScript 的使用方式。
 
-- **JavaScript**
+```
+npm install @ant-design/colors
+```
 
-  ```
-  npm install @ant-design/colors
-  ```
+```js
+import { blue } from '@ant-design/colors';
 
-  ```js
-  import { blue } from '@ant-design/colors';
+console.log(blue); // ['#E6F4FF', '#BAE0FF', '#91CAFF', '#69B1FF', '#4096FF', '#1677FF', '#0958D9', '#003EB3', '#002C8C', '#001D66']
+console.log(blue.primary); // '#1677FF'
+```
 
-  console.log(blue); // ['#E6F4FF', '#BAE0FF', '#91CAFF', '#69B1FF', '#4096FF', '#1677FF', '#0958D9', '#003EB3', '#002C8C', '#001D66']
-  console.log(blue.primary); // '#1677FF'
-  ```
-
-  更多使用方式：[@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
+更多使用方式：[@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
 
 ---
 
