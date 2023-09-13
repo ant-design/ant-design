@@ -149,12 +149,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtual,
   } = props;
 
-  const warning = devUseWarning();
+  const warning = devUseWarning('Table');
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
       !(typeof rowKey === 'function' && rowKey.length > 1),
-      'Table',
       'usage',
       '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
@@ -385,14 +384,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     }
 
     const { current = 1, total, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
-    warning(current > 0, 'Table', 'usage', '`current` should be positive number.');
+    warning(current > 0, 'usage', '`current` should be positive number.');
 
     // Dynamic table data
     if (mergedData.length < total!) {
       if (mergedData.length > pageSize) {
         warning(
           false,
-          'Table',
           'usage',
           '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
         );

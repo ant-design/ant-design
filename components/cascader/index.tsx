@@ -194,18 +194,12 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Cascader');
 
-    warning(
-      !dropdownClassName,
-      'Cascader',
-      'deprecated',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
     warning(
       !('showArrow' in props),
-      'Cascader',
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );

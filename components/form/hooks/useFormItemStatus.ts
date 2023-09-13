@@ -14,11 +14,10 @@ const useFormItemStatus: UseFormItemStatus = () => {
   const { status, errors = [], warnings = [] } = useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Form.Item');
 
     warning(
       status !== undefined,
-      'Form.Item',
       'usage',
       'Form.Item.useStatus should be used under Form.Item component. For more information: https://u.ant.design/form-item-usestatus',
     );

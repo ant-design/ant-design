@@ -174,7 +174,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Table');
 
     [
       ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
@@ -184,11 +184,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onFilterDropdownVisibleChange,
       ],
     ].forEach(([deprecatedName, newName, prop]) => {
-      warning(
+      warning.deprecated(
         prop === undefined || prop === null,
-        'Table',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated. Please use \`${newName}\` instead.`,
+        deprecatedName as string,
+        newName as string,
       );
     });
   }

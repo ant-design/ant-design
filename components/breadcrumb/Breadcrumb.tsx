@@ -99,24 +99,17 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   const mergedItems = useItems(items, legacyRoutes);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-
-    warning(
-      !legacyRoutes,
-      'Breadcrumb',
-      'deprecated',
-      '`routes` is deprecated. Please use `items` instead.',
-    );
+    const warning = devUseWarning('Breadcrumb');
+    warning.deprecated(!legacyRoutes, 'routes', 'items');
 
     // Deprecated warning for breadcrumb children
     if (!mergedItems || mergedItems.length === 0) {
       const childList = toArray(children);
 
-      warning(
+      warning.deprecated(
         childList.length === 0,
-        'Breadcrumb',
-        'deprecated',
-        '`Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
+        'Breadcrumb.Item and Breadcrumb.Separator',
+        'items',
       );
 
       childList.forEach((element: any) => {
@@ -125,7 +118,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
             element.type &&
               (element.type.__ANT_BREADCRUMB_ITEM === true ||
                 element.type.__ANT_BREADCRUMB_SEPARATOR === true),
-            'Breadcrumb',
             'usage',
             "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
           );

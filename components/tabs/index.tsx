@@ -69,11 +69,10 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const rootPrefixCls = getPrefixCls();
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Tabs');
 
     warning(
       !('onPrevClick' in props) && !('onNextClick' in props),
-      'Tabs',
       'breaking',
       '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
     );
