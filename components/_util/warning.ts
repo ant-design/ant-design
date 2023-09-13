@@ -1,8 +1,14 @@
 import * as React from 'react';
-import rcWarning, { resetWarned } from 'rc-util/lib/warning';
+import rcWarning, { resetWarned as rcResetWarned } from 'rc-util/lib/warning';
 
-export { resetWarned };
 export function noop() {}
+
+let deprecatedWarnList: Record<string, string[]> | null = null;
+
+export function resetWarned() {
+  deprecatedWarnList = null;
+  rcResetWarned();
+}
 
 type Warning = (valid: boolean, component: string, message?: string) => void;
 
@@ -32,7 +38,7 @@ type TypeWarning = (
 ) => void;
 
 export interface WarningContextProps {
-  deprecated?: boolean;
+  strict?: boolean;
 }
 
 export const WarningContext = React.createContext<WarningContextProps>({});
@@ -45,11 +51,33 @@ export const WarningContext = React.createContext<WarningContextProps>({});
 export const devUseWarning: () => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? () => {
-        const { deprecated } = React.useContext(WarningContext);
+        const { strict } = React.useContext(WarningContext);
 
         const typeWarning: TypeWarning = (valid, component, type, message) => {
-          if (deprecated !== false || type !== 'deprecated') {
-            warning(valid, component, message);
+          if (!valid) {
+            if (strict === false && type === 'deprecated') {
+              const existWarning = deprecatedWarnList;
+
+              if (!deprecatedWarnList) {
+                deprecatedWarnList = {};
+              }
+
+              deprecatedWarnList[component] = deprecatedWarnList[component] || [];
+              if (!deprecatedWarnList[component].includes(message || '')) {
+                deprecatedWarnList[component].push(message || '');
+              }
+
+              // Warning for the first time
+              if (!existWarning) {
+                // eslint-disable-next-line no-console
+                console.warn(
+                  '[antd] There exists deprecated usage in your code:',
+                  deprecatedWarnList,
+                );
+              }
+            } else {
+              warning(valid, component, message);
+            }
           }
         };
 
