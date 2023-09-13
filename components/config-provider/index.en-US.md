@@ -13,8 +13,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAA
 This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
 
 ```tsx
-import { ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 // ...
 const Demo: React.FC = () => (
@@ -46,6 +46,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/wave.tsx">Custom Wave</code>
 <code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 <code src="./demo/useConfig.tsx" debug>useConfig</code>
+<code src="./demo/warning.tsx" debug>warning</code>
 
 ## API
 
@@ -66,6 +67,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+| warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
 ### ConfigProvider.config()
 

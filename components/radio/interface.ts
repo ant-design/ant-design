@@ -4,6 +4,7 @@ import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { DisabledType } from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 
+export type { CheckboxRef as RadioRef } from 'rc-checkbox';
 export type RadioGroupButtonStyle = 'outline' | 'solid';
 export type RadioGroupOptionType = 'default' | 'button';
 

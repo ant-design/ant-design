@@ -1,18 +1,16 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 import classNames from 'classnames';
-import * as React from 'react';
 
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-
 import noFound from './noFound';
 import serverError from './serverError';
-import unauthorized from './unauthorized';
-
 import useStyle from './style';
+import unauthorized from './unauthorized';
 
 export const IconMap = {
   success: CheckCircleFilled,
@@ -62,11 +60,16 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
   const className = classNames(`${prefixCls}-icon`);
 
-  warning(
-    !(typeof icon === 'string' && icon.length > 2),
-    'Result',
-    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'Result',
+      'breaking',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+  }
 
   if (ExceptionStatus.includes(`${status}`)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];

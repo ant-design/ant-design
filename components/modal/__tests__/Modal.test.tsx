@@ -117,7 +117,7 @@ describe('Modal', () => {
 
     render(<Modal visible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Modal] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Modal] `visible` will be removed in next major version, please use `open` instead.',
     );
 
     expect(document.querySelector('.ant-modal')).toBeTruthy();

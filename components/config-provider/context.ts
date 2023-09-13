@@ -1,17 +1,19 @@
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
+
+import type { WarningContextProps } from '../_util/warning';
+import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { SpaceProps } from '../space';
-import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
-import type { SizeType } from './SizeContext';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { TabsProps } from '../tabs';
+import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { SizeType } from './SizeContext';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -154,6 +156,8 @@ export interface ConfigConsumerProps {
   datePicker?: ComponentStyleConfig;
 
   wave?: WaveConfig;
+
+  warning?: WarningContextProps;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

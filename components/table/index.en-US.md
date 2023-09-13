@@ -140,6 +140,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
+| virtual | Support virtual list | boolean | - | 5.9.0 |
 
 #### onRow usage
 

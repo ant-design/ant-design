@@ -6,7 +6,7 @@ import Dialog from 'rc-dialog';
 import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
@@ -54,11 +54,16 @@ const Modal: React.FC<ModalProps> = (props) => {
     onOk?.(e);
   };
 
-  warning(
-    !('visible' in props),
-    'Modal',
-    `\`visible\` will be removed in next major version, please use \`open\` instead.`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(
+      !('visible' in props),
+      'Modal',
+      'deprecated',
+      `\`visible\` will be removed in next major version, please use \`open\` instead.`,
+    );
+  }
 
   const {
     prefixCls: customizePrefixCls,
@@ -89,10 +94,6 @@ const Modal: React.FC<ModalProps> = (props) => {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
-
-  if (process.env.NODE_ENV !== 'production') {
-    warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
-  }
 
   const dialogFooter = footer !== null && (
     <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
