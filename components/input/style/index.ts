@@ -329,13 +329,14 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         [`${antCls}-select`]: {
           margin: `-${token.paddingBlock + 1}px -${token.paddingInline}px`,
 
-          [`&${antCls}-select-single:not(${antCls}-select-customize-input)`]: {
-            [`${antCls}-select-selector`]: {
-              backgroundColor: 'inherit',
-              border: `${token.lineWidth}px ${token.lineType} transparent`,
-              boxShadow: 'none',
+          [`&${antCls}-select-single:not(${antCls}-select-customize-input):not(${antCls}-pagination-size-changer)`]:
+            {
+              [`${antCls}-select-selector`]: {
+                backgroundColor: 'inherit',
+                border: `${token.lineWidth}px ${token.lineType} transparent`,
+                boxShadow: 'none',
+              },
             },
-          },
 
           '&-open, &-focused': {
             [`${antCls}-select-selector`]: {
