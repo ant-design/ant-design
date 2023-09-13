@@ -204,7 +204,7 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
-  const { warning } = devUseWarning('Table');
+  const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
     () => getMergedColumns(rawMergedColumns || []),

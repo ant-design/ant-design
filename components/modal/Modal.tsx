@@ -55,9 +55,9 @@ const Modal: React.FC<ModalProps> = (props) => {
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Modal');
+    const warning = devUseWarning('Modal');
 
-    deprecated(!('visible' in props), 'visible', 'open');
+    warning.deprecated(!('visible' in props), 'visible', 'open');
   }
 
   const {

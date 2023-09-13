@@ -223,11 +223,11 @@ const InternalSelect = <
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
-    const { warning, deprecated } = devUseWarning('Select');
+    const warning = devUseWarning('Select');
 
-    deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
-    deprecated(
+    warning.deprecated(
       dropdownMatchSelectWidth === undefined,
       'dropdownMatchSelectWidth',
       'popupMatchSelectWidth',

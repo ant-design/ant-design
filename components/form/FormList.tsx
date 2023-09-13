@@ -37,7 +37,7 @@ const FormList: React.FC<FormListProps> = ({
   ...props
 }) => {
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Form.List');
+    const warning = devUseWarning('Form.List');
 
     warning(
       typeof props.name === 'number' ||

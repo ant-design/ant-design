@@ -107,7 +107,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     getPopupContainer,
   } = config;
 
-  const { warning, deprecated } = devUseWarning('Table');
+  const warning = devUseWarning('Table');
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
@@ -320,7 +320,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
               const keys = Array.from(keySet);
               if (onSelectInvert) {
-                deprecated(false, 'onSelectInvert', 'onChange');
+                warning.deprecated(false, 'onSelectInvert', 'onChange');
                 onSelectInvert(keys);
               }
 

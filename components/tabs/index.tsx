@@ -69,7 +69,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const rootPrefixCls = getPrefixCls();
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Tabs');
+    const warning = devUseWarning('Tabs');
 
     warning(
       !('onPrevClick' in props) && !('onNextClick' in props),

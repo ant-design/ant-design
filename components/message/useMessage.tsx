@@ -123,7 +123,7 @@ export function useInternalMessage(
 ): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
-  const { warning } = devUseWarning('Message');
+  const warning = devUseWarning('Message');
 
   // ================================ API ================================
   const wrapAPI = React.useMemo<MessageInstance>(() => {

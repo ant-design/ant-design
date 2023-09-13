@@ -56,9 +56,9 @@ const Typography = React.forwardRef<
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Typography');
+    const warning = devUseWarning('Typography');
 
-    deprecated(!setContentRef, 'setContentRef', 'ref');
+    warning.deprecated(!setContentRef, 'setContentRef', 'ref');
   }
 
   const prefixCls = getPrefixCls('typography', customizePrefixCls);

@@ -20,7 +20,7 @@ const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {
   let component: keyof JSX.IntrinsicElements;
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Typography.Title');
+    const warning = devUseWarning('Typography.Title');
 
     warning(
       TITLE_ELE_LIST.includes(level),

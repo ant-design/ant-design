@@ -79,7 +79,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Collapse');
+    const warning = devUseWarning('Collapse');
 
     // Warning if use legacy type `expandIconPosition`
     warning(

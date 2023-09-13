@@ -57,7 +57,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const [locale] = useLocale('QRCode');
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('QRCode');
+    const warning = devUseWarning('QRCode');
 
     warning(!!value, 'usage', 'need to receive `value` props');
 

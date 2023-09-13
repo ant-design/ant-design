@@ -184,7 +184,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Button');
+    const warning = devUseWarning('Button');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),

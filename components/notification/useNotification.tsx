@@ -110,7 +110,7 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
-  const { warning } = devUseWarning('Notification');
+  const warning = devUseWarning('Notification');
 
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {

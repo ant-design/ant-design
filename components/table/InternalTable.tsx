@@ -148,7 +148,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtual,
   } = props;
 
-  const { warning } = devUseWarning('Table');
+  const warning = devUseWarning('Table');
 
   if (process.env.NODE_ENV !== 'production') {
     warning(

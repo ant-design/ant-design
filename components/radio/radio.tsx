@@ -23,7 +23,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Radio');
+    const warning = devUseWarning('Radio');
 
     warning(!('optionType' in props), 'usage', '`optionType` is only support in Radio.Group.');
   }

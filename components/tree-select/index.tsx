@@ -121,7 +121,7 @@ const InternalTreeSelect = <
   } = React.useContext(ConfigContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning, deprecated } = devUseWarning('TreeSelect');
+    const warning = devUseWarning('TreeSelect');
 
     warning(
       multiple !== false || !treeCheckable,
@@ -129,9 +129,9 @@ const InternalTreeSelect = <
       '`multiple` will always be `true` when `treeCheckable` is true',
     );
 
-    deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
-    deprecated(
+    warning.deprecated(
       dropdownMatchSelectWidth === undefined,
       'dropdownMatchSelectWidth',
       'popupMatchSelectWidth',

@@ -57,7 +57,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Switch');
+    const warning = devUseWarning('Switch');
 
     warning(
       'checked' in props || !('value' in props),

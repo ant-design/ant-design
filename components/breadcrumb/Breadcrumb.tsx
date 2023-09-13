@@ -99,14 +99,18 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   const mergedItems = useItems(items, legacyRoutes);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning, deprecated } = devUseWarning('Breadcrumb');
-    deprecated(!legacyRoutes, 'routes', 'items');
+    const warning = devUseWarning('Breadcrumb');
+    warning.deprecated(!legacyRoutes, 'routes', 'items');
 
     // Deprecated warning for breadcrumb children
     if (!mergedItems || mergedItems.length === 0) {
       const childList = toArray(children);
 
-      deprecated(childList.length === 0, 'Breadcrumb.Item and Breadcrumb.Separator', 'items');
+      warning.deprecated(
+        childList.length === 0,
+        'Breadcrumb.Item and Breadcrumb.Separator',
+        'items',
+      );
 
       childList.forEach((element: any) => {
         if (element) {

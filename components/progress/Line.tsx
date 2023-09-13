@@ -99,9 +99,9 @@ const Line: React.FC<LineProps> = (props) => {
   const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Progress');
+    const warning = devUseWarning('Progress');
 
-    deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
+    warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
   const percentStyle: React.CSSProperties = {

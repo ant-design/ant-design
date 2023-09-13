@@ -6,7 +6,7 @@ import type { FormProps } from '../Form';
 const names: Record<string, number> = {};
 
 export default function useFormWarning({ name }: FormProps) {
-  const { warning } = devUseWarning('Form');
+  const warning = devUseWarning('Form');
 
   useEffect(() => {
     if (name) {

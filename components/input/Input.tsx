@@ -116,7 +116,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Input');
+    const warning = devUseWarning('Input');
 
     useEffect(() => {
       if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {

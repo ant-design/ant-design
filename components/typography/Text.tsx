@@ -24,7 +24,7 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
   }, [ellipsis]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Typography.Text');
+    const warning = devUseWarning('Typography.Text');
 
     warning(
       typeof ellipsis !== 'object' ||

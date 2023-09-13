@@ -50,9 +50,9 @@ const Group: React.FC<GroupProps> = (props) => {
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Input.Group');
+    const warning = devUseWarning('Input.Group');
 
-    deprecated(false, 'Input.Group', 'Space.Compact');
+    warning.deprecated(false, 'Input.Group', 'Space.Compact');
   }
 
   return wrapSSR(

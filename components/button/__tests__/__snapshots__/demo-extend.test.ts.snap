@@ -542,7 +542,47 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/button/demo/danger.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/button/demo/danger.tsx extend context correctly 2`] = `
+[
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  "The above error occurred in the <Divider> component:
+
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/divider/index.tsx:22:54)
+    at App (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/demo/debug-icon.tsx:7:35)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+  "The above error occurred in the <InternalFormItem> component:
+
+    at name (/Users/tangwenhui/kiner/learning/github/ant-design/components/form/FormItem/index.tsx:96:5)
+    at App
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+  "The above error occurred in the <Radio> component:
+
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/radio/radio.tsx:17:30)
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/radio/radioButton.tsx:11:34)
+    at div
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/radio/group.tsx:14:45)
+    at App (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/demo/debug-icon.tsx:7:35)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+]
+`;
 
 exports[`renders components/button/demo/debug-block.tsx extend context correctly 1`] = `
 <div
@@ -1935,7 +1975,25 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders components/button/demo/icon.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/button/demo/icon.tsx extend context correctly 2`] = `
+[
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  "The above error occurred in the <ButtonGroup> component:
+
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/button-group.tsx:20:45)
+    at CustomGroup
+    at App
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+]
+`;
 
 exports[`renders components/button/demo/legacy-group.tsx extend context correctly 1`] = `
 Array [
@@ -2517,7 +2575,72 @@ exports[`renders components/button/demo/loading.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders components/button/demo/loading.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/button/demo/loading.tsx extend context correctly 2`] = `
+[
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  "The above error occurred in the <Divider> component:
+
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/divider/index.tsx:22:54)
+    at App (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/demo/size.tsx:7:35)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+  "The above error occurred in the <ForwardRef> component:
+
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/menu/menu.tsx:42:26)
+    at /Users/tangwenhui/kiner/learning/github/ant-design/components/menu/index.tsx:47:25
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/Compact.tsx:47:73)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/components/menu/OverrideContext.tsx:23:11)
+    at /Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-dropdown/lib/Overlay.js:11:23
+    at /Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@rc-component/trigger/lib/Popup/PopupContent.js:10:23
+    at div
+    at DomWrapper (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-motion/lib/DomWrapper.js:20:34)
+    at /Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-motion/lib/CSSMotion.js:41:32
+    at DomWrapper (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-resize-observer/lib/SingleObserver/DomWrapper.js:21:34)
+    at SingleObserver (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-resize-observer/lib/SingleObserver/index.js:17:24)
+    at ResizeObserver (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-resize-observer/lib/index.js:24:24)
+    at MockPortal (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@rc-component/trigger/lib/mock.js:13:19)
+    at /Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@rc-component/trigger/lib/Popup/index.js:22:21
+    at /Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@rc-component/trigger/lib/index.js:42:34
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/tests/__mocks__/@rc-component/trigger.tsx:10:25)
+    at Dropdown (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/rc-dropdown/lib/Dropdown.js:22:28)
+    at menu (/Users/tangwenhui/kiner/learning/github/ant-design/components/dropdown/dropdown.tsx:83:5)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/Compact.tsx:60:3)
+    at div
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/Compact.tsx:67:62)
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/dropdown/dropdown-button.tsx:41:13)
+    at div
+    at _reactNode (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/Item.tsx:12:1)
+    at div
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/index.tsx:34:69)
+    at App
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+  "The above error occurred in the <Radio> component:
+
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/radio/radio.tsx:17:30)
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/radio/radioButton.tsx:11:34)
+    at div
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/radio/group.tsx:14:45)
+    at App (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/demo/size.tsx:7:35)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+]
+`;
 
 exports[`renders components/button/demo/multiple.tsx extend context correctly 1`] = `
 <div

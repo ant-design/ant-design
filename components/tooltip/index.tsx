@@ -216,7 +216,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   } = React.useContext(ConfigContext);
 
   // ============================== Ref ===============================
-  const { deprecated, warning } = devUseWarning('Tooltip');
+  const warning = devUseWarning('Tooltip');
 
   const tooltipRef = React.useRef<RcTooltipRef>(null);
 
@@ -227,7 +227,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   React.useImperativeHandle(ref, () => ({
     forceAlign,
     forcePopupAlign: () => {
-      deprecated(false, 'forcePopupAlign', 'forceAlign');
+      warning.deprecated(false, 'forcePopupAlign', 'forceAlign');
       forceAlign();
     },
   }));
@@ -241,7 +241,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       ['afterVisibleChange', 'afterOpenChange'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
     ].forEach(([deprecatedName, newName]) => {
-      deprecated(!(deprecatedName in props), deprecatedName, newName);
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     warning(

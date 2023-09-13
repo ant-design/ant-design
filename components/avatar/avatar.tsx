@@ -134,7 +134,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   }, [screens, size]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Avatar');
+    const warning = devUseWarning('Avatar');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),

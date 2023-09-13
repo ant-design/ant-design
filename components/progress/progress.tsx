@@ -123,10 +123,10 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning, deprecated } = devUseWarning('Progress');
+    const warning = devUseWarning('Progress');
 
-    deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
-    deprecated(!('width' in props), 'width', 'size');
+    warning.deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
+    warning.deprecated(!('width' in props), 'width', 'size');
 
     if ((type === 'circle' || type === 'dashboard') && Array.isArray(size)) {
       warning(
@@ -137,7 +137,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     }
 
     if (props.success && 'progress' in props.success) {
-      deprecated(false, 'success.progress', 'success.percent');
+      warning.deprecated(false, 'success.progress', 'success.percent');
     }
   }
 

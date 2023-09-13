@@ -111,7 +111,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
   const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Spin');
+    const warning = devUseWarning('Spin');
 
     warning(!tip || isNestedPattern, 'usage', '`tip` only work in nest pattern.');
   }

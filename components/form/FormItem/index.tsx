@@ -129,7 +129,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ========================= Warn =========================
-  const { warning } = devUseWarning('Form.Item');
+  const warning = devUseWarning('Form.Item');
 
   if (process.env.NODE_ENV !== 'production') {
     warning(name !== null, 'usage', '`null` is passed as `name` property');

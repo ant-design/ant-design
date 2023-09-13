@@ -32,9 +32,9 @@ export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
   ({ addon, renderExtraFooter, ...restProps }, ref) => {
     if (process.env.NODE_ENV !== 'production') {
-      const { deprecated } = devUseWarning('TimePicker');
+      const warning = devUseWarning('TimePicker');
 
-      deprecated(!addon, 'addon', 'renderExtraFooter');
+      warning.deprecated(!addon, 'addon', 'renderExtraFooter');
     }
 
     const internalRenderExtraFooter = React.useMemo(() => {

@@ -120,8 +120,8 @@ const Alert: React.FC<AlertProps> = (props) => {
   const [closed, setClosed] = React.useState(false);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Alert');
-    deprecated(!closeText, 'closeText', 'closeIcon');
+    const warning = devUseWarning('Alert');
+    warning.deprecated(!closeText, 'closeText', 'closeIcon');
   }
 
   const ref = React.useRef<HTMLDivElement>(null);

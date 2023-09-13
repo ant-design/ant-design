@@ -42,9 +42,9 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Breadcrumb.Item');
+    const warning = devUseWarning('Breadcrumb.Item');
 
-    deprecated(!('overlay' in props), 'overlay', 'menu');
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
   }
 
   /** If overlay is have Wrap a Dropdown */

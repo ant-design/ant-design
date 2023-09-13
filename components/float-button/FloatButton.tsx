@@ -85,7 +85,7 @@ const FloatButton: React.ForwardRefRenderFunction<
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('FloatButton');
+    const warning = devUseWarning('FloatButton');
 
     warning(
       !(shape === 'circle' && description),

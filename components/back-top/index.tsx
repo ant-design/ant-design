@@ -50,9 +50,9 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('BackTop');
+    const warning = devUseWarning('BackTop');
 
-    deprecated(false, 'BackTop', 'FloatButton.BackTop');
+    warning.deprecated(false, 'BackTop', 'FloatButton.BackTop');
   }
 
   React.useEffect(() => {

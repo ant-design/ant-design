@@ -62,7 +62,7 @@ export function ConfirmContent(
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Modal');
+    const warning = devUseWarning('Modal');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
@@ -189,9 +189,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Modal');
+    const warning = devUseWarning('Modal');
 
-    deprecated(visible === undefined, 'visible', 'open');
+    warning.deprecated(visible === undefined, 'visible', 'open');
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;

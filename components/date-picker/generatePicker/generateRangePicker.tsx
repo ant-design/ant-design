@@ -78,9 +78,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
-      const { deprecated } = devUseWarning('DatePicker.RangePicker');
+      const warning = devUseWarning('DatePicker.RangePicker');
 
-      deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+      warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
     }
 
     // ===================== Size =====================

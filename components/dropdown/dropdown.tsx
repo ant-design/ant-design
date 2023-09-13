@@ -109,17 +109,17 @@ const Dropdown: CompoundedComponent = (props) => {
   } = React.useContext(ConfigContext);
 
   // Warning for deprecated usage
-  const { warning, deprecated } = devUseWarning('Dropdown');
+  const warning = devUseWarning('Dropdown');
 
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      deprecated(!(deprecatedName in props), deprecatedName, newName);
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    deprecated(!('overlay' in props), 'overlay', 'menu');
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -160,7 +160,7 @@ const Dropdown: CompoundedComponent = (props) => {
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      deprecated(!(deprecatedName in props), deprecatedName, newName);
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 

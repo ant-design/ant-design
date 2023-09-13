@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-type TypeWarning = (
+type BaseTypeWarning = (
   valid: boolean,
   /**
    * - deprecated: Some API will be removed in future but still support now.
@@ -30,9 +30,8 @@ type TypeWarning = (
   message?: string,
 ) => void;
 
-type WrapperWarning = {
+type TypeWarning = BaseTypeWarning & {
   deprecated: (valid: boolean, oldProp: string, newProp: string, message?: string) => void;
-  warning: TypeWarning;
 };
 
 export interface WarningContextProps {
@@ -46,7 +45,7 @@ export const WarningContext = React.createContext<WarningContextProps>({});
  * since this is only used in development.
  * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition
  */
-export const devUseWarning: (component: string) => WrapperWarning =
+export const devUseWarning: (component: string) => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? (component: string) => {
         const { deprecated } = React.useContext(WarningContext);
@@ -57,23 +56,24 @@ export const devUseWarning: (component: string) => WrapperWarning =
           }
         };
 
-        return {
-          deprecated: (valid, oldProp, newProp, message = '') =>
-            typeWarning(
-              valid,
-              'deprecated',
-              `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${
-                message ? ` ${message}` : ''
-              }`,
-            ),
-          warning: typeWarning,
+        typeWarning.deprecated = (valid, oldProp, newProp, message) => {
+          typeWarning(
+            valid,
+            'deprecated',
+            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${
+              message ? ` ${message}` : ''
+            }`,
+          );
         };
+
+        return typeWarning;
       }
-    : () => ({
-        deprecated: noop,
-        usage: noop,
-        breaking: noop,
-        warning: noop,
-      });
+    : () => {
+        const noopWarning: TypeWarning = () => {};
+
+        noopWarning.deprecated = noop;
+
+        return noopWarning;
+      };
 
 export default warning;

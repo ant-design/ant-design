@@ -94,7 +94,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('FloatButton.Group');
+    const warning = devUseWarning('FloatButton.Group');
 
     warning(
       !('open' in props) || !!trigger,

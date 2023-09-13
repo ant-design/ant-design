@@ -125,12 +125,12 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const { deprecated } = devUseWarning('Calendar');
+      const warning = devUseWarning('Calendar');
 
-      deprecated(!dateFullCellRender, 'dateFullCellRender', 'fullCellRender');
-      deprecated(!dateCellRender, 'dateCellRender', 'cellRender');
-      deprecated(!monthFullCellRender, 'monthFullCellRender', 'fullCellRender');
-      deprecated(!monthCellRender, 'monthCellRender', 'cellRender');
+      warning.deprecated(!dateFullCellRender, 'dateFullCellRender', 'fullCellRender');
+      warning.deprecated(!dateCellRender, 'dateCellRender', 'cellRender');
+      warning.deprecated(!monthFullCellRender, 'monthFullCellRender', 'fullCellRender');
+      warning.deprecated(!monthCellRender, 'monthCellRender', 'cellRender');
     }
 
     // ====================== State =======================

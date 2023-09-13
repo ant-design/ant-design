@@ -14,7 +14,7 @@ const useFormItemStatus: UseFormItemStatus = () => {
   const { status, errors = [], warnings = [] } = useContext(FormItemInputContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('Form.Item');
+    const warning = devUseWarning('Form.Item');
 
     warning(
       status !== undefined,

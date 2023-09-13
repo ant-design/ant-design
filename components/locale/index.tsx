@@ -69,7 +69,7 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning } = devUseWarning('LocaleProvider');
+    const warning = devUseWarning('LocaleProvider');
 
     warning(
       _ANT_MARK__ === ANT_MARK,

@@ -194,9 +194,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const { warning, deprecated } = devUseWarning('Cascader');
+    const warning = devUseWarning('Cascader');
 
-    deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
     warning(
       !('showArrow' in props),

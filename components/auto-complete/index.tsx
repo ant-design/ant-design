@@ -111,9 +111,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const { warning, deprecated } = devUseWarning('AutoComplete');
+    const warning = devUseWarning('AutoComplete');
 
-    deprecated(!('dataSource' in props), 'dataSource', 'options');
+    warning.deprecated(!('dataSource' in props), 'dataSource', 'options');
 
     warning(
       !customizeInput || !('size' in props),
@@ -121,7 +121,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       'You need to control style self instead of setting `size` when using customize input.',
     );
 
-    deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
   }
 
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
