@@ -21,6 +21,7 @@ import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import type { TooltipProps } from '../tooltip';
 import renderExpandIcon from './ExpandIcon';
+import useContainerWidth from './hooks/useContainerWidth';
 import type { FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -218,6 +219,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const internalRefs = {
     body: React.useRef<HTMLDivElement>(),
   };
+
+  // ============================ Width =============================
+  const getContainerWidth = useContainerWidth(prefixCls);
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
@@ -593,6 +597,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
           transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+          getContainerWidth={getContainerWidth}
         />
         {bottomPaginationNode}
       </Spin>

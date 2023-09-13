@@ -12,7 +12,7 @@ interface RecordType {
   address3: string;
 }
 
-const columns: TableProps<RecordType>['columns'] = [
+const fixedColumns: TableProps<RecordType>['columns'] = [
   {
     title: 'ID',
     dataIndex: 'id',
@@ -75,6 +75,24 @@ const columns: TableProps<RecordType>['columns'] = [
   },
 ];
 
+const columns: TableProps<RecordType>['columns'] = [
+  {
+    title: 'ID',
+    dataIndex: 'id',
+    width: 100,
+  },
+  {
+    title: 'FistName',
+    dataIndex: 'firstName',
+    width: 120,
+  },
+  {
+    title: 'LastName',
+    dataIndex: 'lastName',
+    width: 120,
+  },
+];
+
 const data: RecordType[] = new Array(10000).fill(null).map((_, index) => ({
   id: index,
   firstName: `First_${index.toString(16)}`,
@@ -86,17 +104,22 @@ const data: RecordType[] = new Array(10000).fill(null).map((_, index) => ({
 }));
 
 const App = () => {
+  const [fixed, setFixed] = React.useState(true);
   const [bordered, setBordered] = React.useState(true);
   const [expanded, setExpanded] = React.useState(false);
   const [empty, setEmpty] = React.useState(false);
 
-  const mergedColumns = React.useMemo<typeof columns>(() => {
-    if (!expanded) {
+  const mergedColumns = React.useMemo<typeof fixedColumns>(() => {
+    if (!fixed) {
       return columns;
     }
 
-    return columns.map((col) => ({ ...col, onCell: undefined }));
-  }, [expanded]);
+    if (!expanded) {
+      return fixedColumns;
+    }
+
+    return fixedColumns.map((col) => ({ ...col, onCell: undefined }));
+  }, [expanded, fixed]);
 
   const expandableProps = React.useMemo<TableProps<RecordType>['expandable']>(() => {
     if (!expanded) {
@@ -119,6 +142,12 @@ const App = () => {
             onChange={() => setBordered(!bordered)}
             checkedChildren="Bordered"
             unCheckedChildren="Bordered"
+          />
+          <Switch
+            checked={fixed}
+            onChange={() => setFixed(!fixed)}
+            checkedChildren="Fixed"
+            unCheckedChildren="Fixed"
           />
           <Switch
             checked={expanded}
