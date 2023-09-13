@@ -30,7 +30,7 @@ describe('Table.Virtual', () => {
 
   // warning from `rc-table`
   it('warning if no scroll', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     render(<Table virtual />);
 
     expect(errSpy).toHaveBeenCalledWith('Warning: `scroll.x` in virtual table must be number.');

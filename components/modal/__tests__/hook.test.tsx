@@ -456,7 +456,7 @@ describe('Modal.hook', () => {
   });
 
   it('esc', async () => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
 
     let lastResult: boolean | null = null;
 

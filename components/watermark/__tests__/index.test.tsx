@@ -1,4 +1,5 @@
 import React from 'react';
+import { vi } from 'vitest';
 
 import Watermark from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -20,7 +21,7 @@ describe('Watermark', () => {
   });
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
   });
 
   afterAll(() => {
@@ -28,7 +29,8 @@ describe('Watermark', () => {
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
   });
 
   it('The watermark should render successfully', () => {
@@ -87,7 +89,6 @@ describe('Watermark', () => {
   });
 
   it('MutationObserver should work properly', async () => {
-    vi.useFakeTimers();
     const { container } = render(<Watermark className="watermark" content="MutationObserver" />);
     const target = container.querySelector<HTMLDivElement>('.watermark div');
     await waitFakeTimer();
@@ -97,7 +98,6 @@ describe('Watermark', () => {
   });
 
   it('Observe the modification of style', async () => {
-    vi.useFakeTimers();
     const { container } = render(
       <Watermark offset={[-200, -200]} className="watermark" content="MutationObserver" />,
     );
@@ -139,7 +139,7 @@ describe('Watermark', () => {
   });
 
   it('should not crash if content is empty string', async () => {
-    const spy = jest.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
+    const spy = vi.spyOn(CanvasRenderingContext2D.prototype, 'drawImage');
     render(<Watermark content="" className="watermark" />);
     await waitFakeTimer();
     expect(spy).not.toHaveBeenCalledWith(expect.anything(), 0, 0);

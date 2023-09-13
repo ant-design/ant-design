@@ -41,6 +41,9 @@ export const commonConfig: UserConfig = {
   test: {
     testTimeout: 5000,
     maxThreads: 4,
+    logHeapUsage: true,
+    useAtomics: true,
+    reporters: ['dot'],
   },
 };
 

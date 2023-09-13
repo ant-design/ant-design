@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
+import '@testing-library/jest-dom/vitest';
 import util from 'node:util';
-import type { TestingLibraryMatchers } from '@testing-library/jest-dom/matchers';
-import matchers from '@testing-library/jest-dom/matchers';
 import React from 'react';
 import { expect, vi } from 'vitest';
 
@@ -11,12 +10,10 @@ import { defaultConfig } from '../components/theme/internal';
 console.log('Current React Version:', React.version);
 
 declare module 'vitest' {
-  interface Assertion<T = any> extends jest.Matchers<void, T>, TestingLibraryMatchers<T, void> {
+  interface Assertion<T = any> extends jest.Matchers<void, T> {
     toHaveNoViolations(): void;
   }
 }
-
-expect.extend(matchers);
 
 const originConsoleErr = console.error;
 

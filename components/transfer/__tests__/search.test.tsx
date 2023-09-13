@@ -1,5 +1,6 @@
-import { render as testLibRender } from '@testing-library/react';
 import React from 'react';
+import { render as testLibRender } from '@testing-library/react';
+
 import { fireEvent, render } from '../../../tests/utils';
 import Transfer from '../index';
 import Search from '../search';
@@ -87,7 +88,7 @@ describe('Transfer.Search', () => {
   });
 
   it('The filterOption parameter is correct when use input in search box', () => {
-    const filterOption = jest.fn();
+    const filterOption = vi.fn();
 
     const { container } = testLibRender(
       <Transfer
