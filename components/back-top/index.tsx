@@ -8,7 +8,7 @@ import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import { deprecatedWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -50,9 +50,9 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('BackTop');
+    const { deprecated } = devUseWarning('BackTop');
 
-    deprecatedWarningFn(false, 'BackTop', 'FloatButton.BackTop');
+    deprecated(false, 'BackTop', 'FloatButton.BackTop');
   }
 
   React.useEffect(() => {

@@ -9,7 +9,7 @@ import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './hooks/useItems';
@@ -72,25 +72,23 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ======================== Warning ==========================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const { warning } = devUseWarning('Menu');
 
     warning(
       !('inlineCollapsed' in props && mode !== 'inline'),
-      'Menu',
       'usage',
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
     warning(
       !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-      'Menu',
       'usage',
       '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
 
-    const deprecatedWarningFn = deprecatedWarning('Menu');
+    const { deprecated } = devUseWarning('Menu');
 
-    deprecatedWarningFn('items' in props && !children, 'children', 'items');
+    deprecated('items' in props && !children, 'children', 'items');
   }
 
   overrideObj.validator?.({ mode });

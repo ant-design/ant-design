@@ -11,7 +11,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 import type { PickerProps, PickerTimeProps } from '.';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import { deprecatedWarning, devUseWarning } from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
@@ -106,17 +106,16 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         // =================== Warning =====================
         if (process.env.NODE_ENV !== 'production') {
-          const warning = devUseWarning();
+          const { warning } = devUseWarning(displayName!);
 
           warning(
             picker !== 'quarter',
-            displayName!,
             'deprecated',
             `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
           );
 
-          const deprecatedWarningFn = deprecatedWarning(displayName || 'DatePicker');
-          deprecatedWarningFn(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+          const { deprecated } = devUseWarning(displayName || 'DatePicker');
+          deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
         }
 
         // ===================== Size =====================

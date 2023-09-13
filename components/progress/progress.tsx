@@ -6,7 +6,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Circle from './Circle';
@@ -123,23 +123,21 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-    const deprecatedWarningFn = deprecatedWarning('Progress');
+    const { warning, deprecated } = devUseWarning('Progress');
 
-    deprecatedWarningFn(!('successPercent' in props), 'successPercent', 'success.percent');
-    deprecatedWarningFn(!('width' in props), 'width', 'size');
+    deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
+    deprecated(!('width' in props), 'width', 'size');
 
     if ((type === 'circle' || type === 'dashboard') && Array.isArray(size)) {
       warning(
         false,
-        'Progress',
         'usage',
         'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
       );
     }
 
     if (props.success && 'progress' in props.success) {
-      deprecatedWarningFn(false, 'success.progress', 'success.percent');
+      deprecated(false, 'success.progress', 'success.percent');
     }
   }
 

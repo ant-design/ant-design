@@ -21,7 +21,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 type TypeWarning = (
   valid: boolean,
-  component: string,
   /**
    * - deprecated: Some API will be removed in future but still support now.
    * - usage: Some API usage is not correct.
@@ -30,6 +29,11 @@ type TypeWarning = (
   type: 'deprecated' | 'usage' | 'breaking',
   message?: string,
 ) => void;
+
+type WrapperWarning = {
+  deprecated: (valid: boolean, oldProp: string, newProp: string, message?: string) => void;
+  warning: TypeWarning;
+};
 
 export interface WarningContextProps {
   deprecated?: boolean;
@@ -42,35 +46,34 @@ export const WarningContext = React.createContext<WarningContextProps>({});
  * since this is only used in development.
  * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition
  */
-export const devUseWarning: () => TypeWarning =
+export const devUseWarning: (component: string) => WrapperWarning =
   process.env.NODE_ENV !== 'production'
-    ? () => {
+    ? (component: string) => {
         const { deprecated } = React.useContext(WarningContext);
 
-        const typeWarning: TypeWarning = (valid, component, type, message) => {
+        const typeWarning: TypeWarning = (valid, type, message) => {
           if (deprecated !== false || type !== 'deprecated') {
             warning(valid, component, message);
           }
         };
 
-        return typeWarning;
+        return {
+          deprecated: (valid, oldProp, newProp, message = '') =>
+            typeWarning(
+              valid,
+              'deprecated',
+              `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${
+                message ? ` ${message}` : ''
+              }`,
+            ),
+          warning: typeWarning,
+        };
       }
-    : () => noop;
-
-export type DeprecatedWarning = (
-  component: string,
-) => (valid: boolean, oldProp: string, newProp: string) => void;
-
-export const deprecatedWarning: DeprecatedWarning = (component: string) => {
-  const warningFn = devUseWarning();
-  return (valid: boolean, oldProp: string, newProp: string) => {
-    warningFn(
-      valid,
-      component,
-      'deprecated',
-      `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.`,
-    );
-  };
-};
+    : () => ({
+        deprecated: noop,
+        usage: noop,
+        breaking: noop,
+        warning: noop,
+      });
 
 export default warning;

@@ -17,7 +17,7 @@ import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -216,8 +216,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   } = React.useContext(ConfigContext);
 
   // ============================== Ref ===============================
-  const warning = devUseWarning();
-  const deprecatedWarningFn = deprecatedWarning('Tooltip');
+  const { deprecated, warning } = devUseWarning('Tooltip');
 
   const tooltipRef = React.useRef<RcTooltipRef>(null);
 
@@ -228,7 +227,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   React.useImperativeHandle(ref, () => ({
     forceAlign,
     forcePopupAlign: () => {
-      deprecatedWarningFn(false, 'forcePopupAlign', 'forceAlign');
+      deprecated(false, 'forcePopupAlign', 'forceAlign');
       forceAlign();
     },
   }));
@@ -242,19 +241,17 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       ['afterVisibleChange', 'afterOpenChange'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
     ].forEach(([deprecatedName, newName]) => {
-      deprecatedWarningFn(!(deprecatedName in props), deprecatedName, newName);
+      deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     warning(
       !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
-      'Tooltip',
       'usage',
       '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
     );
 
     warning(
       !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
-      'Tooltip',
       'deprecated',
       '`arrowPointAtCenter` in `arrow` is deprecated. Please use `pointAtCenter` instead.',
     );

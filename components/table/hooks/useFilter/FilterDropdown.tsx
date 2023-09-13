@@ -6,7 +6,7 @@ import isEqual from 'rc-util/lib/isEqual';
 
 import type { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
-import { deprecatedWarning } from '../../../_util/warning';
+import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
@@ -174,7 +174,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Table');
+    const { deprecated } = devUseWarning('Table');
 
     [
       ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
@@ -184,11 +184,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onFilterDropdownVisibleChange,
       ],
     ].forEach(([deprecatedName, newName, prop]) => {
-      deprecatedWarningFn(
-        prop === undefined || prop === null,
-        deprecatedName as string,
-        newName as string,
-      );
+      deprecated(prop === undefined || prop === null, deprecatedName as string, newName as string);
     });
   }
 

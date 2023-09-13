@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 
-import { deprecatedWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -56,9 +56,9 @@ const Typography = React.forwardRef<
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Typography');
+    const { deprecated } = devUseWarning('Typography');
 
-    deprecatedWarningFn(!setContentRef, 'setContentRef', 'ref');
+    deprecated(!setContentRef, 'setContentRef', 'ref');
   }
 
   const prefixCls = getPrefixCls('typography', customizePrefixCls);

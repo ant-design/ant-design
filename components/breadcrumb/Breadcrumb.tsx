@@ -5,7 +5,7 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
@@ -99,19 +99,14 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   const mergedItems = useItems(items, legacyRoutes);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-    const deprecatedWarningFn = deprecatedWarning('Breadcrumb');
-    deprecatedWarningFn(!legacyRoutes, 'routes', 'items');
+    const { warning, deprecated } = devUseWarning('Breadcrumb');
+    deprecated(!legacyRoutes, 'routes', 'items');
 
     // Deprecated warning for breadcrumb children
     if (!mergedItems || mergedItems.length === 0) {
       const childList = toArray(children);
 
-      deprecatedWarningFn(
-        childList.length === 0,
-        'Breadcrumb.Item and Breadcrumb.Separator',
-        'items',
-      );
+      deprecated(childList.length === 0, 'Breadcrumb.Item and Breadcrumb.Separator', 'items');
 
       childList.forEach((element: any) => {
         if (element) {
@@ -119,7 +114,6 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
             element.type &&
               (element.type.__ANT_BREADCRUMB_ITEM === true ||
                 element.type.__ANT_BREADCRUMB_SEPARATOR === true),
-            'Breadcrumb',
             'usage',
             "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
           );

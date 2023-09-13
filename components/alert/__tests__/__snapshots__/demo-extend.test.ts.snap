@@ -1048,17 +1048,51 @@ exports[`renders components/alert/demo/description.tsx extend context correctly 
 exports[`renders components/alert/demo/description.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
-<button
-  class="ant-btn ant-btn-default ant-btn-dangerous"
-  type="button"
+<div
+  class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+  data-show="true"
+  role="alert"
 >
-  <span>
-    Click me to throw a error
-  </span>
-</button>
+  <div
+    class="ant-alert-content"
+  >
+    <div
+      class="ant-alert-message"
+    >
+      TypeError: warning is not a function
+    </div>
+    <div
+      class="ant-alert-description"
+    >
+      <pre
+        style="font-size: 0.9em; overflow-x: auto;"
+      >
+            at loading (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/button.tsx:97:5)
+    at ThrowError (/Users/tangwenhui/kiner/learning/github/ant-design/components/alert/demo/error-boundary.tsx:6:37)
+    at ErrorBoundary (/Users/tangwenhui/kiner/learning/github/ant-design/components/alert/error-boundary.tsx:15:19)
+    at App
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+      </pre>
+    </div>
+  </div>
+</div>
 `;
 
-exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 2`] = `
+[
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  "The above error occurred in the <Button> component:
+
+    at loading (/Users/tangwenhui/kiner/learning/github/ant-design/components/button/button.tsx:97:5)
+    at ThrowError (/Users/tangwenhui/kiner/learning/github/ant-design/components/alert/demo/error-boundary.tsx:6:37)
+    at ErrorBoundary (/Users/tangwenhui/kiner/learning/github/ant-design/components/alert/error-boundary.tsx:15:19)
+    at App
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+React will try to recreate this component tree from scratch using the error boundary you provided, ErrorBoundary.",
+]
+`;
 
 exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 <div
@@ -1446,7 +1480,24 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders components/alert/demo/icon.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/alert/demo/icon.tsx extend context correctly 2`] = `
+[
+  [Error: Uncaught [TypeError: warning is not a function]],
+  [Error: Uncaught [TypeError: warning is not a function]],
+  "The above error occurred in the <Switch> component:
+
+    at customizePrefixCls (/Users/tangwenhui/kiner/learning/github/ant-design/components/switch/index.tsx:49:16)
+    at div
+    at _reactNode (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/Item.tsx:12:1)
+    at div
+    at useContext (/Users/tangwenhui/kiner/learning/github/ant-design/components/space/index.tsx:34:69)
+    at App (/Users/tangwenhui/kiner/learning/github/ant-design/components/alert/demo/smooth-closed.tsx:5:41)
+    at children (/Users/tangwenhui/kiner/learning/github/ant-design/node_modules/@ant-design/cssinjs/lib/StyleContext.js:69:24)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.",
+]
+`;
 
 exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 <div

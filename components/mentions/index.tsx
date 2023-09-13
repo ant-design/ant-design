@@ -12,7 +12,7 @@ import { composeRef } from 'rc-util/lib/ref';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { deprecatedWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
@@ -88,9 +88,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Mentions');
+    const { deprecated } = devUseWarning('Mentions');
 
-    deprecatedWarningFn(!children, 'Mentions.Option', 'options');
+    deprecated(!children, 'Mentions.Option', 'options');
   }
 
   const {

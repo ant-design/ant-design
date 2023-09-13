@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
 import { getTransitionName } from '../_util/motion';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
@@ -62,11 +62,10 @@ export function ConfirmContent(
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const { warning } = devUseWarning('Modal');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
-      'Modal',
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
@@ -190,9 +189,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Modal');
+    const { deprecated } = devUseWarning('Modal');
 
-    deprecatedWarningFn(visible === undefined, 'visible', 'open');
+    deprecated(visible === undefined, 'visible', 'open');
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;

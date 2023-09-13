@@ -4,7 +4,7 @@ import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderRef } from 'rc-slider/lib/Slider';
 
-import { deprecatedWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { TooltipPlacement } from '../tooltip';
@@ -166,7 +166,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Slider');
+    const { deprecated } = devUseWarning('Slider');
 
     [
       ['tooltipPrefixCls', 'prefixCls'],
@@ -175,7 +175,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       ['tooltipPlacement', 'placement'],
       ['tooltipVisible', 'open'],
     ].forEach(([deprecatedName, newName]) => {
-      deprecatedWarningFn(!(deprecatedName in props), deprecatedName, `tooltip.${newName}`);
+      deprecated(!(deprecatedName in props), deprecatedName, `tooltip.${newName}`);
     });
   }
 

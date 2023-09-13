@@ -6,7 +6,7 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import useClosable from '../_util/hooks/useClosable';
 import type { LiteralUnion } from '../_util/type';
-import { deprecatedWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
@@ -57,9 +57,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Tag');
+    const { deprecated } = devUseWarning('Tag');
 
-    deprecatedWarningFn(!('visible' in props), 'visible', 'visible && <Tag />');
+    deprecated(!('visible' in props), 'visible', 'visible && <Tag />');
   }
 
   React.useEffect(() => {

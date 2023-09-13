@@ -12,7 +12,7 @@ import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -223,12 +223,11 @@ const InternalSelect = <
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-    const deprecatedWarningFn = deprecatedWarning('Select');
+    const { warning, deprecated } = devUseWarning('Select');
 
-    deprecatedWarningFn(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+    deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
-    deprecatedWarningFn(
+    deprecated(
       dropdownMatchSelectWidth === undefined,
       'dropdownMatchSelectWidth',
       'popupMatchSelectWidth',
@@ -236,7 +235,6 @@ const InternalSelect = <
 
     warning(
       !('showArrow' in props),
-      'Select',
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );

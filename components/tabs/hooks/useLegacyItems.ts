@@ -3,7 +3,7 @@ import type { Tab } from 'rc-tabs/lib/interface';
 import toArray from 'rc-util/lib/Children/toArray';
 
 import type { TabPaneProps, TabsProps } from '..';
-import { deprecatedWarning } from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 
 function filter<T>(items: (T | null)[]): T[] {
   return items.filter((item) => item) as T[];
@@ -11,8 +11,8 @@ function filter<T>(items: (T | null)[]): T[] {
 
 export default function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) {
   if (process.env.NODE_ENV !== 'production') {
-    const deprecatedWarningFn = deprecatedWarning('Tabs');
-    deprecatedWarningFn(!children, 'Tabs.TabPane', 'items');
+    const { deprecated } = devUseWarning('Tabs');
+    deprecated(!children, 'Tabs.TabPane', 'items');
   }
 
   if (items) {

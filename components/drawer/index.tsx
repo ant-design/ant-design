@@ -6,7 +6,7 @@ import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
 
 import { getTransitionName } from '../_util/motion';
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 // CSSINJS
@@ -88,20 +88,18 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-    const deprecatedWarningFn = deprecatedWarning('Drawer');
+    const { warning, deprecated } = devUseWarning('Drawer');
 
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      deprecatedWarningFn(!(deprecatedName in props), deprecatedName, newName);
+      deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     if (getContainer !== undefined && props.style?.position === 'absolute') {
       warning(
         false,
-        'Drawer',
         'breaking',
         '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );

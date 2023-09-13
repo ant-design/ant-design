@@ -5,7 +5,7 @@ import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { deprecatedWarning, devUseWarning } from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
@@ -80,17 +80,15 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const upload = React.useRef<RcUpload>(null);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-    const deprecatedWarningFn = deprecatedWarning('Upload');
+    const { warning, deprecated } = devUseWarning('Upload');
 
     warning(
       'fileList' in props || !('value' in props),
-      'Upload',
       'usage',
       '`value` is not a valid prop, do you mean `fileList`?',
     );
 
-    deprecatedWarningFn(!('transformFile' in props), 'transformFile', 'beforeUpload');
+    deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
   }
 
   // Control mode will auto fill file uid if not provided
