@@ -27,6 +27,9 @@ jobs:
 
       - uses: oven-sh/setup-bun@v1
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: cache package-lock.json
         uses: actions/cache@v3
