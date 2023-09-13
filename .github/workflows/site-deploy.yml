@@ -52,8 +52,6 @@ jobs:
         uses: actions/checkout@v4
 
       - uses: actions/setup-node@v3
-        with:
-          node-version: 16
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -70,13 +68,13 @@ jobs:
       - name: build site
         run: npm run predeploy
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: build dist and bundle analyzer report
         run: npm run dist
         env:
           ANALYZER: 1
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: Get version
         id: publish-version
