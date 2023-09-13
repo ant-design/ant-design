@@ -170,4 +170,23 @@ describe('notification.hooks', () => {
     const styleText = extractStyle(cache, true);
     expect(styleText).not.toContain('.ant-notification');
   });
+
+  it('disable stack', () => {
+    const Demo = () => {
+      const [api, holder] = notification.useNotification({ stack: false });
+
+      React.useEffect(() => {
+        api.info({
+          message: null,
+          description: 'test',
+        });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.ant-notification-stack')).toBeFalsy();
+  });
 });

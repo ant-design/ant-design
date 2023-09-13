@@ -31,6 +31,7 @@ demo:
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
+<code src="./demo/stack.tsx" version="5.10.0">堆叠</code>
 <code src="./demo/basic.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
@@ -75,6 +76,7 @@ config 参数如下：
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
+| stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| `{ threshold: number }` | `{ threshold: 3 }` | 5.10.0 |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 |  |
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | 4.17.0 |
 

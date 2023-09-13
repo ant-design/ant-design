@@ -23,7 +23,8 @@ export async function triggerMotionEnd(runAllTimers: boolean = true) {
   //   fireEvent.animationEnd(ele);
   // });
   document.querySelectorAll('[role="alert"]').forEach((ele) => {
-    fireEvent.animationEnd(ele.parentNode?.parentNode!);
+    // close > notice > notice-wrapper
+    fireEvent.animationEnd(ele.parentNode?.parentNode?.parentNode!);
   });
 
   await awaitPromise();

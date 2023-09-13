@@ -4,6 +4,7 @@ import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
+import genStackStyle from './stack';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -29,6 +30,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationCloseButtonSize: number;
   notificationMarginBottom: number;
   notificationMarginEdge: number;
+  notificationStackLayer: number;
 }
 
 const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
@@ -58,29 +60,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
   const noticeCls = `${componentCls}-notice`;
 
-  const notificationFadeIn = new Keyframes('antNotificationFadeIn', {
-    '0%': {
-      left: {
-        _skip_check_: true,
-        value: width,
-      },
-      opacity: 0,
-    },
-
-    '100%': {
-      left: {
-        _skip_check_: true,
-        value: 0,
-      },
-      opacity: 1,
-    },
-  });
-
-  const notificationFadeOut = new Keyframes('antNotificationFadeOut', {
+  const fadeOut = new Keyframes('antNotificationFadeOut', {
     '0%': {
       maxHeight: token.animationMaxHeight,
       marginBottom: notificationMarginBottom,
-      opacity: 1,
     },
 
     '100%': {
@@ -98,13 +81,16 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
     marginBottom: notificationMarginBottom,
     marginInlineStart: 'auto',
-    padding: notificationPadding,
-    overflow: 'hidden',
-    lineHeight,
-    wordWrap: 'break-word',
     background: notificationBg,
     borderRadius: borderRadiusLG,
     boxShadow,
+
+    [noticeCls]: {
+      padding: notificationPadding,
+      overflow: 'hidden',
+      lineHeight,
+      wordWrap: 'break-word',
+    },
 
     [`${componentCls}-close-icon`]: {
       fontSize,
@@ -201,20 +187,11 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
           position: 'relative',
         },
 
-        [`&${componentCls}-top, &${componentCls}-bottom`]: {
-          [noticeCls]: {
-            marginInline: 'auto auto',
-          },
-        },
-
-        [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
-          [noticeCls]: {
-            marginInlineEnd: 'auto',
-            marginInlineStart: 0,
-          },
-        },
-
         //  animation
+        [`${componentCls}-fade-appear-prepare`]: {
+          opacity: '0 !important',
+        },
+
         [`${componentCls}-fade-enter, ${componentCls}-fade-appear`]: {
           animationDuration: token.motionDurationMid,
           animationTimingFunction: motionEaseInOut,
@@ -233,17 +210,13 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
         [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
           {
-            animationName: notificationFadeIn,
             animationPlayState: 'running',
           },
 
         [`${componentCls}-fade-leave${componentCls}-fade-leave-active`]: {
-          animationName: notificationFadeOut,
+          animationName: fadeOut,
           animationPlayState: 'running',
         },
-
-        // placement
-        ...genNotificationPlacementStyle(token),
 
         // RTL
         '&-rtl': {
@@ -259,7 +232,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     // ============================ Notice ============================
     {
       [componentCls]: {
-        [noticeCls]: {
+        [`${noticeCls}-wrapper`]: {
           ...noticeStyle,
         },
       },
@@ -282,7 +255,6 @@ export default genComponentStyleHook(
     const notificationPaddingVertical = token.paddingMD;
     const notificationPaddingHorizontal = token.paddingLG;
     const notificationToken = mergeToken<NotificationToken>(token, {
-      // index.less variables
       notificationBg: token.colorBgElevated,
       notificationPaddingVertical,
       notificationPaddingHorizontal,
@@ -292,9 +264,14 @@ export default genComponentStyleHook(
       notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
       notificationMarginEdge: token.marginLG,
       animationMaxHeight: 150,
+      notificationStackLayer: 3,
     });
 
-    return [genNotificationStyle(notificationToken)];
+    return [
+      genNotificationStyle(notificationToken),
+      genNotificationPlacementStyle(notificationToken),
+      genStackStyle(notificationToken),
+    ];
   },
   (token) => ({
     zIndexPopup: token.zIndexPopupBase + 50,
