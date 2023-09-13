@@ -42,4 +42,19 @@ describe('Flex', () => {
     expect(container.querySelector<HTMLDivElement>('.ant-flex')?.textContent).toBe('test Class');
     expect(testClsRef.current).toBeTruthy();
   });
+
+  it('when vertical=true should stretch work', () => {
+    const { container, rerender } = render(<Flex vertical>test</Flex>);
+    expect(container.querySelector<HTMLDivElement>('.ant-flex')).toHaveClass(
+      'ant-flex-align-stretch',
+    );
+    rerender(
+      <Flex vertical align="center">
+        test
+      </Flex>,
+    );
+    expect(container.querySelector<HTMLDivElement>('.ant-flex')).toHaveClass(
+      'ant-flex-align-center',
+    );
+  });
 });

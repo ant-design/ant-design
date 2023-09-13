@@ -11,7 +11,7 @@ import type { FlexProps } from './interface';
 import useStyle from './style';
 import createFlexClassNames from './utils';
 
-const FlexBox = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
+const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     rootClassName,
@@ -22,7 +22,7 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
     children,
     vertical = false,
     component: Component = 'div',
-    ...otherProps
+    ...othersProps
   } = props;
 
   const {
@@ -66,7 +66,7 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
       ref={ref}
       className={mergedCls}
       style={mergedStyle}
-      {...omit(otherProps, ['justify', 'wrap', 'align'])}
+      {...omit(othersProps, ['justify', 'wrap', 'align'])}
     >
       {children}
     </Component>,
@@ -74,7 +74,7 @@ const FlexBox = React.forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
 });
 
 if (process.env.NODE_ENV !== 'production') {
-  FlexBox.displayName = 'Flex';
+  Flex.displayName = 'Flex';
 }
 
-export default FlexBox;
+export default Flex;
