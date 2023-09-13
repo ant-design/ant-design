@@ -4,7 +4,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, motionDurationMid } = token;
 
   const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
 
@@ -22,6 +22,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         [`${componentCls}-cell`]: {
           borderBottom: tableBorder,
+          transition: `background ${motionDurationMid}`,
         },
 
         [`${componentCls}-expanded-row`]: {
