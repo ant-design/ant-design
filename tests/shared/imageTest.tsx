@@ -37,7 +37,6 @@ export default function imageTest(component: React.ReactElement) {
 
     MockDate.set(dayjs('2016-11-22').valueOf());
     page.on('request', onRequestHandle);
-    await page.setViewport({ width: 1920, height: 1 });
     await page.goto(`file://${process.cwd()}/tests/index.html`, {
       waitUntil: 'networkidle0',
       timeout: 0,
@@ -78,7 +77,7 @@ export default function imageTest(component: React.ReactElement) {
 
     // Get scroll height of the rendered page and set viewport
     const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-    await page.setViewport({ width: 1920, height: bodyHeight });
+    await page.setViewport({ width: 800, height: bodyHeight });
 
     const image = await page.screenshot({
       fullPage: true,
