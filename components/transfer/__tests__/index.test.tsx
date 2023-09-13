@@ -167,6 +167,8 @@ describe('Transfer', () => {
     );
 
     fireEvent.click(getByText('a'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], []);
+
     fireEvent.click(getByText('c'), {
       shiftKey: true,
     });
@@ -198,13 +200,19 @@ describe('Transfer', () => {
     );
 
     fireEvent.click(getByText('b'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['b']);
+
     fireEvent.click(getByText('d'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['b', 'd']);
+
     fireEvent.click(getByText('f'), {
       shiftKey: true,
     });
     expect(handleSelectChange).toHaveBeenLastCalledWith([], ['b', 'd', 'e', 'f']);
 
     fireEvent.click(getByText('f'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['b', 'd', 'e']);
+
     fireEvent.click(getByText('g'), {
       shiftKey: true,
     });
