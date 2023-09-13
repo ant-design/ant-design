@@ -349,6 +349,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-contain-grid`]: {
+      borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0 `,
       [`${componentCls}-body`]: {
         display: 'flex',
         flexWrap: 'wrap',

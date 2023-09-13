@@ -1,20 +1,20 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
+import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
   PickerPanelTimeProps as RCPickerPanelTimeProps,
 } from 'rc-picker/lib/PickerPanel';
-import type { GenerateConfig } from 'rc-picker/lib/generate';
-import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
-
-import warning from '../_util/warning';
 import useStyle from './style';
 
 type InjectDefaultProps<Props> = Omit<
@@ -125,24 +125,30 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning();
+
       warning(
         !dateFullCellRender,
         'Calendar',
+        'deprecated',
         '`dateFullCellRender` is deprecated. Please use `fullCellRender` instead.',
       );
       warning(
         !dateCellRender,
         'Calendar',
+        'deprecated',
         '`dateCellRender` is deprecated. Please use `cellRender` instead.',
       );
       warning(
         !monthFullCellRender,
         'Calendar',
+        'deprecated',
         '`monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
       );
       warning(
         !monthCellRender,
         'Calendar',
+        'deprecated',
         '`monthCellRender` is deprecated. Please use `cellRender` instead.',
       );
     }

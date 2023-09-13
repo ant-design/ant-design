@@ -1,5 +1,6 @@
 import * as React from 'react';
-import warning from '../../../_util/warning';
+
+import { devUseWarning } from '../../../_util/warning';
 import type {
   ColumnsType,
   ColumnTitleProps,
@@ -203,6 +204,8 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
+  const warning = devUseWarning();
+
   const mergedColumns = React.useMemo(
     () => getMergedColumns(rawMergedColumns || []),
     [rawMergedColumns],
@@ -251,6 +254,7 @@ function useFilter<RecordType>({
     warning(
       filteredKeysIsAllControlled,
       'Table',
+      'usage',
       'Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );
 

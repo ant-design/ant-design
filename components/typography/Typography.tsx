@@ -1,7 +1,8 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -51,8 +52,18 @@ const Typography = React.forwardRef<
 
   let mergedRef = ref;
   if (setContentRef) {
-    warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
     mergedRef = composeRef(ref, setContentRef);
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
+    warning(
+      !setContentRef,
+      'Typography',
+      'deprecated',
+      '`setContentRef` is deprecated. Please use `ref` instead.',
+    );
   }
 
   const prefixCls = getPrefixCls('typography', customizePrefixCls);

@@ -1,11 +1,12 @@
+import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import type { FieldDataNode } from 'rc-tree';
 import isEqual from 'rc-util/lib/isEqual';
-import * as React from 'react';
+
 import type { FilterState } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
-import warning from '../../../_util/warning';
+import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
@@ -173,6 +174,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning();
+
     [
       ['filterDropdownVisible', 'filterDropdownOpen', filterDropdownVisible],
       [
@@ -184,6 +187,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       warning(
         prop === undefined || prop === null,
         'Table',
+        'deprecated',
         `\`${deprecatedName}\` is deprecated. Please use \`${newName}\` instead.`,
       );
     });
