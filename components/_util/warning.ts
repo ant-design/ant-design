@@ -51,7 +51,7 @@ export const WarningContext = React.createContext<WarningContextProps>({});
 export const devUseWarning: () => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? () => {
-        const { strict = true } = React.useContext(WarningContext);
+        const { strict } = React.useContext(WarningContext);
 
         const typeWarning: TypeWarning = (valid, component, type, message) => {
           if (!valid) {

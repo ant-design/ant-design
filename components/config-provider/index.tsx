@@ -336,7 +336,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     colorPicker,
     datePicker,
     wave,
-    // warning: warningConfig,
+    warning: warningConfig,
   } = props;
 
   // =================================== Context ===================================
@@ -426,7 +426,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     colorPicker,
     datePicker,
     wave,
-    // warning: warningConfig,
+    warning: warningConfig,
   };
 
   const config = {

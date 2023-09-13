@@ -129,16 +129,13 @@ describe('ConfigProvider', () => {
   it('warning support filter level', () => {
     resetWarned();
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
 
-    const { rerender } = render(<ConfigProvider dropdownMatchSelectWidth />);
-    expect(errSpy).toHaveBeenCalled();
-
-    resetWarned();
-    errSpy.mockReset();
-
-    rerender(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
+    render(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
     expect(errSpy).not.toHaveBeenCalled();
+    expect(warnSpy).toHaveBeenCalled();
 
     errSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 });
