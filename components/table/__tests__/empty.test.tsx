@@ -3,7 +3,7 @@ import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
 import type { ColumnsType } from '..';
 import Table from '..';
-import { render, triggerResize, waitFakeTimer, waitFor } from '../../../tests/utils';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 
 const columns: ColumnsType<any> = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
