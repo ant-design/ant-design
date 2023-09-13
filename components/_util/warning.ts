@@ -32,7 +32,7 @@ type TypeWarning = (
 ) => void;
 
 export interface WarningContextProps {
-  deprecated?: boolean;
+  strict?: boolean;
 }
 
 export const WarningContext = React.createContext<WarningContextProps>({});
@@ -45,10 +45,10 @@ export const WarningContext = React.createContext<WarningContextProps>({});
 export const devUseWarning: () => TypeWarning =
   process.env.NODE_ENV !== 'production'
     ? () => {
-        const { deprecated } = React.useContext(WarningContext);
+        const { strict = true } = React.useContext(WarningContext);
 
         const typeWarning: TypeWarning = (valid, component, type, message) => {
-          if (deprecated !== false || type !== 'deprecated') {
+          if (strict || type !== 'deprecated') {
             warning(valid, component, message);
           }
         };
