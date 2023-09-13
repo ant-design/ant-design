@@ -6,7 +6,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 import type { Options } from 'scroll-into-view-if-needed';
 
-import warning, { WarningContext, WarningContextProps } from '../_util/warning';
+import warning, { WarningContext, type WarningContextProps } from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { InputProps } from '../input';
