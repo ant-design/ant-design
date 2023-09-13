@@ -37,7 +37,11 @@ export default function imageTest(component: React.ReactElement) {
 
     MockDate.set(dayjs('2016-11-22').valueOf());
     page.on('request', onRequestHandle);
-    await page.goto(`file://${process.cwd()}/tests/index.html`);
+    await page.setViewport({ width: 1920, height: 1 });
+    await page.goto(`file://${process.cwd()}/tests/index.html`, {
+      waitUntil: 'networkidle0',
+      timeout: 0,
+    });
     await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
     await page.addStyleTag({ content: '*{animation: none!important;}' });
 
@@ -55,9 +59,6 @@ export default function imageTest(component: React.ReactElement) {
             </div>
           ))}
         </App>
-        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0, overflow: 'hidden' }}>
-          end of screen
-        </div>
       </StyleProvider>
     );
 
@@ -75,13 +76,12 @@ export default function imageTest(component: React.ReactElement) {
       styleStr,
     );
 
-    await page.waitForSelector('#end-of-screen', {
-      timeout: 0,
-    });
+    // Get scroll height of the rendered page and set viewport
+    const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+    await page.setViewport({ width: 1920, height: bodyHeight });
 
     const image = await page.screenshot({
       fullPage: true,
-      captureBeyondViewport: true,
       optimizeForSpeed: true,
     });
 
