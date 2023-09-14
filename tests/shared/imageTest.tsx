@@ -29,70 +29,85 @@ interface ImageTestOptions {
 
 // eslint-disable-next-line jest/no-export
 export default function imageTest(component: React.ReactElement, options: ImageTestOptions) {
-  it(`component image screenshot should correct`, async () => {
-    await jestPuppeteer.resetPage();
-    await page.setRequestInterception(true);
-    const onRequestHandle = (request: any) => {
-      if (['image'].includes(request.resourceType())) {
-        request.abort();
-      } else {
-        request.continue();
+  function test(name: string, themedComponent: React.ReactElement) {
+    it(name, async () => {
+      await jestPuppeteer.resetPage();
+      await page.setRequestInterception(true);
+      const onRequestHandle = (request: any) => {
+        if (['image'].includes(request.resourceType())) {
+          request.abort();
+        } else {
+          request.continue();
+        }
+      };
+
+      MockDate.set(dayjs('2016-11-22').valueOf());
+      page.on('request', onRequestHandle);
+      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
+      await page.addStyleTag({ content: '*{animation: none!important;}' });
+
+      const cache = createCache();
+
+      const element = (
+        <StyleProvider cache={cache}>
+          <App>{themedComponent}</App>
+        </StyleProvider>
+      );
+
+      const html = ReactDOMServer.renderToString(element);
+      const styleStr = extractStyle(cache);
+
+      await page.evaluate(
+        (innerHTML, ssrStyle) => {
+          document.querySelector('#root')!.innerHTML = innerHTML;
+
+          const head = document.querySelector('head')!;
+          head.innerHTML += ssrStyle;
+        },
+        html,
+        styleStr,
+      );
+
+      if (!options.onlyViewPort) {
+        // Get scroll height of the rendered page and set viewport
+        const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+        await page.setViewport({ width: 800, height: bodyHeight });
       }
-    };
 
-    MockDate.set(dayjs('2016-11-22').valueOf());
-    page.on('request', onRequestHandle);
-    await page.goto(`file://${process.cwd()}/tests/index.html`);
-    await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-    await page.addStyleTag({ content: '*{animation: none!important;}' });
+      const image = await page.screenshot({
+        fullPage: !options.onlyViewPort,
+        optimizeForSpeed: true,
+      });
 
-    const cache = createCache();
+      expect(image).toMatchImageSnapshot();
 
-    const element = (
-      <StyleProvider cache={cache}>
-        <App>
-          {Object.entries(themes).map(([key, algorithm]) => (
-            <div
-              style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }}
-              key={key}
-            >
-              <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
-            </div>
-          ))}
-        </App>
-      </StyleProvider>
-    );
-
-    const html = ReactDOMServer.renderToString(element);
-    const styleStr = extractStyle(cache);
-
-    await page.evaluate(
-      (innerHTML, ssrStyle) => {
-        document.querySelector('#root')!.innerHTML = innerHTML;
-
-        const head = document.querySelector('head')!;
-        head.innerHTML += ssrStyle;
-      },
-      html,
-      styleStr,
-    );
-
-    if (!options.onlyViewPort) {
-      // Get scroll height of the rendered page and set viewport
-      const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-      await page.setViewport({ width: 800, height: bodyHeight });
-    }
-
-    const image = await page.screenshot({
-      fullPage: !options.onlyViewPort,
-      optimizeForSpeed: true,
+      MockDate.reset();
+      page.off('request', onRequestHandle);
     });
+  }
 
-    expect(image).toMatchImageSnapshot();
-
-    MockDate.reset();
-    page.off('request', onRequestHandle);
-  });
+  if (options.splitTheme) {
+    Object.entries(themes).forEach(([key, algorithm]) => {
+      test(
+        `component image screenshot should correct ${key}`,
+        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+          <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+        </div>,
+      );
+    });
+  } else {
+    test(
+      `component image screenshot should correct`,
+      <>
+        {Object.entries(themes).map(([key, algorithm]) => (
+          <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+            <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+          </div>
+        ))}
+      </>,
+    );
+  }
 }
 
 type Options = {
@@ -107,7 +122,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
   const files = globSync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
+    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
       describeMethod = describe.skip;
     } else {
       describeMethod = describe;
@@ -122,10 +137,10 @@ export function imageDemoTest(component: string, options: Options = {}) {
         onlyViewPort:
           options.onlyViewPort === true ||
           (Array.isArray(options.onlyViewPort) &&
-            options.onlyViewPort.some((c) => file.includes(c))),
+            options.onlyViewPort.some((c) => file.endsWith(c))),
         splitTheme:
           options.splitTheme === true ||
-          (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.includes(c))),
+          (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
       });
     });
   });
