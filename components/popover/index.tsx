@@ -40,7 +40,6 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     overlayStyle = {},
-    destroyTooltipOnHide,
     ...otherProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -53,7 +52,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   return wrapSSR(
     <Tooltip
-      destroyTooltipOnHide={destroyTooltipOnHide ?? !!otherProps?.onOpenChange}
+      destroyTooltipOnHide={otherProps?.destroyTooltipOnHide ?? otherProps?.open != undefined}
       placement={placement}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
