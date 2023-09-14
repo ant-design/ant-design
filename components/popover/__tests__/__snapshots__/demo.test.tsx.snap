@@ -318,6 +318,29 @@ exports[`renders components/popover/demo/hover-with-click.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/popover/demo/nest-controled-closed.tsx correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-default"
+    style="background:red;color:white"
+    type="button"
+  >
+    <span>
+      layer 1
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default"
+    style="background:green;color:white"
+    type="button"
+  >
+    <span>
+      layer 1
+    </span>
+  </button>,
+]
+`;
+
 exports[`renders components/popover/demo/placement.tsx correctly 1`] = `
 <div>
   <div

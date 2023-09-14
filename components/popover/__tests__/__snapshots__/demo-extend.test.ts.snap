@@ -980,6 +980,141 @@ Array [
 
 exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popover/demo/nest-controled-closed.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-default"
+    style="background: red; color: white;"
+    type="button"
+  >
+    <span>
+      layer 1
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              layer 2
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner"
+                role="tooltip"
+              >
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  <div>
+                    content won't close on click away
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-default"
+    style="background: green; color: white;"
+    type="button"
+  >
+    <span>
+      layer 1
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              layer 2
+            </span>
+          </button>
+          <div
+            class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+          >
+            <div
+              class="ant-popover-arrow"
+              style="position: absolute; bottom: 0px; left: 0px;"
+            />
+            <div
+              class="ant-popover-content"
+            >
+              <div
+                class="ant-popover-inner"
+                role="tooltip"
+              >
+                <div
+                  class="ant-popover-inner-content"
+                >
+                  <div>
+                    expected behavior
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/nest-controled-closed.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div>
   <div

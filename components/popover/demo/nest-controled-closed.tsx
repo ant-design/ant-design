@@ -8,20 +8,18 @@ const App: React.FC = () => {
     <>
       <Popover
         onOpenChange={(open) => {
-          console.log(1, open);
           setOpen1(open);
         }}
         open={open1}
-        trigger={'click'}
+        trigger="click"
         content={
           <Popover
             onOpenChange={(open) => {
-              console.log(2, open);
               setOpen2(open);
             }}
             open={open2}
-            trigger={'click'}
-            content={<div>content won't close on click away</div>}
+            trigger="click"
+            content={<div>content ware not close on click away</div>}
           >
             <Button>layer 2</Button>
           </Popover>
@@ -30,9 +28,9 @@ const App: React.FC = () => {
         <Button style={{ background: 'red', color: 'white' }}>layer 1</Button>
       </Popover>
       <Popover
-        trigger={'click'}
+        trigger="click"
         content={
-          <Popover trigger={'click'} content={<div>expected behavior</div>}>
+          <Popover trigger="click" content={<div>expected behavior</div>}>
             <Button>layer 2</Button>
           </Popover>
         }
