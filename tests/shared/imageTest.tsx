@@ -9,11 +9,6 @@ import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
 import { App, ConfigProvider, theme } from '../../components';
 
-type Options = {
-  skip?: boolean | string[];
-  onlyViewPort?: boolean;
-};
-
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
   customDiffDir: `${process.cwd()}/imageDiffSnapshots`,
@@ -27,8 +22,13 @@ const themes = {
   compact: theme.compactAlgorithm,
 };
 
+interface ImageTestOptions {
+  onlyViewPort?: boolean;
+  splitTheme?: boolean;
+}
+
 // eslint-disable-next-line jest/no-export
-export default function imageTest(component: React.ReactElement, options: Options) {
+export default function imageTest(component: React.ReactElement, options: ImageTestOptions) {
   it(`component image screenshot should correct`, async () => {
     await jestPuppeteer.resetPage();
     await page.setRequestInterception(true);
@@ -95,6 +95,12 @@ export default function imageTest(component: React.ReactElement, options: Option
   });
 }
 
+type Options = {
+  skip?: boolean | string[];
+  onlyViewPort?: boolean | string[];
+  splitTheme?: boolean | string[];
+};
+
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
@@ -112,7 +118,15 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo);
+      imageTest(Demo, {
+        onlyViewPort:
+          options.onlyViewPort === true ||
+          (Array.isArray(options.onlyViewPort) &&
+            options.onlyViewPort.some((c) => file.includes(c))),
+        splitTheme:
+          options.splitTheme === true ||
+          (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.includes(c))),
+      });
     });
   });
 }
