@@ -21,21 +21,21 @@ const App: React.FC = () => {
             trigger="click"
             content={<div>content ware not close on click away</div>}
           >
-            <Button>layer 2</Button>
+            <Button>controlled 2</Button>
           </Popover>
         }
       >
-        <Button style={{ background: 'red', color: 'white' }}>layer 1</Button>
+        <Button>controlled 1</Button>
       </Popover>
       <Popover
         trigger="click"
         content={
           <Popover trigger="click" content={<div>expected behavior</div>}>
-            <Button>layer 2</Button>
+            <Button>uncontrolled 2</Button>
           </Popover>
         }
       >
-        <Button style={{ background: 'green', color: 'white' }}>layer 1</Button>
+        <Button>uncontrolled 1</Button>
       </Popover>
     </>
   );

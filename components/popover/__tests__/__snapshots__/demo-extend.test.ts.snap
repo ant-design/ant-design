@@ -984,11 +984,10 @@ exports[`renders components/popover/demo/nest-controled-closed.tsx extend contex
 Array [
   <button
     class="ant-btn ant-btn-default"
-    style="background: red; color: white;"
     type="button"
   >
     <span>
-      layer 1
+      controlled 1
     </span>
   </button>,
   <div
@@ -1014,7 +1013,7 @@ Array [
             type="button"
           >
             <span>
-              layer 2
+              controlled 2
             </span>
           </button>
           <div
@@ -1036,7 +1035,7 @@ Array [
                   class="ant-popover-inner-content"
                 >
                   <div>
-                    content won't close on click away
+                    content ware not close on click away
                   </div>
                 </div>
               </div>
@@ -1048,11 +1047,10 @@ Array [
   </div>,
   <button
     class="ant-btn ant-btn-default"
-    style="background: green; color: white;"
     type="button"
   >
     <span>
-      layer 1
+      uncontrolled 1
     </span>
   </button>,
   <div
@@ -1078,7 +1076,7 @@ Array [
             type="button"
           >
             <span>
-              layer 2
+              uncontrolled 2
             </span>
           </button>
           <div

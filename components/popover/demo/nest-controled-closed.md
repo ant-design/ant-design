@@ -1,7 +1,7 @@
 ## zh-CN
 
-嵌套使用。
+嵌套使用气泡，受控模式和非受控模式。
 
 ## en-US
 
-Nesting is used.
+Nested using bubbles, controlled modes, and uncontrolled modes.
