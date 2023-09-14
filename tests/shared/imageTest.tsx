@@ -23,7 +23,7 @@ const themes = {
 };
 
 interface ImageTestOptions {
-  onlyViewPort?: boolean;
+  onlyViewport?: boolean;
   splitTheme?: boolean;
 }
 
@@ -69,14 +69,14 @@ export default function imageTest(component: React.ReactElement, options: ImageT
         styleStr,
       );
 
-      if (!options.onlyViewPort) {
+      if (!options.onlyViewport) {
         // Get scroll height of the rendered page and set viewport
         const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
         await page.setViewport({ width: 800, height: bodyHeight });
       }
 
       const image = await page.screenshot({
-        fullPage: !options.onlyViewPort,
+        fullPage: !options.onlyViewport,
         optimizeForSpeed: true,
       });
 
@@ -112,7 +112,7 @@ export default function imageTest(component: React.ReactElement, options: ImageT
 
 type Options = {
   skip?: boolean | string[];
-  onlyViewPort?: boolean | string[];
+  onlyViewport?: boolean | string[];
   splitTheme?: boolean | string[];
 };
 
@@ -134,10 +134,10 @@ export function imageDemoTest(component: string, options: Options = {}) {
         Demo = <Demo />;
       }
       imageTest(Demo, {
-        onlyViewPort:
-          options.onlyViewPort === true ||
-          (Array.isArray(options.onlyViewPort) &&
-            options.onlyViewPort.some((c) => file.endsWith(c))),
+        onlyViewport:
+          options.onlyViewport === true ||
+          (Array.isArray(options.onlyViewport) &&
+            options.onlyViewport.some((c) => file.endsWith(c))),
         splitTheme:
           options.splitTheme === true ||
           (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
