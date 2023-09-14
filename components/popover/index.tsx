@@ -52,7 +52,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   return wrapSSR(
     <Tooltip
-      destroyTooltipOnHide
+      destroyTooltipOnHide={!!otherProps?.onOpenChange}
       placement={placement}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}

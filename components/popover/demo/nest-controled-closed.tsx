@@ -16,6 +16,7 @@ const App: React.FC = () => {
         content={
           <Popover
             onOpenChange={(open) => {
+              console.log(2, open);
               setOpen2(open);
             }}
             open={open2}
