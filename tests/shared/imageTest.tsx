@@ -9,6 +9,11 @@ import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
 import { App, ConfigProvider, theme } from '../../components';
 
+type Options = {
+  skip?: boolean | string[];
+  onlyViewPort?: boolean;
+};
+
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
   customDiffDir: `${process.cwd()}/imageDiffSnapshots`,
@@ -23,7 +28,7 @@ const themes = {
 };
 
 // eslint-disable-next-line jest/no-export
-export default function imageTest(component: React.ReactElement) {
+export default function imageTest(component: React.ReactElement, options: Options) {
   it(`component image screenshot should correct`, async () => {
     await jestPuppeteer.resetPage();
     await page.setRequestInterception(true);
@@ -72,12 +77,14 @@ export default function imageTest(component: React.ReactElement) {
       styleStr,
     );
 
-    // Get scroll height of the rendered page and set viewport
-    const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
-    await page.setViewport({ width: 800, height: bodyHeight });
+    if (!options.onlyViewPort) {
+      // Get scroll height of the rendered page and set viewport
+      const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+      await page.setViewport({ width: 800, height: bodyHeight });
+    }
 
     const image = await page.screenshot({
-      fullPage: true,
+      fullPage: !options.onlyViewPort,
       optimizeForSpeed: true,
     });
 
@@ -87,10 +94,6 @@ export default function imageTest(component: React.ReactElement) {
     page.off('request', onRequestHandle);
   });
 }
-
-type Options = {
-  skip?: boolean | string[];
-};
 
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
