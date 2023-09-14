@@ -2,6 +2,6 @@ import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Tooltip image', () => {
   imageDemoTest('tooltip', {
-    onlyViewPort: ['shift.tsx'],
+    onlyViewport: ['shift.tsx'],
   });
 });
