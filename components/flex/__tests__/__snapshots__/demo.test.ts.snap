@@ -204,27 +204,6 @@ Array [
     class="ant-radio-group ant-radio-group-outline"
   >
     <label
-      class="ant-radio-wrapper"
-    >
-      <span
-        class="ant-radio ant-wave-target"
-      >
-        <input
-          class="ant-radio-input"
-          type="radio"
-          value="true"
-        />
-        <span
-          class="ant-radio-inner"
-        />
-      </span>
-      <span>
-        vertical is
-        <!-- -->
-        true
-      </span>
-    </label>
-    <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
@@ -234,16 +213,33 @@ Array [
           checked=""
           class="ant-radio-input"
           type="radio"
-          value="false"
+          value="horizontal"
         />
         <span
           class="ant-radio-inner"
         />
       </span>
       <span>
-        vertical is
-        <!-- -->
-        false
+        horizontal
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="vertical"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        vertical
       </span>
     </label>
   </div>,

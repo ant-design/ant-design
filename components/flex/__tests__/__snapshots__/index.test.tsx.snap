@@ -4,6 +4,11 @@ exports[`Flex rtl render component should be rendered correctly in RTL direction
 <div
   class="ant-flex ant-flex-rtl"
 >
-  test
+  <div>
+    test1
+  </div>
+  <div>
+    test2
+  </div>
 </div>
 `;

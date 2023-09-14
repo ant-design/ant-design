@@ -1,25 +1,17 @@
-/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import { Flex, Radio } from 'antd';
-import type { RadioChangeEvent } from 'antd';
 
 const App: React.FC = () => {
-  const [vertical, setVertical] = React.useState<boolean>(false);
-  const onChange = (e: RadioChangeEvent) => {
-    setVertical(e.target.value);
-  };
+  const [value, setValue] = React.useState<string>('horizontal');
   return (
     <>
-      <Radio.Group value={vertical} onChange={onChange}>
-        {[true, false].map((ver, i) => (
-          <Radio key={i} value={ver}>
-            vertical is {ver.toString()}
-          </Radio>
-        ))}
+      <Radio.Group value={value} onChange={(e) => setValue(e.target.value)}>
+        <Radio value="horizontal">horizontal</Radio>
+        <Radio value="vertical">vertical</Radio>
       </Radio.Group>
       <br />
       <br />
-      <Flex vertical={vertical}>
+      <Flex vertical={value === 'vertical'}>
         <div />
         <div />
         <div />

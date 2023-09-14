@@ -18,8 +18,18 @@ class ClassCom extends React.PureComponent<{ className?: string }> {
 }
 
 describe('Flex', () => {
-  mountTest(() => <Flex>test</Flex>);
-  rtlTest(() => <Flex>test</Flex>);
+  mountTest(() => (
+    <Flex>
+      <div>test1</div>
+      <div>test2</div>
+    </Flex>
+  ));
+  rtlTest(() => (
+    <Flex>
+      <div>test1</div>
+      <div>test2</div>
+    </Flex>
+  ));
   it('Flex', () => {
     const { container, rerender } = render(<Flex justify="center">test</Flex>);
     expect(container.querySelector('.ant-flex')).toHaveStyle({ justifyContent: 'center' });

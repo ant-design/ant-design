@@ -25,15 +25,13 @@ Flex. Available since `5.10.0`.
 
 ## API
 
-> This component is available since `antd@5.10.0`.
+> This component is available since `antd@5.10.0`. The default behavior of Flex in horizontal mode is to align upward, In vertical mode, aligns the stretch, You can adjust this via properties.
 
 Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | type | Default | Version |
 | --- | --- | --- | --- | --- |
-| style | custom style | React.CSSProperties | - |  |
-| className | custom className | string | - |  |
-| vertical | Is direction of the flex vertical | boolean | `false` |  |
+| vertical | Is direction of the flex vertical, use `flex-direction: column` | boolean | `false` |  |
 | wrap | Set whether the element is displayed in a single line or in multiple lines | reference [flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap) | nowrap |  |
 | justify | Sets the alignment of elements in the direction of the main axis | reference [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) | normal |  |
 | align | Sets the alignment of elements in the direction of the cross axis | reference [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | normal |  |
