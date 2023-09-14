@@ -6,6 +6,7 @@ import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
+import type { FlexProps } from '../flex/interface';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
@@ -59,6 +60,10 @@ export interface BadgeConfig extends ComponentStyleConfig {
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
+}
+
+export interface FlexConfig extends ComponentStyleConfig {
+  vertical?: FlexProps['vertical'];
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -154,9 +159,8 @@ export interface ConfigConsumerProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-
+  flex?: FlexConfig;
   wave?: WaveConfig;
-
   warning?: WarningContextProps;
 }
 

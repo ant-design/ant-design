@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
@@ -27,6 +29,7 @@ import type {
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
+  FlexConfig,
   PopupOverflow,
   Theme,
   ThemeConfig,
@@ -194,7 +197,7 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-
+  flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
    */
@@ -335,6 +338,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    flex,
     wave,
     warning: warningConfig,
   } = props;
@@ -425,6 +429,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    flex,
     wave,
     warning: warningConfig,
   };

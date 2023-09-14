@@ -19,6 +19,7 @@ import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
 import Empty from '../../empty';
+import Flex from '../../flex';
 import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
@@ -1266,5 +1267,16 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
+  it('Should Flex className & style works', () => {
+    const { container } = render(
+      <ConfigProvider flex={{ className: 'cp-flex', style: { backgroundColor: 'blue' } }}>
+        <Flex>test</Flex>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-flex');
+    expect(element).toHaveClass('cp-flex');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 });
