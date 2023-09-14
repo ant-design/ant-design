@@ -21,6 +21,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/nest-controled-closed.tsx">嵌套受控关闭</code>
 <code src="./demo/triggerType.tsx">三种触发方式</code>
 <code src="./demo/placement.tsx">位置</code>
 <code src="./demo/arrow.tsx">箭头展示</code>

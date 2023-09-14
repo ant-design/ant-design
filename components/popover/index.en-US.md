@@ -20,6 +20,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/nest-controled-closed.tsx">Nested Controlled Shutdown</code>
 <code src="./demo/triggerType.tsx">Three ways to trigger</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>

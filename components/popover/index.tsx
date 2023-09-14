@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
@@ -51,6 +52,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   return wrapSSR(
     <Tooltip
+      destroyTooltipOnHide
       placement={placement}
       trigger={trigger}
       mouseEnterDelay={mouseEnterDelay}
