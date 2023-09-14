@@ -1,29 +1,32 @@
+import * as React from 'react';
 import classNames from 'classnames';
-import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
+import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import type { RadioChangeEvent, RadioProps } from './interface';
-
+import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
-import Wave from '../_util/wave';
-import { TARGET_CLS } from '../_util/wave/interface';
 
-const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (props, ref) => {
+const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
 
   const { getPrefixCls, direction, radio } = React.useContext(ConfigContext);
-  const innerRef = React.useRef<CheckboxRef>(null);
+  const innerRef = React.useRef<RadioRef>(null);
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = React.useContext(FormItemInputContext);
 
-  warning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Radio');
+
+    warning(!('optionType' in props), 'usage', '`optionType` is only support in Radio.Group.');
+  }
 
   const onChange = (e: RadioChangeEvent) => {
     props.onChange?.(e);
@@ -95,7 +98,7 @@ const InternalRadio: React.ForwardRefRenderFunction<CheckboxRef, RadioProps> = (
   );
 };
 
-const Radio = React.forwardRef<CheckboxRef, RadioProps>(InternalRadio);
+const Radio = React.forwardRef<RadioRef, RadioProps>(InternalRadio);
 
 if (process.env.NODE_ENV !== 'production') {
   Radio.displayName = 'Radio';

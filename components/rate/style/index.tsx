@@ -108,7 +108,7 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       padding: 0,
       color: token.starColor,
       fontSize: token.starSize,
-      lineHeight: 'unset',
+      lineHeight: 1,
       listStyle: 'none',
       outline: 'none',
 

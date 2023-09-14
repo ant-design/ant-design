@@ -1,12 +1,14 @@
+import * as React from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
-import * as React from 'react';
-import warning from '../_util/warning';
+import type { NotificationConfig as RcNotificationConfig } from 'rc-notification/lib/useNotification';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
-import { PureContent } from './PurePanel';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -15,10 +17,9 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
+import { PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import type { FC, PropsWithChildren } from 'react';
-import type { NotificationConfig as RcNotificationConfig } from 'rc-notification/lib/useNotification';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -122,6 +123,8 @@ export function useInternalMessage(
 ): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
+  const warning = devUseWarning('Message');
+
   // ================================ API ================================
   const wrapAPI = React.useMemo<MessageInstance>(() => {
     // Wrap with notification content
@@ -136,7 +139,7 @@ export function useInternalMessage(
       if (!holderRef.current) {
         warning(
           false,
-          'Message',
+          'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );
 

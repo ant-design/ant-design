@@ -11,7 +11,7 @@ import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
@@ -109,23 +109,17 @@ const Dropdown: CompoundedComponent = (props) => {
   } = React.useContext(ConfigContext);
 
   // Warning for deprecated usage
+  const warning = devUseWarning('Dropdown');
+
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    warning(
-      !('overlay' in props),
-      'Dropdown',
-      '`overlay` is deprecated. Please use `menu` instead.',
-    );
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -146,28 +140,27 @@ const Dropdown: CompoundedComponent = (props) => {
     }
 
     if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-      warning(
-        !placement.includes('Center'),
-        'Dropdown',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-      return newPlacement;
+      return placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
     }
 
     return placement as DropdownPlacement;
   }, [placement, direction]);
 
   if (process.env.NODE_ENV !== 'production') {
+    if (placement.includes('Center')) {
+      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
+      warning(
+        !placement.includes('Center'),
+        'deprecated',
+        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
+      );
+    }
+
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 
@@ -257,7 +250,7 @@ const Dropdown: CompoundedComponent = (props) => {
           // Warning if use other mode
           warning(
             !mode || mode === 'vertical',
-            'Dropdown',
+            'usage',
             `mode="${mode}" is not supported for Dropdown's Menu.`,
           );
         }}

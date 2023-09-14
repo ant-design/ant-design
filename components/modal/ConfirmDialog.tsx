@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
 import { getTransitionName } from '../_util/motion';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
@@ -61,11 +61,15 @@ export function ConfirmContent(
     ...resetProps
   } = props;
 
-  warning(
-    !(typeof icon === 'string' && icon.length > 2),
-    'Modal',
-    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Modal');
+
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'breaking',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+  }
 
   // Icon
   let mergedIcon: React.ReactNode = icon;
@@ -185,11 +189,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      visible === undefined,
-      'Modal',
-      `\`visible\` is deprecated, please use \`open\` instead.`,
-    );
+    const warning = devUseWarning('Modal');
+
+    warning.deprecated(visible === undefined, 'visible', 'open');
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;

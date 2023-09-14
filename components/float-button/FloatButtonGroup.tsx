@@ -1,14 +1,15 @@
+import React, { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import React, { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import { FloatButtonGroupProvider } from './context';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupProps } from './interface';
 import useStyle from './style';
 
@@ -93,9 +94,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('FloatButton.Group');
+
     warning(
       !('open' in props) || !!trigger,
-      'FloatButton.Group',
+      'usage',
       '`open` need to be used together with `trigger`',
     );
   }
