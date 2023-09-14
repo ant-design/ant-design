@@ -3,8 +3,8 @@ import { DatePicker, Space } from 'antd';
 import type { DatePickerProps } from 'antd';
 
 const style: React.CSSProperties = {
-  borderRadius: '50%',
   border: '1px solid #1677ff',
+  borderRadius: '50%',
 };
 
 const cellRender: DatePickerProps['cellRender'] = (current, info) => {
