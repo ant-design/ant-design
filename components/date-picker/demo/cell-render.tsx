@@ -8,13 +8,14 @@ const App: React.FC = () => (
     <DatePicker
       cellRender={(current, info) => {
         if (info.type !== 'date') return info.originNode;
-        const style: React.CSSProperties = {};
-        if (current.date() === 1) {
-          style.border = '1px solid #1677ff';
-          style.borderRadius = '50%';
+        if (typeof current === 'number') {
+          return <div className="ant-picker-cell-inner">{current}</div>;
         }
         return (
-          <div className="ant-picker-cell-inner" style={style}>
+          <div
+            className="ant-picker-cell-inner"
+            style={current.date() === 1 ? { border: '1px solid #1677ff', borderRadius: '50%' } : {}}
+          >
             {current.date()}
           </div>
         );
@@ -23,13 +24,14 @@ const App: React.FC = () => (
     <RangePicker
       cellRender={(current, info) => {
         if (info.type !== 'date') return info.originNode;
-        const style: React.CSSProperties = {};
-        if (current.date() === 1) {
-          style.border = '1px solid #1677ff';
-          style.borderRadius = '50%';
+        if (typeof current === 'number') {
+          return <div className="ant-picker-cell-inner">{current}</div>;
         }
         return (
-          <div className="ant-picker-cell-inner" style={style}>
+          <div
+            className="ant-picker-cell-inner"
+            style={current.date() === 1 ? { border: '1px solid #1677ff', borderRadius: '50%' } : {}}
+          >
             {current.date()}
           </div>
         );

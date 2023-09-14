@@ -110,7 +110,7 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
-  const warning = devUseWarning();
+  const warning = devUseWarning('Notification');
 
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
@@ -121,7 +121,6 @@ export function useInternalNotification(
       if (!holderRef.current) {
         warning(
           false,
-          'Notification',
           'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );

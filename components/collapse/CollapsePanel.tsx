@@ -25,14 +25,9 @@ export interface CollapsePanelProps {
 
 const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Collapse.Panel');
 
-    warning(
-      !('disabled' in props),
-      'Collapse.Panel',
-      'deprecated',
-      '`disabled` is deprecated. Please use `collapsible="disabled"` instead.',
-    );
+    warning.deprecated(!('disabled' in props), 'disabled', 'collapsible="disabled"');
   }
 
   const { getPrefixCls } = React.useContext(ConfigContext);

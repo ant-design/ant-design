@@ -166,7 +166,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Slider');
 
     [
       ['tooltipPrefixCls', 'prefixCls'],
@@ -175,12 +175,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       ['tooltipPlacement', 'placement'],
       ['tooltipVisible', 'open'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Slider',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated, please use \`tooltip.${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, `tooltip.${newName}`);
     });
   }
 

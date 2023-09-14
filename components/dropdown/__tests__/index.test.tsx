@@ -231,10 +231,10 @@ describe('Dropdown', () => {
 
     expect(document.querySelector('.bamboo')).toBeTruthy();
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Dropdown] `visible` is deprecated. Please use `open` instead.',
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
+      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
     );
 
     fireEvent.click(container.querySelector('.little')!);

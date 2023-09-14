@@ -1,12 +1,12 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import * as React from 'react';
-import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
 import type { ItemType } from './Breadcrumb';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import { renderItem } from './useItemRender';
+import { devUseWarning } from '../_util/warning';
 
 export interface SeparatorType {
   separator?: React.ReactNode;
@@ -42,14 +42,9 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Breadcrumb.Item');
 
-    warning(
-      !('overlay' in props),
-      'Breadcrumb.Item',
-      'deprecated',
-      '`overlay` is deprecated. Please use `menu` instead.',
-    );
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
   }
 
   /** If overlay is have Wrap a Dropdown */

@@ -37,12 +37,11 @@ const FormList: React.FC<FormListProps> = ({
   ...props
 }) => {
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Form.List');
 
     warning(
       typeof props.name === 'number' ||
         (Array.isArray(props.name) ? !!props.name.length : !!props.name),
-      'Form.List',
       'usage',
       'Miss `name` prop.',
     );

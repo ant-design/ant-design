@@ -223,25 +223,18 @@ const InternalSelect = <
 
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Select');
 
-    warning(
-      !dropdownClassName,
-      'Select',
-      'deprecated',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
-    warning(
+    warning.deprecated(
       dropdownMatchSelectWidth === undefined,
-      'Select',
-      'deprecated',
-      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      'dropdownMatchSelectWidth',
+      'popupMatchSelectWidth',
     );
 
     warning(
       !('showArrow' in props),
-      'Select',
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
