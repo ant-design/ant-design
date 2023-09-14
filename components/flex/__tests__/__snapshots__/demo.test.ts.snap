@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/flex/demo/align.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+>
   <p>
     Select justify :
-  </p>,
-  <br />,
+  </p>
   <div
     class="ant-segmented"
   >
@@ -98,13 +99,10 @@ Array [
         </div>
       </label>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <p>
     Select align :
-  </p>,
-  <br />,
+  </p>
   <div
     class="ant-segmented"
   >
@@ -155,9 +153,7 @@ Array [
         </div>
       </label>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-flex ant-flex-align-flex-start ant-flex-justify-flex-start"
     style="width:100%;height:120px;border-radius:6px;border:1px solid #40a9ff"
@@ -194,12 +190,14 @@ Array [
         Primary
       </span>
     </button>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/flex/demo/basic.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -242,18 +240,24 @@ Array [
         vertical
       </span>
     </label>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-flex"
   >
-    <div />
-    <div />
-    <div />
-    <div />
-  </div>,
-]
+    <div
+      style="width:25%;height:54px;background-color:#1677ffbf"
+    />
+    <div
+      style="width:25%;height:54px;background-color:#1677ff"
+    />
+    <div
+      style="width:25%;height:54px;background-color:#1677ffbf"
+    />
+    <div
+      style="width:25%;height:54px;background-color:#1677ff"
+    />
+  </div>
+</div>
 `;
 
 exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
@@ -269,7 +273,7 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
       class="ant-flex ant-flex-justify-space-between"
     >
       <img
-        alt=""
+        alt="avatar"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         style="display:block;width:273px"
       />
@@ -298,7 +302,9 @@ exports[`renders components/flex/demo/combination.tsx correctly 1`] = `
 `;
 
 exports[`renders components/flex/demo/gap.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -379,9 +385,7 @@ Array [
         customize
       </span>
     </label>
-  </div>,
-  <br />,
-  <br />,
+  </div>
   <div
     class="ant-flex ant-flex-gap-small"
   >
@@ -417,8 +421,8 @@ Array [
         Link
       </span>
     </button>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/flex/demo/wrap.tsx correctly 1`] = `

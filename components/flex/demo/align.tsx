@@ -25,24 +25,18 @@ const App: React.FC = () => {
   const [justify, setJustify] = useState<CSSProperties['justifyContent']>(justifyOptions[0]);
   const [alignItems, setAlignItems] = useState<CSSProperties['alignItems']>(alignOptions[0]);
   return (
-    <>
+    <Flex gap="middle" align="start" vertical>
       <p>Select justify :</p>
-      <br />
       <Segmented options={justifyOptions} onChange={setJustify as SegmentedProps['onChange']} />
-      <br />
-      <br />
       <p>Select align :</p>
-      <br />
       <Segmented options={alignOptions} onChange={setAlignItems as SegmentedProps['onChange']} />
-      <br />
-      <br />
       <Flex style={boxStyle} justify={justify} align={alignItems}>
         <Button type="primary">Primary</Button>
         <Button type="primary">Primary</Button>
         <Button type="primary">Primary</Button>
         <Button type="primary">Primary</Button>
       </Flex>
-    </>
+    </Flex>
   );
 };
 

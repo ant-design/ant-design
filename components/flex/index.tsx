@@ -33,7 +33,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const mergedVertical = vertical || ctxFlex?.vertical;
+  const mergedVertical = vertical ?? ctxFlex?.vertical;
 
   const mergedCls = classNames(
     className,
