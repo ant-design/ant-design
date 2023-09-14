@@ -36,7 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | justify | Sets the alignment of elements in the direction of the main axis | reference [justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) | normal |  |
 | align | Sets the alignment of elements in the direction of the cross axis | reference [align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) | normal |  |
 | flex | flex CSS shorthand properties | reference [flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex) | normal |  |
-| gap | Sets the gap between grids | `small` \| `middle` \| `large` \| `string` \| `number` | - |  |
+| gap | Sets the gap between grids | `small` \| `middle` \| `large` \| string \| number | - |  |
 | component | custom element type | React.ComponentType | `div` |  |
 
 ## Design Token

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import type { CSSProperties } from 'react';
+import React from 'react';
 import { Button, Flex, Segmented } from 'antd';
+import type { FlexProps } from 'antd';
 import type { SegmentedProps } from 'antd/es/segmented';
 
 const boxStyle: React.CSSProperties = {
@@ -22,8 +22,8 @@ const justifyOptions = [
 const alignOptions = ['flex-start', 'center', 'flex-end'];
 
 const App: React.FC = () => {
-  const [justify, setJustify] = useState<CSSProperties['justifyContent']>(justifyOptions[0]);
-  const [alignItems, setAlignItems] = useState<CSSProperties['alignItems']>(alignOptions[0]);
+  const [justify, setJustify] = React.useState<FlexProps['justify']>(justifyOptions[0]);
+  const [alignItems, setAlignItems] = React.useState<FlexProps['align']>(alignOptions[0]);
   return (
     <Flex gap="middle" align="start" vertical>
       <p>Select justify :</p>
