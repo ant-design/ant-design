@@ -28,6 +28,7 @@ A simple text popup tip.
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/disabled.tsx" debug>Disabled</code>
+<code src="./demo/align.tsx">Align</code>
 
 ## API
 
@@ -46,6 +47,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | align | This value will be merged into placement's config, please refer to the settings [rc-tooltip](https://github.com/react-component/tooltip) | object | - |  |
 | arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target. | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
 | autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
+| builtinPlacements | builtin placement align map. used by placement prop | object | - |  |
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | Whether destroy tooltip when hidden | boolean | false |  |
