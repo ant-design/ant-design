@@ -22,6 +22,7 @@ Flex. Available since `5.10.0`.
 <code src="./demo/gap.tsx">gap</code>
 <code src="./demo/wrap.tsx">Wrap</code>
 <code src="./demo/combination.tsx">combination</code>
+<code src="./demo/debug.tsx" debug>debug</code>
 
 ## API
 

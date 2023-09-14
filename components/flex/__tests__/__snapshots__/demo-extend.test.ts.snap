@@ -307,6 +307,46 @@ exports[`renders components/flex/demo/combination.tsx extend context correctly 1
 
 exports[`renders components/flex/demo/combination.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/flex/demo/debug.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  >
+    <div
+      style="height: 60px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="height: 60px; background-color: rgb(22, 119, 255);"
+    />
+    <div
+      style="height: 60px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="height: 60px; background-color: rgb(22, 119, 255);"
+    />
+  </div>,
+  <div
+    class="ant-flex"
+    style="margin-top: 20px;"
+  >
+    <div
+      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="width: 25%; height: 60px; background-color: rgb(22, 119, 255);"
+    />
+    <div
+      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="width: 25%; height: 60px; background-color: rgb(22, 119, 255);"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/flex/demo/debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
