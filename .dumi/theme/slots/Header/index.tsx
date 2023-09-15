@@ -128,6 +128,11 @@ const useStyle = createStyles(({ token, css }) => {
         margin-left: 0;
       }
     `,
+    icon: css`
+      margin-right: 10px;
+      width: 22px;
+      height: 22px;
+    `,
   };
 });
 
@@ -170,6 +175,9 @@ const Header: React.FC = () => {
   }, []);
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
+  };
+  const onBannerClose = () => {
+    updateSiteConfig({ bannerVisible: false });
   };
 
   useEffect(() => {
@@ -349,6 +357,11 @@ const Header: React.FC = () => {
           className={styles.banner}
           message={
             <>
+              <img
+                className={styles.icon}
+                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                alt="yuque"
+              />
               {isMobile ? locale.shortMessage : locale.message}
               <a
                 className={styles.link}
@@ -370,6 +383,7 @@ const Header: React.FC = () => {
           banner
           closable
           showIcon={false}
+          onClose={onBannerClose}
         />
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>

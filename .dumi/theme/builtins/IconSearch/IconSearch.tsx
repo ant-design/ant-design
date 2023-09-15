@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import type { IntlShape } from 'react-intl';
@@ -11,6 +11,7 @@ import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
+import SiteContext from '../../slots/SiteContext';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -59,6 +60,7 @@ const IconSearch: React.FC = () => {
     theme: ThemeType.Outlined,
   });
   const token = useTheme();
+  const { bannerVisible } = useContext(SiteContext);
 
   const newIconNames: string[] = [];
 
@@ -124,7 +126,10 @@ const IconSearch: React.FC = () => {
 
   return (
     <div className="markdown">
-      <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
+      <Affix
+        offsetTop={24 + token.headerHeight + (bannerVisible ? token.bannerHeight : 0)}
+        onChange={setSearchBarAffixed}
+      >
         <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
             size="large"
