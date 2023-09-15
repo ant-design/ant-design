@@ -68,7 +68,7 @@ tag: vVERSION
 - 💄 修复 Select 配置的 `getPopupContainer` 容器有 `transform: scale` 样式时，弹出框宽度与输入框不一致的情况。[#44378](https://github.com/ant-design/ant-design/pull/44378)
 - 🐞 修复 Form.Item 配置 `noStyle` 时，被绑定的元素无法消费 `useStatus` 的问题。[#44576](https://github.com/ant-design/ant-design/pull/44576)
 - 🐞 修复 Tag 被 Popover/Popconfirm 包裹时，Hover 会导致 `font-size` 错误的问题。[#44663](https://github.com/ant-design/ant-design/pull/44663)
-- 🐞 修复 Input.Search 组合中，搜索按钮会额外阴影的问题。[#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
+- 🐞 修复 Input.Search 组合中，搜索按钮存在额外阴影的问题。[#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
 - 🐞 修复 Modal 的 hooks 调用通过按键 `esc` 关闭时无法正确触发 await 的问题。[#44646](https://github.com/ant-design/ant-design/pull/44646)
 - 🐞 修复 Space 的预设 `size` 不会跟随 Design Token 的问题，现在紧凑模式也会正确处理对应的间距数值。[#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Upload 组件点击某文件的下载按钮后，鼠标移出该文件时仍展示下载按钮的问题。[#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)
