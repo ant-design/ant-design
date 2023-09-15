@@ -54,6 +54,7 @@ tag: New
 | fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+| textAlign | 文本对齐方向  | `left` \| `center` \| `right` | `center` | 5.10.0 |
 
 ## 主题变量（Design Token）
 

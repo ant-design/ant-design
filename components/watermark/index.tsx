@@ -23,6 +23,7 @@ export interface WatermarkProps {
     fontWeight?: 'normal' | 'light' | 'weight' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
     fontFamily?: string;
+    textAlign?: 'left' | 'center' | 'right';
   };
   style?: React.CSSProperties;
   className?: string;
@@ -67,6 +68,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     fontWeight = 'normal',
     fontStyle = 'normal',
     fontFamily = 'sans-serif',
+    textAlign = 'center',
   } = font;
 
   const [gapX, gapY] = gap;
@@ -170,6 +172,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
             fontStyle,
             fontWeight,
             fontFamily,
+            textAlign,
           },
           gapX,
           gapY,
@@ -232,6 +235,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     fontWeight,
     fontStyle,
     fontFamily,
+    textAlign,
     gapX,
     gapY,
     offsetLeft,

@@ -1,5 +1,15 @@
 import React, { useMemo, useState } from 'react';
-import { ColorPicker, Form, Input, InputNumber, Slider, Space, Typography, Watermark } from 'antd';
+import {
+  ColorPicker,
+  Form,
+  Input,
+  InputNumber,
+  Slider,
+  Space,
+  Typography,
+  Watermark,
+  Radio,
+} from 'antd';
 import type { Color } from 'antd/es/color-picker';
 
 const { Paragraph } = Typography;
@@ -8,11 +18,18 @@ interface WatermarkConfig {
   content: string;
   color: string | Color;
   fontSize: number;
+  textAlign: 'left' | 'center' | 'right';
   zIndex: number;
   rotate: number;
   gap: [number, number];
   offset?: [number, number];
 }
+
+const TextAlignOptions = [
+  { label: 'left', value: 'left' },
+  { label: 'center', value: 'center' },
+  { label: 'right', value: 'right' },
+];
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
@@ -20,12 +37,13 @@ const App: React.FC = () => {
     content: 'Ant Design',
     color: 'rgba(0, 0, 0, 0.15)',
     fontSize: 16,
+    textAlign: 'center',
     zIndex: 11,
     rotate: -22,
     gap: [100, 100],
     offset: undefined,
   });
-  const { content, color, fontSize, zIndex, rotate, gap, offset } = config;
+  const { content, color, fontSize, zIndex, rotate, gap, offset, textAlign } = config;
 
   const watermarkProps = useMemo(
     () => ({
@@ -33,6 +51,7 @@ const App: React.FC = () => {
       font: {
         color: typeof color === 'string' ? color : color.toRgbString(),
         fontSize,
+        textAlign,
       },
       zIndex,
       rotate,
@@ -101,6 +120,9 @@ const App: React.FC = () => {
         </Form.Item>
         <Form.Item name="color" label="Color">
           <ColorPicker />
+        </Form.Item>
+        <Form.Item name="textAlign" label="TextAlign">
+          <Radio.Group options={TextAlignOptions} optionType="button" />
         </Form.Item>
         <Form.Item name="fontSize" label="FontSize">
           <Slider step={1} min={1} max={100} />
