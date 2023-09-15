@@ -239,6 +239,10 @@ import { ConfigProvider } from 'antd';
 
 请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
 
+## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
+
+在 [#43812](https://github.com/ant-design/ant-design/issues/43812)、[#44900](https://github.com/ant-design/ant-design/discussions/44900) [#43183](https://github.com/ant-design/ant-design/pull/43183) 均有提及 TBD!!!!
+
 ## 如何正确的拼写 Ant Design？
 
 - ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
