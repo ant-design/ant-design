@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
-| textAlign | specify the text alignment direction  | `left` \| `center` \| `right` | `center` | 5.10.0 |
+| textAlign | specify the text alignment direction  | `left` \| `start` \| `center` \| `right` \| `end` | `center` | 5.10.0 |
 
 ## Design Token
 

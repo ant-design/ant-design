@@ -23,7 +23,7 @@ export interface WatermarkProps {
     fontWeight?: 'normal' | 'light' | 'weight' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
     fontFamily?: string;
-    textAlign?: 'left' | 'center' | 'right';
+    textAlign?: CanvasTextAlign;
   };
   style?: React.CSSProperties;
   className?: string;
