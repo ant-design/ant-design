@@ -10,7 +10,7 @@ export default () => {
       styles={css`
         .nav-phone-icon {
           position: absolute;
-          bottom: 17px;
+          top: 25px;
           right: 30px;
           z-index: 1;
           display: none;

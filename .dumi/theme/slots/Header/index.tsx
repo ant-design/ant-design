@@ -24,18 +24,10 @@ const locales = {
   cn: {
     message:
       '语雀公益计划：大学生认证教育邮箱，即可免费获得语雀会员。语雀，支付宝匠心打造的在线文档平台。',
-    shortMessage: '支付宝语雀·大学生公益计划火热进行中！',
+    shortMessage: '支付宝语雀 · 大学生公益计划火热进行中！',
     more: '了解更多',
   },
-  en: {
-    message:
-      'By verifying education Email, college students can get free member of Yuque. Yuque is an online document tool created by Alipay.',
-    shortMessage: "Yuque's welfare activity is in progress! ",
-    more: 'Learn more',
-  },
 };
-
-const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
@@ -124,10 +116,14 @@ const useStyle = createStyles(({ token, css }) => {
       },
     },
     banner: css`
+      position: absolute;
+      bottom: 0;
+      left: 50%;
       width: 100%;
       background: #daf5eb;
       text-align: center;
       word-break: keep-all;
+      transform: translate(-50%, 100%);
     `,
     link: css`
       margin-left: 10px;
@@ -141,7 +137,6 @@ const useStyle = createStyles(({ token, css }) => {
 
 interface HeaderState {
   menuVisible: boolean;
-  bannerVisible: boolean;
   windowWidth: number;
   searching: boolean;
 }
@@ -153,10 +148,8 @@ const Header: React.FC = () => {
   const { pkg } = useSiteData();
 
   const themeConfig = getThemeConfig();
-  const storedConfig = localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
-    bannerVisible: !storedConfig,
     windowWidth: 1400,
     searching: false,
   });
@@ -178,12 +171,6 @@ const Header: React.FC = () => {
   }, []);
   const onMenuVisibleChange = useCallback((visible: boolean) => {
     setHeaderState((prev) => ({ ...prev, menuVisible: visible }));
-  }, []);
-  const onBannerVisibleChange = useCallback((visible: boolean) => {
-    setHeaderState((prev) => ({ ...prev, bannerVisible: visible }));
-    if (utils.isLocalStorageNameSupported()) {
-      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, 1);
-    }
   }, []);
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
@@ -248,7 +235,7 @@ const Header: React.FC = () => {
     [direction],
   );
 
-  const { menuVisible, bannerVisible, windowWidth, searching } = headerState;
+  const { menuVisible, windowWidth, searching } = headerState;
   const docVersions: Record<string, string> = {
     [pkg.version]: pkg.version,
     ...themeConfig?.docVersions,
@@ -361,7 +348,7 @@ const Header: React.FC = () => {
           <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
         </Popover>
       )}
-      {bannerVisible && (
+      {isZhCN && (
         <Alert
           className={styles.banner}
           message={
@@ -372,16 +359,21 @@ const Header: React.FC = () => {
                 href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => {
+                  window.gtag?.('event', '点击', {
+                    event_category: 'top_banner',
+                    event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                  });
+                }}
               >
                 {locale.more}
               </a>
             </>
           }
-          type="success"
+          type="info"
           banner
           closable
           showIcon={false}
-          onClose={onBannerVisibleChange}
         />
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
