@@ -6,11 +6,11 @@ import { mergeToken } from '../../theme/internal';
 const FIXED_ITEM_MARGIN = 2;
 
 const getSelectItemStyle = ({
-  controlHeightSM,
-  controlHeight,
+  multipleSelectItemHeight,
+  selectHeight,
   lineWidth: borderWidth,
 }: SelectToken): readonly [number, number] => {
-  const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
+  const selectItemDist = (selectHeight - multipleSelectItemHeight) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
   return [selectItemDist, selectItemMargin] as const;
 };
@@ -202,7 +202,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   const { componentCls } = token;
 
   const smallToken = mergeToken<SelectToken>(token, {
-    controlHeight: token.controlHeightSM,
+    selectHeight: token.controlHeightSM,
     multipleSelectItemHeight: token.controlHeightXS,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
@@ -210,7 +210,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
 
   const largeToken = mergeToken<SelectToken>(token, {
     fontSize: token.fontSizeLG,
-    controlHeight: token.controlHeightLG,
+    selectHeight: token.controlHeightLG,
     multipleSelectItemHeight: token.multipleItemHeightLG,
     borderRadius: token.borderRadiusLG,
     borderRadiusSM: token.borderRadius,
