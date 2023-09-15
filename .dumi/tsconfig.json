@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "jsx": "react-jsx",
     "esModuleInterop": true,
@@ -11,6 +12,5 @@
       "dumi/theme/*": [".dumi/theme/*"]
     }
   },
-   "include": ["./**/*", "../.dumirc.ts"],
-   "extends": "../tsconfig.json"
+  "include": ["./**/*", "../.dumirc.ts"]
 }
