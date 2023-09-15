@@ -18,7 +18,7 @@ export interface WatermarkProps {
   image?: string;
   content?: string | string[];
   font?: {
-    color?: string;
+    color?: CanvasFillStrokeStyles['fillStyle'];
     fontSize?: number | string;
     fontWeight?: 'normal' | 'light' | 'weight' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
