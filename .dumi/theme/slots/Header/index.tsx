@@ -176,9 +176,9 @@ const Header: React.FC = () => {
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
   };
-  const onBannerClose = useCallback(() => {
+  const onBannerClose = () => {
     updateSiteConfig({ bannerVisible: false });
-  });
+  };
 
   useEffect(() => {
     handleHideMenu();
