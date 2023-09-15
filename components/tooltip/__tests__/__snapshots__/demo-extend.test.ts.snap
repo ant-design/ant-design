@@ -511,7 +511,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
 
 exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated, please use \`arrow={{ pointAtCenter: true }}\` instead.",
+  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated. Please use \`arrow={{ pointAtCenter: true }}\` instead.",
 ]
 `;
 

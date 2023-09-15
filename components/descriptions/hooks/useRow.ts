@@ -69,14 +69,9 @@ const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => 
   const [rows, exceed] = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Descriptions');
 
-    warning(
-      !exceed,
-      'Descriptions',
-      'usage',
-      'Sum of column `span` in a line not match `column` of Descriptions.',
-    );
+    warning(!exceed, 'usage', 'Sum of column `span` in a line not match `column` of Descriptions.');
   }
 
   return rows;

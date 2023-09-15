@@ -79,12 +79,11 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Collapse');
 
     // Warning if use legacy type `expandIconPosition`
     warning(
       expandIconPosition !== 'left' && expandIconPosition !== 'right',
-      'Collapse',
       'deprecated',
       '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
     );

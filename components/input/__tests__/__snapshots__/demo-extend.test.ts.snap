@@ -9255,7 +9255,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
 
 exports[`renders components/input/demo/group.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+  "Warning: [antd: Input.Group] \`Input.Group\` is deprecated. Please use \`Space.Compact\` instead.",
 ]
 `;
 

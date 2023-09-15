@@ -88,14 +88,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Mentions');
 
-    warning(
-      !children,
-      'Mentions',
-      'deprecated',
-      '`Mentions.Option` is deprecated. Please use `options` instead.',
-    );
+    warning.deprecated(!children, 'Mentions.Option', 'options');
   }
 
   const {

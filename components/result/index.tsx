@@ -61,11 +61,10 @@ const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
   const className = classNames(`${prefixCls}-icon`);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Result');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
-      'Result',
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );

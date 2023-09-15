@@ -114,7 +114,8 @@ const App: React.FC = () => {
           </Table.Summary.Row>
         </Table.Summary>
       )}
-      sticky
+      // antd site header height
+      sticky={{ offsetHeader: 64 }}
     />
   );
 };
