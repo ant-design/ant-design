@@ -123,7 +123,7 @@ const GlobalLayout: React.FC = () => {
       updateSiteConfig,
       theme: theme!,
       isMobile: isMobile!,
-      bannerVisible: bannerVisible,
+      bannerVisible,
     }),
     [isMobile, direction, updateSiteConfig, theme, bannerVisible],
   );
