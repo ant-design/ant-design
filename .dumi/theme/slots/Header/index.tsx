@@ -116,14 +116,10 @@ const useStyle = createStyles(({ token, css }) => {
       },
     },
     banner: css`
-      position: absolute;
-      bottom: 0;
-      left: 50%;
       width: 100%;
       background: #daf5eb;
       text-align: center;
       word-break: keep-all;
-      transform: translate(-50%, 100%);
     `,
     link: css`
       margin-left: 10px;
