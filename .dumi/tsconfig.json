@@ -11,5 +11,6 @@
       "dumi/theme/*": [".dumi/theme/*"]
     }
   },
-  "include": ["./**/*", "../site/theme/template/Content"]
+   "include": ["./**/*", "../.dumirc.ts"],
+   "extends": "../tsconfig.json"
 }
