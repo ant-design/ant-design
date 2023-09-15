@@ -371,6 +371,7 @@ const Header: React.FC = () => {
                 className={styles.link}
                 href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
                 target="_blank"
+                rel="noreferrer"
               >
                 {locale.more}
               </a>
