@@ -151,11 +151,10 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('ColorPicker');
 
     warning(
       !(disabledAlpha && isAlphaColor),
-      'ColorPicker',
       'usage',
       '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
     );

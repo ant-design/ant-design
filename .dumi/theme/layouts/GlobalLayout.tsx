@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, startTransition } from 'react';
 import {
   createCache,
   extractStyle,
@@ -56,11 +56,13 @@ const GlobalLayout: React.FC = () => {
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [, , setPrefersColor] = usePrefersColor();
-  const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
-    isMobile: false,
-    direction: 'ltr',
-    theme: [],
-  });
+  const [{ theme = [], direction, isMobile, bannerVisible = true }, setSiteState] =
+    useLayoutState<SiteState>({
+      isMobile: false,
+      direction: 'ltr',
+      theme: [],
+      bannerVisible: true,
+    });
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -84,7 +86,9 @@ const GlobalLayout: React.FC = () => {
             ...nextSearchParams,
             theme: _theme,
           });
-          setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
+          startTransition(() => {
+            setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
+          });
         }
       });
 
@@ -106,8 +110,6 @@ const GlobalLayout: React.FC = () => {
     setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
     // Handle isMobile
     updateMobileMode();
-    // https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme
-    setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
 
     window.addEventListener('resize', updateMobileMode);
     return () => {
@@ -121,8 +123,9 @@ const GlobalLayout: React.FC = () => {
       updateSiteConfig,
       theme: theme!,
       isMobile: isMobile!,
+      bannerVisible,
     }),
-    [isMobile, direction, updateSiteConfig, theme],
+    [isMobile, direction, updateSiteConfig, theme, bannerVisible],
   );
 
   const [styleCache] = React.useState(() => createCache());

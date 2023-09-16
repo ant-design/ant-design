@@ -11,13 +11,8 @@ function filter<T>(items: (T | null)[]): T[] {
 
 export default function useLegacyItems(items?: TabsProps['items'], children?: React.ReactNode) {
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-    warning(
-      !children,
-      'Tabs',
-      'deprecated',
-      'Tabs.TabPane is deprecated. Please use `items` directly.',
-    );
+    const warning = devUseWarning('Tabs');
+    warning.deprecated(!children, 'Tabs.TabPane', 'items');
   }
 
   if (items) {

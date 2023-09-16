@@ -31,6 +31,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/big-data.tsx" debug>Big data</code>
 <code src="./demo/block-node.tsx">Block Node</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
 
 ## API
 

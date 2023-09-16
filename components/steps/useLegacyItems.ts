@@ -10,8 +10,8 @@ function filter<T>(items: (T | null)[]): T[] {
 
 export default function useLegacyItems(items?: StepProps[], children?: React.ReactNode) {
   if (process.env.NODE_ENV === 'test') {
-    const warning = devUseWarning();
-    warning(!children, 'Steps', 'deprecated', 'Step is deprecated. Please use `items` directly.');
+    const warning = devUseWarning('Menu');
+    warning.deprecated(!children, 'Step', 'items');
   }
 
   if (items) {

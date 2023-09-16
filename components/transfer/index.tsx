@@ -170,14 +170,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Transfer');
 
-    warning(
-      !pagination || !children,
-      'Transfer',
-      'usage',
-      '`pagination` not support customize render list.',
-    );
+    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
   }
 
   const setStateKeys = useCallback(

@@ -109,27 +109,17 @@ const Dropdown: CompoundedComponent = (props) => {
   } = React.useContext(ConfigContext);
 
   // Warning for deprecated usage
-  const warning = devUseWarning();
+  const warning = devUseWarning('Dropdown');
 
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    warning(
-      !('overlay' in props),
-      'Dropdown',
-      'deprecated',
-      '`overlay` is deprecated. Please use `menu` instead.',
-    );
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -161,7 +151,6 @@ const Dropdown: CompoundedComponent = (props) => {
       const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
       warning(
         !placement.includes('Center'),
-        'Dropdown',
         'deprecated',
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
       );
@@ -171,12 +160,7 @@ const Dropdown: CompoundedComponent = (props) => {
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 
@@ -266,7 +250,6 @@ const Dropdown: CompoundedComponent = (props) => {
           // Warning if use other mode
           warning(
             !mode || mode === 'vertical',
-            'Dropdown',
             'usage',
             `mode="${mode}" is not supported for Dropdown's Menu.`,
           );

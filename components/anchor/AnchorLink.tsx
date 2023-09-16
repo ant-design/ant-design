@@ -52,11 +52,10 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Anchor.Link');
 
     warning(
       !children || direction !== 'horizontal',
-      'Anchor.Link',
       'usage',
       '`Anchor.Link children` is not supported when `Anchor` direction is horizontal',
     );

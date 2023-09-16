@@ -63,10 +63,6 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         color: token.starBg,
         transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
-
-        [token.iconCls]: {
-          verticalAlign: 'middle',
-        },
       },
 
       '&-first': {
@@ -108,7 +104,7 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       padding: 0,
       color: token.starColor,
       fontSize: token.starSize,
-      lineHeight: 'unset',
+      lineHeight: 1,
       listStyle: 'none',
       outline: 'none',
 

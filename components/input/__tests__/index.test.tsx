@@ -124,7 +124,7 @@ describe('Input', () => {
     render(<Input.Group />);
 
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+      'Warning: [antd: Input.Group] `Input.Group` is deprecated. Please use `Space.Compact` instead.',
     );
   });
 });

@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -57,7 +57,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -83,7 +83,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -108,7 +108,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -129,9 +129,10 @@ jobs:
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: CI=1 npm run dist
+        run: npm run dist
         env:
-          NODE_OPTIONS: --max_old_space_size=4096
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          CI: 1
     needs: setup
 
   ################################ Test ################################
@@ -151,7 +152,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -235,7 +236,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - uses: actions/download-artifact@v3
         with:
@@ -261,7 +262,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -316,7 +317,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         # lib only run in master branch not in pull request
