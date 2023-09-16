@@ -56,11 +56,13 @@ const GlobalLayout: React.FC = () => {
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [, , setPrefersColor] = usePrefersColor();
-  const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
-    isMobile: false,
-    direction: 'ltr',
-    theme: [],
-  });
+  const [{ theme = [], direction, isMobile, bannerVisible = true }, setSiteState] =
+    useLayoutState<SiteState>({
+      isMobile: false,
+      direction: 'ltr',
+      theme: [],
+      bannerVisible: true,
+    });
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -121,8 +123,9 @@ const GlobalLayout: React.FC = () => {
       updateSiteConfig,
       theme: theme!,
       isMobile: isMobile!,
+      bannerVisible,
     }),
-    [isMobile, direction, updateSiteConfig, theme],
+    [isMobile, direction, updateSiteConfig, theme, bannerVisible],
   );
 
   const [styleCache] = React.useState(() => createCache());
