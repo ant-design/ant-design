@@ -32,6 +32,7 @@ type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
+export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
 // const styleCache = createCache();
 // if (typeof global !== 'undefined') {
@@ -56,12 +57,12 @@ const GlobalLayout: React.FC = () => {
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [, , setPrefersColor] = usePrefersColor();
-  const [{ theme = [], direction, isMobile, bannerVisible = true }, setSiteState] =
+  const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
       isMobile: false,
       direction: 'ltr',
       theme: [],
-      bannerVisible: true,
+      bannerVisible: false,
     });
 
   const updateSiteConfig = useCallback(
@@ -106,8 +107,13 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
+    const storedBannerVisible = !(localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER));
 
-    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+    setSiteState({
+      theme: _theme,
+      direction: _direction === 'rtl' ? 'rtl' : 'ltr',
+      bannerVisible: storedBannerVisible,
+    });
     // Handle isMobile
     updateMobileMode();
 

@@ -10,6 +10,7 @@ import DirectionIcon from '../../common/DirectionIcon';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
+import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import SiteContext from '../SiteContext';
 import Logo from './Logo';
 import More from './More';
@@ -154,7 +155,8 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, bannerVisible, updateSiteConfig } =
+    useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -178,6 +180,10 @@ const Header: React.FC = () => {
   };
   const onBannerClose = () => {
     updateSiteConfig({ bannerVisible: false });
+
+    if (utils.isLocalStorageNameSupported()) {
+      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, 1);
+    }
   };
 
   useEffect(() => {
@@ -352,7 +358,7 @@ const Header: React.FC = () => {
           <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
         </Popover>
       )}
-      {isZhCN && (
+      {isZhCN && bannerVisible && (
         <Alert
           className={styles.banner}
           message={
