@@ -204,7 +204,7 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
-  const warning = devUseWarning();
+  const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
     () => getMergedColumns(rawMergedColumns || []),
@@ -253,7 +253,6 @@ function useFilter<RecordType>({
 
     warning(
       filteredKeysIsAllControlled,
-      'Table',
       'usage',
       'Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );

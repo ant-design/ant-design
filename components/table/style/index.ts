@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+
 import { clearFix, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -242,9 +243,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     motionDurationMid,
     tableHeaderBg,
     tableHeaderCellSplitColor,
-    tableRowHoverBg,
-    tableSelectedRowBg,
-    tableSelectedRowHoverBg,
     tableFooterTextColor,
     tableFooterBg,
     paddingContentVerticalLG,
@@ -362,25 +360,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             background: tableHeaderBg,
             borderBottom: tableBorder,
             transition: `background ${motionDurationMid} ease`,
-          },
-
-          [`
-            &${componentCls}-row:hover > th,
-            &${componentCls}-row:hover > td,
-            > th${componentCls}-cell-row-hover,
-            > td${componentCls}-cell-row-hover
-          `]: {
-            background: tableRowHoverBg,
-          },
-
-          [`&${componentCls}-row-selected`]: {
-            [`> th, > td`]: {
-              background: tableSelectedRowBg,
-            },
-
-            [`&:hover > th, &:hover > td`]: {
-              background: tableSelectedRowHoverBg,
-            },
           },
         },
       },

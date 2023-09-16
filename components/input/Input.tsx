@@ -116,13 +116,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Input');
 
     useEffect(() => {
       if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
         warning(
           document.activeElement === inputRef.current?.input,
-          'Input',
           'usage',
           `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
         );

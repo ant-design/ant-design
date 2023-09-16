@@ -25,9 +25,8 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-type TypeWarning = (
+type BaseTypeWarning = (
   valid: boolean,
-  component: string,
   /**
    * - deprecated: Some API will be removed in future but still support now.
    * - usage: Some API usage is not correct.
@@ -36,6 +35,10 @@ type TypeWarning = (
   type: 'deprecated' | 'usage' | 'breaking',
   message?: string,
 ) => void;
+
+type TypeWarning = BaseTypeWarning & {
+  deprecated: (valid: boolean, oldProp: string, newProp: string, message?: string) => void;
+};
 
 export interface WarningContextProps {
   strict?: boolean;
@@ -48,12 +51,12 @@ export const WarningContext = React.createContext<WarningContextProps>({});
  * since this is only used in development.
  * We should always wrap this in `if (process.env.NODE_ENV !== 'production')` condition
  */
-export const devUseWarning: () => TypeWarning =
+export const devUseWarning: (component: string) => TypeWarning =
   process.env.NODE_ENV !== 'production'
-    ? () => {
+    ? (component) => {
         const { strict } = React.useContext(WarningContext);
 
-        const typeWarning: TypeWarning = (valid, component, type, message) => {
+        const typeWarning: TypeWarning = (valid, type, message) => {
           if (!valid) {
             if (strict === false && type === 'deprecated') {
               const existWarning = deprecatedWarnList;
@@ -81,8 +84,24 @@ export const devUseWarning: () => TypeWarning =
           }
         };
 
+        typeWarning.deprecated = (valid, oldProp, newProp, message) => {
+          typeWarning(
+            valid,
+            'deprecated',
+            `\`${oldProp}\` is deprecated. Please use \`${newProp}\` instead.${
+              message ? ` ${message}` : ''
+            }`,
+          );
+        };
+
         return typeWarning;
       }
-    : () => noop;
+    : () => {
+        const noopWarning: TypeWarning = () => {};
+
+        noopWarning.deprecated = noop;
+
+        return noopWarning;
+      };
 
 export default warning;

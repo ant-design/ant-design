@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -13,6 +14,9 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableHeaderIconColor,
     tableHeaderIconColorHover,
     tableSelectionColumnWidth,
+    tableSelectedRowBg,
+    tableSelectedRowHoverBg,
+    tableRowHoverBg,
   } = token;
 
   return {
@@ -76,6 +80,25 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           '&:hover': {
             color: tableHeaderIconColorHover,
+          },
+        },
+      },
+
+      // ============================= Rows =============================
+      [`${componentCls}-tbody`]: {
+        [`${componentCls}-row`]: {
+          [`&${componentCls}-row-selected`]: {
+            [`> ${componentCls}-cell`]: {
+              background: tableSelectedRowBg,
+
+              '&-row-hover': {
+                background: tableSelectedRowHoverBg,
+              },
+            },
+          },
+
+          [`> ${componentCls}-cell-row-hover`]: {
+            background: tableRowHoverBg,
           },
         },
       },

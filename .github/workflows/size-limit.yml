@@ -27,7 +27,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -63,5 +63,5 @@ jobs:
           build_script: dist
           skip_step: install
         env:
-          NODE_OPTIONS: --max_old_space_size=4096
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
           PRODUCTION_ONLY: 1

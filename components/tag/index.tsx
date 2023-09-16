@@ -57,14 +57,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Tag');
 
-    warning(
-      !('visible' in props),
-      'Tag',
-      'deprecated',
-      '`visible` is deprecated, please use `visible && <Tag />` instead.',
-    );
+    warning.deprecated(!('visible' in props), 'visible', 'visible && <Tag />');
   }
 
   React.useEffect(() => {

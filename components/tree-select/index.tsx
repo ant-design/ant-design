@@ -121,32 +121,24 @@ const InternalTreeSelect = <
   } = React.useContext(ConfigContext);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('TreeSelect');
 
     warning(
       multiple !== false || !treeCheckable,
-      'TreeSelect',
       'usage',
       '`multiple` will always be `true` when `treeCheckable` is true',
     );
 
-    warning(
-      !dropdownClassName,
-      'TreeSelect',
-      'deprecated',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
-    warning(
+    warning.deprecated(
       dropdownMatchSelectWidth === undefined,
-      'Select',
-      'deprecated',
-      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      'dropdownMatchSelectWidth',
+      'popupMatchSelectWidth',
     );
 
     warning(
       !('showArrow' in props),
-      'TreeSelect',
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
