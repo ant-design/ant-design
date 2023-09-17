@@ -12,7 +12,7 @@ import { NoFormStyle } from '../form/context';
 // CSSINJS
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerPanelProps } from './DrawerPanel';
+import type { DrawerClassNames, DrawerPanelProps } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
@@ -36,6 +36,7 @@ export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'pref
   visible?: boolean;
   /** @deprecated Please use `afterOpenChange` instead */
   afterVisibleChange?: (open: boolean) => void;
+  classNames?: DrawerClassNames;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -148,6 +149,10 @@ const Drawer: React.FC<DrawerProps> & {
           maskMotion={maskMotion}
           motion={panelMotion}
           {...rest}
+          classNames={{
+            wrapper: rest.classNames?.wrapper,
+            mask: rest.classNames?.mask,
+          }}
           open={open ?? visible}
           mask={mask}
           push={push}

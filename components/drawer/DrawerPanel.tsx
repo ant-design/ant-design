@@ -3,6 +3,14 @@ import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import * as React from 'react';
 import useClosable from '../_util/hooks/useClosable';
 
+export interface DrawerClassNames {
+  header?: string;
+  body?: string;
+  footer?: string;
+  mask?: string;
+  wrapper?: string;
+}
+
 export interface DrawerPanelProps {
   prefixCls: string;
 
@@ -26,6 +34,7 @@ export interface DrawerPanelProps {
   bodyStyle?: React.CSSProperties;
   footerStyle?: React.CSSProperties;
   children?: React.ReactNode;
+  classNames?: DrawerClassNames;
 }
 
 const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
@@ -42,6 +51,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     bodyStyle,
     footerStyle,
     children,
+    classNames: drawerClassNames,
   } = props;
 
   const customCloseIconRender = React.useCallback(
@@ -67,9 +77,13 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     return (
       <div
         style={headerStyle}
-        className={classNames(`${prefixCls}-header`, {
-          [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
-        })}
+        className={classNames(
+          `${prefixCls}-header`,
+          {
+            [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
+          },
+          drawerClassNames?.header,
+        )}
       >
         <div className={`${prefixCls}-header-title`}>
           {mergedCloseIcon}
@@ -86,7 +100,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     }
     const footerClassName = `${prefixCls}-footer`;
     return (
-      <div className={footerClassName} style={footerStyle}>
+      <div className={classNames(footerClassName, drawerClassNames?.footer)} style={footerStyle}>
         {footer}
       </div>
     );
@@ -95,7 +109,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   return (
     <div className={`${prefixCls}-wrapper-body`} style={drawerStyle}>
       {headerNode}
-      <div className={`${prefixCls}-body`} style={bodyStyle}>
+      <div className={classNames(`${prefixCls}-body`, drawerClassNames?.body)} style={bodyStyle}>
         {children}
       </div>
       {footerNode}
