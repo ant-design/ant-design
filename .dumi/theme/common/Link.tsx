@@ -3,12 +3,12 @@ import React, { forwardRef, useLayoutEffect, useMemo, useTransition } from 'reac
 import { useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
 
-export type LinkProps = {
+export interface LinkProps {
   to?: string | { pathname?: string; search?: string; hash?: string };
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
-};
+}
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const { to, children, ...rest } = props;
@@ -24,12 +24,14 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   }, [to]);
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    if (!href.startsWith('http')) {
+    if (!href?.startsWith('http')) {
       // Should support open in new tab
       if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
         e.preventDefault();
         startTransition(() => {
-          navigate(href);
+          if (href) {
+            navigate(href);
+          }
         });
       }
     }
