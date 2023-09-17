@@ -7,6 +7,7 @@ import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
+
 import { App, ConfigProvider, theme } from '../../components';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
@@ -77,7 +78,6 @@ export default function imageTest(component: React.ReactElement, options: ImageT
 
       const image = await page.screenshot({
         fullPage: !options.onlyViewport,
-        optimizeForSpeed: true,
       });
 
       expect(image).toMatchImageSnapshot();
