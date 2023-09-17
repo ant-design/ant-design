@@ -289,6 +289,8 @@ describe('Theme', () => {
       expect(token2.colorLink).toEqual(token2.colorInfo);
       expect(token2.colorLinkHover).toEqual(token2.colorInfoHover);
       expect(token2.colorLinkActive).toEqual(token2.colorInfoActive);
+      // colorInfo should not follow colorPrimary
+      expect(token2.colorLink).not.toEqual('#189cff');
 
       const token3 = getHookToken({ algorithm: [theme.darkAlgorithm] });
       expect(token3.colorLink).toEqual(token3.colorInfo);

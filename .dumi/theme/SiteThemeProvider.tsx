@@ -41,6 +41,7 @@ const SiteThemeProvider: FC<ThemeProviderProps> = ({ children, theme, ...rest })
       theme={theme}
       customToken={{
         headerHeight: 64,
+        bannerHeight: 38,
         menuItemBorder: 2,
         mobileMaxWidth: 767.99,
         siteMarkdownCodeBg: token.colorFillTertiary,
