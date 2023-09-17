@@ -34,6 +34,7 @@ demo:
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/static-info.tsx">静态方法</code>
 <code src="./demo/confirm.tsx">静态确认对话框</code>
+<code src="./demo/classNames.tsx">自定义内部模块 className</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>

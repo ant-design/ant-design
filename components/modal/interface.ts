@@ -2,6 +2,7 @@ import type { FC } from 'react';
 
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
+import type { DialogProps } from 'rc-dialog';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
@@ -48,6 +49,7 @@ export interface ModalProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
+  classNames?: DialogProps['classNames'];
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;
