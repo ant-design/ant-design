@@ -197,7 +197,7 @@ const useStyle = createStyles(({ token, cx }) => {
 });
 
 // ========================== Menu Config ==========================
-const subMenuItems: MenuProps['items'] = [
+const subMenuItems = [
   {
     key: `Design Values`,
     label: `Design Values`,
@@ -287,11 +287,12 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
   },
 };
 
+const normalize = (value: number) => value / 255;
+
 function rgbToColorMatrix(color: string) {
   const rgb = new TinyColor(color).toRgb();
   const { r, g, b } = rgb;
 
-  const normalize = (value) => value / 255;
   const invertValue = normalize(r) * 100;
   const sepiaValue = 100;
   const saturateValue = Math.max(normalize(r), normalize(g), normalize(b)) * 10000;
@@ -360,10 +361,7 @@ export default function Theme() {
   const isRootDark = useDark();
 
   React.useEffect(() => {
-    onThemeChange(null, {
-      ...themeData,
-      themeType: isRootDark ? 'dark' : 'default',
-    });
+    onThemeChange({}, { ...themeData, themeType: isRootDark ? 'dark' : 'default' });
   }, [isRootDark]);
 
   // ================================ Tokens ================================

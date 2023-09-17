@@ -1,3 +1,4 @@
+import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
 
 export const DEFAULT_COLOR = '#1677FF';
@@ -50,7 +51,8 @@ export const COLOR_IMAGES = [
 export const PRESET_COLORS = COLOR_IMAGES.map(({ color }) => color);
 
 const DISTANCE = 33;
-export function getClosetColor(colorPrimary?: string | null) {
+
+export function getClosetColor(colorPrimary?: Color | string | null) {
   if (!colorPrimary) {
     return null;
   }

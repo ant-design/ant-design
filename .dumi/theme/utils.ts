@@ -1,5 +1,6 @@
 import flatten from 'lodash/flatten';
 import flattenDeep from 'lodash/flattenDeep';
+
 import themeConfig from './themeConfig';
 
 interface Meta {

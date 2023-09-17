@@ -29271,7 +29271,7 @@ exports[`renders components/table/demo/sticky.tsx extend context correctly 1`] =
         >
           <div
             class="ant-table-header ant-table-sticky-holder"
-            style="overflow: hidden; top: 0px;"
+            style="overflow: hidden; top: 64px;"
           >
             <table
               style="table-layout: fixed; visibility: hidden;"
