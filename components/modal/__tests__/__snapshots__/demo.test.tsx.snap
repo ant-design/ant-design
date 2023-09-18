@@ -33,6 +33,17 @@ exports[`renders components/modal/demo/button-props.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/modal/demo/classNames.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
 exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"

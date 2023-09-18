@@ -39,6 +39,19 @@ exports[`renders components/modal/demo/button-props.tsx extend context correctly
 
 exports[`renders components/modal/demo/button-props.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/classNames.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
+exports[`renders components/modal/demo/classNames.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/component-token.tsx extend context correctly 1`] = `
 <div
   style="display: flex; flex-direction: column; row-gap: 16px;"
