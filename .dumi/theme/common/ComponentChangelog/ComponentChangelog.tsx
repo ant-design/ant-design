@@ -1,11 +1,12 @@
 /* eslint-disable global-require */
 import React, { useMemo } from 'react';
-import { createStyles } from 'antd-style';
 import { HistoryOutlined } from '@ant-design/icons';
 import { Button, Drawer, Timeline, Typography } from 'antd';
-import Link from '../Link';
-import useLocale from '../../../hooks/useLocale';
+import { createStyles } from 'antd-style';
+
 import useFetch from '../../../hooks/useFetch';
+import useLocale from '../../../hooks/useLocale';
+import Link from '../Link';
 
 const useStyle = createStyles(({ token, css }) => ({
   history: css`
@@ -46,7 +47,7 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
   const { changelog = '', refs = [], styles } = props;
 
   const parsedChangelog = React.useMemo(() => {
-    const nodes: React.ReactElement[] = [];
+    const nodes: React.ReactNode[] = [];
 
     let isQuota = false;
     let lastStr = '';
@@ -57,7 +58,7 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
       if (char !== '`') {
         lastStr += char;
       } else {
-        let node = lastStr;
+        let node: React.ReactNode = lastStr;
         if (isQuota) {
           node = <code>{node}</code>;
         }
@@ -88,8 +89,14 @@ function ParseChangelog(props: { changelog: string; refs: string[]; styles: any 
   );
 }
 
-function useChangelog(componentPath, lang) {
-  const data = useFetch(
+type ChangelogInfo = {
+  version: string;
+  changelog: string;
+  refs: string[];
+};
+
+function useChangelog(componentPath: string, lang: 'cn' | 'en'): ChangelogInfo[] {
+  const data: any = useFetch(
     lang === 'cn'
       ? {
           key: 'component-changelog-cn',
@@ -108,7 +115,7 @@ function useChangelog(componentPath, lang) {
       (name) => name.toLowerCase() === component.toLowerCase(),
     );
 
-    return data[componentName];
+    return data[componentName!];
   }, [data, componentPath]);
 }
 
@@ -124,7 +131,7 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
   const list = useChangelog(componentPath, lang);
 
   const timelineItems = React.useMemo(() => {
-    const changelogMap = {};
+    const changelogMap: Record<string, ChangelogInfo[]> = {};
 
     list?.forEach((info) => {
       changelogMap[info.version] = changelogMap[info.version] || [];

@@ -8,7 +8,10 @@ const output = '.dumi/preset';
 
 // Collect components
 const componentNames = globSync(
-  path.join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md').split(path.sep).join('/'),
+  path
+    .join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md')
+    .split(path.sep)
+    .join('/'),
 )
   .map((filePath) => filePath.replace(/\\/g, '/').match(/components\/([^/]*)\//)![1])
   .filter((name) => name !== 'overview');
@@ -131,13 +134,20 @@ const miscKeys = [
       const refs: string[] = [];
 
       let changelogLine = line.trim().replace('- ', '');
+      console.log('>>>', line, changelogLine);
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
-          const [, , ref] = match;
+          const [, title, ref] = match;
           if (ref.includes('/pull/')) {
             refs.push(ref);
           }
-          return '';
+
+          console.log('->', match);
+          if (title && (title[0] === '#' || title[0] === '@')) {
+            return '';
+          }
+
+          return title;
         })
         .trim();
 
@@ -161,6 +171,8 @@ const miscKeys = [
         }
       });
 
+      break;
+
       if (matched) {
         continue;
       }
@@ -181,7 +193,7 @@ const miscKeys = [
   }
 
   syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
-  syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
+  // syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
   fs.writeFileSync(
     path.join(output, 'misc-changelog.json'),
     JSON.stringify(miscChangelog),
