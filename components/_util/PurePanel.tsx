@@ -2,7 +2,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 
-export function withPureRenderTheme<T extends React.FC>(Component: T): T {
+export function withPureRenderTheme(Component: any) {
   return function PureRenderThemeComponent(props: any) {
     return (
       <ConfigProvider
@@ -16,7 +16,7 @@ export function withPureRenderTheme<T extends React.FC>(Component: T): T {
         <Component {...props} />
       </ConfigProvider>
     );
-  } as T;
+  };
 }
 
 export interface BaseProps {
