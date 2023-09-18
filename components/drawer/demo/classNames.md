@@ -4,4 +4,4 @@
 
 ## en-US
 
-Set the `className` of the internal areas (header, body, footer, mask, wrapper) of the drawer through the `classNames`.
+Set the `className` of the build-in module (header, body, footer, mask, wrapper) of the drawer through the `classNames`.
