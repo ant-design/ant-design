@@ -68,23 +68,25 @@ export const Footer: React.FC<
 
   const btnCtxValueMemo = React.useMemo(() => btnCtxValue, [...Object.values(btnCtxValue)]);
 
-  let footerNode;
-  if (typeof footer === 'function' || typeof footer === 'undefined') {
-    footerNode = (
-      <ModalContextProvider value={btnCtxValueMemo}>
-        <NormalCancelBtn />
-        <NormalOkBtn />
-      </ModalContextProvider>
-    );
-    if (typeof footer === 'function') {
-      footerNode = footer(footerNode, {
-        OkBtn: NormalOkBtn,
-        CancelBtn: NormalCancelBtn,
-      });
-    }
-  } else {
-    footerNode = footer;
-  }
+  const footerOriginNode = (
+    <>
+      <NormalCancelBtn />
+      <NormalOkBtn />
+    </>
+  );
 
-  return <DisabledContextProvider disabled={false}>{footerNode}</DisabledContextProvider>;
+  return footer === undefined || typeof footer === 'function' ? (
+    <DisabledContextProvider disabled={false}>
+      <ModalContextProvider value={btnCtxValueMemo}>
+        {typeof footer === 'function'
+          ? footer(footerOriginNode, {
+              OkBtn: NormalOkBtn,
+              CancelBtn: NormalCancelBtn,
+            })
+          : footerOriginNode}
+      </ModalContextProvider>
+    </DisabledContextProvider>
+  ) : (
+    footer
+  );
 };

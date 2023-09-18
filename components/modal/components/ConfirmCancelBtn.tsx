@@ -32,21 +32,23 @@ const ConfirmCancelBtn: FC = () => {
     onCancel,
     onConfirm,
   } = useContext(ModalContext);
-  return mergedOkCancel ? (
-    <ActionButton
-      isSilent={isSilent}
-      actionFn={onCancel}
-      close={(...args: any[]) => {
-        close?.(...args);
-        onConfirm?.(false);
-      }}
-      autoFocus={autoFocusButton === 'cancel'}
-      buttonProps={cancelButtonProps}
-      prefixCls={`${rootPrefixCls}-btn`}
-    >
-      {cancelTextLocale}
-    </ActionButton>
-  ) : null;
+  return (
+    mergedOkCancel && (
+      <ActionButton
+        isSilent={isSilent}
+        actionFn={onCancel}
+        close={(...args: any[]) => {
+          close?.(...args);
+          onConfirm?.(false);
+        }}
+        autoFocus={autoFocusButton === 'cancel'}
+        buttonProps={cancelButtonProps}
+        prefixCls={`${rootPrefixCls}-btn`}
+      >
+        {cancelTextLocale}
+      </ActionButton>
+    )
+  );
 };
 
 export default ConfirmCancelBtn;
