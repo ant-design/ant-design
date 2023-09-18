@@ -4,4 +4,4 @@
 
 ## en-US
 
-Set the className of the internal areas (header, body, footer, mask, wrapper) of the modal through the classNames property.
+Set the className of the build-in module (header, body, footer, mask, wrapper) of the modal through the classNames property.
