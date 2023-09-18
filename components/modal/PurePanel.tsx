@@ -61,7 +61,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     additionalProps = {
       closable: closable ?? true,
       title,
-      footer: footer !== null ? <Footer {...(props as any)} /> : footer,
+      footer: footer !== null ? <Footer {...props} /> : footer,
       children,
     };
   }
