@@ -20,6 +20,11 @@ export interface ComponentToken {
    * @descEN Width of active indicator
    */
   dotActiveWidth: number;
+  /**
+   * @desc 是否使用 CSS3 变换
+   * @descEn Whether to use CSS3 transforms or not
+   */
+  useTransform: boolean;
 }
 
 interface CarouselToken extends FullToken<'Carousel'> {
@@ -47,7 +52,8 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
         WebkitTapHighlightColor: 'transparent',
 
         '.slick-track, .slick-list': {
-          transform: 'translate3d(0, 0, 0)',
+          // Transforms should not be applied at all, if user has asked for it
+          ...(token.useTransform && { transform: 'translate3d(0, 0, 0)' }),
           touchAction: 'pan-y',
         },
       },
@@ -365,6 +371,8 @@ export default genComponentStyleHook(
       dotHeight: 3,
       dotWidthActive: dotActiveWidth,
       dotActiveWidth,
+      // In Slick this property is `true` by default, so making Antd's default value also as `true`
+      useTransform: true,
     };
   },
   {
