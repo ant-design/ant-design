@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from 'antd';
+import { Button, Modal, Typography } from 'antd';
 
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
@@ -14,6 +14,24 @@ export default () => (
     </InternalPanel>
     <InternalPanel title="Confirm This?" type="confirm" style={{ width: 300, height: 200 }}>
       Some descriptions.
+    </InternalPanel>
+    <InternalPanel
+      title="Footer Render"
+      style={{ width: 520, height: 200 }}
+      footer={(_, { OkBtn, CancelBtn }) => (
+        <>
+          <Button>Custom</Button>
+          <CancelBtn />
+          <OkBtn />
+        </>
+      )}
+    >
+      <Typography.Paragraph>
+        Issue
+        <Typography.Link href="https://github.com/ant-design/ant-design/issues/44923">
+          #44923
+        </Typography.Link>
+      </Typography.Paragraph>
     </InternalPanel>
   </div>
 );
