@@ -134,7 +134,6 @@ const miscKeys = [
       const refs: string[] = [];
 
       let changelogLine = line.trim().replace('- ', '');
-      console.log('>>>', line, changelogLine);
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
           const [, title, ref] = match;
@@ -171,8 +170,6 @@ const miscKeys = [
         }
       });
 
-      break;
-
       if (matched) {
         continue;
       }
@@ -193,7 +190,7 @@ const miscKeys = [
   }
 
   syncChangelog('CHANGELOG.zh-CN.md', 'components-changelog-cn.json');
-  // syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
+  syncChangelog('CHANGELOG.en-US.md', 'components-changelog-en.json');
   fs.writeFileSync(
     path.join(output, 'misc-changelog.json'),
     JSON.stringify(miscChangelog),
