@@ -15,7 +15,6 @@ import {
 } from 'antd';
 
 const { Text } = Typography;
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 const narrowStyle: React.CSSProperties = {
