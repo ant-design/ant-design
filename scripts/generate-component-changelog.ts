@@ -141,7 +141,6 @@ const miscKeys = [
             refs.push(ref);
           }
 
-          console.log('->', match);
           if (title && (title[0] === '#' || title[0] === '@')) {
             return '';
           }
