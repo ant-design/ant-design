@@ -13,8 +13,8 @@ import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 export interface PurePanelProps
-  extends Omit<PanelProps, 'prefixCls' | 'footer'>,
-    Pick<ModalFuncProps, 'type' | 'footer'> {
+  extends Omit<PanelProps, 'prefixCls'>,
+    Pick<ModalFuncProps, 'type'> {
   prefixCls?: string;
   style?: React.CSSProperties;
 }
@@ -28,7 +28,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     type,
     title,
     children,
-    footer,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -61,7 +60,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     additionalProps = {
       closable: closable ?? true,
       title,
-      footer: footer !== null ? <Footer {...(props as any)} /> : footer,
+      footer: props.footer !== null ? <Footer {...(props as any)} /> : props.footer,
       children,
     };
   }
