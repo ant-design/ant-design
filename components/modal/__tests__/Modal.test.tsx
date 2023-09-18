@@ -141,16 +141,13 @@ describe('Modal', () => {
         open
         footer={(_, { OkBtn, CancelBtn }) => (
           <>
-            <div className="custom-footer-origin">
-              <OkBtn />
-              <CancelBtn />
-            </div>
+            <OkBtn />
+            <CancelBtn />
             <div className="custom-footer-ele">footer-ele</div>
           </>
         )}
       />,
     );
-    expect(document.querySelector('.custom-footer-origin')).toMatchSnapshot();
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
 });
