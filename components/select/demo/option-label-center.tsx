@@ -4,7 +4,7 @@ import { Select, Space, Cascader, Typography, TreeSelect } from 'antd';
 const options = [
   { value: 'long', label: <Typography>long, long, long piece of text</Typography> },
   { value: 'short', label: <Typography>short</Typography> },
-  { value: 'normal', label: 'normal' },
+  { value: 'normal', label: <div>normal</div> },
 ];
 
 const App: React.FC = () => (
@@ -19,6 +19,23 @@ const App: React.FC = () => (
     <Select
       placeholder="Select a option"
       style={{ width: 120, height: 60 }}
+      allowClear
+      options={options}
+    />
+
+    <Select
+      defaultValue="normal"
+      placeholder="Select a option"
+      style={{ width: 120 }}
+      allowClear
+      options={options}
+    />
+
+    <Select
+      defaultValue={['normal']}
+      mode="multiple"
+      placeholder="Select a option"
+      style={{ width: 120 }}
       allowClear
       options={options}
     />
