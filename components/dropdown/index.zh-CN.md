@@ -22,6 +22,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/render-props.tsx">render props</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>
 <code src="./demo/item.tsx">其他元素</code>
