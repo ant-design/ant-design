@@ -239,6 +239,10 @@ import { ConfigProvider } from 'antd';
 
 请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
 
+## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
+
+在 Ant Design Token 系统中 `colorPrimary` 和 `colorInfo` 同属于 [基础变量（Seed Token）](../react/customize-theme.zh-CN.md#基础变量seed-token)，所以两者是互相独立的。`colorLink` 则属于 [别名变量（Alias Token）](../react/customize-theme.zh-CN.md#别名变量alias-token), 默认继承 `colorInfo` 且和 `colorPrimary` 无关。
+
 ## 如何正确的拼写 Ant Design？
 
 - ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
