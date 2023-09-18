@@ -18,6 +18,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/render-props.tsx">render props</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/item.tsx">Other elements</code>
