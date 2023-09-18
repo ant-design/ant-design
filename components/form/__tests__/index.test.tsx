@@ -1418,15 +1418,15 @@ describe('Form', () => {
           </Form.Item>
 
           {/* should follow parent status */}
-          <Form.Item validateStatus="error">
+          <Form.Item validateStatus="error" hasFeedback>
             <Form.Item noStyle>
               <Select className="custom-select-b" />
             </Form.Item>
           </Form.Item>
 
           {/* should follow child status */}
-          <Form.Item validateStatus="error">
-            <Form.Item noStyle validateStatus="warning">
+          <Form.Item validateStatus="error" hasFeedback>
+            <Form.Item noStyle validateStatus="warning" hasFeedback={false}>
               <Select className="custom-select-c" />
             </Form.Item>
           </Form.Item>
@@ -1455,9 +1455,19 @@ describe('Form', () => {
 
       expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
       expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-b')
+          ?.querySelector('.ant-form-item-feedback-icon-error'),
+      ).toBeTruthy();
 
       expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
       expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-c')
+          ?.querySelector('.ant-form-item-feedback-icon-warning'),
+      ).toBeFalsy();
 
       expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
       expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
