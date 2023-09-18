@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -20,12 +21,12 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const notificationBottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
-      marginBottom: '-100%',
+      transform: 'translateY(100%)',
       opacity: 0,
     },
 
     '100%': {
-      marginBottom: 0,
+      transform: 'translateY(0)',
       opacity: 1,
     },
   });
