@@ -125,32 +125,12 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
-      const warning = devUseWarning();
+      const warning = devUseWarning('Calendar');
 
-      warning(
-        !dateFullCellRender,
-        'Calendar',
-        'deprecated',
-        '`dateFullCellRender` is deprecated. Please use `fullCellRender` instead.',
-      );
-      warning(
-        !dateCellRender,
-        'Calendar',
-        'deprecated',
-        '`dateCellRender` is deprecated. Please use `cellRender` instead.',
-      );
-      warning(
-        !monthFullCellRender,
-        'Calendar',
-        'deprecated',
-        '`monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
-      );
-      warning(
-        !monthCellRender,
-        'Calendar',
-        'deprecated',
-        '`monthCellRender` is deprecated. Please use `cellRender` instead.',
-      );
+      warning.deprecated(!dateFullCellRender, 'dateFullCellRender', 'fullCellRender');
+      warning.deprecated(!dateCellRender, 'dateCellRender', 'cellRender');
+      warning.deprecated(!monthFullCellRender, 'monthFullCellRender', 'fullCellRender');
+      warning.deprecated(!monthCellRender, 'monthCellRender', 'cellRender');
     }
 
     // ====================== State =======================

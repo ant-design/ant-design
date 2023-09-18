@@ -211,6 +211,10 @@ Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-us
 
 Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
 
+## What is the relationship between colorPrimary and colorInfo and colorLink in V5?
+
+In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed Token](../react/customize-theme.en-US.md#seed-token), so they are independent of each other. `colorLink` is an [Alias Token](../react/customize-theme.en-US.md#alias-token), inherits `colorInfo` by default, and is independent of `colorPrimary`.
+
 ## How to spell Ant Design correctly?
 
 - ✅ **Ant Design**: Capitalized with space, for the design language.
@@ -260,7 +264,7 @@ If you encounter the above error, please check the current project `tsconfig.jso
 }
 ```
 
-The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when designing types
+The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
 
 ## The antd component reported an error when using the App Router of Next.js
 

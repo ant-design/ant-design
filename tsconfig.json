@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      "@@/*": [".dumi/tmp/*"],
       "antd": ["components/index.ts"],
       "antd/es/*": ["components/*"],
       "antd/lib/*": ["components/*"],
@@ -23,5 +24,6 @@
     "skipLibCheck": true,
     "stripInternal": true
   },
+  "include": [".dumirc.ts", "**/*"],
   "exclude": ["node_modules", "lib", "es"]
 }

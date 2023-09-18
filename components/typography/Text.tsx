@@ -24,13 +24,12 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
   }, [ellipsis]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Typography.Text');
 
     warning(
       typeof ellipsis !== 'object' ||
         !ellipsis ||
         (!('expandable' in ellipsis) && !('rows' in ellipsis)),
-      'Typography.Text',
       'usage',
       '`ellipsis` do not support `expandable` or `rows` props.',
     );

@@ -122,7 +122,7 @@ export function useInternalMessage(
 ): readonly [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
-  const warning = devUseWarning();
+  const warning = devUseWarning('Message');
 
   // ================================ API ================================
   const wrapAPI = React.useMemo<MessageInstance>(() => {
@@ -138,7 +138,6 @@ export function useInternalMessage(
       if (!holderRef.current) {
         warning(
           false,
-          'Message',
           'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );

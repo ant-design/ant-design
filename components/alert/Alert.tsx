@@ -120,15 +120,10 @@ const Alert: React.FC<AlertProps> = (props) => {
   const [closed, setClosed] = React.useState(false);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
-
-    warning(
-      !closeText,
-      'Alert',
-      'deprecated',
-      '`closeText` is deprecated. Please use `closeIcon` instead.',
-    );
+    const warning = devUseWarning('Alert');
+    warning.deprecated(!closeText, 'closeText', 'closeIcon');
   }
+
   const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
