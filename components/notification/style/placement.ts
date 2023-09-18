@@ -21,7 +21,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const notificationBottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
-      bottom: -token.animationMaxHeight,
+      bottom: -animationMaxHeight,
       opacity: 0,
     },
 
