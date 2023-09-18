@@ -6214,7 +6214,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6395,7 +6395,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -6672,7 +6672,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
               >
                 <div
                   class="ant-select-tree-list-holder"
-                  style="max-height: 256px; overflow-y: auto;"
+                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
                 >
                   <div>
                     <div
@@ -11590,7 +11590,11 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] = `
+[
+  "Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in %s.%s",
+]
+`;
 
 exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = `
 <div
