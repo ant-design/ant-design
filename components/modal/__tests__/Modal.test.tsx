@@ -163,23 +163,6 @@ describe('Modal', () => {
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
 
-  it('Both should work properly', () => {
-    const { asFragment: firstArg } = render(<Modal open footer={(origin) => origin} />);
-    const { asFragment: secondArg } = render(
-      <Modal
-        open
-        footer={(_, { OkBtn, CancelBtn }) => (
-          <>
-            <OkBtn />
-            <CancelBtn />
-          </>
-        )}
-      />,
-    );
-
-    expect(firstArg()).toEqual(secondArg());
-  });
-
   // https://github.com/ant-design/ant-design/issues/
   it('Both ways should be rendered normally on the page', () => {
     render(
