@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Modal Both ways should be rendered normally on the page 1`] = `
+<div
+  class="first-origin"
+>
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Cancel
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      OK
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Modal Both ways should be rendered normally on the page 2`] = `
+<div
+  class="second-props-origin"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      OK
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Cancel
+    </span>
+  </button>
+</div>
+`;
+
 exports[`Modal render correctly 1`] = `
 <div>
   <div>
