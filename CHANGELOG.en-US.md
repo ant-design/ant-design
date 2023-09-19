@@ -24,12 +24,7 @@ tag: vVERSION
 - 🐞 Fix Select style problem when `label` contains `div` element. [#44927](https://github.com/ant-design/ant-design/pull/44927)
 - 🐞 Fix Modal broken style of buttons when custom `footer`. [#44929](https://github.com/ant-design/ant-design/pull/44929) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 Fix notification wrong pop-up animation when `placement` is `bottom`. [#44918](https://github.com/ant-design/ant-design/pull/44918) [@linxianxi](https://github.com/linxianxi)
-<<<<<<< HEAD
 - 🐞 Fix missing inherited feedbackIcon in Form.Item with `noStyle`. [#44937](https://github.com/ant-design/ant-design/pull/44937)
-=======
-- TypeScript
-  - 🤖 MISC: Fix React.Key type errors introduced by `@types/react@18.2.22`. [#44938](https://github.com/ant-design/ant-design/pull/44938)
->>>>>>> 481ed2969 (Apply suggestions from code review)
 
 ## 5.9.1
 
