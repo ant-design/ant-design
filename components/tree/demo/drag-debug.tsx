@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { CarryOutOutlined } from '@ant-design/icons';
-import type { DataNode } from 'rc-tree/lib/interface';
 import React from 'react';
+import { CarryOutOutlined } from '@ant-design/icons';
 import type { TreeProps } from 'antd';
 import { Switch, Tree } from 'antd';
+import type { DataNode } from 'rc-tree/lib/interface';
 
 const x = 3;
 const y = 2;
@@ -36,11 +36,7 @@ const App: React.FC = () => {
   const [showLine, setShowLine] = React.useState<any>(true);
   const [showIcon, setShowIcon] = React.useState<boolean>(true);
   const [showLeafIcon, setShowLeafIcon] = React.useState<boolean>(true);
-  const [expandedKeys, setExpandedKeys] = React.useState<(string | number)[]>([
-    '0-0',
-    '0-0-0',
-    '0-0-0-0',
-  ]);
+  const [expandedKeys, setExpandedKeys] = React.useState<React.Key[]>(['0-0', '0-0-0', '0-0-0-0']);
 
   const onDragEnter: TreeProps['onDragEnter'] = (info) => {
     console.log(info);
