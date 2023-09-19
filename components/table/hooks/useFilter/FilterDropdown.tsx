@@ -22,6 +22,7 @@ import Tree from '../../../tree';
 import type {
   ColumnFilterItem,
   ColumnType,
+  FilterKey,
   FilterSearchType,
   FilterValue,
   GetPopupContainer,
@@ -31,7 +32,7 @@ import type {
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 
-type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: Key }>;
+type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: string }>;
 
 interface FilterRestProps {
   confirm?: Boolean;
@@ -134,6 +135,10 @@ export interface FilterDropdownProps<RecordType> {
   filterResetToDefaultFilteredValue?: boolean;
 }
 
+function toStringList(keys?: FilterKey) {
+  return (keys || []).map((key) => String(key));
+}
+
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const {
     tablePrefixCls,
@@ -196,9 +201,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
-  const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
+  const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(toStringList(propFilteredKeys));
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
     setFilteredKeysSync(selectedKeys);
   };
 
@@ -209,7 +214,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     if (!filterMultiple) {
       onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
     } else {
-      onSelectKeys({ selectedKeys: keys as Key[] });
+      onSelectKeys({ selectedKeys: keys });
     }
   };
 
@@ -217,7 +222,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     if (!visible) {
       return;
     }
-    onSelectKeys({ selectedKeys: propFilteredKeys || [] });
+    onSelectKeys({ selectedKeys: toStringList(propFilteredKeys) });
   }, [propFilteredKeys]);
 
   // ====================== Open Keys ======================
@@ -240,7 +245,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }, [visible]);
 
   // ======================= Submit ========================
-  const internalTriggerFilter = (keys?: Key[]) => {
+  const internalTriggerFilter = (keys?: string[]) => {
     const mergedKeys = keys && keys.length ? keys : null;
     if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
@@ -291,7 +296,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const onVisibleChange = (newVisible: boolean) => {
     if (newVisible && propFilteredKeys !== undefined) {
       // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefined)
-      setFilteredKeysSync(propFilteredKeys || []);
+      setFilteredKeysSync(toStringList(propFilteredKeys));
     }
 
     triggerVisible(newVisible);
@@ -321,7 +326,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       const key = String(filter.value);
       const item: FilterTreeDataNode = {
         title: filter.text,
-        key: filter.value !== undefined ? key : index,
+        key: filter.value !== undefined ? key : String(index),
       };
       if (filter.children) {
         item.children = getTreeData({ filters: filter.children });
@@ -340,7 +345,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
-      setSelectedKeys: (selectedKeys: Key[]) => onSelectKeys({ selectedKeys }),
+      setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
       selectedKeys: getFilteredKeysSync(),
       confirm: doFilter,
       clearFilters: onReset,
@@ -353,7 +358,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
   } else {
-    const selectedKeys = (getFilteredKeysSync() || []) as string[];
+    const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
       if ((column.filters || []).length === 0) {
         return (

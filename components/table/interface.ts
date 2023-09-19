@@ -85,7 +85,7 @@ export type ColumnTitle<RecordType> =
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
 export type FilterValue = (Key | boolean)[];
-export type FilterKey = Key[] | null;
+export type FilterKey = (string | number)[] | null;
 export type FilterSearchType<RecordType = AnyObject> =
   | boolean
   | ((input: string, record: RecordType) => boolean);
