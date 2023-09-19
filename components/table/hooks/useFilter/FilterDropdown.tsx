@@ -203,7 +203,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onCheck = (
-    keys: Key[],
+    keys: string[],
     { node, checked }: { node: EventDataNode<FilterTreeDataNode>; checked: boolean },
   ) => {
     if (!filterMultiple) {
@@ -331,7 +331,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
     ...node,
     text: node.title,
-    value: node.key,
+    value: node.key as (string | number),
     children: node.children?.map((item) => getFilterData(item)) || [],
   });
 

@@ -133,14 +133,15 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
+    const keyAsString = key as string | number;
     const { filters, filterDropdown } = column;
     if (filterDropdown) {
-      currentFilters[key] = filteredKeys || null;
+      currentFilters[keyAsString] = filteredKeys || null;
     } else if (Array.isArray(filteredKeys)) {
       const keys = flattenKeys(filters);
-      currentFilters[key] = keys.filter((originKey) => filteredKeys.includes(String(originKey)));
+      currentFilters[keyAsString] = keys.filter((originKey) => filteredKeys.includes(String(originKey)));
     } else {
-      currentFilters[key] = null;
+      currentFilters[keyAsString] = null;
     }
   });
 
@@ -161,7 +162,7 @@ export function getFilterData<RecordType>(
         filteredKeys.some((key) => {
           const keys = flattenKeys(filters);
           const keyIndex = keys.findIndex((k) => String(k) === String(key));
-          const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
+          const realKey = (keyIndex !== -1 ? keys[keyIndex] : key) as string | number;
           return onFilter(realKey, record);
         }),
       );
