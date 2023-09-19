@@ -1,3 +1,4 @@
+import type * as React from 'react';
 import type {
   FixedType,
   GetComponentProps,
@@ -5,14 +6,14 @@ import type {
   RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
-import type * as React from 'react';
+
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
-import type { InternalTableProps, TableProps } from './InternalTable';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import type { InternalTableProps, TableProps } from './InternalTable';
 
 export type RefTable = <RecordType extends AnyObject = AnyObject>(
   props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
@@ -65,7 +66,7 @@ export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
-  value: string | number | boolean;
+  value: string | number | bigint | boolean;
   children?: ColumnFilterItem[];
 }
 

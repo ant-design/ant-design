@@ -331,7 +331,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
     ...node,
     text: node.title,
-    value: node.key as string | number,
+    value: node.key,
     children: node.children?.map((item) => getFilterData(item)) || [],
   });
 
