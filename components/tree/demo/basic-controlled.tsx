@@ -47,12 +47,12 @@ const treeData: DataNode[] = [
 ];
 
 const App: React.FC = () => {
-  const [expandedKeys, setExpandedKeys] = useState<string[]>(['0-0-0', '0-0-1']);
-  const [checkedKeys, setCheckedKeys] = useState<string[]>(['0-0-0']);
-  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(['0-0-0', '0-0-1']);
+  const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(['0-0-0']);
+  const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
   const [autoExpandParent, setAutoExpandParent] = useState<boolean>(true);
 
-  const onExpand = (expandedKeysValue: string[]) => {
+  const onExpand = (expandedKeysValue: React.Key[]) => {
     console.log('onExpand', expandedKeysValue);
     // if not set autoExpandParent to false, if children expanded, parent can not collapse.
     // or, you can remove all expanded children keys.
@@ -60,12 +60,12 @@ const App: React.FC = () => {
     setAutoExpandParent(false);
   };
 
-  const onCheck = (checkedKeysValue: string[]) => {
+  const onCheck = (checkedKeysValue: React.Key[]) => {
     console.log('onCheck', checkedKeysValue);
     setCheckedKeys(checkedKeysValue);
   };
 
-  const onSelect = (selectedKeysValue: string[], info: any) => {
+  const onSelect = (selectedKeysValue: React.Key[], info: any) => {
     console.log('onSelect', info);
     setSelectedKeys(selectedKeysValue);
   };
