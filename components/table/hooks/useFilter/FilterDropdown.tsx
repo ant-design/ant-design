@@ -135,8 +135,8 @@ export interface FilterDropdownProps<RecordType> {
   filterResetToDefaultFilteredValue?: boolean;
 }
 
-function toStringList(keys?: FilterKey) {
-  return (keys || []).map((key) => String(key));
+function wrapStringListType(keys?: FilterKey) {
+  return (keys as string[]) || [];
 }
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
@@ -201,7 +201,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ===================== Select Keys =====================
   const propFilteredKeys = filterState?.filteredKeys;
-  const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(toStringList(propFilteredKeys));
+  const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(
+    wrapStringListType(propFilteredKeys),
+  );
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
     setFilteredKeysSync(selectedKeys);
@@ -222,7 +224,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     if (!visible) {
       return;
     }
-    onSelectKeys({ selectedKeys: toStringList(propFilteredKeys) });
+    onSelectKeys({ selectedKeys: wrapStringListType(propFilteredKeys) });
   }, [propFilteredKeys]);
 
   // ====================== Open Keys ======================
@@ -296,7 +298,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const onVisibleChange = (newVisible: boolean) => {
     if (newVisible && propFilteredKeys !== undefined) {
       // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefined)
-      setFilteredKeysSync(toStringList(propFilteredKeys));
+      setFilteredKeysSync(wrapStringListType(propFilteredKeys));
     }
 
     triggerVisible(newVisible);

@@ -66,7 +66,7 @@ export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
-  value: string | number | bigint | boolean;
+  value: React.Key | boolean;
   children?: ColumnFilterItem[];
 }
 
@@ -136,7 +136,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
-  onFilter?: (value: string | number | bigint | boolean, record: RecordType) => boolean;
+  onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
   filterDropdownOpen?: boolean;
   onFilterDropdownOpenChange?: (visible: boolean) => void;
   filterResetToDefaultFilteredValue?: boolean;
