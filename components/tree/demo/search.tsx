@@ -61,11 +61,11 @@ const getParentKey = (key: React.Key, tree: DataNode[]): React.Key => {
 };
 
 const App: React.FC = () => {
-  const [expandedKeys, setExpandedKeys] = useState<string[]>([]);
+  const [expandedKeys, setExpandedKeys] = useState<React.Key[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const [autoExpandParent, setAutoExpandParent] = useState(true);
 
-  const onExpand = (newExpandedKeys: string[]) => {
+  const onExpand = (newExpandedKeys: React.Key[]) => {
     setExpandedKeys(newExpandedKeys);
     setAutoExpandParent(false);
   };
@@ -79,8 +79,7 @@ const App: React.FC = () => {
         }
         return null;
       })
-      .filter((item, i, self) => item && self.indexOf(item) === i)
-      .map((item) => (item ? item.toString() : ''));
+      .filter((item, i, self): item is React.Key => !!(item && self.indexOf(item) === i));
     setExpandedKeys(newExpandedKeys);
     setSearchValue(value);
     setAutoExpandParent(true);
