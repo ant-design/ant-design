@@ -4,7 +4,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';
-import type { DataNode, GetCheckDisabled, Key as TreeNodeKey } from 'rc-tree/lib/interface';
+import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { arrAdd, arrDel } from 'rc-tree/lib/util';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
@@ -195,7 +195,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   const [derivedSelectedKeys, derivedHalfSelectedKeys] = useMemo(() => {
-    const mergedSelectedKeysAsTreeNodeKeys = (mergedSelectedKeys || []) as TreeNodeKey[];
+    const mergedSelectedKeysAsTreeNodeKeys = mergedSelectedKeys || [];
     if (checkStrictly) {
       return [mergedSelectedKeysAsTreeNodeKeys, []];
     }
@@ -507,7 +507,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         };
       } else {
         renderCell = (_, record, index) => {
-          const key = getRowKey(record, index) as TreeNodeKey;
+          const key = getRowKey(record, index);
           const checked = keySet.has(key);
           const indeterminate = derivedHalfSelectedKeySet.has(key);
           const checkboxProps = checkboxPropsMap.get(key);
