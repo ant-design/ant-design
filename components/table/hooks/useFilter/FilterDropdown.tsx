@@ -31,7 +31,7 @@ import type {
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 
-type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: React.Key }>;
+type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: Key }>;
 
 interface FilterRestProps {
   confirm?: Boolean;
@@ -331,7 +331,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
     ...node,
     text: node.title,
-    value: node.key as (string | number),
+    value: node.key as string | number,
     children: node.children?.map((item) => getFilterData(item)) || [],
   });
 

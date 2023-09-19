@@ -36,7 +36,11 @@ const App: React.FC = () => {
   const [showLine, setShowLine] = React.useState<any>(true);
   const [showIcon, setShowIcon] = React.useState<boolean>(true);
   const [showLeafIcon, setShowLeafIcon] = React.useState<boolean>(true);
-  const [expandedKeys, setExpandedKeys] = React.useState<React.Key[]>(['0-0', '0-0-0', '0-0-0-0']);
+  const [expandedKeys, setExpandedKeys] = React.useState<(string | number)[]>([
+    '0-0',
+    '0-0-0',
+    '0-0-0-0',
+  ]);
 
   const onDragEnter: TreeProps['onDragEnter'] = (info) => {
     console.log(info);

@@ -138,7 +138,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // ========================= MISC =========================
   // Get `noStyle` required info
   const listContext = React.useContext(ListContext);
-  const fieldKeyPathRef = React.useRef<React.Key[]>();
+  const fieldKeyPathRef = React.useRef<(string | number)[]>();
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
