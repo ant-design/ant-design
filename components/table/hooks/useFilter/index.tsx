@@ -9,6 +9,7 @@ import type {
   FilterValue,
   GetPopupContainer,
   Key,
+  SafeKey,
   TableLocale,
   TransformColumns,
 } from '../../interface';
@@ -133,13 +134,15 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
-    const keyAsString = key as string | number;
+    const keyAsString = key as SafeKey;
     const { filters, filterDropdown } = column;
     if (filterDropdown) {
       currentFilters[keyAsString] = filteredKeys || null;
     } else if (Array.isArray(filteredKeys)) {
       const keys = flattenKeys(filters);
-      currentFilters[keyAsString] = keys.filter((originKey) => filteredKeys.includes(String(originKey)));
+      currentFilters[keyAsString] = keys.filter((originKey) =>
+        filteredKeys.includes(String(originKey)),
+      );
     } else {
       currentFilters[keyAsString] = null;
     }
@@ -162,7 +165,7 @@ export function getFilterData<RecordType>(
         filteredKeys.some((key) => {
           const keys = flattenKeys(filters);
           const keyIndex = keys.findIndex((k) => String(k) === String(key));
-          const realKey = (keyIndex !== -1 ? keys[keyIndex] : key) as string | number;
+          const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
           return onFilter(realKey, record);
         }),
       );

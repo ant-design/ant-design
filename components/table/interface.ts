@@ -28,6 +28,8 @@ export { ExpandableConfig, GetRowKey };
 
 export type Key = React.Key;
 
+export type SafeKey = Exclude<Key, bigint>;
+
 export type RowSelectionType = 'checkbox' | 'radio';
 
 export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
@@ -57,7 +59,7 @@ export interface TableLocale {
 export type SortOrder = 'descend' | 'ascend' | null;
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = (typeof TableActions)[number];
+export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -133,7 +135,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
-  onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
+  onFilter?: (value: string | number | bigint | boolean, record: RecordType) => boolean;
   filterDropdownOpen?: boolean;
   onFilterDropdownOpenChange?: (visible: boolean) => void;
   filterResetToDefaultFilteredValue?: boolean;
