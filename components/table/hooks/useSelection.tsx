@@ -195,12 +195,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   );
 
   const [derivedSelectedKeys, derivedHalfSelectedKeys] = useMemo(() => {
-    const mergedSelectedKeysAsTreeNodeKeys = mergedSelectedKeys || [];
     if (checkStrictly) {
-      return [mergedSelectedKeysAsTreeNodeKeys, []];
+      return [mergedSelectedKeys || [], []];
     }
     const { checkedKeys, halfCheckedKeys } = conductCheck(
-      mergedSelectedKeysAsTreeNodeKeys,
+      mergedSelectedKeys,
       true,
       keyEntities as any,
       isCheckboxDisabled as any,
