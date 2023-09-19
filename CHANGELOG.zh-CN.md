@@ -24,6 +24,7 @@ tag: vVERSION
 - 🐞 修复 Select 当 `label` 内使用了 `div` 块级元素时的样式问题。[#44927](https://github.com/ant-design/ant-design/pull/44927)
 - 🐞 修复 Modal 自定义 `footer` 时按钮内容丢失的问题。[#44929](https://github.com/ant-design/ant-design/pull/44929) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 notification 底部弹出动画的问题。[#44918](https://github.com/ant-design/ant-design/pull/44918) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 Form.Item 有 `noStyle` 属性时没有继承上下文的反馈图标的问题。[#44937](https://github.com/ant-design/ant-design/pull/44937)
 
 ## 5.9.1
 
