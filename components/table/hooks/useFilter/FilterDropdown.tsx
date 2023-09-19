@@ -353,7 +353,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
   } else {
-    const selectedKeys = getFilteredKeysSync() || [];
+    const selectedKeys = (getFilteredKeysSync() || []) as string[];
     const getFilterComponent = () => {
       if ((column.filters || []).length === 0) {
         return (
@@ -439,7 +439,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             className={dropdownMenuClass}
             onSelect={onSelectKeys}
             onDeselect={onSelectKeys}
-            selectedKeys={selectedKeys as string[]}
+            selectedKeys={selectedKeys}
             getPopupContainer={getPopupContainer}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
