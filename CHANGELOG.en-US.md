@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.9.2
 
-`2023-09-18`
+`2023-09-19`
 
 - 🐞 Fix Table selection column not align in center when `size` is `small`. [#44922](https://github.com/ant-design/ant-design/pull/44922)
 - 🐞 Fix Select style problem when `label` contains `div` element. [#44927](https://github.com/ant-design/ant-design/pull/44927)
