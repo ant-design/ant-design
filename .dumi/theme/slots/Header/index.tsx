@@ -1,5 +1,6 @@
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { createStyles } from 'antd-style';
+import dayjs from 'dayjs';
 import classNames from 'classnames';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
@@ -182,7 +183,7 @@ const Header: React.FC = () => {
     updateSiteConfig({ bannerVisible: false });
 
     if (utils.isLocalStorageNameSupported()) {
-      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, 1);
+      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, dayjs().toISOString());
     }
   };
 

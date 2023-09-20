@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, startTransition } from 'react';
+import dayjs from 'dayjs';
 import {
   createCache,
   extractStyle,
@@ -107,12 +108,15 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
-    const storedBannerVisible = !(localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER));
+    const storedBannerVisibleLastTime =
+      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    const storedBannerVisible =
+      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
     setSiteState({
       theme: _theme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      bannerVisible: storedBannerVisible,
+      bannerVisible: storedBannerVisibleLastTime ? storedBannerVisible : true,
     });
     // Handle isMobile
     updateMobileMode();
