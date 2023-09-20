@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { supportNodeRef, useComposeRef } from 'rc-util';
+
 import { NoCompactStyle } from '../space/Compact';
 import type { MenuProps } from './menu';
-import { supportNodeRef } from 'rc-util';
 
 // Used for Dropdown only
 export interface OverrideContextProps {
@@ -35,12 +36,13 @@ export const OverrideProvider = React.forwardRef<
     ],
   );
 
+  const canRef = supportNodeRef(children);
+  const mergedRef = useComposeRef(ref, canRef ? (children as any).ref : null);
+
   return (
     <OverrideContext.Provider value={context}>
       <NoCompactStyle>
-        {supportNodeRef(children)
-          ? React.cloneElement(children as React.ReactElement, { ref })
-          : children}
+        {canRef ? React.cloneElement(children as React.ReactElement, { ref: mergedRef }) : children}
       </NoCompactStyle>
     </OverrideContext.Provider>
   );
