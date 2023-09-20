@@ -2,7 +2,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 
-export function withPureRenderTheme<T extends React.FC>(Component: T) {
+export function withPureRenderTheme(Component: any) {
   return function PureRenderThemeComponent(props: any) {
     return (
       <ConfigProvider
@@ -16,7 +16,7 @@ export function withPureRenderTheme<T extends React.FC>(Component: T) {
         <Component {...props} />
       </ConfigProvider>
     );
-  } as T;
+  };
 }
 
 export interface BaseProps {
@@ -26,19 +26,21 @@ export interface BaseProps {
 
 /* istanbul ignore next */
 export default function genPurePanel<ComponentProps extends BaseProps>(
-  Component: React.ComponentType<ComponentProps>,
+  Component: any,
   defaultPrefixCls?: string,
   getDropdownCls?: null | ((prefixCls: string) => string),
   postProps?: (props: ComponentProps) => ComponentProps,
 ) {
-  function PurePanel(props: any) {
+  type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
+
+  function PurePanel(props: WrapProps) {
     const { prefixCls: customizePrefixCls, style } = props;
 
     const holderRef = React.useRef<HTMLDivElement>(null);
     const [popupHeight, setPopupHeight] = React.useState(0);
     const [popupWidth, setPopupWidth] = React.useState(0);
     const [open, setOpen] = useMergedState(false, {
-      value: props.open ?? props.visible,
+      value: props.open,
     });
 
     const { getPrefixCls } = React.useContext(ConfigContext);
@@ -74,7 +76,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       }
     }, []);
 
-    let mergedProps: ComponentProps = {
+    let mergedProps: WrapProps = {
       ...props,
       style: {
         ...style,
@@ -86,7 +88,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
     };
 
     if (postProps) {
-      mergedProps = postProps(mergedProps);
+      mergedProps = postProps(mergedProps as ComponentProps);
     }
 
     return (
