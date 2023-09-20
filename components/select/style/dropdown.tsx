@@ -12,17 +12,17 @@ import {
 import type { GenerateStyle } from '../../theme/internal';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { controlPaddingHorizontal, controlHeight, fontSize, lineHeight } = token;
+  const { optionHeight, optionFontSize, optionLineHeight, optionPadding } = token;
 
   return {
     position: 'relative',
     display: 'block',
-    minHeight: controlHeight,
-    padding: `${(controlHeight - fontSize * lineHeight) / 2}px ${controlPaddingHorizontal}px`,
+    minHeight: optionHeight,
+    padding: optionPadding,
     color: token.colorText,
     fontWeight: 'normal',
-    fontSize,
-    lineHeight,
+    fontSize: optionFontSize,
+    lineHeight: optionLineHeight,
     boxSizing: 'border-box',
   };
 };
@@ -120,13 +120,13 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {
-              backgroundColor: token.controlItemBgHover,
+              backgroundColor: token.optionActiveBg,
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
-              color: token.colorText,
-              fontWeight: token.fontWeightStrong,
-              backgroundColor: token.controlItemBgActive,
+              color: token.optionSelectedColor,
+              fontWeight: token.optionSelectedFontWeight,
+              backgroundColor: token.optionSelectedBg,
 
               [`${selectItemCls}-option-state`]: {
                 color: token.colorPrimary,

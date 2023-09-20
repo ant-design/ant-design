@@ -1,51 +1,31 @@
-'use client';
-
 /* eslint-disable react/no-array-index-key */
-import classNames from 'classnames';
 import * as React from 'react';
-import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
-import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import classNames from 'classnames';
+
+import type { Breakpoint } from '../_util/responsiveObserver';
+import { matchScreen } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
+import DEFAULT_COLUMN_MAP from './constant';
 import DescriptionsContext from './DescriptionsContext';
+import useItems from './hooks/useItems';
+import useRow from './hooks/useRow';
 import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
-import useRow from './hooks/useRow';
 import useStyle from './style';
-
-const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
-  xxl: 3,
-  xl: 3,
-  lg: 3,
-  md: 3,
-  sm: 2,
-  xs: 1,
-};
-
-function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): number {
-  if (typeof column === 'number') {
-    return column;
-  }
-
-  if (typeof column === 'object') {
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint: Breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && column[breakpoint] !== undefined) {
-        return column[breakpoint] || DEFAULT_COLUMN_MAP[breakpoint];
-      }
-    }
-  }
-
-  return 3;
-}
 
 interface CompoundedComponent {
   Item: typeof DescriptionsItem;
 }
 
-export interface DescriptionsItemType extends DescriptionsItemProps {
+export interface InternalDescriptionsItemType extends DescriptionsItemProps {
   key?: React.Key;
+}
+
+export interface DescriptionsItemType extends Omit<InternalDescriptionsItemType, 'span'> {
+  span?: number | { [key in Breakpoint]?: number };
 }
 
 export interface DescriptionsProps {
@@ -74,7 +54,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     prefixCls: customizePrefixCls,
     title,
     extra,
-    column = DEFAULT_COLUMN_MAP,
+    column,
     colon = true,
     bordered,
     layout,
@@ -90,28 +70,29 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   } = props;
   const { getPrefixCls, direction, descriptions } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
-  const [screens, setScreens] = React.useState<ScreenMap>({});
-  const mergedColumn = getColumn(column, screens);
+  const screens = useBreakpoint();
+
+  // Column count
+  const mergedColumn = React.useMemo(() => {
+    if (typeof column === 'number') {
+      return column;
+    }
+
+    return (
+      matchScreen(screens, {
+        ...DEFAULT_COLUMN_MAP,
+        ...column,
+      }) ?? 3
+    );
+  }, [screens, column]);
+
+  // Items with responsive
+  const mergedItems = useItems(screens, items, children);
 
   const mergedSize = useSize(customizeSize);
-  const rows = useRow(mergedColumn, items, children);
+  const rows = useRow(mergedColumn, mergedItems);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const responsiveObserver = useResponsiveObserver();
-
-  // Responsive
-  React.useEffect(() => {
-    const token = responsiveObserver.subscribe((newScreens) => {
-      if (typeof column !== 'object') {
-        return;
-      }
-      setScreens(newScreens);
-    });
-
-    return () => {
-      responsiveObserver.unsubscribe(token);
-    };
-  }, []);
 
   // ======================== Render ========================
   const contextValue = React.useMemo(

@@ -4,6 +4,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const { TabPane } = Tabs;
 
@@ -121,8 +122,22 @@ describe('Tabs', () => {
     expect(container.querySelectorAll('.ant-tabs-tab')).toHaveLength(1);
 
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tabs] Tabs.TabPane is deprecated. Please use `items` directly.',
+      'Warning: [antd: Tabs] `Tabs.TabPane` is deprecated. Please use `items` instead.',
     );
     errorSpy.mockRestore();
+  });
+
+  it('indicator in ConfigProvider should work', () => {
+    const { container } = render(
+      <ConfigProvider tabs={{ indicatorSize: 12 }}>
+        <Tabs items={[{ key: '1', label: 'foo' }]} className="Tabs_1" />
+        <Tabs items={[{ key: '2', label: 'bar' }]} className="Tabs_2" />
+        <Tabs items={[{ key: '3', label: 'too' }]} indicatorSize={4} className="Tabs_3" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.Tabs_1 .ant-tabs-ink-bar')).toHaveStyle({ width: 12 });
+    expect(container.querySelector('.Tabs_2 .ant-tabs-ink-bar')).toHaveStyle({ width: 12 });
+    expect(container.querySelector('.Tabs_3 .ant-tabs-ink-bar')).toHaveStyle({ width: 4 });
   });
 });

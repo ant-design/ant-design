@@ -665,9 +665,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
 <span>
   Unselect
-  <a
-    href="#"
-  >
+  <a>
     Change city
   </a>
   <div
@@ -3179,11 +3177,10 @@ exports[`renders components/cascader/demo/size.tsx extend context correctly 2`] 
 
 exports[`renders components/cascader/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-cascader ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"

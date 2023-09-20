@@ -51,7 +51,7 @@ demo:
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Carousel"></ComponentTokenTable>
 

@@ -1,5 +1,3 @@
-'use client';
-
 import InternalAnchor from './Anchor';
 import AnchorLink from './AnchorLink';
 

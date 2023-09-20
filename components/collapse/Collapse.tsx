@@ -1,3 +1,4 @@
+import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import type { CollapseProps as RcCollapseProps } from 'rc-collapse';
@@ -5,13 +6,13 @@ import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 import useStyle from './style';
@@ -77,12 +78,16 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const rootPrefixCls = getPrefixCls();
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  // Warning if use legacy type `expandIconPosition`
-  warning(
-    expandIconPosition !== 'left' && expandIconPosition !== 'right',
-    'Collapse',
-    '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Collapse');
+
+    // Warning if use legacy type `expandIconPosition`
+    warning(
+      expandIconPosition !== 'left' && expandIconPosition !== 'right',
+      'deprecated',
+      '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+    );
+  }
 
   // Align with logic position
   const mergedExpandIconPosition = React.useMemo(() => {

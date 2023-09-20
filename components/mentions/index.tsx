@@ -1,5 +1,5 @@
-'use client';
-
+// eslint-disable-next-line import/no-named-as-default
+import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import type {
@@ -8,17 +8,15 @@ import type {
   MentionsRef as RcMentionsRef,
 } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
-// eslint-disable-next-line import/no-named-as-default
-import * as React from 'react';
+
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
-
 import useStyle from './style';
 
 export const { Option } = RcMentions;
@@ -90,11 +88,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !children,
-      'Mentions',
-      '`Mentions.Option` is deprecated. Please use `options` instead.',
-    );
+    const warning = devUseWarning('Mentions');
+
+    warning.deprecated(!children, 'Mentions.Option', 'options');
   }
 
   const {

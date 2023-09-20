@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-
-import MutateObserver from '@rc-component/mutate-observer';
+import React, { useEffect } from 'react';
+import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
 
-import theme from '../theme';
+import { useToken } from '../theme/internal';
+import WatermarkContext from './context';
+import type { WatermarkContextProps } from './context';
 import useClips, { FontGap } from './useClips';
-import { getPixelRatio, getStyleStr, reRendering } from './utils';
+import useRafDebounce from './useRafDebounce';
+import useWatermark from './useWatermark';
+import { getPixelRatio, reRendering } from './utils';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -29,6 +32,14 @@ export interface WatermarkProps {
   children?: React.ReactNode;
 }
 
+/**
+ * Only return `next` when size changed.
+ * This is only used for elements compare, not a shallow equal!
+ */
+function getSizeDiff<T>(prev: Set<T>, next: Set<T>) {
+  return prev.size === next.size ? prev : next;
+}
+
 const Watermark: React.FC<WatermarkProps> = (props) => {
   const {
     /**
@@ -49,7 +60,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offset,
     children,
   } = props;
-  const { token } = theme.useToken();
+  const [, token] = useToken();
   const {
     color = token.colorFill,
     fontSize = token.fontSizeLG,
@@ -64,8 +75,8 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   const offsetLeft = offset?.[0] ?? gapXCenter;
   const offsetTop = offset?.[1] ?? gapYCenter;
 
-  const getMarkStyle = () => {
-    const markStyle: React.CSSProperties = {
+  const markStyle = React.useMemo(() => {
+    const mergedStyle: React.CSSProperties = {
       zIndex,
       position: 'absolute',
       left: 0,
@@ -80,50 +91,32 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     let positionLeft = offsetLeft - gapXCenter;
     let positionTop = offsetTop - gapYCenter;
     if (positionLeft > 0) {
-      markStyle.left = `${positionLeft}px`;
-      markStyle.width = `calc(100% - ${positionLeft}px)`;
+      mergedStyle.left = `${positionLeft}px`;
+      mergedStyle.width = `calc(100% - ${positionLeft}px)`;
       positionLeft = 0;
     }
     if (positionTop > 0) {
-      markStyle.top = `${positionTop}px`;
-      markStyle.height = `calc(100% - ${positionTop}px)`;
+      mergedStyle.top = `${positionTop}px`;
+      mergedStyle.height = `calc(100% - ${positionTop}px)`;
       positionTop = 0;
     }
-    markStyle.backgroundPosition = `${positionLeft}px ${positionTop}px`;
+    mergedStyle.backgroundPosition = `${positionLeft}px ${positionTop}px`;
 
-    return markStyle;
-  };
+    return mergedStyle;
+  }, [zIndex, offsetLeft, gapXCenter, offsetTop, gapYCenter]);
 
-  const containerRef = useRef<HTMLDivElement>(null);
-  const watermarkRef = useRef<HTMLDivElement>();
-  const stopObservation = useRef(false);
+  const [container, setContainer] = React.useState<HTMLDivElement | null>();
 
-  const destroyWatermark = () => {
-    if (watermarkRef.current) {
-      watermarkRef.current.remove();
-      watermarkRef.current = undefined;
-    }
-  };
+  // Used for nest case like Modal, Drawer
+  const [subElements, setSubElements] = React.useState(new Set<HTMLElement>());
 
-  const appendWatermark = (base64Url: string, markWidth: number) => {
-    if (containerRef.current && watermarkRef.current) {
-      stopObservation.current = true;
-      watermarkRef.current.setAttribute(
-        'style',
-        getStyleStr({
-          ...getMarkStyle(),
-          backgroundImage: `url('${base64Url}')`,
-          backgroundSize: `${Math.floor(markWidth)}px`,
-        }),
-      );
-      containerRef.current?.append(watermarkRef.current);
-      // Delayed execution
-      setTimeout(() => {
-        stopObservation.current = false;
-      });
-    }
-  };
+  // Nest elements should also support watermark
+  const targetElements = React.useMemo(() => {
+    const list = container ? [container] : [];
+    return [...list, ...Array.from(subElements)];
+  }, [container, subElements]);
 
+  // ============================ Content =============================
   /**
    * Get the width and height of the watermark. The default values are as follows
    * Image: [120, 64]; Content: It's calculated by content;
@@ -149,22 +142,23 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
 
   const getClips = useClips();
 
+  const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
+    null!,
+  );
+
+  // Generate new Watermark content
   const renderWatermark = () => {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
     if (ctx) {
-      if (!watermarkRef.current) {
-        watermarkRef.current = document.createElement('div');
-      }
-
       const ratio = getPixelRatio();
       const [markWidth, markHeight] = getMarkSize(ctx);
 
       const drawCanvas = (
         drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
       ) => {
-        const [textClips, clipWidth] = getClips(
+        const [nextClips, clipWidth] = getClips(
           drawContent || '',
           rotate,
           ratio,
@@ -181,7 +175,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           gapY,
         );
 
-        appendWatermark(textClips, clipWidth);
+        setWatermarkInfo([nextClips, clipWidth]);
       };
 
       if (image) {
@@ -201,19 +195,32 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     }
   };
 
-  const onMutate = (mutations: MutationRecord[]) => {
-    if (stopObservation.current) {
-      return;
+  const syncWatermark = useRafDebounce(renderWatermark);
+
+  // ============================= Effect =============================
+  // Append watermark to the container
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
+
+  useEffect(() => {
+    if (watermarkInfo) {
+      targetElements.forEach((holder) => {
+        appendWatermark(watermarkInfo[0], watermarkInfo[1], holder);
+      });
     }
+  }, [watermarkInfo, targetElements]);
+
+  // ============================ Observe =============================
+  const onMutate = (mutations: MutationRecord[]) => {
     mutations.forEach((mutation) => {
-      if (reRendering(mutation, watermarkRef.current)) {
-        destroyWatermark();
-        renderWatermark();
+      if (reRendering(mutation, isWatermarkEle)) {
+        syncWatermark();
       }
     });
   };
 
-  useEffect(renderWatermark, [
+  useMutateObserver(targetElements, onMutate);
+
+  useEffect(syncWatermark, [
     rotate,
     zIndex,
     width,
@@ -231,16 +238,39 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offsetTop,
   ]);
 
+  // ============================ Context =============================
+  const watermarkContext = React.useMemo<WatermarkContextProps>(
+    () => ({
+      add: (ele) => {
+        setSubElements((prev) => {
+          const clone = new Set(prev);
+          clone.add(ele);
+          return getSizeDiff(prev, clone);
+        });
+      },
+      remove: (ele) => {
+        removeWatermark(ele);
+
+        setSubElements((prev) => {
+          const clone = new Set(prev);
+          clone.delete(ele);
+
+          return getSizeDiff(prev, clone);
+        });
+      },
+    }),
+    [],
+  );
+
+  // ============================= Render =============================
   return (
-    <MutateObserver onMutate={onMutate}>
-      <div
-        ref={containerRef}
-        className={classNames(className, rootClassName)}
-        style={{ position: 'relative', ...style }}
-      >
-        {children}
-      </div>
-    </MutateObserver>
+    <div
+      ref={setContainer}
+      className={classNames(className, rootClassName)}
+      style={{ position: 'relative', ...style }}
+    >
+      <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+    </div>
   );
 };
 

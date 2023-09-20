@@ -7,6 +7,7 @@ import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
 import ReactDOMServer from 'react-dom/server';
+
 import { App, ConfigProvider, theme } from '../../components';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
@@ -22,74 +23,97 @@ const themes = {
   compact: theme.compactAlgorithm,
 };
 
+interface ImageTestOptions {
+  onlyViewport?: boolean;
+  splitTheme?: boolean;
+}
+
 // eslint-disable-next-line jest/no-export
-export default function imageTest(component: React.ReactElement) {
-  it(`component image screenshot should correct`, async () => {
-    await jestPuppeteer.resetPage();
-    await page.setRequestInterception(true);
-    const onRequestHandle = (request: any) => {
-      if (['image'].includes(request.resourceType())) {
-        request.abort();
-      } else {
-        request.continue();
+export default function imageTest(component: React.ReactElement, options: ImageTestOptions) {
+  function test(name: string, themedComponent: React.ReactElement) {
+    it(name, async () => {
+      await jestPuppeteer.resetPage();
+      await page.setRequestInterception(true);
+      const onRequestHandle = (request: any) => {
+        if (['image'].includes(request.resourceType())) {
+          request.abort();
+        } else {
+          request.continue();
+        }
+      };
+
+      MockDate.set(dayjs('2016-11-22').valueOf());
+      page.on('request', onRequestHandle);
+      await page.goto(`file://${process.cwd()}/tests/index.html`);
+      await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
+      await page.addStyleTag({ content: '*{animation: none!important;}' });
+
+      const cache = createCache();
+
+      const element = (
+        <StyleProvider cache={cache}>
+          <App>{themedComponent}</App>
+        </StyleProvider>
+      );
+
+      const html = ReactDOMServer.renderToString(element);
+      const styleStr = extractStyle(cache);
+
+      await page.evaluate(
+        (innerHTML, ssrStyle) => {
+          document.querySelector('#root')!.innerHTML = innerHTML;
+
+          const head = document.querySelector('head')!;
+          head.innerHTML += ssrStyle;
+        },
+        html,
+        styleStr,
+      );
+
+      if (!options.onlyViewport) {
+        // Get scroll height of the rendered page and set viewport
+        const bodyHeight = await page.evaluate(() => document.body.scrollHeight);
+        await page.setViewport({ width: 800, height: bodyHeight });
       }
-    };
 
-    MockDate.set(dayjs('2016-11-22').valueOf());
-    page.on('request', onRequestHandle);
-    await page.goto(`file://${process.cwd()}/tests/index.html`);
-    await page.addStyleTag({ path: `${process.cwd()}/components/style/reset.css` });
-    await page.addStyleTag({ content: '*{animation: none!important;}' });
+      const image = await page.screenshot({
+        fullPage: !options.onlyViewport,
+      });
 
-    const cache = createCache();
+      expect(image).toMatchImageSnapshot();
 
-    const element = (
-      <StyleProvider cache={cache}>
-        <App>
-          {Object.entries(themes).map(([key, algorithm]) => (
-            <div
-              style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }}
-              key={key}
-            >
-              <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
-            </div>
-          ))}
-        </App>
-        <div id="end-of-screen" style={{ height: 0, margin: 0, padding: 0, overflow: 'hidden' }}>
-          end of screen
-        </div>
-      </StyleProvider>
-    );
-
-    const html = ReactDOMServer.renderToString(element);
-    const styleStr = extractStyle(cache);
-
-    await page.evaluate(
-      (innerHTML, ssrStyle) => {
-        document.querySelector('#root')!.innerHTML = innerHTML;
-
-        const head = document.querySelector('head')!;
-        head.innerHTML += ssrStyle;
-      },
-      html,
-      styleStr,
-    );
-
-    await page.waitForSelector('#end-of-screen');
-
-    const image = await page.screenshot({
-      fullPage: true,
+      MockDate.reset();
+      page.off('request', onRequestHandle);
     });
+  }
 
-    expect(image).toMatchImageSnapshot();
-
-    MockDate.reset();
-    page.removeListener('request', onRequestHandle);
-  });
+  if (options.splitTheme) {
+    Object.entries(themes).forEach(([key, algorithm]) => {
+      test(
+        `component image screenshot should correct ${key}`,
+        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+          <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+        </div>,
+      );
+    });
+  } else {
+    test(
+      `component image screenshot should correct`,
+      <>
+        {Object.entries(themes).map(([key, algorithm]) => (
+          <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+            <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+          </div>
+        ))}
+      </>,
+    );
+  }
 }
 
 type Options = {
   skip?: boolean | string[];
+  onlyViewport?: boolean | string[];
+  splitTheme?: boolean | string[];
 };
 
 // eslint-disable-next-line jest/no-export
@@ -98,7 +122,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
   const files = globSync(`./components/${component}/demo/*.tsx`);
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c))) {
+    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
       describeMethod = describe.skip;
     } else {
       describeMethod = describe;
@@ -109,7 +133,15 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo);
+      imageTest(Demo, {
+        onlyViewport:
+          options.onlyViewport === true ||
+          (Array.isArray(options.onlyViewport) &&
+            options.onlyViewport.some((c) => file.endsWith(c))),
+        splitTheme:
+          options.splitTheme === true ||
+          (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
+      });
     });
   });
 }

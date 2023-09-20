@@ -1,13 +1,14 @@
+import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React, { useContext, useMemo } from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
-import Content from './FloatButtonContent';
 import FloatButtonGroupContext from './context';
+import Content from './FloatButtonContent';
 import type {
   CompoundedComponent,
   FloatButtonBadgeProps,
@@ -84,9 +85,11 @@ const FloatButton: React.ForwardRefRenderFunction<
   }
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('FloatButton');
+
     warning(
       !(shape === 'circle' && description),
-      'FloatButton',
+      'usage',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
   }

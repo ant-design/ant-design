@@ -53,7 +53,7 @@ tag: New
 | status | 二维码状态 | `active \| expired \| loading ` | `active` |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="QRCode"></ComponentTokenTable>
 

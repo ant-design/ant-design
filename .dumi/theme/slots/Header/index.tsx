@@ -1,24 +1,36 @@
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
+import { Alert, Col, Popover, Row, Select } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Col, Popover, Row, Select } from 'antd';
+
 import useLocale from '../../../hooks/useLocale';
 import DirectionIcon from '../../common/DirectionIcon';
+import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
+import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
-import type { SharedProps } from './interface';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
+
+const locales = {
+  cn: {
+    message:
+      '语雀公益计划：大学生认证教育邮箱，即可免费获得语雀会员。语雀，支付宝匠心打造的在线文档平台。',
+    shortMessage: '支付宝语雀 · 大学生公益计划火热进行中！',
+    more: '了解更多',
+  },
+};
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
@@ -106,6 +118,27 @@ const useStyle = createStyles(({ token, css }) => {
         padding: 0,
       },
     },
+    banner: css`
+      width: 100%;
+      background: #daf5eb;
+      text-align: center;
+      word-break: keep-all;
+    `,
+    link: css`
+      margin-left: 10px;
+
+      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+        margin-left: 0;
+      }
+    `,
+    icon: css`
+      margin-right: 10px;
+      width: 22px;
+      height: 22px;
+    `,
+    message: css`
+      color: rgba(0, 0, 0, 0.88);
+    `,
   };
 });
 
@@ -117,7 +150,7 @@ interface HeaderState {
 
 // ================================= Header =================================
 const Header: React.FC = () => {
-  const [, lang] = useLocale();
+  const [locale, lang] = useLocale(locales);
 
   const { pkg } = useSiteData();
 
@@ -127,7 +160,8 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, bannerVisible, updateSiteConfig } =
+    useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -148,6 +182,13 @@ const Header: React.FC = () => {
   }, []);
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
+  };
+  const onBannerClose = () => {
+    updateSiteConfig({ bannerVisible: false });
+
+    if (utils.isLocalStorageNameSupported()) {
+      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, dayjs().toISOString());
+    }
   };
 
   useEffect(() => {
@@ -321,6 +362,42 @@ const Header: React.FC = () => {
         >
           <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
         </Popover>
+      )}
+      {isZhCN && bannerVisible && (
+        <Alert
+          className={styles.banner}
+          message={
+            <>
+              <img
+                className={styles.icon}
+                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                alt="yuque"
+              />
+              <span className={styles.message}>
+                {isMobile ? locale.shortMessage : locale.message}
+              </span>
+              <a
+                className={styles.link}
+                href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => {
+                  window.gtag?.('event', '点击', {
+                    event_category: 'top_banner',
+                    event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                  });
+                }}
+              >
+                {locale.more}
+              </a>
+            </>
+          }
+          type="info"
+          banner
+          closable
+          showIcon={false}
+          onClose={onBannerClose}
+        />
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>

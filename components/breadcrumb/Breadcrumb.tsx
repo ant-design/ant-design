@@ -1,19 +1,19 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import * as React from 'react';
+
 import { cloneElement } from '../_util/reactNode';
-import warning from '../_util/warning';
+import type { AnyObject } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
-
-import type { DropdownProps } from '../dropdown';
 import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
-import type { AnyObject } from '../_util/type';
 
 export interface BreadcrumbItemType {
   key?: React.Key;
@@ -99,7 +99,31 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   const mergedItems = useItems(items, legacyRoutes);
 
   if (process.env.NODE_ENV !== 'production') {
-    warning(!legacyRoutes, 'Breadcrumb', '`routes` is deprecated. Please use `items` instead.');
+    const warning = devUseWarning('Breadcrumb');
+    warning.deprecated(!legacyRoutes, 'routes', 'items');
+
+    // Deprecated warning for breadcrumb children
+    if (!mergedItems || mergedItems.length === 0) {
+      const childList = toArray(children);
+
+      warning.deprecated(
+        childList.length === 0,
+        'Breadcrumb.Item and Breadcrumb.Separator',
+        'items',
+      );
+
+      childList.forEach((element: any) => {
+        if (element) {
+          warning(
+            element.type &&
+              (element.type.__ANT_BREADCRUMB_ITEM === true ||
+                element.type.__ANT_BREADCRUMB_SEPARATOR === true),
+            'usage',
+            "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
+          );
+        }
+      });
+    }
   }
 
   const mergedItemRender = useItemRender(prefixCls, itemRender);
@@ -170,21 +194,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
       if (!element) {
         return element;
       }
-      // =================== Warning =====================
-      if (process.env.NODE_ENV !== 'production') {
-        warning(
-          !element,
-          'Breadcrumb',
-          '`Breadcrumb.Item and Breadcrumb.Separator` is deprecated. Please use `items` instead.',
-        );
-      }
-      warning(
-        element.type &&
-          (element.type.__ANT_BREADCRUMB_ITEM === true ||
-            element.type.__ANT_BREADCRUMB_SEPARATOR === true),
-        'Breadcrumb',
-        "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
-      );
+
       const isLastItem = index === childrenLength - 1;
       return cloneElement(element, {
         separator: isLastItem ? '' : separator,

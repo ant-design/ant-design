@@ -109,11 +109,11 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 | 产品/版本 | 地址 |
 | --- | --- |
-| Ant Design 5.x  |  https://ant-design.antgroup.com <br />  https://ant-design.gitee.io   |
-| Ant Design 4.x  |  https://4x-ant-design.antgroup.com   |
-| Ant Design 3.x  |  https://ant-design-3x.gitee.io |
-| Ant Design 2.x  |  https://ant-design-2x.gitee.io |
-| Ant Design 1.x   |  https://ant-design-1x.gitee.io |
+| Ant Design 5.x | https://ant-design.antgroup.com <br /> https://ant-design.gitee.io |
+| Ant Design 4.x | https://4x-ant-design.antgroup.com |
+| Ant Design 3.x | https://ant-design-3x.gitee.io |
+| Ant Design 2.x | https://ant-design-2x.gitee.io |
+| Ant Design 1.x | https://ant-design-1x.gitee.io |
 | Ant Design Pro | https://ant-design-pro.gitee.io/ |
 | Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
 | Ant Design Mini | https://ant-design-mini.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
@@ -238,6 +238,10 @@ import { ConfigProvider } from 'antd';
 ## 如何支持 SSR？
 
 请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+
+## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
+
+在 Ant Design Token 系统中 `colorPrimary` 和 `colorInfo` 同属于 [基础变量（Seed Token）](../react/customize-theme.zh-CN.md#基础变量seed-token)，所以两者是互相独立的。`colorLink` 则属于 [别名变量（Alias Token）](../react/customize-theme.zh-CN.md#别名变量alias-token), 默认继承 `colorInfo` 且和 `colorPrimary` 无关。
 
 ## 如何正确的拼写 Ant Design？
 

@@ -1,7 +1,8 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 
 export type CollapsibleType = 'header' | 'icon' | 'disabled';
@@ -23,11 +24,11 @@ export interface CollapsePanelProps {
 }
 
 const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
-  warning(
-    !('disabled' in props),
-    'Collapse.Panel',
-    '`disabled` is deprecated. Please use `collapsible="disabled"` instead.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Collapse.Panel');
+
+    warning.deprecated(!('disabled' in props), 'disabled', 'collapsible="disabled"');
+  }
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className, showArrow = true } = props;

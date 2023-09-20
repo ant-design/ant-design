@@ -2,9 +2,10 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import {
   genBasicInputStyle,
   genInputSmallStyle,
+  initComponentToken,
   initInputToken,
-  type InputToken,
 } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -57,7 +58,7 @@ export interface ComponentToken {
   miniOptionsSizeChangerTop: number;
 }
 
-interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
+interface PaginationToken extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
   inputOutlineOffset: number;
   paginationMiniOptionsMarginInlineStart: number;
   paginationMiniQuickJumperInputWidth: number;
@@ -751,6 +752,7 @@ export default genComponentStyleHook(
         paginationEllipsisTextIndent: '0.13em', // magic for ui experience
       },
       initInputToken(token),
+      initComponentToken(token),
     );
     return [
       genPaginationStyle(paginationToken),

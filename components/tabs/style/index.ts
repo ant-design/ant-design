@@ -101,6 +101,11 @@ export interface ComponentToken {
    */
   verticalItemMargin: string;
   /**
+   * @desc 标签文本颜色
+   * @descEN Text color of tab
+   */
+  itemColor: string;
+  /**
    * @desc 标签激活态文本颜色
    * @descEN Text color of active tab
    */
@@ -656,6 +661,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
     tabsHorizontalItemMargin,
     horizontalItemPadding,
     itemSelectedColor,
+    itemColor,
   } = token;
 
   const tabCls = `${componentCls}-tab`;
@@ -673,6 +679,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       border: 0,
       outline: 'none',
       cursor: 'pointer',
+      color: itemColor,
       '&-btn, &-remove': {
         '&:focus:not(:focus-visible), &:active': {
           color: itemActiveColor,
@@ -1052,6 +1059,7 @@ export default genComponentStyleHook(
       horizontalItemPaddingLG: `${token.padding}px 0`,
       verticalItemPadding: `${token.paddingXS}px ${token.paddingLG}px`,
       verticalItemMargin: `${token.margin}px 0 0 0`,
+      itemColor: token.colorText,
       itemSelectedColor: token.colorPrimary,
       itemHoverColor: token.colorPrimaryHover,
       itemActiveColor: token.colorPrimaryActive,

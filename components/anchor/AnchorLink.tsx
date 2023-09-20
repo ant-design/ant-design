@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import warning from '../_util/warning';
+import classNames from 'classnames';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { AntAnchor } from './Anchor';
 import AnchorContext from './context';
@@ -51,9 +52,11 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Anchor.Link');
+
     warning(
       !children || direction !== 'horizontal',
-      'Anchor.Link',
+      'usage',
       '`Anchor.Link children` is not supported when `Anchor` direction is horizontal',
     );
   }

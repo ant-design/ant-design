@@ -1,5 +1,4 @@
-'use client';
-
+import * as React from 'react';
 import classNames from 'classnames';
 import type { BaseSelectRef } from 'rc-select';
 import type { Placement } from 'rc-select/lib/BaseSelect';
@@ -7,23 +6,23 @@ import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import genPurePanel from '../_util/PurePanel';
+
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
-import getIcons from '../select/utils/iconUtil';
+import useIcons from '../select/useIcons';
 import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
@@ -122,27 +121,25 @@ const InternalTreeSelect = <
   } = React.useContext(ConfigContext);
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('TreeSelect');
+
     warning(
       multiple !== false || !treeCheckable,
-      'TreeSelect',
+      'usage',
       '`multiple` will always be `true` when `treeCheckable` is true',
     );
 
-    warning(
-      !dropdownClassName,
-      'TreeSelect',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
-    warning(
+    warning.deprecated(
       dropdownMatchSelectWidth === undefined,
-      'Select',
-      '`dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      'dropdownMatchSelectWidth',
+      'popupMatchSelectWidth',
     );
 
     warning(
       !('showArrow' in props),
-      'TreeSelect',
+      'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
   }
@@ -182,7 +179,7 @@ const InternalTreeSelect = <
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Icons =====================
-  const { suffixIcon, removeIcon, clearIcon } = getIcons({
+  const { suffixIcon, removeIcon, clearIcon } = useIcons({
     ...props,
     multiple: isMultiple,
     showSuffixIcon,

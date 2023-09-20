@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Transfer, Tree, theme } from 'antd';
+import { theme, Transfer, Tree } from 'antd';
 import type { TransferDirection, TransferItem } from 'antd/es/transfer';
 import type { DataNode } from 'antd/es/tree';
 
@@ -10,7 +10,7 @@ interface TreeTransferProps {
 }
 
 // Customize Table Transfer
-const isChecked = (selectedKeys: (string | number)[], eventKey: string | number) =>
+const isChecked = (selectedKeys: React.Key[], eventKey: React.Key) =>
   selectedKeys.includes(eventKey);
 
 const generateTree = (treeNodes: DataNode[] = [], checkedKeys: string[] = []): DataNode[] =>
@@ -20,7 +20,7 @@ const generateTree = (treeNodes: DataNode[] = [], checkedKeys: string[] = []): D
     children: generateTree(children, checkedKeys),
   }));
 
-const TreeTransfer = ({ dataSource, targetKeys, ...restProps }: TreeTransferProps) => {
+const TreeTransfer: React.FC<TreeTransferProps> = ({ dataSource, targetKeys, ...restProps }) => {
   const { token } = theme.useToken();
 
   const transferDataSource: TransferItem[] = [];

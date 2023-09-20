@@ -1,20 +1,19 @@
-'use client';
-
+import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
-import * as React from 'react';
+
 import { getTransitionName } from '../_util/motion';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-import type { DrawerPanelProps } from './DrawerPanel';
-import DrawerPanel from './DrawerPanel';
-
 // CSSINJS
 import { NoCompactStyle } from '../space/Compact';
+import { usePanelRef } from '../watermark/context';
+import type { DrawerPanelProps } from './DrawerPanel';
+import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
@@ -89,21 +88,19 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Drawer');
+
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Drawer',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     if (getContainer !== undefined && props.style?.position === 'absolute') {
       warning(
         false,
-        'Drawer',
+        'breaking',
         '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );
     }
@@ -137,6 +134,10 @@ const Drawer: React.FC<DrawerProps> & {
     motionDeadline: 500,
   });
 
+  // ============================ Refs ============================
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef();
+
   // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
@@ -157,6 +158,7 @@ const Drawer: React.FC<DrawerProps> & {
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          panelRef={panelRef}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>

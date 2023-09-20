@@ -1,16 +1,16 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { CheckboxRef } from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
+import Wave from '../_util/wave';
+import { TARGET_CLS } from '../_util/wave/interface';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
-
 import useStyle from './style';
-import Wave from '../_util/wave';
-import { TARGET_CLS } from '../_util/wave/interface';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -77,13 +77,18 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
   const prevValue = React.useRef(restProps.value);
 
-  React.useEffect(() => {
-    checkboxGroup?.registerValue(restProps.value);
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Checkbox');
+
     warning(
       'checked' in restProps || !!checkboxGroup || !('value' in restProps),
-      'Checkbox',
+      'usage',
       '`value` is not a valid prop, do you mean `checked`?',
     );
+  }
+
+  React.useEffect(() => {
+    checkboxGroup?.registerValue(restProps.value);
   }, []);
 
   React.useEffect(() => {

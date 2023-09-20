@@ -1,6 +1,6 @@
+import React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
-import React from 'react';
 import { useTheme } from 'antd-style';
 
 const GlobalStyle: React.FC = () => {
@@ -26,6 +26,12 @@ const GlobalStyle: React.FC = () => {
         .markdown img {
           max-width: calc(100% - 32px);
           max-height: 100%;
+        }
+
+        .markdown > a > img,
+        .markdown > img {
+          display: block;
+          margin: 0 auto;
         }
 
         .markdown p > img {

@@ -1,27 +1,19 @@
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import * as React from 'react';
 import classNames from 'classnames';
 import type { Meta } from 'rc-field-form/lib/interface';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import isVisible from 'rc-util/lib/Dom/isVisible';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import type { FormItemProps, ValidateStatus } from '.';
+
+import type { FormItemProps } from '.';
 import { Row } from '../../grid';
+import type { ReportMetaChange } from '../context';
+import { FormContext, NoStyleItemContext } from '../context';
 import FormItemInput from '../FormItemInput';
 import FormItemLabel from '../FormItemLabel';
-import type { FormItemStatusContextProps, ReportMetaChange } from '../context';
-import { FormContext, FormItemInputContext, NoStyleItemContext } from '../context';
 import useDebounce from '../hooks/useDebounce';
-
-const iconMap = {
-  success: CheckCircleFilled,
-  warning: ExclamationCircleFilled,
-  error: CloseCircleFilled,
-  validating: LoadingOutlined,
-};
+import { getStatus } from '../util';
+import StatusProvider from './StatusProvider';
 
 export interface ItemHolderProps extends FormItemProps {
   prefixCls: string;
@@ -88,51 +80,13 @@ export default function ItemHolder(props: ItemHolderProps) {
   // ======================== Status ========================
 
   const getValidateState = (isDebounce = false) => {
-    let status: ValidateStatus = '';
     const _errors = isDebounce ? debounceErrors : meta.errors;
     const _warnings = isDebounce ? debounceWarnings : meta.warnings;
-    if (validateStatus !== undefined) {
-      status = validateStatus;
-    } else if (meta.validating) {
-      status = 'validating';
-    } else if (_errors.length) {
-      status = 'error';
-    } else if (_warnings.length) {
-      status = 'warning';
-    } else if (meta.touched || (hasFeedback && meta.validated)) {
-      // success feedback should display when pass hasFeedback prop and current value is valid value
-      status = 'success';
-    }
-    return status;
+
+    return getStatus(_errors, _warnings, meta, '', !!hasFeedback, validateStatus);
   };
 
   const mergedValidateStatus = getValidateState();
-
-  const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
-    let feedbackIcon: React.ReactNode;
-    if (hasFeedback) {
-      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
-      feedbackIcon = IconNode ? (
-        <span
-          className={classNames(
-            `${itemPrefixCls}-feedback-icon`,
-            `${itemPrefixCls}-feedback-icon-${mergedValidateStatus}`,
-          )}
-        >
-          <IconNode />
-        </span>
-      ) : null;
-    }
-
-    return {
-      status: mergedValidateStatus,
-      errors,
-      warnings,
-      hasFeedback,
-      feedbackIcon,
-      isFormItemInput: true,
-    };
-  }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
   const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
@@ -181,6 +135,7 @@ export default function ItemHolder(props: ItemHolderProps) {
           'validateTrigger',
           'valuePropName',
           'wrapperCol',
+          'validateDebounce',
         ])}
       >
         {/* Label */}
@@ -204,9 +159,17 @@ export default function ItemHolder(props: ItemHolderProps) {
           onErrorVisibleChanged={onErrorVisibleChanged}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <FormItemInputContext.Provider value={formItemStatusContext}>
+            <StatusProvider
+              prefixCls={prefixCls}
+              meta={meta}
+              errors={meta.errors}
+              warnings={meta.warnings}
+              hasFeedback={hasFeedback}
+              // Already calculated
+              validateStatus={mergedValidateStatus}
+            >
               {children}
-            </FormItemInputContext.Provider>
+            </StatusProvider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>

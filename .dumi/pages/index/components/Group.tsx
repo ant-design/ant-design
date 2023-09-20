@@ -1,21 +1,26 @@
 import * as React from 'react';
 import { useContext } from 'react';
-import { useTheme } from 'antd-style';
 import { Typography } from 'antd';
+import { useTheme } from 'antd-style';
+
 import SiteContext from '../../../theme/slots/SiteContext';
 
 export interface GroupMaskProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   disabled?: boolean;
+  onMouseMove?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-export function GroupMask({ children, style, disabled }: GroupMaskProps) {
+export const GroupMask: React.FC<GroupMaskProps> = (props) => {
+  const { children, style, disabled, onMouseMove, onMouseEnter, onMouseLeave } = props;
   const additionalStyle: React.CSSProperties = disabled
     ? {}
     : {
         position: 'relative',
-        background: `rgba(255,255,255,0.1)`,
+        background: `rgba(255, 255, 255, 0.1)`,
         backdropFilter: `blur(25px)`,
         zIndex: 1,
       };
@@ -23,16 +28,15 @@ export function GroupMask({ children, style, disabled }: GroupMaskProps) {
   return (
     <div
       className="site-mask"
-      style={{
-        position: 'relative',
-        ...style,
-        ...additionalStyle,
-      }}
+      style={{ position: 'relative', ...style, ...additionalStyle }}
+      onMouseMove={onMouseMove}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </div>
   );
-}
+};
 
 export interface GroupProps {
   id?: string;
@@ -48,7 +52,7 @@ export interface GroupProps {
   decoration?: React.ReactNode;
 }
 
-export default function Group(props: GroupProps) {
+const Group: React.FC<GroupProps> = (props) => {
   const { id, title, titleColor, description, children, decoration, background, collapse } = props;
   const token = useTheme();
   const { isMobile } = useContext(SiteContext);
@@ -79,8 +83,8 @@ export default function Group(props: GroupProps) {
         </Typography.Title>
         <Typography.Paragraph
           style={{
-            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
             color: titleColor,
+            marginBottom: isMobile ? token.marginXXL : (token as any).marginFarXS,
           }}
         >
           {description}
@@ -107,11 +111,13 @@ export default function Group(props: GroupProps) {
       <GroupMask
         disabled={!!background}
         style={{
-          paddingBlock: token.marginFarSM,
+          paddingBlock: (token as any).marginFarSM,
         }}
       >
         {childNode}
       </GroupMask>
     </div>
   );
-}
+};
+
+export default Group;

@@ -126,6 +126,12 @@ module.exports = {
         'comma-dangle': 0,
       },
     },
+    {
+      files: ['**/*.test.ts', '**/*.test.tsx', '**/*.spec.ts', '**/*.spec.tsx'],
+      rules: {
+        'compat/compat': 0,
+      },
+    },
   ],
   rules: {
     'react/jsx-one-expression-per-line': 0,

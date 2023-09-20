@@ -1,10 +1,9 @@
-'use client';
-
+import * as React from 'react';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
-import * as React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -57,11 +56,15 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
     ...restProps
   } = props;
 
-  warning(
-    'checked' in props || !('value' in props),
-    'Switch',
-    '`value` is not a valid prop, do you mean `checked`?',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Switch');
+
+    warning(
+      'checked' in props || !('value' in props),
+      'usage',
+      '`value` is not a valid prop, do you mean `checked`?',
+    );
+  }
 
   const { getPrefixCls, direction, switch: SWITCH } = React.useContext(ConfigContext);
 

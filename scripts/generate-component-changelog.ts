@@ -8,7 +8,10 @@ const output = '.dumi/preset';
 
 // Collect components
 const componentNames = globSync(
-  path.join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md').split(path.sep).join('/'),
+  path
+    .join(process.cwd(), 'components/!(version|icon|col|row)/index.zh-CN.md')
+    .split(path.sep)
+    .join('/'),
 )
   .map((filePath) => filePath.replace(/\\/g, '/').match(/components\/([^/]*)\//)![1])
   .filter((name) => name !== 'overview');
@@ -133,11 +136,16 @@ const miscKeys = [
       let changelogLine = line.trim().replace('- ', '');
       changelogLine = changelogLine
         .replace(/\[([^\]]+)]\(([^)]+)\)/g, (...match) => {
-          const [, , ref] = match;
+          const [, title, ref] = match;
           if (ref.includes('/pull/')) {
             refs.push(ref);
           }
-          return '';
+
+          if (title && (title[0] === '#' || title[0] === '@')) {
+            return '';
+          }
+
+          return title;
         })
         .trim();
 

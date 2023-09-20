@@ -1,7 +1,4 @@
 /* eslint-disable react/button-has-type */
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
 import React, {
   Children,
   createRef,
@@ -11,30 +8,26 @@ import React, {
   useMemo,
   useState,
 } from 'react';
-import warning from '../_util/warning';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
+
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { useCompactItemContext } from '../space/Compact';
-import IconWrapper from './IconWrapper';
-import LoadingIcon from './LoadingIcon';
 import Group, { GroupSizeContext } from './button-group';
 import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
+import IconWrapper from './IconWrapper';
+import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
+import CompactCmp from './style/compactCmp';
 
 export type LegacyButtonType = ButtonType | 'danger';
-
-export function convertLegacyProps(
-  type?: LegacyButtonType,
-): Pick<BaseButtonProps, 'danger' | 'type'> {
-  if (type === 'danger') {
-    return { danger: true };
-  }
-  return { type };
-}
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -190,17 +183,21 @@ const InternalButton: React.ForwardRefRenderFunction<
     (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
-  warning(
-    !(typeof icon === 'string' && icon.length > 2),
-    'Button',
-    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Button');
 
-  warning(
-    !(ghost && isUnBorderedButtonType(type)),
-    'Button',
-    "`link` or `text` button can't be a `ghost` button.",
-  );
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'breaking',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+
+    warning(
+      !(ghost && isUnBorderedButtonType(type)),
+      'usage',
+      "`link` or `text` button can't be a `ghost` button.",
+    );
+  }
 
   const autoInsertSpace = autoInsertSpaceInButton !== false;
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -285,6 +282,9 @@ const InternalButton: React.ForwardRefRenderFunction<
     >
       {iconNode}
       {kids}
+
+      {/* Styles: compact */}
+      {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 

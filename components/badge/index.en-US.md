@@ -32,6 +32,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <code src="./demo/mix.tsx" debug>Mixed usage</code>
 <code src="./demo/title.tsx" debug>Title</code>
 <code src="./demo/colorful-with-count-debug.tsx" debug>Colorful Badge support count Debug</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -48,13 +49,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | offset | Set offset of the badge dot | \[number, number] | - |  |
 | overflowCount | Max count to show | number | 99 |  |
 | showZero | Whether to show badge when `count` is zero | boolean | false |  |
-| size | If `count` is set, `size` sets the size of badge | `default` \| `small` | - | 4.6.0 |
+| size | If `count` is set, `size` sets the size of badge | `default` \| `small` | - | - |
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | styles | Semantic DOM style | Record<SemanticDOM, CSSProperties> | - | 5.7.0 |
 | text | If `status` is set, `text` sets the display text of the status `dot` | ReactNode | - |  |
 | title | Text to show when hovering over the badge | string | - |  |
 
-### Badge.Ribbon (4.5.0+)
+### Badge.Ribbon
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
