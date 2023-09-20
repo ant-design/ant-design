@@ -156,9 +156,7 @@ export default function getPlacements(config: PlacementsConfig) {
     const placementInfo = {
       ...template,
       offset: [0, 0],
-      _experimental: {
-        dynamicInset: true,
-      },
+      dynamicInset: true,
     };
     placementMap[key] = placementInfo;
 
