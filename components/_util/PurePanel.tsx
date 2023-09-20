@@ -2,7 +2,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 
-export function withPureRenderTheme(Component: any) {
+export function withPureRenderTheme<T extends React.FC>(Component: T) {
   return function PureRenderThemeComponent(props: any) {
     return (
       <ConfigProvider
@@ -16,7 +16,7 @@ export function withPureRenderTheme(Component: any) {
         <Component {...props} />
       </ConfigProvider>
     );
-  };
+  } as T;
 }
 
 export interface BaseProps {
@@ -26,21 +26,19 @@ export interface BaseProps {
 
 /* istanbul ignore next */
 export default function genPurePanel<ComponentProps extends BaseProps>(
-  Component: any,
+  Component: React.ComponentType<ComponentProps>,
   defaultPrefixCls?: string,
   getDropdownCls?: null | ((prefixCls: string) => string),
   postProps?: (props: ComponentProps) => ComponentProps,
 ) {
-  type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
-
-  function PurePanel(props: WrapProps) {
+  function PurePanel(props: any) {
     const { prefixCls: customizePrefixCls, style } = props;
 
     const holderRef = React.useRef<HTMLDivElement>(null);
     const [popupHeight, setPopupHeight] = React.useState(0);
     const [popupWidth, setPopupWidth] = React.useState(0);
     const [open, setOpen] = useMergedState(false, {
-      value: props.open,
+      value: props.open ?? props.visible,
     });
 
     const { getPrefixCls } = React.useContext(ConfigContext);
@@ -76,7 +74,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       }
     }, []);
 
-    let mergedProps: WrapProps = {
+    let mergedProps: ComponentProps = {
       ...props,
       style: {
         ...style,
@@ -88,7 +86,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
     };
 
     if (postProps) {
-      mergedProps = postProps(mergedProps as ComponentProps);
+      mergedProps = postProps(mergedProps);
     }
 
     return (

@@ -23,7 +23,7 @@ export type DatePickerType = typeof DatePicker & {
   generatePicker: typeof generatePicker;
 };
 
-function postPureProps(props: DatePickerProps) {
+function postPureProps(props: RangePickerProps & DatePickerProps) {
   const dropdownAlign = transPlacement2DropdownAlign(props.direction, props.placement);
 
   dropdownAlign.overflow!.adjustY = false;
