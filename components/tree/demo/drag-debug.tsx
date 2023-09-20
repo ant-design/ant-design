@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import { CarryOutOutlined } from '@ant-design/icons';
-import type { DataNode } from 'rc-tree/lib/interface';
 import React from 'react';
+import { CarryOutOutlined } from '@ant-design/icons';
 import type { TreeProps } from 'antd';
 import { Switch, Tree } from 'antd';
+import type { DataNode } from 'rc-tree/lib/interface';
 
 const x = 3;
 const y = 2;
