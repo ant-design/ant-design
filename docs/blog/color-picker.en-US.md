@@ -12,19 +12,19 @@ Before we start implementing, we need to understand a concept: color models. A c
 
 ### RGB Color Model
 
-The `RGB` color model represents colors by the combination of three primary colors (red, green, and blue). The value range of each primary color is 0-255, and the combination of the three primary colors can represent 256<sup>3</sup> colors. These colors can form a cube, as shown in the following figure: ![RGB](https://user-images.githubusercontent.com/21119589/266228482-f1ff94b1-e7ca-40c5-8512-1bc5ab79c388.jpg)
+The `RGB` color model represents colors by the combination of three primary colors (red, green, and blue). The value range of each primary color is 0-255, and the combination of the three primary colors can represent 256<sup>3</sup> colors. These colors can form a cube, as shown in the following figure: ![RGB](https://user-images.githubusercontent.com/21119589/268834307-79fca808-d3a3-4fe8-b370-ea1ec472023c.png)
 
-In the `RGB` color model, each color can be represented by a triplet `(R, G, B)`, where `R` represents the value of red, `G` represents the value of green, and `B` represents the value of blue. For example, red can be represented as `(255, 0, 0)`, green can be represented as `(0, 255, 0)`, and blue can be represented as `(0, 0, 255)`.
+In the `RGB` color model, each color can be represented by a triplet `(R, G, B)`, where `R` represents the value of red, `G` represents the value of green, and `B` represents the value of blue. For example, red can be represented as `rgb(255, 0, 0)`, green can be represented as `rgb(0, 255, 0)`, and blue can be represented as `rgb(0, 0, 255)`.
 
 ### HSV/HSB Color Model
 
-The `HSV` color model represents colors by hue, saturation, and value. The value range of hue is 0-360, and the value range of saturation and value is 0-100. The `HSV` color model can be represented by a cone, as shown in the following figure: ![HSV](https://user-images.githubusercontent.com/21119589/266231236-d68ad9d7-9654-4bc5-8489-7cc52f2aabb1.png)
+The `HSV` color model represents colors by hue, saturation, and value. The value range of hue is 0-360, and the value range of saturation and value is 0-100. The `HSV` color model can be represented by a cone, as shown in the following figure: ![HSV](https://user-images.githubusercontent.com/21119589/268834741-83940b90-c709-492b-8a7e-f59d317411e9.png)
 
-In the `HSV` color model, each color can be represented by a triplet `(H, S, V)`, where `H` represents the value of hue, `S` represents the value of saturation, and `V` represents the value of value. For example, red can be represented as `(0, 100, 100)`, green can be represented as `(120, 100, 100)`, and blue can be represented as `(240, 100, 100)`.
+In the `HSV` color model, each color can be represented by a triplet `(H, S, V)`, where `H` represents the value of hue, `S` represents the value of saturation, and `V` represents the value of value. For example, red can be represented as `hsv(0, 100, 100)`, green can be represented as `hsv(120, 100, 100)`, and blue can be represented as `hsv(240, 100, 100)`.
 
 ### HEX Color Model
 
-The `HEX` color model represents colors by hexadecimal numbers. The first two digits represent the value of red, the middle two digits represent the value of green, and the last two digits represent the value of blue. For example, red can be represented as `#FF0000`, green can be represented as `#00FF00`, and blue can be represented as `#0000FF`. As shown in the following figure: ![HEX](https://user-images.githubusercontent.com/21119589/266569791-7f6afedd-3b84-4ee1-8c98-d3d4b16e8317.png)
+The `HEX` color model represents colors by hexadecimal numbers. The first two digits represent the value of red, the middle two digits represent the value of green, and the last two digits represent the value of blue. For example, red can be represented as `#FF0000`, green can be represented as `#00FF00`, and blue can be represented as `#0000FF`. As shown in the following figure: ![HEX](https://user-images.githubusercontent.com/21119589/268841812-1b8310f5-322b-45ec-b768-d4115cf7091d.png)
 
 This is also the most common way of representing colors because it can be used directly in CSS. Moreover, the representation is very simple, just convert the three numbers in the RGB color model to hexadecimal numbers.
 
@@ -111,3 +111,9 @@ So far, we have obtained a color picker with complete hue, saturation, and brigh
 ## Summary
 
 Through this development journey, I have gained a deeper understanding of color models and the development process of Ant Design. Thanks to the Ant Design team for giving me this opportunity, and thank you all for reading. If you are interested in the implementation details, you can check out the source code implementation at [@rc-component/color-picker](https://github.com/react-component/color-picker).
+
+## References
+
+- https://zh.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E8%89%B2%E5%85%89%E6%A8%A1%E5%BC%8F#/media/File:RGB_color_solid_cube.png
+- https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4#/media/File:HSV_cone.png
+- https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E9%A2%9C%E8%89%B2#/media/File:Web_Color_Charts.svg

@@ -16,6 +16,16 @@ tag: vVERSION
 
 ---
 
+## 5.9.2
+
+`2023-09-19`
+
+- 🐞 Fix Table selection column not align in center when `size` is `small`. [#44922](https://github.com/ant-design/ant-design/pull/44922)
+- 🐞 Fix Select style problem when `label` contains `div` element. [#44927](https://github.com/ant-design/ant-design/pull/44927)
+- 🐞 Fix Modal broken style of buttons when custom `footer`. [#44929](https://github.com/ant-design/ant-design/pull/44929) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix notification wrong pop-up animation when `placement` is `bottom`. [#44918](https://github.com/ant-design/ant-design/pull/44918) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix missing inherited feedbackIcon in Form.Item with `noStyle`. [#44937](https://github.com/ant-design/ant-design/pull/44937)
+
 ## 5.9.1
 
 `2023-09-15`
