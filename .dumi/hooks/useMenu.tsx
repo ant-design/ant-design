@@ -1,7 +1,8 @@
-import { useFullSidebarData, useSidebarData } from 'dumi';
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Tag, version } from 'antd';
+import { useFullSidebarData, useSidebarData } from 'dumi';
+
 import Link from '../theme/common/Link';
 import useLocation from './useLocation';
 
@@ -136,7 +137,7 @@ const useMenu = (options: UseMenuOptions = {}): [MenuProps['items'], string] => 
           const list = group.children || [];
           // 如果有 date 字段，我们就对其进行排序
           if (list.every((info) => info?.frontmatter?.date)) {
-            list.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1));
+            list.sort((a, b) => (a.frontmatter?.date > b.frontmatter?.date ? -1 : 1));
           }
 
           result.push(
