@@ -20,6 +20,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/arrow.tsx">Arrow</code>
+<code src="./demo/render-props-children.tsx">Render props children</code>
 <code src="./demo/item.tsx">Other elements</code>
 <code src="./demo/arrow-center.tsx">Arrow pointing at the center</code>
 <code src="./demo/trigger.tsx">Trigger mode</code>

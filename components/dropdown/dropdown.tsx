@@ -62,7 +62,7 @@ export interface DropdownProps {
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   openClassName?: string;
-  children?: React.ReactNode;
+  children?: React.ReactNode | ((open?: boolean) => React.ReactNode);
   autoAdjustOverflow?: boolean | AdjustOverflow;
 
   // Deprecated
@@ -169,7 +169,18 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const [, token] = useToken();
 
-  const child = React.Children.only(children) as React.ReactElement<any>;
+  // =========================== Open ============================
+  const [mergedOpen, setOpen] = useMergedState(false, {
+    value: open ?? visible,
+  });
+
+  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
+    onOpenChange?.(nextOpen);
+    onVisibleChange?.(nextOpen);
+    setOpen(nextOpen);
+  });
+
+  const child = React.Children.only(typeof children === 'function' ? children(mergedOpen) : children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
     className: classNames(
@@ -187,17 +198,6 @@ const Dropdown: CompoundedComponent = (props) => {
   if (triggerActions && triggerActions.includes('contextMenu')) {
     alignPoint = true;
   }
-
-  // =========================== Open ============================
-  const [mergedOpen, setOpen] = useMergedState(false, {
-    value: open ?? visible,
-  });
-
-  const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onOpenChange?.(nextOpen);
-    onVisibleChange?.(nextOpen);
-    setOpen(nextOpen);
-  });
 
   // =========================== Overlay ============================
   const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
