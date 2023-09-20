@@ -1,5 +1,6 @@
 /* eslint-disable default-case */
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
+
 import { getArrowOffset } from '../style/placementArrow';
 
 export interface AdjustOverflow {
@@ -155,6 +156,9 @@ export default function getPlacements(config: PlacementsConfig) {
     const placementInfo = {
       ...template,
       offset: [0, 0],
+      _experimental: {
+        dynamicInset: true,
+      },
     };
     placementMap[key] = placementInfo;
 
