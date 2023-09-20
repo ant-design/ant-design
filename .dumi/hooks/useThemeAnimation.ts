@@ -76,7 +76,7 @@ const useThemeAnimation = () => {
     [data-prefers-color='dark'] {
       color-scheme: light !important;
     }
-    
+
     [data-prefers-color='light'] {
       color-scheme: dark !important;
     }

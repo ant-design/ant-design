@@ -80,6 +80,10 @@ const GlobalLayout: React.FC = () => {
             ...nextSearchParams,
             theme: value.filter((t) => t !== 'light'),
           });
+
+          document
+            .querySelector('html')
+            ?.setAttribute('data-prefers-color', value.includes('dark') ? 'dark' : 'light');
         }
       });
 
