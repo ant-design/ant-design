@@ -135,6 +135,18 @@ describe('Modal', () => {
     expect(document.querySelector('.custom-footer')).toBeTruthy();
   });
 
+  it('Should custom footer function second param work', () => {
+    const footerFn = jest.fn();
+    render(<Modal open footer={footerFn} />);
+
+    expect(footerFn).toHaveBeenCalled();
+    expect(footerFn.mock.calls[0][0]).toBeTruthy();
+    expect(footerFn.mock.calls[0][1]).toEqual({
+      OkBtn: expect.any(Function),
+      CancelBtn: expect.any(Function),
+    });
+  });
+
   it('Should custom footer function work', () => {
     render(
       <Modal
@@ -149,5 +161,25 @@ describe('Modal', () => {
       />,
     );
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/
+  it('Both ways should be rendered normally on the page', () => {
+    render(
+      <Modal
+        open
+        footer={(origin, { OkBtn, CancelBtn }) => (
+          <>
+            <div className="first-origin">{origin}</div>
+            <div className="second-props-origin">
+              <OkBtn />
+              <CancelBtn />
+            </div>
+          </>
+        )}
+      />,
+    );
+    expect(document.querySelector('.first-origin')).toMatchSnapshot();
+    expect(document.querySelector('.second-props-origin')).toMatchSnapshot();
   });
 });

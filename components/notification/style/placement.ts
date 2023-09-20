@@ -4,7 +4,7 @@ import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls, notificationMarginEdge } = token;
+  const { componentCls, notificationMarginEdge, animationMaxHeight } = token;
 
   const noticeCls = `${componentCls}-notice`;
 
@@ -22,7 +22,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const topFadeIn = new Keyframes('antNotificationTopFadeIn', {
     '0%': {
-      top: -token.animationMaxHeight,
+      top: -animationMaxHeight,
       opacity: 0,
     },
 
@@ -34,7 +34,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const bottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
-      bottom: -token.animationMaxHeight,
+      bottom: -animationMaxHeight,
       opacity: 0,
     },
 

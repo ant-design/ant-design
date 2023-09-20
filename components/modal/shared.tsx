@@ -71,17 +71,20 @@ export const Footer: React.FC<
   let footerNode;
   if (typeof footer === 'function' || typeof footer === 'undefined') {
     footerNode = (
-      <ModalContextProvider value={btnCtxValueMemo}>
+      <>
         <NormalCancelBtn />
         <NormalOkBtn />
-      </ModalContextProvider>
+      </>
     );
+
     if (typeof footer === 'function') {
       footerNode = footer(footerNode, {
         OkBtn: NormalOkBtn,
         CancelBtn: NormalCancelBtn,
       });
     }
+
+    footerNode = <ModalContextProvider value={btnCtxValueMemo}>{footerNode}</ModalContextProvider>;
   } else {
     footerNode = footer;
   }

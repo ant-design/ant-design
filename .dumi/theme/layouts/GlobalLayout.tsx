@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, startTransition } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 import dayjs from 'dayjs';
 import {
   createCache,
@@ -10,15 +10,9 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import {
-  createSearchParams,
-  useOutlet,
-  useSearchParams,
-  useServerInsertedHTML,
-  usePrefersColor,
-} from 'dumi';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -57,7 +51,6 @@ const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [, , setPrefersColor] = usePrefersColor();
   const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
       isMobile: false,
@@ -83,13 +76,9 @@ const GlobalLayout: React.FC = () => {
           }
         }
         if (key === 'theme') {
-          const _theme = value.filter((t) => t !== 'light');
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
-            theme: _theme,
-          });
-          startTransition(() => {
-            setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
+            theme: value.filter((t) => t !== 'light'),
           });
         }
       });

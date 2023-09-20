@@ -55,9 +55,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [[
           '&:after',
           /* For '' value baseline align */
-          `${componentCls}-selection-item:after`,
+          `${componentCls}-selection-item:empty:after`,
           /* For undefined value baseline align */
-          `${componentCls}-selection-placeholder:after`,
+          `${componentCls}-selection-placeholder:empty:after`,
         ].join(',')]: {
           display: 'inline-block',
           width: 0,
