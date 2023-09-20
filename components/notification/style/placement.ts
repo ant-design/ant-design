@@ -22,19 +22,19 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const topFadeIn = new Keyframes('antNotificationTopFadeIn', {
     '0%': {
-      bottom: -animationMaxHeight,
+      top: -animationMaxHeight,
       opacity: 0,
     },
 
     '100%': {
-      bottom: 0,
+      top: 0,
       opacity: 1,
     },
   });
 
   const bottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
-      bottom: -token.animationMaxHeight,
+      bottom: -animationMaxHeight,
       opacity: 0,
     },
 
