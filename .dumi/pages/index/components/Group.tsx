@@ -83,8 +83,8 @@ const Group: React.FC<GroupProps> = (props) => {
         </Typography.Title>
         <Typography.Paragraph
           style={{
-            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
             color: titleColor,
+            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
           }}
         >
           {description}
