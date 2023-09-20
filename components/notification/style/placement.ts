@@ -4,7 +4,7 @@ import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls, width, notificationMarginEdge, animationMaxHeight } = token;
+  const { componentCls, notificationMarginEdge, animationMaxHeight } = token;
 
   const noticeCls = `${componentCls}-notice`;
 
