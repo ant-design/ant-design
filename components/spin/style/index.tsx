@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -55,6 +56,19 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       position: 'static',
       display: 'inline-block',
       opacity: 1,
+    },
+
+    '&-fullscreen': {
+      position: 'fixed',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100vw',
+      height: '100vh',
+      background: 'rgba(0,0,0,0.2)',
+      zIndex: 1000,
+      top: 0,
+      left: 0,
     },
 
     '&-nested-loading': {
