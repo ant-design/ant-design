@@ -131,7 +131,7 @@
     "rc-drawer": "~6.4.1",
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.38.0",
-    "rc-image": "~7.2.0",
+    "rc-image": "~7.3.0",
     "rc-input": "~1.1.1",
     "rc-input-number": "~8.0.4",
     "rc-mentions": "~2.7.0",
@@ -315,11 +315,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "397 KiB"
+      "limit": "398 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "456 KiB"
+      "limit": "457 KiB"
     }
   ],
   "tnpm": {
