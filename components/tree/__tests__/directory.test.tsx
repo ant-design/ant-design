@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
 import type RcTree from 'rc-tree';
-import type { Key } from 'react';
+import type { Key } from 'rc-tree/lib/interface';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

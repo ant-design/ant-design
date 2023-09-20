@@ -1,23 +1,24 @@
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
+import { Alert, Col, Popover, Row, Select } from 'antd';
 import { createStyles } from 'antd-style';
-import dayjs from 'dayjs';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Col, Popover, Row, Select } from 'antd';
+
 import useLocale from '../../../hooks/useLocale';
 import DirectionIcon from '../../common/DirectionIcon';
+import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
-import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import SiteContext from '../SiteContext';
+import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
-import type { SharedProps } from './interface';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -134,6 +135,9 @@ const useStyle = createStyles(({ token, css }) => {
       margin-right: 10px;
       width: 22px;
       height: 22px;
+    `,
+    message: css`
+      color: rgba(0, 0, 0, 0.88);
     `,
   };
 });
@@ -369,7 +373,9 @@ const Header: React.FC = () => {
                 src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
                 alt="yuque"
               />
-              {isMobile ? locale.shortMessage : locale.message}
+              <span className={styles.message}>
+                {isMobile ? locale.shortMessage : locale.message}
+              </span>
               <a
                 className={styles.link}
                 href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"

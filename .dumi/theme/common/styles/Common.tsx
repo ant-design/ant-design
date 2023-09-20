@@ -63,10 +63,6 @@ export default () => {
       html {
         scroll-padding-top: ${headerHeight + margin}px;
       }
-
-      [data-prefers-color='dark'] {
-        color-scheme: dark;
-      }
     `}
     />
   );

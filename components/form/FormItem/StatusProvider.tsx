@@ -50,8 +50,12 @@ export default function StatusProvider({
     validateStatus,
   );
 
-  const { isFormItemInput: parentIsFormItemInput, status: parentStatus } =
-    React.useContext(FormItemInputContext);
+  const {
+    isFormItemInput: parentIsFormItemInput,
+    status: parentStatus,
+    hasFeedback: parentHasFeedback,
+    feedbackIcon: parentFeedbackIcon,
+  } = React.useContext(FormItemInputContext);
 
   // ====================== Context =======================
   const formItemStatusContext = React.useMemo<FormItemStatusContextProps>(() => {
@@ -75,23 +79,24 @@ export default function StatusProvider({
         ) : null;
     }
 
-    let isFormItemInput: boolean | undefined = true;
-    let status: ValidateStatus = mergedValidateStatus || '';
-
-    // No style will follow parent context
-    if (noStyle) {
-      isFormItemInput = parentIsFormItemInput;
-      status = (mergedValidateStatus ?? parentStatus) || '';
-    }
-
-    return {
-      status,
+    const context: FormItemStatusContextProps = {
+      status: mergedValidateStatus || '',
       errors,
       warnings,
       hasFeedback: !!hasFeedback,
       feedbackIcon,
-      isFormItemInput,
+      isFormItemInput: true,
     };
+
+    // No style will follow parent context
+    if (noStyle) {
+      context.status = (mergedValidateStatus ?? parentStatus) || '';
+      context.isFormItemInput = parentIsFormItemInput;
+      context.hasFeedback = !!(hasFeedback ?? parentHasFeedback);
+      context.feedbackIcon = hasFeedback !== undefined ? context.feedbackIcon : parentFeedbackIcon;
+    }
+
+    return context;
   }, [mergedValidateStatus, hasFeedback, noStyle, parentIsFormItemInput, parentStatus]);
 
   // ======================= Render =======================
