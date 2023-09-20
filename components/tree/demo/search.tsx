@@ -79,8 +79,8 @@ const App: React.FC = () => {
         }
         return null;
       })
-      .filter((item, i, self) => item && self.indexOf(item) === i);
-    setExpandedKeys(newExpandedKeys as React.Key[]);
+      .filter((item, i, self): item is React.Key => !!(item && self.indexOf(item) === i));
+    setExpandedKeys(newExpandedKeys);
     setSearchValue(value);
     setAutoExpandParent(true);
   };

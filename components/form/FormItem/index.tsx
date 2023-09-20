@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
-import type { Meta } from 'rc-field-form/lib/interface';
+import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 
@@ -138,7 +138,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   // ========================= MISC =========================
   // Get `noStyle` required info
   const listContext = React.useContext(ListContext);
-  const fieldKeyPathRef = React.useRef<React.Key[]>();
+  const fieldKeyPathRef = React.useRef<InternalNamePath>();
 
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
