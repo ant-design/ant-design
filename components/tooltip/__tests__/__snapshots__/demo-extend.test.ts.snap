@@ -66,11 +66,11 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </span>
   </div>
   <div
-    style="margin-left: 70px; display: flex; flex-wrap: nowrap; column-gap: 8px;"
+    style="margin-left: 78px; display: flex; flex-wrap: nowrap; column-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
-      style="width: 70px;"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -100,7 +100,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width: 70px;"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -130,7 +130,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width: 70px;"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -160,7 +160,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="width: 70px; float: left; display: flex; flex-direction: column; row-gap: 8px;"
+    style="width: 78px; float: left; display: flex; flex-direction: column; row-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -251,7 +251,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="width: 70px; margin-left: 304px; display: flex; flex-direction: column; row-gap: 8px;"
+    style="width: 78px; margin-left: 336px; display: flex; flex-direction: column; row-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -342,11 +342,11 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
   </div>
   <div
-    style="margin-left: 70px; clear: both; display: flex; flex-wrap: nowrap; column-gap: 8px;"
+    style="margin-left: 78px; clear: both; display: flex; flex-wrap: nowrap; column-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
-      style="width: 70px;"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -376,7 +376,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width: 70px;"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -406,7 +406,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
     </div>
     <button
       class="ant-btn ant-btn-default"
-      style="width: 70px;"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1640,10 +1640,11 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 2
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div>
   <div
-    style="margin-left: 70px; white-space: nowrap;"
+    style="display: flex; margin-left: 78px; white-space: nowrap; column-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1673,6 +1674,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1702,6 +1704,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1731,10 +1734,11 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="width: 70px; float: left;"
+    style="display: flex; flex-direction: column; width: 78px; float: left; row-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1764,6 +1768,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1793,6 +1798,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1822,10 +1828,11 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="width: 70px; margin-left: 304px;"
+    style="display: flex; flex-direction: column; width: 78px; margin-left: 336px; row-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1855,6 +1862,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1884,6 +1892,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1913,10 +1922,11 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    style="margin-left: 70px; clear: both; white-space: nowrap;"
+    style="display: flex; margin-left: 78px; clear: both; white-space: nowrap; column-gap: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1946,6 +1956,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
@@ -1975,6 +1986,7 @@ exports[`renders components/tooltip/demo/placement.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-default"
+      style="width: 78px;"
       type="button"
     >
       <span>
