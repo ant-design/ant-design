@@ -31,14 +31,14 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | delay | Specifies a delay in milliseconds for loading state (prevent flush) | number (milliseconds) | - |
 | indicator | React node of the spinning indicator | ReactNode | - |
 | size | The size of Spin, options: `small`, `default` and `large` | string | `default` |
 | spinning | Whether Spin is visible | boolean | true |
 | tip | Customize description content when Spin has children | ReactNode | - |
 | wrapperClassName | The className of wrapper when Spin has children | string | - |
-| fullscreen | Display a backdrop with the `Spin` component | boolean | false |
+| fullscreen | Display a backdrop with the `Spin` component | boolean | false | 5.10.0 |
 
 ### Static Method
 
