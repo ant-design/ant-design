@@ -150,7 +150,6 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            wrapper: rest.classNames?.wrapper,
             mask: rest.classNames?.mask,
           }}
           open={open ?? visible}
