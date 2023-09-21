@@ -46,19 +46,18 @@ If the above palettes do not meet your needs, you can choose a main color below,
 
 We provide JavaScript usage for developers.
 
-- **JavaScript**
+```bash
+npm install @ant-design/colors
+```
 
-  ```
-  npm install @ant-design/colors
-  ```
+```js
+import { blue } from '@ant-design/colors';
 
-  ```js
-  import { blue } from '@ant-design/colors';
-  console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', '#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
-  console.log(blue.primary); // '#1890FF'
-  ```
+console.log(blue); // ['#E6F4FF', '#BAE0FF', '#91CAFF', '#69B1FF', '#4096FF', '#1677FF', '#0958D9', '#003EB3', '#002C8C', '#001D66']
+console.log(blue.primary); // '#1677FF'
+```
 
-  More APIs: [@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
+More APIs: [@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
 
 ---
 
@@ -70,7 +69,7 @@ We provide JavaScript usage for developers.
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1c74TKxuEW4AAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-The brand color is one of the most intuitive visual elements used that is used to embody product characteristics and communicate ideas. When selecting colors, it is important to understand how the brand color is used in the user interface. In the basic color palette to choose the main color, we recommend choosing the color plate from the shallow depth of the sixth color as the main color. Ant Design's brand color comes from blue of the base color palette, it's Hex value is <ColorChunk color="#1890ff" /></ColorChunk>, application scenarios include: key action point, the operation status, important information highlighting, graphics and other scenes.
+The brand color is one of the most intuitive visual elements used that is used to embody product characteristics and communicate ideas. When selecting colors, it is important to understand how the brand color is used in the user interface. In the basic color palette to choose the main color, we recommend choosing the color plate from the shallow depth of the sixth color as the main color. Ant Design's brand color comes from blue of the base color palette, it's Hex value is `#1677ff`, application scenarios include: key action point, the operation status, important information highlighting, graphics and other scenes.
 
 ### Functional Color
 
