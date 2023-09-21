@@ -12,10 +12,10 @@ import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
 
-export type ThemeSwitchProps = {
+export interface ThemeSwitchProps {
   value?: ThemeName[];
   onChange: (value: ThemeName[]) => void;
-};
+}
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const { value = ['light'], onChange } = props;
@@ -72,23 +72,6 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
         }}
         tooltip={<FormattedMessage id="app.theme.switch.compact" />}
       />
-      {/* Too many float button. Hide motion one */}
-      {/* <FloatButton
-        icon={<Motion />}
-        type={!isMotionOff ? 'primary' : 'default'}
-        onClick={() => {
-          if (isMotionOff) {
-            onChange(value.filter((theme) => theme !== 'motion-off'));
-          } else {
-            onChange([...value, 'motion-off']);
-          }
-        }}
-        tooltip={
-          <FormattedMessage
-            id={isMotionOff ? 'app.theme.switch.motion.off' : 'app.theme.switch.motion.on'}
-          />
-        }
-      /> */}
       <FloatButton
         badge={{ dot: true }}
         icon={<SmileOutlined />}

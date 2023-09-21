@@ -26,6 +26,10 @@ const GlobalStyle: React.FC = () => {
         .markdown img {
           max-width: calc(100% - 32px);
           max-height: 100%;
+        }
+
+        .markdown > a > img,
+        .markdown > img {
           display: block;
           margin: 0 auto;
         }

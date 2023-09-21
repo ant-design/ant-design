@@ -62,12 +62,12 @@ function rehypeAntd(): UnifiedTransformer<HastRoot> {
         (node.properties.className as string[]).push('component-api-table');
       } else if (node.type === 'element' && (node.tagName === 'Link' || node.tagName === 'a')) {
         const { tagName } = node;
-        node.properties.sourceType = tagName;
+        node.properties!.sourceType = tagName;
         node.tagName = 'LocaleLink';
       } else if (node.type === 'element' && node.tagName === 'video') {
         node.tagName = 'VideoPlayer';
       } else if (node.tagName === 'SourceCode') {
-        const { lang } = node.properties;
+        const { lang } = node.properties!;
 
         if (typeof lang === 'string' && lang.startsWith('sandpack')) {
           const code = (node.children[0] as any).value as string;

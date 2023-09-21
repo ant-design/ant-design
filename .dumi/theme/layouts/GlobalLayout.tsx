@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useMemo, startTransition } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
+import dayjs from 'dayjs';
 import {
   createCache,
   extractStyle,
@@ -9,15 +10,9 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
-import {
-  createSearchParams,
-  useOutlet,
-  useSearchParams,
-  useServerInsertedHTML,
-  usePrefersColor,
-} from 'dumi';
+import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
@@ -32,6 +27,7 @@ type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
+export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
 // const styleCache = createCache();
 // if (typeof global !== 'undefined') {
@@ -55,13 +51,12 @@ const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [, , setPrefersColor] = usePrefersColor();
-  const [{ theme = [], direction, isMobile, bannerVisible = true }, setSiteState] =
+  const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
     useLayoutState<SiteState>({
       isMobile: false,
       direction: 'ltr',
       theme: [],
-      bannerVisible: true,
+      bannerVisible: false,
     });
 
   const updateSiteConfig = useCallback(
@@ -81,13 +76,9 @@ const GlobalLayout: React.FC = () => {
           }
         }
         if (key === 'theme') {
-          const _theme = value.filter((t) => t !== 'light');
           nextSearchParams = createSearchParams({
             ...nextSearchParams,
-            theme: _theme,
-          });
-          startTransition(() => {
-            setPrefersColor(_theme.includes('dark') ? 'dark' : 'light');
+            theme: value.filter((t) => t !== 'light'),
           });
         }
       });
@@ -106,8 +97,16 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
+    const storedBannerVisibleLastTime =
+      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    const storedBannerVisible =
+      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
-    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+    setSiteState({
+      theme: _theme,
+      direction: _direction === 'rtl' ? 'rtl' : 'ltr',
+      bannerVisible: storedBannerVisibleLastTime ? storedBannerVisible : true,
+    });
     // Handle isMobile
     updateMobileMode();
 
