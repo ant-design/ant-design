@@ -3,9 +3,6 @@ import { Button, Drawer } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token }) => ({
-  'my-drawer-wrapper': {
-    borderLeft: `2px solid ${token.colorPrimary}`,
-  },
   'my-drawer-body': {
     background: token['blue-1'],
   },
@@ -44,7 +41,6 @@ const App: React.FC = () => {
         onClose={onClose}
         open={open}
         classNames={{
-          wrapper: styles['my-drawer-wrapper'],
           body: styles['my-drawer-body'],
           mask: styles['my-drawer-mask'],
           header: styles['my-drawer-header'],

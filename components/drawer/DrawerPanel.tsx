@@ -8,7 +8,6 @@ export interface DrawerClassNames {
   body?: string;
   footer?: string;
   mask?: string;
-  wrapper?: string;
 }
 
 export interface DrawerPanelProps {
