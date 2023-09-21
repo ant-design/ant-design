@@ -60,15 +60,15 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 
     '&-fullscreen': {
       position: 'fixed',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
       width: '100vw',
       height: '100vh',
       background: 'rgba(0,0,0,0.2)',
       zIndex: 1000,
       top: 0,
       left: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
     '&-nested-loading': {

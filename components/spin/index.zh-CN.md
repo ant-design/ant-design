@@ -25,6 +25,7 @@ demo:
 <code src="./demo/tip.tsx">自定义描述文案</code>
 <code src="./demo/delayAndDebounce.tsx">延迟</code>
 <code src="./demo/custom-indicator.tsx">自定义指示符</code>
+<code src="./demo/fullscreen.tsx">全屏</code>
 
 ## API
 
@@ -38,6 +39,7 @@ demo:
 | spinning         | 是否为加载中状态                             | boolean       | true      |
 | tip              | 当作为包裹元素时，可以自定义描述文案         | ReactNode     | -         |
 | wrapperClassName | 包装器的类属性                               | string        | -         |
+| fullscreen       | 显示带有`Spin`组件的背景                     | boolean       | false     |
 
 ### 静态方法
 

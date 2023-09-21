@@ -38,6 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | spinning | Whether Spin is visible | boolean | true |
 | tip | Customize description content when Spin has children | ReactNode | - |
 | wrapperClassName | The className of wrapper when Spin has children | string | - |
+| fullscreen | Display a backdrop with the `Spin` component | boolean | false |
 
 ### Static Method
 
