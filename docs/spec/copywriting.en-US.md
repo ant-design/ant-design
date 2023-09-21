@@ -37,7 +37,7 @@ When expressing content, the focus should be on users -- what they can do with y
 <img class="preview-img bad no-padding" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/3To5rdNTVQ/1ebf6213-a8d7-401a-ae69-f99bf2b294f0.png">
 </ImagePreview>
 
-Omit useless words and do not repeat facts known to users. In the most situations, there is no need for the interface to describe all the details. Try to provide short and accessible content.
+Omit useless words and do not repeat facts known to users. In most situations, there is no need for the interface to describe all the details. Try to provide short and accessible content.
 
 ### Use words familiar to the user
 
@@ -81,7 +81,7 @@ Let users see the most important content at first glance.
 <img class="preview-img bad no-padding" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/eKXgIakJPk/1cb7213d-61c4-41f2-84f0-256bcf436fe3.png" description="Users can't get the meaning of the settings.">
 </ImagePreview>
 
-When we want the user to take an action, we should focus on what the user can get and how the he/she feels. Telling users the purpose or importance of the action can make them more willing to perform it.
+When we want the user to take an action, we should focus on what the user can get and how he/she feels. Telling users the purpose or importance of the action can make them more willing to perform it.
 
 <br />
 
@@ -121,7 +121,7 @@ Language defines content, while emotions and atmosphere are expressed more in to
 
 Don't refer to the user by using "my" and "your" in the same phrase.
 
-> Note: To avoid confusing the users, don't mix first person("I","me", or "my") and second person("you","your") in the same sentence.
+> Note: To avoid confusing the users, don't mix first person("I", "me", or "my") and second person("you", "your") in the same sentence.
 
 ### Be friendly and respectful
 
