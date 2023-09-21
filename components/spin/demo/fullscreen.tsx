@@ -14,7 +14,7 @@ const App: React.FC = () => {
   return (
     <>
       <Button onClick={showLoader}>Show fullscreen</Button>
-      {show && <Spin fullscreen onClick={closeLoader} />}
+      {show && <Spin fullscreen onClick={closeLoader} size="large" />}
     </>
   );
 };
