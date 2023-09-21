@@ -151,14 +151,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
         },
 
-        '&:hover': {
-          ...genHoverStyle(token),
-        },
-
-        '&-focused': {
-          ...genActiveStyle(token),
-        },
-
         // ===================== Out Of Range =====================
         '&-out-of-range': {
           [`${componentCls}-input-wrap`]: {
@@ -395,7 +387,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
-        ...genHoverStyle(token),
         zIndex: 1,
       },
 
