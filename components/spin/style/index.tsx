@@ -65,7 +65,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       background: 'rgba(0,0,0,0.2)',
       zIndex: token.zIndexPopupBase,
       top: 0,
-      left: 0,
+      insetInlineStart: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
