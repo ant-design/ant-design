@@ -49,7 +49,7 @@ export interface ModalProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: DialogProps['classNames'];
+  classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;

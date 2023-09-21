@@ -3,9 +3,6 @@ import { Button, Modal } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token }) => ({
-  'my-modal-wrapper': {
-    border: `5px dashed ${token.colorPrimary}`,
-  },
   'my-modal-body': {
     background: token['blue-1'],
     padding: token.paddingSM,
@@ -49,7 +46,6 @@ const App: React.FC = () => {
         onCancel={handleCancel}
         footer="Footer"
         classNames={{
-          wrapper: styles['my-modal-wrapper'],
           body: styles['my-modal-body'],
           mask: styles['my-modal-mask'],
           header: styles['my-modal-header'],
