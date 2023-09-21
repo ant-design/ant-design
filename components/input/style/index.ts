@@ -66,6 +66,16 @@ export interface SharedComponentToken {
    * @descEN Box-shadow when active in warning status
    */
   warningActiveShadow: string;
+  /**
+   * @desc 输入框hover状态时背景颜色
+   * @descEN Background color when the input box hovers
+   */
+  hoverBg: string;
+  /**
+   * @desc 输入框激活状态时背景颜色
+   * @descEN Background color when the input box is activated
+   */
+  activeBg: string;
 }
 
 export interface ComponentToken extends SharedComponentToken {}
@@ -92,12 +102,14 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,
+  backgroundColor: token.hoverBg,
 });
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.activeBorderColor,
   boxShadow: token.activeShadow,
   outline: 0,
+  backgroundColor: token.activeBg,
 });
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
@@ -201,7 +213,6 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-
   '&:hover': {
     ...genHoverStyle(token),
   },
@@ -1049,6 +1060,8 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
     errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
     warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
+    hoverBg: 'transparent',
+    activeBg: 'transparent',
   };
 };
 

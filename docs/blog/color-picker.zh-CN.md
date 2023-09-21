@@ -14,13 +14,13 @@ author: Redjue
 
 `RGB` 色彩模型是通过三原色（红、绿、蓝）的不同组合来表示色彩的，每个原色的取值范围是 0-255，三原色的组合可以表示 256<sup>3</sup> 种颜色，这些颜色可以组成一个立方体，如下图所示： ![RGB](https://user-images.githubusercontent.com/21119589/268834307-79fca808-d3a3-4fe8-b370-ea1ec472023c.png)
 
-在 `RGB` 色彩模型中，每个颜色都可以用一个三元组 `(R, G, B)` 来表示，其中 `R` 表示红色的取值，`G` 表示绿色的取值，`B` 表示蓝色的取值。例如，红色可以表示为 `(255, 0, 0)`，绿色可以表示为 `(0, 255, 0)`，蓝色可以表示为 `(0, 0, 255)`。
+在 `RGB` 色彩模型中，每个颜色都可以用一个三元组 `(R, G, B)` 来表示，其中 `R` 表示红色的取值，`G` 表示绿色的取值，`B` 表示蓝色的取值。例如，红色可以表示为 `rgb(255, 0, 0)`，绿色可以表示为 `rgb(0, 255, 0)`，蓝色可以表示为 `rgb(0, 0, 255)`。
 
 ### HSV/HSB 色彩模型
 
 `HSV` 色彩模型是通过色相（Hue）、饱和度（Saturation）、明度（Value）来表示色彩的，其中色相的取值范围是 0-360，饱和度和明度的取值范围是 0-100。HSV 色彩模型可以用一个圆锥体来表示，如下图所示： ![HSV](https://user-images.githubusercontent.com/21119589/268834741-83940b90-c709-492b-8a7e-f59d317411e9.png)
 
-在 `HSV` 色彩模型中，每个颜色都可以用一个三元组 `(H, S, V)` 来表示，其中 `H` 表示色相的取值，`S` 表示饱和度的取值，`V` 表示明度的取值。例如，红色可以表示为 `(0, 100, 100)`，绿色可以表示为 `(120, 100, 100)`，蓝色可以表示为 `(240, 100, 100)`。
+在 `HSV` 色彩模型中，每个颜色都可以用一个三元组 `(H, S, V)` 来表示，其中 `H` 表示色相的取值，`S` 表示饱和度的取值，`V` 表示明度的取值。例如，红色可以表示为 `hsv(0, 100, 100)`，绿色可以表示为 `hsv(120, 100, 100)`，蓝色可以表示为 `hsv(240, 100, 100)`。
 
 ### HEX 色彩模型
 
@@ -114,8 +114,6 @@ const alpha = (offset.x + centerOffsetX) / width;
 
 ## 图片来源
 
-https://zh.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E8%89%B2%E5%85%89%E6%A8%A1%E5%BC%8F#/media/File:RGB_color_solid_cube.png
-
-https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4#/media/File:HSV_cone.png
-
-https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E9%A2%9C%E8%89%B2#/media/File:Web_Color_Charts.svg
+- https://zh.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E8%89%B2%E5%85%89%E6%A8%A1%E5%BC%8F#/media/File:RGB_color_solid_cube.png
+- https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4#/media/File:HSV_cone.png
+- https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E9%A2%9C%E8%89%B2#/media/File:Web_Color_Charts.svg

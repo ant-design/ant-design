@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
@@ -6,7 +8,7 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 import type { Options } from 'scroll-into-view-if-needed';
 
-import warning from '../_util/warning';
+import warning, { WarningContext, type WarningContextProps } from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { InputProps } from '../input';
@@ -27,6 +29,7 @@ import type {
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
+  FlexConfig,
   PopupOverflow,
   Theme,
   ThemeConfig,
@@ -146,8 +149,7 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
 
-  // TODO: wait for https://github.com/ant-design/ant-design/discussions/44551
-  // warning?: WarningContextProps;
+  warning?: WarningContextProps;
 
   alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
@@ -195,7 +197,7 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-
+  flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
    */
@@ -336,8 +338,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    flex,
     wave,
-    // warning: warningConfig,
+    warning: warningConfig,
   } = props;
 
   // =================================== Context ===================================
@@ -426,8 +429,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     tree,
     colorPicker,
     datePicker,
+    flex,
     wave,
-    // warning: warningConfig,
+    warning: warningConfig,
   };
 
   const config = {
@@ -562,11 +566,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   // ================================== Warning ===================================
-  // if (memoedConfig.warning) {
-  //   childNode = (
-  //     <WarningContext.Provider value={memoedConfig.warning}>{childNode}</WarningContext.Provider>
-  //   );
-  // }
+  if (memoedConfig.warning) {
+    childNode = (
+      <WarningContext.Provider value={memoedConfig.warning}>{childNode}</WarningContext.Provider>
+    );
+  }
 
   // =================================== Render ===================================
   if (componentDisabled !== undefined) {

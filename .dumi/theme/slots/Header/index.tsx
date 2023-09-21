@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { Alert, Col, Popover, Row, Select } from 'antd';
+import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
@@ -120,9 +120,9 @@ const useStyle = createStyles(({ token, css }) => {
     },
     banner: css`
       width: 100%;
-      background: #daf5eb;
       text-align: center;
       word-break: keep-all;
+      user-select: none;
     `,
     link: css`
       margin-left: 10px;
@@ -135,9 +135,6 @@ const useStyle = createStyles(({ token, css }) => {
       margin-right: 10px;
       width: 22px;
       height: 22px;
-    `,
-    message: css`
-      color: rgba(0, 0, 0, 0.88);
     `,
   };
 });
@@ -364,40 +361,40 @@ const Header: React.FC = () => {
         </Popover>
       )}
       {isZhCN && bannerVisible && (
-        <Alert
-          className={styles.banner}
-          message={
-            <>
-              <img
-                className={styles.icon}
-                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
-                alt="yuque"
-              />
-              <span className={styles.message}>
-                {isMobile ? locale.shortMessage : locale.message}
-              </span>
-              <a
-                className={styles.link}
-                href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => {
-                  window.gtag?.('event', '点击', {
-                    event_category: 'top_banner',
-                    event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
-                  });
-                }}
-              >
-                {locale.more}
-              </a>
-            </>
-          }
-          type="info"
-          banner
-          closable
-          showIcon={false}
-          onClose={onBannerClose}
-        />
+        <ConfigProvider theme={{ token: { colorInfoBg: '#daf5eb', colorTextBase: '#000' } }}>
+          <Alert
+            className={styles.banner}
+            message={
+              <>
+                <img
+                  className={styles.icon}
+                  src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                  alt="yuque"
+                />
+                <span>{isMobile ? locale.shortMessage : locale.message}</span>
+                <a
+                  className={styles.link}
+                  href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => {
+                    window.gtag?.('event', '点击', {
+                      event_category: 'top_banner',
+                      event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                    });
+                  }}
+                >
+                  {locale.more}
+                </a>
+              </>
+            }
+            type="info"
+            banner
+            closable
+            showIcon={false}
+            onClose={onBannerClose}
+          />
+        </ConfigProvider>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>

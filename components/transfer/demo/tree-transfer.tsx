@@ -10,7 +10,7 @@ interface TreeTransferProps {
 }
 
 // Customize Table Transfer
-const isChecked = (selectedKeys: (string | number)[], eventKey: string | number) =>
+const isChecked = (selectedKeys: React.Key[], eventKey: React.Key) =>
   selectedKeys.includes(eventKey);
 
 const generateTree = (treeNodes: DataNode[] = [], checkedKeys: string[] = []): DataNode[] =>
