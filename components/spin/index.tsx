@@ -130,7 +130,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
       [`${prefixCls}-show-text`]: !!tip,
-      [`${prefixCls}-fullscreen`]: !!fullscreen,
+      [`${prefixCls}-fullscreen`]: fullscreen,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
