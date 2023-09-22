@@ -63,10 +63,6 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         color: token.starBg,
         transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
-
-        [token.iconCls]: {
-          verticalAlign: 'middle',
-        },
       },
 
       '&-first': {

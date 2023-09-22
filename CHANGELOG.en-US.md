@@ -16,6 +16,35 @@ tag: vVERSION
 
 ---
 
+## 5.9.2
+
+`2023-09-19`
+
+- 🐞 Fix Table selection column not align in center when `size` is `small`. [#44922](https://github.com/ant-design/ant-design/pull/44922)
+- 🐞 Fix Select style problem when `label` contains `div` element. [#44927](https://github.com/ant-design/ant-design/pull/44927)
+- 🐞 Fix Modal broken style of buttons when custom `footer`. [#44929](https://github.com/ant-design/ant-design/pull/44929) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix notification wrong pop-up animation when `placement` is `bottom`. [#44918](https://github.com/ant-design/ant-design/pull/44918) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix missing inherited feedbackIcon in Form.Item with `noStyle`. [#44937](https://github.com/ant-design/ant-design/pull/44937)
+
+## 5.9.1
+
+`2023-09-15`
+
+- 🐞 Fix Select that `controlHeightSM` not work in small size. [#44859](https://github.com/ant-design/ant-design/pull/44859) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Rate that star transaform not at center. [#44855](https://github.com/ant-design/ant-design/pull/44855) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix DatePicker that in `dateTime` mode switching input didn't trigger `onCalendarChange`. [#44845](https://github.com/ant-design/ant-design/pull/44845) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Table `virtual` selection checkbox or radio not align in center. [#44786](https://github.com/ant-design/ant-design/pull/44786)
+- 🐞 Fix Select carbin align top bug when enable `maxTagCount`. [#44757](https://github.com/ant-design/ant-design/pull/44757)
+- 🐞 Fix Select alignment issue when label is Typography. [#44756](https://github.com/ant-design/ant-design/pull/44756)
+- 💄 Fix Table with `virtual` display issue about columns less than table size and some border &amp; hover style missing. [#44818](https://github.com/ant-design/ant-design/pull/44818)
+- 💄 Fix wrong style of Select in Input `addon`. [#44825](https://github.com/ant-design/ant-design/pull/44825) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Tree that Checkbox should be aligned with first line. [#44827](https://github.com/ant-design/ant-design/pull/44827) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Card that Card.Grid has wrong style with left bottom corner. [#44801](https://github.com/ant-design/ant-design/pull/44801) [@Jason-huang66](https://github.com/Jason-huang66)
+- 💄 Fix Select/Cascader/TreeSelect style issue when customize their height. [#44753](https://github.com/ant-design/ant-design/pull/44753)
+- TypeScript
+  - 🤖 Optimize `ref` type of Radio.Button. [#44747](https://github.com/ant-design/ant-design/pull/44747) [@LexiosAlex](https://github.com/LexiosAlex)
+  - 🤖 Optimize `ref` type of Checkbox. [#44746](https://github.com/ant-design/ant-design/pull/44746) [@LexiosAlex](https://github.com/LexiosAlex)
+
 ## 5.9.0
 
 `2023-09-08`

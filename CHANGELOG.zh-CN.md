@@ -16,6 +16,35 @@ tag: vVERSION
 
 ---
 
+## 5.9.2
+
+`2023-09-19`
+
+- 🐞 修复 Table `small` 尺寸时选择列没有居中对齐的问题。[#44922](https://github.com/ant-design/ant-design/pull/44922)
+- 🐞 修复 Select 当 `label` 内使用了 `div` 块级元素时的样式问题。[#44927](https://github.com/ant-design/ant-design/pull/44927)
+- 🐞 修复 Modal 自定义 `footer` 时按钮内容丢失的问题。[#44929](https://github.com/ant-design/ant-design/pull/44929) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 notification 底部弹出动画的问题。[#44918](https://github.com/ant-design/ant-design/pull/44918) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 Form.Item 有 `noStyle` 属性时没有继承上下文的反馈图标的问题。[#44937](https://github.com/ant-design/ant-design/pull/44937)
+
+## 5.9.1
+
+`2023-09-15`
+
+- 🐞 修复小尺寸 Select 组件 `controlHeightSM` token 配置无效的问题。[#44859](https://github.com/ant-design/ant-design/pull/44859) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Rate 组件星星变换中心不在正中心的问题。[#44855](https://github.com/ant-design/ant-design/pull/44855) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 DatePicker 组件 `dateTime` 模式切换输入框不会触发 `onCalendarChange` 的问题。[#44845](https://github.com/ant-design/ant-design/pull/44845) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Table `virtual` 配置下，选择框没有居中对齐的问题。[#44786](https://github.com/ant-design/ant-design/pull/44786)
+- 🐞 修复 Select 开启 `maxTagCount` 时搜索光标偏上的问题。[#44757](https://github.com/ant-design/ant-design/pull/44757)
+- 🐞 修复 Select 的 label 为 Typography 组件时的选中文本对齐问题。[#44756](https://github.com/ant-design/ant-design/pull/44756)
+- 💄 修复 Table `virtual` 开启虚拟滚动时，当 `columns` 小于表格宽度会显示异常的问题以及部分边框、悬浮样式丢失的问题。[#44818](https://github.com/ant-design/ant-design/pull/44818)
+- 💄 修复 Select 组件在 Input `addon` 中使用时的样式错误。[#44825](https://github.com/ant-design/ant-design/pull/44825) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Tree 组件样式，使 Checkbox 与文字第一行对齐。[#44827](https://github.com/ant-design/ant-design/pull/44827) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Card 组件 Card.Grid 边缘样式问题。[#44801](https://github.com/ant-design/ant-design/pull/44801) [@Jason-huang66](https://github.com/Jason-huang66)
+- 💄 修复 Select/Cascader/TreeSelect 自定义高度时的样式问题。[#44753](https://github.com/ant-design/ant-design/pull/44753)
+- TypeScript
+  - 🤖 优化 Radio.Button 的 `ref` 类型。[#44747](https://github.com/ant-design/ant-design/pull/44747) [@LexiosAlex](https://github.com/LexiosAlex)
+  - 🤖 优化 Checkbox 的 `ref` 类型。[#44746](https://github.com/ant-design/ant-design/pull/44746) [@LexiosAlex](https://github.com/LexiosAlex)
+
 ## 5.9.0
 
 `2023-09-08`
@@ -49,7 +78,7 @@ tag: vVERSION
 - 💄 修复 Select 配置的 `getPopupContainer` 容器有 `transform: scale` 样式时，弹出框宽度与输入框不一致的情况。[#44378](https://github.com/ant-design/ant-design/pull/44378)
 - 🐞 修复 Form.Item 配置 `noStyle` 时，被绑定的元素无法消费 `useStatus` 的问题。[#44576](https://github.com/ant-design/ant-design/pull/44576)
 - 🐞 修复 Tag 被 Popover/Popconfirm 包裹时，Hover 会导致 `font-size` 错误的问题。[#44663](https://github.com/ant-design/ant-design/pull/44663)
-- 🐞 修复 Input.Search 组合中，搜索按钮会额外阴影的问题。[#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
+- 🐞 修复 Input.Search 组合中，搜索按钮存在额外阴影的问题。[#44660](https://github.com/ant-design/ant-design/pull/44660) [@daledelv](https://github.com/daledelv)
 - 🐞 修复 Modal 的 hooks 调用通过按键 `esc` 关闭时无法正确触发 await 的问题。[#44646](https://github.com/ant-design/ant-design/pull/44646)
 - 🐞 修复 Space 的预设 `size` 不会跟随 Design Token 的问题，现在紧凑模式也会正确处理对应的间距数值。[#44598](https://github.com/ant-design/ant-design/pull/44598) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Upload 组件点击某文件的下载按钮后，鼠标移出该文件时仍展示下载按钮的问题。[#44594](https://github.com/ant-design/ant-design/pull/44594) [@zbw-zbw](https://github.com/zbw-zbw)

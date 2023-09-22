@@ -2,7 +2,8 @@
   if (
     (navigator.languages.includes('zh') || navigator.languages.includes('zh-CN')) &&
     /-cn\/?$/.test(window.location.pathname) &&
-    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname)
+    !['ant-design.gitee.io', 'ant-design.antgroup.com'].includes(window.location.hostname) &&
+    !window.location.host.includes('surge')
   ) {
     const ANTD_DOT_NOT_SHOW_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
 

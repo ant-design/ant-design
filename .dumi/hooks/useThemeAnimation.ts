@@ -32,11 +32,7 @@ const useThemeAnimation = () => {
     token: { colorBgElevated },
   } = theme.useToken();
 
-  const animateRef = useRef<{
-    colorBgElevated: string;
-  }>({
-    colorBgElevated,
-  });
+  const animateRef = useRef<{ colorBgElevated: string }>({ colorBgElevated });
 
   const startAnimationTheme = (clipPath: string[], isDark: boolean) => {
     updateCSS(
@@ -64,9 +60,14 @@ const useThemeAnimation = () => {
       });
   };
 
-  const toggleAnimationTheme = (event: MouseEvent, isDark: boolean) => {
+  const toggleAnimationTheme = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    isDark: boolean,
+  ) => {
     // @ts-ignore
-    if (!(event && typeof document.startViewTransition === 'function')) return;
+    if (!(event && typeof document.startViewTransition === 'function')) {
+      return;
+    }
     const x = event.clientX;
     const y = event.clientY;
     const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
@@ -75,7 +76,7 @@ const useThemeAnimation = () => {
     [data-prefers-color='dark'] {
       color-scheme: light !important;
     }
-    
+
     [data-prefers-color='light'] {
       color-scheme: dark !important;
     }
