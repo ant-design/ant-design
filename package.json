@@ -217,7 +217,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "^2.3.0-alpha.1",
+    "dumi": "^2.3.0-alpha.2",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^4.0.0",
     "eslint": "^8.40.0",
