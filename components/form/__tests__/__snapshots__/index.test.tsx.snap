@@ -929,6 +929,7 @@ exports[`Form form should support disabled 1`] = `
                 >
                   <input
                     accept=""
+                    disabled=""
                     style="display: none;"
                     type="file"
                   />

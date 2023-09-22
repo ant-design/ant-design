@@ -5071,6 +5071,7 @@ Array [
                     >
                       <input
                         accept=""
+                        disabled=""
                         style="display:none"
                         type="file"
                       />
