@@ -37,11 +37,14 @@ const getCollapsedWidth = (): React.CSSProperties => ({
   transform: 'scale(0)',
 });
 
-const getRealWidth = (node: HTMLElement): React.CSSProperties => ({
-  width: node.scrollWidth,
-  opacity: 1,
-  transform: 'scale(1)',
-});
+const getRealWidth = (node: HTMLElement, visible: boolean): React.CSSProperties =>
+  visible
+    ? { width: node.scrollWidth, opacity: 1, transform: 'scale(1)' }
+    : {
+        width: 0,
+        opacity: 0,
+        transform: 'scale(0)',
+    };
 
 const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
   const { prefixCls, loading, existIcon, className, style } = props;
@@ -58,10 +61,10 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
       motionName={`${prefixCls}-loading-icon-motion`}
       removeOnLeave
       onAppearStart={getCollapsedWidth}
-      onAppearActive={getRealWidth}
+      onAppearActive={(node) => getRealWidth(node, visible)}
       onEnterStart={getCollapsedWidth}
-      onEnterActive={getRealWidth}
-      onLeaveStart={getRealWidth}
+      onEnterActive={(node) => getRealWidth(node, visible)}
+      onLeaveStart={(node) => getRealWidth(node, visible)}
       onLeaveActive={getCollapsedWidth}
     >
       {({ className: motionCls, style: motionStyle }, ref: React.Ref<HTMLSpanElement>) => (
