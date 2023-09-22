@@ -1418,15 +1418,15 @@ describe('Form', () => {
           </Form.Item>
 
           {/* should follow parent status */}
-          <Form.Item validateStatus="error">
+          <Form.Item validateStatus="error" hasFeedback>
             <Form.Item noStyle>
               <Select className="custom-select-b" />
             </Form.Item>
           </Form.Item>
 
           {/* should follow child status */}
-          <Form.Item validateStatus="error">
-            <Form.Item noStyle validateStatus="warning">
+          <Form.Item validateStatus="error" hasFeedback>
+            <Form.Item noStyle validateStatus="warning" hasFeedback={false}>
               <Select className="custom-select-c" />
             </Form.Item>
           </Form.Item>
@@ -1455,9 +1455,19 @@ describe('Form', () => {
 
       expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
       expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-b')
+          ?.querySelector('.ant-form-item-feedback-icon-error'),
+      ).toBeTruthy();
 
       expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
       expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-c')
+          ?.querySelector('.ant-form-item-feedback-icon-warning'),
+      ).toBeFalsy();
 
       expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
       expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
@@ -1705,20 +1715,21 @@ describe('Form', () => {
     const App2 = () => <Form disabled>{renderComps()}</Form>;
 
     const wrapper2 = render(<App2 />);
-    // 时间范围组件中会有两个 input 框，因此虽然上述只有 18 个组件，但，实际有 19 个 带有 disabled 属性的表单组件
-    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(19);
+    // 时间范围组件中会有两个 input 框，Upload 为叠加
+    // 因此虽然上述只有 18 个组件，但实际有 20 个 带有 disabled 属性的表单组件
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App3 = () => <Form disabled>{renderComps(true)}</Form>;
 
     const wrapper3 = render(<App3 />);
 
-    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App4 = () => <Form>{renderComps(true)}</Form>;
 
     const wrapper4 = render(<App4 />);
 
-    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App5 = () => <Form>{renderComps()}</Form>;
 

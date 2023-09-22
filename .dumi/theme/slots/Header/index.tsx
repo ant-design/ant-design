@@ -1,23 +1,24 @@
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
+import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
 import { createStyles } from 'antd-style';
-import dayjs from 'dayjs';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { Alert, Col, Popover, Row, Select } from 'antd';
+
 import useLocale from '../../../hooks/useLocale';
 import DirectionIcon from '../../common/DirectionIcon';
+import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
-import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import SiteContext from '../SiteContext';
+import type { SharedProps } from './interface';
 import Logo from './Logo';
 import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
-import type { SharedProps } from './interface';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -119,9 +120,9 @@ const useStyle = createStyles(({ token, css }) => {
     },
     banner: css`
       width: 100%;
-      background: #daf5eb;
       text-align: center;
       word-break: keep-all;
+      user-select: none;
     `,
     link: css`
       margin-left: 10px;
@@ -360,38 +361,40 @@ const Header: React.FC = () => {
         </Popover>
       )}
       {isZhCN && bannerVisible && (
-        <Alert
-          className={styles.banner}
-          message={
-            <>
-              <img
-                className={styles.icon}
-                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
-                alt="yuque"
-              />
-              {isMobile ? locale.shortMessage : locale.message}
-              <a
-                className={styles.link}
-                href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
-                target="_blank"
-                rel="noreferrer"
-                onClick={() => {
-                  window.gtag?.('event', '点击', {
-                    event_category: 'top_banner',
-                    event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
-                  });
-                }}
-              >
-                {locale.more}
-              </a>
-            </>
-          }
-          type="info"
-          banner
-          closable
-          showIcon={false}
-          onClose={onBannerClose}
-        />
+        <ConfigProvider theme={{ token: { colorInfoBg: '#daf5eb', colorTextBase: '#000' } }}>
+          <Alert
+            className={styles.banner}
+            message={
+              <>
+                <img
+                  className={styles.icon}
+                  src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                  alt="yuque"
+                />
+                <span>{isMobile ? locale.shortMessage : locale.message}</span>
+                <a
+                  className={styles.link}
+                  href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => {
+                    window.gtag?.('event', '点击', {
+                      event_category: 'top_banner',
+                      event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                    });
+                  }}
+                >
+                  {locale.more}
+                </a>
+              </>
+            }
+            type="info"
+            banner
+            closable
+            showIcon={false}
+            onClose={onBannerClose}
+          />
+        </ConfigProvider>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>

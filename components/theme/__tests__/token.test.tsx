@@ -148,7 +148,7 @@ describe('Theme', () => {
         borderRadiusOuter: 6,
       },
       20: {
-        borderRadius: 16,
+        borderRadius: 20,
         borderRadiusLG: 16,
         borderRadiusSM: 8,
         borderRadiusXS: 2,
