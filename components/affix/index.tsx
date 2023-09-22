@@ -1,5 +1,3 @@
-'use client';
-
 import React, { createRef, forwardRef, useContext } from 'react';
 
 import classNames from 'classnames';

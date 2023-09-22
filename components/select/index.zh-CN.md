@@ -47,6 +47,7 @@ demo:
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>选项文本居中</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>翻转+偏移</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -55,12 +56,11 @@ demo:
 ### Select props
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean | false |  |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
-| bordered | 是否有边框 | boolean | true |  |
-| clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
+| bordered | 是否有边框 | boolean | true |  |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |

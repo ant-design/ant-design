@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 

@@ -277,11 +277,10 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
 exports[`renders components/drawer/demo/extra.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -445,11 +444,10 @@ Array [
               class="ant-drawer-extra"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn ant-btn-default"
@@ -606,11 +604,10 @@ Array [
               class="ant-drawer-extra"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn ant-btn-default"
@@ -2815,11 +2812,10 @@ exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`]
 exports[`renders components/drawer/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div
         class="ant-radio-group ant-radio-group-outline"
@@ -3131,11 +3127,10 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
   style="position: relative; z-index: 999999;"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -3164,7 +3159,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -3193,7 +3187,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         aria-checked="false"
@@ -3494,11 +3487,10 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
 exports[`renders components/drawer/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -3589,11 +3581,10 @@ Array [
               class="ant-drawer-extra"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn ant-btn-default"

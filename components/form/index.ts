@@ -1,5 +1,3 @@
-'use client';
-
 import type { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
 import warning from '../_util/warning';
 import ErrorList, { type ErrorListProps } from './ErrorList';

@@ -550,11 +550,10 @@ Array [
       style="text-align: right;"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary"
@@ -567,7 +566,6 @@ Array [
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -2214,6 +2212,177 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
 `;
 
 exports[`renders components/form/demo/control-ref.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="custom-feedback-icons"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-wrap: nowrap;"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
+            id="custom-feedback-icons_custom-feedback-test-item_help"
+            role="alert"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            />
+          </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
+  </div>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item2"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item2"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-wrap: nowrap;"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
+            id="custom-feedback-icons_custom-feedback-test-item2_help"
+            role="alert"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            />
+          </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="submit"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 1`] = `
 <form
@@ -5295,6 +5464,7 @@ Array [
                     >
                       <input
                         accept=""
+                        disabled=""
                         style="display: none;"
                         type="file"
                       />
@@ -9784,6 +9954,25 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
               id="requiredMarkValue"
             >
               <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="true"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Default
+                </span>
+              </label>
+              <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
                 <span
@@ -9812,14 +10001,14 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <input
                     class="ant-radio-button-input"
                     type="radio"
-                    value="true"
+                    value="false"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Required
+                  Hidden
                 </span>
               </label>
               <label
@@ -9831,14 +10020,14 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
                   <input
                     class="ant-radio-button-input"
                     type="radio"
-                    value="false"
+                    value="customize"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Hidden
+                  Customize
                 </span>
               </label>
             </div>
@@ -19319,11 +19508,10 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -21372,11 +21560,10 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -27713,6 +27900,168 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+  id="trigger"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="ant-alert-content"
+    >
+      <div
+        class="ant-alert-message"
+      >
+        Use 'max' rule, continue type chars to see it
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="trigger_field_a"
+          title="Field A"
+        >
+          Field A
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                id="trigger_field_a"
+                placeholder="Validate required onBlur"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="trigger_field_b"
+          title="Field B"
+        >
+          Field B
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                id="trigger_field_b"
+                placeholder="Validate required debounce after 1s"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="trigger_field_c"
+          title="Field C"
+        >
+          Field C
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                id="trigger_field_c"
+                placeholder="Validate one by one"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
@@ -27773,11 +28122,10 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"

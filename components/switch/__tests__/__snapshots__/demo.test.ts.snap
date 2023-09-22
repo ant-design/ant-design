@@ -25,11 +25,10 @@ exports[`renders components/switch/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/switch/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       aria-checked="true"
@@ -204,11 +203,10 @@ Array [
 
 exports[`renders components/switch/demo/text.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       aria-checked="true"
@@ -237,7 +235,6 @@ exports[`renders components/switch/demo/text.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       aria-checked="false"

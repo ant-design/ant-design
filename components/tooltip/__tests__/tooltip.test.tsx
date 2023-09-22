@@ -495,7 +495,7 @@ describe('Tooltip', () => {
     await waitFakeTimer();
 
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
+      'Warning: [antd: Tooltip] `defaultVisible` is deprecated. Please use `defaultOpen` instead.',
     );
     expect(isTooltipOpen()).toBeTruthy();
 
@@ -506,7 +506,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Tooltip] `visible` is deprecated. Please use `open` instead.',
     );
 
     rerender(
@@ -527,7 +527,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
+      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
     );
 
     // afterVisibleChange
@@ -537,7 +537,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated, please use `afterOpenChange` instead.',
+      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
     );
 
     // Event Trigger

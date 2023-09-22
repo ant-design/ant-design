@@ -1,11 +1,13 @@
 import * as React from 'react';
+import type { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
 import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
 } from 'rc-notification/lib';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { ComponentStyleConfig } from '../config-provider/context';
 import type {
@@ -17,7 +19,6 @@ import type {
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
-import type { FC, PropsWithChildren } from 'react';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -109,6 +110,8 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
+  const warning = devUseWarning('Notification');
+
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
@@ -118,7 +121,7 @@ export function useInternalNotification(
       if (!holderRef.current) {
         warning(
           false,
-          'Notification',
+          'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );
         return;

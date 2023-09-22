@@ -17,6 +17,7 @@ export interface RibbonProps {
   color?: LiteralUnion<PresetColorType>;
   children?: React.ReactNode;
   placement?: RibbonPlacement;
+  rootClassName?: string;
 }
 
 const Ribbon: React.FC<RibbonProps> = (props) => {
@@ -28,6 +29,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     children,
     text,
     placement = 'end',
+    rootClassName,
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
@@ -49,7 +51,7 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     cornerColorStyle.color = color;
   }
   return wrapSSR(
-    <div className={classNames(`${prefixCls}-wrapper`, hashId)}>
+    <div className={classNames(`${prefixCls}-wrapper`, rootClassName, hashId)}>
       {children}
       <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
         <span className={`${prefixCls}-text`}>{text}</span>

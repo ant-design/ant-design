@@ -2,11 +2,10 @@
 
 exports[`renders components/date-picker/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -606,7 +605,6 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -1266,7 +1264,6 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -1502,7 +1499,6 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -1893,10 +1889,10 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
 exports[`renders components/date-picker/demo/bordered.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-borderless"
@@ -2496,7 +2492,6 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-borderless"
@@ -3156,7 +3151,6 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-borderless"
@@ -3392,7 +3386,6 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-borderless"
@@ -3628,7 +3621,6 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-borderless"
@@ -4815,7 +4807,6 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-borderless"
@@ -6140,7 +6131,6 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-borderless"
@@ -7095,10 +7085,10 @@ exports[`renders components/date-picker/demo/bordered.tsx extend context correct
 exports[`renders components/date-picker/demo/cell-render.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -8896,10 +8886,10 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
 exports[`renders components/date-picker/demo/disabled.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-disabled"
@@ -9500,7 +9490,6 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-disabled"
@@ -9737,7 +9726,6 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-disabled"
@@ -12144,10 +12132,10 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
 exports[`renders components/date-picker/demo/disabled-date.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -14099,7 +14087,6 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -14335,7 +14322,6 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -17060,10 +17046,10 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
 exports[`renders components/date-picker/demo/extra-footer.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -17668,7 +17654,6 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -19625,7 +19610,6 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -20821,7 +20805,6 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -23077,10 +23060,10 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
 exports[`renders components/date-picker/demo/format.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -23705,7 +23688,6 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -24330,7 +24312,6 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -24591,7 +24572,6 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -25276,7 +25256,6 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -27118,10 +27097,10 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
 exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -30678,10 +30657,10 @@ exports[`renders components/date-picker/demo/placement.tsx extend context correc
 exports[`renders components/date-picker/demo/preset-ranges.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -31296,7 +31275,6 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -34532,10 +34510,10 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
 exports[`renders components/date-picker/demo/range-picker.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -35722,7 +35700,6 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -37723,7 +37700,6 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -39048,7 +39024,6 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -39523,7 +39498,6 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -42100,10 +42074,10 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
 exports[`renders components/date-picker/demo/size.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -42170,7 +42144,6 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-middle"
@@ -42770,7 +42743,6 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-middle"
@@ -43006,7 +42978,6 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-middle"
@@ -44857,11 +44828,10 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 2
 
 exports[`renders components/date-picker/demo/start-end.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <div
       class="ant-picker"
@@ -48769,12 +48739,11 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
 
 exports[`renders components/date-picker/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-status-error"
@@ -49375,7 +49344,6 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-status-warning"
@@ -49976,7 +49944,6 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-status-error"
@@ -52357,10 +52324,10 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
 exports[`renders components/date-picker/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -52960,7 +52927,6 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -53196,7 +53162,6 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -54383,7 +54348,6 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -55043,7 +55007,6 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -55625,7 +55588,6 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"
@@ -55843,7 +55805,6 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker ant-picker-range"
@@ -57658,11 +57619,10 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
 
 exports[`renders components/date-picker/demo/switchable.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <div
       class="ant-select ant-select-single ant-select-show-arrow"
@@ -59295,10 +59255,10 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
 exports[`renders components/date-picker/demo/time.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 12px;"
   >
     <div
       class="ant-picker"

@@ -1,6 +1,7 @@
-import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import warning from '../_util/warning';
+import omit from 'rc-util/lib/omit';
+
+import { devUseWarning } from '../_util/warning';
 import type { BlockProps, EllipsisConfig } from './Base';
 import Base from './Base';
 
@@ -22,13 +23,17 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
     return ellipsis;
   }, [ellipsis]);
 
-  warning(
-    typeof ellipsis !== 'object' ||
-      !ellipsis ||
-      (!('expandable' in ellipsis) && !('rows' in ellipsis)),
-    'Typography.Text',
-    '`ellipsis` do not support `expandable` or `rows` props.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Typography.Text');
+
+    warning(
+      typeof ellipsis !== 'object' ||
+        !ellipsis ||
+        (!('expandable' in ellipsis) && !('rows' in ellipsis)),
+      'usage',
+      '`ellipsis` do not support `expandable` or `rows` props.',
+    );
+  }
 
   return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span" />;
 };

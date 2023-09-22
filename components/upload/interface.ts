@@ -110,6 +110,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
+  rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
   onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;

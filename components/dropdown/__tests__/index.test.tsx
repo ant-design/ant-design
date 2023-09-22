@@ -1,11 +1,12 @@
-import type { TriggerProps } from '@rc-component/trigger';
 import React from 'react';
+import type { TriggerProps } from '@rc-component/trigger';
+
 import type { DropDownProps } from '..';
 import Dropdown from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 let triggerProps: TriggerProps;
 
@@ -231,10 +232,10 @@ describe('Dropdown', () => {
 
     expect(document.querySelector('.bamboo')).toBeTruthy();
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Dropdown] `visible` is deprecated. Please use `open` instead.',
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
+      'Warning: [antd: Dropdown] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
     );
 
     fireEvent.click(container.querySelector('.little')!);
@@ -251,5 +252,16 @@ describe('Dropdown', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('not block ref', () => {
+    const divRef = React.createRef<HTMLDivElement>();
+    render(
+      <Dropdown open dropdownRender={() => <div ref={divRef} />}>
+        <a />
+      </Dropdown>,
+    );
+
+    expect(divRef.current).toBeTruthy();
   });
 });

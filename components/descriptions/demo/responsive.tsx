@@ -4,38 +4,34 @@ import type { DescriptionsProps } from 'antd';
 
 const items: DescriptionsProps['items'] = [
   {
-    key: '1',
     label: 'Product',
     children: 'Cloud Database',
   },
   {
-    key: '2',
     label: 'Billing',
     children: 'Prepaid',
   },
   {
-    key: '3',
     label: 'Time',
     children: '18:00:00',
   },
   {
-    key: '4',
     label: 'Amount',
     children: '$80.00',
   },
   {
-    key: '5',
     label: 'Discount',
+    span: { xl: 2, xxl: 2 },
     children: '$20.00',
   },
   {
-    key: '6',
     label: 'Official',
+    span: { xl: 2, xxl: 2 },
     children: '$60.00',
   },
   {
-    key: '7',
     label: 'Config Info',
+    span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 },
     children: (
       <>
         Data disk type: MongoDB
@@ -43,13 +39,21 @@ const items: DescriptionsProps['items'] = [
         Database version: 3.4
         <br />
         Package: dds.mongo.mid
+      </>
+    ),
+  },
+  {
+    label: 'Hardware Info',
+    span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 },
+    children: (
+      <>
+        CPU: 6 Core 3.5 GHz
         <br />
         Storage space: 10 GB
         <br />
         Replication factor: 3
         <br />
         Region: East China 1
-        <br />
       </>
     ),
   },
@@ -59,7 +63,7 @@ const App: React.FC = () => (
   <Descriptions
     title="Responsive Descriptions"
     bordered
-    column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
+    column={{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }}
     items={items}
   />
 );

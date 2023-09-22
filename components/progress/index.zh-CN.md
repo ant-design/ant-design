@@ -26,7 +26,6 @@ demo:
 <code src="./demo/line-mini.tsx">小型进度条</code>
 <code src="./demo/circle-micro.tsx">响应式进度圈</code>
 <code src="./demo/circle-mini.tsx">小型进度圈</code>
-<code src="./demo/circle-dynamic.tsx">进度圈动态展示</code>
 <code src="./demo/dynamic.tsx">动态展示</code>
 <code src="./demo/format.tsx">自定义文字格式</code>
 <code src="./demo/dashboard.tsx">仪表盘</code>
@@ -66,7 +65,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| object | - | - |
+| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| { number%: string } | - | - |
 | strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
 
 ### `type="dashboard"`

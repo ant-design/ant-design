@@ -8,6 +8,6 @@ export interface AvatarContextType {
   shape?: 'circle' | 'square';
 }
 
-const AvatarContext = React.createContext<AvatarContextType>({ size: 'default', shape: undefined });
+const AvatarContext = React.createContext<AvatarContextType>({});
 
 export default AvatarContext;

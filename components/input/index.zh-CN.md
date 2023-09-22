@@ -98,7 +98,7 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
 | loading | 搜索 loading | boolean | false |
-| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event) | - |
+| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
 
 其余属性和 Input 一致。
 

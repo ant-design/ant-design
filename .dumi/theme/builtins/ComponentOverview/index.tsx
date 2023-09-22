@@ -80,7 +80,7 @@ const { Title } = Typography;
 
 const Overview: React.FC = () => {
   const { styles } = useStyle();
-  const { theme } = useContext(SiteContext);
+  const { theme, bannerVisible } = useContext(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -143,7 +143,10 @@ const Overview: React.FC = () => {
   return (
     <section className="markdown" ref={sectionRef}>
       <Divider />
-      <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
+      <Affix
+        offsetTop={24 + token.headerHeight + (bannerVisible ? token.bannerHeight : 0)}
+        onChange={setSearchBarAffixed}
+      >
         <div
           className={styles.componentsOverviewAffix}
           style={searchBarAffixed ? affixedStyle : {}}

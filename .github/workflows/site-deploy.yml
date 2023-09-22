@@ -16,7 +16,7 @@ jobs:
     if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -49,11 +49,11 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -70,13 +70,13 @@ jobs:
       - name: build site
         run: npm run predeploy
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: build dist and bundle analyzer report
         run: npm run dist
         env:
           ANALYZER: 1
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: Get version
         id: publish-version

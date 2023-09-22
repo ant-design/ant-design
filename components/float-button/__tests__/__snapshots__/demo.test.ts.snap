@@ -2,7 +2,7 @@
 
 exports[`renders components/float-button/demo/back-top.tsx correctly 1`] = `
 <div
-  style="height:500vh;padding:10px"
+  style="height:300vh;padding:10px"
 >
   <div>
     Scroll to bottom
@@ -79,9 +79,9 @@ Array [
     class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
     style="right:94px"
   >
-    <button
+    <a
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
-      type="button"
+      href="https://ant.design/index-cn"
     >
       <span
         class="ant-badge"
@@ -136,7 +136,7 @@ Array [
           </bdi>
         </sup>
       </span>
-    </button>
+    </a>
     <button
       class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
       type="button"

@@ -29,6 +29,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
     controlItemBgHover,
     controlItemBgActive,
     boxShadowSecondary,
+    filterDropdownMenuBg,
   } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
@@ -88,6 +89,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
             border: 0,
             boxShadow: 'none',
             borderRadius: 'unset',
+            backgroundColor: filterDropdownMenuBg,
 
             '&:empty::after': {
               display: 'block',

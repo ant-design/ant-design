@@ -32,6 +32,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <code src="./demo/mix.tsx" debug>Mixed usage</code>
 <code src="./demo/title.tsx" debug>Title</code>
 <code src="./demo/colorful-with-count-debug.tsx" debug>Colorful Badge support count Debug</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 

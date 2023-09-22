@@ -110,7 +110,7 @@ describe('AutoComplete', () => {
       />,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated, please use `popupClassName` instead.',
+      'Warning: [antd: AutoComplete] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
 

@@ -483,7 +483,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
-          <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
+          <CopyToClipboard text={parsedSourceCode} onCopy={() => handleCodeCopied(asset.id)}>
             <Tooltip
               open={copyTooltipOpen as boolean}
               onOpenChange={onCopyTooltipOpenChange}

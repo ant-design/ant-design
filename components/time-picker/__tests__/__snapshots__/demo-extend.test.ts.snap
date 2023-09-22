@@ -2,12 +2,11 @@
 
 exports[`renders components/time-picker/demo/12hours.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -1336,7 +1335,6 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -2665,7 +2663,6 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -16215,12 +16212,11 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
 
 exports[`renders components/time-picker/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-large"
@@ -17658,7 +17654,6 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-picker"
@@ -19096,7 +19091,6 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-small"
@@ -20539,11 +20533,10 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 2
 
 exports[`renders components/time-picker/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-status-error"
@@ -21957,7 +21950,6 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-status-warning"
@@ -23371,7 +23363,6 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-picker ant-picker-range ant-picker-status-error"

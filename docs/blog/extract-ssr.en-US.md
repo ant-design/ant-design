@@ -25,7 +25,7 @@ In the v5 alpha version, in order to cover the SSR style rendering, we refer to 
 
 This implementation is simple and effective, the only downside is style pollution for `:nth` selections. But considering that antd components rarely use this selector, the side effects can be ignored.
 
-It worked well at the beginning, and the official website of antd directly supports the SSR style without modification and meet the SEO needs. But as our components gradually migrated to the CSS-in-JS version, we found that the site's buddle size became very large and slowly became unusable. After looking at the HTML, we found that the default inline method is not good, it will cause the style to be doubled inline, for example, if there are 3 Buttons in a page, then it will repeat the inline 3 times:
+It worked well at the beginning, and the official website of antd directly supports the SSR style without modification and meet the SEO needs. But as our components gradually migrated to the CSS-in-JS version, we found that the site's bundle size became very large and slowly became unusable. After looking at the HTML, we found that the default inline method is not good, it will cause the style to be doubled inline, for example, if there are 3 Buttons in a page, then it will repeat the inline 3 times:
 
 ```html
 <div>

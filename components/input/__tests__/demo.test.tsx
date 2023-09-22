@@ -14,3 +14,7 @@ rootPropsTest(
 rootPropsTest('input', (Input, props) => <Input.Password {...props} />, {
   name: 'password',
 });
+
+rootPropsTest('input', (Input, props) => <Input.TextArea {...props} />, {
+  name: 'textarea',
+});

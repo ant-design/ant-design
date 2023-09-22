@@ -33,9 +33,13 @@ exports[`Modal.confirm triggers callbacks correctly footer confirm should render
           </svg>
         </span>
         <div
-          class="ant-modal-confirm-content"
+          class="ant-modal-confirm-paragraph"
         >
-          hai
+          <div
+            class="ant-modal-confirm-content"
+          >
+            hai
+          </div>
         </div>
       </div>
       hai

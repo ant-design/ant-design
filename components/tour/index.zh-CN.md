@@ -35,6 +35,7 @@ tag: New
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| closeIcon | 自定义关闭按钮 | `React.ReactNode` | `true` | 5.9.0 |
 | placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | onFinish | 引导完成时的回调 | `Function` | - |  |
@@ -53,6 +54,7 @@ tag: New
 | --- | --- | --- | --- | --- |
 | target | 获取引导卡片指向的元素，为空时居中于屏幕 | `() => HTMLElement` \| `HTMLElement` | - |  |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| closeIcon | 自定义关闭按钮 | `React.ReactNode` | `true` | 5.9.0 |
 | cover | 展示的图片或者视频 | `ReactNode` | - |  |
 | title | 标题 | `ReactNode` | - |  |
 | description | 主要描述部分 | `ReactNode` | - |  |

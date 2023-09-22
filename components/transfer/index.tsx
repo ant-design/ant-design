@@ -1,12 +1,11 @@
-'use client';
-
-import classNames from 'classnames';
 import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
+import classNames from 'classnames';
+
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
@@ -90,7 +89,7 @@ export interface TransferProps<RecordType> {
   titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: string, item: RecordType) => boolean;
+  filterOption?: (inputValue: string, item: RecordType, direction: TransferDirection) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
     props: TransferListProps<RecordType>,
@@ -171,11 +170,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !pagination || !children,
-      'Transfer',
-      '`pagination` not support customize render list.',
-    );
+    const warning = devUseWarning('Transfer');
+
+    warning(!pagination || !children, 'usage', '`pagination` not support customize render list.');
   }
 
   const setStateKeys = useCallback(

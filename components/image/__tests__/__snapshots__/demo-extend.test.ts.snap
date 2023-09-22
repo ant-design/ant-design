@@ -352,10 +352,10 @@ exports[`renders components/image/demo/imageRender.tsx extend context correctly 
 exports[`renders components/image/demo/placeholder.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 12px;"
   >
     <div
       class="ant-image"
@@ -689,11 +689,10 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
     class="ant-image-mask customize-mask"
   >
     <div
-      class="ant-space ant-space-vertical ant-space-align-center"
+      class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-bottom: 8px;"
       >
         <span
           aria-label="zoom-in"

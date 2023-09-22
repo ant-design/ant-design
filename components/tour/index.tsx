@@ -1,15 +1,14 @@
-'use client';
-
+import React, { useContext } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+
 import getPlacements from '../_util/placements';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import theme from '../theme';
-import PurePanel from './PurePanel';
+import { useToken } from '../theme/internal';
 import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
+import PurePanel from './PurePanel';
 import useStyle from './style';
 import useMergedType from './useMergedType';
 
@@ -29,7 +28,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const { currentMergedType, updateInnerCurrent } = useMergedType({
     defaultType: type,

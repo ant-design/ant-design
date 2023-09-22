@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/layout-can-wrap.tsx">表单标签可换行</code>
 <code src="./demo/warning-only.tsx">非阻塞校验</code>
 <code src="./demo/useWatch.tsx">字段监听 Hooks</code>
+<code src="./demo/validate-trigger.tsx">校验时机</code>
 <code src="./demo/validate-only.tsx">仅校验</code>
 <code src="./demo/form-item-path.tsx">字段路径前缀</code>
 <code src="./demo/dynamic-form-item.tsx">动态增减表单项</code>
@@ -53,6 +54,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
 <code src="./demo/col-24-debug.tsx" debug>测试特殊 col 24 用法</code>
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
+<code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -67,6 +70,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
 | fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#fielddata)\[] | - |  |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#forminstance) | - |  |
+| feedbackIcons | 当 `Form.Item` 有 `hasFeedback` 属性时可以自定义图标 | [FeedbackIcons](#feedbackicons) | - | 5.9.0 |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |  |
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
 | labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 |
@@ -74,7 +78,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
-| requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` | true | 4.6.0 |
+| requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
@@ -122,7 +126,7 @@ const validateMessages = {
 | extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | ReactNode | - |  |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any\[]) => any | - |  |
 | getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
-| hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 | boolean | false |  |
+| hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 此外，它还可以通过 Icons 属性获取反馈图标。 | boolean \| { icons: [FeedbackIcons](#feedbackicons) } | false | icons: 5.9.0 |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode | - |  |
 | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
@@ -133,7 +137,7 @@ const validateMessages = {
 | messageVariables | 默认验证字段的信息 | Record&lt;string, string> | - | 4.7.0 |
 | name | 字段名，支持数组 | [NamePath](#namepath) | - |  |
 | normalize | 组件获取值后进行转换，再放入 Form 中。不支持异步 | (value, prevValue, prevValues) => any | - |  |
-| noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |  |
+| noStyle | 为 `true` 时不带样式，作为纯字段控件使用。当自身没有 `validateStatus` 而父元素存在有 `validateStatus` 的 Form.Item 会继承父元素的 `validateStatus` | boolean | false |  |
 | preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#rule)\[] | - |  |
@@ -141,9 +145,10 @@ const validateMessages = {
 | tooltip | 配置提示信息 | ReactNode \| [TooltipProps & { icon: ReactNode }](/components/tooltip-cn#api) | - | 4.7.0 |
 | trigger | 设置收集字段值变更的时机。点击[此处](#components-form-demo-customized-form-controls)查看示例 | string | `onChange` |  |
 | validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验。设置 `parallel` 时会并行校验 | boolean \| `parallel` | false | `parallel`: 4.5.0 |
+| validateDebounce | 设置防抖，延迟毫秒数后进行校验 | number | - | 5.9.0 |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |  |
 | validateTrigger | 设置字段校验的时机 | string \| string\[] | `onChange` |  |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked'。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
+| valuePropName | 子节点的值的属性，如 Switch、Checkbox 的是 `checked`。该属性为 `getValueProps` 的封装，自定义 `getValueProps` 后会失效 | string | `value` |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
 
 被设置了 `name` 属性的 `Form.Item` 包装的控件，表单控件会自动添加 `value`（或 `valuePropName` 指定的其他属性） `onChange`（或 `trigger` 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
@@ -157,6 +162,10 @@ const validateMessages = {
 当字段间存在依赖关系时使用。如果一个字段设置了 `dependencies` 属性。那么它所依赖的字段更新时，该字段将自动触发更新与校验。一种常见的场景，就是注册用户表单的“密码”与“确认密码”字段。“确认密码”校验依赖于“密码”字段，设置 `dependencies` 后，“密码”字段更新会重新触发“校验密码”的校验逻辑。你可以参考[具体例子](#components-form-demo-dependencies)。
 
 `dependencies` 不应和 `shouldUpdate` 一起使用，因为这可能带来更新逻辑的混乱。
+
+### FeedbackIcons
+
+`({ status: ValidateStatus, errors: ReactNode, warnings: ReactNode }) => Record<ValidateStatus, ReactNode>`
 
 ### shouldUpdate
 
@@ -298,7 +307,7 @@ Form.List 渲染表单相关操作函数。
 | setFieldValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
-| validateFields | 触发表单验证 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0 |
+| validateFields | 触发表单验证，设置 `recursive` 时会递归校验所有包含的路径 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean, recursive?: boolean }) => Promise | `validateOnly`: 5.5.0, `recursive`: 5.9.0 |
 
 #### validateFields 返回示例
 
@@ -531,6 +540,16 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
+
+### Switch、Checkbox 为什么不能绑定数据？
+
+Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
+
+```tsx | pure
+<Form.Item name="fieldA" valuePropName="checked">
+  <Switch />
+</Form.Item>
+```
 
 ### 自定义 validator 没有效果
 

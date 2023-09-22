@@ -44,7 +44,7 @@ import ThemePicker from './ThemePicker';
 
 const { Header, Content, Sider } = Layout;
 
-const TokenChecker = () => {
+const TokenChecker: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') {
     console.log('Demo Token:', theme.useToken());
   }
@@ -197,7 +197,7 @@ const useStyle = createStyles(({ token, cx }) => {
 });
 
 // ========================== Menu Config ==========================
-const subMenuItems: MenuProps['items'] = [
+const subMenuItems = [
   {
     key: `Design Values`,
     label: `Design Values`,
@@ -287,11 +287,12 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
   },
 };
 
+const normalize = (value: number) => value / 255;
+
 function rgbToColorMatrix(color: string) {
   const rgb = new TinyColor(color).toRgb();
   const { r, g, b } = rgb;
 
-  const normalize = (value) => value / 255;
   const invertValue = normalize(r) * 100;
   const sepiaValue = 100;
   const saturateValue = Math.max(normalize(r), normalize(g), normalize(b)) * 10000;
@@ -360,10 +361,7 @@ export default function Theme() {
   const isRootDark = useDark();
 
   React.useEffect(() => {
-    onThemeChange(null, {
-      ...themeData,
-      themeType: isRootDark ? 'dark' : 'default',
-    });
+    onThemeChange({}, { ...themeData, themeType: isRootDark ? 'dark' : 'default' });
   }, [isRootDark]);
 
   // ================================ Tokens ================================
@@ -483,6 +481,7 @@ export default function Theme() {
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}
                 items={sideMenuItems}
+                expandIcon={false}
               />
             </Sider>
             <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>

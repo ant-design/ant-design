@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ConfigProvider from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Alert from '../../alert';
@@ -104,9 +105,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space-item')).toHaveStyle(
-      'margin-right: 8px; color: red;',
-    );
+    expect(container.querySelector('.ant-space-item')).toHaveStyle('color: red;');
   });
 
   it('Should Space style works', () => {
@@ -942,11 +941,16 @@ describe('ConfigProvider support style and className props', () => {
     const { container } = render(
       <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
         <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-tag');
     expect(element).toHaveClass('cp-tag');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+
+    const checkableElement = container.querySelector<HTMLSpanElement>('.ant-tag-checkable');
+    expect(checkableElement).toHaveClass('cp-tag');
+    expect(checkableElement).toHaveStyle({ backgroundColor: 'blue' });
   });
 
   it('Should Table className & style works', () => {

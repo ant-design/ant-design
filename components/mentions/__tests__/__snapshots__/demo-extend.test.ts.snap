@@ -214,12 +214,11 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
-              style="flex-wrap: wrap; margin-bottom: -8px;"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+              style="flex-wrap: wrap;"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px; padding-bottom: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -232,7 +231,6 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
               </div>
               <div
                 class="ant-space-item"
-                style="padding-bottom: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -386,11 +384,10 @@ If you used to conditionally omit it with %s={condition && value}, pass %s={cond
 
 exports[`renders components/mentions/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-mentions ant-mentions-status-error"

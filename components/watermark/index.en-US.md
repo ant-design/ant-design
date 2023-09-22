@@ -22,6 +22,7 @@ Add specific text or patterns to the page.
 <code src="./demo/multi-line.tsx">Multi-line watermark</code>
 <code src="./demo/image.tsx">Image watermark</code>
 <code src="./demo/custom.tsx">Custom configuration</code>
+<code src="./demo/portal.tsx">Modal or Drawer</code>
 
 ## API
 

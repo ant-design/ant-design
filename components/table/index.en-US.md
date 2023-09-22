@@ -97,7 +97,7 @@ const columns = [
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
 <code src="./demo/summary.tsx">Summary</code>
-<code src="./demo/virtual-list.tsx">Virtual list</code>
+<code src="./demo/virtual-list.tsx" version=">= 5.9.0">Virtual list</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
@@ -105,6 +105,7 @@ const columns = [
 <code src="./demo/sticky.tsx">Fixed header and scroll bar with the page</code>
 <code src="./demo/dynamic-settings.tsx">Dynamic Settings</code>
 <code src="./demo/selections-debug.tsx" debug>selections with icon</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -139,6 +140,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
+| virtual | Support virtual list | boolean | - | 5.9.0 |
 
 #### onRow usage
 
@@ -287,9 +289,9 @@ Properties for row selection.
 ## Using in TypeScript
 
 ```tsx
+import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 interface User {
   key: number;

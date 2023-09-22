@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
@@ -22,7 +20,7 @@ import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -32,7 +30,7 @@ import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
-import getIcons from '../select/utils/iconUtil';
+import useIcons from '../select/useIcons';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
@@ -131,6 +129,7 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
     suffixIcon?: React.ReactNode;
     options?: DataNodeType[];
     status?: InputStatus;
+    autoClearSearchValue?: boolean;
 
     rootClassName?: string;
     popupClassName?: string;
@@ -195,15 +194,13 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !dropdownClassName,
-      'Cascader',
-      '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-    );
+    const warning = devUseWarning('Cascader');
+
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
     warning(
       !('showArrow' in props),
-      'Cascader',
+      'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
   }
@@ -280,7 +277,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
-  const { suffixIcon, removeIcon, clearIcon } = getIcons({
+  const { suffixIcon, removeIcon, clearIcon } = useIcons({
     ...props,
     hasFeedback,
     feedbackIcon,

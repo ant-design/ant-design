@@ -1,4 +1,5 @@
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
+
 import type { PopupOverflow } from '../config-provider/context';
 
 const getBuiltInPlacements = (popupOverflow?: PopupOverflow): Record<string, AlignType> => {
@@ -11,9 +12,7 @@ const getBuiltInPlacements = (popupOverflow?: PopupOverflow): Record<string, Ali
       shiftY: true,
     },
     htmlRegion,
-    _experimental: {
-      dynamicInset: true,
-    },
+    dynamicInset: true,
   };
 
   return {

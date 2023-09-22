@@ -1,5 +1,3 @@
-'use client';
-
 import type { ModalStaticFunctions } from './confirm';
 import confirm, {
   modalGlobalConfig,

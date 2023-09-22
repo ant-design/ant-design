@@ -1825,19 +1825,17 @@ exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
 exports[`renders components/list/demo/pagination.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
     style="margin-bottom:20px"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom:16px"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <span>
             Pagination Position:
@@ -1915,11 +1913,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <span>
             Pagination Align:
@@ -2760,11 +2757,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2798,11 +2794,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -2836,11 +2831,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -2926,11 +2920,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2964,11 +2957,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -3002,11 +2994,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -3092,11 +3083,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -3130,11 +3120,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -3168,11 +3157,10 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"

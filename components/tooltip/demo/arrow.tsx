@@ -3,7 +3,7 @@ import { Button, Divider, Segmented, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 
-const buttonWidth = 70;
+const buttonWidth = 78;
 const gap = 8;
 
 const btnProps = {

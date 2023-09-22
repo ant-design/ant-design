@@ -628,12 +628,11 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 2`] 
 
 exports[`renders components/popover/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -679,7 +678,6 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -728,7 +726,7 @@ exports[`renders components/popover/demo/arrow-point-at-center.tsx extend contex
 
 exports[`renders components/popover/demo/arrow-point-at-center.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated, please use \`arrow={{ pointAtCenter: true }}\` instead.",
+  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated. Please use \`arrow={{ pointAtCenter: true }}\` instead.",
 ]
 `;
 
@@ -1622,12 +1620,11 @@ exports[`renders components/popover/demo/render-panel.tsx extend context correct
 
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1675,7 +1672,6 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1723,7 +1719,6 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"

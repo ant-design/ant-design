@@ -98,7 +98,7 @@ const columns = [
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/summary.tsx">总结栏</code>
-<code src="./demo/virtual-list.tsx">虚拟列表</code>
+<code src="./demo/virtual-list.tsx" version=">= 5.9.0">虚拟列表</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
 <code src="./demo/pagination.tsx">分页设置</code>
@@ -106,6 +106,7 @@ const columns = [
 <code src="./demo/sticky.tsx">随页面滚动的固定表头和滚动条</code>
 <code src="./demo/dynamic-settings.tsx">动态控制表格属性</code>
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -140,6 +141,7 @@ const columns = [
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
+| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 
 #### onRow 用法
 
