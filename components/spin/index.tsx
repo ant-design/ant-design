@@ -26,7 +26,6 @@ export interface SpinProps {
   indicator?: SpinIndicator;
   children?: React.ReactNode;
   fullscreen?: boolean;
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export interface SpinClassProps extends SpinProps {
@@ -90,7 +89,6 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     children,
     hashId,
     fullscreen,
-    onClick,
     ...restProps
   } = props;
 
@@ -154,7 +152,6 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}
-      onClick={onClick}
     >
       {renderIndicator(prefixCls, props)}
       {tip && isNestedPattern ? <div className={`${prefixCls}-text`}>{tip}</div> : null}

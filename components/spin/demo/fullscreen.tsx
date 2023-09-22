@@ -6,15 +6,16 @@ const App: React.FC = () => {
 
   const showLoader = () => {
     setShow(true);
-  };
-  const closeLoader = () => {
-    setShow(false);
+
+    setTimeout(() => {
+      setShow(false);
+    }, 2000);
   };
 
   return (
     <>
-      <Button onClick={showLoader}>Show fullscreen</Button>
-      {show && <Spin fullscreen onClick={closeLoader} size="large" />}
+      <Button onClick={showLoader}>Show fullscreen for 2s</Button>
+      {show && <Spin fullscreen size="large" />}
     </>
   );
 };
