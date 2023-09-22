@@ -604,6 +604,22 @@ validator(rule, value, callback) => {
 
 `getFieldsValue` 默认返回收集的字段数据，而在初次渲染时 Form.Item 节点尚未渲染，因而无法收集到数据。你可以通过 `getFieldsValue(true)` 来获取所有字段数据。
 
+### 为什么 `setFieldsValue` 设置字段为 `undefined` 时，有的组件不会重置为空？
+
+在 React 中，`value` 从确定值改为 `undefined` 表示从受控变为非受控，因而不会重置展示值（但是 Form 中的值确实已经改变）。你可以通过 HOC 改变这一逻辑：
+
+```jsx
+const MyInput = ({
+  // 强制保持受控逻辑
+  value = '',
+  ...rest
+}) => <input value={value} {...rest} />;
+
+<Form.Item name="my">
+  <MyInput />
+</Form.Item>;
+```
+
 ### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？
 
 字段除了本身的值变化外，校验也是其状态之一。因而在触发字段变化会经历以下几个阶段：
