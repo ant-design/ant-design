@@ -330,5 +330,10 @@
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "biome format --write",
     "*.{json,less,md}": "prettier --ignore-unknown --write"
+  },
+  "overrides": {
+    "dumi-plugin-color-chunk": {
+      "dumi": "^2.3.0-alpha.2"
+    }
   }
 }
