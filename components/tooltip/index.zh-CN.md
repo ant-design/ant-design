@@ -88,11 +88,19 @@ Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁
 
 ```jsx
 // `title` 不会因为 `user` 置空而闪烁置空
-<Tooltip open={!user} title={user?.name} />
+<Tooltip open={user} title={user?.name} />
 ```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
 
 如果需要在关闭时也更新内容，可以设置 `fresh` 属性：
 
 ```jsx
-<Tooltip open={!user} title={user?.name} fresh />
+<Tooltip open={user} title={user?.name} fresh />
 ```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
