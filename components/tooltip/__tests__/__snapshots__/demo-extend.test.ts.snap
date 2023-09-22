@@ -1291,21 +1291,15 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   <div
     class="ant-space-item"
   >
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display: inline-block; cursor: not-allowed;"
+    <button
+      class="ant-btn ant-btn-default"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        disabled=""
-        style="pointer-events: none;"
-        type="button"
-      >
-        <span>
-          Disabled
-        </span>
-      </button>
-    </span>
+      <span>
+        Disabled
+      </span>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
