@@ -30,7 +30,7 @@ const ActionButton: React.FC<ActionButtonProps> = (props) => {
   };
 
   React.useEffect(() => {
-    let timeoutId: NodeJS.Timer | null = null;
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
     if (props.autoFocus) {
       timeoutId = setTimeout(() => {
         ref.current?.focus();

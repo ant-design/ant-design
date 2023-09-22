@@ -47,6 +47,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
 
   // Sort and get the latest versions
   const versionList = Object.keys(time)
+    .filter((version) => semver.satisfies(version, '4.x'))
     .filter((version) => semver.valid(version) && !semver.prerelease(version))
     .sort((v1, v2) => {
       const time1 = moment(time[v1]).valueOf();
@@ -111,9 +112,6 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
       choices: latestVersions.map((info) => {
         const { value, publishTime, depreciated } = info;
         const desc = moment(publishTime).fromNow();
-
-        //
-
         return {
           ...info,
           name: [
