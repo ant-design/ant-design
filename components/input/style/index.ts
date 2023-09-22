@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { clearFix, genFocusOutline, resetComponent } from '../../style';
+import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';

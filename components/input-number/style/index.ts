@@ -1,14 +1,12 @@
-import type { SharedInputToken, SharedComponentToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
-  initComponentToken,
-  initInputToken,
-  genActiveStyle,
   genBasicInputStyle,
   genDisabledStyle,
-  genHoverStyle,
   genInputGroupStyle,
   genPlaceholderStyle,
   genStatusStyle,
+  initComponentToken,
+  initInputToken,
 } from '../../input/style';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
