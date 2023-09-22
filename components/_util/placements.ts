@@ -39,11 +39,15 @@ export function getOverflowOptions(
     case 'top':
     case 'bottom':
       baseOverflow.shiftX = arrowOffset.dropdownArrowOffset * 2 + arrowWidth;
+      baseOverflow.shiftY = true;
+      baseOverflow.adjustY = true;
       break;
 
     case 'left':
     case 'right':
       baseOverflow.shiftY = arrowOffset.dropdownArrowOffsetVertical * 2 + arrowWidth;
+      baseOverflow.shiftX = true;
+      baseOverflow.adjustX = true;
       break;
   }
 
