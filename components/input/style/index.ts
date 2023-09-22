@@ -121,7 +121,12 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle(mergeToken<InputToken>(token, { hoverBorderColor: token.colorBorder })),
+    ...genHoverStyle(
+      mergeToken<InputToken>(token, {
+        hoverBorderColor: token.colorBorder,
+        hoverBg: token.colorBgContainerDisabled,
+      }),
+    ),
   },
 });
 
@@ -160,7 +165,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         borderColor: colorErrorBorderHover,
       },
 
-      '&:focus, &-focused': {
+      '&:focus, &:focus-within': {
         ...genActiveStyle(
           mergeToken<InputToken>(token, {
             activeBorderColor: colorError,
@@ -180,7 +185,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         borderColor: colorWarningBorderHover,
       },
 
-      '&:focus, &-focused': {
+      '&:focus, &:focus-within': {
         ...genActiveStyle(
           mergeToken<InputToken>(token, {
             activeBorderColor: colorWarning,
@@ -217,7 +222,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     ...genHoverStyle(token),
   },
 
-  '&:focus, &-focused': {
+  '&:focus, &:focus-within': {
     ...genActiveStyle(token),
   },
 
@@ -647,7 +652,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       display: 'inline-flex',
 
       [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
-        ...genHoverStyle(token),
         zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
           zIndex: 0,
@@ -1034,10 +1038,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     controlPaddingHorizontal,
     colorFillAlter,
     colorPrimaryHover,
-    controlOutlineWidth,
-    controlOutline,
-    colorErrorOutline,
-    colorWarningOutline,
+    colorPrimary,
   } = token;
 
   return {
@@ -1055,11 +1056,11 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     paddingInlineSM: controlPaddingHorizontalSM - lineWidth,
     paddingInlineLG: controlPaddingHorizontal - lineWidth,
     addonBg: colorFillAlter,
-    activeBorderColor: colorPrimaryHover,
+    activeBorderColor: colorPrimary,
     hoverBorderColor: colorPrimaryHover,
-    activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
-    errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
-    warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
+    activeShadow: `none`,
+    errorActiveShadow: `none`,
+    warningActiveShadow: `none`,
     hoverBg: 'transparent',
     activeBg: 'transparent',
   };
