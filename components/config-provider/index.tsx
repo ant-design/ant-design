@@ -19,8 +19,7 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
-import { defaultTheme } from '../theme/context';
-import { DesignTokenContext } from '../theme/internal';
+import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
@@ -30,6 +29,7 @@ import type {
   CSPConfig,
   DirectionType,
   FlexConfig,
+  ModalConfig,
   PopupOverflow,
   Theme,
   ThemeConfig,
@@ -170,7 +170,7 @@ export interface ConfigProviderProps {
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
-  modal?: ComponentStyleConfig;
+  modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;

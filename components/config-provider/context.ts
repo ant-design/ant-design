@@ -5,6 +5,7 @@ import type { Options } from 'scroll-into-view-if-needed';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
+import type { ModalProps } from '../modal';
 import type { ButtonProps } from '../button';
 import type { FlexProps } from '../flex/interface';
 import type { RequiredMark } from '../form/Form';
@@ -50,6 +51,11 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface ModalConfig extends ComponentStyleConfig {
+  classNames?: ModalProps['classNames'];
+  styles?: ModalProps['styles'];
 }
 
 export interface BadgeConfig extends ComponentStyleConfig {
@@ -132,7 +138,7 @@ export interface ConfigConsumerProps {
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
-  modal?: ComponentStyleConfig;
+  modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;

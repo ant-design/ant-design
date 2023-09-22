@@ -50,6 +50,7 @@ export interface ModalProps {
   className?: string;
   rootClassName?: string;
   classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
+  styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;

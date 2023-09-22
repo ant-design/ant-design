@@ -77,6 +77,8 @@ const Modal: React.FC<ModalProps> = (props) => {
 
     width = 520,
     footer,
+    classNames: modalClassNames,
+    styles: modalStyles,
     ...restProps
   } = props;
 
@@ -127,6 +129,14 @@ const Modal: React.FC<ModalProps> = (props) => {
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modal?.className)}
           style={{ ...modal?.style, ...style }}
+          classNames={{
+            ...modal?.classNames,
+            ...modalClassNames,
+          }}
+          styles={{
+            ...modal?.styles,
+            ...modalStyles,
+          }}
           panelRef={panelRef}
         />
       </NoFormStyle>
