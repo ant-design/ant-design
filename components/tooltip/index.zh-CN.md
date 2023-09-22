@@ -95,7 +95,7 @@ Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
 
-如果需要在关闭时也更新内容，可以设置 `fresh` 属性：
+如果需要在关闭时也更新内容，可以设置 `fresh` 属性（例如 [#44830](https://github.com/ant-design/ant-design/issues/44830) 中的场景）：
 
 ```jsx
 <Tooltip open={user} title={user?.name} fresh />

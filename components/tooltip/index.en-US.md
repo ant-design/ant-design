@@ -93,7 +93,7 @@ Tooltip will cache content when it is closed to avoid flicker when content is up
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
 
-If need update content when close, you can set `fresh` property:
+If need update content when close, you can set `fresh` property ([#44830](https://github.com/ant-design/ant-design/issues/44830)):
 
 ```jsx
 <Tooltip open={user} title={user?.name} fresh />
