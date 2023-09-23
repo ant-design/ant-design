@@ -22,25 +22,15 @@ const useStyle = createStyles(({ token }) => ({
 }));
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
+  const [open, setOpen] = useState([false, false]);
   const { styles } = useStyle();
   const token = useTheme();
 
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
-  const showDrawer2 = () => {
-    setOpen2(true);
-  };
-
-  const onClose2 = () => {
-    setOpen2(false);
+  const toggleDrawer = (idx: number, target: boolean) => {
+    setOpen((p) => {
+      p[idx] = target;
+      return [...p];
+    });
   };
 
   const classNames: DrawerClassNames = {
@@ -72,10 +62,10 @@ const App: React.FC = () => {
   return (
     <>
       <Space>
-        <Button type="primary" onClick={showDrawer}>
+        <Button type="primary" onClick={() => toggleDrawer(0, true)}>
           Open
         </Button>
-        <Button type="primary" onClick={showDrawer2}>
+        <Button type="primary" onClick={() => toggleDrawer(1, true)}>
           ConfigProvider
         </Button>
       </Space>
@@ -83,8 +73,8 @@ const App: React.FC = () => {
         title="Basic Drawer"
         placement="right"
         footer="Footer"
-        onClose={onClose}
-        open={open}
+        onClose={() => toggleDrawer(0, false)}
+        open={open[0]}
         classNames={classNames}
         styles={drawerStyles}
       >
@@ -102,8 +92,8 @@ const App: React.FC = () => {
           title="Basic Drawer"
           placement="right"
           footer="Footer"
-          onClose={onClose2}
-          open={open2}
+          onClose={() => toggleDrawer(1, false)}
+          open={open[1]}
         >
           <p>Some contents...</p>
           <p>Some contents...</p>

@@ -93,8 +93,11 @@ const Drawer: React.FC<DrawerProps> & {
     const warning = devUseWarning('Drawer');
 
     [
-      ['visible', 'open', 'headerStyle', 'bodyStyle', 'footerStyle'],
-      ['afterVisibleChange', 'afterOpenChange', 'styles.header', 'styles.body', 'styles.footer'],
+      ['visible', 'open'],
+      ['afterVisibleChange', 'afterOpenChange'],
+      ['headerStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+      ['footerStyle', 'styles.footer'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
