@@ -44,7 +44,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
 }
 
 const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> = (
-  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, fieldNames, ...props },
+  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
   ref,
 ) => {
   // Shift click usage
@@ -113,7 +113,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       nativeEvent: MouseEvent;
     },
   ) => {
-    const { multiple } = props;
+    const { multiple, fieldNames } = props;
     const { node, nativeEvent } = event;
     const { key = '' } = node;
 
