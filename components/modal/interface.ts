@@ -53,7 +53,9 @@ export interface ModalProps {
   styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
   mask?: boolean;
   keyboard?: boolean;
@@ -100,6 +102,7 @@ export interface ModalFuncProps {
   okCancel?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
+  /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;

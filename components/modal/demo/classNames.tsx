@@ -22,79 +22,64 @@ const useStyle = createStyles(({ token }) => ({
 }));
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isModalOpen2, setIsModalOpen2] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState([false, false]);
   const { styles } = useStyle();
   const token = useTheme();
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const showModal2 = () => {
-    setIsModalOpen2(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
+  const toggleModal = (idx: number, target: boolean) => {
+    setIsModalOpen((p) => {
+      p[idx] = target;
+      return [...p];
+    });
   };
 
-  const handleCancel = () => {
-    setIsModalOpen(false);
+  const classNames = {
+    body: styles['my-modal-body'],
+    mask: styles['my-modal-mask'],
+    header: styles['my-modal-header'],
+    footer: styles['my-modal-footer'],
+    content: styles['my-modal-content'],
   };
 
-  const handleOk2 = () => {
-    setIsModalOpen2(false);
-  };
-
-  const handleCancel2 = () => {
-    setIsModalOpen2(false);
+  const modalStyles = {
+    header: {
+      borderLeft: `5px solid ${token.colorPrimary}`,
+      borderRadius: 0,
+      paddingInlineStart: 5,
+    },
+    body: {
+      boxShadow: 'inset 0 0 5px #999',
+      borderRadius: 5,
+    },
+    mask: {
+      backdropFilter: 'blur(10px)',
+    },
+    footer: {
+      borderTop: '1px solid #333',
+    },
+    content: {
+      boxShadow: '0 0 30px #999',
+    },
   };
 
   return (
     <>
       <Space>
-        <Button type="primary" onClick={showModal}>
+        <Button type="primary" onClick={() => toggleModal(0, true)}>
           Open Modal
         </Button>
-        <Button type="primary" onClick={showModal2}>
+        <Button type="primary" onClick={() => toggleModal(1, true)}>
           ConfigProvider
         </Button>
       </Space>
       <Modal
         title="Basic Modal"
-        open={isModalOpen}
-        onOk={handleOk}
-        onCancel={handleCancel}
+        open={isModalOpen[0]}
+        onOk={() => toggleModal(0, false)}
+        onCancel={() => toggleModal(0, false)}
         footer="Footer"
-        classNames={{
-          body: styles['my-modal-body'],
-          mask: styles['my-modal-mask'],
-          header: styles['my-modal-header'],
-          footer: styles['my-modal-footer'],
-          content: styles['my-modal-content'],
-        }}
-        styles={{
-          header: {
-            borderLeft: `5px solid ${token.colorPrimary}`,
-            borderRadius: 0,
-            paddingInlineStart: 5,
-          },
-          body: {
-            boxShadow: 'inset 0 0 5px #999',
-            borderRadius: 5,
-          },
-          mask: {
-            background: token.colorBgBase,
-            opacity: 0.95,
-            filter: 'blur(20px)',
-          },
-          footer: {
-            borderTop: '1px solid #333',
-          },
-          content: {
-            boxShadow: '0 0 30px #999',
-          },
-        }}
+        classNames={classNames}
+        styles={modalStyles}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
@@ -102,42 +87,15 @@ const App: React.FC = () => {
       </Modal>
       <ConfigProvider
         modal={{
-          classNames: {
-            body: styles['my-modal-body'],
-            mask: styles['my-modal-mask'],
-            header: styles['my-modal-header'],
-            footer: styles['my-modal-footer'],
-            content: styles['my-modal-content'],
-          },
-          styles: {
-            header: {
-              borderLeft: `5px solid ${token.colorPrimary}`,
-              borderRadius: 0,
-              paddingInlineStart: 5,
-            },
-            body: {
-              boxShadow: 'inset 0 0 5px #999',
-              borderRadius: 5,
-            },
-            mask: {
-              background: token.colorBgBase,
-              opacity: 0.95,
-              filter: 'blur(20px)',
-            },
-            footer: {
-              borderTop: '1px solid #333',
-            },
-            content: {
-              boxShadow: '0 0 30px #999',
-            },
-          },
+          classNames,
+          styles: modalStyles,
         }}
       >
         <Modal
           title="Basic Modal"
-          open={isModalOpen2}
-          onOk={handleOk2}
-          onCancel={handleCancel2}
+          open={isModalOpen[1]}
+          onOk={() => toggleModal(1, false)}
+          onCancel={() => toggleModal(1, false)}
           footer="Footer"
         >
           <p>Some contents...</p>
