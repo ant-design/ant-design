@@ -1,4 +1,6 @@
 import type { DataNode, Key } from 'rc-tree/lib/interface';
+import { fillFieldNames } from 'rc-tree/lib/utils/treeUtil';
+import type { TreeProps } from '../Tree';
 
 enum Record {
   None,
@@ -6,14 +8,32 @@ enum Record {
   End,
 }
 
+type FieldNames = TreeProps['fieldNames'];
+
+interface TraverseDataNodesConfig {
+  fieldNames?: FieldNames;
+}
+
 function traverseNodesKey(
   treeData: DataNode[],
   callback: (key: Key | number | null, node: DataNode) => boolean,
+  // To avoid too many params, let use config instead of origin param
+  config?: TraverseDataNodesConfig | string,
 ) {
-  function processNode(dataNode: DataNode) {
-    const { key, children } = dataNode;
+  let mergedConfig: TraverseDataNodesConfig = {};
+  if (typeof config === 'object') {
+    mergedConfig = config;
+  } else {
+    mergedConfig = { fieldNames: fillFieldNames() };
+  }
+  mergedConfig = mergedConfig || {};
+  const { fieldNames } = mergedConfig;
+  function processNode(dataNode: DataNode & FieldNames[keyof FieldNames]) {
+    const { key: fieldKey, children: fieldChildren } = fillFieldNames(fieldNames);
+    const key = dataNode[fieldKey];
+    const children = dataNode[fieldChildren];
     if (callback(key, dataNode) !== false) {
-      traverseNodesKey(children || [], callback);
+      traverseNodesKey(children || [], callback, { fieldNames });
     }
   }
 
@@ -71,17 +91,25 @@ export function calcRangeKeys({
   return keys;
 }
 
-export function convertDirectoryKeysToNodes(treeData: DataNode[], keys: Key[]) {
+export function convertDirectoryKeysToNodes(
+  treeData: DataNode[],
+  keys: Key[],
+  { fieldNames }: { fieldNames?: FieldNames },
+) {
   const restKeys: Key[] = [...keys];
   const nodes: DataNode[] = [];
-  traverseNodesKey(treeData, (key: Key, node: DataNode) => {
-    const index = restKeys.indexOf(key);
-    if (index !== -1) {
-      nodes.push(node);
-      restKeys.splice(index, 1);
-    }
+  traverseNodesKey(
+    treeData,
+    (key: Key, node: DataNode) => {
+      const index = restKeys.indexOf(key);
+      if (index !== -1) {
+        nodes.push(node);
+        restKeys.splice(index, 1);
+      }
 
-    return !!restKeys.length;
-  });
+      return !!restKeys.length;
+    },
+    { fieldNames },
+  );
   return nodes;
 }

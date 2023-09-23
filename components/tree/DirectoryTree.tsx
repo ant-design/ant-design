@@ -44,7 +44,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
 }
 
 const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> = (
-  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
+  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, fieldNames, ...props },
   ref,
 ) => {
   // Shift click usage
@@ -137,7 +137,9 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       newSelectedKeys = keys;
       lastSelectedKey.current = key;
       cachedSelectedKeys.current = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, {
+        fieldNames,
+      });
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(
@@ -151,13 +153,17 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
           }),
         ]),
       );
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, {
+        fieldNames,
+      });
     } else {
       // Single click
       newSelectedKeys = [key];
       lastSelectedKey.current = key;
       cachedSelectedKeys.current = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, {
+        fieldNames,
+      });
     }
 
     props.onSelect?.(newSelectedKeys, newEvent);

@@ -264,4 +264,31 @@ describe('Directory Tree', () => {
     render(createTree({ ref: treeRef }));
     expect('scrollTo' in treeRef.current!).toBeTruthy();
   });
+
+  it('fieldNames support', () => {
+    const treeData = [
+      {
+        id: '0-0-0',
+        title: 'Folder',
+        children: [
+          {
+            title: 'Folder2',
+            id: '0-0-1',
+            children: [
+              {
+                title: 'File',
+                id: '0-0-2',
+                isLeaf: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const onSelect = jest.fn();
+    // @ts-ignore
+    const { container } = render(createTree({ defaultExpandAll: true, treeData, onSelect }));
+    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
+    expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
+  });
 });
