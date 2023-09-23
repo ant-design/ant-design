@@ -15,6 +15,7 @@ import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
+import type { DrawerProps } from '../drawer';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -60,6 +61,11 @@ export interface BadgeConfig extends ComponentStyleConfig {
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
+}
+
+export interface DrawerConfig extends ComponentStyleConfig {
+  classNames?: DrawerProps['classNames'];
+  styles?: DrawerProps['styles'];
 }
 
 export interface FlexConfig extends ComponentStyleConfig {
@@ -117,7 +123,7 @@ export interface ConfigConsumerProps {
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
-  drawer?: ComponentStyleConfig;
+  drawer?: DrawerConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;

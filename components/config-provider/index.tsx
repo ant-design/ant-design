@@ -25,6 +25,7 @@ import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
   ButtonConfig,
+  DrawerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
@@ -159,7 +160,7 @@ export interface ConfigProviderProps {
   cascader?: ComponentStyleConfig;
   collapse?: ComponentStyleConfig;
   divider?: ComponentStyleConfig;
-  drawer?: ComponentStyleConfig;
+  drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
