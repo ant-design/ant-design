@@ -269,14 +269,14 @@ describe('Directory Tree', () => {
     const treeData = [
       {
         id: '0-0-0',
-        title: 'Folder',
-        children: [
+        label: 'Folder',
+        child: [
           {
-            title: 'Folder2',
+            label: 'Folder2',
             id: '0-0-1',
-            children: [
+            child: [
               {
-                title: 'File',
+                label: 'File',
                 id: '0-0-2',
                 isLeaf: true,
               },
@@ -287,7 +287,14 @@ describe('Directory Tree', () => {
     ];
     const onSelect = jest.fn();
     // @ts-ignore
-    const { container } = render(createTree({ defaultExpandAll: true, treeData, onSelect }));
+    const { container } = render(
+      createTree({
+        defaultExpandAll: true,
+        treeData,
+        onSelect,
+        fieldNames: { key: 'id', title: 'label', children: 'child' },
+      }),
+    );
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
     expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
   });
