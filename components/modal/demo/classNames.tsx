@@ -11,10 +11,13 @@ const useStyle = createStyles(({ token }) => ({
     boxShadow: `inset 0 0 15px #fff`,
   },
   'my-modal-header': {
-    borderBottom: `2px solid ${token.colorPrimary}`,
+    borderBottom: `1px dotted ${token.colorPrimary}`,
   },
   'my-modal-footer': {
     color: token.colorPrimary,
+  },
+  'my-modal-content': {
+    border: '1px solid #333',
   },
 }));
 
@@ -68,6 +71,7 @@ const App: React.FC = () => {
           mask: styles['my-modal-mask'],
           header: styles['my-modal-header'],
           footer: styles['my-modal-footer'],
+          content: styles['my-modal-content'],
         }}
         styles={{
           header: {
@@ -76,14 +80,19 @@ const App: React.FC = () => {
             paddingInlineStart: 5,
           },
           body: {
-            boxShadow: 'inset 0 0 10px #ccc',
+            boxShadow: 'inset 0 0 5px #999',
             borderRadius: 5,
           },
           mask: {
-            background: 'rgba(80, 0, 0, 0.5)',
+            background: token.colorBgBase,
+            opacity: 0.95,
+            filter: 'blur(20px)',
           },
           footer: {
             borderTop: '1px solid #333',
+          },
+          content: {
+            boxShadow: '0 0 30px #999',
           },
         }}
       >
@@ -98,22 +107,28 @@ const App: React.FC = () => {
             mask: styles['my-modal-mask'],
             header: styles['my-modal-header'],
             footer: styles['my-modal-footer'],
+            content: styles['my-modal-content'],
           },
           styles: {
             header: {
-              borderLeft: `5px solid #1d39c4`,
+              borderLeft: `5px solid ${token.colorPrimary}`,
               borderRadius: 0,
               paddingInlineStart: 5,
             },
             body: {
-              boxShadow: 'inset 0 0 10px #ccc',
+              boxShadow: 'inset 0 0 5px #999',
               borderRadius: 5,
             },
             mask: {
-              background: 'rgba(80, 0, 0, 0.5)',
+              background: token.colorBgBase,
+              opacity: 0.95,
+              filter: 'blur(20px)',
             },
             footer: {
               borderTop: '1px solid #333',
+            },
+            content: {
+              boxShadow: '0 0 30px #999',
             },
           },
         }}
