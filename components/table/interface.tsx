@@ -17,6 +17,8 @@ export { GetRowKey, ExpandableConfig };
 
 export type Key = React.Key;
 
+export type SafeKey = Exclude<Key, bigint>;
+
 export type RowSelectionType = 'checkbox' | 'radio';
 
 export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
@@ -52,7 +54,7 @@ export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
-  value: string | number | boolean;
+  value: React.Key | boolean;
   children?: ColumnFilterItem[];
 }
 
@@ -71,7 +73,7 @@ export type ColumnTitle<RecordType> =
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
 export type FilterValue = (Key | boolean)[];
-export type FilterKey = Key[] | null;
+export type FilterKey = (string | number)[] | null;
 export type FilterSearchType<RecordType = Record<string, any>> =
   | boolean
   | ((input: string, record: RecordType) => boolean);
@@ -121,7 +123,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
-  onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
+  onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
   /**
    * @deprecated `filterDropdownVisible` is deprecated which will be removed in next major version.
    *   Please use `filterDropdownOpen` instead.
