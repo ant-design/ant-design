@@ -190,7 +190,7 @@ const Ellipsis: React.FC<EllipsisProps> = ({
         zIndex: -9999,
         visibility: 'hidden',
         pointerEvents: 'none',
-        fontSize: Math.floor(fontSize / 2) * 2,
+        fontSize: Math.ceil(fontSize / 2) * 2,
         ...style,
       }}
     >
