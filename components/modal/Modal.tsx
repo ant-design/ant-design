@@ -102,7 +102,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ============================ Refs ============================
-  // Select `ant-modal-content` by `panelRef`
+
   const panelRef = usePanelRef(`.${prefixCls}-content`);
 
   // =========================== Render ===========================
