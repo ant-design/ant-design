@@ -286,10 +286,10 @@ describe('Directory Tree', () => {
       },
     ];
     const onSelect = jest.fn();
-    // @ts-ignore
     const { container } = render(
       createTree({
         defaultExpandAll: true,
+        // @ts-ignore
         treeData,
         onSelect,
         fieldNames: { key: 'id', title: 'label', children: 'child' },
