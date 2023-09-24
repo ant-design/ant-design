@@ -111,6 +111,7 @@ export interface ModalFuncProps {
   transitionName?: string;
   maskTransitionName?: string;
   direction?: DirectionType;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
   closeIcon?: React.ReactNode;
   footer?: ModalProps['footer'];
