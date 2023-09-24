@@ -268,7 +268,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         borderSpacing: 0,
       },
 
-      // ============================= Cell =============================
+      // ============================= Cell ==============================
       [`
           ${componentCls}-cell,
           ${componentCls}-thead > tr > th,
