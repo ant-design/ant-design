@@ -162,7 +162,7 @@ demo:
 
 ### 文件夹上传在 Safari 仍然可以选中文件?
 
-组件内部是以 `directory`、`webkitdirectory` 属性控制input来实现文件夹选择的, 但似乎在 Safari 的实现中，并不会阻止用户选择文件，请尝试额外传递无法匹配文件的 `accept` 属性来归并此问题 例如:
+组件内部是以 `directory`、`webkitdirectory` 属性控制 input 来实现文件夹选择的, 但似乎在 Safari 的实现中，并不会阻止用户选择文件，请尝试额外传递无法匹配文件的 `accept` 属性来归并此问题 例如:
 
 ```jsx
 accept: `.${'n'.repeat(100)}`;
