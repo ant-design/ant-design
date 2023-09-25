@@ -1,11 +1,11 @@
 import React from 'react';
 import { Slider } from 'antd';
 
-const onChange = (value: number | [number, number]) => {
+const onChange = (value: number | number[]) => {
   console.log('onChange: ', value);
 };
 
-const onAfterChange = (value: number | [number, number]) => {
+const onAfterChange = (value: number | number[]) => {
   console.log('onAfterChange: ', value);
 };
 

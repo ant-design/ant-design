@@ -67,6 +67,10 @@ export default () => {
       [data-prefers-color='dark'] {
         color-scheme: dark;
       }
+
+      [data-prefers-color='light'] {
+        color-scheme: light;
+      }
     `}
     />
   );
