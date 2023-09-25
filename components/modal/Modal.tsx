@@ -123,7 +123,6 @@ const Modal: React.FC<ModalProps> = (props) => {
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
-          wrapClassName={wrapClassNameExtended}
           footer={dialogFooter}
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
@@ -136,6 +135,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           className={classNames(hashId, className, modal?.className)}
           style={{ ...modal?.style, ...style }}
           classNames={{
+            wrapper: wrapClassNameExtended,
             ...modal?.classNames,
             ...modalClassNames,
           }}
