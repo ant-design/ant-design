@@ -57,7 +57,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
-    warning.deprecated(!('visible' in props), 'visible', 'open');
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const {
@@ -77,6 +83,8 @@ const Modal: React.FC<ModalProps> = (props) => {
 
     width = 520,
     footer,
+    classNames: modalClassNames,
+    styles: modalStyles,
     ...restProps
   } = props;
 
@@ -115,7 +123,6 @@ const Modal: React.FC<ModalProps> = (props) => {
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
-          wrapClassName={wrapClassNameExtended}
           footer={dialogFooter}
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
@@ -127,6 +134,15 @@ const Modal: React.FC<ModalProps> = (props) => {
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modal?.className)}
           style={{ ...modal?.style, ...style }}
+          classNames={{
+            wrapper: wrapClassNameExtended,
+            ...modal?.classNames,
+            ...modalClassNames,
+          }}
+          styles={{
+            ...modal?.styles,
+            ...modalStyles,
+          }}
           panelRef={panelRef}
         />
       </NoFormStyle>
