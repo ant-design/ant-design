@@ -1,8 +1,29 @@
 import type { ColorMapToken } from '../../interface';
-import { TinyColor } from '@ctrl/tinycolor';
 
 export default function genColorMapToken(): ColorMapToken {
   return {
+    colorBgBase: 'var(--color-bg-base)',
+    colorTextBase: 'var(--color-text-base)',
+
+    colorText: 'var(--color-text)',
+    colorTextSecondary: 'var(--color-text-secondary)',
+    colorTextTertiary: 'var(--color-text-tertiary)',
+    colorTextQuaternary: 'var(--color-text-quaternary)',
+
+    colorFill: 'var(--color-fill)',
+    colorFillSecondary: 'var(--color-fill-secondary)',
+    colorFillTertiary: 'var(--color-fill-tertiary)',
+    colorFillQuaternary: 'var(--color-fill-quaternary)',
+
+    colorBgElevated: 'var(--color-bg-elevated)',
+    colorBgContainer: 'var(--color-bg-container)',
+    colorBgLayout: 'var(--color-bg-layout)',
+    colorBgSpotlight: 'var(--color-bg-spotlight)',
+    colorBgBlur: 'var(--color-bg-blur)',
+
+    colorBorder: 'var(--color-border)',
+    colorBorderSecondary: 'var(--color-border-secondary)',
+
     colorPrimaryBg: 'var(--color-primary-bg)',
     colorPrimaryBgHover: 'var(--color-primary-bg-hover)',
     colorPrimaryBorder: 'var(--color-primary-border)',
@@ -41,28 +62,28 @@ export default function genColorMapToken(): ColorMapToken {
     colorWarningBorder: 'var(--color-warning-border)',
     colorWarningBorderHover: 'var(--color-warning-border-hover)',
     colorWarningHover: 'var(--color-warning-hover)',
-    colorWarning: warningColors[6],
-    colorWarningActive: warningColors[7],
-    colorWarningTextHover: warningColors[8],
-    colorWarningText: warningColors[9],
-    colorWarningTextActive: warningColors[10],
+    colorWarning: 'var(--color-warning)',
+    colorWarningActive: 'var(--color-warning-active)',
+    colorWarningTextHover: 'var(--color-warning-text-hover)',
+    colorWarningText: 'var(--color-warning-text)',
+    colorWarningTextActive: 'var(--color-warning-text-active)',
 
-    colorInfoBg: infoColors[1],
-    colorInfoBgHover: infoColors[2],
-    colorInfoBorder: infoColors[3],
-    colorInfoBorderHover: infoColors[4],
-    colorInfoHover: infoColors[4],
-    colorInfo: infoColors[6],
-    colorInfoActive: infoColors[7],
-    colorInfoTextHover: infoColors[8],
-    colorInfoText: infoColors[9],
-    colorInfoTextActive: infoColors[10],
+    colorInfoBg: 'var(--color-info-bg)',
+    colorInfoBgHover: 'var(--color-info-bg-hover)',
+    colorInfoBorder: 'var(--color-info-border)',
+    colorInfoBorderHover: 'var(--color-info-border-hover)',
+    colorInfoHover: 'var(--color-info-hover)',
+    colorInfo: 'var(--color-info)',
+    colorInfoActive: 'var(--color-info-active)',
+    colorInfoTextHover: 'var(--color-info-text-hover)',
+    colorInfoText: 'var(--color-info-text)',
+    colorInfoTextActive: 'var(--color-info-text-active)',
 
-    colorLinkHover: linkColors[4],
-    colorLink: linkColors[6],
-    colorLinkActive: linkColors[7],
+    colorLinkHover: 'var(--color-link-hover)',
+    colorLink: 'var(--color-link)',
+    colorLinkActive: 'var(--color-link-active)',
 
-    colorBgMask: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    colorWhite: '#fff',
+    colorBgMask: 'var(--color-bg-mask)',
+    colorWhite: 'var(--color-white)',
   };
 }
