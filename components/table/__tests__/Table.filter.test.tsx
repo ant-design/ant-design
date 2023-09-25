@@ -968,7 +968,7 @@ describe('Table.filter', () => {
               filterDropdown: ({ setSelectedKeys, selectedKeys, confirm }) => (
                 <div>
                   <Input
-                    value={selectedKeys[0]}
+                    value={selectedKeys[0] ? `${selectedKeys[0]}` : undefined}
                     onChange={e => {
                       setSelectedKeys(e.target.value ? [e.target.value] : []);
                     }}
