@@ -29,9 +29,10 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
-import useShowArrow from '../select/useShowArrow';
 import useIcons from '../select/useIcons';
+import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
+import CascaderPanel from './Panel';
 import useStyle from './style';
 
 // Align the design since we use `rc-select` in root. This help:
@@ -349,6 +350,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   displayName: string;
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
+  Panel: typeof CascaderPanel;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 if (process.env.NODE_ENV !== 'production') {
@@ -361,6 +363,7 @@ const PurePanel = genPurePanel(Cascader);
 
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;
+Cascader.Panel = CascaderPanel;
 Cascader._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Cascader;
