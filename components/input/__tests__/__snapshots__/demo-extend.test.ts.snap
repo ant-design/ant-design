@@ -5773,6 +5773,17 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
 
 exports[`renders components/input/demo/compact-style.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/input/demo/component-token.tsx extend context correctly 1`] = `
+<input
+  class="ant-input"
+  placeholder="Basic usage"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders components/input/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/debug-addon.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"

@@ -1766,6 +1766,15 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/input/demo/component-token.tsx correctly 1`] = `
+<input
+  class="ant-input"
+  placeholder="Basic usage"
+  type="text"
+  value=""
+/>
+`;
+
 exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
