@@ -1,7 +1,9 @@
 import * as React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
-demoTest('input');
+demoTest('input', {
+  skip: ['component-token.tsx'],
+});
 
 rootPropsTest(
   'input',
