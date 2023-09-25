@@ -27,6 +27,7 @@ tag: vVERSION
 - 🛠 ComponentToken remove `radiusBase` must less than `16` limitation. [#44980](https://github.com/ant-design/ant-design/pull/44980)
 - 🐞 Fix Dropdown can not give `ref` for the root children rendered by `dropdownRender`. [#44971](https://github.com/ant-design/ant-design/pull/44971)
 - 🐞 Fix Table `cellPaddingBlock` not working. [#45040](https://github.com/ant-design/ant-design/pull/45040)
+- 🐞 Fix Input wrong height with small `controlHeight`. [#45048](https://github.com/ant-design/ant-design/pull/45048)
 - TypeScript
   - 🤖 MISC: Fix `@types/react@18.2.22` React.Key type errors. [#44938](https://github.com/ant-design/ant-design/pull/44938)
 
