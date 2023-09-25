@@ -245,7 +245,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableHeaderCellSplitColor,
     tableFooterTextColor,
     tableFooterBg,
-    paddingContentVerticalLG,
   } = token;
   const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
   return {
@@ -269,7 +268,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         borderSpacing: 0,
       },
 
-      // ============================= Cell =============================
+      // ============================= Cell ==============================
       [`
           ${componentCls}-cell,
           ${componentCls}-thead > tr > th,
@@ -279,7 +278,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           tfoot > tr > td
         `]: {
         position: 'relative',
-        padding: `${paddingContentVerticalLG}px ${tablePaddingHorizontal}px`,
+        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
         overflowWrap: 'break-word',
       },
 
