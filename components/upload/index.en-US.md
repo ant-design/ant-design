@@ -159,3 +159,11 @@ Ref:
 - [#32672](https://github.com/ant-design/ant-design/issues/32672)
 - [#32913](https://github.com/ant-design/ant-design/issues/32913)
 - [#33988](https://github.com/ant-design/ant-design/issues/33988)
+
+### Can still select files when uploading a folder in Safari?
+
+Inside the upload component, we use the "directory" and "webkitdirectory" properties to control only directories can be selected. However, in Safari's implementation it doesn't seem to work. Please try passing an additional "accept" attribute that cannot match any files. For example:
+
+```jsx
+accept: `.${'n'.repeat(100)}`;
+```
