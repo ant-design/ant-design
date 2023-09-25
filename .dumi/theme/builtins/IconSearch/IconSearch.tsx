@@ -1,17 +1,16 @@
-import React, { useCallback, useContext, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import type { IntlShape } from 'react-intl';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
-import { Segmented, Input, Empty, Affix } from 'antd';
 import type { SegmentedProps } from 'antd';
+import { Affix, Empty, Input, Segmented } from 'antd';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
-import SiteContext from '../../slots/SiteContext';
 
 export enum ThemeType {
   Filled = 'Filled',
