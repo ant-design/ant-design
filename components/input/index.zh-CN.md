@@ -41,6 +41,7 @@ demo:
 <code src="./demo/align.tsx" debug>文本对齐</code>
 <code src="./demo/textarea-resize.tsx" debug>文本域</code>
 <code src="./demo/debug-addon.tsx" debug>debug 前置/后置标签</code>
+<code src="./demo/component-token.tsx" debug>debug token</code>
 
 ## API
 
