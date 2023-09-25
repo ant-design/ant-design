@@ -56,3 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ----------- | -------------------------------- | --------- | ----------------- | ------- |
 | description | Custom error description to show | ReactNode | {{ error stack }} |         |
 | message     | Custom error message to show     | ReactNode | {{ error }}       |         |
+
+## Design Token
+
+<ComponentTokenTable component="Alert"></ComponentTokenTable>
