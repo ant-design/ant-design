@@ -1,6 +1,6 @@
+import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
-import * as React from 'react';
 
 export interface EllipsisProps {
   enabledMeasure?: boolean;
@@ -166,7 +166,7 @@ const Ellipsis: React.FC<EllipsisProps> = ({
     }
   }, [walkingState, startLen, endLen, rows, singleRowHeight]);
 
-  // ======================= Render ========================
+  // ======================= Render =======================
   const measureStyle: React.CSSProperties = {
     width,
     whiteSpace: 'normal',

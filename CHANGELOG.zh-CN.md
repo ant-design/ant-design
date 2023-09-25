@@ -27,6 +27,7 @@ tag: vVERSION
 - 🐞 修复 Dropdown 通过 `dropdownRender` 渲染的子节点配置 `ref` 不生效的问题。[#44971](https://github.com/ant-design/ant-design/pull/44971)
 - 🐞 修复 Table `cellPaddingBlock` 不生效的问题。[#45040](https://github.com/ant-design/ant-design/pull/45040)
 - 🐞 修复 Input 组件在小尺寸 `controlHeight` 下高度不正确的问题。[#45048](https://github.com/ant-design/ant-design/pull/45048)
+- 🐞 修复 Typography 在设置 `fontSize` 为奇数时的样式问题。[#45031](https://github.com/ant-design/ant-design/pull/45031)
 - TypeScript
   - 🤖 MISC: 修复 `@types/react@18.2.22` React.Key 定义更新引发的问题。[#44938](https://github.com/ant-design/ant-design/pull/44938)
 
