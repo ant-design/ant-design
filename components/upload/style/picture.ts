@@ -119,7 +119,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
 
-        [`> ${componentCls}`]: {
+        [`> ${componentCls}-trigger`]: {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

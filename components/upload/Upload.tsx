@@ -346,7 +346,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     action,
     accept,
     supportServerRender,
-    prefixCls,
+    prefixCls: `${prefixCls}-trigger`,
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
