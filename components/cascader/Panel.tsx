@@ -1,13 +1,18 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Panel } from 'rc-cascader';
-import type { PanelProps } from 'rc-cascader/lib/Panel';
+import type { PickType } from 'rc-cascader/lib/Panel';
 
+import type { CascaderProps } from '.';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
 
-export default function CascaderPanel(props: PanelProps) {
+export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple';
+
+export type CascaderPanelProps = Pick<CascaderProps, PanelPickType>;
+
+export default function CascaderPanel(props: CascaderPanelProps) {
   const { prefixCls: customizePrefixCls, className } = props;
 
   const {
