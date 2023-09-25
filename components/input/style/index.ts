@@ -1032,7 +1032,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
   return {
     paddingBlock: Math.max(
       Math.round(((controlHeight - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-      3,
+      0,
     ),
     paddingBlockSM: Math.max(
       Math.round(((controlHeightSM - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
