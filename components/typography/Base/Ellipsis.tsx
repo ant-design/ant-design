@@ -166,7 +166,7 @@ const Ellipsis: React.FC<EllipsisProps> = ({
     }
   }, [walkingState, startLen, endLen, rows, singleRowHeight]);
 
-  // ======================= Render =======================
+  // ======================= Render ========================
   const measureStyle: React.CSSProperties = {
     width,
     whiteSpace: 'normal',
@@ -190,7 +190,7 @@ const Ellipsis: React.FC<EllipsisProps> = ({
         zIndex: -9999,
         visibility: 'hidden',
         pointerEvents: 'none',
-        fontSize: Math.floor(fontSize / 2) * 2,
+        fontSize: Math.ceil(fontSize / 2) * 2,
         ...style,
       }}
     >
