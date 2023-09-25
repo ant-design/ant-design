@@ -101,7 +101,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
           {
             [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
           },
-          drawerClassNames?.header ?? drawerContext?.classNames?.header,
+          drawerContext?.classNames?.header,
+          drawerClassNames?.header,
         )}
       >
         <div className={`${prefixCls}-header-title`}>
@@ -122,7 +123,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <div
         className={classNames(
           footerClassName,
-          drawerClassNames?.footer ?? drawerContext?.classNames?.footer,
+          drawerContext?.classNames?.footer,
+          drawerClassNames?.footer,
         )}
         style={{
           ...drawerContext?.styles?.footer,
@@ -141,7 +143,8 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
       <div
         className={classNames(
           `${prefixCls}-body`,
-          drawerClassNames?.body ?? drawerContext?.classNames?.body,
+          drawerClassNames?.body,
+          drawerContext?.classNames?.body,
         )}
         style={{
           ...drawerContext?.styles?.body,
