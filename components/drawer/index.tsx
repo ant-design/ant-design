@@ -154,12 +154,18 @@ const Drawer: React.FC<DrawerProps> & {
           motion={panelMotion}
           {...rest}
           classNames={{
-            mask: rest.classNames?.mask ?? drawer?.classNames?.mask,
-            content: rest.classNames?.content ?? drawer?.classNames?.content,
+            mask: classNames(rest.classNames?.mask, drawer?.classNames?.mask),
+            content: classNames(rest.classNames?.content, drawer?.classNames?.content),
           }}
           styles={{
-            mask: rest.styles?.mask ?? drawer?.styles?.mask,
-            content: rest.styles?.content ?? drawer?.styles?.content,
+            mask: {
+              ...rest.styles?.mask,
+              ...drawer?.styles?.mask,
+            },
+            content: {
+              ...rest.styles?.content,
+              ...drawer?.styles?.content,
+            },
           }}
           open={open ?? visible}
           mask={mask}
