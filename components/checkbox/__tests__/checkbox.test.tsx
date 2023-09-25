@@ -1,10 +1,11 @@
 import React from 'react';
+
 import Checkbox from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 describe('Checkbox', () => {
   focusTest(Checkbox, { refFocus: true });
@@ -35,5 +36,16 @@ describe('Checkbox', () => {
       'Warning: [antd: Checkbox] `value` is not a valid prop, do you mean `checked`?',
     );
     errorSpy.mockRestore();
+  });
+  it('defaultChecked should work if checked is passed as undefined and should be able to change state', () => {
+    resetWarned();
+    const { container } = render(<Checkbox defaultChecked checked={undefined} />);
+    const checkbox = container.getElementsByClassName('ant-checkbox-input')[0];
+
+    expect(checkbox).toBeChecked();
+
+    fireEvent.click(checkbox);
+
+    expect(checkbox).not.toBeChecked();
   });
 });
