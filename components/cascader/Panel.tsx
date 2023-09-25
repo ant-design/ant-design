@@ -5,6 +5,7 @@ import type { PanelProps } from 'rc-cascader/lib/Panel';
 
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import usePanelStyle from './style/panel';
 
 export default function CascaderPanel(props: PanelProps) {
   const { prefixCls: customizePrefixCls, className } = props;
@@ -20,6 +21,7 @@ export default function CascaderPanel(props: PanelProps) {
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
   const [, hashId] = useStyle(cascaderPrefixCls);
+  usePanelStyle(cascaderPrefixCls);
 
   return (
     <Panel {...props} prefixCls={cascaderPrefixCls} className={classNames(className, hashId)} />

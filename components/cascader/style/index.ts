@@ -1,7 +1,9 @@
 import type { CSSProperties } from 'react';
+
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
+import type { GlobalToken } from '../../theme';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
@@ -43,7 +45,7 @@ export interface ComponentToken {
   menuPadding: CSSProperties['padding'];
 }
 
-type CascaderToken = FullToken<'Cascader'>;
+export type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
@@ -187,22 +189,24 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareComponentToken = (token: GlobalToken) => {
+  const itemPaddingVertical = Math.round(
+    (token.controlHeight - token.fontSize * token.lineHeight) / 2,
+  );
+
+  return {
+    controlWidth: 184,
+    controlItemWidth: 111,
+    dropdownHeight: 180,
+    optionSelectedBg: token.controlItemBgActive,
+    optionSelectedFontWeight: token.fontWeightStrong,
+    optionPadding: `${itemPaddingVertical}px ${token.paddingSM}px`,
+    menuPadding: token.paddingXXS,
+  };
+};
+
 export default genComponentStyleHook(
   'Cascader',
   (token) => [genBaseStyle(token)],
-  (token) => {
-    const itemPaddingVertical = Math.round(
-      (token.controlHeight - token.fontSize * token.lineHeight) / 2,
-    );
-
-    return {
-      controlWidth: 184,
-      controlItemWidth: 111,
-      dropdownHeight: 180,
-      optionSelectedBg: token.controlItemBgActive,
-      optionSelectedFontWeight: token.fontWeightStrong,
-      optionPadding: `${itemPaddingVertical}px ${token.paddingSM}px`,
-      menuPadding: token.paddingXXS,
-    };
-  },
+  prepareComponentToken,
 );
