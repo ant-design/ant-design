@@ -7,6 +7,7 @@ import type { CascaderProps } from '.';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import useCheckable from './hooks/useCheckable';
+import useColumnIcons from './hooks/useColumnIcons';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
 
@@ -22,15 +23,23 @@ export default function CascaderPanel(props: CascaderPanelProps) {
     rootClassName,
     notFoundContent,
     direction,
+    expandIcon,
   } = props;
 
   const { getPrefixCls, renderEmpty, direction: rootDirection } = React.useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
+
+  const prefixCls = getPrefixCls('select', customizePrefixCls);
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
   const [, hashId] = useStyle(cascaderPrefixCls);
   usePanelStyle(cascaderPrefixCls);
+
+  const isRtl = mergedDirection === 'rtl';
+
+  // ===================== Icon ======================
+  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon);
 
   // ===================== Empty =====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
@@ -50,6 +59,8 @@ export default function CascaderPanel(props: CascaderPanelProps) {
       className={classNames(className, hashId, rootClassName)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
+      expandIcon={mergedExpandIcon}
+      loadingIcon={loadingIcon}
     />
   );
 }

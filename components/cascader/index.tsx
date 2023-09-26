@@ -33,6 +33,7 @@ import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useCheckable from './hooks/useCheckable';
+import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
 
@@ -260,16 +261,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  let mergedExpandIcon = expandIcon;
-  if (!expandIcon) {
-    mergedExpandIcon = isRtl ? <LeftOutlined /> : <RightOutlined />;
-  }
-
-  const loadingIcon = (
-    <span className={`${prefixCls}-menu-item-loading-icon`}>
-      <LoadingOutlined spin />
-    </span>
-  );
+  const [mergedExpandIcon, loadingIcon] = useColumnIcons(prefixCls, isRtl, expandIcon);
 
   // =================== Multiple ====================
   const checkable = useCheckable(cascaderPrefixCls, multiple);
