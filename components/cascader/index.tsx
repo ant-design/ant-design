@@ -1,7 +1,4 @@
 import * as React from 'react';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import type {
   BaseOptionType,
@@ -32,6 +29,7 @@ import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
+import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
@@ -177,14 +175,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-    renderEmpty,
-    direction: rootDirection,
     popupOverflow,
     cascader,
   } = React.useContext(ConfigContext);
-
-  const mergedDirection = direction || rootDirection;
-  const isRtl = mergedDirection === 'rtl';
 
   // =================== Form =====================
   const {
@@ -208,20 +201,25 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     );
   }
 
-  // =================== No Found ====================
-  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
-    <DefaultRenderEmpty componentName="Cascader" />
-  );
-
   // ==================== Prefix =====================
+  const [prefixCls, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
+    customizePrefixCls,
+    direction,
+  );
+  const isRtl = mergedDirection === 'rtl';
+
   const rootPrefixCls = getPrefixCls();
-  const prefixCls = getPrefixCls('select', customizePrefixCls);
-  const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
   const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapCascaderSSR] = useStyle(cascaderPrefixCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  // =================== No Found ====================
+  const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
+    <DefaultRenderEmpty componentName="Cascader" />
+  );
+
   // =================== Dropdown ====================
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,

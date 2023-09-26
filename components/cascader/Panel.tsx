@@ -4,8 +4,8 @@ import { Panel } from 'rc-cascader';
 import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps } from '.';
-import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import useStyle from './style';
@@ -26,12 +26,10 @@ export default function CascaderPanel(props: CascaderPanelProps) {
     expandIcon,
   } = props;
 
-  const { getPrefixCls, renderEmpty, direction: rootDirection } = React.useContext(ConfigContext);
-
-  const mergedDirection = direction || rootDirection;
-
-  const prefixCls = getPrefixCls('select', customizePrefixCls);
-  const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
+  const [prefixCls, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
+    customizePrefixCls,
+    direction,
+  );
 
   const [, hashId] = useStyle(cascaderPrefixCls);
   usePanelStyle(cascaderPrefixCls);
