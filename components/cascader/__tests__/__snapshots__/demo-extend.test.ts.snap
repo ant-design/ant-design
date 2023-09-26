@@ -1729,6 +1729,127 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/cascader/demo/panel.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-cascader-panel"
+  >
+    <div
+      class="ant-cascader-menus"
+    >
+      <ul
+        class="ant-cascader-menu"
+        role="menu"
+      >
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="zhejiang"
+          role="menuitemcheckbox"
+          title="Zhejiang"
+        >
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Zhejiang
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            &gt;
+          </div>
+        </li>
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="jiangsu"
+          role="menuitemcheckbox"
+          title="Jiangsu"
+        >
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Jiangsu
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            &gt;
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-cascader-panel"
+  >
+    <div
+      class="ant-cascader-menus"
+    >
+      <ul
+        class="ant-cascader-menu"
+        role="menu"
+      >
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="zhejiang"
+          role="menuitemcheckbox"
+          title="Zhejiang"
+        >
+          <span
+            class="ant-cascader-checkbox"
+          >
+            <span
+              class="ant-cascader-checkbox-inner"
+            />
+          </span>
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Zhejiang
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            &gt;
+          </div>
+        </li>
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="jiangsu"
+          role="menuitemcheckbox"
+          title="Jiangsu"
+        >
+          <span
+            class="ant-cascader-checkbox"
+          >
+            <span
+              class="ant-cascader-checkbox-inner"
+            />
+          </span>
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Jiangsu
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            &gt;
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/cascader/demo/panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div

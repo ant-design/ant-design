@@ -54,7 +54,6 @@ const App: React.FC = () => (
     onChange={onChange}
     multiple
     maxTagCount="responsive"
-    open
   />
 );
 
