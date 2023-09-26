@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react';
 import type { TourProps } from './interface';
 
 interface Props {
-  defaultType?: string;
+  defaultType?: TourProps['type'];
   steps?: TourProps['steps'];
   current?: number;
   defaultCurrent?: number;
