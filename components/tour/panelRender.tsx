@@ -43,7 +43,6 @@ const TourPanel: React.FC<TourPanelProps> = ({
     nextButtonProps,
     prevButtonProps,
     type: stepType,
-    className,
     closeIcon: stepCloseIcon,
   } = stepProps;
 
@@ -120,7 +119,7 @@ const TourPanel: React.FC<TourPanelProps> = ({
   const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
-    <div className={classNames(className, `${prefixCls}-content`)}>
+    <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-inner`}>
         {closable && mergedDisplayCloseIcon}
         {coverNode}
