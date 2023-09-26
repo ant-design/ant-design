@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.9.2",
+  "version": "5.9.3",
   "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
@@ -126,11 +126,11 @@
     "rc-cascader": "~3.17.0",
     "rc-checkbox": "~3.1.0",
     "rc-collapse": "~3.7.1",
-    "rc-dialog": "~9.2.0",
-    "rc-drawer": "~6.4.1",
+    "rc-dialog": "~9.3.3",
+    "rc-drawer": "~6.5.2",
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.38.1",
-    "rc-image": "~7.2.0",
+    "rc-image": "~7.3.0",
     "rc-input": "~1.2.1",
     "rc-input-number": "~8.1.0",
     "rc-mentions": "~2.8.0",
@@ -317,11 +317,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "397 KiB"
+      "limit": "398 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "456 KiB"
+      "limit": "457 KiB"
     }
   ],
   "tnpm": {
