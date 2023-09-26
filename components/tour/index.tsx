@@ -16,8 +16,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    current,
-    defaultCurrent,
     type,
     rootClassName,
     indicatorsRender,
@@ -65,21 +63,14 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     />
   );
 
-  const onStepChange = (stepCurrent: number) => {
-    props.onChange?.(stepCurrent);
-  };
-
   return wrapSSR(
     <RCTour
       {...restProps}
       rootClassName={customClassName}
       prefixCls={prefixCls}
-      current={current}
-      defaultCurrent={defaultCurrent}
       animated
       renderPanel={mergedRenderPanel}
       builtinPlacements={builtinPlacements}
-      onChange={onStepChange}
       steps={mergedSteps}
     />,
   );
