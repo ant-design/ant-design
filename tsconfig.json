@@ -10,7 +10,7 @@
     },
     "strictNullChecks": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
@@ -22,8 +22,7 @@
     "target": "es6",
     "lib": ["dom", "es2017"],
     "skipLibCheck": true,
-    "stripInternal": true,
-    "resolvePackageJsonExports": true
+    "stripInternal": true
   },
   "include": [".dumirc.ts", "**/*"],
   "exclude": ["node_modules", "lib", "es"]
