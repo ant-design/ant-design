@@ -38,10 +38,10 @@ module.exports = {
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
-    '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
-    '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
+    '\\.tsx?$': './node_modules/kiner-antd-tools/lib/jest/codePreprocessor',
+    '\\.(m?)js$': './node_modules/kiner-antd-tools/lib/jest/codePreprocessor',
+    '\\.md$': './node_modules/kiner-antd-tools/lib/jest/demoPreprocessor',
+    '\\.(jpg|png|gif|svg)$': './node_modules/kiner-antd-tools/lib/jest/imagePreprocessor',
   },
   testRegex: getTestRegex(process.env.LIB_DIR),
   collectCoverageFrom: [

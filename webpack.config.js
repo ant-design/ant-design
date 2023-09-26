@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
-const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const getWebpackConfig = require('kiner-antd-tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { EsbuildPlugin } = require('esbuild-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
