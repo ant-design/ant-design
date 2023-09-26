@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cascader, Flex, Switch } from 'antd';
+import { Cascader, Flex } from 'antd';
 
 interface Option {
   value: string | number;
