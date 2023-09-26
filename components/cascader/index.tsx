@@ -32,6 +32,7 @@ import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
+import useCheckable from './hooks/useCheckable';
 import CascaderPanel from './Panel';
 import useStyle from './style';
 
@@ -271,10 +272,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // =================== Multiple ====================
-  const checkable = React.useMemo(
-    () => (multiple ? <span className={`${cascaderPrefixCls}-checkbox-inner`} /> : false),
-    [multiple],
-  );
+  const checkable = useCheckable(cascaderPrefixCls, multiple);
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);

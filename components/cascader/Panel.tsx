@@ -5,6 +5,7 @@ import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps } from '.';
 import { ConfigContext } from '../config-provider';
+import useCheckable from './hooks/useCheckable';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
 
@@ -13,7 +14,7 @@ export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple';
 export type CascaderPanelProps = Pick<CascaderProps, PanelPickType>;
 
 export default function CascaderPanel(props: CascaderPanelProps) {
-  const { prefixCls: customizePrefixCls, className } = props;
+  const { prefixCls: customizePrefixCls, className, multiple } = props;
 
   const {
     getPrefixCls,
@@ -28,7 +29,17 @@ export default function CascaderPanel(props: CascaderPanelProps) {
   const [, hashId] = useStyle(cascaderPrefixCls);
   usePanelStyle(cascaderPrefixCls);
 
+  // =================== Multiple ====================
+  const checkable = useCheckable(cascaderPrefixCls, multiple);
+
+  // ==================== Render =====================
+
   return (
-    <Panel {...props} prefixCls={cascaderPrefixCls} className={classNames(className, hashId)} />
+    <Panel
+      {...props}
+      checkable={checkable}
+      prefixCls={cascaderPrefixCls}
+      className={classNames(className, hashId)}
+    />
   );
 }
