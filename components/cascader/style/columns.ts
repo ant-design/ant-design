@@ -48,6 +48,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
         // >>> Menu
         '&-menu': {
           flexGrow: 1,
+          flexShrink: 0,
           minWidth: token.controlItemWidth,
           height: token.dropdownHeight,
           margin: 0,

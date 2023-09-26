@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cascader, Flex } from 'antd';
+import { Cascader, Flex, Switch } from 'antd';
 
 interface Option {
   value: string | number;
@@ -47,9 +47,10 @@ const onChange = (value: string[]) => {
 };
 
 const App: React.FC = () => (
-  <Flex vertical gap="small">
+  <Flex vertical gap="small" align="flex-start">
     <Cascader.Panel options={options} onChange={onChange} />
     <Cascader.Panel multiple options={options} onChange={onChange} />
+    <Cascader.Panel />
   </Flex>
 );
 

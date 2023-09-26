@@ -12,17 +12,21 @@ const genPanelStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CSSO
     [`${componentCls}-panel`]: [
       getColumnsStyle(token),
       {
+        display: 'inline-flex',
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderRadius: token.borderRadiusLG,
         overflowX: 'auto',
-        display: 'flex',
-        justifyContent: 'flex-start',
+        maxWidth: '100%',
 
         [`${componentCls}-menus`]: {
-          border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
-          borderRadius: token.borderRadiusLG,
           alignItems: 'stretch',
         },
         [`${componentCls}-menu`]: {
           height: 'auto',
+        },
+
+        '&-empty': {
+          padding: token.paddingXXS,
         },
       },
     ],
