@@ -144,7 +144,7 @@ class InternalAffix extends React.Component<InternalAffixProps, AffixState> {
 
   getOffsetBottom = () => this.props.offsetBottom;
 
-  // =================== Measure ===================
+  // =================== Measure ====================
   measure = () => {
     const { status, lastAffix } = this.state;
     const { onChange } = this.props;
