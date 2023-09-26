@@ -1,17 +1,16 @@
-import React, { useCallback, useContext, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import type { IntlShape } from 'react-intl';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
-import { Segmented, Input, Empty, Affix } from 'antd';
 import type { SegmentedProps } from 'antd';
+import { Affix, Empty, Input, Segmented } from 'antd';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { CategoriesKeys } from './fields';
 import { categories } from './fields';
-import SiteContext from '../../slots/SiteContext';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -60,7 +59,6 @@ const IconSearch: React.FC = () => {
     theme: ThemeType.Outlined,
   });
   const token = useTheme();
-  const { bannerVisible } = useContext(SiteContext);
 
   const newIconNames: string[] = [];
 
@@ -114,7 +112,7 @@ const IconSearch: React.FC = () => {
   }, [displayState.searchKey, displayState.theme]);
 
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
-  const { borderRadius, colorBgContainer } = token;
+  const { borderRadius, colorBgContainer, anchorTop } = token;
 
   const affixedStyle: CSSProperties = {
     boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
@@ -126,10 +124,7 @@ const IconSearch: React.FC = () => {
 
   return (
     <div className="markdown">
-      <Affix
-        offsetTop={24 + token.headerHeight + (bannerVisible ? token.bannerHeight : 0)}
-        onChange={setSearchBarAffixed}
-      >
+      <Affix offsetTop={anchorTop} onChange={setSearchBarAffixed}>
         <div className={styles.iconSearchAffix} style={searchBarAffixed ? affixedStyle : {}}>
           <Segmented
             size="large"
