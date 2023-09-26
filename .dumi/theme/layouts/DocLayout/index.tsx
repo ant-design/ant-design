@@ -1,10 +1,10 @@
-import ConfigProvider from 'antd/es/config-provider';
-import zhCN from 'antd/es/locale/zh_CN';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import { Helmet, useOutlet, useSiteData } from 'dumi';
+import { Helmet, useOutlet } from 'dumi';
 import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import zhCN from 'antd/es/locale/zh_CN';
+import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
@@ -30,11 +30,10 @@ const locales = {
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
-  const { pathname, search, hash } = location;
+  const { pathname, search } = location;
   const [locale, lang] = useLocale(locales);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { direction } = useContext(SiteContext);
-  const { loading } = useSiteData();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -53,19 +52,9 @@ const DocLayout: React.FC = () => {
     }
   }, []);
 
-  // handle hash change or visit page hash from Link component, and jump after async chunk loaded
   useEffect(() => {
-    const id = hash.replace('#', '');
-
-    if (id) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
-  }, [loading, hash]);
-
-  React.useEffect(() => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
-    }
-    if (typeof (window as any)._hmt !== 'undefined') {
-      (window as any)._hmt.push(['_trackPageview', pathname + search]);
     }
   }, [location]);
 
@@ -76,7 +65,7 @@ const DocLayout: React.FC = () => {
     ) {
       return (
         <>
-          {outlet}
+          <div style={{ minHeight: '100vh' }}>{outlet}</div>
           <Footer />
         </>
       );
@@ -94,7 +83,7 @@ const DocLayout: React.FC = () => {
     <>
       <Helmet encodeSpecialCharacters={false}>
         <html
-          lang={lang}
+          lang={lang === 'cn' ? 'zh-CN' : lang}
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />

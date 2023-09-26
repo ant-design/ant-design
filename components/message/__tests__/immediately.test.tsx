@@ -1,4 +1,4 @@
-import message, { actWrapper, actDestroy } from '..';
+import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 

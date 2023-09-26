@@ -16,7 +16,6 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     borderRadius,
     colorFill,
     colorWhite,
-    colorTextTertiary,
     marginXXS,
     paddingXS,
   } = token;
@@ -96,7 +95,7 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
             },
             [`&${componentCls}-presets-color-bright`]: {
               '&::after': {
-                borderColor: colorTextTertiary,
+                borderColor: 'rgba(0, 0, 0, 0.45)',
               },
             },
           },

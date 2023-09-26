@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import { Space } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
 import * as React from 'react';
-import useSiteToken from '../../../../hooks/useSiteToken';
+import classNames from 'classnames';
+import { Space } from 'antd';
 import useLocale from '../../../../hooks/useLocale';
 
 export const THEMES = {
@@ -9,6 +9,7 @@ export const THEMES = {
   dark: 'https://gw.alipayobjects.com/zos/bmw-prod/0f93c777-5320-446b-9bb7-4d4b499f346d.svg',
   lark: 'https://gw.alipayobjects.com/zos/bmw-prod/3e899b2b-4eb4-4771-a7fc-14c7ff078aed.svg',
   comic: 'https://gw.alipayobjects.com/zos/bmw-prod/ed9b04e8-9b8d-4945-8f8a-c8fc025e846f.svg',
+  v4: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bOiWT4-34jkAAAAAAAAAAAAADrJ8AQ/original',
 } as const;
 
 export type THEME = keyof typeof THEMES;
@@ -19,20 +20,19 @@ const locales = {
     dark: '暗黑',
     lark: '知识协作',
     comic: '桃花缘',
+    v4: 'V4 主题',
   },
   en: {
     default: 'Default',
     dark: 'Dark',
     lark: 'Document',
     comic: 'Blossom',
+    v4: 'V4 Theme',
   },
 };
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    themeCard: css`
+const useStyle = createStyles(({ token, css }) => ({
+  themeCard: css`
       border-radius: ${token.borderRadius}px;
       cursor: pointer;
       transition: all ${token.motionDurationSlow};
@@ -43,6 +43,7 @@ const useStyle = () => {
         width: 0;
         height: 0;
         opacity: 0;
+        position: absolute;
       }
 
       img {
@@ -57,7 +58,7 @@ const useStyle = () => {
       }
     `,
 
-    themeCardActive: css`
+  themeCardActive: css`
       box-shadow: 0 0 0 1px ${token.colorBgContainer},
         0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
 
@@ -66,8 +67,7 @@ const useStyle = () => {
         transform: scale(1);
       }
     `,
-  };
-};
+}));
 
 export interface ThemePickerProps {
   value?: string;
@@ -75,8 +75,8 @@ export interface ThemePickerProps {
 }
 
 export default function ThemePicker({ value, onChange }: ThemePickerProps) {
-  const { token } = useSiteToken();
-  const style = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
 
   const [locale] = useLocale(locales);
 
@@ -89,7 +89,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
           <Space key={theme} direction="vertical" align="center">
             {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
             <label
-              css={[style.themeCard, value === theme && style.themeCardActive]}
+              className={classNames(styles.themeCard, value === theme && styles.themeCardActive)}
               onClick={() => {
                 onChange?.(theme);
               }}

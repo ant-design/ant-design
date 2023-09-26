@@ -1,9 +1,9 @@
 import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 export default () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const { antCls, iconCls } = token;
 

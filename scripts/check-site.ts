@@ -1,13 +1,13 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
+import type http from 'http';
+import type https from 'https';
+import { join } from 'path';
 import cheerio from 'cheerio';
 import { globSync } from 'glob';
-import type http from 'http';
 import { createServer } from 'http-server';
-import type https from 'https';
 import fetch from 'isomorphic-fetch';
 import uniq from 'lodash/uniq';
-import { join } from 'path';
 
 const components = uniq(
   globSync('components/!(overview)/*.md', { cwd: join(process.cwd()), dot: false }).map((path) =>
@@ -73,6 +73,18 @@ describe('site test', () => {
     const { status, $ } = await render('/components/overview-cn');
     expect(status).toBe(200);
     expect($('h1').text()).toMatch(`组件总览`);
+  });
+
+  it('Resource en', async () => {
+    const { status, $ } = await render('/docs/resources');
+    expect(status).toBe(200);
+    expect($('h1').text()).toMatch(`Resources`);
+  });
+
+  it('Resource zh', async () => {
+    const { status, $ } = await render('/docs/resources-cn');
+    expect(status).toBe(200);
+    expect($('h1').text()).toMatch(`资源`);
   });
 
   for (const component of components) {

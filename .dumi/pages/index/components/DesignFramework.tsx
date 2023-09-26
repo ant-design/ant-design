@@ -1,11 +1,12 @@
-import { Col, Row, Typography } from 'antd';
 import React, { useContext } from 'react';
-import { css } from '@emotion/react';
+import { Col, Row, Typography } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
+
+import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
-import * as utils from '../../../theme/utils';
 import SiteContext from '../../../theme/slots/SiteContext';
+import * as utils from '../../../theme/utils';
 
 const SECONDARY_LIST = [
   {
@@ -62,14 +63,16 @@ const locales = {
 };
 
 const useStyle = () => {
-  const { token } = useSiteToken();
+  const isRootDark = useDark();
 
-  return {
+  return createStyles(({ token, css }) => ({
     card: css`
       padding: ${token.paddingSM}px;
       border-radius: ${token.borderRadius * 2}px;
-      background: #fff;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 6px -1px rgba(0, 0, 0, 0.02),
+      background: ${isRootDark ? 'rgba(0,0,0,0.45)' : token.colorBgElevated};
+      box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.03),
+        0 1px 6px -1px rgba(0, 0, 0, 0.02),
         0 2px 4px rgba(0, 0, 0, 0.02);
 
       img {
@@ -83,20 +86,20 @@ const useStyle = () => {
       display: block;
       border-radius: ${token.borderRadius * 2}px;
       padding: ${token.paddingMD}px ${token.paddingLG}px;
-      background: rgba(0, 0, 0, 0.02);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: ${isRootDark ? 'rgba(0,0,0,0.25)' : 'rgba(0, 0, 0, 0.02)'};
+      border: 1px solid ${isRootDark ? 'rgba(255,255,255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
 
       img {
         height: 48px;
       }
     `,
-  };
+  }))();
 };
 
 export default function DesignFramework() {
   const [locale] = useLocale(locales);
-  const { token } = useSiteToken();
-  const style = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
   const { isMobile } = useContext(SiteContext);
@@ -129,7 +132,7 @@ export default function DesignFramework() {
         return (
           <Col key={index} span={colSpan}>
             <Link to={path}>
-              <div css={style.card}>
+              <div className={styles.card}>
                 <img alt={title} src={img} />
 
                 <Typography.Title
@@ -153,7 +156,7 @@ export default function DesignFramework() {
 
         return (
           <Col key={index} span={colSpan}>
-            <a css={style.cardMini} target="_blank" href={url} rel="noreferrer">
+            <a className={styles.cardMini} target="_blank" href={url} rel="noreferrer">
               <img alt={title} src={img} style={{ transform: `scale(${imgScale})` }} />
 
               <Typography.Title

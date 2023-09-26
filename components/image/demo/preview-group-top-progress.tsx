@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Image.PreviewGroup
     preview={{ countRender: (current, total) => `当前 ${current} / 总计 ${total}` }}
   >

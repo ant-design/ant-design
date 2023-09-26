@@ -25,8 +25,11 @@ A list can be used to display content related to a single subject. The content c
 <code src="./demo/responsive.tsx">Responsive grid list</code>
 <code src="./demo/infinite-load.tsx">Scrolling loaded</code>
 <code src="./demo/virtual-list.tsx">virtual list</code>
+<code src="./demo/component-token.tsx" debug>custom component token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### List
 

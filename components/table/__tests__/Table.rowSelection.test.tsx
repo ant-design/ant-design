@@ -1,9 +1,9 @@
 import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
-import { fireEvent, render, act } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
+import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
 describe('Table.rowSelection', () => {
@@ -1595,6 +1595,34 @@ describe('Table.rowSelection', () => {
         <Table
           dataSource={[{ name: 'bamboo' }]}
           rowSelection={{ onChange, preserveSelectedRowKeys: true }}
+          rowKey="name"
+        />,
+      );
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(
+        ['light', 'bamboo'],
+        [{ name: 'light' }, { name: 'bamboo' }],
+        { type: 'single' },
+      );
+    });
+
+    it('cache with preserveSelectedRowKeys and checkStrictly false', () => {
+      const onChange = jest.fn();
+      const { container, rerender } = render(
+        <Table
+          dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input')!);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
+
+      rerender(
+        <Table
+          dataSource={[{ name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true, checkStrictly: false }}
           rowKey="name"
         />,
       );

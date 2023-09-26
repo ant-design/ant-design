@@ -1,10 +1,10 @@
 import type { FC, ReactNode } from 'react';
 import React from 'react';
 import { CodeOutlined, SkinOutlined } from '@ant-design/icons';
-import { Tabs } from 'antd';
 import { useRouteMeta } from 'dumi';
 import type { IContentTabsProps } from 'dumi/theme-default/slots/ContentTabs';
 import type { TabsProps } from 'rc-tabs';
+import { Tabs } from 'antd';
 
 const titleMap: Record<string, string> = {
   design: '设计',

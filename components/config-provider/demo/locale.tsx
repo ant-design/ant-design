@@ -1,4 +1,6 @@
 import { EllipsisOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
+import React, { useState } from 'react';
 import type { RadioChangeEvent, TourProps, UploadFile } from 'antd';
 import {
   Upload,
@@ -27,9 +29,7 @@ import {
 import type { Locale } from 'antd/es/locale';
 import enUS from 'antd/locale/en_US';
 import zhCN from 'antd/locale/zh_CN';
-import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import React, { useState } from 'react';
 
 dayjs.locale('en');
 

@@ -1,4 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor';
+
 import { resetComponent } from '../../style';
 import getArrowStyle, { MAX_VERTICAL_CONTENT_RADIUS } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
@@ -31,7 +32,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     boxShadowTertiary,
     tourZIndexPopup,
     fontSize,
-    colorBgContainer,
+    colorBgElevated,
     fontWeightStrong,
     marginXS,
     colorTextLightSolid,
@@ -56,7 +57,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         fontSize,
         lineHeight,
         width: 520,
-        '--antd-arrow-background-color': colorBgContainer,
+        '--antd-arrow-background-color': colorBgElevated,
 
         '&-pure': {
           maxWidth: '100%',
@@ -77,7 +78,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           borderRadius: tourBorderRadius,
           boxShadow: boxShadowTertiary,
           position: 'relative',
-          backgroundColor: colorBgContainer,
+          backgroundColor: colorBgElevated,
           border: 'none',
           backgroundClip: 'padding-box',
 

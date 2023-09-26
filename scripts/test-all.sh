@@ -2,7 +2,7 @@
 
 echo "[TEST ALL] test changelog"
 echo "[TEST ALL] test changelog" > ~test-all.txt
-# node ./scripts/check-version-md.ts
+tsx ./scripts/check-version-md.ts
 
 echo "[TEST ALL] check-commit"
 echo "[TEST ALL] check-commit" > ~test-all.txt

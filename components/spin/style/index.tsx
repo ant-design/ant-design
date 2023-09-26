@@ -1,18 +1,34 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
+  /**
+   * @desc 内容区域高度
+   * @descEN Height of content area
+   */
   contentHeight: number;
+  /**
+   * @desc 加载图标尺寸
+   * @descEN Loading icon size
+   */
+  dotSize: number;
+  /**
+   * @desc 小号加载图标尺寸
+   * @descEN Small loading icon size
+   */
+  dotSizeSM: number;
+  /**
+   * @desc 大号加载图标尺寸
+   * @descEN Large loading icon size
+   */
+  dotSizeLG: number;
 }
 
 interface SpinToken extends FullToken<'Spin'> {
   spinDotDefault: string;
-  spinDotSize: number;
-  spinDotSizeSM: number;
-  spinDotSizeLG: number;
 }
 
 const antSpinMove = new Keyframes('antSpinMove', {
@@ -57,43 +73,43 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           position: 'absolute',
           top: '50%',
           insetInlineStart: '50%',
-          margin: -token.spinDotSize / 2,
+          margin: -token.dotSize / 2,
         },
 
         [`${token.componentCls}-text`]: {
           position: 'absolute',
           top: '50%',
           width: '100%',
-          paddingTop: (token.spinDotSize - token.fontSize) / 2 + 2,
+          paddingTop: (token.dotSize - token.fontSize) / 2 + 2,
           textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
           fontSize: token.fontSize,
         },
 
         [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
-          marginTop: -(token.spinDotSize / 2) - 10,
+          marginTop: -(token.dotSize / 2) - 10,
         },
 
         '&-sm': {
           [`${token.componentCls}-dot`]: {
-            margin: -token.spinDotSizeSM / 2,
+            margin: -token.dotSizeSM / 2,
           },
           [`${token.componentCls}-text`]: {
-            paddingTop: (token.spinDotSizeSM - token.fontSize) / 2 + 2,
+            paddingTop: (token.dotSizeSM - token.fontSize) / 2 + 2,
           },
           [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
-            marginTop: -(token.spinDotSizeSM / 2) - 10,
+            marginTop: -(token.dotSizeSM / 2) - 10,
           },
         },
 
         '&-lg': {
           [`${token.componentCls}-dot`]: {
-            margin: -(token.spinDotSizeLG / 2),
+            margin: -(token.dotSizeLG / 2),
           },
           [`${token.componentCls}-text`]: {
-            paddingTop: (token.spinDotSizeLG - token.fontSize) / 2 + 2,
+            paddingTop: (token.dotSizeLG - token.fontSize) / 2 + 2,
           },
           [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
-            marginTop: -(token.spinDotSizeLG / 2) - 10,
+            marginTop: -(token.dotSizeLG / 2) - 10,
           },
         },
       },
@@ -143,15 +159,15 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
     [`${token.componentCls}-dot`]: {
       position: 'relative',
       display: 'inline-block',
-      fontSize: token.spinDotSize,
+      fontSize: token.dotSize,
       width: '1em',
       height: '1em',
 
       '&-item': {
         position: 'absolute',
         display: 'block',
-        width: (token.spinDotSize - token.marginXXS / 2) / 2,
-        height: (token.spinDotSize - token.marginXXS / 2) / 2,
+        width: (token.dotSize - token.marginXXS / 2) / 2,
+        height: (token.dotSize - token.marginXXS / 2) / 2,
         backgroundColor: token.colorPrimary,
         borderRadius: '100%',
         transform: 'scale(0.75)',
@@ -201,21 +217,21 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 
     // small
     [`&-sm ${token.componentCls}-dot`]: {
-      fontSize: token.spinDotSizeSM,
+      fontSize: token.dotSizeSM,
 
       i: {
-        width: (token.spinDotSizeSM - token.marginXXS / 2) / 2,
-        height: (token.spinDotSizeSM - token.marginXXS / 2) / 2,
+        width: (token.dotSizeSM - token.marginXXS / 2) / 2,
+        height: (token.dotSizeSM - token.marginXXS / 2) / 2,
       },
     },
 
     // large
     [`&-lg ${token.componentCls}-dot`]: {
-      fontSize: token.spinDotSizeLG,
+      fontSize: token.dotSizeLG,
 
       i: {
-        width: (token.spinDotSizeLG - token.marginXXS) / 2,
-        height: (token.spinDotSizeLG - token.marginXXS) / 2,
+        width: (token.dotSizeLG - token.marginXXS) / 2,
+        height: (token.dotSizeLG - token.marginXXS) / 2,
       },
     },
 
@@ -231,13 +247,13 @@ export default genComponentStyleHook(
   (token) => {
     const spinToken = mergeToken<SpinToken>(token, {
       spinDotDefault: token.colorTextDescription,
-      spinDotSize: token.controlHeightLG / 2,
-      spinDotSizeSM: token.controlHeightLG * 0.35,
-      spinDotSizeLG: token.controlHeight,
     });
     return [genSpinStyle(spinToken)];
   },
-  {
+  (token) => ({
     contentHeight: 400,
-  },
+    dotSize: token.controlHeightLG / 2,
+    dotSizeSM: token.controlHeightLG * 0.35,
+    dotSizeLG: token.controlHeight,
+  }),
 );

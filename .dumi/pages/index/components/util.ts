@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { css } from '@emotion/react';
+import { css } from 'antd-style';
+import useFetch from '../../../hooks/useFetch';
 
 export interface Author {
   avatar: string;
@@ -80,26 +80,11 @@ export function preLoad(list: string[]) {
   }
 }
 
-export function useSiteData(): [Partial<SiteData>, boolean] {
-  const [data, setData] = React.useState<Partial<SiteData>>({});
-  const [loading, setLoading] = React.useState<boolean>(false);
-
-  React.useEffect(() => {
-    if (Object.keys(data ?? {}).length === 0 && typeof fetch !== 'undefined') {
-      setLoading(true);
-      fetch(`https://render.alipay.com/p/h5data/antd4-config_website-h5data.json`)
-        .then((res) => res.json())
-        .then((result) => {
-          setData(result);
-          setLoading(false);
-        });
-    }
-  }, []);
-
-  return [data, loading];
+export function useSiteData(): Partial<SiteData> {
+  return useFetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json');
 }
 
-export const useCarouselStyle = () => ({
+export const getCarouselStyle = () => ({
   carousel: css`
     .slick-dots.slick-dots-bottom {
       bottom: -22px;

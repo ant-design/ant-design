@@ -1,14 +1,33 @@
 import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
+import { Input } from 'antd';
 import theme from '..';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import type { ThemeConfig } from '../../config-provider/context';
 import Row from '../../row';
 import genRadius from '../themes/shared/genRadius';
 
 const { useToken } = theme;
 
 describe('Theme', () => {
+  const getHookToken = (config?: ThemeConfig) => {
+    let token: any;
+    const Demo = () => {
+      const { token: hookToken } = useToken();
+      token = hookToken;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={config}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    delete token._hashId;
+    delete token._tokenKey;
+    return token;
+  };
+
   it('useTheme', () => {
     const { result } = renderHook(() => useToken());
 
@@ -129,7 +148,7 @@ describe('Theme', () => {
         borderRadiusOuter: 6,
       },
       20: {
-        borderRadius: 16,
+        borderRadius: 20,
         borderRadiusLG: 16,
         borderRadiusSM: 8,
         borderRadiusXS: 2,
@@ -220,5 +239,96 @@ describe('Theme', () => {
     );
 
     expect(container.querySelector('.duration')?.textContent).toEqual('0s');
+  });
+
+  describe('getDesignToken', () => {
+    it('default', () => {
+      const token = theme.getDesignToken();
+      const hookToken = getHookToken();
+      expect(token).toEqual(hookToken);
+    });
+
+    it('with custom token', () => {
+      const config: ThemeConfig = {
+        token: {
+          colorPrimary: '#189cff',
+          borderRadius: 8,
+          fontSizeLG: 20,
+        },
+      };
+      const token = theme.getDesignToken(config);
+      const hookToken = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toEqual('#189cff');
+    });
+
+    it('with custom algorithm', () => {
+      const config: ThemeConfig = {
+        token: {
+          colorPrimary: '#1677ff',
+          borderRadius: 8,
+          fontSizeLG: 20,
+        },
+        algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+      };
+      const token = theme.getDesignToken(config);
+      const hookToken = getHookToken(config);
+      expect(token).toEqual(hookToken);
+      expect(token.colorPrimary).toEqual('#1668dc');
+    });
+  });
+
+  describe('colorLink', () => {
+    it('should follow colorPrimary by default', () => {
+      const token = getHookToken();
+      expect(token.colorLink).toEqual(token.colorInfo);
+      expect(token.colorLinkHover).toEqual(token.colorInfoHover);
+      expect(token.colorLinkActive).toEqual(token.colorInfoActive);
+
+      const token2 = getHookToken({ token: { colorPrimary: '#189cff' } });
+      expect(token2.colorLink).toEqual(token2.colorInfo);
+      expect(token2.colorLinkHover).toEqual(token2.colorInfoHover);
+      expect(token2.colorLinkActive).toEqual(token2.colorInfoActive);
+      // colorInfo should not follow colorPrimary
+      expect(token2.colorLink).not.toEqual('#189cff');
+
+      const token3 = getHookToken({ algorithm: [theme.darkAlgorithm] });
+      expect(token3.colorLink).toEqual(token3.colorInfo);
+      expect(token3.colorLinkHover).toEqual(token3.colorInfoHover);
+      expect(token3.colorLinkActive).toEqual(token3.colorInfoActive);
+    });
+
+    it('should be calculated correctly', () => {
+      const token = getHookToken({ token: { colorLink: '#189cff' } });
+      expect(token.colorLink).toEqual('#189cff');
+      expect(token.colorLinkHover).toEqual('#69c8ff');
+      expect(token.colorLinkActive).toEqual('#0978d9');
+    });
+  });
+
+  it('component token should support algorithm', () => {
+    const Demo = ({ algorithm }: { algorithm?: boolean | typeof theme.darkAlgorithm }) => (
+      <ConfigProvider
+        theme={{
+          components: {
+            Input: {
+              colorPrimary: '#00B96B',
+              algorithm,
+            },
+          },
+        }}
+      >
+        <Input />
+      </ConfigProvider>
+    );
+
+    const { container, rerender } = render(<Demo />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#4096ff' });
+
+    rerender(<Demo algorithm />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#20c77c' });
+
+    rerender(<Demo algorithm={theme.darkAlgorithm} />);
+    expect(container.querySelector('input')).toHaveStyle({ 'border-color': '#1fb572' });
   });
 });

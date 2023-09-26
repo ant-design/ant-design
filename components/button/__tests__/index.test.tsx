@@ -1,6 +1,6 @@
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
-import React, { useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -333,5 +333,99 @@ describe('Button', () => {
       </Button>,
     );
     expect(wrapper.container.firstChild).toMatchSnapshot();
+  });
+
+  it("should prevent children's event when button is disabled", () => {
+    const { container } = render(
+      <Button disabled>
+        <a id="link">test</a>
+      </Button>,
+    );
+    expect(window.getComputedStyle(container.querySelector('#link')!).pointerEvents).toBe('none');
+  });
+
+  it('Correct type', () => {
+    const onBtnClick: React.MouseEventHandler<HTMLButtonElement> = () => {};
+    const onAnchorClick: React.MouseEventHandler<HTMLAnchorElement> = () => {};
+
+    const button = <Button onClick={onBtnClick} />;
+    const anchor = <Button href="https://ant.design" onClick={onAnchorClick} />;
+
+    const defaultBtn = (
+      <Button
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const defaultABtn = (
+      <Button
+        href="https://ant.design"
+        onClick={(e) => {
+          expect(e).toBeTruthy();
+        }}
+      />
+    );
+
+    const btnRef = React.createRef<HTMLButtonElement>();
+    const refBtn = <Button ref={btnRef} />;
+
+    const anchorRef = React.createRef<HTMLAnchorElement>();
+    const refAnchor = <Button ref={anchorRef} />;
+
+    const htmlRef = React.createRef<HTMLElement>();
+    const refHtml = <Button ref={htmlRef} />;
+
+    const btnAttr = <Button name="hello" />;
+
+    expect(button).toBeTruthy();
+    expect(anchor).toBeTruthy();
+    expect(defaultBtn).toBeTruthy();
+    expect(defaultABtn).toBeTruthy();
+    expect(refBtn).toBeTruthy();
+    expect(refAnchor).toBeTruthy();
+    expect(refHtml).toBeTruthy();
+    expect(btnAttr).toBeTruthy();
+  });
+
+  it('should not display loading when not set', () => {
+    function Suspender({ freeze }: { freeze: boolean }) {
+      const promiseCache = useRef<{
+        promise?: Promise<void>;
+        resolve?: (value: void | PromiseLike<void>) => void;
+      }>({}).current;
+      if (freeze && !promiseCache.promise) {
+        promiseCache.promise = new Promise((resolve) => {
+          promiseCache.resolve = resolve;
+        });
+        throw promiseCache.promise;
+      } else if (freeze) {
+        throw promiseCache.promise;
+      } else if (promiseCache.promise) {
+        promiseCache.resolve?.();
+        promiseCache.promise = undefined;
+      }
+      return <Button>button</Button>;
+    }
+    const MyCom: React.FC = () => {
+      const [freeze, setFreeze] = useState(false);
+      return (
+        <div className="foo">
+          <Button className="change-btn" onClick={() => setFreeze(!freeze)}>
+            Change
+          </Button>
+          <Suspense fallback={<>frozen</>}>
+            <Suspender freeze={freeze} />
+          </Suspense>
+        </div>
+      );
+    };
+    const { container } = render(<MyCom />);
+
+    fireEvent.click(container.querySelector('.change-btn')!);
+    expect(container.querySelector('.foo')).toHaveTextContent('frozen');
+    fireEvent.click(container.querySelector('.change-btn')!);
+    expect(container.querySelectorAll('.ant-btn-loading-icon').length).toBe(0);
   });
 });

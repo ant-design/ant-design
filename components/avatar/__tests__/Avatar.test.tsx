@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import ReactDOM from 'react-dom';
-import { act } from 'react-dom/test-utils';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import useBreakpoint from '../../grid/hooks/useBreakpoint';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('../../grid/hooks/useBreakpoint');
 
@@ -140,14 +139,9 @@ describe('Avatar Render', () => {
 
   Object.entries(sizes).forEach(([key, value]) => {
     it(`adjusts component size to ${value} when window size is ${key}`, () => {
-      const wrapper = global.document.createElement('div');
-
       (useBreakpoint as any).mockReturnValue({ [key]: true });
-      act(() => {
-        ReactDOM.render(<Avatar size={sizes} />, wrapper);
-      });
-
-      expect(wrapper).toMatchSnapshot();
+      const { container } = render(<Avatar size={sizes} />);
+      expect(container).toMatchSnapshot();
     });
   });
 
@@ -195,5 +189,36 @@ describe('Avatar Render', () => {
     const { container } = render(<Avatar onClick={onClick}>TestString</Avatar>);
     fireEvent.click(container.querySelector('.ant-avatar-string')!);
     expect(onClick).toHaveBeenCalled();
+  });
+
+  it('Avatar.Group support shape props', () => {
+    const { container } = render(
+      <Avatar.Group shape="square">
+        <Avatar>A</Avatar>
+        <Avatar shape="circle">B</Avatar>
+        <Avatar>C</Avatar>
+        <Avatar shape="circle">D</Avatar>
+      </Avatar.Group>,
+    );
+    const avatars = container?.querySelectorAll<HTMLSpanElement>('.ant-avatar-group .ant-avatar');
+    expect(avatars?.[0]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[1]).toHaveClass('ant-avatar-circle');
+    expect(avatars?.[2]).toHaveClass('ant-avatar-square');
+    expect(avatars?.[3]).toHaveClass('ant-avatar-circle');
+  });
+
+  it('should apply the componentSize of CP', () => {
+    const { container } = render(
+      <>
+        <ConfigProvider componentSize="small">
+          <Avatar>test</Avatar>
+        </ConfigProvider>
+        <ConfigProvider componentSize="large">
+          <Avatar>test</Avatar>
+        </ConfigProvider>
+      </>,
+    );
+    expect(container.querySelector('.ant-avatar-sm')).toBeTruthy();
+    expect(container.querySelector('.ant-avatar-lg')).toBeTruthy();
   });
 });

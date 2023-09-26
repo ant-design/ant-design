@@ -20,7 +20,6 @@ Set components spacing.
 <code src="./demo/vertical.tsx">Vertical Space</code>
 <code src="./demo/size.tsx">Space Size</code>
 <code src="./demo/align.tsx">Align</code>
-<code src="./demo/customize.tsx">Customize Size</code>
 <code src="./demo/wrap.tsx">Wrap</code>
 <code src="./demo/split.tsx">Split</code>
 <code src="./demo/compact.tsx">Compact Mode for form component</code>
@@ -32,6 +31,8 @@ Set components spacing.
 <code src="./demo/gap-in-line.tsx" debug>Flex gap style</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -63,6 +64,13 @@ Use Space.Compact when child form components are compactly connected and the bor
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+### `styles` and `classNames` attribute
+
+<!-- prettier-ignore -->
+| Property | Description | Version |
+| -------- | ------------------------- | ------- |
+| item     | set `Space` child element | 5.6.0   |
 
 ## Design Token
 

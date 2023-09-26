@@ -58,6 +58,8 @@ exports[`renders components/statistic/demo/animated.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/statistic/demo/animated.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -158,6 +160,8 @@ exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/statistic/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/statistic/demo/card.tsx extend context correctly 1`] = `
 <div
@@ -305,6 +309,8 @@ exports[`renders components/statistic/demo/card.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/statistic/demo/card.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/statistic/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -406,6 +412,8 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
 </div>
 `;
 
+exports[`renders components/statistic/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -506,6 +514,8 @@ exports[`renders components/statistic/demo/countdown.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/statistic/demo/countdown.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -595,3 +605,5 @@ exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/statistic/demo/unit.tsx extend context correctly 2`] = `[]`;

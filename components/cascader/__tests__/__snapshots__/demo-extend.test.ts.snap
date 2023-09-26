@@ -15,6 +15,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -150,6 +151,8 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/cascader/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -165,6 +168,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -298,6 +302,8 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
 </div>
 `;
 
+exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -313,6 +319,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -460,6 +467,8 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -476,6 +485,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -635,13 +645,14 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
         aria-hidden="true"
         data-icon="close-circle"
         fill="currentColor"
+        fill-rule="evenodd"
         focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
         />
       </svg>
     </span>
@@ -649,12 +660,12 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 </div>
 `;
 
+exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
 <span>
   Unselect
-  <a
-    href="#"
-  >
+  <a>
     Change city
   </a>
   <div
@@ -748,6 +759,8 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 </span>
 `;
 
+exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -763,6 +776,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -911,19 +925,22 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
         aria-hidden="true"
         data-icon="close-circle"
         fill="currentColor"
+        fill-rule="evenodd"
         focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
         />
       </svg>
     </span>
   </span>
 </div>
 `;
+
+exports[`renders components/cascader/demo/default-value.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 1`] = `
 <div
@@ -940,6 +957,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1073,6 +1091,8 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -1088,6 +1108,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1223,6 +1244,8 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -1238,6 +1261,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1371,6 +1395,8 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/cascader/demo/hover.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -1386,6 +1412,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1518,6 +1545,8 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
   </span>
 </div>
 `;
+
+exports[`renders components/cascader/demo/lazy.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 1`] = `
 <div
@@ -1543,6 +1572,7 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1697,6 +1727,8 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/cascader/demo/multiple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1796,6 +1828,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -1815,7 +1848,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down ant-cascader-dropdown ant-select-dropdown-placement-topLeft"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-dropdown-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: auto;"
     >
       <div>
@@ -1932,6 +1965,8 @@ Array [
 ]
 `;
 
+exports[`renders components/cascader/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
@@ -1951,6 +1986,7 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2087,6 +2123,16 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/cascader/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+
+If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
+]
+`;
+
 exports[`renders components/cascader/demo/search.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -2102,6 +2148,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
+        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -2234,6 +2281,8 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/cascader/demo/search.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2275,6 +2324,7 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2438,13 +2488,14 @@ Array [
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -2491,6 +2542,7 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2654,13 +2706,14 @@ Array [
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -2668,6 +2721,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/cascader/demo/size.tsx extend context correctly 1`] = `
 Array [
@@ -2685,6 +2740,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2832,6 +2888,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2979,6 +3036,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3115,13 +3173,14 @@ Array [
 ]
 `;
 
+exports[`renders components/cascader/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-cascader ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"
@@ -3137,6 +3196,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -3280,6 +3340,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="Search"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -3408,6 +3469,8 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/cascader/demo/status.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -3424,6 +3487,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3573,6 +3637,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3704,6 +3769,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3853,6 +3919,7 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
+          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3952,3 +4019,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/cascader/demo/suffix.tsx extend context correctly 2`] = `[]`;

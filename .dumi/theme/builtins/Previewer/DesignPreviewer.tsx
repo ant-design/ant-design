@@ -1,13 +1,13 @@
 import type { FC } from 'react';
 import React, { useRef } from 'react';
-import { createStyles, css } from 'antd-style';
+import { createStyles } from 'antd-style';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { nodeToGroup } from 'html2sketch';
 import copy from 'copy-to-clipboard';
 import { App } from 'antd';
-import type { AntdPreviewerProps } from '.';
+import type { AntdPreviewerProps } from './Previewer';
 
-const useStyle = createStyles(({ token }) => ({
+const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`
     border: 1px solid ${token.colorBorderSecondary};
     border-radius: ${token.borderRadius}px;

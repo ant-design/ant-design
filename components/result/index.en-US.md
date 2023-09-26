@@ -27,6 +27,8 @@ Use when important operations need to inform the user to process the results and
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | extra | Operating area | ReactNode | - |

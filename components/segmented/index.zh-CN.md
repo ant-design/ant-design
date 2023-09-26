@@ -30,8 +30,11 @@ demo:
 <code src="./demo/icon-only.tsx">只设置图标</code>
 <code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
 <code src="./demo/size-consistent.tsx" debug>统一高度</code>
+<code src="./demo/componentToken.tsx" debug>自定义组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 > 自 `antd@4.20.0` 版本开始提供该组件。
 
@@ -47,6 +50,6 @@ demo:
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | value | 当前选中的值 | string \| number |  |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Segmented"></ComponentTokenTable>

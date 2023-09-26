@@ -23,7 +23,6 @@ To display a notification message at any of the four corners of the viewport. Ty
 
 <!-- prettier-ignore -->
 <code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
-<code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/duration.tsx">Duration after which the notification box is closed</code>
 <code src="./demo/with-icon.tsx">Notification with icon</code>
 <code src="./demo/with-btn.tsx">Custom close button</code>
@@ -31,9 +30,12 @@ To display a notification message at any of the four corners of the viewport. Ty
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/basic.tsx">Static Method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 - `notification.success(config)`
 - `notification.error(config)`
@@ -44,21 +46,22 @@ To display a notification message at any of the four corners of the viewport. Ty
 
 The properties of config are as follows:
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| btn | Customized close button | ReactNode | - |
-| className | Customized CSS class | string | - |
-| closeIcon | Custom close icon | ReactNode | - |
-| description | The content of notification box (required) | ReactNode | - |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
-| icon | Customized icon | ReactNode | - |
-| key | The unique identifier of the Notification | string | - |
-| message | The title of notification box (required) | ReactNode | - |
-| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
-| style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
-| onClick | Specify a function that will be called when the notification is clicked | function | - |
-| onClose | Trigger when notification closed | function | - |
-| props | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. | Object | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| btn | Customized close button | ReactNode | - | - |
+| className | Customized CSS class | string | - | - |
+| closeIcon | Custom close icon | boolean \| ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
+| description | The content of notification box (required) | ReactNode | - | - |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 | - |
+| icon | Customized icon | ReactNode | - | - |
+| key | The unique identifier of the Notification | string | - | - |
+| message | The title of notification box (required) | ReactNode | - | - |
+| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` | - |
+| style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - |
+| role | The semantics of notification content recognized by screen readers. The default value is `alert`. When set as the default value, the screen reader will promptly interrupt any ongoing content reading and prioritize the notification content for immediate attention. | `alert \| status` | `alert` | 5.6.0 |
+| onClick | Specify a function that will be called when the notification is clicked | function | - | - |
+| onClose | Trigger when notification closed | function | - | - |
+| props | An object that can contain `data-*`, `aria-*`, or `role` props, to be put on the notification `div`. This currently only allows `data-testid` instead of `data-*` in TypeScript. See https://github.com/microsoft/TypeScript/issues/28960. | Object | - | - |
 
 - `notification.useNotification(config)`
 
@@ -67,7 +70,7 @@ The properties of config are as follows:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
-| closeIcon | Custom close icon | ReactNode | - |  |
+| closeIcon | Custom close icon | boolean \| ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
@@ -98,9 +101,9 @@ notification.config({
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
-| closeIcon | Custom close icon | ReactNode | - |  |
+| closeIcon | Custom close icon | boolean \| ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
+| getContainer | Return the mount node for Notification, but still display at fullScreen | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels) | number | 24 |  |

@@ -4,14 +4,14 @@ import type { Color } from '../color';
 import type { ColorPickerBaseProps } from '../interface';
 import { generateColor } from '../util';
 
-interface ColorClearProps extends Pick<ColorPickerBaseProps, 'prefixCls'> {
+interface ColorClearProps extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared'> {
   value?: Color;
   onChange?: (value: Color) => void;
 }
 
-const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange }) => {
+const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, colorCleared, onChange }) => {
   const handleClick = () => {
-    if (value) {
+    if (value && !colorCleared) {
       const hsba = value.toHsb();
       hsba.a = 0;
       const genColor = generateColor(hsba);

@@ -1,6 +1,6 @@
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
 
 const genListStyle: GenerateStyle<UploadToken> = (token) => {
   const { componentCls, antCls, iconCls, fontSize, lineHeight } = token;
@@ -52,14 +52,14 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
             },
 
             [`
-              ${actionCls}:focus,
+              ${actionCls}:focus-visible,
               &.picture ${actionCls}
             `]: {
               opacity: 1,
             },
 
             [iconCls]: {
-              color: token.colorTextDescription,
+              color: token.actionsColor,
               transition: `all ${token.motionDurationSlow}`,
             },
 

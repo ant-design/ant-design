@@ -1,13 +1,14 @@
-import { SmileOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import type { ConfigConsumerProps } from '..';
+import { SmileOutlined } from '@ant-design/icons';
+
+import type { ConfigConsumerProps, RenderEmptyHandler } from '..';
 import ConfigProvider, { ConfigContext } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
 import Input from '../../input';
-import Table from '../../table';
 import Select from '../../select';
+import Table from '../../table';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -105,7 +106,7 @@ describe('ConfigProvider', () => {
 
   it('render empty', () => {
     let rendered = false;
-    let cacheRenderEmpty;
+    let cacheRenderEmpty: RenderEmptyHandler | undefined;
 
     const App: React.FC = () => {
       const { renderEmpty } = React.useContext<ConfigConsumerProps>(ConfigContext);

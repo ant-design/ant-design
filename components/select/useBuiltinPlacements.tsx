@@ -1,16 +1,18 @@
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
+
 import type { PopupOverflow } from '../config-provider/context';
 
 const getBuiltInPlacements = (popupOverflow?: PopupOverflow): Record<string, AlignType> => {
   const htmlRegion: AlignType['htmlRegion'] = popupOverflow === 'scroll' ? 'scroll' : 'visible';
 
-  const sharedConfig = {
+  const sharedConfig: AlignType = {
     overflow: {
       adjustX: true,
       adjustY: true,
       shiftY: true,
     },
     htmlRegion,
+    dynamicInset: true,
   };
 
   return {

@@ -1,10 +1,12 @@
+import type { Component } from 'react';
+import React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import classNames from 'classnames';
+import type { CSSMotionProps } from 'rc-motion';
 import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
 import RcTree from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
-import type { Component } from 'react';
-import React from 'react';
+
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -156,7 +158,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
 }
 
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
-  const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, virtual, tree } = React.useContext(ConfigContext);
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -169,12 +171,13 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     selectable = true,
     draggable,
     motion: customMotion,
+    style,
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const motion = customMotion ?? {
+  const motion: CSSMotionProps = customMotion ?? {
     ...initCollapseMotion(rootPrefixCls),
     motionAppear: false,
   };
@@ -232,6 +235,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       ref={ref}
       virtual={virtual}
       {...newProps}
+      // newProps may contain style so declare style below it
+      style={{ ...tree?.style, ...style }}
       prefixCls={prefixCls}
       className={classNames(
         {
@@ -240,6 +245,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
           [`${prefixCls}-unselectable`]: !selectable,
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
+        tree?.className,
         className,
         hashId,
       )}

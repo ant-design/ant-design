@@ -1,16 +1,16 @@
-import * as React from 'react';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import { Notice } from 'rc-notification';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
+import { Notice } from 'rc-notification';
 import type { NoticeProps } from 'rc-notification/lib/Notice';
-import useStyle from './style';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { IconType } from './interface';
+import useStyle from './style';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -20,7 +20,10 @@ export const TypeIcon = {
   loading: <LoadingOutlined />,
 };
 
-export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) {
+export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): React.ReactNode {
+  if (closeIcon === null || closeIcon === false) {
+    return null;
+  }
   return (
     closeIcon || (
       <span className={`${prefixCls}-close-x`}>
@@ -37,6 +40,7 @@ export interface PureContentProps {
   description?: React.ReactNode;
   btn?: React.ReactNode;
   type?: IconType;
+  role?: 'alert' | 'status';
 }
 
 const typeToIcon = {
@@ -46,14 +50,8 @@ const typeToIcon = {
   warning: ExclamationCircleFilled,
 };
 
-export function PureContent({
-  prefixCls,
-  icon,
-  type,
-  message,
-  description,
-  btn,
-}: PureContentProps) {
+export const PureContent: React.FC<PureContentProps> = (props) => {
+  const { prefixCls, icon, type, message, description, btn, role = 'alert' } = props;
   let iconNode: React.ReactNode = null;
   if (icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{icon}</span>;
@@ -62,21 +60,15 @@ export function PureContent({
       className: classNames(`${prefixCls}-icon`, `${prefixCls}-icon-${type}`),
     });
   }
-
   return (
-    <div
-      className={classNames({
-        [`${prefixCls}-with-icon`]: iconNode,
-      })}
-      role="alert"
-    >
+    <div className={classNames({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
       <div className={`${prefixCls}-message`}>{message}</div>
       <div className={`${prefixCls}-description`}>{description}</div>
       {btn && <div className={`${prefixCls}-btn`}>{btn}</div>}
     </div>
   );
-}
+};
 
 export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey'>,
@@ -84,8 +76,8 @@ export interface PurePanelProps
   prefixCls?: string;
 }
 
-/** @internal Internal Component. Do not use in your production. */
-export default function PurePanel(props: PurePanelProps) {
+/** @private Internal Component. Do not use in your production. */
+const PurePanel: React.FC<PurePanelProps> = (props) => {
   const {
     prefixCls: staticPrefixCls,
     className,
@@ -126,4 +118,6 @@ export default function PurePanel(props: PurePanelProps) {
       }
     />
   );
-}
+};
+
+export default PurePanel;

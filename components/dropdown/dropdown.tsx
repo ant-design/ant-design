@@ -1,22 +1,22 @@
+import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import genPurePanel from '../_util/PurePanel';
+
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
+import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
-import { NoCompactStyle } from '../space/Compact';
-import theme from '../theme';
-import DropdownButton from './dropdown-button';
+import { useToken } from '../theme/internal';
 import useStyle from './style';
 
 const Placements = [
@@ -35,19 +35,6 @@ type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
 
-type Align = {
-  points?: [string, string];
-  offset?: [number, number];
-  targetOffset?: [number, number];
-  overflow?: {
-    adjustX?: boolean;
-    adjustY?: boolean;
-  };
-  useCssRight?: boolean;
-  useCssBottom?: boolean;
-  useCssTransform?: boolean;
-};
-
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
@@ -62,7 +49,7 @@ export interface DropdownProps {
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
-  align?: Align;
+  align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
@@ -88,7 +75,6 @@ export interface DropdownProps {
 }
 
 type CompoundedComponent = React.FC<DropdownProps> & {
-  Button: typeof DropdownButton;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 };
 
@@ -123,23 +109,17 @@ const Dropdown: CompoundedComponent = (props) => {
   } = React.useContext(ConfigContext);
 
   // Warning for deprecated usage
+  const warning = devUseWarning('Dropdown');
+
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
-    warning(
-      !('overlay' in props),
-      'Dropdown',
-      '`overlay` is deprecated. Please use `menu` instead.',
-    );
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
   }
 
   const memoTransitionName = React.useMemo<string>(() => {
@@ -160,35 +140,34 @@ const Dropdown: CompoundedComponent = (props) => {
     }
 
     if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-      warning(
-        !placement.includes('Center'),
-        'Dropdown',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-      return newPlacement;
+      return placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
     }
 
     return placement as DropdownPlacement;
   }, [placement, direction]);
 
   if (process.env.NODE_ENV !== 'production') {
+    if (placement.includes('Center')) {
+      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
+      warning(
+        !placement.includes('Center'),
+        'deprecated',
+        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
+      );
+    }
+
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 
@@ -271,12 +250,12 @@ const Dropdown: CompoundedComponent = (props) => {
           // Warning if use other mode
           warning(
             !mode || mode === 'vertical',
-            'Dropdown',
+            'usage',
             `mode="${mode}" is not supported for Dropdown's Menu.`,
           );
         }}
       >
-        <NoCompactStyle>{overlayNode}</NoCompactStyle>
+        {overlayNode}
       </OverrideProvider>
     );
   };
@@ -305,8 +284,6 @@ const Dropdown: CompoundedComponent = (props) => {
   );
 };
 
-Dropdown.Button = DropdownButton;
-
 function postPureProps(props: DropdownProps) {
   return {
     ...props,
@@ -323,7 +300,7 @@ function postPureProps(props: DropdownProps) {
 const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
-const WrapPurePanel = (props: DropdownProps) => (
+const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
     <span />
   </PurePanel>

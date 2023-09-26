@@ -3,8 +3,20 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
+  /**
+   * @desc 弹窗 z-index
+   * @descEN z-index of drawer
+   */
   zIndexPopup: number;
+  /**
+   * @desc 底部区域纵向内间距
+   * @descEN Vertical padding of footer
+   */
   footerPaddingBlock: number;
+  /**
+   * @desc 底部区域横向内间距
+   * @descEN Horizontal padding of footer
+   */
   footerPaddingInline: number;
 }
 
@@ -79,6 +91,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       [wrapperCls]: {
         position: 'absolute',
         zIndex: zIndexPopup,
+        maxWidth: '100vw',
         transition: `all ${motionDurationSlow}`,
 
         '&-hidden': {

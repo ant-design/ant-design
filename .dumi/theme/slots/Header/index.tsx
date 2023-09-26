@@ -1,14 +1,17 @@
+import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { ClassNames, css } from '@emotion/react';
-import { Col, Modal, Popover, Row, Select } from 'antd';
+import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+
 import useLocale from '../../../hooks/useLocale';
-import useSiteToken from '../../../hooks/useSiteToken';
+import DirectionIcon from '../../common/DirectionIcon';
+import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
-import { getThemeConfig, ping } from '../../utils';
+import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
@@ -20,17 +23,27 @@ import SwitchBtn from './SwitchBtn';
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
-const useStyle = () => {
-  const { token } = useSiteToken();
+const locales = {
+  cn: {
+    message:
+      '语雀公益计划：大学生认证教育邮箱，即可免费获得语雀会员。语雀，支付宝匠心打造的在线文档平台。',
+    shortMessage: '支付宝语雀 · 大学生公益计划火热进行中！',
+    more: '了解更多',
+  },
+};
+
+const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
 
   return {
     header: css`
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
+      backdrop-filter: blur(8px);
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
         text-align: center;
@@ -95,6 +108,9 @@ const useStyle = () => {
         }
       }
     `,
+    dataDirectionIcon: css`
+      width: 16px;
+    `,
     popoverMenu: {
       width: 300,
 
@@ -102,18 +118,26 @@ const useStyle = () => {
         padding: 0,
       },
     },
+    banner: css`
+      width: 100%;
+      text-align: center;
+      word-break: keep-all;
+      user-select: none;
+    `,
+    link: css`
+      margin-left: 10px;
+
+      @media only screen and (max-width: ${token.mobileMaxWidth}px) {
+        margin-left: 0;
+      }
+    `,
+    icon: css`
+      margin-right: 10px;
+      width: 22px;
+      height: 22px;
+    `,
   };
-};
-
-const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
-
-function disableAntdMirrorModal() {
-  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
-}
-
-function shouldOpenAntdMirrorModal() {
-  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
-}
+});
 
 interface HeaderState {
   menuVisible: boolean;
@@ -123,8 +147,7 @@ interface HeaderState {
 
 // ================================= Header =================================
 const Header: React.FC = () => {
-  const [isClient, setIsClient] = React.useState(false);
-  const [, lang] = useLocale();
+  const [locale, lang] = useLocale(locales);
 
   const { pkg } = useSiteData();
 
@@ -134,12 +157,13 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
-  const pingTimer = useRef<NodeJS.Timeout | null>(null);
+  const { direction, isMobile, bannerVisible, updateSiteConfig } =
+    useContext<SiteContextProps>(SiteContext);
+  const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
 
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const handleHideMenu = useCallback(() => {
     setHeaderState((prev) => ({ ...prev, menuVisible: false }));
@@ -156,40 +180,21 @@ const Header: React.FC = () => {
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
   };
+  const onBannerClose = () => {
+    updateSiteConfig({ bannerVisible: false });
+
+    if (utils.isLocalStorageNameSupported()) {
+      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, dayjs().toISOString());
+    }
+  };
 
   useEffect(() => {
     handleHideMenu();
   }, [location]);
 
   useEffect(() => {
-    setIsClient(typeof window !== 'undefined');
     onWindowResize();
     window.addEventListener('resize', onWindowResize);
-    pingTimer.current = ping((status) => {
-      if (status !== 'timeout' && status !== 'error') {
-        if (
-          // process.env.NODE_ENV === 'production' &&
-          window.location.host !== 'ant-design.antgroup.com' &&
-          shouldOpenAntdMirrorModal()
-        ) {
-          Modal.confirm({
-            title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～',
-            okText: '🚀 立刻前往',
-            cancelText: '不再弹出',
-            closable: true,
-            zIndex: 99999,
-            onOk() {
-              window.open('https://ant-design.antgroup.com', '_self');
-              disableAntdMirrorModal();
-            },
-            onCancel() {
-              disableAntdMirrorModal();
-            },
-          });
-        }
-      }
-    });
     return () => {
       window.removeEventListener('resize', onWindowResize);
       if (pingTimer.current) {
@@ -209,11 +214,12 @@ const Header: React.FC = () => {
         .replace(/\/$/, '');
       return;
     }
-
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
-    urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
-    window.location.href = urlObj.href;
+    if (urlObj.host.includes('antgroup')) {
+      window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
+    }
+    window.location.href = urlObj.href.replace(/\/$/, '');
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -261,15 +267,13 @@ const Header: React.FC = () => {
     responsive = 'narrow';
   }
 
-  const headerClassName = classNames({
-    clearfix: true,
+  const headerClassName = classNames(styles.header, 'clearfix', {
     'home-header': isHome,
   });
 
   const sharedProps: SharedProps = {
     isZhCN,
     isRTL,
-    isClient,
   };
 
   const navigationNode = (
@@ -293,7 +297,7 @@ const Header: React.FC = () => {
       defaultValue={pkg.version}
       onChange={handleVersionChange}
       dropdownStyle={getDropdownStyle}
-      dropdownMatchSelectWidth={false}
+      popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
@@ -311,21 +315,12 @@ const Header: React.FC = () => {
       key="direction"
       onClick={onDirectionChange}
       value={direction === 'rtl' ? 2 : 1}
-      label1={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6k0CTJA-HxUAAAAAAAAAAAAADrJ8AQ/original"
-          alt="direction"
-        />
-      }
+      label1={<DirectionIcon className={styles.dataDirectionIcon} direction="ltr" />}
       tooltip1="LTR"
-      label2={
-        <img
-          src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*SZoaQqm2hwsAAAAAAAAAAAAADrJ8AQ/original"
-          alt="LTR"
-        />
-      }
+      label2={<DirectionIcon className={styles.dataDirectionIcon} direction="rtl" />}
       tooltip2="RTL"
       pure
+      aria-label="RTL Switch Button"
     />,
     <a
       key="github"
@@ -351,29 +346,61 @@ const Header: React.FC = () => {
       ];
 
   return (
-    <header css={style.header} className={headerClassName}>
+    <header className={headerClassName}>
       {isMobile && (
-        <ClassNames>
-          {({ css: cssFn }) => (
-            <Popover
-              overlayClassName={cssFn(style.popoverMenu)}
-              placement="bottomRight"
-              content={menu}
-              trigger="click"
-              open={menuVisible}
-              arrow={{ arrowPointAtCenter: true }}
-              onOpenChange={onMenuVisibleChange}
-            >
-              <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
-            </Popover>
-          )}
-        </ClassNames>
+        <Popover
+          overlayClassName={styles.popoverMenu}
+          placement="bottomRight"
+          content={menu}
+          trigger="click"
+          open={menuVisible}
+          arrow={{ arrowPointAtCenter: true }}
+          onOpenChange={onMenuVisibleChange}
+        >
+          <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
+        </Popover>
+      )}
+      {isZhCN && bannerVisible && (
+        <ConfigProvider theme={{ token: { colorInfoBg: '#daf5eb', colorTextBase: '#000' } }}>
+          <Alert
+            className={styles.banner}
+            message={
+              <>
+                <img
+                  className={styles.icon}
+                  src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                  alt="yuque"
+                />
+                <span>{isMobile ? locale.shortMessage : locale.message}</span>
+                <a
+                  className={styles.link}
+                  href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => {
+                    window.gtag?.('event', '点击', {
+                      event_category: 'top_banner',
+                      event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                    });
+                  }}
+                >
+                  {locale.more}
+                </a>
+              </>
+            }
+            type="info"
+            banner
+            closable
+            showIcon={false}
+            onClose={onBannerClose}
+          />
+        </ConfigProvider>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>
           <Logo {...sharedProps} location={location} />
         </Col>
-        <Col {...colProps[1]} css={style.menuRow}>
+        <Col {...colProps[1]} className={styles.menuRow}>
           <div className="nav-search-wrapper">
             <DumiSearchBar />
           </div>

@@ -1,18 +1,20 @@
-import classNames from 'classnames';
-import RcDrawer from 'rc-drawer';
-import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
-import type { CSSMotionProps } from 'rc-motion';
 import * as React from 'react';
+import classNames from 'classnames';
+import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
+import RcDrawer from 'rc-drawer';
+import type { Placement } from 'rc-drawer/lib/Drawer';
+import type { CSSMotionProps } from 'rc-motion';
+
+import { getTransitionName } from '../_util/motion';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-import { getTransitionName } from '../_util/motion';
-import warning from '../_util/warning';
-import DrawerPanel from './DrawerPanel';
-import type { DrawerPanelProps } from './DrawerPanel';
-
 // CSSINJS
-import useStyle from './style';
 import { NoCompactStyle } from '../space/Compact';
+import { usePanelRef } from '../watermark/context';
+import type { DrawerPanelProps } from './DrawerPanel';
+import DrawerPanel from './DrawerPanel';
+import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
 type sizeType = typeof SizeTypes[number];
@@ -38,7 +40,9 @@ export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'pref
 
 const defaultPushState: PushState = { distance: 180 };
 
-function Drawer(props: DrawerProps) {
+const Drawer: React.FC<DrawerProps> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+} = (props) => {
   const {
     rootClassName,
     width,
@@ -51,6 +55,8 @@ function Drawer(props: DrawerProps) {
     onClose,
     prefixCls: customizePrefixCls,
     getContainer: customizeGetContainer,
+    style,
+    className,
 
     // Deprecated
     visible,
@@ -59,7 +65,7 @@ function Drawer(props: DrawerProps) {
     ...rest
   } = props;
 
-  const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
   // Style
@@ -82,29 +88,31 @@ function Drawer(props: DrawerProps) {
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Drawer');
+
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Drawer',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     if (getContainer !== undefined && props.style?.position === 'absolute') {
       warning(
         false,
-        'Drawer',
+        'breaking',
         '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );
     }
   }
 
   // ============================ Size ============================
-  const mergedWidth = React.useMemo(() => width ?? (size === 'large' ? 736 : 378), [width, size]);
-  const mergedHeight = React.useMemo(
+  const mergedWidth = React.useMemo<string | number>(
+    () => width ?? (size === 'large' ? 736 : 378),
+    [width, size],
+  );
+
+  const mergedHeight = React.useMemo<string | number>(
     () => height ?? (size === 'large' ? 736 : 378),
     [height, size],
   );
@@ -126,6 +134,10 @@ function Drawer(props: DrawerProps) {
     motionDeadline: 500,
   });
 
+  // ============================ Refs ============================
+  // Select `ant-modal-content` by `panelRef`
+  const panelRef = usePanelRef();
+
   // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
@@ -141,33 +153,36 @@ function Drawer(props: DrawerProps) {
           push={push}
           width={mergedWidth}
           height={mergedHeight}
+          style={{ ...drawer?.style, ...style }}
+          className={classNames(drawer?.className, className)}
           rootClassName={drawerClassName}
           getContainer={getContainer}
           afterOpenChange={afterOpenChange ?? afterVisibleChange}
+          panelRef={panelRef}
         >
           <DrawerPanel prefixCls={prefixCls} {...rest} onClose={onClose} />
         </RcDrawer>
       </NoFormStyle>
     </NoCompactStyle>,
   );
-}
+};
 
-if (process.env.NODE_ENV !== 'production') {
-  Drawer.displayName = 'Drawer';
-}
-
-function PurePanel({
-  prefixCls: customizePrefixCls,
-  style,
-  className,
-  placement = 'right',
-  ...restProps
-}: Omit<DrawerPanelProps, 'prefixCls' | 'drawerStyle'> & {
+interface PurePanelInterface {
   prefixCls?: string;
   style?: React.CSSProperties;
   className?: string;
-  placement?: DrawerProps['placement'];
-}) {
+  placement?: Placement;
+}
+
+/** @private Internal Component. Do not use in your production. */
+const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterface> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    style,
+    className,
+    placement = 'right',
+    ...restProps
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -175,22 +190,25 @@ function PurePanel({
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const cls = classNames(
+    prefixCls,
+    `${prefixCls}-pure`,
+    `${prefixCls}-${placement}`,
+    hashId,
+    className,
+  );
+
   return wrapSSR(
-    <div
-      className={classNames(
-        prefixCls,
-        `${prefixCls}-pure`,
-        `${prefixCls}-${placement}`,
-        hashId,
-        className,
-      )}
-      style={style}
-    >
+    <div className={cls} style={style}>
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
     </div>,
   );
-}
+};
 
 Drawer._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+if (process.env.NODE_ENV !== 'production') {
+  Drawer.displayName = 'Drawer';
+}
 
 export default Drawer;

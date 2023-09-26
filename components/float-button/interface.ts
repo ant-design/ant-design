@@ -27,6 +27,7 @@ export interface FloatButtonProps {
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  ['aria-label']?: React.HtmlHTMLAttributes<HTMLButtonElement>['aria-label'];
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {

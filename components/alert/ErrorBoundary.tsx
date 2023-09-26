@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Alert from '.';
+import Alert from './Alert';
 
 interface ErrorBoundaryProps {
   message?: React.ReactNode;

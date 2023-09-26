@@ -1,24 +1,24 @@
-import { css } from '@emotion/react';
-import { ConfigProvider } from 'antd';
-import { useLocale as useDumiLocale } from 'dumi';
 import React from 'react';
+import { ConfigProvider, theme } from 'antd';
+import { createStyles, css } from 'antd-style';
+
+import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
-import Banner from './components/Banner';
-import BannerRecommends from './components/BannerRecommends';
+// import BannerRecommends, { BannerRecommendsFallback } from './components/BannerRecommends';
 import ComponentsList from './components/ComponentsList';
 import DesignFramework from './components/DesignFramework';
 import Group from './components/Group';
+import PreviewBanner from './components/PreviewBanner';
 import Theme from './components/Theme';
-import { useSiteData } from './components/util';
 
-const useStyle = () => ({
+const useStyle = createStyles(() => ({
   image: css`
     position: absolute;
     left: 0;
     top: -50px;
     height: 160px;
   `,
-});
+}));
 
 const locales = {
   cn: {
@@ -37,45 +37,58 @@ const locales = {
 
 const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
-  const { id: localeId } = useDumiLocale();
-  const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
-  const { image } = useStyle();
-  const [siteData] = useSiteData();
+  const { styles } = useStyle();
+  const { token } = theme.useToken();
+
+  const isRootDark = useDark();
 
   return (
-    <ConfigProvider theme={{ algorithm: undefined }}>
-      <section>
-        <Banner>
-          <BannerRecommends extras={siteData?.extras?.[localeStr]} icons={siteData?.icons} />
-        </Banner>
-        <div>
+    <section>
+      <PreviewBanner>
+        {/* 文档很久没更新了，先藏起来 */}
+        {/* <Suspense fallback={<BannerRecommendsFallback />}>
+          <BannerRecommends />
+        </Suspense> */}
+      </PreviewBanner>
+
+      <div>
+        {/* 定制主题 */}
+        <ConfigProvider
+          theme={{
+            algorithm: theme.defaultAlgorithm,
+          }}
+        >
           <Theme />
-          <Group
-            background="#fff"
-            collapse
-            title={locale.assetsTitle}
-            description={locale.assetsDesc}
-            id="design"
-          >
-            <ComponentsList />
-          </Group>
-          <Group
-            title={locale.designTitle}
-            description={locale.designDesc}
-            background="#F5F8FF"
-            decoration={
-              <img
-                css={image}
-                src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-                alt=""
-              />
-            }
-          >
-            <DesignFramework />
-          </Group>
-        </div>
-      </section>
-    </ConfigProvider>
+        </ConfigProvider>
+
+        {/* 组件列表 */}
+        <Group
+          background={token.colorBgElevated}
+          collapse
+          title={locale.assetsTitle}
+          description={locale.assetsDesc}
+          id="design"
+        >
+          <ComponentsList />
+        </Group>
+
+        {/* 设计语言 */}
+        <Group
+          title={locale.designTitle}
+          description={locale.designDesc}
+          background={isRootDark ? 'rgb(57, 63, 74)' : '#F5F8FF'}
+          decoration={
+            <img
+              className={styles.image}
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
+              alt=""
+            />
+          }
+        >
+          <DesignFramework />
+        </Group>
+      </div>
+    </section>
   );
 };
 

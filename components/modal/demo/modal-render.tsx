@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Button, Modal } from 'antd';
 import type { DraggableData, DraggableEvent } from 'react-draggable';
 import Draggable from 'react-draggable';
+import { Button, Modal } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -71,6 +71,7 @@ const App: React.FC = () => {
           <Draggable
             disabled={disabled}
             bounds={bounds}
+            nodeRef={draggleRef}
             onStart={(event, uiData) => onStart(event, uiData)}
           >
             <div ref={draggleRef}>{modal}</div>

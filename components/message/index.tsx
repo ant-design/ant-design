@@ -1,5 +1,6 @@
-import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
+import { render } from 'rc-util/lib/React/render';
+
 import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
@@ -13,7 +14,7 @@ import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export { ArgsProps };
+export type { ArgsProps };
 
 let message: GlobalMessage | null = null;
 
@@ -68,7 +69,7 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     duration,
     rtl,
     maxCount,
@@ -82,29 +83,17 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const initializeMessageConfig: () => ConfigOptions = () => {
-    const { prefixCls, container, maxCount, duration, rtl, top } = getGlobalContext();
-
-    return {
-      prefixCls,
-      getContainer: () => container!,
-      maxCount,
-      duration,
-      rtl,
-      top,
-    };
-  };
-
-  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(initializeMessageConfig);
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
 
   const [api, holder] = useInternalMessage(messageConfig);
 
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
 
   const sync = () => {
-    setMessageConfig(initializeMessageConfig);
+    setMessageConfig(getGlobalContext);
   };
 
   React.useEffect(sync, []);
@@ -126,7 +115,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   });
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
       {holder}
     </ConfigProvider>
   );

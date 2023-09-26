@@ -8,17 +8,15 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         center
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -44,17 +42,15 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-start"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         start
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -80,17 +76,15 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-end"
+      class="ant-space ant-space-horizontal ant-space-align-end ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         end
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -116,17 +110,15 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
     class="space-align-block"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-baseline"
+      class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         baseline
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -153,17 +145,15 @@ exports[`renders components/space/demo/align.tsx correctly 1`] = `
 
 exports[`renders components/space/demo/base.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     Space
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -176,7 +166,6 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="ant-upload-wrapper"
@@ -358,11 +347,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -422,13 +411,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -483,13 +473,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
                     aria-hidden="true"
                     data-icon="close"
                     fill="currentColor"
+                    fill-rule="evenodd"
                     focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
                     <path
-                      d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                     />
                   </svg>
                 </span>
@@ -505,11 +496,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
               style="width:0"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="Search"
                 aria-owns="undefined_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -570,13 +561,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -594,7 +586,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item ant-input-compact-first-item"
+      class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item"
       style="width:30%"
     >
       <span
@@ -640,7 +632,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item"
+      class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
       style="width:50%"
     >
       <span
@@ -671,13 +663,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
                   aria-hidden="true"
                   data-icon="close-circle"
                   fill="currentColor"
+                  fill-rule="evenodd"
                   focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
                   />
                 </svg>
               </span>
@@ -719,7 +712,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item ant-input-compact-last-item"
+      class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-last-item"
       style="width:20%"
     >
       <span
@@ -779,11 +772,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -921,7 +914,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-middle ant-picker-compact-item ant-picker-compact-last-item"
+      class="ant-picker ant-picker-compact-item ant-picker-compact-last-item"
       style="width:50%"
     >
       <div
@@ -966,7 +959,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+      class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item"
       style="width:70%"
     >
       <div
@@ -1073,7 +1066,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-last-item"
+      class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-last-item"
       style="width:70%"
     >
       <div
@@ -1169,11 +1162,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1229,11 +1222,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1294,11 +1287,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1382,11 +1375,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1443,11 +1436,11 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1469,7 +1462,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+      class="ant-picker ant-picker-compact-item ant-picker-compact-first-item"
       style="width:70%"
     >
       <div
@@ -1526,6 +1519,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1576,7 +1570,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+      class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item"
     >
       <div
         class="ant-picker-input ant-picker-input-active"
@@ -1674,6 +1668,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1730,13 +1725,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             aria-hidden="true"
             data-icon="close-circle"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
             />
           </svg>
         </span>
@@ -1757,11 +1753,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
 
 exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-vertical"
@@ -1794,7 +1789,6 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-vertical"
@@ -2107,41 +2101,35 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
         Button 4
       </span>
     </button>
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display:inline-block;cursor:not-allowed"
+    <button
+      class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item"
-        disabled=""
-        style="pointer-events:none"
-        type="button"
+      <span
+        class="ant-btn-icon"
       >
         <span
-          class="ant-btn-icon"
+          aria-label="download"
+          class="anticon anticon-download"
+          role="img"
         >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="download"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
         </span>
-      </button>
-    </span>
+      </span>
+    </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
@@ -2199,41 +2187,35 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
         Button 3
       </span>
     </button>
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display:inline-block;cursor:not-allowed"
+    <button
+      class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
-        disabled=""
-        style="pointer-events:none"
-        type="button"
+      <span
+        class="ant-btn-icon"
       >
         <span
-          class="ant-btn-icon"
+          aria-label="download"
+          class="anticon anticon-download"
+          role="img"
         >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="download"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
         </span>
-      </button>
-    </span>
+      </span>
+    </button>
     <button
       class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item"
       type="button"
@@ -2304,11 +2286,10 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
 
 exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact ant-space-compact-block"
@@ -2353,52 +2334,44 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           Link Button
         </span>
       </button>
-      <span
-        class="ant-tooltip-disabled-compatible-wrapper"
-        style="display:inline-block;cursor:not-allowed"
+      <button
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
+        disabled=""
+        type="button"
       >
-        <button
-          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
-          disabled=""
-          style="pointer-events:none"
-          type="button"
+        <span
+          class="ant-btn-icon"
         >
           <span
-            class="ant-btn-icon"
+            aria-label="download"
+            class="anticon anticon-download"
+            role="img"
           >
-            <span
-              aria-label="download"
-              class="anticon anticon-download"
-              role="img"
+            <svg
+              aria-hidden="true"
+              data-icon="download"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="download"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
           </span>
-        </button>
-      </span>
+        </span>
+      </button>
     </div>
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -2446,7 +2419,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -2476,11 +2448,11 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -2545,11 +2517,11 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="undefined_list_0"
                     aria-autocomplete="list"
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -2630,13 +2602,12 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -2681,7 +2652,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -2757,7 +2728,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -2847,7 +2817,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -2891,7 +2860,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -2928,6 +2896,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
+                    aria-label="Search"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -2992,13 +2961,11 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3015,7 +2982,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3064,7 +3030,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3081,7 +3046,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3104,7 +3068,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3205,7 +3168,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3220,11 +3182,11 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3274,13 +3236,12 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item"
         style="width:70%"
       >
         <div
@@ -3365,7 +3326,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3448,7 +3408,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-space-compact"
@@ -3468,6 +3427,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3667,11 +3627,11 @@ Array [
               class="ant-select-selection-search"
             >
               <input
-                aria-activedescendant="undefined_list_0"
                 aria-autocomplete="list"
                 aria-controls="undefined_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
+                aria-label="Search"
                 aria-owns="undefined_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -3734,7 +3694,7 @@ Array [
         class="ant-space-compact"
       >
         <span
-          class="ant-input-group-wrapper ant-input-search ant-input-search-middle ant-input-compact-item"
+          class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
           style="width:110px"
         >
           <span
@@ -3836,7 +3796,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-middle ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-compact-item ant-picker-compact-first-item"
       >
         <div
           class="ant-picker-input"
@@ -3903,6 +3863,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3960,105 +3921,17 @@ Array [
 ]
 `;
 
-exports[`renders components/space/demo/customize.tsx correctly 1`] = `
-Array [
-  <div
-    class="ant-slider ant-slider-horizontal"
-  >
-    <div
-      class="ant-slider-rail"
-    />
-    <div
-      class="ant-slider-track"
-      style="left:0%;width:8%"
-    />
-    <div
-      class="ant-slider-step"
-    />
-    <div
-      aria-disabled="false"
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="8"
-      class="ant-slider-handle"
-      role="slider"
-      style="left:8%;transform:translateX(-50%)"
-      tabindex="0"
-    />
-  </div>,
-  <br />,
-  <br />,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-  >
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Default
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="margin-right:8px"
-    >
-      <button
-        class="ant-btn ant-btn-dashed"
-        type="button"
-      >
-        <span>
-          Dashed
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-link"
-        type="button"
-      >
-        <span>
-          Link
-        </span>
-      </button>
-    </div>
-  </div>,
-]
-`;
-
 exports[`renders components/space/demo/debug.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4071,13 +3944,11 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     Button
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4090,27 +3961,19 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
-    <span
-      class="ant-popover-disabled-compatible-wrapper"
-      style="display:inline-block;cursor:not-allowed"
+    <button
+      class="ant-btn ant-btn-default"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        disabled=""
-        style="pointer-events:none"
-        type="button"
-      >
-        <span>
-          Delete
-        </span>
-      </button>
-    </span>
+      <span>
+        Delete
+      </span>
+    </button>
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     1
   </div>
@@ -4149,11 +4012,10 @@ Array [
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px;width:310px;background:blue"
+      style="flex-wrap:wrap;column-gap:8px;row-gap:8px;width:310px;background:blue"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <div
           style="width:150px;height:100px;background:red"
@@ -4161,7 +4023,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <div
           style="width:150px;height:100px;background:red"
@@ -4169,7 +4030,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <div
           style="width:150px;height:100px;background:red"
@@ -4177,7 +4037,6 @@ Array [
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <div
           style="width:150px;height:100px;background:red"
@@ -4197,7 +4056,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -4210,14 +4069,14 @@ Array [
         />
       </span>
       <span>
-        Small
+        small
       </span>
     </label>
     <label
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -4229,14 +4088,14 @@ Array [
         />
       </span>
       <span>
-        Middle
+        middle
       </span>
     </label>
     <label
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -4248,18 +4107,36 @@ Array [
         />
       </span>
       <span>
-        Large
+        large
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="customize"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        customize
       </span>
     </label>
   </div>,
   <br />,
   <br />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -4272,7 +4149,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -4285,7 +4161,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-dashed"
@@ -4314,11 +4189,10 @@ Array [
 
 exports[`renders components/space/demo/split.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:4px"
   >
     <a
       class="ant-typography"
@@ -4328,7 +4202,6 @@ exports[`renders components/space/demo/split.tsx correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -4337,7 +4210,6 @@ exports[`renders components/space/demo/split.tsx correctly 1`] = `
   </span>
   <div
     class="ant-space-item"
-    style="margin-right:4px"
   >
     <a
       class="ant-typography"
@@ -4347,7 +4219,6 @@ exports[`renders components/space/demo/split.tsx correctly 1`] = `
   </div>
   <span
     class="ant-space-item-split"
-    style="margin-right:4px"
   >
     <div
       class="ant-divider ant-divider-vertical"
@@ -4368,12 +4239,11 @@ exports[`renders components/space/demo/split.tsx correctly 1`] = `
 
 exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
   style="display:flex"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -4405,7 +4275,6 @@ exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-card ant-card-bordered ant-card-small"
@@ -4472,11 +4341,10 @@ exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
 exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-16px"
+  style="flex-wrap:wrap;column-gap:8px;row-gap:16px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4489,7 +4357,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4502,7 +4369,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4515,7 +4381,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4528,7 +4393,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4541,7 +4405,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4554,7 +4417,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4567,7 +4429,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4580,7 +4441,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4593,7 +4453,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4606,7 +4465,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4619,7 +4477,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4632,7 +4489,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4645,7 +4501,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4658,7 +4513,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4671,7 +4525,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4684,7 +4537,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4697,7 +4549,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4710,7 +4561,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -4723,7 +4573,6 @@ exports[`renders components/space/demo/wrap.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:16px"
   >
     <button
       class="ant-btn ant-btn-default"

@@ -1,10 +1,10 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { css, Global } from '@emotion/react';
+import { useTheme } from 'antd-style';
 
-export default () => {
-  const { token } = useSiteToken();
+const GlobalStyle: React.FC = () => {
+  const token = useTheme();
 
   const { antCls } = token;
 
@@ -28,9 +28,18 @@ export default () => {
           max-height: 100%;
         }
 
+        .markdown > a > img,
+        .markdown > img {
+          display: block;
+          margin: 0 auto;
+        }
+
         .markdown p > img {
-          margin: 34px 0;
+          margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+          max-width: 1024px;
+          width: 100%;
+          display: block;
         }
 
         .markdown p > img.markdown-inline-image {
@@ -178,6 +187,39 @@ export default () => {
             padding: 12px 20px;
             font-size: 13px;
             line-height: 2;
+          }
+        }
+        .pic-plus {
+          & > * {
+            display: inline-block !important;
+            vertical-align: middle;
+          }
+          span {
+            margin: 0 20px;
+            color: #aaa;
+            font-size: 30px;
+          }
+        }
+        .antd-site-snippet {
+          .ant-tabs-tab {
+            .snippet-label {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              svg {
+                margin-inline-end: 8px;
+              }
+            }
+          }
+          .dumi-default-source-code {
+            margin: 0 auto;
+            background-color: ${token.siteMarkdownCodeBg};
+            border-radius: ${token.borderRadius}px;
+            > pre.prism-code {
+              padding: 12px 20px;
+              font-size: 13px;
+              line-height: 2;
+            }
           }
         }
 
@@ -455,3 +497,5 @@ export default () => {
     />
   );
 };
+
+export default GlobalStyle;

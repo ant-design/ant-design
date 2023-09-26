@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Other
+group: Feedback
 title: Watermark
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
@@ -22,8 +22,11 @@ Add specific text or patterns to the page.
 <code src="./demo/multi-line.tsx">Multi-line watermark</code>
 <code src="./demo/image.tsx">Image watermark</code>
 <code src="./demo/custom.tsx">Custom configuration</code>
+<code src="./demo/portal.tsx">Modal or Drawer</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Watermark
 

@@ -1,11 +1,25 @@
+import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
+  /**
+   * @desc 指示点宽度
+   * @descEN Width of indicator
+   */
   dotWidth: number;
+  /**
+   * @desc 指示点高度
+   * @descEN Height of indicator
+   */
   dotHeight: number;
+  /** @deprecated Use `dotActiveWidth` instead. */
   dotWidthActive: number;
+  /**
+   * @desc 激活态指示点宽度
+   * @descEN Width of active indicator
+   */
+  dotActiveWidth: number;
 }
 
 interface CarouselToken extends FullToken<'Carousel'> {
@@ -180,6 +194,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
         display: 'flex !important',
         justifyContent: 'center',
         paddingInlineStart: 0,
+        margin: 0,
         listStyle: 'none',
 
         '&-bottom': {
@@ -233,7 +248,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
           },
 
           '&.slick-active': {
-            width: token.dotWidthActive,
+            width: token.dotActiveWidth,
 
             '& button': {
               background: token.colorBgContainer,
@@ -342,9 +357,17 @@ export default genComponentStyleHook(
       genCarouselRtlStyle(carouselToken),
     ];
   },
+  () => {
+    const dotActiveWidth = 24;
+
+    return {
+      dotWidth: 16,
+      dotHeight: 3,
+      dotWidthActive: dotActiveWidth,
+      dotActiveWidth,
+    };
+  },
   {
-    dotWidth: 16,
-    dotHeight: 3,
-    dotWidthActive: 24,
+    deprecatedTokens: [['dotWidthActive', 'dotActiveWidth']],
   },
 );

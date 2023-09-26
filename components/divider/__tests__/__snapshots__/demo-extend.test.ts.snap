@@ -1,5 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders components/divider/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Text
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Left Text
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Right Text
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-no-default-orientation-margin-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+      style="margin-left: 0px;"
+    >
+      Left Text with 0 orientationMargin
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-right ant-divider-no-default-orientation-margin-right"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+      style="margin-right: 50px;"
+    >
+      Right Text with 50px orientationMargin
+    </span>
+  </div>,
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
+  </p>,
+]
+`;
+
+exports[`renders components/divider/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/divider/demo/customize-style.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -51,6 +128,8 @@ Array [
 ]
 `;
 
+exports[`renders components/divider/demo/customize-style.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/divider/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <p>
@@ -72,6 +151,8 @@ Array [
   </p>,
 ]
 `;
+
+exports[`renders components/divider/demo/horizontal.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/divider/demo/plain.tsx extend context correctly 1`] = `
 Array [
@@ -120,6 +201,8 @@ Array [
 ]
 `;
 
+exports[`renders components/divider/demo/plain.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/divider/demo/vertical.tsx extend context correctly 1`] = `
 Array [
   Text,
@@ -143,6 +226,8 @@ Array [
   </a>,
 ]
 `;
+
+exports[`renders components/divider/demo/vertical.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/divider/demo/with-text.tsx extend context correctly 1`] = `
 Array [
@@ -218,3 +303,5 @@ Array [
   </p>,
 ]
 `;
+
+exports[`renders components/divider/demo/with-text.tsx extend context correctly 2`] = `[]`;

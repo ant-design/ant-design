@@ -1,6 +1,6 @@
+import React from 'react';
 import type { FormInstance } from 'antd';
 import { Button, Form, Input, Space } from 'antd';
-import React from 'react';
 
 const SubmitButton = ({ form }: { form: FormInstance }) => {
   const [submittable, setSubmittable] = React.useState(false);
@@ -26,7 +26,7 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   return (

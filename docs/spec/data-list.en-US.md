@@ -6,197 +6,197 @@ skip: true
 title: Data List
 ---
 
-## 设计目标
+## Design goals
 
-- 让列表易于扫读。
-- 快速查找列表中的对象。
+- Make lists easy to scan.
+- Quickly find objects in the list.
 
-## 列表类型
+## List type
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*60WRRKpliSIAAAAAAAAAAABkARQnAQ" />
 </div>
 
-### 表格 Table
+### Table
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VrOkRbo_Uc4AAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-强调浏览性。矩阵布局，趋向于展示复杂数据，数据按照矩阵布局对齐，方便横纵浏览数据，研究数据之间的关系。特别当用户受益于更多的数据外露，而无需进入该对象详情时，使用表格。
+Emphasis on browsing. The matrix layout tends to display complex data, and the data is aligned according to the matrix layout, which is convenient for browsing data horizontally and vertically, and studying the relationship between data. Tables are used especially when the user would benefit from more data exposure without having to go into the details of the object.
 
-### 列表 List
+### List
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*D-8wTbCA1REAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-兼顾浏览性与展示性。垂直排列，趋向于展示对象的基础概述，有层次地展示内容，适合快速扫读。特别当展示空间存在限制，如较小的弹窗、侧栏、下拉面板等容器中，使用列表。
+Consider both browsing and presentation. Arranged vertically, it tends to show the basic overview of the object, and the content is displayed hierarchically, which is suitable for quick scanning. Especially when the display space is limited, such as smaller pop-up windows, sidebars, drop-down panels and other containers, use lists.
 
-### 卡片列表 Card list
+### Card list
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fu2gQ6DQaGgAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-强调展示性。网格布局无特定浏览顺序，每个对象拥有更平等的展示机会，网格布局在页面中更具吸引力，适合突出对象时使用。
+Emphasis on presentation. The grid layout has no specific browsing order, and each object has a more equal display opportunity. The grid layout is more attractive on the page and is suitable for highlighting objects.
 
-## 操作行为
+## Operation Behavior
 
-### 搜寻数据
+### Search data
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pEyLSJsDgYIAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-选择适合的搜寻组件。
+Select the appropriate search component.
 
-**1）明确用户主要的搜寻模式。**
+**1）Identify the main search patterns of users.**
 
-- 已知项探索：从可言语描述的已知项开始搜寻。
-- 探索性查询：对需求确定但范围宽泛的目标进行搜寻。
+- Known Items Exploration: Start the search with verbally describable known items.
+- Exploratory query: search for a target with a defined but broad scope.
 
-**2）搜寻频次越高对效率的要求越高。**
+**2）The higher the search frequency, the higher the efficiency requirements.**
 
-**3）与开发做好沟通，了解系统性能， 选择合适的组件。**
+**3）Communicate well with developers to understand system performance and select appropriate components.**
 
-#### 查询
+#### Inquire
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gHgBRofoBDQAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-按照预设的条件，选择多个查询条件后一次性提交获取查询。
+According to the preset conditions, select multiple query conditions and submit the acquisition query at one time.
 
-#### 筛选
+#### Filter
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oECHSpfxwPAAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-用户调整筛选项，结果即随之调整。
+Users adjust the filters and the results adjust accordingly.
 
-### 搜索
+### Search
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*agcCS5eHy2UAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-更智能的查找，输入关键词一次性在多种数据属性中查询后，展示结果。
+Smarter search, enter keywords to query in multiple data attributes at one time, and display the results.
 
-### 分页
+### Paging
 
-默认使用分页加载，用于减少用户等待。应缓存用户在原列表中的浏览位置，并标记列表中已浏览项，当用户返回上级页面是回到原浏览位置。
+By default, page loading is used to reduce user waiting. The user's browsing position in the original list should be cached, and the browsed items in the list should be marked. When the user returns to the previous page, the user returns to the original browsing position.
 
-#### 分页器
+#### Pagination
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1sIoQKjspJIAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-默认推荐使用。使用时，当页面内容不足一页时，不展示分页器。
+Recommended by default. When used, when the content of the page is less than one page, the pager will not be displayed.
 
-#### 同页加载
+#### same page load
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ejtTTo4E0A4AAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-当用户常常能够在列表靠前位置找到所需条目，且无定位特定列表项的需求时可以考虑使用这种模式，如动态、邮件。
+This mode can be considered when users can often find the desired item at the top of the list and there is no need to locate a specific list item, such as dynamics and emails.
 
-#### 查看全部
+#### view all
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cgIlQJUC2_kAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-当需跳转页面查看完整列表时使用。
+Use when you need to jump to the page to view the complete list.
 
-### 导航至详情
+### Navigate to details
 
 <div>
   <img alt="mainly" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*nSsBTZlxihsAAAAAAAAAAABkARQnAQ">
 </div>
 
-#### 默认点击标题导航至详情，可以从以下几个角度判断如何打开详情：
+#### By default, click on the title to navigate to the details, and you can judge how to open the details from the following angles:
 
-- 自然交互的角度，**同页展开列表**更自然，需注意展开的内容区高度不要超过一屏；
-- 详情的信息量大小角度，如果信息展示超过一屏，使用展开的方式不便于用户操作，此时使用**抽屉展开**更好；
-- 详情需要被单独分享给他人，或复杂的沉浸式任务，**跳转独立页**更合适；
-- 每条详情中都可能有用户感兴趣的内容，以方便切换的导航，快速查看和处理不同的项目，可以使用**双栏展示。**
+- From the perspective of natural interaction, **Expand the list on the same page** is more natural, and it should be noted that the height of the expanded content area should not exceed one screen;
+- From the perspective of the amount of information in the details, if the information display exceeds one screen, it is not convenient for the user to use the unfolding method. At this time, it is better to use **Drawer Expand**;
+- Details need to be shared with others separately, or complex immersive tasks, **jump to independent page** is more suitable;
+- There may be content that the user is interested in in each item of detail, so as to facilitate switching navigation, quickly view and process different items, you can use the ** double column display. **
 
-### 批量操作
+### Batch operations
 
 <ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i6PJT6ArtcgAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" src="https://github.com/ant-design/ant-design/assets/10286961/0ed9e155-488b-4114-a3ea-9c9de78d7899">
 </ImagePreview>
 
-当用户勾选条目后，触发批量操作模式，列表工具栏呼出批量操作工具条。
+When the user checks the item, the batch operation mode is triggered, and the list toolbar calls out the batch operation toolbar.
 
-### 新建
+### New
 
-#### 右上角新建按钮
+#### New button in the upper right corner
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HeQwR4Dc5aEAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-点击触发新建表单弹窗、抽屉、页面等，完成创建后新创建的内容出现在列表的第一条，并短暂地高亮展示。
+Click to trigger a new form pop-up window, drawer, page, etc. After the creation is completed, the newly created content appears in the first item of the list and is briefly highlighted.
 
-#### 虚线新建按钮
+#### Dashed New Button
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2OsyRpOCCIYAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-点击新建，在按钮位置出现对象编辑区，完成新建后即在该位置展示该新建对象。虚线新建按钮位置放在列表首或尾。
+Click New, and the object editing area will appear at the button position, and the newly created object will be displayed at this position after the creation is completed. The dotted new button position is placed at the beginning or end of the list.
 
-### 删除
+### delete
 
-#### 直接删除
+#### Delete directly
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rPUVTqeMzzgAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-删除后，允许用户撤销。
+After deletion, allow user to undo.
 
-#### 二次确认
+#### Second Confirmation
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kYkSRKhHbIoAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-点击删除操作时，需要二次确认。
+When clicking the delete operation, a second confirmation is required.
 
-#### 安全校验
+#### Security check
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vkUuTYWLRCMAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-破坏性操作需高安全级别验证确认操作。
+Destructive operations require high-level security verification to confirm operations.
 
-### 列表工具栏
+### List Toolbar
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cPBwQ74TTFQAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-在较小的空间中集成列表所需的常用功能，非常推荐使用。
+Common features needed to integrate lists in a small space, highly recommended.
 
-## 布局
+## layout
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y6PZQpyrFXUAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-列表布局通常从上往下平铺，按照以下顺序排列。其中独占式区域提供了一个扩展空间，用于解决无法集成于工具栏中的复杂数据搜寻、数据统计类内容。
+List layouts are usually tiled from top to bottom, in the following order. Among them, the exclusive area provides an expansion space for solving complex data search and data statistics content that cannot be integrated in the toolbar.
 
-## 空状态
+## Empty state
 
 <ImagePreview>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8iBER4YJmdQAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-当列表无数据或无搜索结果时，应展示空状态。
+When the list has no data or no search results, an empty state should be displayed.

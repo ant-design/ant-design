@@ -1,5 +1,5 @@
-import { Popconfirm } from 'antd';
 import React from 'react';
+import { Popconfirm } from 'antd';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfirm;
 

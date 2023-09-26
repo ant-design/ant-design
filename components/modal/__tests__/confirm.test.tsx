@@ -1,10 +1,11 @@
+import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
+
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, waitFakeTimer } from '../../../tests/utils';
@@ -539,7 +540,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     // We check icon is not exist in the body
-    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(2);
+    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(1);
     expect(
       document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
     ).toBeFalsy();
@@ -828,5 +829,38 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
       expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
     });
+  });
+
+  it('warning getContainer be false', async () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    Modal.confirm({
+      getContainer: false,
+    });
+
+    await waitFakeTimer();
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Static method not support `getContainer` to be `false` since it do not have context env.',
+    );
+
+    warnSpy.mockRestore();
+  });
+
+  it('Should custom footer function work width confirm', async () => {
+    Modal.confirm({
+      content: 'hai',
+      footer: (_, { OkBtn, CancelBtn }) => (
+        <>
+          <OkBtn />
+          <CancelBtn />
+          <div className="custom-footer-ele">footer-ele</div>
+        </>
+      ),
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
 });

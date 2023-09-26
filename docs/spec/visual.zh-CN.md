@@ -87,7 +87,7 @@ title: 可视化
 
 AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
-获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/zh/docs/specification/principles/visual/)
+获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/specification/language/palette)
 
 ### 组件使用建议
 
@@ -161,9 +161,9 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 ### 交互
 
-<div style="text-align:center;">
-  <img alt="Background" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QXtKSIMgaOUAAAAAAAAAAABkARQnAQ" />
-</div>
+<ImagePreview>
+  <img alt="动态交互" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QXtKSIMgaOUAAAAAAAAAAABkARQnAQ" />
+</ImagePreview>
 
 区别于传统数据报表相对静态的表现形式，交互式图表并不停留在信息展示层面。用户通过与图不断产生交互，从数据中获取更深层次的分析和信息。
 

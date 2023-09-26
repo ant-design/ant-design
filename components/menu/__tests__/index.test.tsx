@@ -8,12 +8,14 @@ import {
 import React, { useMemo, useState } from 'react';
 import type { MenuProps, MenuRef } from '..';
 import Menu from '..';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import Layout from '../../layout';
 import initCollapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
+import Layout from '../../layout';
+import OverrideContext from '../OverrideContext';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', {
   writable: true,
@@ -1098,5 +1100,73 @@ describe('Menu', () => {
       'opacity',
       '0',
     );
+  });
+
+  it('Overflow indicator className should not override menu class', () => {
+    const { container } = render(
+      <TriggerMockContext.Provider value={{ popupVisible: true }}>
+        <Menu
+          items={[
+            { key: '1', label: 'Option 1' },
+            { key: '2', label: 'Option 1' },
+            { key: '3', label: 'Option 1' },
+            { key: '4', label: 'Option 1' },
+            { key: '5', label: 'Option 1' },
+            { key: '6', label: 'Option 1' },
+            { key: '7', label: 'Option 1' },
+            { key: '8', label: 'Option 1' },
+          ]}
+          mode="horizontal"
+          overflowedIndicatorPopupClassName="custom-popover"
+          getPopupContainer={(node) => node.parentElement!}
+        />
+      </TriggerMockContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu.ant-menu-light.custom-popover')).toBeTruthy();
+  });
+
+  it('hide expand icon when pass null or false into expandIcon', () => {
+    const App = ({ expand }: { expand?: React.ReactNode }) => (
+      <Menu
+        expandIcon={expand}
+        items={[
+          {
+            label: 'Option 1',
+            key: '1',
+            icon: '112',
+            children: [
+              {
+                label: 'Option 1-1',
+                key: '1-1',
+              },
+            ],
+          },
+        ]}
+      />
+    );
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeTruthy();
+
+    rerender(<App expand={null} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(<App expand={false} />);
+
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: null }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
+
+    rerender(
+      <OverrideContext.Provider value={{ expandIcon: false }}>
+        <App />
+      </OverrideContext.Provider>,
+    );
+    expect(container.querySelector('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 });

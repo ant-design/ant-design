@@ -50,10 +50,11 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     block,
     options = [],
     size: customSize = 'middle',
+    style,
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
@@ -82,19 +83,25 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     [options, prefixCls],
   );
 
+  const cls = classNames(
+    className,
+    rootClassName,
+    segmented?.className,
+    {
+      [`${prefixCls}-block`]: block,
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+    },
+    hashId,
+  );
+
+  const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
+
   return wrapSSR(
     <RcSegmented
       {...restProps}
-      className={classNames(
-        className,
-        rootClassName,
-        {
-          [`${prefixCls}-block`]: block,
-          [`${prefixCls}-sm`]: mergedSize === 'small',
-          [`${prefixCls}-lg`]: mergedSize === 'large',
-        },
-        hashId,
-      )}
+      className={cls}
+      style={mergedStyle}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}

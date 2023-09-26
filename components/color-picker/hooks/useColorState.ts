@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
 import type { Color } from '../color';
+import type { ColorValueType } from '../interface';
 import { generateColor } from '../util';
 
-function hasValue(value?: Color | string) {
+function hasValue(value?: ColorValueType) {
   return value !== undefined;
 }
 
 const useColorState = (
-  defaultStateValue: Color | string,
-  option: { defaultValue?: Color | string; value?: Color | string },
+  defaultStateValue: ColorValueType,
+  option: { defaultValue?: ColorValueType; value?: ColorValueType },
 ): readonly [Color, React.Dispatch<React.SetStateAction<Color>>] => {
   const { defaultValue, value } = option;
   const [colorValue, setColorValue] = useState<Color>(() => {
-    let mergeState: string | Color | undefined;
+    let mergeState: ColorValueType | undefined;
     if (hasValue(value)) {
       mergeState = value;
     } else if (hasValue(defaultValue)) {

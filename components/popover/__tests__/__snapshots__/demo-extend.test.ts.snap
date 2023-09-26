@@ -624,105 +624,7 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders components/popover/demo/arrow-point-at-center.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
->
-  <div
-    class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Align edge / 边缘对齐
-      </span>
-    </button>
-    <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-popover-arrow"
-        style="position: absolute;"
-      />
-      <div
-        class="ant-popover-content"
-      >
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
-        >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-space-item"
-    style="padding-bottom: 8px;"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Arrow points to center / 箭头指向中心
-      </span>
-    </button>
-    <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
-    >
-      <div
-        class="ant-popover-arrow"
-        style="position: absolute;"
-      />
-      <div
-        class="ant-popover-content"
-      >
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
-        >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
+exports[`renders components/popover/demo/arrow.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] = `
 Array [
@@ -772,6 +674,83 @@ Array [
 ]
 `;
 
+exports[`renders components/popover/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popover/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    style="width: 250px;"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+      style="width: 250px;"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-title"
+        >
+          Title
+        </div>
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popover/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/control.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -814,6 +793,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popover/demo/control.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 1`] = `
 Array [
@@ -892,6 +873,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popover/demo/hover-with-click.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div>
@@ -1454,6 +1437,8 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/popover/demo/placement.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1527,14 +1512,15 @@ Array [
 ]
 `;
 
+exports[`renders components/popover/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1582,7 +1568,6 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1630,7 +1615,6 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -1678,6 +1662,8 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/popover/demo/triggerType.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/popover/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
@@ -1751,3 +1737,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popover/demo/wireframe.tsx extend context correctly 2`] = `[]`;

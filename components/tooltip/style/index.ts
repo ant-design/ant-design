@@ -5,7 +5,12 @@ import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../th
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 文字提示 z-index
+   * @descEN z-index of tooltip
+   */
   zIndexPopup: number;
+  /** @deprecated */
   colorBgDefault: string;
 }
 

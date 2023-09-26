@@ -1,3 +1,4 @@
+import { operationUnit } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 import {
@@ -8,18 +9,25 @@ import {
   getResetStyles,
   getTitleStyles,
 } from './mixins';
-import { operationUnit } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
-  sizeMarginHeadingVerticalStart: number | string;
-  sizeMarginHeadingVerticalEnd: number | string;
+  /**
+   * @desc 标题上间距
+   * @descEN Margin top of title
+   */
+  titleMarginTop: number | string;
+  /**
+   * @desc 标题下间距
+   * @descEN Margin bottom of title
+   */
+  titleMarginBottom: number | string;
 }
 
 export type TypographyToken = FullToken<'Typography'>;
 
 const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
-  const { componentCls, sizeMarginHeadingVerticalStart } = token;
+  const { componentCls, titleMarginTop } = token;
 
   return {
     [componentCls]: {
@@ -70,7 +78,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       & + h4${componentCls},
       & + h5${componentCls}
       `]: {
-        marginTop: sizeMarginHeadingVerticalStart,
+        marginTop: titleMarginTop,
       },
 
       [`
@@ -90,7 +98,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
         + h4,
         + h5
         `]: {
-          marginTop: sizeMarginHeadingVerticalStart,
+          marginTop: titleMarginTop,
         },
       },
 
@@ -122,7 +130,11 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Typography', (token) => [genTypographyStyle(token)], {
-  sizeMarginHeadingVerticalStart: '1.2em',
-  sizeMarginHeadingVerticalEnd: '0.5em',
-});
+export default genComponentStyleHook(
+  'Typography',
+  (token) => [genTypographyStyle(token)],
+  () => ({
+    titleMarginTop: '1.2em',
+    titleMarginBottom: '0.5em',
+  }),
+);

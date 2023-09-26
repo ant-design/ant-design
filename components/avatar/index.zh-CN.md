@@ -28,8 +28,11 @@ group:
 <code src="./demo/toggle-debug.tsx" debug>隐藏情况下计算字符对齐</code>
 <code src="./demo/responsive.tsx">响应式尺寸</code>
 <code src="./demo/fallback.tsx" debug>图片不存在时</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Avatar
 
@@ -57,7 +60,8 @@ group:
 | maxPopoverTrigger | 设置多余头像 Popover 的触发方式 | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
 | maxStyle | 多余头像样式 | CSSProperties | - |  |
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
+| shape | 设置头像的形状 | `circle` \| `square` | `circle` | 5.8.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Avatar"></ComponentTokenTable>

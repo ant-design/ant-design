@@ -70,6 +70,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 <code src="./demo/fixed.tsx" iframe="360">固定头部</code>
 <code src="./demo/fixed-sider.tsx" iframe="360">固定侧边栏</code>
 <code src="./demo/custom-trigger-debug.tsx" compact background="grey" debug>自定义触发器 Debug</code>
+<code src="./demo/component-token.tsx" compact background="grey" debug>组件 Token</code>
 
 ## API
 
@@ -86,6 +87,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 ```
 
 ### Layout
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 布局容器。
 
@@ -129,6 +132,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 }
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Layout"></ComponentTokenTable>

@@ -25,6 +25,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 ```jsx
 <Empty>
   <Button>创建</Button>
@@ -64,6 +66,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
   }
 </style>
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Empty"></ComponentTokenTable>

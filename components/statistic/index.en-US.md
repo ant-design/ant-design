@@ -27,6 +27,8 @@ Display statistic number.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 #### Statistic
 
 | Property         | Description                   | Type                 | Default | Version |

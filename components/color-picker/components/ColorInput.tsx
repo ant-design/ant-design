@@ -11,7 +11,7 @@ import ColorHsbInput from './ColorHsbInput';
 import ColorRgbInput from './ColorRgbInput';
 
 interface ColorInputProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'format' | 'onFormatChange'> {
+  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'format' | 'onFormatChange' | 'disabledAlpha'> {
   value?: Color;
   onChange?: (value: Color) => void;
 }
@@ -22,7 +22,7 @@ const selectOptions = [ColorFormat.hex, ColorFormat.hsb, ColorFormat.rgb].map((f
 }));
 
 const ColorInput: FC<ColorInputProps> = (props) => {
-  const { prefixCls, format, value, onFormatChange, onChange } = props;
+  const { prefixCls, format, value, disabledAlpha, onFormatChange, onChange } = props;
   const [colorFormat, setColorFormat] = useMergedState(ColorFormat.hex, {
     value: format,
     onChange: onFormatChange,
@@ -61,7 +61,9 @@ const ColorInput: FC<ColorInputProps> = (props) => {
         options={selectOptions}
       />
       <div className={colorInputPrefixCls}>{steppersNode}</div>
-      <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />
+      {!disabledAlpha && (
+        <ColorAlphaInput prefixCls={prefixCls} value={value} onChange={onChange} />
+      )}
     </div>
   );
 };

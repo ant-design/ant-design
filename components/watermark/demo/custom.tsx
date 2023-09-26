@@ -1,6 +1,6 @@
+import React, { useMemo, useState } from 'react';
 import { ColorPicker, Form, Input, InputNumber, Slider, Space, Typography, Watermark } from 'antd';
 import type { Color } from 'antd/es/color-picker';
-import React, { useMemo, useState } from 'react';
 
 const { Paragraph } = Typography;
 
@@ -103,7 +103,7 @@ const App: React.FC = () => {
           <ColorPicker />
         </Form.Item>
         <Form.Item name="fontSize" label="FontSize">
-          <Slider step={1} min={0} max={100} />
+          <Slider step={1} min={1} max={100} />
         </Form.Item>
         <Form.Item name="zIndex" label="zIndex">
           <Slider step={1} min={0} max={100} />

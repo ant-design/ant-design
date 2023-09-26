@@ -25,7 +25,6 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/line-mini.tsx">Mini size progress bar</code>
 <code src="./demo/circle-micro.tsx">Responsive circular progress bar</code>
 <code src="./demo/circle-mini.tsx">Mini size circular progress bar</code>
-<code src="./demo/circle-dynamic.tsx">Dynamic circular progress bar</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
 <code src="./demo/format.tsx">Custom text format</code>
 <code src="./demo/dashboard.tsx">Dashboard</code>
@@ -36,6 +35,8 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/size.tsx">Progress size</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 Properties that shared by all types.
 
@@ -50,7 +51,7 @@ Properties that shared by all types.
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
 | trailColor | The color of unfilled part | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
-| size | Progress size | number \| \[number, number] \| "small" \| "default" | "default" | v5.3.0 |
+| size | Progress size | number \| \[number \| string, number] \| "small" \| "default" | "default" | v5.3.0 |
 
 ### `type="line"`
 
@@ -63,7 +64,7 @@ Properties that shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| strokeColor | The color of circular progress, render `linear-gradient` when passing an object | string \| object | - | - |
+| strokeColor | The color of circular progress, render gradient when passing an object | string \| { number%: string } | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
 
 ### `type="dashboard"`

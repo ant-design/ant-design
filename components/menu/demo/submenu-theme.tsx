@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { MailOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
 
@@ -63,7 +63,9 @@ const App: React.FC = () => {
         mode="vertical"
         theme="dark"
         items={items}
-        getPopupContainer={(node) => node.parentNode as HTMLElement}
+        getPopupContainer={function test(node) {
+          return node.parentNode as HTMLElement;
+        }}
       />
     </>
   );

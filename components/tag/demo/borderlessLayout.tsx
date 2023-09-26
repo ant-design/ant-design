@@ -1,5 +1,5 @@
-import { Divider, Space, Tag, theme } from 'antd';
 import React from 'react';
+import { Divider, Space, Tag, theme } from 'antd';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
