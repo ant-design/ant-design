@@ -38,15 +38,10 @@ export default () => {
     <div>
       <ConfigProvider
         theme={{
+          cssVariables: true,
           token: {
-            colorPrimary: data.colorPrimary,
-            borderRadius: data.borderRadius,
-          },
-          components: {
-            Button: {
-              colorPrimary: data.Button?.colorPrimary,
-              algorithm: data.Button?.algorithm,
-            },
+            colorPrimary: '#00B96B',
+            colorPrimaryHover: 'red',
           },
         }}
       >

@@ -45,6 +45,7 @@ export interface ThemeConfig {
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
   inherit?: boolean;
+  cssVariables?: boolean;
 }
 
 export interface ComponentStyleConfig {

@@ -22,6 +22,7 @@ export interface DesignTokenProviderProps {
       theme?: Theme<SeedToken, MapToken>;
     };
   };
+  cssVariables?: boolean;
   hashed?: string | boolean;
 }
 

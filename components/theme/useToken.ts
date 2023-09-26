@@ -7,49 +7,54 @@ import type { DesignTokenProviderProps } from './context';
 import { defaultTheme, DesignTokenContext } from './context';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
+import genColorMapToken from './themes/css-variables/genColorMapToken';
 
-export const getComputedToken = (
-  originToken: SeedToken,
-  overrideToken: DesignTokenProviderProps['components'] & {
-    override?: Partial<AliasToken>;
-  },
-  theme: Theme<any, any>,
-) => {
-  const derivativeToken = theme.getDerivativeToken(originToken);
+export const getComputedToken = (cssVariables: boolean = false) =>
+  function computeToken(
+    originToken: SeedToken,
+    overrideToken: DesignTokenProviderProps['components'] & {
+      override?: Partial<AliasToken>;
+    },
+    theme: Theme<any, any>,
+  ) {
+    const derivativeToken = theme.getDerivativeToken(originToken);
 
-  const { override, ...components } = overrideToken;
+    const { override, ...components } = overrideToken;
 
-  // Merge with override
-  let mergedDerivativeToken = {
-    ...derivativeToken,
-    override,
+    // Merge with override
+    let mergedDerivativeToken = {
+      ...derivativeToken,
+      override,
+    };
+
+    // Format if needed
+    mergedDerivativeToken = formatToken(mergedDerivativeToken);
+
+    if (components) {
+      Object.entries(components).forEach(([key, value]) => {
+        const { theme: componentTheme, ...componentTokens } = value;
+        let mergedComponentToken = componentTokens;
+        if (componentTheme) {
+          mergedComponentToken = computeToken(
+            {
+              ...mergedDerivativeToken,
+              ...componentTokens,
+            },
+            {
+              override: componentTokens,
+            },
+            componentTheme,
+          );
+        }
+        mergedDerivativeToken[key] = mergedComponentToken;
+      });
+    }
+
+    if (cssVariables) {
+      return { ...mergedDerivativeToken, ...genColorMapToken(mergedDerivativeToken) };
+    }
+    return mergedDerivativeToken;
   };
-
-  // Format if needed
-  mergedDerivativeToken = formatToken(mergedDerivativeToken);
-
-  if (components) {
-    Object.entries(components).forEach(([key, value]) => {
-      const { theme: componentTheme, ...componentTokens } = value;
-      let mergedComponentToken = componentTokens;
-      if (componentTheme) {
-        mergedComponentToken = getComputedToken(
-          {
-            ...mergedDerivativeToken,
-            ...componentTokens,
-          },
-          {
-            override: componentTokens,
-          },
-          componentTheme,
-        );
-      }
-      mergedDerivativeToken[key] = mergedComponentToken;
-    });
-  }
-
-  return mergedDerivativeToken;
-};
 
 // ================================== Hook ==================================
 export default function useToken(): [
@@ -62,6 +67,7 @@ export default function useToken(): [
     hashed,
     theme,
     components,
+    cssVariables,
   } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
@@ -74,7 +80,7 @@ export default function useToken(): [
     {
       salt,
       override: { override: rootDesignToken, ...components },
-      getComputedToken,
+      getComputedToken: getComputedToken(cssVariables),
       // formatToken will not be consumed after 1.15.0 with getComputedToken.
       // But token will break if @ant-design/cssinjs is under 1.15.0 without it
       formatToken,
