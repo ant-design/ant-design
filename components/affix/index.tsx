@@ -62,17 +62,23 @@ interface AffixRef {
 }
 
 const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
-  const { offsetTop, offsetBottom, affixPrefixCls, rootClassName, children, target, onChange } =
-    props;
+  const {
+    style,
+    offsetTop,
+    offsetBottom,
+    affixPrefixCls,
+    rootClassName,
+    children,
+    target,
+    onChange,
+  } = props;
 
+  const [lastAffix, setLastAffix] = React.useState<boolean>(false);
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
-  const status = React.useRef<AffixStatus>(AffixStatus.None);
-  const [lastAffix, setLastAffix] = React.useState<boolean>(false);
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
-  const prevListener = React.useRef<() => void>();
-
+  const prevListener = React.useRef<EventListener>();
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -83,14 +89,8 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
 
   const internalOffsetTop = offsetBottom === undefined && offsetTop === undefined ? 0 : offsetTop;
 
-  // =================== Measure ===================
-  const measure = () => {
-    if (
-      status.current !== AffixStatus.Prepare ||
-      !fixedNodeRef.current ||
-      !placeholderNodeRef.current ||
-      !targetFunc
-    ) {
+  const prepareMeasure = () => {
+    if (!fixedNodeRef.current || !placeholderNodeRef.current || !targetFunc) {
       return;
     }
 
@@ -143,17 +143,10 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
         onChange?.(newState.lastAffix);
       }
 
-      status.current = newState.status!;
       setAffixStyle(newState.affixStyle);
       setPlaceholderStyle(newState.placeholderStyle);
       setLastAffix(newState.lastAffix);
     }
-  };
-
-  const prepareMeasure = () => {
-    // event param is used before. Keep compatible ts define here.
-    status.current = AffixStatus.Prepare;
-    measure();
   };
 
   const updatePosition = throttleByAnimationFrame(() => {
@@ -219,9 +212,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     // We should use target as directly element instead of function which makes element check hard.
     timer.current = setTimeout(addListeners);
 
-    return () => {
-      removeListeners();
-    };
+    return () => removeListeners();
   }, []);
 
   React.useEffect(() => {
@@ -249,7 +240,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
 
   return (
     <ResizeObserver onResize={updatePosition}>
-      <div {...otherProps} ref={placeholderNodeRef}>
+      <div style={style} ref={placeholderNodeRef} {...otherProps}>
         {affixStyle ? <div style={placeholderStyle} aria-hidden="true" /> : null}
         <div className={className} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
