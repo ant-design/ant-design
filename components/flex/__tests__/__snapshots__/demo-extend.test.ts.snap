@@ -1,0 +1,675 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <p>
+    Select justify :
+  </p>
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="space-between"
+        >
+          space-between
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="space-around"
+        >
+          space-around
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="space-evenly"
+        >
+          space-evenly
+        </div>
+      </label>
+    </div>
+  </div>
+  <p>
+    Select align :
+  </p>
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-flex ant-flex-align-flex-start ant-flex-justify-flex-start"
+    style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid #40a9ff;"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/flex/demo/align.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="horizontal"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        horizontal
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="vertical"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        vertical
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-flex"
+  >
+    <div
+      style="width: 25%; height: 54px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="width: 25%; height: 54px; background-color: rgb(22, 119, 255);"
+    />
+    <div
+      style="width: 25%; height: 54px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="width: 25%; height: 54px; background-color: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/flex/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/flex/demo/combination.tsx extend context correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered ant-card-hoverable"
+  style="width: 620px;"
+>
+  <div
+    class="ant-card-body"
+    style="padding: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-flex ant-flex-justify-space-between"
+    >
+      <img
+        alt="avatar"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        style="display: block; width: 273px;"
+      />
+      <div
+        class="ant-flex ant-flex-align-flex-end ant-flex-justify-space-between ant-flex-vertical"
+        style="padding: 32px;"
+      >
+        <h3
+          class="ant-typography"
+        >
+          “antd is an enterprise-class UI design language and React UI library.”
+        </h3>
+        <a
+          class="ant-btn ant-btn-primary"
+          href="https://ant.design"
+          target="_blank"
+        >
+          <span>
+            Get Start
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/flex/demo/combination.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/flex/demo/debug.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  >
+    <div
+      style="height: 60px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="height: 60px; background-color: rgb(22, 119, 255);"
+    />
+    <div
+      style="height: 60px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="height: 60px; background-color: rgb(22, 119, 255);"
+    />
+  </div>,
+  <div
+    class="ant-flex"
+    style="margin-top: 20px;"
+  >
+    <div
+      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="width: 25%; height: 60px; background-color: rgb(22, 119, 255);"
+    />
+    <div
+      style="width: 25%; height: 40px; background-color: rgba(22, 119, 255, 0.749);"
+    />
+    <div
+      style="width: 25%; height: 60px; background-color: rgb(22, 119, 255);"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/flex/demo/debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="small"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        small
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="middle"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        middle
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="large"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        large
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="customize"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        customize
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-flex ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-dashed"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-link"
+      type="button"
+    >
+      <span>
+        Link
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/flex/demo/gap.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/flex/demo/wrap.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/flex/demo/wrap.tsx extend context correctly 2`] = `[]`;

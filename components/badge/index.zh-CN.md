@@ -50,13 +50,13 @@ group: 数据展示
 | offset | 设置状态点的位置偏移 | \[number, number] | - |  |
 | overflowCount | 展示封顶的数字值 | number | 99 |  |
 | showZero | 当数值为 0 时，是否展示 Badge | boolean | false |  |
-| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `default` \| `small` | - | 4.6.0 |
+| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `default` \| `small` | - | - |
 | status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | styles | 语义化结构 style | Record<SemanticDOM, CSSProperties> | - | 5.7.0 |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  |
 | title | 设置鼠标放在状态点上时显示的文字 | string | - |  |
 
-### Badge.Ribbon (4.5.0+)
+### Badge.Ribbon
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -71,6 +71,6 @@ group: 数据展示
 | root      | 设置根元素   | 5.7.0 |
 | indicator | 设置徽标元素 | 5.7.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Badge"></ComponentTokenTable>

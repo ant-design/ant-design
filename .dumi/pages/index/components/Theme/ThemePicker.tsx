@@ -43,6 +43,7 @@ const useStyle = createStyles(({ token, css }) => ({
         width: 0;
         height: 0;
         opacity: 0;
+        position: absolute;
       }
 
       img {

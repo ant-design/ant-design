@@ -146,6 +146,6 @@ Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于
 </div>
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Menu"></ComponentTokenTable>

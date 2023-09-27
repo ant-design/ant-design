@@ -98,7 +98,7 @@ const columns = [
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/summary.tsx">总结栏</code>
-<code src="./demo/virtual-list.tsx">虚拟列表</code>
+<code src="./demo/virtual-list.tsx" version=">= 5.9.0">虚拟列表</code>
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>嵌套带边框的表格 Debug</code>
 <code src="./demo/pagination.tsx">分页设置</code>
@@ -141,6 +141,7 @@ const columns = [
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
+| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 
 #### onRow 用法
 
@@ -174,7 +175,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
 | className | 列样式类名 | string | - |  |
-| colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
+| colSpan | 表头列合并，设置为 0 时，不渲染 | number | - |  |
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultFilteredValue | 默认筛选值 | string\[] | - |  |
 | filterResetToDefaultFilteredValue | 点击重置按钮的时候，是否恢复默认筛选值 | boolean | false |  |
@@ -291,9 +292,9 @@ const columns = [
 ## 在 TypeScript 中使用
 
 ```tsx
+import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 interface User {
   key: number;
@@ -330,7 +331,7 @@ export default Demo;
 
 TypeScript 里使用 Table 的 [CodeSandbox 实例](https://codesandbox.io/s/serene-platform-0jo5t)。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Table"></ComponentTokenTable>
 

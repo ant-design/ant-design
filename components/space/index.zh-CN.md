@@ -24,7 +24,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/vertical.tsx">垂直间距</code>
 <code src="./demo/size.tsx">间距大小</code>
 <code src="./demo/align.tsx">对齐</code>
-<code src="./demo/customize.tsx">自定义尺寸</code>
 <code src="./demo/wrap.tsx">自动换行</code>
 <code src="./demo/split.tsx">分隔符</code>
 <code src="./demo/compact.tsx">紧凑布局组合</code>
@@ -81,6 +80,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | ---- | --------------------- | ----- |
 | item | 设置 `Space` 包裹的子组件 | 5.6.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Space"></ComponentTokenTable>

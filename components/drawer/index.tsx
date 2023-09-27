@@ -1,22 +1,20 @@
-'use client';
-
+import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RcDrawerProps } from 'rc-drawer';
 import RcDrawer from 'rc-drawer';
 import type { Placement } from 'rc-drawer/lib/Drawer';
 import type { CSSMotionProps } from 'rc-motion';
-import * as React from 'react';
+
 import { getTransitionName } from '../_util/motion';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-import type { DrawerPanelProps } from './DrawerPanel';
-import DrawerPanel from './DrawerPanel';
-
 // CSSINJS
 import { NoCompactStyle } from '../space/Compact';
-import useStyle from './style';
 import { usePanelRef } from '../watermark/context';
+import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
+import DrawerPanel from './DrawerPanel';
+import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
 type sizeType = typeof SizeTypes[number];
@@ -38,6 +36,8 @@ export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'pref
   visible?: boolean;
   /** @deprecated Please use `afterOpenChange` instead */
   afterVisibleChange?: (open: boolean) => void;
+  classNames?: DrawerClassNames;
+  styles?: DrawerStyles;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -90,21 +90,22 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Drawer');
+
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
+      ['headerStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+      ['footerStyle', 'styles.footer'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Drawer',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     if (getContainer !== undefined && props.style?.position === 'absolute') {
       warning(
         false,
-        'Drawer',
+        'breaking',
         '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );
     }
@@ -152,6 +153,20 @@ const Drawer: React.FC<DrawerProps> & {
           maskMotion={maskMotion}
           motion={panelMotion}
           {...rest}
+          classNames={{
+            mask: classNames(rest.classNames?.mask, drawer?.classNames?.mask),
+            content: classNames(rest.classNames?.content, drawer?.classNames?.content),
+          }}
+          styles={{
+            mask: {
+              ...rest.styles?.mask,
+              ...drawer?.styles?.mask,
+            },
+            content: {
+              ...rest.styles?.content,
+              ...drawer?.styles?.content,
+            },
+          }}
           open={open ?? visible}
           mask={mask}
           push={push}

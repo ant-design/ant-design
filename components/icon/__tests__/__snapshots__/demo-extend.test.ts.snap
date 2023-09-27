@@ -2,11 +2,10 @@
 
 exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="home"
@@ -30,7 +29,6 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="setting"
@@ -54,7 +52,6 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -78,7 +75,6 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="sync"
@@ -102,7 +98,6 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -155,11 +150,10 @@ exports[`renders components/icon/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -180,7 +174,6 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -230,7 +223,6 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -292,11 +284,10 @@ exports[`renders components/icon/demo/custom.tsx extend context correctly 2`] = 
 
 exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -318,7 +309,6 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -366,11 +356,10 @@ exports[`renders components/icon/demo/iconfont.tsx extend context correctly 2`] 
 
 exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -392,7 +381,6 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -414,7 +402,6 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="anticon"
@@ -462,11 +449,10 @@ exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 2`]
 
 exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="smile"
@@ -499,7 +485,6 @@ exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       aria-label="heart"

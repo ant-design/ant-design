@@ -167,7 +167,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     // ============================ Notice ============================
     {
       [componentCls]: {
-        [noticeCls]: {
+        [`${noticeCls}-wrapper`]: {
           ...noticeStyle,
         },
       },
@@ -201,7 +201,4 @@ export default genComponentStyleHook(
       token.paddingSM
     }px`,
   }),
-  {
-    clientOnly: true,
-  },
 );

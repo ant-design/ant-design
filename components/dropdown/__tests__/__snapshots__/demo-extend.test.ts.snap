@@ -2230,11 +2230,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Hover me
       </div>
@@ -2680,11 +2679,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Hover me
       </div>
@@ -2897,7 +2895,7 @@ Array [
         style="margin: 0px;"
       />
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         style="padding: 8px;"
       >
         <div
@@ -2922,12 +2920,11 @@ exports[`renders components/dropdown/demo/custom-dropdown.tsx extend context cor
 
 exports[`renders components/dropdown/demo/dropdown-button.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -3249,7 +3246,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -3571,7 +3567,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -3895,7 +3890,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -4236,18 +4230,16 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default ant-dropdown-trigger"
       type="button"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           Button
         </div>
@@ -4556,7 +4548,6 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -4887,11 +4878,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Hover me, Click menu item
       </div>
@@ -5082,7 +5072,7 @@ exports[`renders components/dropdown/demo/event.tsx extend context correctly 2`]
 
 exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
@@ -5154,11 +5144,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Hover me
       </div>
@@ -5269,6 +5258,7 @@ Array [
       </div>
       <li
         class="ant-dropdown-menu-item-divider"
+        role="separator"
       />
       <li
         aria-disabled="true"
@@ -5364,11 +5354,10 @@ exports[`renders components/dropdown/demo/item.tsx extend context correctly 2`] 
 
 exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -5500,7 +5489,6 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -5632,7 +5620,6 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-space-compact ant-space-compact-block ant-dropdown-button"
@@ -5856,11 +5843,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Hover to check menu style
       </div>
@@ -6889,11 +6875,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Hover me
       </div>
@@ -7084,19 +7069,17 @@ exports[`renders components/dropdown/demo/overlay-open.tsx extend context correc
 
 exports[`renders components/dropdown/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -7282,7 +7265,6 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -7468,7 +7450,6 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -7658,12 +7639,11 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      style="flex-wrap: wrap;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -7849,7 +7829,6 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -8035,7 +8014,6 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-default ant-dropdown-trigger"
@@ -8476,8 +8454,7 @@ exports[`renders components/dropdown/demo/render-panel.tsx extend context correc
 
 exports[`renders components/dropdown/demo/render-panel.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Dropdown] \`visible\` is deprecated which will be removed in next major version, please use \`open\` instead.",
-  "Warning: [antd: Dropdown] \`visible\` is deprecated, please use \`open\` instead.",
+  "Warning: [antd: Dropdown] \`visible\` is deprecated. Please use \`open\` instead.",
 ]
 `;
 
@@ -8487,11 +8464,10 @@ Array [
     class="ant-typography ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Selectable
       </div>
@@ -8686,11 +8662,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Cascading menu
       </div>
@@ -9150,11 +9125,10 @@ Array [
     class="ant-dropdown-trigger"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         Click me
       </div>
@@ -9261,6 +9235,7 @@ Array [
       </div>
       <li
         class="ant-dropdown-menu-item-divider"
+        role="separator"
       />
       <li
         class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"

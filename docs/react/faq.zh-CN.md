@@ -191,7 +191,7 @@ npm ls dayjs
 
 你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。
 
-另外我们已经在在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加了更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求，现在不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
+另外我们已经在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加了更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求，现在不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
 
 ## ConfigProvider 设置 `prefixCls` 后，message/notification/Modal.confirm 生成的节点样式丢失了？
 
@@ -238,6 +238,10 @@ import { ConfigProvider } from 'antd';
 ## 如何支持 SSR？
 
 请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+
+## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
+
+在 Ant Design Token 系统中 `colorPrimary` 和 `colorInfo` 同属于 [基础变量（Seed Token）](../react/customize-theme.zh-CN.md#基础变量seed-token)，所以两者是互相独立的。`colorLink` 则属于 [别名变量（Alias Token）](../react/customize-theme.zh-CN.md#别名变量alias-token), 默认继承 `colorInfo` 且和 `colorPrimary` 无关。
 
 ## 如何正确的拼写 Ant Design？
 

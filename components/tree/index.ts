@@ -1,5 +1,3 @@
-'use client';
-
 import type RcTree from 'rc-tree';
 import type { BasicDataNode } from 'rc-tree';
 import { TreeNode } from 'rc-tree';
@@ -24,7 +22,7 @@ export type {
   AntdTreeNodeAttribute,
   TreeProps,
 } from './Tree';
-export type { DataNode };
+export type { DataNode, BasicDataNode };
 
 type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   props: React.PropsWithChildren<TreeProps<T>> & { ref?: React.Ref<RcTree> },

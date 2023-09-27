@@ -1,8 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
+import type { GlobalToken } from '../../theme';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -49,7 +52,7 @@ export interface ComponentToken {
   statusSize: number;
 }
 
-interface BadgeToken extends FullToken<'Badge'> {
+export interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
   badgeTextColor: string;
   badgeColor: string;
@@ -98,7 +101,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     componentCls,
     iconCls,
     antCls,
-    badgeFontHeight,
     badgeShadowSize,
     motionDurationSlow,
     textFontSize,
@@ -109,11 +111,8 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     indicatorHeight,
     indicatorHeightSM,
     marginXS,
-    badgeRibbonOffset,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
-  const ribbonPrefixCls = `${antCls}-ribbon`;
-  const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
   const colorPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
     [`&${componentCls} ${componentCls}-color-${colorKey}`]: {
@@ -121,13 +120,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       [`&:not(${componentCls}-count)`]: {
         color: darkColor,
       },
-    },
-  }));
-
-  const statusRibbonPreset = genPresetColor(token, (colorKey, { darkColor }) => ({
-    [`&${ribbonPrefixCls}-color-${colorKey}`]: {
-      background: darkColor,
-      color: darkColor,
     },
   }));
 
@@ -328,98 +320,58 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
     },
-    [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
-    [`${ribbonPrefixCls}`]: {
-      ...resetComponent(token),
-      position: 'absolute',
-      top: marginXS,
-      padding: `0 ${token.paddingXS}px`,
-      color: token.colorPrimary,
-      lineHeight: `${badgeFontHeight}px`,
-      whiteSpace: 'nowrap',
-      backgroundColor: token.colorPrimary,
-      borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
-      [`${ribbonPrefixCls}-corner`]: {
-        position: 'absolute',
-        top: '100%',
-        width: badgeRibbonOffset,
-        height: badgeRibbonOffset,
-        color: 'currentcolor',
-        border: `${badgeRibbonOffset / 2}px solid`,
-        transform: token.badgeRibbonCornerTransform,
-        transformOrigin: 'top',
-        filter: token.badgeRibbonCornerFilter,
-      },
-      ...statusRibbonPreset,
-      [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbonOffset,
-        borderEndEndRadius: 0,
-        [`${ribbonPrefixCls}-corner`]: {
-          insetInlineEnd: 0,
-          borderInlineEndColor: 'transparent',
-          borderBlockEndColor: 'transparent',
-        },
-      },
-      [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbonOffset,
-        borderEndStartRadius: 0,
-        [`${ribbonPrefixCls}-corner`]: {
-          insetInlineStart: 0,
-          borderBlockEndColor: 'transparent',
-          borderInlineStartColor: 'transparent',
-        },
-      },
-
-      // ====================== RTL =======================
-      '&-rtl': {
-        direction: 'rtl',
-      },
-    },
   };
 };
 
 // ============================== Export ==============================
+export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
+  const { fontSize, lineHeight, lineWidth, marginXS, colorBorderBg } = token;
+
+  const badgeFontHeight = Math.round(fontSize * lineHeight);
+  const badgeShadowSize = lineWidth;
+  const badgeTextColor = token.colorBgContainer;
+  const badgeColor = token.colorError;
+  const badgeColorHover = token.colorErrorHover;
+
+  const badgeToken = mergeToken<BadgeToken>(token, {
+    badgeFontHeight,
+    badgeShadowSize,
+    badgeTextColor,
+    badgeColor,
+    badgeColorHover,
+    badgeShadowColor: colorBorderBg,
+    badgeProcessingDuration: '1.2s',
+    badgeRibbonOffset: marginXS,
+
+    // Follow token just by Design. Not related with token
+    badgeRibbonCornerTransform: 'scaleY(0.75)',
+    badgeRibbonCornerFilter: `brightness(75%)`,
+  });
+
+  return badgeToken;
+};
+
+export const prepareComponentToken = (token: GlobalToken) => {
+  const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
+
+  return {
+    indicatorZIndex: 'auto',
+    indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
+    indicatorHeightSM: fontSize,
+    dotSize: fontSizeSM / 2,
+    textFontSize: fontSizeSM,
+    textFontSizeSM: fontSizeSM,
+    textFontWeight: 'normal',
+    statusSize: fontSizeSM / 2,
+  };
+};
+
 export default genComponentStyleHook(
   'Badge',
   (token) => {
-    const { fontSize, lineHeight, lineWidth, marginXS, colorBorderBg } = token;
-
-    const badgeFontHeight = Math.round(fontSize * lineHeight);
-    const badgeShadowSize = lineWidth;
-    const badgeTextColor = token.colorBgContainer;
-    const badgeColor = token.colorError;
-    const badgeColorHover = token.colorErrorHover;
-
-    const badgeToken = mergeToken<BadgeToken>(token, {
-      badgeFontHeight,
-      badgeShadowSize,
-      badgeTextColor,
-      badgeColor,
-      badgeColorHover,
-      badgeShadowColor: colorBorderBg,
-      badgeProcessingDuration: '1.2s',
-      badgeRibbonOffset: marginXS,
-
-      // Follow token just by Design. Not related with token
-      badgeRibbonCornerTransform: 'scaleY(0.75)',
-      badgeRibbonCornerFilter: `brightness(75%)`,
-    });
+    const badgeToken = prepareToken(token);
 
     return [genSharedBadgeStyle(badgeToken)];
   },
-  (token) => {
-    const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
-
-    return {
-      indicatorZIndex: 'auto',
-      indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
-      indicatorHeightSM: fontSize,
-      dotSize: fontSizeSM / 2,
-      textFontSize: fontSizeSM,
-      textFontSizeSM: fontSizeSM,
-      textFontWeight: 'normal',
-      statusSize: fontSizeSM / 2,
-    };
-  },
+  prepareComponentToken,
 );

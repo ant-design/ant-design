@@ -1,57 +1,61 @@
 import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { Link, useIntl, useSidebarData, useLocation } from 'dumi';
-import { createStyles, useTheme } from 'antd-style';
-import debounce from 'lodash/debounce';
 import { SearchOutlined } from '@ant-design/icons';
-import { Card, Col, Divider, Input, Row, Space, Tag, Typography, Affix } from 'antd';
+import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
+import { Link, useIntl, useLocation, useSidebarData } from 'dumi';
+import debounce from 'lodash/debounce';
+
+import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
-import SiteContext from '../../slots/SiteContext';
 
 const useStyle = createStyles(({ token, css }) => ({
   componentsOverviewGroupTitle: css`
-      margin-bottom: 24px !important;
-    `,
+    margin-bottom: 24px !important;
+  `,
   componentsOverviewTitle: css`
-      overflow: hidden;
-      color: ${token.colorTextHeading};
-      text-overflow: ellipsis;
-    `,
+    overflow: hidden;
+    color: ${token.colorTextHeading};
+    text-overflow: ellipsis;
+  `,
   componentsOverviewImg: css`
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 152px;
-    `,
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 152px;
+  `,
   componentsOverviewCard: css`
-      cursor: pointer;
-      transition: all 0.5s;
-      &:hover {
-        box-shadow: 0 6px 16px -8px #00000014, 0 9px 28px #0000000d, 0 12px 48px 16px #00000008;
-      }
-    `,
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      box-shadow:
+        0 6px 16px -8px #00000014,
+        0 9px 28px #0000000d,
+        0 12px 48px 16px #00000008;
+    }
+  `,
   componentsOverviewAffix: css`
-      display: flex;
-      transition: all 0.3s;
-      justify-content: space-between;
-    `,
+    display: flex;
+    transition: all 0.3s;
+    justify-content: space-between;
+  `,
   componentsOverviewSearch: css`
-      padding: 0;
-      .anticon-search {
-        color: ${token.colorTextDisabled};
-      }
-    `,
+    padding: 0;
+    .anticon-search {
+      color: ${token.colorTextDisabled};
+    }
+  `,
   componentsOverviewContent: css`
-      &:empty:after {
-        display: block;
-        padding: 16px 0 40px;
-        color: ${token.colorTextDisabled};
-        text-align: center;
-        border-bottom: 1px solid ${token.colorSplit};
-        content: 'Not Found';
-      }
-    `,
+    &:empty:after {
+      display: block;
+      padding: 16px 0 40px;
+      color: ${token.colorTextDisabled};
+      text-align: center;
+      border-bottom: 1px solid ${token.colorSplit};
+      content: 'Not Found';
+    }
+  `,
 }));
 
 const onClickCard = (pathname: string) => {
@@ -82,7 +86,7 @@ const Overview: React.FC = () => {
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
 
   const token = useTheme();
-  const { borderRadius, colorBgContainer, fontSizeXL } = token;
+  const { borderRadius, colorBgContainer, fontSizeXL, anchorTop } = token;
 
   const affixedStyle: CSSProperties = {
     boxShadow: 'rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px',
@@ -107,7 +111,7 @@ const Overview: React.FC = () => {
 
   const onKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (event) => {
     if (event.keyCode === 13 && search.trim().length) {
-      sectionRef.current?.querySelector<HTMLElement>('.components-overview-card')?.click();
+      sectionRef.current?.querySelector<HTMLElement>(`.${styles.componentsOverviewCard}`)?.click();
     }
   };
 
@@ -139,7 +143,7 @@ const Overview: React.FC = () => {
   return (
     <section className="markdown" ref={sectionRef}>
       <Divider />
-      <Affix offsetTop={24 + token.headerHeight} onChange={setSearchBarAffixed}>
+      <Affix offsetTop={anchorTop} onChange={setSearchBarAffixed}>
         <div
           className={styles.componentsOverviewAffix}
           style={searchBarAffixed ? affixedStyle : {}}

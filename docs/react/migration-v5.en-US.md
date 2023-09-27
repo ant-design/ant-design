@@ -17,7 +17,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 ### Design specification
 
 - Basic rounded corner adjustment, changed from `2px` to four layers of radius, which are `2px` `4px` `6px` and `8px`. For example, radius of default Button is modified from `2px` to `6px`.
-- Primary color adjustment, changed from <ColorChunk color="#1890ff" /></ColorChunk> to <ColorChunk color="#1677ff" /></ColorChunk>.
+- Primary color adjustment, changed from `#1890ff` to `#1677ff`.
 - Global shadow optimization, adjusted from three layers of shadows to two layers, which are used in common components (Card .e.g) and popup components (Dropdown .e.g).
 - Overall reduction in wireframe usage.
 
@@ -317,6 +317,57 @@ export default () => (
 ### Legacy browser support
 
 Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
+
+## Multiple versions coexist
+
+We do not recommend multiple versions coexist, it will make the application more complex (such as style override, ConfigProvider not reused, etc.). It's better to use micro-applications such as [qiankun](https://qiankun.umijs.org/) for page level development.
+
+### Install v5 through alias
+
+```bash
+$ npm install --save antd-v5@npm:antd@5
+# or
+$ yarn add antd-v5@npm:antd@5
+# or
+$ pnpm add antd-v5@npm:antd@5
+```
+
+The package.json will be:
+
+```json
+{
+  "antd": "4.x",
+  "antd-v5": "npm:antd@5"
+}
+```
+
+Now, antd in your project is still v4, and antd-v5 is v5.
+
+```tsx
+import React from 'react';
+import { Button as Button4 } from 'antd'; // v4
+import { Button as Button5 } from 'antd-v5'; // v5
+
+export default () => (
+  <>
+    <Button4 />
+    <Button5 />
+  </>
+);
+```
+
+Then config `prefixCls` of ConfigProvider to avoid style conflict:
+
+```tsx
+import React from 'react';
+import { ConfigProvider as ConfigProvider5 } from 'antd-v5';
+
+export default () => (
+  <ConfigProvider5 prefixCls="ant5">
+    <MyApp />
+  </ConfigProvider5>
+);
+```
 
 ## Encounter problems
 

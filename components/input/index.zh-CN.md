@@ -41,6 +41,7 @@ demo:
 <code src="./demo/align.tsx" debug>文本对齐</code>
 <code src="./demo/textarea-resize.tsx" debug>文本域</code>
 <code src="./demo/debug-addon.tsx" debug>debug 前置/后置标签</code>
+<code src="./demo/component-token.tsx" debug>debug token</code>
 
 ## API
 
@@ -98,7 +99,7 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
 | loading | 搜索 loading | boolean | false |
-| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event) | - |
+| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
 
 其余属性和 Input 一致。
 
@@ -141,7 +142,7 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | textarea | `textarea` 元素 | 5.4.0 |
 | count    | 文字计数元素    | 5.4.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Input"></ComponentTokenTable>
 

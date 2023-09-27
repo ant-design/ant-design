@@ -1,10 +1,11 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+
 import { genFocusStyle } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
-import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
+import type { GlobalToken } from '../../theme';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -192,6 +193,15 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       '&:not(:disabled)': {
         ...genFocusStyle(token),
+      },
+
+      [`&${componentCls}-two-chinese-chars::first-letter`]: {
+        letterSpacing: '0.34em',
+      },
+
+      [`&${componentCls}-two-chinese-chars > *:not(${iconCls})`]: {
+        marginInlineEnd: '-0.34em',
+        letterSpacing: '0.34em',
       },
 
       // make `btn-icon-only` not too narrow
@@ -657,15 +667,52 @@ const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
+  token,
+) => {
+  const { paddingInline, onlyIconSize } = token;
+
+  const buttonToken = mergeToken<ButtonToken>(token, {
+    buttonPaddingHorizontal: paddingInline,
+    buttonIconOnlyFontSize: onlyIconSize,
+  });
+
+  return buttonToken;
+};
+
+export const prepareComponentToken = (token: GlobalToken) => ({
+  fontWeight: 400,
+  defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
+  primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
+  dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
+  primaryColor: token.colorTextLightSolid,
+  dangerColor: token.colorTextLightSolid,
+  borderColorDisabled: token.colorBorder,
+  defaultGhostColor: token.colorBgContainer,
+  ghostBg: 'transparent',
+  defaultGhostBorderColor: token.colorBgContainer,
+  paddingInline: token.paddingContentHorizontal - token.lineWidth,
+  paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
+  paddingInlineSM: 8 - token.lineWidth,
+  onlyIconSize: token.fontSizeLG,
+  onlyIconSizeSM: token.fontSizeLG - 2,
+  onlyIconSizeLG: token.fontSizeLG + 2,
+  groupBorderColor: token.colorPrimaryHover,
+  linkHoverBg: 'transparent',
+  textHoverBg: token.colorBgTextHover,
+  defaultColor: token.colorText,
+  defaultBg: token.colorBgContainer,
+  defaultBorderColor: token.colorBorder,
+  defaultBorderColorDisabled: token.colorBorder,
+  contentFontSize: token.fontSize,
+  contentFontSizeSM: token.fontSize,
+  contentFontSizeLG: token.fontSizeLG,
+});
+
 export default genComponentStyleHook(
   'Button',
   (token) => {
-    const { paddingInline, onlyIconSize } = token;
-
-    const buttonToken = mergeToken<ButtonToken>(token, {
-      buttonPaddingHorizontal: paddingInline,
-      buttonIconOnlyFontSize: onlyIconSize,
-    });
+    const buttonToken = prepareToken(token);
 
     return [
       // Shared
@@ -684,38 +731,7 @@ export default genComponentStyleHook(
 
       // Button Group
       genGroupStyle(buttonToken),
-
-      // Space Compact
-      genCompactItemStyle(token),
-      genCompactItemVerticalStyle(token),
     ];
   },
-  (token) => ({
-    fontWeight: 400,
-    defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
-    primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
-    dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
-    primaryColor: token.colorTextLightSolid,
-    dangerColor: token.colorTextLightSolid,
-    borderColorDisabled: token.colorBorder,
-    defaultGhostColor: token.colorBgContainer,
-    ghostBg: 'transparent',
-    defaultGhostBorderColor: token.colorBgContainer,
-    paddingInline: token.paddingContentHorizontal - token.lineWidth,
-    paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
-    paddingInlineSM: 8 - token.lineWidth,
-    onlyIconSize: token.fontSizeLG,
-    onlyIconSizeSM: token.fontSizeLG - 2,
-    onlyIconSizeLG: token.fontSizeLG + 2,
-    groupBorderColor: token.colorPrimaryHover,
-    linkHoverBg: 'transparent',
-    textHoverBg: token.colorBgTextHover,
-    defaultColor: token.colorText,
-    defaultBg: token.colorBgContainer,
-    defaultBorderColor: token.colorBorder,
-    defaultBorderColorDisabled: token.colorBorder,
-    contentFontSize: token.fontSize,
-    contentFontSizeSM: token.fontSize,
-    contentFontSizeLG: token.fontSizeLG,
-  }),
+  prepareComponentToken,
 );

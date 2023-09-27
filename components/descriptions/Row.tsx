@@ -1,5 +1,6 @@
 import * as React from 'react';
-import type { DescriptionsItemType } from '.';
+
+import type { InternalDescriptionsItemType } from '.';
 import Cell from './Cell';
 import type { DescriptionsContextProps } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';
@@ -12,7 +13,7 @@ interface CellConfig {
 }
 
 function renderCells(
-  items: DescriptionsItemType[],
+  items: InternalDescriptionsItemType[],
   { colon, prefixCls, bordered }: RowProps,
   {
     component,
@@ -87,7 +88,7 @@ function renderCells(
 export interface RowProps {
   prefixCls: string;
   vertical: boolean;
-  row: DescriptionsItemType[];
+  row: InternalDescriptionsItemType[];
   bordered?: boolean;
   colon: boolean;
   index: number;

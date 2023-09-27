@@ -1,15 +1,12 @@
-import { TinyColor } from '@ctrl/tinycolor';
+import * as React from 'react';
+import { defaultAlgorithm, defaultTheme } from '@ant-design/compatible';
 import {
   BellOutlined,
   FolderOutlined,
   HomeOutlined,
   QuestionCircleOutlined,
 } from '@ant-design/icons';
-import { createStyles, css, useTheme } from 'antd-style';
-import * as React from 'react';
-import classNames from 'classnames';
-import { defaultTheme, defaultAlgorithm } from '@ant-design/compatible';
-import { useLocation } from 'dumi';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { MenuProps } from 'antd';
 import {
   Breadcrumb,
@@ -21,28 +18,33 @@ import {
   Menu,
   Radio,
   Space,
-  Typography,
   theme,
+  Typography,
 } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
 import type { Color } from 'antd/es/color-picker';
 import { generateColor } from 'antd/es/color-picker/util';
-import * as utils from '../../../../theme/utils';
+import classNames from 'classnames';
+import { useLocation } from 'dumi';
+
+import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
+import Link from '../../../../theme/common/Link';
 import SiteContext from '../../../../theme/slots/SiteContext';
+import * as utils from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
 import BackgroundImage from './BackgroundImage';
 import ColorPicker from './ColorPicker';
+import { DEFAULT_COLOR, getAvatarURL, getClosetColor, PINK_COLOR } from './colorUtil';
 import MobileCarousel from './MobileCarousel';
 import RadiusPicker from './RadiusPicker';
 import type { THEME } from './ThemePicker';
 import ThemePicker from './ThemePicker';
-import { DEFAULT_COLOR, PINK_COLOR, getAvatarURL, getClosetColor } from './colorUtil';
-import Link from '../../../../theme/common/Link';
 
 const { Header, Content, Sider } = Layout;
 
-const TokenChecker = () => {
+const TokenChecker: React.FC = () => {
   if (process.env.NODE_ENV !== 'production') {
     console.log('Demo Token:', theme.useToken());
   }
@@ -195,7 +197,7 @@ const useStyle = createStyles(({ token, cx }) => {
 });
 
 // ========================== Menu Config ==========================
-const subMenuItems: MenuProps['items'] = [
+const subMenuItems = [
   {
     key: `Design Values`,
     label: `Design Values`,
@@ -285,11 +287,12 @@ const ThemesInfo: Record<THEME, Partial<ThemeData>> = {
   },
 };
 
+const normalize = (value: number) => value / 255;
+
 function rgbToColorMatrix(color: string) {
   const rgb = new TinyColor(color).toRgb();
   const { r, g, b } = rgb;
 
-  const normalize = (value) => value / 255;
   const invertValue = normalize(r) * 100;
   const sepiaValue = 100;
   const saturateValue = Math.max(normalize(r), normalize(g), normalize(b)) * 10000;
@@ -354,6 +357,12 @@ export default function Theme() {
     setThemeData(mergedData);
     form.setFieldsValue(mergedData);
   }, [themeType]);
+
+  const isRootDark = useDark();
+
+  React.useEffect(() => {
+    onThemeChange({}, { ...themeData, themeType: isRootDark ? 'dark' : 'default' });
+  }, [isRootDark]);
 
   // ================================ Tokens ================================
   const closestColor = getClosetColor(colorPrimaryValue);
@@ -472,6 +481,7 @@ export default function Theme() {
                 openKeys={['Design']}
                 style={{ height: '100%', borderRight: 0 }}
                 items={sideMenuItems}
+                expandIcon={false}
               />
             </Sider>
             <Layout className={styles.transBg} style={{ padding: '0 24px 24px' }}>

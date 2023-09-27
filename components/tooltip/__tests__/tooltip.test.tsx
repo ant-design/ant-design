@@ -133,16 +133,15 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(container.getElementsByTagName('span')).toHaveLength(1);
-    const button = container.getElementsByTagName('span')[0];
+    const button = container.getElementsByTagName('button')[0];
 
-    fireEvent.mouseEnter(button);
+    fireEvent.pointerEnter(button);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(true);
     expect(isTooltipOpen()).toBeTruthy();
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-    fireEvent.mouseLeave(button);
+    fireEvent.pointerLeave(button);
     await waitFakeTimer();
     expect(onOpenChange).toHaveBeenCalledWith(false);
     expect(isTooltipOpen()).toBeFalsy();
@@ -167,15 +166,16 @@ describe('Tooltip', () => {
         );
 
         expect(container.children[0]).toMatchSnapshot();
-        const button = container.getElementsByTagName('span')[0];
 
-        fireEvent.mouseEnter(button);
+        const button = container.getElementsByTagName('button')[0];
+
+        fireEvent.pointerEnter(button);
         await waitFakeTimer();
         expect(onOpenChange).toHaveBeenCalledWith(true);
         expect(isTooltipOpen()).toBeTruthy();
         expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
 
-        fireEvent.mouseLeave(button);
+        fireEvent.pointerLeave(button);
         await waitFakeTimer();
         expect(onOpenChange).toHaveBeenCalledWith(false);
         expect(isTooltipOpen()).toBeFalsy();
@@ -200,8 +200,10 @@ describe('Tooltip', () => {
         </Button>
       </Tooltip>,
     );
-    expect(containerInline.getElementsByTagName('span')[0].style.display).toBe('inline-block');
-    expect(containerBlock.getElementsByTagName('span')[0].style.display).toBe('block');
+    expect(getComputedStyle(containerInline.querySelector('button')!)?.display).toBe(
+      'inline-block',
+    );
+    expect(getComputedStyle(containerBlock.querySelector('button')!)?.display).toBe('block');
   });
 
   it('should warn for arrowPointAtCenter', async () => {
@@ -423,9 +425,8 @@ describe('Tooltip', () => {
         <Switch loading defaultChecked />
       </Tooltip>,
     );
-    const wrapperEl = container.querySelectorAll('.ant-tooltip-disabled-compatible-wrapper');
-    expect(wrapperEl).toHaveLength(1);
-    fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
+
+    fireEvent.pointerEnter(container.getElementsByTagName('button')[0]);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
   });
@@ -442,9 +443,8 @@ describe('Tooltip', () => {
         <Radio disabled />
       </Tooltip>,
     );
-    const wrapperEl = container.querySelectorAll('.ant-tooltip-disabled-compatible-wrapper');
-    expect(wrapperEl).toHaveLength(1);
-    fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
+
+    fireEvent.pointerEnter(container.getElementsByTagName('input')[0]);
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
     expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
   });
@@ -495,7 +495,7 @@ describe('Tooltip', () => {
     await waitFakeTimer();
 
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `defaultVisible` is deprecated, please use `defaultOpen` instead.',
+      'Warning: [antd: Tooltip] `defaultVisible` is deprecated. Please use `defaultOpen` instead.',
     );
     expect(isTooltipOpen()).toBeTruthy();
 
@@ -506,7 +506,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Tooltip] `visible` is deprecated. Please use `open` instead.',
     );
 
     rerender(
@@ -527,7 +527,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated, please use `onOpenChange` instead.',
+      'Warning: [antd: Tooltip] `onVisibleChange` is deprecated. Please use `onOpenChange` instead.',
     );
 
     // afterVisibleChange
@@ -537,7 +537,7 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated, please use `afterOpenChange` instead.',
+      'Warning: [antd: Tooltip] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
     );
 
     // Event Trigger

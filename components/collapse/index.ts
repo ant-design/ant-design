@@ -1,5 +1,3 @@
-'use client';
-
 import Collapse from './Collapse';
 
 export type { CollapseProps } from './Collapse';

@@ -1,18 +1,19 @@
+import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
-import * as React from 'react';
+
 import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
+import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import { usePanelRef } from '../watermark/context';
 
 let mousePosition: MousePosition;
 
@@ -53,11 +54,17 @@ const Modal: React.FC<ModalProps> = (props) => {
     onOk?.(e);
   };
 
-  warning(
-    !('visible' in props),
-    'Modal',
-    `\`visible\` will be removed in next major version, please use \`open\` instead.`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Modal');
+
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
 
   const {
     prefixCls: customizePrefixCls,
@@ -76,6 +83,8 @@ const Modal: React.FC<ModalProps> = (props) => {
 
     width = 520,
     footer,
+    classNames: modalClassNames,
+    styles: modalStyles,
     ...restProps
   } = props;
 
@@ -89,13 +98,9 @@ const Modal: React.FC<ModalProps> = (props) => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
 
-  if (process.env.NODE_ENV !== 'production') {
-    warning(!('visible' in props), 'Modal', '`visible` is deprecated, please use `open` instead.');
-  }
-
-  const dialogFooter =
-    footer === undefined ? <Footer {...props} onOk={handleOk} onCancel={handleCancel} /> : footer;
-
+  const dialogFooter = footer !== null && (
+    <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
+  );
   const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,
     closeIcon,
@@ -118,7 +123,6 @@ const Modal: React.FC<ModalProps> = (props) => {
           getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
           prefixCls={prefixCls}
           rootClassName={classNames(hashId, rootClassName)}
-          wrapClassName={wrapClassNameExtended}
           footer={dialogFooter}
           visible={open ?? visible}
           mousePosition={restProps.mousePosition ?? mousePosition}
@@ -130,6 +134,15 @@ const Modal: React.FC<ModalProps> = (props) => {
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           className={classNames(hashId, className, modal?.className)}
           style={{ ...modal?.style, ...style }}
+          classNames={{
+            wrapper: wrapClassNameExtended,
+            ...modal?.classNames,
+            ...modalClassNames,
+          }}
+          styles={{
+            ...modal?.styles,
+            ...modalStyles,
+          }}
           panelRef={panelRef}
         />
       </NoFormStyle>

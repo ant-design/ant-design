@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'rc-util/lib/omit';

@@ -1,13 +1,14 @@
+import React, { useEffect } from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
 import classNames from 'classnames';
-import React, { useEffect } from 'react';
-import { reRendering } from './utils';
-import theme from '../theme';
-import useWatermark from './useWatermark';
-import useRafDebounce from './useRafDebounce';
-import useContent from './useContent';
+
+import { useToken } from '../theme/internal';
 import WatermarkContext from './context';
 import type { WatermarkContextProps } from './context';
+import useClips, { FontGap } from './useClips';
+import useRafDebounce from './useRafDebounce';
+import useWatermark from './useWatermark';
+import { getPixelRatio, reRendering } from './utils';
 
 export interface WatermarkProps {
   zIndex?: number;
@@ -17,11 +18,12 @@ export interface WatermarkProps {
   image?: string;
   content?: string | string[];
   font?: {
-    color?: string;
+    color?: CanvasFillStrokeStyles['fillStyle'];
     fontSize?: number | string;
     fontWeight?: 'normal' | 'light' | 'weight' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
     fontFamily?: string;
+    textAlign?: CanvasTextAlign;
   };
   style?: React.CSSProperties;
   className?: string;
@@ -59,13 +61,14 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     offset,
     children,
   } = props;
-  const { token } = theme.useToken();
+  const [, token] = useToken();
   const {
     color = token.colorFill,
     fontSize = token.fontSizeLG,
     fontWeight = 'normal',
     fontStyle = 'normal',
     fontFamily = 'sans-serif',
+    textAlign = 'center',
   } = font;
 
   const [gapX, gapY] = gap;
@@ -116,27 +119,90 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   }, [container, subElements]);
 
   // ============================ Content =============================
+  /**
+   * Get the width and height of the watermark. The default values are as follows
+   * Image: [120, 64]; Content: It's calculated by content;
+   */
+  const getMarkSize = (ctx: CanvasRenderingContext2D) => {
+    let defaultWidth = 120;
+    let defaultHeight = 64;
+    if (!image && ctx.measureText) {
+      ctx.font = `${Number(fontSize)}px ${fontFamily}`;
+      const contents = Array.isArray(content) ? content : [content];
+      const sizes = contents.map((item) => {
+        const metrics = ctx.measureText(item!);
+
+        return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent];
+      });
+      defaultWidth = Math.ceil(Math.max(...sizes.map((size) => size[0])));
+      defaultHeight =
+        Math.ceil(Math.max(...sizes.map((size) => size[1]))) * contents.length +
+        (contents.length - 1) * FontGap;
+    }
+    return [width ?? defaultWidth, height ?? defaultHeight] as const;
+  };
+
+  const getClips = useClips();
+
   const [watermarkInfo, setWatermarkInfo] = React.useState<[base64: string, contentWidth: number]>(
     null!,
   );
 
   // Generate new Watermark content
-  const renderWatermark = useContent(
-    {
-      ...props,
-      rotate,
-      gap,
-    },
-    (base64, contentWidth) => {
-      setWatermarkInfo([base64, contentWidth]);
-    },
-  );
+  const renderWatermark = () => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    if (ctx) {
+      const ratio = getPixelRatio();
+      const [markWidth, markHeight] = getMarkSize(ctx);
+
+      const drawCanvas = (
+        drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
+      ) => {
+        const [nextClips, clipWidth] = getClips(
+          drawContent || '',
+          rotate,
+          ratio,
+          markWidth,
+          markHeight,
+          {
+            color,
+            fontSize,
+            fontStyle,
+            fontWeight,
+            fontFamily,
+            textAlign,
+          },
+          gapX,
+          gapY,
+        );
+
+        setWatermarkInfo([nextClips, clipWidth]);
+      };
+
+      if (image) {
+        const img = new Image();
+        img.onload = () => {
+          drawCanvas(img);
+        };
+        img.onerror = () => {
+          drawCanvas(content);
+        };
+        img.crossOrigin = 'anonymous';
+        img.referrerPolicy = 'no-referrer';
+        img.src = image;
+      } else {
+        drawCanvas(content);
+      }
+    }
+  };
 
   const syncWatermark = useRafDebounce(renderWatermark);
 
   // ============================= Effect =============================
   // Append watermark to the container
-  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, gapX);
+  const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle);
 
   useEffect(() => {
     if (watermarkInfo) {
@@ -169,6 +235,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     fontWeight,
     fontStyle,
     fontFamily,
+    textAlign,
     gapX,
     gapY,
     offsetLeft,

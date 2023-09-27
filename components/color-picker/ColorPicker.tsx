@@ -1,24 +1,25 @@
+import type { CSSProperties, FC } from 'react';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import type {
   HsbaColorType,
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { CSSProperties, FC } from 'react';
-import React, { useContext, useMemo, useRef, useState } from 'react';
+
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
-import warning from '../_util/warning';
-import type { SizeType } from '../config-provider/SizeContext';
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import theme from '../theme';
-import ColorPickerPanel from './ColorPickerPanel';
+import { useToken } from '../theme/internal';
 import type { Color } from './color';
+import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorState from './hooks/useColorState';
 import type {
@@ -44,6 +45,7 @@ export type ColorPickerProps = Omit<
   placement?: TriggerPlacement;
   trigger?: TriggerType;
   format?: keyof typeof ColorFormat;
+  defaultFormat?: keyof typeof ColorFormat;
   allowClear?: boolean;
   presets?: PresetsItem[];
   arrow?: boolean | { pointAtCenter: boolean };
@@ -72,6 +74,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     value,
     defaultValue,
     format,
+    defaultFormat,
     allowClear = false,
     presets,
     children,
@@ -100,7 +103,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
 
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
     value,
@@ -113,6 +116,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   });
   const [formatValue, setFormatValue] = useMergedState(format, {
     value: format,
+    defaultValue: defaultFormat,
     onChange: onFormatChange,
   });
 
@@ -147,9 +151,11 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('ColorPicker');
+
     warning(
       !(disabledAlpha && isAlphaColor),
-      'ColorPicker',
+      'usage',
       '`disabledAlpha` will make the alpha to be 100% when use alpha color.',
     );
   }
@@ -227,7 +233,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        if (popupAllowCloseRef.current) {
+        if (popupAllowCloseRef.current && !disabled) {
           setPopupOpen(visible);
         }
       }}

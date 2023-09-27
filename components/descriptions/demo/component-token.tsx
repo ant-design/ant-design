@@ -101,10 +101,12 @@ const App: React.FC = () => {
         components: {
           Descriptions: {
             labelBg: 'red',
+            titleColor: 'red',
             titleMarginBottom: 2,
             itemPaddingBottom: 8,
             colonMarginRight: 10,
             colonMarginLeft: 20,
+            contentColor: 'green',
             extraColor: 'blue',
           },
         },

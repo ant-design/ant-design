@@ -14,8 +14,12 @@ This document contains the correspondence between all the less variables related
 We could configure global token and component token for each component through the `theme` property of ConfigProvider.
 
 ```tsx
-import { Checkbox, ConfigProvider, Radio } from 'antd';
 import React from 'react';
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
+import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -241,8 +245,6 @@ export default App;
 | `@cascader-dropdown-font-size` | - | Deprecated |
 | `@cascader-dropdown-line-height` | `lineHeight` | Global Token |
 
-<!-- ### Checkbox -->
-
 ### Checkbox
 
 <!-- prettier-ignore -->
@@ -251,7 +253,7 @@ export default App;
 | `@checkbox-size` | `controlInteractiveSize` | GlobalToken |
 | `@checkbox-color` | `colorPrimary` | - |
 | `@checkbox-check-color` | `colorWhite` | - |
-| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-check-bg` | `colorPrimary` | GlobalToken |
 | `@checkbox-border-width` | `lineWidth` | - |
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | Deprecated for style change |
@@ -267,6 +269,27 @@ export default App;
 | `@collapse-content-padding` | `contentPadding` | - |
 | `@collapse-content-bg` | `contentBg` | - |
 | `@collapse-header-arrow-left` | - | Deprecated |
+
+### DatePicker
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | Global Token |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | Global Token |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
 
 ### Descriptions
 
@@ -312,7 +335,7 @@ export default App;
 
 | Less variables                       | Component Token       | Note        |
 | ------------------------------------ | --------------------- | ----------- |
-| `@dropdown-selected-color`           | `colorPrimary`        | -           |
+| `@dropdown-selected-color`           | `colorPrimary`        | GlobalToken |
 | `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | GlobalToken |
 | `@dropdown-selected-bg`              | `controlItemBgActive` | GlobalToken |
 
@@ -323,7 +346,23 @@ export default App;
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | GlobalToken |
 
-<!-- ### Form -->
+### Form
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@label-required-color` | `labelRequiredMarkColor` | - |
+| `@label-color` | `labelColor` | - |
+| `@form-warning-input-bg` | - | Deprecated |
+| `@form-item-margin-bottom` | `itemMarginBottom` | - |
+| `@form-item-trailing-colon` | - | Deprecated |
+| `@form-vertical-label-padding` | `verticalLabelPadding` | - |
+| `@form-vertical-label-margin` | `verticalLabelMargin` | - |
+| `@form-item-label-font-size` | `labelFontSize` | - |
+| `@form-item-label-height` | `labelHeight` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
+| `@form-error-input-bg` | - | Deprecated |
 
 ### Image
 
@@ -338,7 +377,43 @@ export default App;
 | `@image-preview-operation-color` | `previewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
-<!-- ### Input -->
+### Input
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-height-base` | `controlHeight` | Global Token |
+| `@input-height-lg` | `controlHeightLG` | Global Token |
+| `@input-height-sm` | `controlHeightSM` | Global Token |
+| `@input-padding-horizontal` | `paddingInline` | - |
+| `@input-padding-horizontal-base` | `paddingInline` | - |
+| `@input-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@input-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@input-padding-vertical-base` | `paddinBlock` | - |
+| `@input-padding-vertical-sm` | `paddingBlockSM` | - |
+| `@input-padding-vertical-lg` | `paddingBlockLG` | - |
+| `@input-placeholder-color` | `colorTextPlaceholder` | Global Token |
+| `@input-color` | `colorText` | Global Token |
+| `@input-icon-color` | - | 已废弃 |
+| `@input-border-color` | `colorBorder` | Global Token |
+| `@input-bg` | `colorBgContainer` | Global Token |
+| `@input-addon-bg` | `addonBg` | - |
+| `@input-hover-border-color` | `hoverBorderColor` | - |
+| `@input-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@input-outline-offset` | `activeShadow` | Control box-shadow when active |
+| `@input-icon-hover-color` | `colorIconHover` | Global Token |
+| `@input-disabled-color` | `colorTextDisabled` | Global Token |
+
+### InputNumber
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-number-hover-border-color` | `hoverBorderColor` | - |
+| `@input-number-handler-active-bg` | `handleActiveBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverColor` | Wrong usage in 4.x, which is actually text color |
+| `@input-number-handler-bg` | `handleBg` | - |
+| `@input-number-handler-border-color` | `handleBorderColor` | - |
 
 ### Layout
 
@@ -490,7 +565,7 @@ export default App;
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorBgContainer` | - |
+| `@popover-bg` | `colorBgElevated` | GlobalToken |
 | `@popover-color` | `colorText` | GlobalToken |
 | `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | Deprecated  for style change |
@@ -633,6 +708,15 @@ export default App;
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
 | `@slider-disabled-background-color` | - | Deprecated |
+
+### Spin
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@spin-dot-size-sm` | `dotSizeSM` | - |
+| `@spin-dot-size` | `dotSize` | - |
+| `@spin-dot-size-lg` | `dotSizeLG` | - |
 
 ### Statistic
 
@@ -784,8 +868,6 @@ export default App;
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
-<!-- ### TimePicker -->
-
 ### Tooltip
 
 <!-- prettier-ignore -->
@@ -796,7 +878,7 @@ export default App;
 | `@tooltip-bg` | `colorBgSpotlight` | Global Token |
 | `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
 | `@tooltip-distance` | `marginXXS` | Global Token |
-| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`, Deprecated |
 | `@tooltip-border-radius` | `borderRadius` | Global Token |
 
 ### Transfer
@@ -813,7 +895,18 @@ export default App;
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | Deprecated |
 
-<!-- ### Tree -->
+### Tree 树形控件
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tree-bg` | `colorBgContainer` | Global Token |
+| `@tree-title-height` | `titleHeight` | - |
+| `@tree-child-padding` | - | Deprecated |
+| `@tree-directory-selected-color` | `directoryNodeSelectedColor` | - |
+| `@tree-directory-selected-bg` | `directoryNodeSelectedBg` | - |
+| `@tree-node-hover-bg` | `nodeHoverBg` | - |
+| `@tree-node-selected-bg` | `nodeSelectedBg` | - |
 
 ### Typography
 

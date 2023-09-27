@@ -7,6 +7,7 @@ import Button from '../button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import type { TourStepProps } from './interface';
+import useClosable from '../_util/hooks/useClosable';
 
 function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
@@ -17,9 +18,18 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  closeIcon?: ReactNode;
 }
 
-const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
+// Due to the independent design of Panel, it will be too coupled to put in rc-tour,
+// so a set of Panel logic is implemented separately in antd.
+const TourPanel: React.FC<TourPanelProps> = ({
+  stepProps,
+  current,
+  type,
+  indicatorsRender,
+  closeIcon,
+}) => {
   const {
     prefixCls,
     total = 1,
@@ -33,10 +43,25 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     nextButtonProps,
     prevButtonProps,
     type: stepType,
-    className,
+    closeIcon: stepCloseIcon,
   } = stepProps;
 
   const mergedType = stepType ?? type;
+
+  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
+  const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
+
+  const [closable, mergedDisplayCloseIcon] = useClosable(
+    mergedClosable,
+    mergedCloseIcon,
+    (icon) => (
+      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        {icon}
+      </span>
+    ),
+    <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    true,
+  );
 
   const isLastStep = current === total - 1;
 
@@ -94,9 +119,9 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
   const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
-    <div className={classNames(className, `${prefixCls}-content`)}>
+    <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-inner`}>
-        <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+        {closable && mergedDisplayCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}
