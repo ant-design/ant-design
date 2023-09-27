@@ -237,7 +237,7 @@ import { ConfigProvider } from 'antd';
 
 ## 如何支持 SSR？
 
-请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+请参考动态主题文档 [服务端渲染](/docs/react/server-side-rendering-cn) 部分内容。
 
 ## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
 
