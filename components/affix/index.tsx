@@ -232,7 +232,10 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
 
-  const className = classNames(affixStyle && rootClassName, { [affixPrefixCls]: !!affixStyle });
+  const className = classNames({
+    [affixPrefixCls]: affixStyle,
+    [rootClassName!]: affixStyle && rootClassName,
+  });
 
   const otherProps = omit(props, [
     'prefixCls',
@@ -247,7 +250,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
   return (
     <ResizeObserver onResize={updatePosition}>
       <div {...otherProps} ref={placeholderNodeRef}>
-        {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
+        {affixStyle ? <div style={placeholderStyle} aria-hidden="true" /> : null}
         <div className={className} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
