@@ -20,6 +20,6 @@ jobs:
           if [[ ${{ steps.trigger.outcome }} == 'success' ]]; then
             git config --global user.name 'github-actions[bot]'
             git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-            git commit --allow-empty -m "Added empty commit"
+            git commit --allow-empty -m "Trigger Argos manually"
             git push
           fi
