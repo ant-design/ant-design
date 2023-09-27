@@ -148,6 +148,7 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  cssThemes?: Record<string, ThemeConfig>;
 
   warning?: WarningContextProps;
 
@@ -341,6 +342,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     flex,
     wave,
     warning: warningConfig,
+    cssThemes,
   } = props;
 
   // =================================== Context ===================================
