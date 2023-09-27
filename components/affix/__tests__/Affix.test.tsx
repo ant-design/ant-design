@@ -1,5 +1,5 @@
-import type { CSSProperties } from 'react';
 import React, { useEffect, useRef } from 'react';
+
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -11,7 +11,7 @@ const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => 
 interface AffixProps {
   offsetTop?: number;
   offsetBottom?: number;
-  style?: CSSProperties;
+  style?: React.CSSProperties;
   onChange?: () => void;
 }
 
@@ -29,7 +29,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
   return (
     <div ref={container} className="container">
       <Affix className="fixed" target={() => container.current} {...props}>
-        <Button>Fixed at the top of container</Button>
+        <Button type="primary">Fixed at the top of container</Button>
       </Affix>
     </div>
   );
@@ -121,6 +121,16 @@ describe('Affix Render', () => {
   });
 
   describe('updatePosition when target changed', () => {
+    it('function change', () => {
+      document.body.innerHTML = '<div id="mounter" />';
+      const target = document.getElementById('mounter');
+      const getTarget = () => target;
+      const { container, rerender } = render(<Affix target={getTarget}>{null}</Affix>);
+      rerender(<Affix target={() => null}>{null}</Affix>);
+      expect(container.querySelector(`div[aria-hidden="true"]`)).toBeNull();
+      expect(container.querySelector('.ant-affix')?.getAttribute('style')).toBeUndefined();
+    });
+
     it('check position change before measure', async () => {
       const { container } = render(
         <>
@@ -134,7 +144,20 @@ describe('Affix Render', () => {
       );
       await waitFakeTimer();
       await movePlaceholder(1000);
-      expect(container.querySelector('.ant-affix')).toBeTruthy();
+      expect(container.querySelector<HTMLElement>('.ant-affix')).toBeTruthy();
+    });
+
+    it('do not measure when hidden', async () => {
+      const { container, rerender } = render(<AffixMounter offsetBottom={0} />);
+      await waitFakeTimer();
+      const affixStyleEle = container.querySelector('.ant-affix');
+      const firstAffixStyle = affixStyleEle ? affixStyleEle.getAttribute('style') : null;
+
+      rerender(<AffixMounter offsetBottom={0} style={{ display: 'none' }} />);
+      await waitFakeTimer();
+      const secondAffixStyle = affixStyleEle ? affixStyleEle.getAttribute('style') : null;
+
+      expect(firstAffixStyle).toEqual(secondAffixStyle);
     });
   });
 });
