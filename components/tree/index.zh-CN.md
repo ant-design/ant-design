@@ -84,6 +84,8 @@ demo:
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| onMouseEnter | 鼠标移入节点时触发 | function({event, node}) | - |  |
+| onMouseLeave | 鼠标移出节点时触发 | function({event, node}) | - |  |
 
 ### TreeNode props
 

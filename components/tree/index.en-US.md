@@ -82,6 +82,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| onMouseEnter | Callback function for when the mouse enters a treeNode | function({event, node}) | - |  |
+| onMouseLeave | Callback function for when the mouse leaves a treeNode | function({event, node}) | - |  |
 
 ### TreeNode props
 
