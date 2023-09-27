@@ -3,11 +3,12 @@ name: Trigger Argos manually
 on: workflow_dispatch
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
-  add_empty_commit:
+  trigger_argos_manually:
+    permissions:
+      pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
     runs-on: ubuntu-latest
 
     steps:
