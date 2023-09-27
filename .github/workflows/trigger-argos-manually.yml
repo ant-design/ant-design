@@ -7,14 +7,16 @@ permissions:
 
 jobs:
   trigger_argos_manually:
-    permissions:
-      pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger Argos manually
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit --allow-empty -m "Trigger Argos manually"
-          git push
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: Install node_modules
+        run: yarn
+      - name: Build dist file
+        run: npm run dist:esbuild
+      - name: Run image screenshot tests
+        run: npm run test-image
+      - name: Upload screenshots to Argos CI
+        run: npm run argos
