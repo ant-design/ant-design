@@ -1,6 +1,6 @@
+import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
-import * as React from 'react';
 
 export interface EllipsisProps {
   enabledMeasure?: boolean;
@@ -190,7 +190,7 @@ const Ellipsis: React.FC<EllipsisProps> = ({
         zIndex: -9999,
         visibility: 'hidden',
         pointerEvents: 'none',
-        fontSize: Math.floor(fontSize / 2) * 2,
+        fontSize: Math.ceil(fontSize / 2) * 2,
         ...style,
       }}
     >
