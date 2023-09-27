@@ -49,7 +49,7 @@ interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
 }
 
-export interface AffixState {
+interface AffixState {
   affixStyle?: React.CSSProperties;
   placeholderStyle?: React.CSSProperties;
   status: AffixStatus;
@@ -69,7 +69,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
   const status = React.useRef<AffixStatus>(AffixStatus.None);
-  const lastAffix = React.useRef<boolean>(false);
+  const [lastAffix, setLastAffix] = React.useState<boolean>(false);
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
   const prevListener = React.useRef<() => void>();
 
@@ -139,14 +139,14 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
 
       newState.lastAffix = !!newState.affixStyle;
 
-      if (lastAffix.current !== newState.lastAffix) {
+      if (lastAffix !== newState.lastAffix) {
         onChange?.(newState.lastAffix);
       }
 
       status.current = newState.status!;
       setAffixStyle(newState.affixStyle);
       setPlaceholderStyle(newState.placeholderStyle);
-      lastAffix.current = newState.lastAffix;
+      setLastAffix(newState.lastAffix);
     }
   };
 
