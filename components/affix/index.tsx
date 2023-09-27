@@ -68,8 +68,8 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
-  const status = React.useRef(AffixStatus.None);
-  const lastAffix = React.useRef(false);
+  const status = React.useRef<AffixStatus>(AffixStatus.None);
+  const lastAffix = React.useRef<boolean>(false);
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
   const prevListener = React.useRef<() => void>();
 
