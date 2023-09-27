@@ -2,6 +2,9 @@ name: Trigger Argos manually
 
 on: workflow_dispatch
 
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
   add_empty_commit:
