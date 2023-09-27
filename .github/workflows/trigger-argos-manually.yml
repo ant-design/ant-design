@@ -1,0 +1,25 @@
+name: Trigger Argos manually
+
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  add_empty_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check if comment triggers action
+        run: echo "${{ github.event.comment.body }}" | grep -q "@trigger-argos"
+        id: trigger
+        continue-on-error: true
+
+      - name: Create empty commit
+        run: |
+          if [[ ${{ steps.trigger.outcome }} == 'success' ]]; then
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+            git commit --allow-empty -m "Added empty commit"
+            git push
+          fi
