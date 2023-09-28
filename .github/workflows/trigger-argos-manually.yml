@@ -1,6 +1,6 @@
-name: Trigger Argos manually
+name: Trigger Argos with white-listed PRs
 
-on: workflow_dispatch
+on: [push, pull_request]
 
 permissions:
   contents: read
@@ -8,7 +8,7 @@ permissions:
 jobs:
   trigger_argos_manually:
     runs-on: ubuntu-latest
-
+    if: github.actor == 'kiner-tang'
     steps:
       - name: checkout
         uses: actions/checkout@v4
