@@ -162,6 +162,20 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     class="ant-space-item"
   >
     <button
+      class="ant-btn ant-btn-default ant-btn-two-chinese-chars"
+      type="button"
+    >
+      <span>
+        <span>
+          部署
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
