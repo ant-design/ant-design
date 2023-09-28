@@ -6,9 +6,9 @@ permissions:
   contents: read
 
 jobs:
-  trigger_argos_manually:
+  trigger_argos_with_whitelist_prs:
     runs-on: ubuntu-latest
-    if: github.actor == 'kiner-tang'
+    if: github.actor == 'kiner-tang1'
     steps:
       - name: checkout
         uses: actions/checkout@v4
