@@ -241,7 +241,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
   return (
     <ResizeObserver onResize={updatePosition}>
       <div style={style} ref={placeholderNodeRef} {...otherProps}>
-        {affixStyle ? <div style={placeholderStyle} aria-hidden="true" /> : null}
+        {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={className} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
