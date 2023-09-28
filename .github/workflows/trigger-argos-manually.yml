@@ -10,10 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     if: github.actor == 'kiner-tang'
     steps:
+      - name: print
+        run: echo $ARGOS_TOKEN
       - name: checkout
         uses: actions/checkout@v4
       - name: Install node_modules
-        run: echo $ARGOS_TOKEN && yarn
+        run: yarn
       - name: Build dist file
         run: npm run dist:esbuild
       - name: Run image screenshot tests
