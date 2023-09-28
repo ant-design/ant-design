@@ -13,7 +13,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: Install node_modules
-        run: echo ${ ARGOS_TOKEN } && yarn
+        run: echo $ARGOS_TOKEN && yarn
       - name: Build dist file
         run: npm run dist:esbuild
       - name: Run image screenshot tests
