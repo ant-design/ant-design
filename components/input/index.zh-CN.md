@@ -33,7 +33,7 @@ demo:
 <code src="./demo/password-input.tsx">密码框</code>
 <code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/show-count.tsx">带字数提示</code>
-<code src="./demo/textarea-show-count.tsx">带字数提示的文本域</code>
+<code src="./demo/advance-count.tsx" version=">= 5.10.0">定制计数能力</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/focus.tsx">聚焦</code>

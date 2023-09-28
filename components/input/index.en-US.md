@@ -32,7 +32,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/password-input.tsx">Password box</code>
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/show-count.tsx">With character counting</code>
-<code src="./demo/textarea-show-count.tsx">Textarea with character counting</code>
+<code src="./demo/advance-count.tsx" version=">= 5.10.0">Custom count logic</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/focus.tsx">Focus</code>
