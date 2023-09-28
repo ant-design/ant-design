@@ -602,6 +602,91 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
 
 exports[`renders components/input/demo/addon.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/input/demo/advance-count.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 16px;"
+>
+  <div>
+    <h5
+      class="ant-typography"
+    >
+      Exceed Max
+    </h5>
+    <span
+      class="ant-input-affix-wrapper ant-input-out-of-range"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="Hello, antd!"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          class="ant-input-show-count-suffix"
+        >
+          12 / 10
+        </span>
+      </span>
+    </span>
+  </div>
+  <div>
+    <h5
+      class="ant-typography"
+    >
+      Emoji count as length 1
+    </h5>
+    <span
+      class="ant-input-affix-wrapper"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="🔥🔥🔥"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          class="ant-input-show-count-suffix"
+        >
+          3
+        </span>
+      </span>
+    </span>
+  </div>
+  <div>
+    <h5
+      class="ant-typography"
+    >
+      Not exceed max
+    </h5>
+    <span
+      class="ant-input-affix-wrapper"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="🔥 antd"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          class="ant-input-show-count-suffix"
+        >
+          6 / 6
+        </span>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/advance-count.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/input/demo/align.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -10347,7 +10432,10 @@ Array [
 exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/show-count.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 32px;"
+>
   <span
     class="ant-input-affix-wrapper"
   >
@@ -10366,15 +10454,14 @@ Array [
         0 / 20
       </span>
     </span>
-  </span>,
-  <br />,
-  <br />,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
   >
     <textarea
       class="ant-input"
+      placeholder="can resize"
     />
     <span
       class="ant-input-suffix"
@@ -10385,8 +10472,28 @@ Array [
         0 / 100
       </span>
     </span>
-  </span>,
-]
+  </span>
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
+    data-count="0 / 100"
+    style="height: 120px; resize: none;"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="disable resize"
+      style="resize: none;"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
+    </span>
+  </span>
+</div>
 `;
 
 exports[`renders components/input/demo/show-count.tsx extend context correctly 2`] = `[]`;
@@ -10688,52 +10795,6 @@ Array [
 `;
 
 exports[`renders components/input/demo/textarea-resize.tsx extend context correctly 2`] = `[]`;
-
-exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 1`] = `
-Array [
-  <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
-    data-count="0 / 100"
-    style="height: 120px; margin-bottom: 24px;"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="can resize"
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        class="ant-input-data-count"
-      >
-        0 / 100
-      </span>
-    </span>
-  </span>,
-  <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
-    data-count="0 / 100"
-    style="height: 120px; resize: none;"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="disable resize"
-      style="resize: none;"
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        class="ant-input-data-count"
-      >
-        0 / 100
-      </span>
-    </span>
-  </span>,
-]
-`;
-
-exports[`renders components/input/demo/textarea-show-count.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/input/demo/tooltip.tsx extend context correctly 1`] = `
 Array [
