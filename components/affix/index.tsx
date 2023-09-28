@@ -73,7 +73,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     onChange,
   } = props;
 
-  const [lastAffix, setLastAffix] = React.useState<boolean>(false);
+  const [lastAffix, setLastAffix] = React.useState(false);
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
