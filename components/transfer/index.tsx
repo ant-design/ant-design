@@ -2,6 +2,7 @@ import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext, useRef } from 'react';
 import classNames from 'classnames';
 
+import useMultipleSelect from '../_util/hooks/useMultipleSelect';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -169,6 +170,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setTargetSelectedKeys,
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
+  const [multipleSelect] = useMultipleSelect();
+
   // record last selected item index
   const leftPrevSelectedIndexRef = useRef(-1);
   const rightPrevSelectedIndexRef = useRef(-1);
@@ -319,36 +322,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const prevSelectedIndexRef = isLeftDirection
       ? leftPrevSelectedIndexRef
       : rightPrevSelectedIndexRef;
-    // prevSelectedIndex reset case
-    if (prevSelectedIndexRef.current < 0) {
-      const selectedIndexArr: number[] = [];
-      data.forEach((item, idx) => {
-        if (Array.from(holder).includes(item.key)) {
-          selectedIndexArr.push(idx);
-        }
-      });
-      // nearest item between currentIndex and selectedIndexArr
-      let nearestIndex = selectedIndexArr[0];
-      selectedIndexArr.forEach((item) => {
-        if (Math.abs(item - currentSelectedIndex) < Math.abs(nearestIndex - currentSelectedIndex)) {
-          nearestIndex = item;
-        }
-      });
-      setPrevSelectedIndex(direction, nearestIndex);
-    }
-    // add/delete the selected range
-    const startIndex = Math.min(prevSelectedIndexRef.current, currentSelectedIndex);
-    const endIndex = Math.max(prevSelectedIndexRef.current, currentSelectedIndex);
-    const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => item.key);
-    const shouldSelected = rangeKeys.some((key) => !holder?.has(key));
-    rangeKeys.forEach((item) => {
-      if (shouldSelected) {
-        holder.add(item);
-        setPrevSelectedIndex(direction, endIndex);
-      } else {
-        holder.delete(item);
-        setPrevSelectedIndex(direction, -1);
-      }
+    multipleSelect(prevSelectedIndexRef, currentSelectedIndex, data, holder, (index: number) => {
+      setPrevSelectedIndex(direction, index);
     });
   };
 
