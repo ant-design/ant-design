@@ -1,6 +1,6 @@
 name: Trigger Argos with white-listed PRs
 
-on: [push, pull_request]
+on: [push]
 
 permissions:
   contents: read
