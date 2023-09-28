@@ -9,9 +9,9 @@ jobs:
   trigger_argos_with_whitelist_prs:
     runs-on: ubuntu-latest
     if: github.actor == 'kiner-tang'
+    env:
+      ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
     steps:
-      - name: print
-        run: echo "hi, kiner" && echo ${{ secrets.ARGOS_TOKEN }}
       - name: checkout
         uses: actions/checkout@v4
       - name: Install node_modules
