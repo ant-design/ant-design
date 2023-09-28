@@ -21,19 +21,13 @@ export default function useMultipleSelect() {
         }
       });
       // nearest item between currentIndex and selectedIndexArr
-      if (selectedIndexArr.length > 0) {
-        let nearestIndex = selectedIndexArr[0];
-        selectedIndexArr.forEach((item) => {
-          if (
-            Math.abs(item - currentSelectedIndex) < Math.abs(nearestIndex - currentSelectedIndex)
-          ) {
-            nearestIndex = item;
-          }
-        });
-        updatePrevSelectedIndex(nearestIndex);
-      } else {
-        updatePrevSelectedIndex(currentSelectedIndex);
-      }
+      let nearestIndex = selectedIndexArr[0];
+      selectedIndexArr.forEach((item) => {
+        if (Math.abs(item - currentSelectedIndex) < Math.abs(nearestIndex - currentSelectedIndex)) {
+          nearestIndex = item;
+        }
+      });
+      updatePrevSelectedIndex(nearestIndex || currentSelectedIndex);
     }
 
     // add/delete the selected range
