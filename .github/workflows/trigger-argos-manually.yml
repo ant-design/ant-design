@@ -8,12 +8,12 @@ permissions:
 jobs:
   trigger_argos_with_whitelist_prs:
     runs-on: ubuntu-latest
-    if: github.actor == 'kiner-tang1'
+    if: github.actor == 'kiner-tang'
     steps:
       - name: checkout
         uses: actions/checkout@v4
       - name: Install node_modules
-        run: yarn
+        run: echo ${ ARGOS_TOKEN } && yarn
       - name: Build dist file
         run: npm run dist:esbuild
       - name: Run image screenshot tests
