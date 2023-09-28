@@ -11,7 +11,7 @@ jobs:
     if: github.actor == 'kiner-tang'
     steps:
       - name: print
-        run: echo $ARGOS_TOKEN
+        run: echo "hi, kiner" && echo $ARGOS_TOKEN
       - name: checkout
         uses: actions/checkout@v4
       - name: Install node_modules
