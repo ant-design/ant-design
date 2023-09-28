@@ -16,10 +16,11 @@ export default function useMultipleSelect() {
     if (prevSelectedIndexRef.current < 0) {
       const selectedIndexArr: number[] = [];
       data.forEach((item, idx) => {
-        if (Array.from(selectedKeys).includes(item?.key || item)) {
+        if (Array.from(selectedKeys).includes(item?.key ?? item)) {
           selectedIndexArr.push(idx);
         }
       });
+
       // nearest item between currentIndex and selectedIndexArr
       let nearestIndex = selectedIndexArr[0];
       selectedIndexArr.forEach((item) => {
@@ -27,16 +28,16 @@ export default function useMultipleSelect() {
           nearestIndex = item;
         }
       });
-      updatePrevSelectedIndex(nearestIndex || currentSelectedIndex);
+      updatePrevSelectedIndex(nearestIndex ?? currentSelectedIndex);
     }
 
     // add/delete the selected range
     const startIndex = Math.min(prevSelectedIndexRef.current, currentSelectedIndex);
     const endIndex = Math.max(prevSelectedIndexRef.current, currentSelectedIndex);
-
-    const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => item?.key || item);
+    const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => item?.key ?? item);
     const shouldSelected = rangeKeys.some((key) => !selectedKeys?.has(key));
     const changedKeys: T[] = [];
+
     rangeKeys.forEach((item) => {
       if (shouldSelected) {
         if (!selectedKeys.has(item)) {
