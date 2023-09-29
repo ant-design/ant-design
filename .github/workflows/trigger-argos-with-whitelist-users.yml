@@ -69,7 +69,7 @@ jobs:
       
       - name: install dependencies
         if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-        run: npm ci
+        run: npm install
 
       - name: Build dist file
         id: build
