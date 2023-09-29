@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  check_user:
+  trigger_argos_with_whitelist_users:
     runs-on: ubuntu-latest
 
     steps:
