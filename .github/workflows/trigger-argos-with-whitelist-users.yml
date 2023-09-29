@@ -39,10 +39,30 @@ jobs:
             echo "User is not whitelisted"
             echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi 
-      - name: Install node_modules
-        id: install
+          - name: cache package-lock.json
+          uses: actions/cache@v3
+          with:
+            path: package-temp-dir
+            key: lock-${{ github.sha }}
+  
+      - name: create package-lock.json
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
-        run: yarn
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: hack for single file
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+      - name: cache node_modules
+        id: node_modules_cache_id
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
       - name: Build dist file
         id: build
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
