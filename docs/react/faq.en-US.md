@@ -185,7 +185,7 @@ For historical reasons, the display names of the pop components are not uniform,
 
 ## Dynamic style using `:where` selector which not support old browser.
 
-Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/customize-theme#legacy-browser-compatible) part.
+Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/compatible-style) part.
 
 ## How to disable motion?
 
@@ -209,7 +209,7 @@ Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-us
 
 ## How to support SSR？
 
-Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
+Please ref dynamic theme document [SSR](/docs/react/server-side-rendering) part.
 
 ## What is the relationship between colorPrimary and colorInfo and colorLink in V5?
 
