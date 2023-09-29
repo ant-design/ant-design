@@ -38,23 +38,23 @@ jobs:
           else
             echo "User is not whitelisted"
             echo "whitelisted=false" >> $GITHUB_OUTPUT
-          fi
-  trigger_argos_with_whitelist_users:
-    runs-on: ubuntu-latest
-    needs: check_user
-    if: ${{ needs.check_user.outputs.whitelisted == 'true' }}
-    env:
-      ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
-      ARGOS_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
-
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
+          fi 
       - name: Install node_modules
+        id: install
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         run: yarn
       - name: Build dist file
+        id: build
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         run: npm run dist:esbuild
       - name: Run image screenshot tests
+        id: screenshot
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         run: npm run test-image
       - name: Upload screenshots to Argos CI
+        id: upload
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        env:
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+          ARGOS_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
         run: npm run argos
