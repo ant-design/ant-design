@@ -39,8 +39,9 @@ jobs:
             echo "User is not whitelisted"
             echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi 
-          
+
       - name: cache package-lock.json
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         uses: actions/cache@v3
         with:
           path: package-temp-dir
