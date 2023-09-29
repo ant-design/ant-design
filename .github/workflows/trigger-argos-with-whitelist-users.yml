@@ -40,16 +40,16 @@ jobs:
             echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi 
 
-      - name: cache package-lock.json
+      - name: cache yarn.lock
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
   
-      - name: create package-lock.json
+      - name: create yarn.lock
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
-        run: npm install
+        run: yarn
 
       - name: hack for single file
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
@@ -57,7 +57,7 @@ jobs:
           if [ ! -d "package-temp-dir" ]; then
             mkdir package-temp-dir
           fi
-          cp package-lock.json package-temp-dir
+          cp yarn.lock package-temp-dir
 
       - name: cache node_modules
         id: node_modules_cache_id
@@ -65,7 +65,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+          key: node_modules-${{ hashFiles('**/package-temp-dir/yarn.lock') }}
 
       - name: Build dist file
         id: build
@@ -76,7 +76,7 @@ jobs:
         id: screenshot
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         run: npm run test-image
-        
+
       - name: Upload screenshots to Argos CI
         id: upload
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
