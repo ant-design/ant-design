@@ -40,16 +40,16 @@ jobs:
             echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi 
 
-      - name: cache yarn.lock
+      - name: cache package-lock.json
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
   
-      - name: create yarn.lock
+      - name: create package-lock.json
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
-        run: yarn install --frozen-lockfile --ignore-scripts
+        run: npm i --package-lock-only --ignore-scripts
 
       - name: hack for single file
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
@@ -57,7 +57,7 @@ jobs:
           if [ ! -d "package-temp-dir" ]; then
             mkdir package-temp-dir
           fi
-          cp yarn.lock package-temp-dir
+          cp package-lock.json package-temp-dir
 
       - name: cache node_modules
         id: node_modules_cache_id
@@ -65,11 +65,11 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/yarn.lock') }}
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
       
       - name: install dependencies
         if: ${{ steps.check_user.outputs.whitelisted == 'true' && steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
-        run: yarn
+        run: npm ci
 
       - name: Build dist file
         id: build
