@@ -24,7 +24,7 @@ jobs:
           whitelist_file="argos-white-listed-users"
           if [[ -f $whitelist_file ]]; then
             users=$(cat $whitelist_file)
-            echo "::set-output name=whitelisted_users::$users"
+            echo "whitelisted_users=$users" >> $GITHUB_OUTPUT
           fi
 
       - name: Check if user is whitelisted
@@ -34,10 +34,10 @@ jobs:
           current_user="${{ github.actor }}"
           if grep -Fxq "$current_user" <<< "$whitelisted_users"; then
             echo "User is whitelisted"
-            echo "::set-output name=whitelisted::true"
+            echo "whitelisted=true" >> $GITHUB_OUTPUT
           else
             echo "User is not whitelisted"
-            echo "::set-output name=whitelisted::false"
+            echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi
   trigger_argos_with_whitelist_users:
     runs-on: ubuntu-latest
