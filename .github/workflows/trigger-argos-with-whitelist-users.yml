@@ -68,7 +68,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
       
       - name: install dependencies
-        if: ${{ steps.check_user.outputs.whitelisted == 'true' && steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
+        if: ${{ steps.node_modules_cache_id.outputs.cache-hit != 'true' }}
         run: npm ci
 
       - name: Build dist file
