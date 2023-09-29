@@ -49,7 +49,7 @@ jobs:
   
       - name: create package-lock.json
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
-        run: npm i --package-lock-only --ignore-scripts
+        run: npm install
 
       - name: hack for single file
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
@@ -58,6 +58,7 @@ jobs:
             mkdir package-temp-dir
           fi
           cp package-lock.json package-temp-dir
+
       - name: cache node_modules
         id: node_modules_cache_id
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
@@ -65,14 +66,17 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
       - name: Build dist file
         id: build
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         run: npm run dist:esbuild
+
       - name: Run image screenshot tests
         id: screenshot
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
         run: npm run test-image
+        
       - name: Upload screenshots to Argos CI
         id: upload
         if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
