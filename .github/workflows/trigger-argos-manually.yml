@@ -12,7 +12,6 @@ jobs:
     env:
       ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
       ARGOS_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
-      ARGOS_PARALLEL_TOTAL: ${{ strategy['job-total'] }}
 
     steps:
       - name: checkout
