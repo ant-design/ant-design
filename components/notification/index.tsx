@@ -6,6 +6,8 @@ import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './inter
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
+export type { ArgsProps };
+
 let notification: GlobalNotification | null = null;
 
 let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
