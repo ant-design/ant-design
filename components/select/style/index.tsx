@@ -208,6 +208,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
       border: 'none',
       outline: 'none',
       appearance: 'none',
+      fontFamily: 'inherit',
 
       '&::-webkit-search-cancel-button': {
         display: 'none',
