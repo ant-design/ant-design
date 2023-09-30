@@ -85,6 +85,7 @@ export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
 export type { ModalFuncProps, ModalProps } from './modal';
 export { default as notification } from './notification';
+export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';
 export type { PaginationProps } from './pagination';
 export { default as Popconfirm } from './popconfirm';
