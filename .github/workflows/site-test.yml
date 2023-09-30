@@ -41,6 +41,7 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: site
+          path: _site
 
       - name: Run E2E Test
         run: npm run site:test
