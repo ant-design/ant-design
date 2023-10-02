@@ -122,14 +122,13 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     const currentBreakpoint: Breakpoint = responsiveArray.find((screen) => screens[screen])!;
 
     const currentSize = size[currentBreakpoint];
-    const fontSize = currentSize && (icon || children) ? `${currentSize / 2}px` : '18px';
 
     return currentSize
       ? {
-          fontSize,
           width: currentSize,
           height: currentSize,
           lineHeight: `${currentSize}px`,
+          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size]);
