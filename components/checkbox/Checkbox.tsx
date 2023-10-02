@@ -78,11 +78,10 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const prevValue = React.useRef(restProps.value);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Checkbox');
 
     warning(
       'checked' in restProps || !!checkboxGroup || !('value' in restProps),
-      'Checkbox',
       'usage',
       '`value` is not a valid prop, do you mean `checked`?',
     );

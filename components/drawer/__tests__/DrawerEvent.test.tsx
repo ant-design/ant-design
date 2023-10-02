@@ -135,10 +135,10 @@ describe('Drawer', () => {
 
     expect(afterVisibleChange).toHaveBeenCalledTimes(1);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `visible` is deprecated, please use `open` instead.',
+      'Warning: [antd: Drawer] `visible` is deprecated. Please use `open` instead.',
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated, please use `afterOpenChange` instead.',
+      'Warning: [antd: Drawer] `afterVisibleChange` is deprecated. Please use `afterOpenChange` instead.',
     );
 
     errorSpy.mockRestore();

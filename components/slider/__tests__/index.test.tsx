@@ -171,27 +171,27 @@ describe('Slider', () => {
 
     const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated, please use `tooltip.prefixCls` instead.',
+      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead.',
     );
 
     rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated, please use `tooltip.getPopupContainer` instead.',
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer` instead.',
     );
 
     rerender(<TSSlider tipFormatter={(v: any) => v} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is deprecated, please use `tooltip.formatter` instead.',
+      'Warning: [antd: Slider] `tipFormatter` is deprecated. Please use `tooltip.formatter` instead.',
     );
 
     rerender(<TSSlider tooltipVisible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is deprecated, please use `tooltip.open` instead.',
+      'Warning: [antd: Slider] `tooltipVisible` is deprecated. Please use `tooltip.open` instead.',
     );
 
     rerender(<TSSlider tooltipPlacement="left" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is deprecated, please use `tooltip.placement` instead.',
+      'Warning: [antd: Slider] `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead.',
     );
 
     // All should work

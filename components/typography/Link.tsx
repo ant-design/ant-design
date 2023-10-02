@@ -12,14 +12,9 @@ export interface LinkProps
 
 const Link = React.forwardRef<HTMLElement, LinkProps>(({ ellipsis, rel, ...restProps }, ref) => {
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Typography.Link');
 
-    warning(
-      typeof ellipsis !== 'object',
-      'Typography.Link',
-      'usage',
-      '`ellipsis` only supports boolean value.',
-    );
+    warning(typeof ellipsis !== 'object', 'usage', '`ellipsis` only supports boolean value.');
   }
 
   const mergedProps = {

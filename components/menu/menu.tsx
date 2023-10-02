@@ -72,28 +72,21 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ======================== Warning ==========================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Menu');
 
     warning(
       !('inlineCollapsed' in props && mode !== 'inline'),
-      'Menu',
       'usage',
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
     warning(
       !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-      'Menu',
       'usage',
       '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
 
-    warning(
-      'items' in props && !children,
-      'Menu',
-      'deprecated',
-      '`children` will be removed in next major version. Please use `items` instead.',
-    );
+    warning.deprecated('items' in props && !children, 'children', 'items');
   }
 
   overrideObj.validator?.({ mode });

@@ -123,37 +123,21 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   }, [showInfo, percent, percentNumber, progressStatus, type, prefixCls, format]);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Progress');
 
-    warning(
-      !('successPercent' in props),
-      'Progress',
-      'deprecated',
-      '`successPercent` is deprecated. Please use `success.percent` instead.',
-    );
-    warning(
-      !('width' in props),
-      'Progress',
-      'deprecated',
-      '`width` is deprecated. Please use `size` instead.',
-    );
+    warning.deprecated(!('successPercent' in props), 'successPercent', 'success.percent');
+    warning.deprecated(!('width' in props), 'width', 'size');
 
     if ((type === 'circle' || type === 'dashboard') && Array.isArray(size)) {
       warning(
         false,
-        'Progress',
         'usage',
         'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
       );
     }
 
     if (props.success && 'progress' in props.success) {
-      warning(
-        false,
-        'Progress',
-        'deprecated',
-        '`success.progress` is deprecated. Please use `success.percent` instead.',
-      );
+      warning.deprecated(false, 'success.progress', 'success.percent');
     }
   }
 

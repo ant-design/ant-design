@@ -76,11 +76,10 @@ const Divider: React.FC<DividerProps> = (props) => {
 
   // Warning children not work in vertical mode
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Divider');
 
     warning(
       !children || type !== 'vertical',
-      'Divider',
       'usage',
       '`children` not working in `vertical` mode.',
     );

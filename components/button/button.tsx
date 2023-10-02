@@ -184,18 +184,16 @@ const InternalButton: React.ForwardRefRenderFunction<
   };
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Button');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
-      'Button',
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
 
     warning(
       !(ghost && isUnBorderedButtonType(type)),
-      'Button',
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );

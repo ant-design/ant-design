@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react';
 import * as React from 'react';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import classNames from 'classnames';
@@ -122,69 +121,6 @@ export interface TooltipPropsWithTitle extends AbstractTooltipProps {
 
 export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
-const splitObject = <T extends CSSProperties>(
-  obj: T,
-  keys: (keyof T)[],
-): Record<'picked' | 'omitted', T> => {
-  const picked: T = {} as T;
-  const omitted: T = { ...obj };
-  keys.forEach((key) => {
-    if (obj && key in obj) {
-      picked[key] = obj[key];
-      delete omitted[key];
-    }
-  });
-  return { picked, omitted };
-};
-
-// Fix Tooltip won't hide at disabled button
-// mouse events don't trigger at disabled button in Chrome
-// https://github.com/react-component/tooltip/issues/18
-function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixCls: string) {
-  const elementType = element.type as any;
-  if (
-    ((elementType.__ANT_BUTTON === true || element.type === 'button') && element.props.disabled) ||
-    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading)) ||
-    (elementType.__ANT_RADIO === true && element.props.disabled)
-  ) {
-    // Pick some layout related style properties up to span
-    // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
-    const { picked, omitted } = splitObject(element.props.style, [
-      'position',
-      'left',
-      'right',
-      'top',
-      'bottom',
-      'float',
-      'display',
-      'zIndex',
-    ]);
-    const spanStyle: React.CSSProperties = {
-      display: 'inline-block', // default inline-block is important
-      ...picked,
-      cursor: 'not-allowed',
-      width: element.props.block ? '100%' : undefined,
-    };
-    const buttonStyle: React.CSSProperties = {
-      ...omitted,
-      pointerEvents: 'none',
-    };
-    const child = cloneElement(element, {
-      style: buttonStyle,
-      className: null,
-    });
-    return (
-      <span
-        style={spanStyle}
-        className={classNames(element.props.className, `${prefixCls}-disabled-compatible-wrapper`)}
-      >
-        {child}
-      </span>
-    );
-  }
-  return element;
-}
-
 const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -216,7 +152,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   } = React.useContext(ConfigContext);
 
   // ============================== Ref ===============================
-  const warning = devUseWarning();
+  const warning = devUseWarning('Tooltip');
 
   const tooltipRef = React.useRef<RcTooltipRef>(null);
 
@@ -227,12 +163,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   React.useImperativeHandle(ref, () => ({
     forceAlign,
     forcePopupAlign: () => {
-      warning(
-        false,
-        'Tooltip',
-        'deprecated',
-        '`forcePopupAlign` is align to `forceAlign` instead.',
-      );
+      warning.deprecated(false, 'forcePopupAlign', 'forceAlign');
       forceAlign();
     },
   }));
@@ -246,26 +177,19 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       ['afterVisibleChange', 'afterOpenChange'],
       ['arrowPointAtCenter', 'arrow={{ pointAtCenter: true }}'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Tooltip',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     warning(
       !destroyTooltipOnHide || typeof destroyTooltipOnHide === 'boolean',
-      'Tooltip',
       'usage',
       '`destroyTooltipOnHide` no need config `keepParent` anymore. Please use `boolean` value directly.',
     );
 
     warning(
       !arrow || typeof arrow === 'boolean' || !('arrowPointAtCenter' in arrow),
-      'Tooltip',
       'deprecated',
-      '`arrowPointAtCenter` in `arrow` is deprecated, please use `pointAtCenter` instead.',
+      '`arrowPointAtCenter` in `arrow` is deprecated. Please use `pointAtCenter` instead.',
     );
   }
 
@@ -339,10 +263,8 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   }
 
   // ============================= Render =============================
-  const child = getDisabledCompatibleChildren(
-    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>,
-    prefixCls,
-  );
+  const child =
+    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'

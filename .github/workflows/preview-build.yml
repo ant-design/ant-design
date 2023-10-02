@@ -74,7 +74,7 @@ jobs:
         run: npm run site
         env:
           SITE_ENV: development
-          NODE_OPTIONS: --max_old_space_size=4096
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: upload site artifact
         uses: actions/upload-artifact@v3

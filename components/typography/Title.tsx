@@ -20,11 +20,10 @@ const Title = React.forwardRef<HTMLElement, TitleProps>((props, ref) => {
   let component: keyof JSX.IntrinsicElements;
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Typography.Title');
 
     warning(
       TITLE_ELE_LIST.includes(level),
-      'Typography.Title',
       'usage',
       'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
     );

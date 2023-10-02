@@ -290,6 +290,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [`${treeCls}-checkbox`]: {
         top: 'initial',
         marginInlineEnd: treeCheckBoxMarginHorizontal,
+        alignSelf: 'flex-start',
+        marginTop: token.marginXXS,
       },
 
       // >>> Title

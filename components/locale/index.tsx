@@ -69,11 +69,10 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('LocaleProvider');
 
     warning(
       _ANT_MARK__ === ANT_MARK,
-      'LocaleProvider',
       'deprecated',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
     );

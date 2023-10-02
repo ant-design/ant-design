@@ -132,18 +132,12 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Anchor');
 
-    warning(
-      !children,
-      'Anchor',
-      'deprecated',
-      '`Anchor children` is deprecated. Please use `items` instead.',
-    );
+    warning.deprecated(!children, 'Anchor children', 'items');
 
     warning(
       !(anchorDirection === 'horizontal' && items?.some((n) => 'children' in n)),
-      'Anchor',
       'usage',
       '`Anchor items#children` is not supported when `Anchor` direction is horizontal.',
     );

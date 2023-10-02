@@ -111,28 +111,17 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('AutoComplete');
 
-    warning(
-      !('dataSource' in props),
-      'AutoComplete',
-      'deprecated',
-      '`dataSource` is deprecated, please use `options` instead.',
-    );
+    warning.deprecated(!('dataSource' in props), 'dataSource', 'options');
 
     warning(
       !customizeInput || !('size' in props),
-      'AutoComplete',
       'usage',
       'You need to control style self instead of setting `size` when using customize input.',
     );
 
-    warning(
-      !dropdownClassName,
-      'AutoComplete',
-      'deprecated',
-      '`dropdownClassName` is deprecated, please use `popupClassName` instead.',
-    );
+    warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
   }
 
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);

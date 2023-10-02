@@ -53,7 +53,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -70,13 +70,13 @@ jobs:
       - name: build site
         run: npm run predeploy
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: build dist and bundle analyzer report
         run: npm run dist
         env:
           ANALYZER: 1
-          NODE_OPTIONS: "--max_old_space_size=4096"
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: Get version
         id: publish-version
@@ -105,7 +105,7 @@ jobs:
           npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: Create Commit Comment
-        uses: peter-evans/commit-comment@v2
+        uses: peter-evans/commit-comment@v3
         with:
           body: |
             - Documentation site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh

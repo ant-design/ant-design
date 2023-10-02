@@ -85,11 +85,10 @@ const FloatButton: React.ForwardRefRenderFunction<
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('FloatButton');
 
     warning(
       !(shape === 'circle' && description),
-      'FloatButton',
       'usage',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );

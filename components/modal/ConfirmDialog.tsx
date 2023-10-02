@@ -62,11 +62,10 @@ export function ConfirmContent(
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Modal');
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
-      'Modal',
       'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
@@ -190,14 +189,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Modal');
 
-    warning(
-      visible === undefined,
-      'Modal',
-      'deprecated',
-      `\`visible\` is deprecated, please use \`open\` instead.`,
-    );
+    warning.deprecated(visible === undefined, 'visible', 'open');
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;

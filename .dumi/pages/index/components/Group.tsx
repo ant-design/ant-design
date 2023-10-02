@@ -83,8 +83,8 @@ const Group: React.FC<GroupProps> = (props) => {
         </Typography.Title>
         <Typography.Paragraph
           style={{
-            marginBottom: isMobile ? token.marginXXL : token.marginFarXS,
             color: titleColor,
+            marginBottom: isMobile ? token.marginXXL : (token as any).marginFarXS,
           }}
         >
           {description}
@@ -111,7 +111,7 @@ const Group: React.FC<GroupProps> = (props) => {
       <GroupMask
         disabled={!!background}
         style={{
-          paddingBlock: token.marginFarSM,
+          paddingBlock: (token as any).marginFarSM,
         }}
       >
         {childNode}

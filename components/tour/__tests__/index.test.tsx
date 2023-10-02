@@ -529,4 +529,38 @@ describe('Tour', () => {
 
     resetIndex();
   });
+
+  it('first step should be primary', () => {
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <>
+          <button ref={coverBtnRef} type="button">
+            target
+          </button>
+
+          <Tour
+            steps={[
+              {
+                title: '',
+                description: '',
+                target: () => coverBtnRef.current!,
+                type: 'primary',
+                className: 'should-be-primary',
+              },
+              {
+                title: '',
+                target: () => coverBtnRef.current!,
+              },
+            ]}
+          />
+        </>
+      );
+    };
+
+    render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: 'target' }));
+    expect(document.querySelector('.should-be-primary')).toBeTruthy();
+    expect(document.querySelector('.should-be-primary')).toHaveClass('ant-tour-primary');
+  });
 });

@@ -39,14 +39,9 @@ const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Button.Group');
 
-    warning(
-      !size || ['large', 'small', 'middle'].includes(size),
-      'Button.Group',
-      'usage',
-      'Invalid prop `size`.',
-    );
+    warning(!size || ['large', 'small', 'middle'].includes(size), 'usage', 'Invalid prop `size`.');
   }
 
   const classes = classNames(

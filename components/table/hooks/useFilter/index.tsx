@@ -9,6 +9,7 @@ import type {
   FilterValue,
   GetPopupContainer,
   Key,
+  SafeKey,
   TableLocale,
   TransformColumns,
 } from '../../interface';
@@ -133,14 +134,17 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
+    const keyAsString = key as SafeKey;
     const { filters, filterDropdown } = column;
     if (filterDropdown) {
-      currentFilters[key] = filteredKeys || null;
+      currentFilters[keyAsString] = filteredKeys || null;
     } else if (Array.isArray(filteredKeys)) {
       const keys = flattenKeys(filters);
-      currentFilters[key] = keys.filter((originKey) => filteredKeys.includes(String(originKey)));
+      currentFilters[keyAsString] = keys.filter((originKey) =>
+        filteredKeys.includes(String(originKey)),
+      );
     } else {
-      currentFilters[key] = null;
+      currentFilters[keyAsString] = null;
     }
   });
 
@@ -204,7 +208,7 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
-  const warning = devUseWarning();
+  const warning = devUseWarning('Table');
 
   const mergedColumns = React.useMemo(
     () => getMergedColumns(rawMergedColumns || []),
@@ -253,7 +257,6 @@ function useFilter<RecordType>({
 
     warning(
       filteredKeysIsAllControlled,
-      'Table',
       'usage',
       'Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );

@@ -110,6 +110,7 @@ export interface SelectToken extends FullToken<'Select'> {
   rootPrefixCls: string;
   inputPaddingHorizontalBase: number;
   multipleSelectItemHeight: number;
+  selectHeight: number;
 }
 
 // ============================= Selector =============================
@@ -207,6 +208,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
       border: 'none',
       outline: 'none',
       appearance: 'none',
+      fontFamily: 'inherit',
 
       '&::-webkit-search-cancel-button': {
         display: 'none',
@@ -434,6 +436,7 @@ export default genComponentStyleHook(
       rootPrefixCls,
       inputPaddingHorizontalBase: token.paddingSM - 1,
       multipleSelectItemHeight: token.multipleItemHeight,
+      selectHeight: token.controlHeight,
     });
 
     return [genSelectStyle(selectToken)];

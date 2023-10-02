@@ -106,21 +106,15 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         // =================== Warning =====================
         if (process.env.NODE_ENV !== 'production') {
-          const warning = devUseWarning();
+          const warning = devUseWarning(displayName! || 'DatePicker');
 
           warning(
             picker !== 'quarter',
-            displayName!,
             'deprecated',
             `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
           );
 
-          warning(
-            !dropdownClassName,
-            displayName || 'DatePicker',
-            'deprecated',
-            '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-          );
+          warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
         }
 
         // ===================== Size =====================

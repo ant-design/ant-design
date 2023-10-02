@@ -88,24 +88,18 @@ const Drawer: React.FC<DrawerProps> & {
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Drawer');
 
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Drawer',
-        'deprecated',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
 
     if (getContainer !== undefined && props.style?.position === 'absolute') {
       warning(
         false,
-        'Drawer',
         'breaking',
         '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
       );

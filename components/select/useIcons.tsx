@@ -39,14 +39,9 @@ export default function useIcons({
   componentName: string;
 }) {
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning(componentName);
 
-    warning(
-      !clearIcon,
-      componentName,
-      'deprecated',
-      '`clearIcon` is deprecated, please use `allowClear={{ clearIcon: React.ReactNode }}` instead.',
-    );
+    warning.deprecated(!clearIcon, 'clearIcon', 'allowClear={{ clearIcon: React.ReactNode }}');
   }
 
   // Clear Icon

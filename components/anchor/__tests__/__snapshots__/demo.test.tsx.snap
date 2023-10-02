@@ -278,39 +278,6 @@ Array [
                 Part 3
               </a>
             </div>
-            <div
-              class="ant-anchor-link"
-            >
-              <a
-                class="ant-anchor-link-title"
-                href="#part-4"
-                title="Part 4"
-              >
-                Part 4
-              </a>
-            </div>
-            <div
-              class="ant-anchor-link"
-            >
-              <a
-                class="ant-anchor-link-title"
-                href="#part-5"
-                title="Part 5"
-              >
-                Part 5
-              </a>
-            </div>
-            <div
-              class="ant-anchor-link"
-            >
-              <a
-                class="ant-anchor-link-title"
-                href="#part-6"
-                title="Part 6"
-              >
-                Part 6
-              </a>
-            </div>
           </div>
         </div>
       </div>
@@ -328,18 +295,6 @@ Array [
     <div
       id="part-3"
       style="width:100vw;height:100vh;text-align:center;background:#FFFBE9"
-    />
-    <div
-      id="part-4"
-      style="width:100vw;height:100vh;text-align:center;background:#F4EAD5"
-    />
-    <div
-      id="part-5"
-      style="width:100vw;height:100vh;text-align:center;background:#DAE2B6"
-    />
-    <div
-      id="part-6"
-      style="width:100vw;height:100vh;text-align:center;background:#CCD6A6"
     />
   </div>,
 ]

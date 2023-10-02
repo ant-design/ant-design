@@ -13,6 +13,9 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: '선택하세요',
+  },
   Table: {
     filterTitle: '필터 메뉴',
     filterConfirm: '확인',
@@ -84,7 +87,7 @@ const localeValues: Locale = {
     optional: '(선택사항)',
     defaultValidateMessages: {
       default: '필드 유효성 검사 오류 ${label}',
-      required: '${label} 입력해 주세요',
+      required: '${label} 값을 입력해 주세요',
       enum: '${label} [${enum}] 중에 하나여야 합니다',
       whitespace: '${label} 비워둘 수 없습니다',
       date: {
@@ -120,7 +123,7 @@ const localeValues: Locale = {
         range: '${label} 값은 ${min}-${max} 사이어야 합니다',
       },
       array: {
-        len: '${len}이어야 합니다 ${label} ',
+        len: '${len}이어야 합니다 ${label}',
         min: '최소 ${min}이어야 합니다 ${label}',
         max: '최대 ${max}이어야 합니다 ${label}',
         range: '${label} ${min}-${max} 사이어야 합니다',
@@ -136,6 +139,9 @@ const localeValues: Locale = {
   QRCode: {
     expired: '만료된 QR 코드',
     refresh: '새로고침',
+  },
+  ColorPicker: {
+    presetEmpty: '미정',
   },
 };
 

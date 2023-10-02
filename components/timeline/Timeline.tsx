@@ -35,14 +35,9 @@ const Timeline: CompoundedComponent = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Timeline');
 
-    warning(
-      !children,
-      'Timeline',
-      'deprecated',
-      '`Timeline.Item` is deprecated. Please use `items` instead.',
-    );
+    warning.deprecated(!children, 'Timeline.Item', 'items');
   }
 
   // Style

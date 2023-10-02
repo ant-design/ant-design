@@ -57,13 +57,12 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const [locale] = useLocale('QRCode');
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('QRCode');
 
-    warning(!!value, 'QRCode', 'usage', 'need to receive `value` props');
+    warning(!!value, 'usage', 'need to receive `value` props');
 
     warning(
       !(icon && errorLevel === 'L'),
-      'QRCode',
       'usage',
       'ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );

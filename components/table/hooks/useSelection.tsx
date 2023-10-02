@@ -107,7 +107,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     getPopupContainer,
   } = config;
 
-  const warning = devUseWarning();
+  const warning = devUseWarning('Table');
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
@@ -182,7 +182,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
       warning(
         !('checked' in checkboxProps || 'defaultChecked' in checkboxProps),
-        'Table',
         'usage',
         'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
       );
@@ -321,12 +320,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
               const keys = Array.from(keySet);
               if (onSelectInvert) {
-                warning(
-                  false,
-                  'Table',
-                  'deprecated',
-                  '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
-                );
+                warning.deprecated(false, 'onSelectInvert', 'onChange');
                 onSelectInvert(keys);
               }
 
@@ -368,7 +362,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       if (!rowSelection) {
         warning(
           !columns.includes(SELECTION_COLUMN),
-          'Table',
           'usage',
           '`rowSelection` is not config but `SELECTION_COLUMN` exists in the `columns`.',
         );
@@ -522,7 +515,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             mergedIndeterminate = indeterminate;
             warning(
               typeof checkboxProps?.indeterminate !== 'boolean',
-              'Table',
               'usage',
               'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
             );
@@ -670,7 +662,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
       warning(
         cloneColumns.filter((col) => col === SELECTION_COLUMN).length <= 1,
-        'Table',
         'usage',
         'Multiple `SELECTION_COLUMN` exist in `columns`.',
       );

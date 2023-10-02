@@ -80,21 +80,15 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const upload = React.useRef<RcUpload>(null);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning();
+    const warning = devUseWarning('Upload');
 
     warning(
       'fileList' in props || !('value' in props),
-      'Upload',
       'usage',
       '`value` is not a valid prop, do you mean `fileList`?',
     );
 
-    warning(
-      !('transformFile' in props),
-      'Upload',
-      'deprecated',
-      '`transformFile` is deprecated. Please use `beforeUpload` directly.',
-    );
+    warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
   }
 
   // Control mode will auto fill file uid if not provided
