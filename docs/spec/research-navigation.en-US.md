@@ -1,5 +1,5 @@
 ---
-category: Design Patterns (Research)
+group: Design Patterns (Research)
 type: Global Rules
 order: 1
 title: Navigation

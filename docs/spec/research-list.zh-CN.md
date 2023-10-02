@@ -1,5 +1,5 @@
 ---
-category: 设计模式 - 探索
+group: 设计模式 - 探索
 type: 模板文档
 order: 3
 title: 列表页
@@ -38,19 +38,25 @@ title: 列表页
 
 #### 单列布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c0iNQIBusPMAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c0iNQIBusPMAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 从上往下堆叠，数据过滤模块在最上方，过滤数据后，用户再由总体到具体的的浏览逻辑理解和分析。
 
 #### 双栏布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h8MsSr8UXCEAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h8MsSr8UXCEAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 将数据过滤模块放置在侧栏，当过滤条件过多，横向空间充裕时使用。
 
 #### [模版 - 查询表格](https://preview.pro.ant.design/list/table-list)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uAGRTY5EMvIAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uAGRTY5EMvIAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候使用**
 
@@ -58,7 +64,9 @@ title: 列表页
 
 #### 模版 - 标准列表
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候使用**
 
@@ -66,7 +74,9 @@ title: 列表页
 
 #### [模板 - 卡片列表](https://preview.pro.ant.design/list/card-list)
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*coEVT7uElCUAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*coEVT7uElCUAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候使用**
 
@@ -74,7 +84,9 @@ title: 列表页
 
 #### 模版 - 搜索列表
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yW4QQKNi_0QAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yW4QQKNi_0QAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候使用**
 
@@ -86,7 +98,9 @@ title: 列表页
 
 #### 模版 - 成员管理
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aJxDR6oP19gAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aJxDR6oP19gAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 **什么时候使用**
 
@@ -100,7 +114,9 @@ title: 列表页
 
 #### 批量操作
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NvPKR5HZQ9MAAAAAAAAAAABkARQnAQ">
+<ImagePreview>
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NvPKR5HZQ9MAAAAAAAAAAABkARQnAQ">
+</ImagePreview>
 
 页级的批量操作影响整个页面，可布置于页底。
 

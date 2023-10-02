@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: Tree
-cover: https://gw.alipayobjects.com/zos/alicdn/Xh-oWqg9k/Tree.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ag9_Q6ArswEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1GeUQJPTGUYAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 A hierarchical list structure component.
@@ -11,7 +14,28 @@ A hierarchical list structure component.
 
 Almost anything can be represented in a tree structure. Examples include directories, organization hierarchies, biological classifications, countries, etc. The `Tree` component is a way of representing the hierarchical relationship between these things. You can also expand, collapse, and select a treeNode within a `Tree`.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/basic-controlled.tsx">Controlled Tree</code>
+<code src="./demo/draggable.tsx">draggable</code>
+<code src="./demo/dynamic.tsx">load data asynchronously</code>
+<code src="./demo/search.tsx">Searchable</code>
+<code src="./demo/line.tsx">Tree with line</code>
+<code src="./demo/customized-icon.tsx">Customize Icon</code>
+<code src="./demo/directory.tsx">directory</code>
+<code src="./demo/switcher-icon.tsx">Customize collapse/expand icon</code>
+<code src="./demo/virtual-scroll.tsx">Virtual scroll</code>
+<code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
+<code src="./demo/big-data.tsx" debug>Big data</code>
+<code src="./demo/block-node.tsx">Block Node</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
+
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Tree props
 
@@ -38,13 +62,12 @@ Almost anything can be represented in a tree structure. Examples include directo
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] |  |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
-| rootClassName | ClassName on the root element | string | - | 4.20.0 |
 | rootStyle | Style on the root element | CSSProperties | - | 4.20.0 |
 | selectable | Whether can be selected | boolean | true |  |
-| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
+| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
-| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean} | false |  |
-| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| (({ expanded: boolean }) => React.ReactNode) | - | renderProps: 4.20.0 |
+| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean \| ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
+| switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
@@ -87,7 +110,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 {
   this.state.treeData.length ? (
     <Tree>
-      {this.state.treeData.map(data => (
+      {this.state.treeData.map((data) => (
         <TreeNode />
       ))}
     </Tree>
@@ -103,15 +126,19 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | Scroll to key item in virtual scroll |
 
+## Design Token
+
+<ComponentTokenTable component="Tree"></ComponentTokenTable>
+
 ## FAQ
 
 ### How to hide file icon when use showLine?
 
 File icon realize by using switcherIcon. You can overwrite the style to hide it: <https://codesandbox.io/s/883vo47xp8>
 
-### Why defaultExpandedAll not working on ajax data?
+### Why defaultExpandAll not working on ajax data?
 
-`default` prefix prop only works when inited. So `defaultExpandedAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
+`default` prefix prop only works when initializing. So `defaultExpandAll` has already executed when ajax load data. You can control `expandedKeys` or render Tree when data loaded to realize expanded all.
 
 ### Virtual scroll limitation
 

@@ -1,10 +1,10 @@
 ---
 category: Components
 subtitle: 排版
-type: 通用
+group: 通用
 title: Typography
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 文本的基本格式。
@@ -14,7 +14,23 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 - 当需要展示标题、段落、列表内容时使用，如文章/博客/日志的文本样式。
 - 当需要一列基于文本的基础操作时，如拷贝/省略/可编辑。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/title.tsx">标题组件</code>
+<code src="./demo/paragraph-debug.tsx" debug>标题与段落</code>
+<code src="./demo/text.tsx">文本与超链接组件</code>
+<code src="./demo/interactive.tsx">可交互</code>
+<code src="./demo/ellipsis.tsx">省略号</code>
+<code src="./demo/ellipsis-middle.tsx">省略中间</code>
+<code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
+<code src="./demo/suffix.tsx">后缀</code>
+<code src="./demo/componentToken-debug.tsx" debug>组件 Token</code>
+
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Typography.Text
 
@@ -25,7 +41,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false | [editable](#editable) |
-| ellipsis | 自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件 | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
+| ellipsis | 自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件。不同于 Typography.Paragraph，Text 组件自身不带 100% 宽度样式，因而默认情况下初次缩略后宽度便不再变化。如果需要自适应宽度，请手工配置宽度样式 | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false | [ellipsis](#ellipsis) |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Text 时的回调 | (event) => void | - |  |
@@ -94,9 +110,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       editing: boolean,
       maxLength: number,
       autoSize: boolean | { minRows: number, maxRows: number },
-      onStart: function,
+      text: string,
       onChange: function(string),
       onCancel: function,
+      onStart: function,
       onEnd: function,
       triggerType: ('icon' | 'text')[],
       enterIcon: ReactNode,
@@ -109,11 +126,12 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
 | tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
+| text | 显式地指定编辑文案，为空时将隐式地使用 children | string | - | 4.24.0 |
+| onChange | 文本域编辑时触发 | function(value: string) | - |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
-| onChange | 文本域编辑时触发 | function(event) | - |  |
-| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
-| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
+| triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
@@ -123,20 +141,24 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
       expandable: boolean,
       suffix: string,
       symbol: ReactNode,
-      tooltip: boolean | ReactNode,
+      tooltip: boolean | ReactNode | TooltipProps,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
     }
 
-| 参数       | 说明                 | 类型                 | 默认值 | 版本   |
-| ---------- | -------------------- | -------------------- | ------ | ------ |
-| expandable | 是否可展开           | boolean              | -      |        |
-| rows       | 最多显示的行数       | number               | -      |        |
-| suffix     | 自定义省略内容后缀   | string               | -      |        |
-| symbol     | 自定义展开描述文案   | ReactNode            | `展开` |        |
-| tooltip    | 省略时，展示提示信息 | boolean \| ReactNode | -      | 4.11.0 |
-| onEllipsis | 触发省略时的回调     | function(ellipsis)   | -      | 4.2.0  |
-| onExpand   | 点击展开时的回调     | function(event)      | -      |        |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| expandable | 是否可展开 | boolean | - |  |
+| rows | 最多显示的行数 | number | - |  |
+| suffix | 自定义省略内容后缀 | string | - |  |
+| symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
+| tooltip | 省略时，展示提示信息 | boolean \| ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
+| onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
+| onExpand | 点击展开时的回调 | function(event) | - |  |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Typography"></ComponentTokenTable>
 
 ## FAQ
 

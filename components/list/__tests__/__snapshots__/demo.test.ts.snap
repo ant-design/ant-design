@@ -1,0 +1,3425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/list/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items"
+      >
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 1
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 2
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 3
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 4
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/component-token.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Default Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Small Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Large Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Meta
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Vertical
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-vertical ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Empty Text
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-list-empty-text"
+        >
+          <div
+            class="ant-empty ant-empty-normal"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/grid.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-grid"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-row"
+        style="margin-left:-8px;margin-right:-8px"
+      >
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 1
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 2
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 3
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width:25%;max-width:25%"
+        >
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 4
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/grid-test.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-8px;margin-right:-8px"
+        >
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 1
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 2
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 3
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 4
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 5
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        Title 6
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-8px;margin-right:-8px"
+        >
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-grid"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-row"
+          style="margin-left:-8px;margin-right:-8px"
+        >
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+          <div
+            style="width:25%;max-width:25%"
+          >
+            <div
+              class="ant-col"
+              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            >
+              <div
+                class="ant-list-item"
+              >
+                <div
+                  class="ant-card ant-card-bordered"
+                >
+                  <div
+                    class="ant-card-head"
+                  >
+                    <div
+                      class="ant-card-head-wrapper"
+                    >
+                      <div
+                        class="ant-card-head-title"
+                      >
+                        title
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-card-body"
+                  >
+                    Card content
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
+<div
+  id="scrollableDiv"
+  style="height:400px;overflow:auto;padding:0 16px;border:1px solid rgba(140, 140, 140, 0.35)"
+>
+  <div
+    class="infinite-scroll-component__outerdiv"
+  >
+    <div
+      class="infinite-scroll-component "
+      style="height:auto;overflow:auto;-webkit-overflow-scrolling:touch"
+    >
+      <div
+        class="ant-list ant-list-split"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div
+            class="ant-spin-container"
+          >
+            <div
+              class="ant-list-empty-text"
+            >
+              <div
+                class="ant-empty ant-empty-normal"
+              >
+                <div
+                  class="ant-empty-image"
+                >
+                  <svg
+                    height="41"
+                    viewBox="0 0 64 41"
+                    width="64"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      transform="translate(0 1)"
+                    >
+                      <ellipse
+                        cx="32"
+                        cy="33"
+                        fill="#f5f5f5"
+                        rx="32"
+                        ry="7"
+                      />
+                      <g
+                        fill-rule="nonzero"
+                        stroke="#d9d9d9"
+                      >
+                        <path
+                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                        />
+                        <path
+                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          fill="#fafafa"
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <div
+                  class="ant-empty-description"
+                >
+                  No data
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+      >
+        <div
+          class="ant-skeleton-header"
+        >
+          <span
+            class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+          />
+        </div>
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+            style="width:50%"
+          />
+          <ul
+            class="ant-skeleton-paragraph"
+          >
+            <li />
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div>
+      <div
+        aria-busy="true"
+        aria-live="polite"
+        class="ant-spin ant-spin-spinning"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
+    <div
+      class="ant-spin-container ant-spin-blur"
+    >
+      <div
+        style="min-height:53px"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/pagination.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
+    style="margin-bottom:20px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Pagination Position:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline"
+          >
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="top"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                top
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="bottom"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                bottom
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="both"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                both
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Pagination Align:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-radio-group ant-radio-group-outline"
+          >
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="start"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                start
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+            >
+              <span
+                class="ant-radio-button ant-radio-button-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="center"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                center
+              </span>
+            </label>
+            <label
+              class="ant-radio-button-wrapper"
+            >
+              <span
+                class="ant-radio-button"
+              >
+                <input
+                  class="ant-radio-button-input"
+                  type="radio"
+                  value="end"
+                />
+                <span
+                  class="ant-radio-button-inner"
+                />
+              </span>
+              <span>
+                end
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-pagination ant-list-pagination-align-center"
+    >
+      <ul
+        class="ant-pagination"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split ant-list-grid"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-row"
+        style="margin-left:-8px;margin-right:-8px"
+      >
+        <div>
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 1
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 2
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 3
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 4
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 5
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-col"
+            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+          >
+            <div
+              class="ant-list-item"
+            >
+              <div
+                class="ant-card ant-card-bordered"
+              >
+                <div
+                  class="ant-card-head"
+                >
+                  <div
+                    class="ant-card-head-wrapper"
+                  >
+                    <div
+                      class="ant-card-head-title"
+                    >
+                      Title 6
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-card-body"
+                >
+                  Card content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/simple.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Default Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Small Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Large Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items"
+      >
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-main"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design part 0
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
+              </div>
+            </div>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    156
+                  </div>
+                </div>
+                <em
+                  class="ant-list-item-action-split"
+                />
+              </li>
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="like"
+                      class="anticon anticon-like"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="like"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7 0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 00-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 00471 99.9c-52 0-98 35-111.8 85.1l-85.9 311H144c-17.7 0-32 14.3-32 32v364c0 17.7 14.3 32 32 32h601.3c9.2 0 18.2-1.8 26.5-5.4 47.6-20.3 78.3-66.8 78.3-118.4 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7-.2-12.6-2-25.1-5.6-37.1zM184 852V568h81v284h-81zm636.4-353l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 22.4-13.2 42.6-33.6 51.8H329V564.8l99.5-360.5a44.1 44.1 0 0142.2-32.3c7.6 0 15.1 2.2 21.1 6.7 9.9 7.4 15.2 18.6 14.6 30.5l-9.6 198.4h314.4C829 418.5 840 436.9 840 456c0 16.5-7.2 32.1-19.6 43z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    156
+                  </div>
+                </div>
+                <em
+                  class="ant-list-item-action-split"
+                />
+              </li>
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="message"
+                      class="anticon anticon-message"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="message"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M464 512a48 48 0 1096 0 48 48 0 10-96 0zm200 0a48 48 0 1096 0 48 48 0 10-96 0zm-400 0a48 48 0 1096 0 48 48 0 10-96 0zm661.2-173.6c-22.6-53.7-55-101.9-96.3-143.3a444.35 444.35 0 00-143.3-96.3C630.6 75.7 572.2 64 512 64h-2c-60.6.3-119.3 12.3-174.5 35.9a445.35 445.35 0 00-142 96.5c-40.9 41.3-73 89.3-95.2 142.8-23 55.4-34.6 114.3-34.3 174.9A449.4 449.4 0 00112 714v152a46 46 0 0046 46h152.1A449.4 449.4 0 00510 960h2.1c59.9 0 118-11.6 172.7-34.3a444.48 444.48 0 00142.8-95.2c41.3-40.9 73.8-88.7 96.5-142 23.6-55.2 35.6-113.9 35.9-174.5.3-60.9-11.5-120-34.8-175.6zm-151.1 438C704 845.8 611 884 512 884h-1.7c-60.3-.3-120.2-15.3-173.1-43.5l-8.4-4.5H188V695.2l-4.5-8.4C155.3 633.9 140.3 574 140 513.7c-.4-99.7 37.7-193.3 107.6-263.8 69.8-70.5 163.1-109.5 262.8-109.9h1.7c50 0 98.5 9.7 144.2 28.9 44.6 18.7 84.6 45.6 119 80 34.3 34.3 61.3 74.4 80 119 19.4 46.2 29.1 95.2 28.9 145.8-.6 99.6-39.7 192.9-110.1 262.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    2
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ant-list-item-extra"
+          >
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+              width="272"
+            />
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-main"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design part 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
+              </div>
+            </div>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    156
+                  </div>
+                </div>
+                <em
+                  class="ant-list-item-action-split"
+                />
+              </li>
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="like"
+                      class="anticon anticon-like"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="like"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7 0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 00-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 00471 99.9c-52 0-98 35-111.8 85.1l-85.9 311H144c-17.7 0-32 14.3-32 32v364c0 17.7 14.3 32 32 32h601.3c9.2 0 18.2-1.8 26.5-5.4 47.6-20.3 78.3-66.8 78.3-118.4 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7-.2-12.6-2-25.1-5.6-37.1zM184 852V568h81v284h-81zm636.4-353l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 22.4-13.2 42.6-33.6 51.8H329V564.8l99.5-360.5a44.1 44.1 0 0142.2-32.3c7.6 0 15.1 2.2 21.1 6.7 9.9 7.4 15.2 18.6 14.6 30.5l-9.6 198.4h314.4C829 418.5 840 436.9 840 456c0 16.5-7.2 32.1-19.6 43z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    156
+                  </div>
+                </div>
+                <em
+                  class="ant-list-item-action-split"
+                />
+              </li>
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="message"
+                      class="anticon anticon-message"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="message"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M464 512a48 48 0 1096 0 48 48 0 10-96 0zm200 0a48 48 0 1096 0 48 48 0 10-96 0zm-400 0a48 48 0 1096 0 48 48 0 10-96 0zm661.2-173.6c-22.6-53.7-55-101.9-96.3-143.3a444.35 444.35 0 00-143.3-96.3C630.6 75.7 572.2 64 512 64h-2c-60.6.3-119.3 12.3-174.5 35.9a445.35 445.35 0 00-142 96.5c-40.9 41.3-73 89.3-95.2 142.8-23 55.4-34.6 114.3-34.3 174.9A449.4 449.4 0 00112 714v152a46 46 0 0046 46h152.1A449.4 449.4 0 00510 960h2.1c59.9 0 118-11.6 172.7-34.3a444.48 444.48 0 00142.8-95.2c41.3-40.9 73.8-88.7 96.5-142 23.6-55.2 35.6-113.9 35.9-174.5.3-60.9-11.5-120-34.8-175.6zm-151.1 438C704 845.8 611 884 512 884h-1.7c-60.3-.3-120.2-15.3-173.1-43.5l-8.4-4.5H188V695.2l-4.5-8.4C155.3 633.9 140.3 574 140 513.7c-.4-99.7 37.7-193.3 107.6-263.8 69.8-70.5 163.1-109.5 262.8-109.9h1.7c50 0 98.5 9.7 144.2 28.9 44.6 18.7 84.6 45.6 119 80 34.3 34.3 61.3 74.4 80 119 19.4 46.2 29.1 95.2 28.9 145.8-.6 99.6-39.7 192.9-110.1 262.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    2
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ant-list-item-extra"
+          >
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+              width="272"
+            />
+          </div>
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-main"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    ant design part 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team.
+                </div>
+              </div>
+            </div>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+            <ul
+              class="ant-list-item-action"
+            >
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="star"
+                      class="anticon anticon-star"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="star"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3zM664.8 561.6l36.1 210.3L512 672.7 323.1 772l36.1-210.3-152.8-149L417.6 382 512 190.7 606.4 382l211.2 30.7-152.8 148.9z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    156
+                  </div>
+                </div>
+                <em
+                  class="ant-list-item-action-split"
+                />
+              </li>
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="like"
+                      class="anticon anticon-like"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="like"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M885.9 533.7c16.8-22.2 26.1-49.4 26.1-77.7 0-44.9-25.1-87.4-65.5-111.1a67.67 67.67 0 00-34.3-9.3H572.4l6-122.9c1.4-29.7-9.1-57.9-29.5-79.4A106.62 106.62 0 00471 99.9c-52 0-98 35-111.8 85.1l-85.9 311H144c-17.7 0-32 14.3-32 32v364c0 17.7 14.3 32 32 32h601.3c9.2 0 18.2-1.8 26.5-5.4 47.6-20.3 78.3-66.8 78.3-118.4 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7 0-12.6-1.8-25-5.4-37 16.8-22.2 26.1-49.4 26.1-77.7-.2-12.6-2-25.1-5.6-37.1zM184 852V568h81v284h-81zm636.4-353l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 16.5-7.2 32.2-19.6 43l-21.9 19 13.9 25.4a56.2 56.2 0 016.9 27.3c0 22.4-13.2 42.6-33.6 51.8H329V564.8l99.5-360.5a44.1 44.1 0 0142.2-32.3c7.6 0 15.1 2.2 21.1 6.7 9.9 7.4 15.2 18.6 14.6 30.5l-9.6 198.4h314.4C829 418.5 840 436.9 840 456c0 16.5-7.2 32.1-19.6 43z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    156
+                  </div>
+                </div>
+                <em
+                  class="ant-list-item-action-split"
+                />
+              </li>
+              <li>
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                >
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="message"
+                      class="anticon anticon-message"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="message"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M464 512a48 48 0 1096 0 48 48 0 10-96 0zm200 0a48 48 0 1096 0 48 48 0 10-96 0zm-400 0a48 48 0 1096 0 48 48 0 10-96 0zm661.2-173.6c-22.6-53.7-55-101.9-96.3-143.3a444.35 444.35 0 00-143.3-96.3C630.6 75.7 572.2 64 512 64h-2c-60.6.3-119.3 12.3-174.5 35.9a445.35 445.35 0 00-142 96.5c-40.9 41.3-73 89.3-95.2 142.8-23 55.4-34.6 114.3-34.3 174.9A449.4 449.4 0 00112 714v152a46 46 0 0046 46h152.1A449.4 449.4 0 00510 960h2.1c59.9 0 118-11.6 172.7-34.3a444.48 444.48 0 00142.8-95.2c41.3-40.9 73.8-88.7 96.5-142 23.6-55.2 35.6-113.9 35.9-174.5.3-60.9-11.5-120-34.8-175.6zm-151.1 438C704 845.8 611 884 512 884h-1.7c-60.3-.3-120.2-15.3-173.1-43.5l-8.4-4.5H188V695.2l-4.5-8.4C155.3 633.9 140.3 574 140 513.7c-.4-99.7 37.7-193.3 107.6-263.8 69.8-70.5 163.1-109.5 262.8-109.9h1.7c50 0 98.5 9.7 144.2 28.9 44.6 18.7 84.6 45.6 119 80 34.3 34.3 61.3 74.4 80 119 19.4 46.2 29.1 95.2 28.9 145.8-.6 99.6-39.7 192.9-110.1 262.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    2
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="ant-list-item-extra"
+          >
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
+              width="272"
+            />
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-list-footer"
+  >
+    <div>
+      <b>
+        ant design
+      </b>
+       footer part
+    </div>
+  </div>
+  <div
+    class="ant-list-pagination ant-list-pagination-align-end"
+  >
+    <ul
+      class="ant-pagination"
+    >
+      <li
+        aria-disabled="true"
+        class="ant-pagination-prev ant-pagination-disabled"
+        title="Previous Page"
+      >
+        <button
+          class="ant-pagination-item-link"
+          disabled=""
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="left"
+            class="anticon anticon-left"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+              />
+            </svg>
+          </span>
+        </button>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+        tabindex="0"
+        title="1"
+      >
+        <a
+          rel="nofollow"
+        >
+          1
+        </a>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-2"
+        tabindex="0"
+        title="2"
+      >
+        <a
+          rel="nofollow"
+        >
+          2
+        </a>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-3"
+        tabindex="0"
+        title="3"
+      >
+        <a
+          rel="nofollow"
+        >
+          3
+        </a>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-4"
+        tabindex="0"
+        title="4"
+      >
+        <a
+          rel="nofollow"
+        >
+          4
+        </a>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+        tabindex="0"
+        title="5"
+      >
+        <a
+          rel="nofollow"
+        >
+          5
+        </a>
+      </li>
+      <li
+        class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+        tabindex="0"
+        title="Next 5 Pages"
+      >
+        <a
+          class="ant-pagination-item-link"
+        >
+          <div
+            class="ant-pagination-item-container"
+          >
+            <span
+              aria-label="double-right"
+              class="anticon anticon-double-right ant-pagination-item-link-icon"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="double-right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
+                />
+              </svg>
+            </span>
+            <span
+              class="ant-pagination-item-ellipsis"
+            >
+              •••
+            </span>
+          </div>
+        </a>
+      </li>
+      <li
+        class="ant-pagination-item ant-pagination-item-8"
+        tabindex="0"
+        title="8"
+      >
+        <a
+          rel="nofollow"
+        >
+          8
+        </a>
+      </li>
+      <li
+        aria-disabled="false"
+        class="ant-pagination-next"
+        tabindex="0"
+        title="Next Page"
+      >
+        <button
+          class="ant-pagination-item-link"
+          tabindex="-1"
+          type="button"
+        >
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/virtual-list.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-split"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="rc-virtual-list"
+        style="position:relative"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="height:400px;overflow-y:auto;overflow-anchor:none"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display:flex;flex-direction:column"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

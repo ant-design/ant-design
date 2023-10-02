@@ -1,277 +1,355 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import RCNotification from 'rc-notification';
+import { render } from 'rc-util/lib/React/render';
+
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type {
-  NotificationInstance as RCNotificationInstance,
-  NoticeContent,
-} from 'rc-notification/lib/Notification';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import createUseMessage from './hooks/useMessage';
-import ConfigProvider, { globalConfig } from '../config-provider';
+  ArgsProps,
+  ConfigOptions,
+  MessageInstance,
+  MessageType,
+  NoticeType,
+  TypeOpen,
+} from './interface';
+import PurePanel from './PurePanel';
+import useMessage, { useInternalMessage } from './useMessage';
+import { wrapPromiseFn } from './util';
 
-let messageInstance: RCNotificationInstance | null;
-let defaultDuration = 3;
-let defaultTop: number;
-let key = 1;
-let localPrefixCls = '';
-let transitionName = 'move-up';
-let hasTransitionName = false;
-let getContainer: () => HTMLElement;
-let maxCount: number;
-let rtl = false;
+export type { ArgsProps };
 
-export function getKeyThenIncreaseKey() {
-  return key++;
+let message: GlobalMessage | null = null;
+
+let act: (callback: VoidFunction) => Promise<void> | void = (callback) => callback();
+
+interface GlobalMessage {
+  fragment: DocumentFragment;
+  instance?: MessageInstance | null;
+  sync?: VoidFunction;
 }
 
-export interface ConfigOptions {
-  top?: number;
-  duration?: number;
-  prefixCls?: string;
-  getContainer?: () => HTMLElement;
-  transitionName?: string;
-  maxCount?: number;
-  rtl?: boolean;
+interface OpenTask {
+  type: 'open';
+  config: ArgsProps;
+  resolve: VoidFunction;
+  setCloseFn: (closeFn: VoidFunction) => void;
+  skipped?: boolean;
 }
 
-function setMessageConfig(options: ConfigOptions) {
-  if (options.top !== undefined) {
-    defaultTop = options.top;
-    messageInstance = null; // delete messageInstance for new defaultTop
-  }
-  if (options.duration !== undefined) {
-    defaultDuration = options.duration;
-  }
-
-  if (options.prefixCls !== undefined) {
-    localPrefixCls = options.prefixCls;
-  }
-  if (options.getContainer !== undefined) {
-    getContainer = options.getContainer;
-    messageInstance = null; // delete messageInstance for new getContainer
-  }
-  if (options.transitionName !== undefined) {
-    transitionName = options.transitionName;
-    messageInstance = null; // delete messageInstance for new transitionName
-    hasTransitionName = true;
-  }
-  if (options.maxCount !== undefined) {
-    maxCount = options.maxCount;
-    messageInstance = null;
-  }
-  if (options.rtl !== undefined) {
-    rtl = options.rtl;
-  }
+interface TypeTask {
+  type: NoticeType;
+  args: Parameters<TypeOpen>;
+  resolve: VoidFunction;
+  setCloseFn: (closeFn: VoidFunction) => void;
+  skipped?: boolean;
 }
 
-function getRCNotificationInstance(
-  args: ArgsProps,
-  callback: (info: {
-    prefixCls: string;
-    rootPrefixCls: string;
-    iconPrefixCls: string;
-    instance: RCNotificationInstance;
-  }) => void,
-) {
-  const { prefixCls: customizePrefixCls, getPopupContainer: getContextPopupContainer } = args;
-  const { getPrefixCls, getRootPrefixCls, getIconPrefixCls } = globalConfig();
-  const prefixCls = getPrefixCls('message', customizePrefixCls || localPrefixCls);
-  const rootPrefixCls = getRootPrefixCls(args.rootPrefixCls, prefixCls);
-  const iconPrefixCls = getIconPrefixCls();
+type Task =
+  | OpenTask
+  | TypeTask
+  | {
+      type: 'destroy';
+      key: React.Key;
+      skipped?: boolean;
+    };
 
-  if (messageInstance) {
-    callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance: messageInstance });
+let taskQueue: Task[] = [];
+
+let defaultGlobalConfig: ConfigOptions = {};
+
+function getGlobalContext() {
+  const {
+    prefixCls: globalPrefixCls,
+    getContainer: globalGetContainer,
+    duration,
+    rtl,
+    maxCount,
+    top,
+  } = defaultGlobalConfig;
+  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('message');
+  const mergedContainer = globalGetContainer?.() || document.body;
+
+  return {
+    prefixCls: mergedPrefixCls,
+    getContainer: () => mergedContainer!,
+    duration,
+    rtl,
+    maxCount,
+    top,
+  };
+}
+
+interface GlobalHolderRef {
+  instance: MessageInstance;
+  sync: () => void;
+}
+
+const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
+
+  const [api, holder] = useInternalMessage(messageConfig);
+
+  const global = globalConfig();
+  const rootPrefixCls = global.getRootPrefixCls();
+  const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
+
+  const sync = () => {
+    setMessageConfig(getGlobalContext);
+  };
+
+  React.useEffect(sync, []);
+
+  React.useImperativeHandle(ref, () => {
+    const instance: MessageInstance = { ...api };
+
+    Object.keys(instance).forEach((method: keyof MessageInstance) => {
+      instance[method] = (...args: any[]) => {
+        sync();
+        return (api as any)[method](...args);
+      };
+    });
+
+    return {
+      instance,
+      sync,
+    };
+  });
+
+  return (
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
+      {holder}
+    </ConfigProvider>
+  );
+});
+
+function flushNotice() {
+  if (!message) {
+    const holderFragment = document.createDocumentFragment();
+
+    const newMessage: GlobalMessage = {
+      fragment: holderFragment,
+    };
+
+    message = newMessage;
+
+    // Delay render to avoid sync issue
+    act(() => {
+      render(
+        <GlobalHolder
+          ref={(node) => {
+            const { instance, sync } = node || {};
+
+            // React 18 test env will throw if call immediately in ref
+            Promise.resolve().then(() => {
+              if (!newMessage.instance && instance) {
+                newMessage.instance = instance;
+                newMessage.sync = sync;
+                flushNotice();
+              }
+            });
+          }}
+        />,
+        holderFragment,
+      );
+    });
+
     return;
   }
 
-  const instanceConfig = {
-    prefixCls,
-    transitionName: hasTransitionName ? transitionName : `${rootPrefixCls}-${transitionName}`,
-    style: { top: defaultTop }, // 覆盖原来的样式
-    getContainer: getContainer || getContextPopupContainer,
-    maxCount,
-  };
+  // Notification not ready
+  if (!message.instance) {
+    return;
+  }
 
-  RCNotification.newInstance(instanceConfig, (instance: any) => {
-    if (messageInstance) {
-      callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance: messageInstance });
-      return;
-    }
-    messageInstance = instance;
+  // >>> Execute task
+  taskQueue.forEach((task) => {
+    const { type, skipped } = task;
 
-    if (process.env.NODE_ENV === 'test') {
-      (messageInstance as any).config = instanceConfig;
-    }
+    // Only `skipped` when user call notice but cancel it immediately
+    // and instance not ready
+    if (!skipped) {
+      switch (type) {
+        case 'open': {
+          act(() => {
+            const closeFn = message!.instance!.open({
+              ...defaultGlobalConfig,
+              ...task.config,
+            });
 
-    callback({ prefixCls, rootPrefixCls, iconPrefixCls, instance });
-  });
-}
+            closeFn?.then(task.resolve);
+            task.setCloseFn(closeFn);
+          });
+          break;
+        }
 
-export interface ThenableArgument {
-  (val: any): void;
-}
+        case 'destroy':
+          act(() => {
+            message?.instance!.destroy(task.key);
+          });
+          break;
 
-export interface MessageType extends PromiseLike<any> {
-  (): void;
-}
+        // Other type open
+        default: {
+          act(() => {
+            const closeFn = message!.instance![type](...task.args);
 
-const typeToIcon = {
-  info: InfoCircleFilled,
-  success: CheckCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
-  loading: LoadingOutlined,
-};
-
-export type NoticeType = keyof typeof typeToIcon;
-
-export const typeList = Object.keys(typeToIcon) as NoticeType[];
-
-export interface ArgsProps {
-  content: any;
-  duration?: number;
-  type?: NoticeType;
-  prefixCls?: string;
-  rootPrefixCls?: string;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  onClose?: () => void;
-  icon?: React.ReactNode;
-  key?: string | number;
-  style?: React.CSSProperties;
-  className?: string;
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
-}
-
-function getRCNoticeProps(
-  args: ArgsProps,
-  prefixCls: string,
-  iconPrefixCls?: string,
-): NoticeContent {
-  const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const IconComponent = typeToIcon[args.type!];
-  const messageClass = classNames(`${prefixCls}-custom-content`, {
-    [`${prefixCls}-${args.type}`]: args.type,
-    [`${prefixCls}-rtl`]: rtl === true,
-  });
-  return {
-    key: args.key,
-    duration,
-    style: args.style || {},
-    className: args.className,
-    content: (
-      <ConfigProvider iconPrefixCls={iconPrefixCls}>
-        <div className={messageClass}>
-          {args.icon || (IconComponent && <IconComponent />)}
-          <span>{args.content}</span>
-        </div>
-      </ConfigProvider>
-    ),
-    onClose: args.onClose,
-    onClick: args.onClick,
-  };
-}
-
-function notice(args: ArgsProps): MessageType {
-  const target = args.key || getKeyThenIncreaseKey();
-  const closePromise = new Promise(resolve => {
-    const callback = () => {
-      if (typeof args.onClose === 'function') {
-        args.onClose();
+            closeFn?.then(task.resolve);
+            task.setCloseFn(closeFn);
+          });
+        }
       }
-      return resolve(true);
-    };
-
-    getRCNotificationInstance(args, ({ prefixCls, iconPrefixCls, instance }) => {
-      instance.notice(
-        getRCNoticeProps({ ...args, key: target, onClose: callback }, prefixCls, iconPrefixCls),
-      );
-    });
-  });
-  const result: any = () => {
-    if (messageInstance) {
-      messageInstance.removeNotice(target);
     }
+  });
+
+  // Clean up
+  taskQueue = [];
+}
+
+// ==============================================================================
+// ==                                  Export                                  ==
+// ==============================================================================
+
+function setMessageGlobalConfig(config: ConfigOptions) {
+  defaultGlobalConfig = {
+    ...defaultGlobalConfig,
+    ...config,
   };
-  result.then = (filled: ThenableArgument, rejected: ThenableArgument) =>
-    closePromise.then(filled, rejected);
-  result.promise = closePromise;
+
+  // Trigger sync for it
+  act(() => {
+    message?.sync?.();
+  });
+}
+
+function open(config: ArgsProps): MessageType {
+  const result = wrapPromiseFn((resolve) => {
+    let closeFn: VoidFunction;
+
+    const task: OpenTask = {
+      type: 'open',
+      config,
+      resolve,
+      setCloseFn: (fn) => {
+        closeFn = fn;
+      },
+    };
+    taskQueue.push(task);
+
+    return () => {
+      if (closeFn) {
+        act(() => {
+          closeFn();
+        });
+      } else {
+        task.skipped = true;
+      }
+    };
+  });
+
+  flushNotice();
+
   return result;
 }
 
-type ConfigContent = React.ReactNode;
-type ConfigDuration = number | (() => void);
-type JointContent = ConfigContent | ArgsProps;
-export type ConfigOnClose = () => void;
+function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('message');
+  }
 
-function isArgsProps(content: JointContent): content is ArgsProps {
-  return (
-    Object.prototype.toString.call(content) === '[object Object]' &&
-    !!(content as ArgsProps).content
-  );
+  const result = wrapPromiseFn((resolve) => {
+    let closeFn: VoidFunction;
+
+    const task: TypeTask = {
+      type,
+      args,
+      resolve,
+      setCloseFn: (fn) => {
+        closeFn = fn;
+      },
+    };
+
+    taskQueue.push(task);
+
+    return () => {
+      if (closeFn) {
+        act(() => {
+          closeFn();
+        });
+      } else {
+        task.skipped = true;
+      }
+    };
+  });
+
+  flushNotice();
+
+  return result;
 }
 
-const api: any = {
-  open: notice,
-  config: setMessageConfig,
-  destroy(messageKey?: React.Key) {
-    if (messageInstance) {
-      if (messageKey) {
-        const { removeNotice } = messageInstance;
-        removeNotice(messageKey);
-      } else {
-        const { destroy } = messageInstance;
-        destroy();
-        messageInstance = null;
-      }
-    }
-  },
+function destroy(key: React.Key) {
+  taskQueue.push({
+    type: 'destroy',
+    key,
+  });
+  flushNotice();
+}
+
+interface BaseMethods {
+  open: (config: ArgsProps) => MessageType;
+  destroy: (key?: React.Key) => void;
+  config: typeof setMessageGlobalConfig;
+  useMessage: typeof useMessage;
+  /** @private Internal Component. Do not use in your production. */
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+}
+
+interface MessageMethods {
+  info: TypeOpen;
+  success: TypeOpen;
+  error: TypeOpen;
+  warning: TypeOpen;
+  loading: TypeOpen;
+}
+
+const methods: (keyof MessageMethods)[] = ['success', 'info', 'warning', 'error', 'loading'];
+
+const baseStaticMethods: BaseMethods = {
+  open,
+  destroy,
+  config: setMessageGlobalConfig,
+  useMessage,
+  _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-export function attachTypeApi(originalApi: MessageApi, type: NoticeType) {
-  originalApi[type] = (
-    content: JointContent,
-    duration?: ConfigDuration,
-    onClose?: ConfigOnClose,
-  ) => {
-    if (isArgsProps(content)) {
-      return originalApi.open({ ...content, type });
-    }
+const staticMethods = baseStaticMethods as MessageMethods & BaseMethods;
 
-    if (typeof duration === 'function') {
-      onClose = duration;
-      duration = undefined;
-    }
+methods.forEach((type: keyof MessageMethods) => {
+  staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
+});
 
-    return originalApi.open({ content, duration, type, onClose });
+// ==============================================================================
+// ==                                   Test                                   ==
+// ==============================================================================
+const noop = () => {};
+
+/** @internal Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actWrapper: (wrapper: any) => void = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actWrapper = (wrapper) => {
+    act = wrapper;
   };
 }
 
-typeList.forEach(type => attachTypeApi(api, type));
+/** @internal Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actDestroy = noop;
 
-api.warn = api.warning;
-api.useMessage = createUseMessage(getRCNotificationInstance, getRCNoticeProps);
-
-export interface MessageInstance {
-  info(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  success(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  error(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  warning(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  loading(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  open(args: ArgsProps): MessageType;
+if (process.env.NODE_ENV === 'test') {
+  actDestroy = () => {
+    message = null;
+  };
 }
 
-export interface MessageApi extends MessageInstance {
-  warn(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  config(options: ConfigOptions): void;
-  destroy(messageKey?: React.Key): void;
-  useMessage(): [MessageInstance, React.ReactElement];
-}
-
-/** @private test Only function. Not work on production */
-export const getInstance = () => (process.env.NODE_ENV === 'test' ? messageInstance : null);
-
-export default api as MessageApi;
+export default staticMethods;

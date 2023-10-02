@@ -1,9 +1,12 @@
 ---
 category: Components
 subtitle: 提及
-type: 数据录入
+group: 数据录入
 title: Mentions
-cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*pxR2S53P_xoAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 提及组件。
@@ -12,13 +15,40 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 
 用于在输入中提及某人或某事，常用于发布、聊天或评论功能。
 
-## API
+### 5.1.0 用法升级
+
+<Alert message="在 5.1.0 版本后，我们提供了 &lt;Mentions options={[...]} /&gt; 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。"></Alert>
 
 ```jsx
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>
+// >=5.1.0 可用，推荐的写法 ✅
+const options = [{ value: 'sample', label: 'sample' }];
+return <Mentions options={options} />;
+
+// <5.1.0 可用，>=5.1.0 时不推荐 🙅🏻‍♀️
+return (
+  <Mentions onChange={onChange}>
+    <Mentions.Option value="sample">Sample</Mentions.Option>
+  </Mentions>
+);
 ```
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/async.tsx">异步加载</code>
+<code src="./demo/form.tsx">配合 Form 使用</code>
+<code src="./demo/prefix.tsx">自定义触发字符</code>
+<code src="./demo/readonly.tsx">无效或只读</code>
+<code src="./demo/placement.tsx">向上展开</code>
+<code src="./demo/autoSize.tsx">自动大小</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
+
+## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Mentions
 
@@ -42,6 +72,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 | onResize | resize 回调 | function({ width, height }) | - |  |
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - |  |
 | onSelect | 选择选项时触发 | (option: OptionProps, prefix: string) => void | - |  |
+| options | 选项配置 | [Options](#option) | [] | 5.1.0 |
 
 ### Mentions 方法
 
@@ -52,7 +83,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/jPE-itMFM/Mentions.svg
 
 ### Option
 
-| 参数     | 说明           | 类型      | 默认值 |
-| -------- | -------------- | --------- | ------ |
-| children | 选项内容       | ReactNode | -      |
-| value    | 选择时填充的值 | string    | -      |
+| 参数      | 说明           | 类型                | 默认值 |
+| --------- | -------------- | ------------------- | ------ |
+| value     | 选择时填充的值 | string              | -      |
+| label     | 选项的标题     | React.ReactNode     | -      |
+| key       | 选项的 key 值  | string              | -      |
+| disabled  | 是否可选       | boolean             | -      |
+| className | css 类名       | string              | -      |
+| style     | 选项样式       | React.CSSProperties | -      |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

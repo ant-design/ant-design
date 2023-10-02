@@ -2,12 +2,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "antd": ["components/index.tsx"],
-      "antd/es/*": ["components/*"]
+      "@@/*": [".dumi/tmp/*"],
+      "antd": ["components/index.ts"],
+      "antd/es/*": ["components/*"],
+      "antd/lib/*": ["components/*"],
+      "antd/locale/*": ["components/locale/*"]
     },
     "strictNullChecks": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "jsx": "react",
@@ -18,7 +21,10 @@
     "noImplicitAny": true,
     "target": "es6",
     "lib": ["dom", "es2017"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "resolvePackageJsonExports": true
   },
+  "include": [".dumirc.ts", "**/*"],
   "exclude": ["node_modules", "lib", "es"]
 }

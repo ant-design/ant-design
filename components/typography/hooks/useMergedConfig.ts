@@ -3,8 +3,8 @@ import * as React from 'react';
 export default function useMergedConfig<Target>(
   propConfig: any,
   templateConfig?: Target,
-): [boolean, Target] {
-  return React.useMemo(() => {
+): readonly [boolean, Target] {
+  return React.useMemo<readonly [boolean, Target]>(() => {
     const support = !!propConfig;
 
     return [
@@ -13,6 +13,6 @@ export default function useMergedConfig<Target>(
         ...templateConfig,
         ...(support && typeof propConfig === 'object' ? propConfig : null),
       },
-    ];
+    ] as const;
   }, [propConfig]);
 }

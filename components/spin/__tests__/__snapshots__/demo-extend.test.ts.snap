@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/spin/demo/basic.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -25,7 +25,9 @@ exports[`renders ./components/spin/demo/basic.md extend context correctly 1`] = 
 </div>
 `;
 
-exports[`renders ./components/spin/demo/custom-indicator.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -35,7 +37,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md extend context corre
     aria-label="loading"
     class="anticon anticon-loading anticon-spin ant-spin-dot"
     role="img"
-    style="font-size:24px"
+    style="font-size: 24px;"
   >
     <svg
       aria-hidden="true"
@@ -54,7 +56,9 @@ exports[`renders ./components/spin/demo/custom-indicator.md extend context corre
 </div>
 `;
 
-exports[`renders ./components/spin/demo/delayAndDebounce.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -85,7 +89,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md extend context corre
     </div>
   </div>
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     Loading state：
     <button
@@ -99,13 +103,22 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md extend context corre
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
   </div>
 </div>
 `;
 
-exports[`renders ./components/spin/demo/inside.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = `
 <div
   class="example"
 >
@@ -134,7 +147,9 @@ exports[`renders ./components/spin/demo/inside.md extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/spin/demo/nested.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/inside.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-spin-nested-loading"
@@ -165,7 +180,7 @@ exports[`renders ./components/spin/demo/nested.md extend context correctly 1`] =
     </div>
   </div>
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     Loading state：
     <button
@@ -179,19 +194,27 @@ exports[`renders ./components/spin/demo/nested.md extend context correctly 1`] =
       />
       <span
         class="ant-switch-inner"
-      />
+      >
+        <span
+          class="ant-switch-inner-checked"
+        />
+        <span
+          class="ant-switch-inner-unchecked"
+        />
+      </span>
     </button>
   </div>
 </div>
 `;
 
-exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/nested.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px"
   >
     <div
       aria-busy="true"
@@ -218,7 +241,6 @@ exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px"
   >
     <div
       aria-busy="true"
@@ -272,62 +294,215 @@ exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/spin/demo/tip.md extend context correctly 1`] = `
+exports[`renders components/spin/demo/size.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
 <div
-  class="ant-spin-nested-loading"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
-  <div>
+  <div
+    class="ant-space-item"
+  >
     <div
-      aria-busy="true"
-      aria-live="polite"
-      class="ant-spin ant-spin-spinning ant-spin-show-text"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
-      <span
-        class="ant-spin-dot ant-spin-dot-spin"
-      >
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-        <i
-          class="ant-spin-dot-item"
-        />
-      </span>
       <div
-        class="ant-spin-text"
+        class="ant-space-item"
       >
-        Loading...
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div>
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+              <div
+                class="ant-spin-text"
+              >
+                Loading
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-spin-container ant-spin-blur"
+          >
+            <div
+              class="content"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div>
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="ant-spin ant-spin-spinning ant-spin-show-text"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+              <div
+                class="ant-spin-text"
+              >
+                Loading
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-spin-container ant-spin-blur"
+          >
+            <div
+              class="content"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div>
+            <div
+              aria-busy="true"
+              aria-live="polite"
+              class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+              <div
+                class="ant-spin-text"
+              >
+                Loading
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-spin-container ant-spin-blur"
+          >
+            <div
+              class="content"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-spin-container ant-spin-blur"
+    class="ant-space-item"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
-      data-show="true"
-      role="alert"
+      class="ant-spin-nested-loading"
     >
+      <div>
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-spinning ant-spin-show-text"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+          <div
+            class="ant-spin-text"
+          >
+            Loading...
+          </div>
+        </div>
+      </div>
       <div
-        class="ant-alert-content"
+        class="ant-spin-container ant-spin-blur"
       >
         <div
-          class="ant-alert-message"
+          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+          data-show="true"
+          role="alert"
         >
-          Alert message title
-        </div>
-        <div
-          class="ant-alert-description"
-        >
-          Further details about the context of this alert.
+          <div
+            class="ant-alert-content"
+          >
+            <div
+              class="ant-alert-message"
+            >
+              Alert message title
+            </div>
+            <div
+              class="ant-alert-description"
+            >
+              Further details about the context of this alert.
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/tip.tsx extend context correctly 2`] = `[]`;

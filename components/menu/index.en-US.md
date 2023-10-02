@@ -1,9 +1,9 @@
 ---
 category: Components
-cols: 1
-type: Navigation
+group: Navigation
 title: Menu
-cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A versatile menu for navigation.
@@ -19,39 +19,25 @@ More layouts with navigation: [Layout](/components/layout).
 - Menu is rendered as a `ul` element, so it only supports [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children nodes。Your customized node should be wrapped by `Menu.Item`.
 - Menu needs to collect its node structure, so its children should be `Menu.*` or encapsulated HOCs.
 
-### Usage upgrade after 4.20.0
+## Examples
 
-```__react
-import Alert from '../alert';
-ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage <Menu items={[...]} /> with better perfermance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
-```
-
-```jsx
-// works when >=4.20.0, recommended ✅
-const items = [
-  { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
-  { label: 'item 2', key: 'item-2' }, // which is required
-  {
-    label: 'sub menu',
-    key: 'submenu',
-    children: [{ label: 'item 3', key: 'submenu-item-1' }],
-  },
-];
-return <Menu items={items} />;
-
-// works when <4.20.0, deprecated when >=4.20.0 🙅🏻‍♀️
-<Menu>
-  <Menu.Item>item 1</Menu.Item>
-  <Menu.Item>item 2</Menu.Item>
-  <Menu.SubMenu title="sub menu">
-    <Menu.Item>item 3</Menu.Item>
-  </Menu.SubMenu>
-</Menu>;
-```
-
-The legacy demo code for version `<4.20.0` could be found at [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo).
+<!-- prettier-ignore -->
+<code src="./demo/horizontal.tsx">Top Navigation</code>
+<code src="./demo/horizontal-dark.tsx" debug>Top Navigation (dark)</code>
+<code src="./demo/inline.tsx">Inline menu</code>
+<code src="./demo/inline-collapsed.tsx">Collapsed inline menu</code>
+<code src="./demo/sider-current.tsx">Open current submenu only</code>
+<code src="./demo/vertical.tsx">Vertical menu</code>
+<code src="./demo/theme.tsx">Menu Themes</code>
+<code src="./demo/submenu-theme.tsx">Sub-menu theme</code>
+<code src="./demo/switch-mode.tsx">Switch the menu type</code>
+<code src="./demo/style-debug.tsx" debug>Style debug</code>
+<code src="./demo/menu-v4.tsx" debug>Menu v4</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Menu
 
@@ -63,7 +49,7 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
-| items | Menu item content | [ItemType\[\]](#ItemType) | - | 4.20.0 |
+| items | Menu item content | [ItemType\[\]](#itemtype) | - | 4.20.0 |
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
@@ -97,30 +83,12 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | label    | Menu label                           | ReactNode | -             |         |
 | title    | Set display title for collapsed item | string    | -             |         |
 
-> Note: `icon` is a newly added prop in `4.2.0`. For previous versions, please use the following method to define the icon.
->
-> ```jsx
-> <Menu.Item>
->   <PieChartOutlined />
->   <span>Option 1</span>
-> </Menu.Item>
-> <Menu.SubMenu
->   title={
->     <>
->       <PieChartOutlined />
->       <span>Option 2</span>
->     </>
->   }
-> >
->   ...
-> </Menu.SubMenu>
-> ```
-
 #### SubMenuType
 
-| Param | Description | Type | Default value | Version |
+<!-- prettier-ignore -->
+| Property | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
+| children | Sub-menus or sub-menu items | [ItemType\[\]](#itemtype) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - |  |
 | key | Unique ID of the sub-menu | string | - |  |
@@ -142,10 +110,10 @@ const groupItem = {
 };
 ```
 
-| Param    | Description            | Type        | Default value | Version |
-| -------- | ---------------------- | ----------- | ------------- | ------- |
-| children | Sub-menu items         | MenuItem\[] | -             |         |
-| label    | The title of the group | ReactNode   | -             |         |
+| Param    | Description            | Type                              | Default value | Version |
+| -------- | ---------------------- | --------------------------------- | ------------- | ------- |
+| children | Sub-menu items         | [MenuItemType\[\]](#menuitemtype) | -             |         |
+| label    | The title of the group | ReactNode                         | -             |         |
 
 #### MenuDividerType
 
@@ -166,3 +134,18 @@ const dividerItem = {
 ### Why will Menu's children be rendered twice?
 
 Menu collects structure info with [twice-render](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543) to support HOC usage. Merging into one render may cause the logic to become much more complex. Contributions to help improve the collection logic are welcomed.
+
+### Why Menu do not responsive collapse in Flex layout?
+
+Menu will render fully item in flex layout and then collapse it. You need tell flex not consider Menu width to enable responsive ([online demo](https://codesandbox.io/s/ding-bu-dao-hang-antd-4-21-7-forked-5e3imy?file=/demo.js)):
+
+```jsx
+<div style={{ flex }}>
+  <div style={{ ... }}>Some Content</div>
+  <Menu style={{ minWidth: 0, flex: "auto" }} />
+</div>
+```
+
+## Design Token
+
+<ComponentTokenTable component="Menu"></ComponentTokenTable>

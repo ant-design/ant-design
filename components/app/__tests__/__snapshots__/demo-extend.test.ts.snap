@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/app/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Open message
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Open modal
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Open notification
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/app/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/app/demo/config.tsx extend context correctly 1`] = `
+<div
+  class="ant-app"
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Message for only one
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Notification for bottomLeft
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/app/demo/config.tsx extend context correctly 2`] = `[]`;

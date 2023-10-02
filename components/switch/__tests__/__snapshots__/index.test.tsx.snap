@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch rtl render component should be rendered correctly in RTL direction 1`] = `
+<button
+  aria-checked="false"
+  class="ant-switch ant-switch-rtl"
+  role="switch"
+  type="button"
+>
+  <div
+    class="ant-switch-handle"
+  />
+  <span
+    class="ant-switch-inner"
+  >
+    <span
+      class="ant-switch-inner-checked"
+    />
+    <span
+      class="ant-switch-inner-unchecked"
+    />
+  </span>
+</button>
+`;

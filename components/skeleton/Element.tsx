@@ -1,16 +1,17 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 export interface SkeletonElementProps {
   prefixCls?: string;
   className?: string;
+  rootClassName?: string;
   style?: React.CSSProperties;
   size?: 'large' | 'small' | 'default' | number;
-  shape?: 'circle' | 'square' | 'round';
+  shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
 }
 
-const Element = (props: SkeletonElementProps) => {
+const Element: React.FC<SkeletonElementProps> = (props) => {
   const { prefixCls, className, style, size, shape } = props;
 
   const sizeCls = classNames({
@@ -24,14 +25,17 @@ const Element = (props: SkeletonElementProps) => {
     [`${prefixCls}-round`]: shape === 'round',
   });
 
-  const sizeStyle: React.CSSProperties =
-    typeof size === 'number'
-      ? {
-          width: size,
-          height: size,
-          lineHeight: `${size}px`,
-        }
-      : {};
+  const sizeStyle = React.useMemo<React.CSSProperties>(
+    () =>
+      typeof size === 'number'
+        ? {
+            width: size,
+            height: size,
+            lineHeight: `${size}px`,
+          }
+        : {},
+    [size],
+  );
 
   return (
     <span

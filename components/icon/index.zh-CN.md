@@ -1,17 +1,21 @@
 ---
 category: Components
 subtitle: 图标
-type: 通用
+description: 语义化的矢量图形。
+group: 通用
 title: Icon
 toc: false
-cover: https://gw.alipayobjects.com/zos/alicdn/rrwbSt3FQ/Icon.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
-语义化的矢量图形。使用图标组件，你需要安装 `@ant-design/icons` 图标组件包：
+## 使用方法
 
-```bash
-npm install --save @ant-design/icons
-```
+使用图标组件，你需要安装 [@ant-design/icons](https://github.com/ant-design/ant-design-icons) 图标组件包：
+
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
 
 ## 设计师专属
 
@@ -19,10 +23,16 @@ npm install --save @ant-design/icons
 
 ## 图标列表
 
-```_\_react
-import IconDisplay from 'site/theme/template/IconDisplay';
-ReactDOM.render(<IconDisplay />, mountNode);
-```
+<IconSearch></IconSearch>
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本用法</code>
+<code src="./demo/two-tone.tsx">多色图标</code>
+<code src="./demo/custom.tsx">自定义图标</code>
+<code src="./demo/iconfont.tsx">使用 iconfont.cn</code>
+<code src="./demo/scriptUrl.tsx">使用 iconfont.cn 的多个资源</code>
 
 ## API
 
@@ -91,14 +101,16 @@ getTwoToneColor(); // #eb2f96
 
 在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
-```js
+```jsx
+import React from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
+import ReactDOM from 'react-dom/client';
 
 const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
-ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
+ReactDOM.createRoot(mountNode).render(<MyIcon type="icon-example" />);
 ```
 
 其本质上是创建了一个使用 `<use>` 标签来渲染图标的组件。
@@ -120,7 +132,8 @@ options 的配置项如下：
 
 ```js
 // webpack.config.js
-{
+module.exports = {
+  // ... other config
   test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
   use: [
     {
@@ -134,24 +147,31 @@ options 的配置项如下：
       },
     },
   ],
-}
+};
 ```
 
 ```jsx
+import React from 'react';
 import Icon from '@ant-design/icons';
-import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
+import MessageSvg from 'path/to/message.svg'; // 你的 '*.svg' 文件路径
+import ReactDOM from 'react-dom/client';
+
 // in create-react-app:
 // import { ReactComponent as MessageSvg } from 'path/to/message.svg';
 
-ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
+ReactDOM.createRoot(mountNode).render(<Icon component={MessageSvg} />);
 ```
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段 | 说明 | 类型 | 只读值 | 版本 |
-| --- | --- | --- | --- | --- |
-| className | 计算后的 `svg` 类名 | string | - |  |
-| fill | `svg` 元素填充的颜色 | string | `currentColor` |  |
-| height | `svg` 元素高度 | string \| number | `1em` |  |
-| style | 计算后的 `svg` 元素样式 | CSSProperties | - |  |
-| width | `svg` 元素宽度 | string \| number | `1em` |  |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| fill      | `svg` 元素填充的颜色    | string           | `currentColor` |      |
+| height    | `svg` 元素高度          | string \| number | `1em`          |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |
+| width     | `svg` 元素宽度          | string \| number | `1em`          |      |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

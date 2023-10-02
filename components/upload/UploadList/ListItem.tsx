@@ -1,13 +1,12 @@
-import * as React from 'react';
-import CSSMotion from 'rc-motion';
-import classNames from 'classnames';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
-import Tooltip from '../../tooltip';
-import Progress from '../../progress';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
+import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
-
+import Progress from '../../progress';
+import Tooltip from '../../tooltip';
 import type {
   ItemRender,
   UploadFile,
@@ -36,7 +35,7 @@ export interface ListItemProps {
     customIcon: React.ReactNode,
     callback: () => void,
     prefixCls: string,
-    title?: string | undefined,
+    title?: string,
   ) => React.ReactNode;
   itemRender?: ItemRender;
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
@@ -45,7 +44,7 @@ export interface ListItemProps {
   progress?: UploadListProgressProps;
 }
 
-const ListItem = React.forwardRef(
+const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
   (
     {
       prefixCls,
@@ -69,33 +68,35 @@ const ListItem = React.forwardRef(
       onPreview,
       onDownload,
       onClose,
-    }: ListItemProps,
-    ref: React.Ref<HTMLDivElement>,
+    },
+    ref,
   ) => {
+    // Status: which will ignore `removed` status
+    const { status } = file;
+    const [mergedStatus, setMergedStatus] = React.useState(status);
+    React.useEffect(() => {
+      if (status !== 'removed') {
+        setMergedStatus(status);
+      }
+    }, [status]);
+
     // Delay to show the progress bar
     const [showProgress, setShowProgress] = React.useState(false);
-    const progressRafRef = React.useRef<any>();
     React.useEffect(() => {
-      progressRafRef.current = setTimeout(() => {
+      const timer = setTimeout(() => {
         setShowProgress(true);
       }, 300);
-
       return () => {
-        window.clearTimeout(progressRafRef.current);
+        clearTimeout(timer);
       };
     }, []);
 
-    // This is used for legacy span make scrollHeight the wrong value.
-    // We will force these to be `display: block` with non `picture-card`
-    const spanClassName = `${prefixCls}-span`;
-
     const iconNode = iconRender(file);
-    let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
-    if (listType === 'picture' || listType === 'picture-card') {
-      if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
-        const uploadingClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
-          [`${prefixCls}-list-item-file`]: file.status !== 'uploading',
+    let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
+    if (listType === 'picture' || listType === 'picture-card' || listType === 'picture-circle') {
+      if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
+        const uploadingClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
+          [`${prefixCls}-list-item-file`]: mergedStatus !== 'uploading',
         });
         icon = <div className={uploadingClassName}>{iconNode}</div>;
       } else {
@@ -109,14 +110,13 @@ const ListItem = React.forwardRef(
         ) : (
           iconNode
         );
-        const aClassName = classNames({
-          [`${prefixCls}-list-item-thumbnail`]: true,
+        const aClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
         });
         icon = (
           <a
             className={aClassName}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
             href={file.url || file.thumbUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -127,11 +127,10 @@ const ListItem = React.forwardRef(
       }
     }
 
-    const infoUploadingClass = classNames({
-      [`${prefixCls}-list-item`]: true,
-      [`${prefixCls}-list-item-${file.status}`]: true,
-      [`${prefixCls}-list-item-list-type-${listType}`]: true,
-    });
+    const listItemClassName = classNames(
+      `${prefixCls}-list-item`,
+      `${prefixCls}-list-item-${mergedStatus}`,
+    );
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
@@ -147,7 +146,7 @@ const ListItem = React.forwardRef(
       : null;
 
     const downloadIcon =
-      showDownloadIcon && file.status === 'done'
+      showDownloadIcon && mergedStatus === 'done'
         ? actionIconRender(
             (typeof customDownloadIcon === 'function'
               ? customDownloadIcon(file)
@@ -157,10 +156,10 @@ const ListItem = React.forwardRef(
             locale.downloadFile,
           )
         : null;
-    const downloadOrDelete = listType !== 'picture-card' && (
+    const downloadOrDelete = listType !== 'picture-card' && listType !== 'picture-circle' && (
       <span
         key="download-delete"
-        className={classNames(`${prefixCls}-list-item-card-actions`, {
+        className={classNames(`${prefixCls}-list-item-actions`, {
           picture: listType === 'picture',
         })}
       >
@@ -169,7 +168,7 @@ const ListItem = React.forwardRef(
       </span>
     );
     const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
-    const preview = file.url
+    const fileName = file.url
       ? [
           <a
             key="view"
@@ -179,7 +178,7 @@ const ListItem = React.forwardRef(
             title={file.name}
             {...linkProps}
             href={file.url}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
           >
             {file.name}
           </a>,
@@ -189,7 +188,7 @@ const ListItem = React.forwardRef(
           <span
             key="view"
             className={listItemNameClass}
-            onClick={e => onPreview(file, e)}
+            onClick={(e) => onPreview(file, e)}
             title={file.name}
           >
             {file.name}
@@ -200,13 +199,14 @@ const ListItem = React.forwardRef(
       pointerEvents: 'none',
       opacity: 0.5,
     };
+
     const previewIcon = showPreviewIcon ? (
       <a
         href={file.url || file.thumbUrl}
         target="_blank"
         rel="noopener noreferrer"
         style={file.url || file.thumbUrl ? undefined : previewStyle}
-        onClick={e => onPreview(file, e)}
+        onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
       >
         {typeof customPreviewIcon === 'function'
@@ -215,44 +215,40 @@ const ListItem = React.forwardRef(
       </a>
     ) : null;
 
-    const actions = listType === 'picture-card' && file.status !== 'uploading' && (
-      <span className={`${prefixCls}-list-item-actions`}>
-        {previewIcon}
-        {file.status === 'done' && downloadIcon}
-        {removeIcon}
-      </span>
-    );
+    const pictureCardActions = (listType === 'picture-card' || listType === 'picture-circle') &&
+      mergedStatus !== 'uploading' && (
+        <span className={`${prefixCls}-list-item-actions`}>
+          {previewIcon}
+          {mergedStatus === 'done' && downloadIcon}
+          {removeIcon}
+        </span>
+      );
 
-    let message;
-    if (file.response && typeof file.response === 'string') {
-      message = file.response;
-    } else {
-      message = file.error?.statusText || file.error?.message || locale.uploadError;
-    }
-    const iconAndPreview = (
-      <span className={spanClassName}>
-        {icon}
-        {preview}
-      </span>
-    );
     const { getPrefixCls } = React.useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
-      <div className={infoUploadingClass}>
-        <div className={`${prefixCls}-list-item-info`}>{iconAndPreview}</div>
-        {actions}
+      <div className={listItemClassName}>
+        {icon}
+        {fileName}
+        {pictureCardActions}
         {showProgress && (
           <CSSMotion
             motionName={`${rootPrefixCls}-fade`}
-            visible={file.status === 'uploading'}
+            visible={mergedStatus === 'uploading'}
             motionDeadline={2000}
           >
             {({ className: motionClassName }) => {
               // show loading icon if upload progress listener is disabled
               const loadingProgress =
                 'percent' in file ? (
-                  <Progress {...progressProps} type="line" percent={file.percent} />
+                  <Progress
+                    {...progressProps}
+                    type="line"
+                    percent={file.percent}
+                    aria-label={file['aria-label']}
+                    aria-labelledby={file['aria-labelledby']}
+                  />
                 ) : null;
 
               return (
@@ -265,10 +261,14 @@ const ListItem = React.forwardRef(
         )}
       </div>
     );
-    const listContainerNameClass = classNames(`${prefixCls}-list-${listType}-container`, className);
+
+    const message =
+      file.response && typeof file.response === 'string'
+        ? file.response
+        : file.error?.statusText || file.error?.message || locale.uploadError;
     const item =
-      file.status === 'error' ? (
-        <Tooltip title={message} getPopupContainer={node => node.parentNode as HTMLElement}>
+      mergedStatus === 'error' ? (
+        <Tooltip title={message} getPopupContainer={(node) => node.parentNode as HTMLElement}>
           {dom}
         </Tooltip>
       ) : (
@@ -276,7 +276,11 @@ const ListItem = React.forwardRef(
       );
 
     return (
-      <div className={listContainerNameClass} style={style} ref={ref}>
+      <div
+        className={classNames(`${prefixCls}-list-item-container`, className)}
+        style={style}
+        ref={ref}
+      >
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),

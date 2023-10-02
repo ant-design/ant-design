@@ -1,9 +1,9 @@
 ---
 category: Components
-type: Data Display
+group: Data Display
 title: List
-cols: 1
-cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Simple List.
@@ -12,7 +12,24 @@ Simple List.
 
 A list can be used to display content related to a single subject. The content can consist of multiple elements of varying type and size.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/simple.tsx">Simple list</code>
+<code src="./demo/basic.tsx">Basic list</code>
+<code src="./demo/loadmore.tsx">Load more</code>
+<code src="./demo/vertical.tsx">Vertical</code>
+<code src="./demo/pagination.tsx">Pagination Settings</code>
+<code src="./demo/grid.tsx">Grid</code>
+<code src="./demo/grid-test.tsx" debug>Test Grid</code>
+<code src="./demo/responsive.tsx">Responsive grid list</code>
+<code src="./demo/infinite-load.tsx">Scrolling loaded</code>
+<code src="./demo/virtual-list.tsx">virtual list</code>
+<code src="./demo/component-token.tsx" debug>custom component token</code>
+
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### List
 
@@ -21,10 +38,10 @@ A list can be used to display content related to a single subject. The content c
 | bordered | Toggles rendering of the border around the list | boolean | false |  |
 | dataSource | DataSource array for list | any\[] | - |  |
 | footer | List footer renderer | ReactNode | - |  |
-| grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#List-grid-props) | - |  |
+| grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#list-grid-props) | - |  |
 | header | List header renderer | ReactNode | - |  |
 | itemLayout | The layout of list | `horizontal` \| `vertical` | `horizontal` |  |
-| loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
+| loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#api) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | Shows a load more content | ReactNode | - |  |
 | locale | The i18n text including empty text | object | {emptyText: `No Data`} |  |
 | pagination | Pagination [config](/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
@@ -37,9 +54,10 @@ A list can be used to display content related to a single subject. The content c
 
 Properties for pagination.
 
-| Property | Description                              | Type                        | Default  |
-| -------- | ---------------------------------------- | --------------------------- | -------- |
-| position | The specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
+| Property | Description                               | Type                         | Default  |
+| -------- | ----------------------------------------- | ---------------------------- | -------- |
+| position | The specify the position of `Pagination`  | `top` \| `bottom` \| `both`  | `bottom` |
+| align    | The specify the alignment of `Pagination` | `start` \| `center` \| `end` | `end`    |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -70,3 +88,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | avatar      | The avatar of list item      | ReactNode | -       |         |
 | description | The description of list item | ReactNode | -       |         |
 | title       | The title of list item       | ReactNode | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="List"></ComponentTokenTable>

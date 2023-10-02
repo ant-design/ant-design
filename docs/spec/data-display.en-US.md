@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Global Rules
 order: 4
 title: Data Display
@@ -14,7 +14,9 @@ The suitable way to display data helps users quickly locate and browse data, and
 
 ## Table
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/PetAXSByOolFbtmLazQz.png">
+<ImagePreview>
+  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/PetAXSByOolFbtmLazQz.png">
+</ImagePreview>
 
 The table is recognized as one of the clearest and most efficient forms of presentation data. It is often used in conjunction with other interface elements such as sorting, searching, filtering, and paging, and is suitable for information collection and display, data analysis and induction, and manipulation of structured data. It's structure is simple, it's separation and induction are clear, the information is easier to compare, and the user's receiving efficiency and understanding of the information is greatly improved.
 
@@ -25,7 +27,9 @@ The table is recognized as one of the clearest and most efficient forms of prese
 
 ## Collapse
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/ypeOSafZJYqVJUHcJeef.png">
+<ImagePreview>
+  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/ypeOSafZJYqVJUHcJeef.png">
+</ImagePreview>
 
 Collapse guides the user to obtain information in a progressive manner by folding and arranging information, so that the interface is kept clean and the space is effectively utilized.
 
@@ -37,7 +41,9 @@ These components are used extensively in navigation and are also suitable for le
 
 ## Card
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/xtIGZmqUHAovPPKjwyVT.png" description="If the content of the page is too slow, you can use &quot;preload&quot; or &quot;step-by-step&quot; to alleviate the user's anxiety during waiting time.">
+<ImagePreview>
+  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/xtIGZmqUHAovPPKjwyVT.png" description="If the content of the page is too slow, you can use &quot;preload&quot; or &quot;step-by-step&quot; to alleviate the user's anxiety during waiting time.">
+</ImagePreview>
 
 A card is a container for carrying information. There is not too much limit to the types of content that can be carried. It makes a type of information centralized, enhances the sense of block and is easier to operate. Cards are usually arranged in a grid or matrix to convey the hierarchical relationship between each other. Cards are suitable for lighter and more personalized information block display.
 
@@ -50,7 +56,9 @@ A card is a container for carrying information. There is not too much limit to t
 
 ## Carousel
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/FaAbGkTwlhykSDSBqWbW.png">
+<ImagePreview>
+  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/FaAbGkTwlhykSDSBqWbW.png">
+</ImagePreview>
 
 As a set of same hierarchy content parallel display mode, often used for picture or card carousel, can be triggered by the user or the system automatically rotates. It is suitable for display blocks such as the official website home page and product introduction page.
 
@@ -63,7 +71,9 @@ As a set of same hierarchy content parallel display mode, often used for picture
 
 ## Tree
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QZyxnLWUkbIuTqGYxTQs.png">
+<ImagePreview>
+  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/QZyxnLWUkbIuTqGYxTQs.png">
+</ImagePreview>
 
 "Tree" displays the hierarchical relationship of information in the form of a step-by-step outline, which is efficient and has excellent visual visibility, making the overall information framework clear at a glance.
 
@@ -73,7 +83,9 @@ Users can view and process multiple tree-level content at the same time. Tree is
 
 ## Timeline
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WmQeylAyWUNKmQIyoQGH.png">
+<ImagePreview>
+  <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/WmQeylAyWUNKmQIyoQGH.png">
+</ImagePreview>
 
 Timeline is used to display time-flow information vertically, generally recording events in time by flashback, tracking what the user is doing now and what he has done in the past.
 

@@ -1,3 +1,6 @@
 import demoTest from '../../../tests/shared/demoTest';
 
-demoTest('icon');
+demoTest('icon', {
+  testRootProps: false,
+  nameCheckPathOnly: true,
+});

@@ -1,60 +1,84 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import classNames from 'classnames';
 import RCPicker from 'rc-picker';
-import type { PickerMode } from 'rc-picker/lib/interface';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import { forwardRef, useContext, useImperativeHandle } from 'react';
-import enUS from '../locale/en_US';
-import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
-import warning from '../../_util/warning';
-import { ConfigContext } from '../../config-provider';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
-import SizeContext from '../../config-provider/SizeContext';
-import DisabledContext from '../../config-provider/DisabledContext';
-import type { PickerProps, PickerLocale, PickerDateProps, PickerTimeProps } from '.';
-import { getTimeProps, Components } from '.';
-import { FormItemInputContext } from '../../form/context';
+import type { PickerMode } from 'rc-picker/lib/interface';
+
+import type { PickerProps, PickerTimeProps } from '.';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import type { DatePickRef, PickerComponentClass, CommonPickerMethods } from './interface';
+import { devUseWarning } from '../../_util/warning';
+import { ConfigContext } from '../../config-provider';
+import DisabledContext from '../../config-provider/DisabledContext';
+import useSize from '../../config-provider/hooks/useSize';
+import { FormItemInputContext } from '../../form/context';
+import { useLocale } from '../../locale';
+import { useCompactItemContext } from '../../space/Compact';
+import enUS from '../locale/en_US';
+import useStyle from '../style';
+import {
+  getPlaceholder,
+  getTimeProps,
+  mergeAllowClear,
+  transPlacement2DropdownAlign,
+} from '../util';
+import Components from './Components';
+import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
-  type DatePickerProps = PickerProps<DateType> & {
+  type CustomPickerProps = {
     status?: InputStatus;
+    hashId?: string;
+    popupClassName?: string;
+    rootClassName?: string;
   };
+  type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
+  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
     displayName?: string,
   ) {
+    const consumerName = displayName === 'TimePicker' ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<DatePickRef<DateType> | CommonPickerMethods, InnerPickerProps>(
       (props, ref) => {
         const {
           prefixCls: customizePrefixCls,
           getPopupContainer: customizeGetPopupContainer,
+          style,
           className,
+          rootClassName,
           size: customizeSize,
           bordered = true,
           placement,
           placeholder,
+          popupClassName,
+          dropdownClassName,
           disabled: customDisabled,
           status: customStatus,
+          clearIcon,
+          allowClear,
           ...restProps
         } = props;
 
-        warning(
-          picker !== 'quarter',
-          displayName!,
-          `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-        );
+        const {
+          getPrefixCls,
+          direction,
+          getPopupContainer,
+          // Consume different styles according to different names
+          [consumerName]: consumerStyle,
+        } = useContext(ConfigContext);
 
-        const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
+        const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
+
+        const [wrapSSR, hashId] = useStyle(prefixCls);
 
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),
@@ -80,13 +104,25 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         };
         const rootPrefixCls = getPrefixCls();
 
+        // =================== Warning =====================
+        if (process.env.NODE_ENV !== 'production') {
+          const warning = devUseWarning(displayName! || 'DatePicker');
+
+          warning(
+            picker !== 'quarter',
+            'deprecated',
+            `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
+          );
+
+          warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+        }
+
         // ===================== Size =====================
-        const size = React.useContext(SizeContext);
-        const mergedSize = customizeSize || size;
+        const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
         // ===================== Disabled =====================
         const disabled = React.useContext(DisabledContext);
-        const mergedDisabled = customDisabled || disabled;
+        const mergedDisabled = customDisabled ?? disabled;
 
         // ===================== FormItemInput =====================
         const formItemContext = useContext(FormItemInputContext);
@@ -99,50 +135,55 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           </>
         );
 
-        return (
-          <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-            {(contextLocale: PickerLocale) => {
-              const locale = { ...contextLocale, ...props.locale };
+        const [contextLocale] = useLocale('DatePicker', enUS);
 
-              return (
-                <RCPicker<DateType>
-                  ref={innerRef}
-                  placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                  suffixIcon={suffixNode}
-                  dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                  clearIcon={<CloseCircleFilled />}
-                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                  allowClear
-                  transitionName={`${rootPrefixCls}-slide-up`}
-                  {...additionalProps}
-                  {...restProps}
-                  {...additionalOverrideProps}
-                  locale={locale!.lang}
-                  className={classNames(
-                    {
-                      [`${prefixCls}-${mergedSize}`]: mergedSize,
-                      [`${prefixCls}-borderless`]: !bordered,
-                    },
-                    getStatusClassNames(
-                      prefixCls as string,
-                      getMergedStatus(contextStatus, customStatus),
-                      hasFeedback,
-                    ),
-                    className,
-                  )}
-                  prefixCls={prefixCls}
-                  getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-                  generateConfig={generateConfig}
-                  components={Components}
-                  direction={direction}
-                  disabled={mergedDisabled}
-                />
-              );
-            }}
-          </LocaleReceiver>
+        const locale = { ...contextLocale, ...props.locale! };
+
+        return wrapSSR(
+          <RCPicker<DateType>
+            ref={innerRef}
+            placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
+            suffixIcon={suffixNode}
+            dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+            prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+            nextIcon={<span className={`${prefixCls}-next-icon`} />}
+            superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+            superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+            transitionName={`${rootPrefixCls}-slide-up`}
+            {...additionalProps}
+            {...restProps}
+            {...additionalOverrideProps}
+            locale={locale!.lang}
+            className={classNames(
+              {
+                [`${prefixCls}-${mergedSize}`]: mergedSize,
+                [`${prefixCls}-borderless`]: !bordered,
+              },
+              getStatusClassNames(
+                prefixCls,
+                getMergedStatus(contextStatus, customStatus),
+                hasFeedback,
+              ),
+              hashId,
+              compactItemClassnames,
+              consumerStyle?.className,
+              className,
+              rootClassName,
+            )}
+            style={{ ...consumerStyle?.style, ...style }}
+            prefixCls={prefixCls}
+            getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+            generateConfig={generateConfig}
+            components={Components}
+            direction={direction}
+            disabled={mergedDisabled}
+            dropdownClassName={classNames(
+              hashId,
+              rootClassName,
+              popupClassName || dropdownClassName,
+            )}
+            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+          />,
         );
       },
     );
@@ -155,14 +196,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
   }
 
   const DatePicker = getPicker<DatePickerProps>();
-  const WeekPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('week', 'WeekPicker');
-  const MonthPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('month', 'MonthPicker');
-  const YearPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('year', 'YearPicker');
-  const TimePicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>(
-    'quarter',
-    'QuarterPicker',
-  );
+  const WeekPicker = getPicker<Omit<DatePickerProps, 'picker'>>('week', 'WeekPicker');
+  const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
+  const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
+  const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
+  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>('quarter', 'QuarterPicker');
 
   return { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker };
 }

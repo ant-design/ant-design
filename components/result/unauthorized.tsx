@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Unauthorized = () => (
+const Unauthorized: React.FC = () => (
   <svg width="251" height="294">
     <g fill="none" fillRule="evenodd">
       <path

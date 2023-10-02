@@ -1,3 +1,3 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('upload');
+extendTest('upload', { skip: ['crop-image.tsx'] });

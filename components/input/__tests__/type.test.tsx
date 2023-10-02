@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from '..';
-import type { InputProps } from '../Input';
 import { render } from '../../../tests/utils';
+import type { InputProps } from '../Input';
 
 describe('Input types', () => {
   it('should support data-attributes', () => {

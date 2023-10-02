@@ -1,43 +1,18 @@
 import * as React from 'react';
-import { SpaceContext } from '.';
+
+import { SpaceContext } from './context';
+import type { SpaceContextType } from './context';
 
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
   index: number;
-  direction?: 'horizontal' | 'vertical';
-  marginDirection: 'marginLeft' | 'marginRight';
-  split?: string | React.ReactNode;
-  wrap?: boolean;
+  split?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
-export default function Item({
-  className,
-  direction,
-  index,
-  marginDirection,
-  children,
-  split,
-  wrap,
-}: ItemProps) {
-  const { horizontalSize, verticalSize, latestIndex, supportFlexGap } = React.useContext(
-    SpaceContext,
-  );
-
-  let style: React.CSSProperties = {};
-
-  if (!supportFlexGap) {
-    if (direction === 'vertical') {
-      if (index < latestIndex) {
-        style = { marginBottom: horizontalSize / (split ? 2 : 1) };
-      }
-    } else {
-      style = {
-        ...(index < latestIndex && { [marginDirection]: horizontalSize / (split ? 2 : 1) }),
-        ...(wrap && { paddingBottom: verticalSize }),
-      };
-    }
-  }
+const Item: React.FC<ItemProps> = ({ className, index, children, split, style }) => {
+  const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
   if (children === null || children === undefined) {
     return null;
@@ -48,11 +23,9 @@ export default function Item({
       <div className={className} style={style}>
         {children}
       </div>
-      {index < latestIndex && split && (
-        <span className={`${className}-split`} style={style}>
-          {split}
-        </span>
-      )}
+      {index < latestIndex && split && <span className={`${className}-split`}>{split}</span>}
     </>
   );
-}
+};
+
+export default Item;

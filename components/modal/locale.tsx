@@ -1,4 +1,4 @@
-import defaultLocale from '../locale/default';
+import defaultLocale from '../locale/en_US';
 
 export interface ModalLocale {
   okText: string;
@@ -10,17 +10,29 @@ let runtimeLocale: ModalLocale = {
   ...(defaultLocale.Modal as ModalLocale),
 };
 
+let localeList: ModalLocale[] = [];
+
+const generateLocale = () =>
+  localeList.reduce(
+    (merged, locale) => ({ ...merged, ...locale }),
+    defaultLocale.Modal as ModalLocale,
+  );
+
 export function changeConfirmLocale(newLocale?: ModalLocale) {
   if (newLocale) {
-    runtimeLocale = {
-      ...runtimeLocale,
-      ...newLocale,
-    };
-  } else {
-    runtimeLocale = {
-      ...(defaultLocale.Modal as ModalLocale),
+    const cloneLocale = { ...newLocale };
+    localeList.push(cloneLocale);
+    runtimeLocale = generateLocale();
+
+    return () => {
+      localeList = localeList.filter((locale) => locale !== cloneLocale);
+      runtimeLocale = generateLocale();
     };
   }
+
+  runtimeLocale = {
+    ...(defaultLocale.Modal as ModalLocale),
+  };
 }
 
 export function getConfirmLocale() {

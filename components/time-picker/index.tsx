@@ -1,9 +1,11 @@
-import type { Moment } from 'moment';
 import * as React from 'react';
+import type { Dayjs } from 'dayjs';
+
+import genPurePanel from '../_util/PurePanel';
+import type { InputStatus } from '../_util/statusUtils';
+import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
-import warning from '../_util/warning';
-import type { InputStatus } from '../_util/statusUtils';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -12,38 +14,35 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   popupClassName?: string;
 }
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
-  <InternalRangePicker
-    {...props}
-    dropdownClassName={props.popupClassName}
-    picker="time"
-    mode={undefined}
-    ref={ref}
-  />
+  <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
+export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
   addon?: () => React.ReactNode;
-  popupClassName?: string;
   status?: InputStatus;
+  popupClassName?: string;
+  rootClassName?: string;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, ...restProps }, ref) => {
+    if (process.env.NODE_ENV !== 'production') {
+      const warning = devUseWarning('TimePicker');
+
+      warning.deprecated(!addon, 'addon', 'renderExtraFooter');
+    }
+
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
       }
+
       if (addon) {
-        warning(
-          false,
-          'TimePicker',
-          '`addon` is deprecated. Please use `renderExtraFooter` instead.',
-        );
         return addon;
       }
       return undefined;
@@ -52,7 +51,6 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
     return (
       <InternalTimePicker
         {...restProps}
-        dropdownClassName={popupClassName}
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}
@@ -61,12 +59,21 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
   },
 );
 
-TimePicker.displayName = 'TimePicker';
+if (process.env.NODE_ENV !== 'production') {
+  TimePicker.displayName = 'TimePicker';
+}
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(TimePicker, 'picker');
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
 (TimePicker as MergedTimePicker).RangePicker = RangePicker;
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default TimePicker as MergedTimePicker;

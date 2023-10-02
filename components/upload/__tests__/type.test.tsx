@@ -42,7 +42,7 @@ describe('Upload.typescript', () => {
     };
 
     const upload = (
-      <Upload<IFile> onChange={({ fileList }) => fileList.map(file => file.response?.customFile)}>
+      <Upload<IFile> onChange={({ fileList }) => fileList.map((file) => file.response?.customFile)}>
         <span>click to upload</span>
       </Upload>
     );
@@ -83,7 +83,7 @@ describe('Upload.typescript', () => {
   it('beforeUpload', () => {
     const upload = (
       <Upload
-        beforeUpload={file => {
+        beforeUpload={(file) => {
           const { name: returnType } = file;
           if (returnType === 'boolean') {
             return true;
@@ -117,7 +117,7 @@ describe('Upload.typescript', () => {
   it('beforeUpload async', () => {
     const upload = (
       <Upload
-        beforeUpload={async file => {
+        beforeUpload={async (file) => {
           const { name: returnType } = file;
           if (returnType === 'boolean') {
             return true;

@@ -1,10 +1,11 @@
 import * as React from 'react';
-import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
+import RcCollapse from 'rc-collapse';
 
-export type CollapsibleType = 'header' | 'disabled';
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+
+export type CollapsibleType = 'header' | 'icon' | 'disabled';
 
 export interface CollapsePanelProps {
   key: string | number;
@@ -22,15 +23,15 @@ export interface CollapsePanelProps {
   children?: React.ReactNode;
 }
 
-const CollapsePanel: React.FC<CollapsePanelProps> = props => {
-  warning(
-    !('disabled' in props),
-    'Collapse.Panel',
-    '`disabled` is deprecated. Please use `collapsible="disabled"` instead.',
-  );
+const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Collapse.Panel');
+
+    warning.deprecated(!('disabled' in props), 'disabled', 'collapsible="disabled"');
+  }
 
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', showArrow = true } = props;
+  const { prefixCls: customizePrefixCls, className, showArrow = true } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const collapsePanelClassName = classNames(
     {
@@ -38,7 +39,14 @@ const CollapsePanel: React.FC<CollapsePanelProps> = props => {
     },
     className,
   );
-  return <RcCollapse.Panel {...props} prefixCls={prefixCls} className={collapsePanelClassName} />;
-};
+  return (
+    <RcCollapse.Panel
+      ref={ref}
+      {...props}
+      prefixCls={prefixCls}
+      className={collapsePanelClassName}
+    />
+  );
+});
 
 export default CollapsePanel;

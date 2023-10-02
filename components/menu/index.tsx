@@ -1,202 +1,68 @@
+import type { MenuRef as RcMenuRef } from 'rc-menu';
+import { ItemGroup } from 'rc-menu';
 import * as React from 'react';
-import type { MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
-import RcMenu, { ItemGroup } from 'rc-menu';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import { forwardRef } from 'react';
-import SubMenu, { SubMenuProps } from './SubMenu';
-import Item, { MenuItemProps } from './MenuItem';
-import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
-import type { SiderContextProps } from '../layout/Sider';
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import { SiderContext } from '../layout/Sider';
-import collapseMotion from '../_util/motion';
-import { cloneElement } from '../_util/reactNode';
-import MenuContext, { MenuTheme } from './MenuContext';
+import type { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
-import type { ItemType } from './hooks/useItems';
-import useItems from './hooks/useItems';
-import OverrideContext from './OverrideContext';
+import Item, { type MenuItemProps } from './MenuItem';
+import SubMenu, { type SubMenuProps } from './SubMenu';
+import type { ItemType, MenuItemType } from './hooks/useItems';
+import type { MenuProps } from './menu';
+import InternalMenu from './menu';
 
-export { MenuDividerProps } from './MenuDivider';
+export type { MenuItemGroupProps } from 'rc-menu';
+export type { MenuDividerProps } from './MenuDivider';
+export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps };
 
-export { MenuItemGroupProps } from 'rc-menu';
+export type MenuRef = {
+  menu: RcMenuRef | null;
+  focus: (options?: FocusOptions) => void;
+};
 
-export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
+type ComponentProps = MenuProps & React.RefAttributes<MenuRef>;
 
-export interface MenuProps extends Omit<RcMenuProps, 'items'> {
-  theme?: MenuTheme;
-  inlineIndent?: number;
+type GenericItemType<T = unknown> = T extends infer U extends MenuItemType
+  ? unknown extends U
+    ? ItemType
+    : ItemType<U>
+  : ItemType;
 
-  // >>>>> Private
-  /**
-   * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
-   *   for removing.
-   */
-  _internalDisableMenuItemTitleTooltip?: boolean;
+type GenericComponentProps<T = unknown> = Omit<ComponentProps, 'items'> & {
+  items?: GenericItemType<T>[];
+};
 
-  items?: ItemType[];
+type CompoundedComponent = React.ForwardRefExoticComponent<GenericComponentProps> & {
+  Item: typeof Item;
+  SubMenu: typeof SubMenu;
+  Divider: typeof MenuDivider;
+  ItemGroup: typeof ItemGroup;
+};
+
+interface GenericComponent extends Omit<CompoundedComponent, ''> {
+  <T extends MenuItemType>(props: GenericComponentProps<T>): ReturnType<CompoundedComponent>;
 }
 
-type InternalMenuProps = MenuProps &
-  SiderContextProps & {
-    collapsedWidth?: string | number;
-  };
+const Menu = forwardRef<MenuRef, MenuProps>((props, ref) => {
+  const menuRef = useRef<RcMenuRef>(null);
+  const context = React.useContext(SiderContext);
 
-const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
-  const override = React.useContext(OverrideContext) || {};
-  const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
+  useImperativeHandle(ref, () => ({
+    menu: menuRef.current,
+    focus: (options) => {
+      menuRef.current?.focus(options);
+    },
+  }));
+  return <InternalMenu ref={menuRef} {...props} {...context} />;
+}) as GenericComponent;
 
-  const rootPrefixCls = getPrefixCls();
+Menu.Item = Item;
+Menu.SubMenu = SubMenu;
+Menu.Divider = MenuDivider;
+Menu.ItemGroup = ItemGroup;
 
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    theme = 'light',
-    expandIcon,
-    _internalDisableMenuItemTitleTooltip,
-    inlineCollapsed,
-    siderCollapsed,
-    items,
-    children,
-    mode,
-    selectable,
-    ...restProps
-  } = props;
-
-  const passedProps = omit(restProps, ['collapsedWidth']);
-
-  // ========================= Items ===========================
-  const mergedChildren = useItems(items) || children;
-
-  // ======================== Warning ==========================
-  warning(
-    !('inlineCollapsed' in props && mode !== 'inline'),
-    'Menu',
-    '`inlineCollapsed` should only be used when `mode` is inline.',
-  );
-
-  warning(
-    !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-    'Menu',
-    '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-  );
-
-  warning(
-    !!items && !children,
-    'Menu',
-    '`children` will be removed in next major version. Please use `items` instead.',
-  );
-
-  override.validator?.({ mode });
-
-  // ========================== Mode ===========================
-  const mergedMode = override.mode || mode;
-
-  // ======================= Selectable ========================
-  const mergedSelectable = selectable ?? override.selectable;
-
-  // ======================== Collapsed ========================
-  // Inline Collapsed
-  const mergedInlineCollapsed = React.useMemo(() => {
-    if (siderCollapsed !== undefined) {
-      return siderCollapsed;
-    }
-    return inlineCollapsed;
-  }, [inlineCollapsed, siderCollapsed]);
-
-  const defaultMotions = {
-    horizontal: { motionName: `${rootPrefixCls}-slide-up` },
-    inline: collapseMotion,
-    other: { motionName: `${rootPrefixCls}-zoom-big` },
-  };
-
-  const prefixCls = getPrefixCls('menu', customizePrefixCls || override.prefixCls);
-  const menuClassName = classNames(`${prefixCls}-${theme}`, className);
-
-  // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps[`expandIcon`];
-  if (typeof expandIcon === 'function') {
-    mergedExpandIcon = expandIcon;
-  } else {
-    mergedExpandIcon = cloneElement(expandIcon || override.expandIcon, {
-      className: `${prefixCls}-submenu-expand-icon`,
-    });
-  }
-
-  // ======================== Context ==========================
-  const contextValue = React.useMemo(
-    () => ({
-      prefixCls,
-      inlineCollapsed: mergedInlineCollapsed || false,
-      antdMenuTheme: theme,
-      direction,
-      firstLevel: true,
-      disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
-    }),
-    [prefixCls, mergedInlineCollapsed, theme, direction, _internalDisableMenuItemTitleTooltip],
-  );
-
-  // ========================= Render ==========================
-  return (
-    <OverrideContext.Provider value={null}>
-      <MenuContext.Provider value={contextValue}>
-        <RcMenu
-          getPopupContainer={getPopupContainer}
-          overflowedIndicator={<EllipsisOutlined />}
-          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
-          mode={mergedMode}
-          selectable={mergedSelectable}
-          {...passedProps}
-          inlineCollapsed={mergedInlineCollapsed}
-          className={menuClassName}
-          prefixCls={prefixCls}
-          direction={direction}
-          defaultMotions={defaultMotions}
-          expandIcon={mergedExpandIcon}
-          ref={ref}
-        >
-          {mergedChildren}
-        </RcMenu>
-      </MenuContext.Provider>
-    </OverrideContext.Provider>
-  );
-});
-
-// We should keep this as ref-able
-class Menu extends React.Component<MenuProps, {}> {
-  static Divider = MenuDivider;
-
-  static Item = Item;
-
-  static SubMenu = SubMenu;
-
-  static ItemGroup = ItemGroup;
-
-  menu: MenuRef | null;
-
-  focus = (options?: FocusOptions) => {
-    this.menu?.focus(options);
-  };
-
-  render() {
-    return (
-      <SiderContext.Consumer>
-        {(context: SiderContextProps) => (
-          <InternalMenu
-            ref={node => {
-              this.menu = node;
-            }}
-            {...this.props}
-            {...context}
-          />
-        )}
-      </SiderContext.Consumer>
-    );
-  }
+if (process.env.NODE_ENV !== 'production') {
+  Menu.displayName = 'Menu';
 }
-
-export { MenuTheme, SubMenuProps, MenuItemProps };
 
 export default Menu;

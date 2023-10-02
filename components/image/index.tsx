@@ -1,31 +1,46 @@
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import RcImage, { ImageProps } from 'rc-image';
 import * as React from 'react';
-import { useContext } from 'react';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import classNames from 'classnames';
+import RcImage from 'rc-image';
+import type { ImageProps } from 'rc-image';
+
+import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
-import { getTransitionName } from '../_util/motion';
+// CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
+import useStyle from './style';
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-const Image: CompositionImage<ImageProps> = ({
-  prefixCls: customizePrefixCls,
-  preview,
-  ...otherProps
-}) => {
+const Image: CompositionImage<ImageProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    preview,
+    className,
+    rootClassName,
+    style,
+    ...otherProps
+  } = props;
   const {
     getPrefixCls,
     locale: contextLocale = defaultLocale,
     getPopupContainer: getContextPopupContainer,
-  } = useContext(ConfigContext);
+    image,
+  } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const imageLocale = contextLocale.Image || defaultLocale.Image;
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const mergedRootClassName = classNames(rootClassName, hashId);
+
+  const mergedClassName = classNames(className, hashId, image?.className);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -48,11 +63,26 @@ const Image: CompositionImage<ImageProps> = ({
     };
   }, [preview, imageLocale]);
 
-  return <RcImage prefixCls={prefixCls} preview={mergedPreview} {...otherProps} />;
+  const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
+
+  return wrapSSR(
+    <RcImage
+      prefixCls={prefixCls}
+      preview={mergedPreview}
+      rootClassName={mergedRootClassName}
+      className={mergedClassName}
+      style={mergedStyle}
+      {...otherProps}
+    />,
+  );
 };
 
-export { ImageProps };
+export type { ImageProps };
 
 Image.PreviewGroup = PreviewGroup;
+
+if (process.env.NODE_ENV !== 'production') {
+  Image.displayName = 'Image';
+}
 
 export default Image;

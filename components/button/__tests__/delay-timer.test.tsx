@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
+import { fireEvent, render } from '../../../tests/utils';
 import Button from '../button';
-import { render, fireEvent } from '../../../tests/utils';
 
 const specialDelay = 9529;
 const Content = () => {
@@ -29,25 +29,25 @@ const Content = () => {
 };
 
 it('Delay loading timer in Button component', () => {
-  const otherTimer: any = 9528;
-  jest.spyOn(window, 'setTimeout').mockReturnValue(otherTimer);
+  const otherTimer = 9528;
+  jest.spyOn<Window, 'setTimeout'>(window, 'setTimeout').mockReturnValue(otherTimer);
   jest.restoreAllMocks();
 
   const wrapper = render(<Content />);
 
-  const btnTimer: any = 9527;
-  jest.spyOn(window, 'setTimeout').mockReturnValue(btnTimer);
-  jest.spyOn(window, 'clearTimeout');
-  const setTimeoutMock = window.setTimeout as any as jest.Mock;
-  const clearTimeoutMock = window.clearTimeout as any as jest.Mock;
+  const btnTimer = 9527;
+  const setTimeoutMock = jest
+    .spyOn<Window, 'setTimeout'>(window, 'setTimeout')
+    .mockReturnValue(btnTimer);
+  const clearTimeoutMock = jest.spyOn<Window, 'clearTimeout'>(window, 'clearTimeout');
 
   // other component may call setTimeout or clearTimeout
   const setTimeoutCount = () => {
-    const items = setTimeoutMock.mock.calls.filter(item => item[1] === specialDelay);
+    const items = setTimeoutMock.mock.calls.filter((item) => item[1] === specialDelay);
     return items.length;
   };
   const clearTimeoutCount = () => {
-    const items = clearTimeoutMock.mock.calls.filter(item => item[0] === btnTimer);
+    const items = clearTimeoutMock.mock.calls.filter((item) => item[0] === btnTimer);
     return items.length;
   };
 
@@ -58,7 +58,11 @@ it('Delay loading timer in Button component', () => {
 
   // trigger timer handler
   act(() => {
-    setTimeoutMock.mock.calls[0][0]();
+    const timerHandler = setTimeoutMock.mock.calls[0][0];
+
+    if (typeof timerHandler === 'function') {
+      timerHandler();
+    }
   });
   expect(setTimeoutCount()).toBe(1);
   expect(clearTimeoutCount()).toBe(0);
@@ -86,4 +90,9 @@ it('Delay loading timer in Button component', () => {
   expect(clearTimeoutCount()).toBe(2);
 
   jest.restoreAllMocks();
+});
+it('Delay loading while use loading delay at first time', () => {
+  const Demo = () => <Button loading={{ delay: specialDelay }} />;
+  const wrapper = render(<Demo />);
+  expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
 });

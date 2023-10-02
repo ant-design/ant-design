@@ -1,5 +1,5 @@
 ---
-category: Global Styles
+group: Global Styles
 order: 3
 title: Font
 ---
@@ -50,7 +50,9 @@ The font scale and line height determine the beauty of the dynamics and order of
 
 Ant Design was inspired by the pentatonic scale and natural law to define 10 different font sizes and corresponding line heights.
 
+<ImagePreview>
 <img src="https://gw.alipayobjects.com/zos/rmsportal/iFjgfIBExksqCqGMwUlw.png" />
+</ImagePreview>
 
 In Ant Design's visual system, our recommended base font size is 14, and its corresponding line height is 22. The choice of the rest of the font scale can be freely defined according to the specific circumstances. It is recommended that in a design system (except for display pages), the choice of font scale should be controlled within 3 to 5 types, and the principle of restraint should be maintained.
 
@@ -78,16 +80,16 @@ The choice of font weight is also based on the principles of order, stability, a
 
 ## Font Color
 
-Text will be difficult to read if it is too close to the background color. To achieve barrier-free design, we follow the WCAG standard, which maintains an AAA level of contrast ratio, i.e. 7:1 or more between body text, title, and background color.
+<ImagePreview>
+  <TokenCompare tokenNames="colorTextHeading|colorText|colorTextSecondary|colorTextDisabled|colorBorder|colorSplit|colorBgLayout"></TokenCompare>
+</ImagePreview>
 
-<div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PdFFQr2NXyUAAAAAAAAAAAAAARQnAQ" />
-</div>
+Text will be difficult to read if it is too close to the background color. To achieve barrier-free design, we follow the WCAG standard, which maintains an AAA level of contrast ratio, i.e. 7:1 or more between body text, title, and background color.
 
 ## Advanced Tips
 
-The construction of the font system is the first step to achieve "the beauty of dynamic order". In practical design, we have three more advanced tips：
+The construction of the font system is the first step to achieve "the beauty of dynamic order". In practical design, we have three more advanced tips:
 
 1. **Establish a systematic design thinking:** In the UI design of the same system, a systematic design thinking should be established first. The primary, secondary, auxiliary, title, display, and other types of fonts are planned in a unified manner. And then make any necessary fine tuning according to the specific situation. The establishment of a systematic design approach helps to increase the consistency of horizontal font landing, improve the cost-effectiveness of font uses, and avoid unnecessary style waste.
-1. **Less is more：**Visual design should be achieved with as few styles as possible. Avoid meaningless use of large numbers of font scales, colors, and font weight to emphasize visual or contrast relationships.
-1. **Try to make font scale dance like a note** When you need to expand any gap, you can try to choose the different sizes of the font from the font scale table, which will create a subtle rhythm between the word scales.
+1. **Less is more:** Visual design should be achieved with as few styles as possible. Avoid meaningless use of large numbers of font scales, colors, and font weight to emphasize visual or contrast relationships.
+1. **Try to make font scale dance like a note:** When you need to expand any gap, you can try to choose the different sizes of the font from the font scale table, which will create a subtle rhythm between the word scales.

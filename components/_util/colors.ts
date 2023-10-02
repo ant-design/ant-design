@@ -1,23 +1,34 @@
-import type { ElementOf } from './type';
-import { tuple } from './type';
+import type { PresetColorKey } from '../theme/interface';
+import { PresetColors } from '../theme/interface';
 
-export const PresetStatusColorTypes = tuple('success', 'processing', 'error', 'default', 'warning');
-// eslint-disable-next-line import/prefer-default-export
-export const PresetColorTypes = tuple(
-  'pink',
-  'red',
-  'yellow',
-  'orange',
-  'cyan',
-  'green',
-  'blue',
-  'purple',
-  'geekblue',
-  'magenta',
-  'volcano',
-  'gold',
-  'lime',
-);
+type InverseColor = `${PresetColorKey}-inverse`;
+const inverseColors = PresetColors.map<InverseColor>((color) => `${color}-inverse`);
 
-export type PresetColorType = ElementOf<typeof PresetColorTypes>;
-export type PresetStatusColorType = ElementOf<typeof PresetStatusColorTypes>;
+export const PresetStatusColorTypes = [
+  'success',
+  'processing',
+  'error',
+  'default',
+  'warning',
+] as const;
+
+export type PresetColorType = PresetColorKey | InverseColor;
+
+export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
+
+/**
+ * determine if the color keyword belongs to the `Ant Design` {@link PresetColors}.
+ * @param color color to be judged
+ * @param includeInverse whether to include reversed colors
+ */
+export function isPresetColor(color?: any, includeInverse = true) {
+  if (includeInverse) {
+    return [...inverseColors, ...PresetColors].includes(color);
+  }
+
+  return PresetColors.includes(color);
+}
+
+export function isPresetStatusColor(color?: any): color is PresetStatusColorType {
+  return PresetStatusColorTypes.includes(color);
+}

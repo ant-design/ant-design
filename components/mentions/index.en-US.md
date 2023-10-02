@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Mentions
-cover: https://gw.alipayobjects.com/zos/alicdn/0pF5j477V/Mentions.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e4bXT7Uhi9YAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*pxR2S53P_xoAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Mention component.
@@ -11,13 +14,40 @@ Mention component.
 
 When you need to mention someone or something.
 
-## API
+### Usage upgrade after 5.1.0
+
+<Alert message="After version 5.1.0, we provide a simpler usage &lt;Mentions options={[...]} /&gt;  with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
 
 ```jsx
-<Mentions onChange={onChange}>
-  <Mentions.Option value="sample">Sample</Mentions.Option>
-</Mentions>
+// works when >=5.1.0, recommended ✅
+const options = [{ value: 'sample', label: 'sample' }];
+return <Mentions options={options} />;
+
+// works when <5.1.0, deprecated when >=5.1.0 🙅🏻‍♀️
+return (
+  <Mentions onChange={onChange}>
+    <Mentions.Option value="sample">Sample</Mentions.Option>
+  </Mentions>
+);
 ```
+
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/async.tsx">Asynchronous loading</code>
+<code src="./demo/form.tsx">With Form</code>
+<code src="./demo/prefix.tsx">Customize Trigger Token</code>
+<code src="./demo/readonly.tsx">disabled or readOnly</code>
+<code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/autoSize.tsx">autoSize</code>
+<code src="./demo/status.tsx">Status</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
+
+## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Mention
 
@@ -41,6 +71,7 @@ When you need to mention someone or something.
 | onResize | The callback function that is triggered when textarea resize | function({ width, height }) | - |  |
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - |  |
 | onSelect | Trigger when user select the option | (option: OptionProps, prefix: string) => void | - |  |
+| options | Option Configuration | [Options](#option) | \[] | 5.1.0 |
 
 ### Mention methods
 
@@ -51,7 +82,15 @@ When you need to mention someone or something.
 
 ### Option
 
+<!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| children | Suggestion content | ReactNode | - |
-| value | The value of suggestion, the value will insert into input filed while selected | string | - |
+| label | Title of the option | React.ReactNode | - |
+| key | The key value of the option | string | - |
+| disabled | Optional | boolean | - |
+| className | className | string | - |
+| style | The style of the option | React.CSSProperties | - |
+
+## Design Token
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

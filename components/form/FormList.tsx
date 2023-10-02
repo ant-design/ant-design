@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { List } from 'rc-field-form';
-import type { ValidatorRule, StoreValue } from 'rc-field-form/lib/interface';
-import warning from '../_util/warning';
+import type { StoreValue, ValidatorRule } from 'rc-field-form/lib/interface';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { FormItemPrefixContext } from './context';
 
@@ -35,7 +36,16 @@ const FormList: React.FC<FormListProps> = ({
   children,
   ...props
 }) => {
-  warning(!!props.name, 'Form.List', 'Miss `name` prop.');
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Form.List');
+
+    warning(
+      typeof props.name === 'number' ||
+        (Array.isArray(props.name) ? !!props.name.length : !!props.name),
+      'usage',
+      'Miss `name` prop.',
+    );
+  }
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('form', customizePrefixCls);
@@ -52,7 +62,7 @@ const FormList: React.FC<FormListProps> = ({
       {(fields, operation, meta) => (
         <FormItemPrefixContext.Provider value={contextValue}>
           {children(
-            fields.map(field => ({ ...field, fieldKey: field.key })),
+            fields.map((field) => ({ ...field, fieldKey: field.key })),
             operation,
             {
               errors: meta.errors,

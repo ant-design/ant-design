@@ -1,24 +1,28 @@
 import * as React from 'react';
 import classNames from 'classnames';
+
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
-import type { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
 import ErrorList from './ErrorList';
+import type { ValidateStatus } from './FormItem';
+import FallbackCmp from './style/fallbackCmp';
 
 interface FormItemInputMiscProps {
   prefixCls: string;
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
-  /** @private Internal Usage, do not use in any of your production. */
+  marginBottom?: number | null;
+  onErrorVisibleChanged?: (visible: boolean) => void;
+  /** @internal do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
     render: (
       props: FormItemInputProps & FormItemInputMiscProps,
       domList: {
         input: JSX.Element;
-        errorList: JSX.Element;
+        errorList: JSX.Element | null;
         extra: JSX.Element | null;
       },
     ) => React.ReactNode;
@@ -30,9 +34,10 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
+  fieldId?: string;
 }
 
-const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
+const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (props) => {
   const {
     prefixCls,
     status,
@@ -43,6 +48,9 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     _internalItemRender: formItemRender,
     extra,
     help,
+    fieldId,
+    marginBottom,
+    onErrorVisibleChanged,
   } = props;
   const baseClassName = `${prefixCls}-item`;
 
@@ -57,29 +65,45 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   delete subFormContext.labelCol;
   delete subFormContext.wrapperCol;
 
-  const inputDom = (
+  const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
       <div className={`${baseClassName}-control-input-content`}>{children}</div>
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);
-  const errorListDom = (
-    <FormItemPrefixContext.Provider value={formItemContext}>
-      <ErrorList
-        errors={errors}
-        warnings={warnings}
-        help={help}
-        helpStatus={status}
-        className={`${baseClassName}-explain-connected`}
-      />
-    </FormItemPrefixContext.Provider>
-  );
+  const errorListDom: React.ReactNode =
+    marginBottom !== null || errors.length || warnings.length ? (
+      <div style={{ display: 'flex', flexWrap: 'nowrap' }}>
+        <FormItemPrefixContext.Provider value={formItemContext}>
+          <ErrorList
+            fieldId={fieldId}
+            errors={errors}
+            warnings={warnings}
+            help={help}
+            helpStatus={status}
+            className={`${baseClassName}-explain-connected`}
+            onVisibleChanged={onErrorVisibleChanged}
+          />
+        </FormItemPrefixContext.Provider>
+        {!!marginBottom && <div style={{ width: 0, height: marginBottom }} />}
+      </div>
+    ) : null;
+
+  const extraProps: { id?: string } = {};
+
+  if (fieldId) {
+    extraProps.id = `${fieldId}_extra`;
+  }
 
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
-  const extraDom = extra ? <div className={`${baseClassName}-extra`}>{extra}</div> : null;
+  const extraDom: React.ReactNode = extra ? (
+    <div {...extraProps} className={`${baseClassName}-extra`}>
+      {extra}
+    </div>
+  ) : null;
 
-  const dom =
+  const dom: React.ReactNode =
     formItemRender && formItemRender.mark === 'pro_table_render' && formItemRender.render ? (
       formItemRender.render(props, { input: inputDom, errorList: errorListDom, extra: extraDom })
     ) : (
@@ -94,6 +118,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
       <Col {...mergedWrapperCol} className={className}>
         {dom}
       </Col>
+      <FallbackCmp prefixCls={prefixCls} />
     </FormContext.Provider>
   );
 };

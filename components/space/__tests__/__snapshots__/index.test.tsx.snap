@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
+exports[`Space should render correct with children 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    text1
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      text1
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    text3
+  </div>
+</div>
+`;
+
+exports[`Space should render width ConfigProvider 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Space should render width rtl 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+  </div>,
+]
+`;
+
+exports[`Space split 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    text1
+  </div>
+  <span
+    class="ant-space-item-split"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      text1
+    </span>
+  </div>
+  <span
+    class="ant-space-item-split"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    text3
+  </div>
+</div>
+`;

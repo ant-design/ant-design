@@ -1,19 +1,29 @@
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import Element from './Element';
-import { ConfigContext } from '../config-provider';
+
+import useStyle from './style';
 
 export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
   size?: 'large' | 'small' | 'default';
   block?: boolean;
 }
 
-const SkeletonButton = (props: SkeletonButtonProps) => {
-  const { prefixCls: customizePrefixCls, className, active, block = false } = props;
+const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    rootClassName,
+    active,
+    block = false,
+    size = 'default',
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const otherProps = omit(props, ['prefixCls']);
   const cls = classNames(
@@ -24,16 +34,15 @@ const SkeletonButton = (props: SkeletonButtonProps) => {
       [`${prefixCls}-block`]: block,
     },
     className,
+    rootClassName,
+    hashId,
   );
-  return (
-    <div className={cls}>
-      <Element prefixCls={`${prefixCls}-button`} {...otherProps} />
-    </div>
-  );
-};
 
-SkeletonButton.defaultProps = {
-  size: 'default',
+  return wrapSSR(
+    <div className={cls}>
+      <Element prefixCls={`${prefixCls}-button`} size={size} {...otherProps} />
+    </div>,
+  );
 };
 
 export default SkeletonButton;

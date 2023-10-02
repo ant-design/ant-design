@@ -1,5 +1,5 @@
 ---
-category: Design Patterns (Research)
+group: Design Patterns (Research)
 type: Template Document
 order: 4
 title: Result Page

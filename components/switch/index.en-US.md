@@ -1,8 +1,11 @@
 ---
 category: Components
-type: Data Entry
+group: Data Entry
 title: Switch
-cover: https://gw.alipayobjects.com/zos/alicdn/zNdJQMhfm/Switch.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rtArRpBNDZcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*al07RK8SGf4AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 Switching Selector.
@@ -12,7 +15,19 @@ Switching Selector.
 - If you need to represent the switching between two states or on-off state.
 - The difference between `Switch` and `Checkbox` is that `Switch` will trigger a state change directly when you toggle it, while `Checkbox` is generally used for state marking, which should work in conjunction with submit operation.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/text.tsx">Text & icon</code>
+<code src="./demo/size.tsx">Two sizes</code>
+<code src="./demo/loading.tsx">Loading</code>
+<code src="./demo/component-token.tsx" debug>Custom component token</code>
+
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -30,7 +45,23 @@ Switching Selector.
 
 ## Methods
 
-| Name | Description |
-| --- | --- |
-| blur() | Remove focus |
-| focus() | Get focus |
+| Name    | Description  |
+| ------- | ------------ |
+| blur()  | Remove focus |
+| focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Switch"></ComponentTokenTable>
+
+## FAQ
+
+### Why not work in Form.Item?
+
+Form.Item default bind value to `value` property, but Switch value property is `checked`. You can use `valuePropName` to change bind property.
+
+```tsx | pure
+<Form.Item name="fieldA" valuePropName="checked">
+  <Switch />
+</Form.Item>
+```

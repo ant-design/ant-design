@@ -1,5 +1,5 @@
 ---
-category: 设计模式
+group: 设计模式
 type: 原则
 order: 6
 title: 足不出户
@@ -15,17 +15,19 @@ title: 足不出户
 
 ## 覆盖层
 
-<img class="preview-img" align="right" alt="推荐示例" description="用户点击「删除」后，直接操作；出现 Message 告知用户操作成功，并提供用户「撤销」的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再「撤销」。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png" good>
-
-<img class="preview-img" align="right" alt="推荐示例" description="特例：在执行某些无法「撤销」的操作时，可以点击「删除」后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png" good>
-
-<img class="preview-img" align="right" alt="不推荐示例" description="滥用 Modal 进行二次确认，就像「狼来了」一样，既打断用户心流（无法将上下文带到弹出框中），也无法避免失误的发生。" src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" bad>
+<ImagePreview>
+<img class="preview-img good" alt="推荐示例" description="用户点击「删除」后，直接操作；出现 Message 告知用户操作成功，并提供用户「撤销」的按钮；用户进行下一个操作或者 1 分钟内不进行任何操作， Message 消失，用户无法再「撤销」。" src="https://gw.alipayobjects.com/zos/rmsportal/YfhMlEIayfwnxiILcebI.png">
+<img class="preview-img good" alt="推荐示例" description="特例：在执行某些无法「撤销」的操作时，可以点击「删除」后，出现 Popconfirm 进行二次确认，在当前页面完成任务。" src="https://gw.alipayobjects.com/zos/rmsportal/AKtiXJTTQEjKFOCQGZMa.png">
+<img class="preview-img bad" alt="不推荐示例" description="滥用 Modal 进行二次确认，就像「狼来了」一样，既打断用户心流（无法将上下文带到弹出框中），也无法避免失误的发生。" src="https://gw.alipayobjects.com/zos/rmsportal/cGqkngXLMBlmMyoHtgFs.png" >
+</ImagePreview>
 
 二次确认覆盖层：避免滥用 Modal 进行二次确认，应该勇敢的让用户去尝试，给用户机会「撤销」即可。
 
 <br>
 
-<img class="preview-img" align="right" alt="详情覆盖层示例" description="通过「点击」图标查看更多详情信息。" src="https://gw.alipayobjects.com/zos/rmsportal/yagQVxwdzuXOulzqdxEq.png">
+<ImagePreview>
+<img class="preview-img" alt="详情覆盖层示例" description="通过「点击」图标查看更多详情信息。" src="https://gw.alipayobjects.com/zos/rmsportal/yagQVxwdzuXOulzqdxEq.png">
+</ImagePreview>
 
 详情覆盖层：一般在列表中，通过用户「悬停」/「点击」某个区块，在当前页加载该条列表项的更多详情信息。
 
@@ -33,7 +35,9 @@ title: 足不出户
 
 <br>
 
-<img class="preview-img" align="right" alt="输入覆盖层示例" description="鼠标「点击」图标触发；鼠标「点击」悬浮层以外的其他区块后，直接保存输入结果并退出。" src="https://gw.alipayobjects.com/zos/rmsportal/lLhJKFcaJnIPxFCjvUKY.png">
+<ImagePreview>
+<img class="preview-img" alt="输入覆盖层示例" description="鼠标「点击」图标触发；鼠标「点击」悬浮层以外的其他区块后，直接保存输入结果并退出。" src="https://gw.alipayobjects.com/zos/rmsportal/lLhJKFcaJnIPxFCjvUKY.png">
+</ImagePreview>
 
 输入覆盖层：在覆盖层上，让用户直接进行少量字段的输入。
 
@@ -43,13 +47,17 @@ title: 足不出户
 
 ## 嵌入层
 
-<img class="preview-img" align="right" alt="列表嵌入层示例" src="https://gw.alipayobjects.com/zos/rmsportal/TgoEocLVYXfMKzFGwJar.png">
+<ImagePreview>
+<img class="preview-img" alt="列表嵌入层示例" src="https://gw.alipayobjects.com/zos/rmsportal/TgoEocLVYXfMKzFGwJar.png">
+</ImagePreview>
 
 列表嵌入层：在列表中，显示某条列表项的详情信息，保持上下文不中断。
 
 <br>
 
-<img class="preview-img" align="right" alt="标签页示例" src="https://gw.alipayobjects.com/zos/rmsportal/CKwQXddFJnJHsyFAifsg.png">
+<ImagePreview>
+<img class="preview-img" alt="标签页示例" src="https://gw.alipayobjects.com/zos/rmsportal/CKwQXddFJnJHsyFAifsg.png">
+</ImagePreview>
 
 标签页：将多个平级的信息进行整理和分类了，一次只显示一组信息。
 
@@ -71,18 +79,24 @@ title: 足不出户
 
 <br>
 
-<img class="preview-img" align="right" alt="渐进式展现示例" src="https://gw.alipayobjects.com/zos/rmsportal/OIxzAapqoGokUSIuFOWC.png">
+<ImagePreview>
+<img class="preview-img" alt="渐进式展现示例" src="https://gw.alipayobjects.com/zos/rmsportal/OIxzAapqoGokUSIuFOWC.png">
+</ImagePreview>
 
 渐进式展现：基于用户的操作/某种特定规则，渐进式展现不同的操作选项。
 
 <br>
 
-<img class="preview-img" align="right" alt="配置程序示例" src="https://gw.alipayobjects.com/zos/rmsportal/nVgSYAiXfKGMHxkjypPp.png">
+<ImagePreview>
+<img class="preview-img" alt="配置程序示例" src="https://gw.alipayobjects.com/zos/rmsportal/nVgSYAiXfKGMHxkjypPp.png">
+</ImagePreview>
 
 配置程序：通过提供一系列的配置项，帮助用户完成任务或者产品组装。
 
 <br>
 
-<img class="preview-img" align="right" alt="弹出框覆盖层示例" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
+<ImagePreview>
+<img class="preview-img" alt="弹出框覆盖层示例" src="https://gw.alipayobjects.com/zos/rmsportal/YutBaHmScUzpbKdFWDcg.png">
+</ImagePreview>
 
 弹出框覆盖层：虽然弹出框的出现会打断用户的心流，但是有时候在弹出框中使用「步骤条」来管理复杂流程也是可行的。

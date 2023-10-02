@@ -1,7 +1,7 @@
-import React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
-import Paragraph from '../Paragraph';
+import React from 'react';
 import { fireEvent, render } from '../../../tests/utils';
+import Paragraph from '../Paragraph';
 
 test('Callback on enter key is triggered', () => {
   const onEditStart = jest.fn();

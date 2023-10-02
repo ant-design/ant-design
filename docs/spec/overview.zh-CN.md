@@ -1,5 +1,7 @@
 ---
-category: 设计模式
+group:
+  title: 设计模式
+  order: 2
 order: 0
 title: 概览
 ---
@@ -30,5 +32,5 @@ title: 概览
 我们与工程师合作，将设计模式转化为可重用的代码，最大限度地提高您的生产力和沟通效率。
 
 - [Ant Design Pro](https://pro.ant.design/)：具有 20 多个模板和 10 多个业务组件的开箱即用解决方案
-- [React 官方实现](/components/overview/)：Ant Design 的 React UI 库拥有 60 多个基础组件。
+- [React 官方实现](/components/overview-cn)：Ant Design 的 React UI 库拥有 60 多个基础组件。
 - [Axure 设计库](http://library.ant.design/)：代码中包含 Axure 资源包，使您的原型看起来像一个视觉草稿，包括模板、组件等。

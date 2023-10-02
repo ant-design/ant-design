@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popconfirm rtl render component should be rendered correctly in RTL direction 1`] = `<span />`;
+
+exports[`Popconfirm should show overlay when trigger is clicked 1`] = `
+<div
+  class="ant-popover ant-popconfirm ant-popover-placement-top"
+  style="--arrow-x: 0px; --arrow-y: 6px; left: 0px; top: -1000vh; box-sizing: border-box; bottom: 12px;"
+>
+  <div
+    class="ant-popover-arrow"
+    style="position: absolute; bottom: 0px; left: 0px;"
+  />
+  <div
+    class="ant-popover-content"
+  >
+    <div
+      class="ant-popover-inner"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-inner-content"
+      >
+        <div
+          class="ant-popconfirm-inner-content"
+        >
+          <div
+            class="ant-popconfirm-message"
+          >
+            <span
+              class="ant-popconfirm-message-icon"
+            >
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
+              <div
+                class="ant-popconfirm-title"
+              >
+                code
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn ant-btn-default ant-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Popconfirm shows content for render functions 1`] = `
+<div
+  class="ant-popover ant-popconfirm ant-popover-placement-bottom"
+  style="--arrow-x: 0px; --arrow-y: -6px; left: 0px; top: 12px; box-sizing: border-box;"
+>
+  <div
+    class="ant-popover-arrow"
+    style="position: absolute; left: 0px; top: 0px;"
+  />
+  <div
+    class="ant-popover-content"
+  >
+    <div
+      class="ant-popover-inner"
+      role="tooltip"
+    >
+      <div
+        class="ant-popover-inner-content"
+      >
+        <div
+          class="ant-popconfirm-inner-content"
+        >
+          <div
+            class="ant-popconfirm-message"
+          >
+            <span
+              class="ant-popconfirm-message-icon"
+            >
+              <span
+                aria-label="exclamation-circle"
+                class="anticon anticon-exclamation-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="exclamation-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <div
+              class="ant-popconfirm-message-text"
+            >
+              <div
+                class="ant-popconfirm-title"
+              >
+                some-title
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-popconfirm-buttons"
+          >
+            <button
+              class="ant-btn ant-btn-default ant-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary ant-btn-sm"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

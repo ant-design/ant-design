@@ -13,7 +13,6 @@ module.exports = {
   },
   testRegex: 'image\\.test\\.(j|t)s$',
   transformIgnorePatterns,
-  snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {
       tsConfigFile: './tsconfig.test.json',

@@ -1,20 +1,23 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
+import Skeleton from '../skeleton';
+import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
-import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
-import type { TabsProps } from '../tabs';
-import Skeleton from '../skeleton';
+import useStyle from './style';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
 
-export interface CardTabListType {
+export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string;
-  tab: React.ReactNode;
-  disabled?: boolean;
+  /** @deprecated Please use `label` instead */
+  tab?: React.ReactNode;
+  label?: React.ReactNode;
 }
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
@@ -30,6 +33,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   children?: React.ReactNode;
   id?: string;
   className?: string;
+  rootClassName?: string;
   size?: CardSize;
   type?: CardType;
   cover?: React.ReactNode;
@@ -42,37 +46,21 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   tabProps?: TabsProps;
 }
 
-function getAction(actions: React.ReactNode[]) {
-  const actionList = actions.map((action, index) => (
+function getAction(actions: React.ReactNode[]): React.ReactNode[] {
+  return actions.map<React.ReactNode>((action, index) => (
     // eslint-disable-next-line react/no-array-index-key
     <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
       <span>{action}</span>
     </li>
   ));
-  return actionList;
 }
 
-const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const size = React.useContext(SizeContext);
-
-  const onTabChange = (key: string) => {
-    props.onTabChange?.(key);
-  };
-
-  const isContainGrid = () => {
-    let containGrid;
-    React.Children.forEach(props.children, (element: JSX.Element) => {
-      if (element && element.type && element.type === Grid) {
-        containGrid = true;
-      }
-    });
-    return containGrid;
-  };
-
+const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    rootClassName,
+    style,
     extra,
     headStyle = {},
     bodyStyle = {},
@@ -93,7 +81,24 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
     ...others
   } = props;
 
+  const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+
+  const onTabChange = (key: string) => {
+    props.onTabChange?.(key);
+  };
+
+  const isContainGrid = React.useMemo<boolean>(() => {
+    let containGrid = false;
+    React.Children.forEach(children, (element: JSX.Element) => {
+      if (element && element.type && element.type === Grid) {
+        containGrid = true;
+      }
+    });
+    return containGrid;
+  }, [children]);
+
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -111,19 +116,17 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   };
 
   let head: React.ReactNode;
-  const tabs =
-    tabList && tabList.length ? (
-      <Tabs
-        size="large"
-        {...extraProps}
-        className={`${prefixCls}-head-tabs`}
-        onChange={onTabChange}
-      >
-        {tabList.map(item => (
-          <Tabs.TabPane tab={item.tab} disabled={item.disabled} key={item.key} />
-        ))}
-      </Tabs>
-    ) : null;
+  const mergedSize = useSize(customizeSize);
+  const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
+  const tabs = tabList ? (
+    <Tabs
+      size={tabSize}
+      {...extraProps}
+      className={`${prefixCls}-head-tabs`}
+      onChange={onTabChange}
+      items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
+    />
+  ) : null;
   if (title || extra || tabs) {
     head = (
       <div className={`${prefixCls}-head`} style={headStyle}>
@@ -145,30 +148,36 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
     actions && actions.length ? (
       <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
     ) : null;
+
   const divProps = omit(others, ['onTabChange']);
-  const mergedSize = customizeSize || size;
+
   const classString = classNames(
     prefixCls,
+    card?.className,
     {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-hoverable`]: hoverable,
-      [`${prefixCls}-contain-grid`]: isContainGrid(),
+      [`${prefixCls}-contain-grid`]: isContainGrid,
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
       [`${prefixCls}-${mergedSize}`]: mergedSize,
       [`${prefixCls}-type-${type}`]: !!type,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    rootClassName,
+    hashId,
   );
 
-  return (
-    <div ref={ref} {...divProps} className={classString}>
+  const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
+
+  return wrapSSR(
+    <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>
+    </div>,
   );
 });
 

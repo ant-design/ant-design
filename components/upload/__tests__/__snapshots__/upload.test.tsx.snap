@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Upload rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-upload-wrapper ant-upload-rtl"
+>
+  <div
+    class="ant-upload ant-upload-select"
+    style="display: none;"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-text"
+  />
+</span>
+`;

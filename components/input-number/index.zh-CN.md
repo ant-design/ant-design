@@ -1,9 +1,12 @@
 ---
 category: Components
 subtitle: 数字输入框
-type: 数据录入
+group: 数据录入
 title: InputNumber
-cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JvWbSYhuNlIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1uH-R5kLAMIAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 通过鼠标或键盘，输入范围内的数值。
@@ -12,11 +15,29 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 
 当需要获取标准数值时。
 
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/addon.tsx">前置/后置标签</code>
+<code src="./demo/disabled.tsx">不可用</code>
+<code src="./demo/digit.tsx">高精度小数</code>
+<code src="./demo/formatter.tsx">格式化展示</code>
+<code src="./demo/keyboard.tsx">键盘行为</code>
+<code src="./demo/borderless.tsx">无边框</code>
+<code src="./demo/out-of-range.tsx">超出边界</code>
+<code src="./demo/prefix.tsx">前缀</code>
+<code src="./demo/status.tsx">自定义状态</code>
+<code src="./demo/controls.tsx" debug>图标按钮</code>
+<code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/debug-token.tsx" debug>覆盖组件样式</code>
+
 ## API
 
-属性如下
+通用属性参考：[通用属性](/docs/react/common-props)
 
-| 成员 | 说明 | 类型 | 默认值 | 版本 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - | 4.17.0 |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
@@ -50,6 +71,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="InputNumber"></ComponentTokenTable>
+
 ## FAQ
 
 ### 为何受控模式下，`value` 可以超出 `min` 和 `max` 范围？
@@ -59,3 +84,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/XOS8qZ0kU/InputNumber.svg
 ### 为何动态修改 `min` 和 `max` 让 `value` 超出范围不会触发 `onChange` 事件？
 
 `onChange` 事件为用户触发事件，自行触发会导致表单库误以为变更来自用户操作。我们以错误样式展示超出范围的数值。
+
+### 为何 `onBlur` 等事件获取不到正确的 value？
+
+InputNumber 的值由内部逻辑封装而成，通过 `onBlur` 等事件获取的 `event.target.value` 仅为 DOM 元素的 `value` 而非 InputNumber 的实际值。例如通过 `formatter` 或者 `decimalSeparator` 更改展示格式，DOM 中得到的就是格式化后的字符串。你总是应该通过 `onChange` 获取当前值。

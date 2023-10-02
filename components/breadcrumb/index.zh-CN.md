@@ -1,9 +1,12 @@
 ---
 category: Components
 subtitle: 面包屑
-type: 导航
+group: 导航
 title: Breadcrumb
-cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*I5a2Tpqs3y0AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Tr90QKrE_LcAAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
 ---
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
@@ -14,7 +17,37 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 - 当需要告知用户『你在哪里』时；
 - 当需要向上导航的功能时。
 
+```jsx
+// >=5.3.0 可用，推荐的写法 ✅
+return <Breadcrumb items={[{ title: 'sample' }]} />;
+
+// <5.3.0 可用，>=5.3.0 时不推荐 🙅🏻‍♀️
+return (
+  <Breadcrumb>
+    <Breadcrumb.Item>sample</Breadcrumb.Item>
+  </Breadcrumb>
+);
+
+// 或
+
+return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
+```
+
+## 代码演示
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">基本</code>
+<code src="./demo/withIcon.tsx">带有图标的</code>
+<code src="./demo/react-router.tsx" iframe="200">react-router V6</code>
+<code src="./demo/separator.tsx">分隔符</code>
+<code src="./demo/overlay.tsx">带下拉菜单的面包屑</code>
+<code src="./demo/separator-component.tsx">独立的分隔符</code>
+<code src="./demo/debug-routes.tsx">Debug Routes</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
+
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Breadcrumb
 
@@ -22,39 +55,38 @@ cover: https://gw.alipayobjects.com/zos/alicdn/9Ltop8JwH/Breadcrumb.svg
 | --- | --- | --- | --- | --- |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
-| routes | router 的路由栈信息 | [routes\[\]](#routes) | - |  |
+| items | 路由栈信息 | [items\[\]](#ItemType) | - | 5.3.0 |
 | separator | 分隔符自定义 | ReactNode | `/` |  |
 
-### Breadcrumb.Item
+### ItemType
+
+> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+
+### RouteItemType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | className | 自定义类名 | string | - |  |
-| dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown) | - |  |
-| href | 链接的目的地 | string | - |  |
-| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | - |  |
+| dropdownProps | 弹出下拉菜单的自定义配置 | [Dropdown](/components/dropdown-cn) | - |  |
+| href | 链接的目的地，不能和 `path` 共用 | string | - |  |
+| path | 拼接路径，每一层都会拼接前一个 `path` 信息。不能和 `href` 共用 | string | - |  |
+| menu | 菜单配置项 | [MenuProps](/components/menu-cn/#api) | - | 4.24.0 |
 | onClick | 单击事件 | (e:MouseEvent) => void | - |  |
+| title | 名称 | ReactNode | - | 5.3.0 |
 
-### Breadcrumb.Separator
-
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| children | 要显示的分隔符 | ReactNode | `/` |  |
-
-> 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
-
-### routes
+### SeparatorType
 
 ```ts
-interface Route {
-  path: string;
-  breadcrumbName: string;
-  children: Array<{
-    path: string;
-    breadcrumbName: string;
-  }>;
-}
+const item = {
+  type: 'separator', // Must have
+  separator: '/',
+};
 ```
+
+| 参数      | 说明           | 类型        | 默认值 | 版本  |
+| --------- | -------------- | ----------- | ------ | ----- |
+| type      | 标记为分隔符   | `separator` |        | 5.3.0 |
+| separator | 要显示的分隔符 | ReactNode   | `/`    | 5.3.0 |
 
 ### 和 browserHistory 配合
 
@@ -63,43 +95,42 @@ interface Route {
 ```jsx
 import { Link } from 'react-router';
 
-const routes = [
+const items = [
   {
     path: 'index',
-    breadcrumbName: 'home',
+    title: 'home',
   },
   {
     path: 'first',
-    breadcrumbName: 'first',
+    title: 'first',
     children: [
       {
         path: '/general',
-        breadcrumbName: 'General',
+        title: 'General',
       },
       {
         path: '/layout',
-        breadcrumbName: 'Layout',
+        title: 'Layout',
       },
       {
         path: '/navigation',
-        breadcrumbName: 'Navigation',
+        title: 'Navigation',
       },
     ],
   },
   {
     path: 'second',
-    breadcrumbName: 'second',
+    title: 'second',
   },
 ];
-
-function itemRender(route, params, routes, paths) {
-  const last = routes.indexOf(route) === routes.length - 1;
-  return last ? (
-    <span>{route.breadcrumbName}</span>
-  ) : (
-    <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-  );
+function itemRender(item, params, items, paths) {
+  const last = items.indexOf(item) === items.length - 1;
+  return last ? <span>{item.title}</span> : <Link to={paths.join('/')}>{item.title}</Link>;
 }
 
-return <Breadcrumb itemRender={itemRender} routes={routes} />;
+return <Breadcrumb itemRender={itemRender} items={items} />;
 ```
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Breadcrumb"></ComponentTokenTable>

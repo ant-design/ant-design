@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/affix/demo/basic.tsx correctly 1`] = `
+Array [
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix top
+        </span>
+      </button>
+    </div>
+  </div>,
+  <br />,
+  <div>
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Affix bottom
+        </span>
+      </button>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/affix/demo/debug.tsx correctly 1`] = `
+<div
+  style="height:10000px"
+>
+  <div>
+    Top
+  </div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        style="background:red"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Affix top
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    Bottom
+  </div>
+</div>
+`;
+
+exports[`renders components/affix/demo/on-change.tsx correctly 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        120px to affix top
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/affix/demo/target.tsx correctly 1`] = `
+<div
+  class="scrollable-container"
+>
+  <div
+    class="background"
+  >
+    <div>
+      <div
+        class=""
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Fixed at the top of container
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

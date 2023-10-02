@@ -6,10 +6,10 @@ export type MenuTheme = 'light' | 'dark';
 export interface MenuContextProps {
   prefixCls: string;
   inlineCollapsed: boolean;
-  antdMenuTheme?: MenuTheme;
   direction?: DirectionType;
+  theme?: MenuTheme;
   firstLevel: boolean;
-  /** @private Internal Usage. Safe to remove */
+  /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
 }
 

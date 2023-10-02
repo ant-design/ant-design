@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/typography/demo/basic.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/basic.tsx extend context correctly 1`] = `
 <article
   class="ant-typography"
 >
@@ -17,7 +17,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography"
     >
@@ -43,7 +43,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography"
     >
@@ -86,7 +86,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
   <div
     class="ant-typography"
   >
-    Press 
+    Press
     <span
       class="ant-typography"
     >
@@ -113,7 +113,7 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
   <div
     class="ant-typography"
   >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
     <span
       class="ant-typography"
     >
@@ -191,11 +191,11 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
     class="ant-typography"
   >
     <blockquote>
-      AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
     </blockquote>
     <pre>
-      AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
     </pre>
   </div>
@@ -215,7 +215,226 @@ exports[`renders ./components/typography/demo/basic.md extend context correctly 
 </article>
 `;
 
-exports[`renders ./components/typography/demo/ellipsis.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 1`] = `
+<article
+  class="ant-typography"
+>
+  <h1
+    class="ant-typography"
+  >
+    Introduction
+  </h1>
+  <div
+    class="ant-typography"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+  </div>
+  <div
+    class="ant-typography"
+  >
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
+      </strong>
+    </span>
+    .
+  </div>
+  <h2
+    class="ant-typography"
+  >
+    Guidelines and Resources
+  </h2>
+  <div
+    class="ant-typography"
+  >
+    We supply a series of design principles, practical patterns and high quality design resources (
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     and
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ), to help people create their product prototypes beautifully and efficiently.
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        <a
+          class="ant-typography"
+          href="/docs/spec/proximity"
+        >
+          Principles
+        </a>
+      </li>
+      <li>
+        <a
+          class="ant-typography"
+          href="/docs/spec/overview"
+        >
+          Patterns
+        </a>
+      </li>
+      <li>
+        <a
+          class="ant-typography"
+          href="/docs/resources"
+        >
+          Resource Download
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    Press
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+     to exit...
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />
+  <h1
+    class="ant-typography"
+  >
+    介绍
+  </h1>
+  <div
+    class="ant-typography"
+  >
+    蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
+  </div>
+  <div
+    class="ant-typography"
+  >
+    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+    <span
+      class="ant-typography"
+    >
+      <mark>
+        『确定』和『自然』
+      </mark>
+    </span>
+    的设计价值观，通过模块化的解决方案，降低冗余的生产成本，让设计者专注于
+    <span
+      class="ant-typography"
+    >
+      <strong>
+        更好的用户体验
+      </strong>
+    </span>
+    。
+  </div>
+  <h2
+    class="ant-typography"
+  >
+    设计资源
+  </h2>
+  <div
+    class="ant-typography"
+  >
+    我们提供完善的设计原则、最佳实践和设计资源文件（
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Sketch
+      </code>
+    </span>
+     和
+    <span
+      class="ant-typography"
+    >
+      <code>
+        Axure
+      </code>
+    </span>
+    ），来帮助业务快速设计出高质量的产品原型。
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <ul>
+      <li>
+        <a
+          class="ant-typography"
+          href="/docs/spec/proximity-cn"
+        >
+          设计原则
+        </a>
+      </li>
+      <li>
+        <a
+          class="ant-typography"
+          href="/docs/spec/overview-cn"
+        >
+          设计模式
+        </a>
+      </li>
+      <li>
+        <a
+          class="ant-typography"
+          href="/docs/resources-cn"
+        >
+          设计资源
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    <blockquote>
+      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
+    </blockquote>
+    <pre>
+      AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
+我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
+    </pre>
+  </div>
+  <div
+    class="ant-typography"
+  >
+    按
+    <span
+      class="ant-typography"
+    >
+      <kbd>
+        Esc
+      </kbd>
+    </span>
+    键退出阅读……
+  </div>
+</article>
+`;
+
+exports[`renders components/typography/demo/componentToken-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/ellipsis.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -228,29 +447,19 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
-  </button>,
-  <div
-    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-  >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
     >
       <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
     </span>
+  </button>,
+  <div
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
   </div>,
   <div
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
@@ -259,13 +468,13 @@ Array [
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
     >
       <span
         aria-hidden="true"
@@ -281,56 +490,36 @@ Array [
     </span>
   </div>,
   <span
-    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team."
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-    style="width:100px"
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+    style="width: 100px;"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </span>,
-  <div>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-tooltip"
-      style="opacity:0"
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
     >
       <div
-        class="ant-tooltip-content"
+        class="ant-tooltip-inner"
+        role="tooltip"
       >
-        <div
-          class="ant-tooltip-arrow"
-        >
-          <span
-            class="ant-tooltip-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-tooltip-inner"
-          role="tooltip"
-        >
-          I am ellipsis now!
-        </div>
+        I am ellipsis now!
       </div>
     </div>
   </div>,
 ]
 `;
 
-exports[`renders ./components/typography/demo/ellipsis-debug.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/ellipsis.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/ellipsis-debug.tsx extend context correctly 1`] = `
 Array [
   <button
     aria-checked="true"
@@ -344,7 +533,14 @@ Array [
     <span
       class="ant-switch-inner"
     >
-      Long Text
+      <span
+        class="ant-switch-inner-checked"
+      >
+        Long Text
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      />
     </span>
   </button>,
   <button
@@ -358,7 +554,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <button
     aria-checked="false"
@@ -371,7 +574,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <button
     aria-checked="false"
@@ -384,7 +594,14 @@ Array [
     />
     <span
       class="ant-switch-inner"
-    />
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
   </button>,
   <div
     class="ant-slider ant-slider-horizontal"
@@ -394,50 +611,46 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            1
-          </div>
+          1
         </div>
       </div>
     </div>
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
+    Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample
     <span
       class="ant-typography"
     >
@@ -450,34 +663,18 @@ Array [
       </code>
     </span>
      case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-    >
-      lg
-    </span>
-    <span
-      aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-    >
-      <span
-        aria-hidden="true"
-      >
-        ...
-      </span>
-    </span>
   </div>,
   <span
-    aria-label="Ant Design is a design language for background applications, is refined by Ant UED Team."
+    aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-    style="width:100px"
+    style="max-width: 400px; font-size: 24px;"
   >
-    Ant Design is a design language for background applications, is refined by Ant UED Team.
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     <div
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -500,39 +697,34 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
     >
       <span
         aria-hidden="true"
@@ -543,7 +735,7 @@ Array [
         aria-label="Copy"
         class="ant-typography-copy"
         role="button"
-        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
         tabindex="0"
       >
         <span
@@ -566,27 +758,370 @@ Array [
           </svg>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
         <div
-          class="ant-tooltip"
-          style="opacity:0"
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
         >
           <div
-            class="ant-tooltip-content"
+            class="ant-tooltip-inner"
+            role="tooltip"
           >
-            <div
-              class="ant-tooltip-arrow"
-            >
-              <span
-                class="ant-tooltip-arrow-content"
-              />
-            </div>
-            <div
-              class="ant-tooltip-inner"
-              role="tooltip"
-            >
-              Copy
-            </div>
+            Copy
+          </div>
+        </div>
+      </div>
+    </span>
+  </span>,
+  <br />,
+  <span
+    aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    style="max-width: 400px; font-size: 12px;"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+    >
+      lg
+    </span>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ...
+      </span>
+      <div
+        aria-label="Copy"
+        class="ant-typography-copy"
+        role="button"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+        tabindex="0"
+      >
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Copy
+          </div>
+        </div>
+      </div>
+    </span>
+  </span>,
+  <br />,
+  <span
+    aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    style="width: 400px; font-size: 24px;"
+  >
+    In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+    >
+      lg
+    </span>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ...
+      </span>
+      <div
+        aria-label="Copy"
+        class="ant-typography-copy"
+        role="button"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+        tabindex="0"
+      >
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Copy
+          </div>
+        </div>
+      </div>
+    </span>
+  </span>,
+  <br />,
+  <span
+    aria-label="Ant Design is a design language for background applications, is refined by Ant UED Team."
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    style="width: 100px;"
+  >
+    Ant Design is a design language for background applications, is refined by Ant UED Team.
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      tabindex="0"
+    >
+      <span
+        aria-label="copy"
+        class="anticon anticon-copy"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+    >
+      lg
+    </span>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ...
+      </span>
+      <div
+        aria-label="Copy"
+        class="ant-typography-copy"
+        role="button"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+        tabindex="0"
+      >
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            Copy
           </div>
         </div>
       </div>
@@ -595,48 +1130,62 @@ Array [
   <p>
     [Before]
     <span
-      aria-label="not ellipsis"
-      class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
     >
       not ellipsis
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
-      >
-        lg
-      </span>
-      <span
-        aria-hidden="true"
-        style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
-      >
-        <span
-          aria-hidden="true"
-        >
-          ...
-        </span>
-      </span>
     </span>
     [After]
   </p>,
+  <div
+    style="display: none;"
+  >
+    <span
+      class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+      style="width: 100px;"
+    >
+      默认display none 样式的超长文字， 悬停tooltip失效了
+    </span>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          I am ellipsis now!
+        </div>
+      </div>
+    </div>
+  </div>,
 ]
 `;
 
-exports[`renders ./components/typography/demo/ellipsis-middle.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/ellipsis-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 1`] = `
 <span
   aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of"
   class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-  style="max-width:100%"
+  style="max-width: 100%;"
 >
   In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency ofdevelopment.
   <span
     aria-hidden="true"
-    style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
   >
     lg
   </span>
   <span
     aria-hidden="true"
-    style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
   >
     <span
       aria-hidden="true"
@@ -648,7 +1197,9 @@ exports[`renders ./components/typography/demo/ellipsis-middle.md extend context 
 </span>
 `;
 
-exports[`renders ./components/typography/demo/interactive.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/interactive.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-typography"
@@ -658,7 +1209,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -681,21 +1232,131 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Edit
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+  >
+    This is a loooooooooooooooooooooooooooooooong editable text with suffix.
+    <div
+      aria-label="Edit"
+      class="ant-typography-edit"
+      role="button"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+      tabindex="0"
+    >
+      <span
+        aria-label="edit"
+        class="anticon anticon-edit"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="edit"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+          />
+        </svg>
+      </span>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          Edit
+        </div>
+      </div>
+    </div>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
+    >
+      lg
+    </span>
+    <span
+      aria-hidden="true"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+    >
+      <span
+        aria-hidden="true"
+      >
+        ...
+      </span>
+      with suffix.
+      <div
+        aria-label="Edit"
+        class="ant-typography-edit"
+        role="button"
+        style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+        tabindex="0"
+      >
+        <span
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        />
         <div
           class="ant-tooltip-content"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
           <div
             class="ant-tooltip-inner"
             role="tooltip"
@@ -704,7 +1365,7 @@ Array [
           </div>
         </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography"
@@ -714,7 +1375,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -737,32 +1398,27 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
   </div>,
-  "Trigger edit with: ",
+  Trigger edit with: ,
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -770,7 +1426,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -790,7 +1446,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -809,7 +1465,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -833,7 +1489,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -856,27 +1512,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -889,7 +1540,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -912,27 +1563,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -945,7 +1591,7 @@ Array [
       aria-label="click to edit text"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -968,27 +1614,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click to edit text
-          </div>
+          click to edit text
         </div>
       </div>
     </div>
@@ -1001,7 +1642,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1024,26 +1665,21 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
       </div>
     </div>
   </div>,
@@ -1055,7 +1691,7 @@ Array [
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1078,41 +1714,36 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
   </div>,
   <h1
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h1. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1135,41 +1766,36 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
   </h1>,
   <h2
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h2. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1192,41 +1818,36 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
   </h2>,
   <h3
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h3. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1249,41 +1870,36 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
   </h3>,
   <h4
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h4. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1306,41 +1922,36 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
   </h4>,
   <h5
     class="ant-typography"
-    style="margin:0"
+    style="margin: 0px;"
   >
     h5. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1363,27 +1974,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Edit
-          </div>
+          Edit
         </div>
       </div>
     </div>
@@ -1400,7 +2006,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1423,27 +2029,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -1456,7 +2057,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1479,27 +2080,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            Copy
-          </div>
+          Copy
         </div>
       </div>
     </div>
@@ -1512,7 +2108,7 @@ Array [
       aria-label="click here"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1535,27 +2131,22 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            click here
-          </div>
+          click here
         </div>
       </div>
     </div>
@@ -1568,7 +2159,7 @@ Array [
       aria-label="Copy"
       class="ant-typography-copy"
       role="button"
-      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
       tabindex="0"
     >
       <span
@@ -1591,33 +2182,30 @@ Array [
         </svg>
       </span>
     </div>
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
-        >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          />
-        </div>
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
       </div>
     </div>
   </div>,
 ]
 `;
 
-exports[`renders ./components/typography/demo/paragraph-debug.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/interactive.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 1`] = `
 Array [
   <h1
     class="ant-typography"
@@ -1658,7 +2246,7 @@ Array [
         Sketch
       </code>
     </span>
-     and 
+     and
     <span
       class="ant-typography"
     >
@@ -1709,7 +2297,7 @@ Array [
   <div
     class="ant-typography"
   >
-    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
+    随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁集团体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
     <span
       class="ant-typography"
     >
@@ -1818,7 +2406,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/suffix.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-slider ant-slider-horizontal"
@@ -1828,42 +2418,38 @@ Array [
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left: 0%; width: 0%;"
     />
     <div
       class="ant-slider-step"
     />
     <div
       aria-disabled="false"
+      aria-orientation="horizontal"
       aria-valuemax="10"
       aria-valuemin="1"
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;transform:translateX(-50%)"
+      style="left: 0%; transform: translateX(-50%);"
       tabindex="0"
     />
-    <div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
       <div
-        class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0"
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
       >
         <div
-          class="ant-tooltip-content"
+          class="ant-tooltip-inner"
+          role="tooltip"
         >
-          <div
-            class="ant-tooltip-arrow"
-          >
-            <span
-              class="ant-tooltip-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-tooltip-inner"
-            role="tooltip"
-          >
-            1
-          </div>
+          1
         </div>
       </div>
     </div>
@@ -1876,13 +2462,13 @@ Array [
     To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
     >
       lg
     </span>
     <span
       aria-hidden="true"
-      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:0;white-space:normal;margin:0;padding:0"
+      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
     >
       <span
         aria-hidden="true"
@@ -1901,13 +2487,14 @@ Array [
 ]
 `;
 
-exports[`renders ./components/typography/demo/text.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/suffix.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/text.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -1917,7 +2504,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography ant-typography-secondary"
@@ -1927,7 +2513,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography ant-typography-success"
@@ -1937,7 +2522,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography ant-typography-warning"
@@ -1947,7 +2531,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography ant-typography-danger"
@@ -1957,7 +2540,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography ant-typography-disabled"
@@ -1967,7 +2549,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -1979,7 +2560,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -1991,7 +2571,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -2003,7 +2582,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -2015,7 +2593,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -2027,7 +2604,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -2039,7 +2615,6 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-typography"
@@ -2064,7 +2639,9 @@ exports[`renders ./components/typography/demo/text.md extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/typography/demo/title.md extend context correctly 1`] = `
+exports[`renders components/typography/demo/text.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/typography/demo/title.tsx extend context correctly 1`] = `
 Array [
   <h1
     class="ant-typography"
@@ -2093,3 +2670,5 @@ Array [
   </h5>,
 ]
 `;
+
+exports[`renders components/typography/demo/title.tsx extend context correctly 2`] = `[]`;

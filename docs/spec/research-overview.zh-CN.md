@@ -1,5 +1,7 @@
 ---
-category: 设计模式 - 探索
+group:
+  title: 设计模式 - 探索
+  order: 3
 order: 0
 title: 概览
 ---

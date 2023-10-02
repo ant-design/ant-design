@@ -1,19 +1,22 @@
-# When publish a release. This workflow will trigger and deploy to site.
+# When pushing a tag. this workflow will trigger site deployment and fixed version address comments
 
 name: Deploy website
 on:
-  create
+  push:
+    tags:
+      - '5.*'
+  workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   setup:
     runs-on: ubuntu-latest
-    if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false)
+    if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -46,7 +49,11 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -60,11 +67,47 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: build
+      - name: build site
         run: npm run predeploy
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
-      - name: deploy
+      - name: build dist and bundle analyzer report
+        run: npm run dist
+        env:
+          ANALYZER: 1
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+
+      - name: Get version
+        id: publish-version
+        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
+
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
+          force_orphan: true
+
+      # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
+      - name: Sync to Gitee
+        uses: wearerequired/git-mirror-action@v1
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
+        with:
+          source-repo: 'git@github.com:ant-design/ant-design.git'
+          destination-repo: 'git@gitee.com:ant-design/ant-design.git'
+
+      - name: Deploy to Surge (with TAG)
+        run: |
+          export DEPLOY_DOMAIN=ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+          cp report.html ./_site
+          npx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Create Commit Comment
+        uses: peter-evans/commit-comment@v3
+        with:
+          body: |
+            - Documentation site for this release: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh
+            - Webpack bundle analyzer report page: https://ant-design-${{ steps.publish-version.outputs.VERSION }}.surge.sh/report.html
+

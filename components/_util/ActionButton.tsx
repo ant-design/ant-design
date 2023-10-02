@@ -1,35 +1,58 @@
-import * as React from 'react';
 import useState from 'rc-util/lib/hooks/useState';
+import * as React from 'react';
 import Button from '../button';
-import type { LegacyButtonType, ButtonProps } from '../button/button';
-import { convertLegacyProps } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/button';
+import { convertLegacyProps } from '../button/buttonHelpers';
 
 export interface ActionButtonProps {
   type?: LegacyButtonType;
   actionFn?: (...args: any[]) => any | PromiseLike<any>;
-  close: Function;
+  close?: Function;
   autoFocus?: boolean;
   prefixCls: string;
   buttonProps?: ButtonProps;
   emitEvent?: boolean;
   quitOnNullishReturnValue?: boolean;
   children?: React.ReactNode;
+
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
-function isThenable(thing?: PromiseLike<any>): boolean {
-  return !!(thing && !!thing.then);
+function isThenable<T extends any>(thing?: PromiseLike<T>): boolean {
+  return !!(thing && thing.then);
 }
 
-const ActionButton: React.FC<ActionButtonProps> = props => {
+const ActionButton: React.FC<ActionButtonProps> = (props) => {
+  const {
+    type,
+    children,
+    prefixCls,
+    buttonProps,
+    close,
+    autoFocus,
+    emitEvent,
+    isSilent,
+    quitOnNullishReturnValue,
+    actionFn,
+  } = props;
+
   const clickedRef = React.useRef<boolean>(false);
-  const ref = React.useRef<any>();
+  const buttonRef = React.useRef<HTMLButtonElement | HTMLAnchorElement>(null);
   const [loading, setLoading] = useState<ButtonProps['loading']>(false);
 
+  const onInternalClose = (...args: any[]) => {
+    close?.(...args);
+  };
+
   React.useEffect(() => {
-    let timeoutId: any;
-    if (props.autoFocus) {
-      const $this = ref.current as HTMLInputElement;
-      timeoutId = setTimeout(() => $this.focus());
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    if (autoFocus) {
+      timeoutId = setTimeout(() => {
+        buttonRef.current?.focus();
+      });
     }
     return () => {
       if (timeoutId) {
@@ -39,7 +62,6 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
   }, []);
 
   const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
-    const { close } = props;
     if (!isThenable(returnValueOfOnOk)) {
       return;
     }
@@ -47,36 +69,39 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     returnValueOfOnOk!.then(
       (...args: any[]) => {
         setLoading(false, true);
-        close(...args);
+        onInternalClose(...args);
         clickedRef.current = false;
       },
       (e: Error) => {
-        // Emit error when catch promise reject
-        // eslint-disable-next-line no-console
-        console.error(e);
         // See: https://github.com/ant-design/ant-design/issues/6183
         setLoading(false, true);
         clickedRef.current = false;
+
+        // Do not throw if is `await` mode
+        if (isSilent?.()) {
+          return;
+        }
+
+        return Promise.reject(e);
       },
     );
   };
 
-  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const { actionFn, close } = props;
+  const onClick = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     if (clickedRef.current) {
       return;
     }
     clickedRef.current = true;
     if (!actionFn) {
-      close();
+      onInternalClose();
       return;
     }
-    let returnValueOfOnOk;
-    if (props.emitEvent) {
+    let returnValueOfOnOk: PromiseLike<any>;
+    if (emitEvent) {
       returnValueOfOnOk = actionFn(e);
-      if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
+      if (quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
         clickedRef.current = false;
-        close(e);
+        onInternalClose(e);
         return;
       }
     } else if (actionFn.length) {
@@ -86,14 +111,13 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
     } else {
       returnValueOfOnOk = actionFn();
       if (!returnValueOfOnOk) {
-        close();
+        onInternalClose();
         return;
       }
     }
     handlePromiseOnOk(returnValueOfOnOk);
   };
 
-  const { type, children, prefixCls, buttonProps } = props;
   return (
     <Button
       {...convertLegacyProps(type)}
@@ -101,7 +125,7 @@ const ActionButton: React.FC<ActionButtonProps> = props => {
       loading={loading}
       prefixCls={prefixCls}
       {...buttonProps}
-      ref={ref}
+      ref={buttonRef}
     >
       {children}
     </Button>

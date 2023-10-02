@@ -1,5 +1,7 @@
 ---
-category: Design Patterns
+group:
+  title: Design Patterns
+  order: 2
 order: 0
 title: Overview
 ---
@@ -8,7 +10,7 @@ The use of design patterns in enterprise-level businesses can significantly incr
 
 Design patterns adhere to Ant Design design values and provide a general solution to recurring design issues in enterprise products. The designer can directly use the design pattern to complete the interface design, or the design pattern can be used as a starting point to derive a more business-specific solution to meet the individual design needs.
 
-At the same time, this is a dynamically updated design document, and your reading and feedback is the driving force behind our progress, [Github Feedback Address](https://github.com/ant-design/ant-design/issues).
+At the same time, this is a dynamically updated design document, and your reading and feedback is the driving force behind our progress, [GitHub Feedback Address](https://github.com/ant-design/ant-design/issues).
 
 ## Framework Information
 

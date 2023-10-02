@@ -1,9 +1,9 @@
 ---
 category: Components
-type: Layout
-cols: 1
+group: Layout
 title: Grid
-cover: https://gw.alipayobjects.com/zos/alicdn/5rWLU27so/Grid.svg
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mfJeS6cqZrEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 24 Grids System.
@@ -33,7 +33,25 @@ Our grid systems base on Flex layout to allow the elements within the parent to 
 
 Layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
+## Examples
+
+<!-- prettier-ignore -->
+<code src="./demo/basic.tsx">Basic Grid</code>
+<code src="./demo/gutter.tsx">Grid Gutter</code>
+<code src="./demo/offset.tsx">Column offset</code>
+<code src="./demo/sort.tsx">Grid sort</code>
+<code src="./demo/flex.tsx">Typesetting</code>
+<code src="./demo/flex-align.tsx">Alignment</code>
+<code src="./demo/flex-order.tsx">Order</code>
+<code src="./demo/flex-stretch.tsx">Flex Stretch</code>
+<code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/responsive-more.tsx">More responsive</code>
+<code src="./demo/playground.tsx">Playground</code>
+<code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>
+
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 If the Ant Design grid layout component does not meet your needs, you can use the excellent layout components of the community:
 
@@ -44,9 +62,9 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | Vertical alignment | `top` \| `middle` \| `bottom` | `top` |  |
+| align | Vertical alignment | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
 | gutter | Spacing between grids, could be a number or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| object \| array | 0 |  |
-| justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` | `start` |  |
+| justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
 | wrap | Auto wrap line | boolean | true | 4.8.0 |
 
 ### Col
@@ -66,11 +84,10 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
 | xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
 
+You can modify the breakpoints values using by modifying `screen[XS|SM|MD|LG|XL|XXL]` with [theme customization](/docs/react/customize-theme) (since 5.1.0, [sandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)).
+
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 
-<style>
-  [data-theme="dark"] #components-grid-demo-playground pre {
-    background: rgba(255,255,255,0.8);
-    color: rgba(255,255,255,.65);
-  }
-</style>
+## Design Token
+
+<ComponentTokenTable component="Grid"></ComponentTokenTable>

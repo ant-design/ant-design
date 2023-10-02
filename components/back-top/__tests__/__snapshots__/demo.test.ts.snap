@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/back-top/demo/basic.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-back-top"
+  />,
+  Scroll down to see the bottom-right,
+  <strong
+    class="site-back-top-basic"
+  >
+     gray
+  </strong>,
+  button.,
+]
+`;
+
+exports[`renders components/back-top/demo/custom.tsx correctly 1`] = `
+<div
+  style="height:600vh;padding:8px"
+>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div
+    class="ant-back-top"
+  />
+</div>
+`;

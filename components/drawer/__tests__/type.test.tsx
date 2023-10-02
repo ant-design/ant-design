@@ -10,7 +10,7 @@ describe('Drawer.typescript', () => {
         placement="right"
         closable={false}
         onClose={onClose}
-        visible={false}
+        open={false}
         contentWrapperStyle={{
           background: '#f00',
         }}

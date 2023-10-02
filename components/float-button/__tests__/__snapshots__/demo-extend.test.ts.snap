@@ -1,0 +1,1806 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/float-button/demo/back-top.tsx extend context correctly 1`] = `
+<div
+  style="height: 300vh; padding: 10px;"
+>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+  <div>
+    Scroll to bottom
+  </div>
+</div>
+`;
+
+exports[`renders components/float-button/demo/back-top.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/badge.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    style="right: 164px;"
+    type="button"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="file-text"
+              class="anticon anticon-file-text"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="file-text"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-dot"
+        data-show="true"
+      />
+    </span>
+  </button>,
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+    style="right: 94px;"
+  >
+    <a
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      href="https://ant.design/index-cn"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="file-text"
+                class="anticon anticon-file-text"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="file-text"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-color-blue"
+          data-show="true"
+          title="5"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; top: 0px; right: 0px;"
+        />
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          >
+            <div>
+              custom badge color
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="file-text"
+                class="anticon anticon-file-text"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="file-text"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count"
+          data-show="true"
+          title="5"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                5
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </button>
+  </div>,
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="question-circle"
+                class="anticon anticon-question-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="question-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                  />
+                  <path
+                    d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+          data-show="true"
+          title="12"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                1
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                2
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </button>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <span
+        class="ant-badge"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="file-text"
+                class="anticon anticon-file-text"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="file-text"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+        <sup
+          class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
+          data-show="true"
+          title="123"
+        >
+          <bdi>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                1
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                2
+              </span>
+            </span>
+            <span
+              class="ant-scroll-number-only"
+              style="transition: none;"
+            >
+              <span
+                class="ant-scroll-number-only-unit current"
+              >
+                3
+              </span>
+            </span>
+          </bdi>
+        </sup>
+      </span>
+    </button>
+    <button
+      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="vertical-align-top"
+              class="anticon anticon-vertical-align-top"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="vertical-align-top"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+]
+`;
+
+exports[`renders components/float-button/demo/badge.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/badge-debug.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-slider ant-slider-horizontal"
+    style="margin: 16px;"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 0%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="20"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="ant-slider-handle"
+      role="slider"
+      style="left: 0%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        >
+          0
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    type="button"
+  >
+    <span
+      class="ant-badge"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="file-text"
+              class="anticon anticon-file-text"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="file-text"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+      <sup
+        class="ant-scroll-number ant-badge-dot"
+        data-show="true"
+      />
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders components/float-button/demo/badge-debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/basic.tsx extend context correctly 1`] = `
+<button
+  class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+  type="button"
+>
+  <div
+    class="ant-float-btn-body"
+  >
+    <div
+      class="ant-float-btn-content"
+    >
+      <div
+        class="ant-float-btn-icon"
+      >
+        <span
+          aria-label="file-text"
+          class="anticon anticon-file-text"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="file-text"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`renders components/float-button/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/controlled.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle"
+    style="right: 24px;"
+  >
+    <div
+      class="ant-float-btn-group-wrap-appear ant-float-btn-group-wrap-appear-start ant-float-btn-group-wrap ant-float-btn-group-wrap"
+    >
+      <button
+        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="file-text"
+                class="anticon anticon-file-text"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="file-text"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button
+        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="comment"
+                class="anticon anticon-comment"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="comment"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <defs>
+                    <style />
+                  </defs>
+                  <path
+                    d="M573 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40zm-280 0c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
+                  />
+                  <path
+                    d="M894 345a343.92 343.92 0 00-189-130v.1c-17.1-19-36.4-36.5-58-52.1-163.7-119-393.5-82.7-513 81-96.3 133-92.2 311.9 6 439l.8 132.6c0 3.2.5 6.4 1.5 9.4a31.95 31.95 0 0040.1 20.9L309 806c33.5 11.9 68.1 18.7 102.5 20.6l-.5.4c89.1 64.9 205.9 84.4 313 49l127.1 41.4c3.2 1 6.5 1.6 9.9 1.6 17.7 0 32-14.3 32-32V753c88.1-119.6 90.4-284.9 1-408zM323 735l-12-5-99 31-1-104-8-9c-84.6-103.2-90.2-251.9-11-361 96.4-132.2 281.2-161.4 413-66 132.2 96.1 161.5 280.6 66 412-80.1 109.9-223.5 150.5-348 102zm505-17l-8 10 1 104-98-33-12 5c-56 20.8-115.7 22.5-171 7l-.2-.1A367.31 367.31 0 00729 676c76.4-105.3 88.8-237.6 44.4-350.4l.6.4c23 16.5 44.1 37.1 62 62 72.6 99.6 68.5 235.2-8 330z"
+                  />
+                  <path
+                    d="M433 421c-23.1 0-41 17.9-41 40s17.9 40 41 40c21.1 0 39-17.9 39-40s-17.9-40-39-40z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    style="margin: 16px;"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders components/float-button/demo/controlled.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/description.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    style="right: 24px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="file-text"
+            class="anticon anticon-file-text"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="file-text"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-float-btn-description"
+        >
+          HELP INFO
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    style="right: 94px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-description"
+        >
+          HELP INFO
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+    style="right: 164px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="file-text"
+            class="anticon anticon-file-text"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="file-text"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-float-btn-description"
+        >
+          HELP
+        </div>
+      </div>
+    </div>
+  </button>,
+]
+`;
+
+exports[`renders components/float-button/demo/description.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/group.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle ant-float-btn-group-circle-shadow"
+    style="right: 24px;"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="question-circle"
+              class="anticon anticon-question-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="question-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="file-text"
+              class="anticon anticon-file-text"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="file-text"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="vertical-align-top"
+              class="anticon anticon-vertical-align-top"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="vertical-align-top"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+  <div
+    class="ant-float-btn-group ant-float-btn-group-square ant-float-btn-group-square-shadow"
+    style="right: 94px;"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="question-circle"
+              class="anticon anticon-question-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="question-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="file-text"
+              class="anticon anticon-file-text"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="file-text"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="sync"
+              class="anticon anticon-sync"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="sync"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="vertical-align-top"
+              class="anticon anticon-vertical-align-top"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="vertical-align-top"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+]
+`;
+
+exports[`renders components/float-button/demo/group.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/group-menu.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle"
+    style="right: 24px;"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="customer-service"
+              class="anticon anticon-customer-service"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="customer-service"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+  <div
+    class="ant-float-btn-group ant-float-btn-group-circle"
+    style="right: 94px;"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="customer-service"
+              class="anticon anticon-customer-service"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="customer-service"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>,
+]
+`;
+
+exports[`renders components/float-button/demo/group-menu.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/render-panel.tsx extend context correctly 1`] = `
+<div
+  style="display: flex; column-gap: 16px; align-items: center;"
+>
+  <button
+    class="ant-float-btn ant-float-btn-pure ant-fade-appear ant-fade-appear-start ant-fade ant-float-btn-default ant-float-btn-circle"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="vertical-align-top"
+            class="anticon anticon-vertical-align-top"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="vertical-align-top"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M859.9 168H164.1c-4.5 0-8.1 3.6-8.1 8v60c0 4.4 3.6 8 8.1 8h695.8c4.5 0 8.1-3.6 8.1-8v-60c0-4.4-3.6-8-8.1-8zM518.3 355a8 8 0 00-12.6 0l-112 141.7a7.98 7.98 0 006.3 12.9h73.9V848c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V509.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 355z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </button>
+  <button
+    class="ant-float-btn ant-float-btn-pure ant-float-btn-default ant-float-btn-circle"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="customer-service"
+            class="anticon anticon-customer-service"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="customer-service"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </button>
+  <button
+    class="ant-float-btn ant-float-btn-pure ant-float-btn-primary ant-float-btn-square"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="question-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-float-btn-description"
+        >
+          HELP
+        </div>
+      </div>
+    </div>
+  </button>
+  <div
+    class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-square ant-float-btn-group-square-shadow"
+  >
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="question-circle"
+              class="anticon anticon-question-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="question-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="customer-service"
+              class="anticon anticon-customer-service"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="customer-service"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-square"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="sync"
+              class="anticon anticon-sync"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="sync"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ant-float-btn-group ant-float-btn-pure ant-float-btn-group-circle"
+  >
+    <div
+      class="ant-float-btn-group-wrap-appear ant-float-btn-group-wrap-appear-start ant-float-btn-group-wrap ant-float-btn-group-wrap"
+    >
+      <button
+        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="question-circle"
+                class="anticon anticon-question-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="question-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                  />
+                  <path
+                    d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button
+        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="customer-service"
+                class="anticon anticon-customer-service"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="customer-service"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+      <button
+        class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+        type="button"
+      >
+        <div
+          class="ant-float-btn-body"
+        >
+          <div
+            class="ant-float-btn-content"
+          >
+            <div
+              class="ant-float-btn-icon"
+            >
+              <span
+                aria-label="sync"
+                class="anticon anticon-sync"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="sync"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </button>
+    </div>
+    <button
+      class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+      type="button"
+    >
+      <div
+        class="ant-float-btn-body"
+      >
+        <div
+          class="ant-float-btn-content"
+        >
+          <div
+            class="ant-float-btn-icon"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/float-button/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/shape.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+    style="right: 94px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="customer-service"
+            class="anticon anticon-customer-service"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="customer-service"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-square"
+    style="right: 24px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="customer-service"
+            class="anticon anticon-customer-service"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="customer-service"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 128c-212.1 0-384 171.9-384 384v360c0 13.3 10.7 24 24 24h184c35.3 0 64-28.7 64-64V624c0-35.3-28.7-64-64-64H200v-48c0-172.3 139.7-312 312-312s312 139.7 312 312v48H688c-35.3 0-64 28.7-64 64v208c0 35.3 28.7 64 64 64h184c13.3 0 24-10.7 24-24V512c0-212.1-171.9-384-384-384zM328 632v192H200V632h128zm496 192H696V632h128v192z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </button>,
+]
+`;
+
+exports[`renders components/float-button/demo/shape.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/tooltip.tsx extend context correctly 1`] = `
+<button
+  class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+  type="button"
+>
+  <div
+    class="ant-float-btn-body"
+  >
+    <div
+      class="ant-float-btn-content"
+    >
+      <div
+        class="ant-float-btn-icon"
+      >
+        <span
+          aria-label="file-text"
+          class="anticon anticon-file-text"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="file-text"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494zM504 618H320c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h184c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8zM312 490v48c0 4.4 3.6 8 8 8h384c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H320c-4.4 0-8 3.6-8 8z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-left"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; top: 0px; right: 0px;"
+    />
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        <div>
+          Documents
+        </div>
+      </div>
+    </div>
+  </div>
+</button>
+`;
+
+exports[`renders components/float-button/demo/tooltip.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/float-button/demo/type.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-float-btn ant-float-btn-primary ant-float-btn-circle"
+    style="right: 24px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="question-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </button>,
+  <button
+    class="ant-float-btn ant-float-btn-default ant-float-btn-circle"
+    style="right: 94px;"
+    type="button"
+  >
+    <div
+      class="ant-float-btn-body"
+    >
+      <div
+        class="ant-float-btn-content"
+      >
+        <div
+          class="ant-float-btn-icon"
+        >
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="question-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </div>
+  </button>,
+]
+`;
+
+exports[`renders components/float-button/demo/type.tsx extend context correctly 2`] = `[]`;

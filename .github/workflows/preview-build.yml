@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -55,7 +55,7 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -74,6 +74,7 @@ jobs:
         run: npm run site
         env:
           SITE_ENV: development
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
 
       - name: upload site artifact
         uses: actions/upload-artifact@v3

@@ -1,13 +1,13 @@
-import * as React from 'react';
 import type { FormInstance as RcFormInstance } from 'rc-field-form';
 import { useForm as useRcForm } from 'rc-field-form';
+import * as React from 'react';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import type { ScrollOptions, NamePath, InternalNamePath } from '../interface';
-import { toArray, getFieldId } from '../util';
+import type { InternalNamePath, NamePath, ScrollOptions } from '../interface';
+import { getFieldId, toArray } from '../util';
 
 export interface FormInstance<Values = any> extends RcFormInstance<Values> {
   scrollToField: (name: NamePath, options?: ScrollOptions) => void;
-  /** This is an internal usage. Do not use in your prod */
+  /** @internal: This is an internal usage. Do not use in your prod */
   __INTERNAL__: {
     /** No! Do not use this in your code! */
     name?: string;
@@ -50,7 +50,7 @@ export default function useForm<Values = any>(form?: FormInstance<Values>): [For
               scrollMode: 'if-needed',
               block: 'nearest',
               ...options,
-            });
+            } as any);
           }
         },
         getFieldInstance: (name: NamePath) => {

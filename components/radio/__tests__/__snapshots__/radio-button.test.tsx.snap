@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio Button rtl render component should be rendered correctly in RTL direction 1`] = `
+<label
+  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
+>
+  <span
+    class="ant-radio-button"
+  >
+    <input
+      class="ant-radio-button-input"
+      type="radio"
+    />
+    <span
+      class="ant-radio-button-inner"
+    />
+  </span>
+</label>
+`;
+
+exports[`Radio Button should render correctly 1`] = `
+<label
+  class="ant-radio-button-wrapper customized"
+>
+  <span
+    class="ant-radio-button"
+  >
+    <input
+      class="ant-radio-button-input"
+      type="radio"
+    />
+    <span
+      class="ant-radio-button-inner"
+    />
+  </span>
+  <span>
+    Test
+  </span>
+</label>
+`;
+
+exports[`Radio Group passes prefixCls down to radio 1`] = `
+<div
+  class="my-radio-group my-radio-group-outline"
+>
+  <label
+    class="my-radio-wrapper"
+  >
+    <span
+      class="my-radio ant-wave-target"
+    >
+      <input
+        class="my-radio-input"
+        type="radio"
+        value="Apple"
+      />
+      <span
+        class="my-radio-inner"
+      />
+    </span>
+    <span>
+      Apple
+    </span>
+  </label>
+  <label
+    class="my-radio-wrapper"
+    style="font-size: 12px;"
+  >
+    <span
+      class="my-radio ant-wave-target"
+    >
+      <input
+        class="my-radio-input"
+        type="radio"
+        value="Orange"
+      />
+      <span
+        class="my-radio-inner"
+      />
+    </span>
+    <span>
+      Orange
+    </span>
+  </label>
+</div>
+`;

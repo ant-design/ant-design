@@ -1,7 +1,8 @@
 import * as React from 'react';
+
 import useForceUpdate from './useForceUpdate';
 
-type UseSyncStateProps<T> = [() => T, (newValue: T) => void];
+type UseSyncStateProps<T> = readonly [() => T, (newValue: T) => void];
 
 export default function useSyncState<T>(initialValue: T): UseSyncStateProps<T> {
   const ref = React.useRef<T>(initialValue);
@@ -14,5 +15,5 @@ export default function useSyncState<T>(initialValue: T): UseSyncStateProps<T> {
       // re-render
       forceUpdate();
     },
-  ];
+  ] as const;
 }

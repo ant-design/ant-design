@@ -1,57 +1,7 @@
----
-order: 11
-title:
-  zh-CN: 自定义进度条渐变色
-  en-US: Custom line gradient
----
-
 ## zh-CN
 
-`linear-gradient` 的封装。推荐只传两种颜色。
+渐变色封装，`circle` 与 `dashboard` 设置渐变时 `strokeLinecap` 会被忽略。
 
 ## en-US
 
-A package of `linear-gradient`. It is recommended to only pass two colors.
-
-```tsx
-import { Progress } from 'antd';
-import React from 'react';
-
-const App: React.FC = () => (
-  <>
-    <Progress
-      strokeColor={{
-        '0%': '#108ee9',
-        '100%': '#87d068',
-      }}
-      percent={99.9}
-    />
-    <Progress
-      strokeColor={{
-        from: '#108ee9',
-        to: '#87d068',
-      }}
-      percent={99.9}
-      status="active"
-    />
-    <Progress
-      type="circle"
-      strokeColor={{
-        '0%': '#108ee9',
-        '100%': '#87d068',
-      }}
-      percent={90}
-    />
-    <Progress
-      type="circle"
-      strokeColor={{
-        '0%': '#108ee9',
-        '100%': '#87d068',
-      }}
-      percent={100}
-    />
-  </>
-);
-
-export default App;
-```
+Gradient encapsulation, `circle` and `dashboard` will ignore `strokeLinecap` when setting gradient.

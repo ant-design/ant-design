@@ -1,38 +1,45 @@
-import * as React from 'react';
 import { ItemGroup } from 'rc-menu';
 import type {
-  MenuItemType as RcMenuItemType,
   MenuDividerType as RcMenuDividerType,
-  SubMenuType as RcSubMenuType,
   MenuItemGroupType as RcMenuItemGroupType,
+  MenuItemType as RcMenuItemType,
+  SubMenuType as RcSubMenuType,
 } from 'rc-menu/lib/interface';
-import SubMenu from '../SubMenu';
+import * as React from 'react';
 import MenuDivider from '../MenuDivider';
 import MenuItem from '../MenuItem';
+import SubMenu from '../SubMenu';
 
-interface MenuItemType extends RcMenuItemType {
+export interface MenuItemType extends RcMenuItemType {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;
 }
 
-interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
+export interface SubMenuType<T extends MenuItemType = MenuItemType>
+  extends Omit<RcSubMenuType, 'children'> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
-  children: ItemType[];
+  children: ItemType<T>[];
 }
 
-interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
-  children?: ItemType[];
+export interface MenuItemGroupType<T extends MenuItemType = MenuItemType>
+  extends Omit<RcMenuItemGroupType, 'children'> {
+  children?: ItemType<T>[];
   key?: React.Key;
 }
 
-interface MenuDividerType extends RcMenuDividerType {
+export interface MenuDividerType extends RcMenuDividerType {
   dashed?: boolean;
   key?: React.Key;
 }
 
-export type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType | null;
+export type ItemType<T extends MenuItemType = MenuItemType> =
+  | T
+  | SubMenuType<T>
+  | MenuItemGroupType<T>
+  | MenuDividerType
+  | null;
 
 function convertItemsToNodes(list: ItemType[]) {
   return (list || [])
@@ -74,7 +81,7 @@ function convertItemsToNodes(list: ItemType[]) {
 
       return null;
     })
-    .filter(opt => opt);
+    .filter((opt) => opt);
 }
 
 // FIXME: Move logic here in v5

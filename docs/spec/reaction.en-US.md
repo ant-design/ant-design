@@ -1,5 +1,5 @@
 ---
-category: Design Patterns
+group: Design Patterns
 type: Principles
 order: 10
 title: React Immediately
@@ -17,15 +17,21 @@ While there is a possibility of too much feedback (or, more accurately, too much
 
 ## Lookup Patterns
 
-<img class="preview-img" align="right" alt="example of Certain Category" description="The keyword of the user query is only displayed in three categories, Topics, Questions and Articles." src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Certain Category" description="The keyword of the user query is only displayed in three categories, Topics, Questions and Articles." src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncertain." src="https://gw.alipayobjects.com/zos/rmsportal/XlqFYhYiZtWFNImtRElR.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncertain." src="https://gw.alipayobjects.com/zos/rmsportal/XlqFYhYiZtWFNImtRElR.png">
+</ImagePreview>
 
 Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed. Depending on the categories of search results, it can be divided into two types, Certain Category and Uncertain Category.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Live Search" description="When the user type a search value, the system instantly displays the search results." src="https://gw.alipayobjects.com/zos/rmsportal/clFLKIWTYfHwIiOCUNbw.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Live Search" description="When the user type a search value, the system instantly displays the search results." src="https://gw.alipayobjects.com/zos/rmsportal/clFLKIWTYfHwIiOCUNbw.png">
+</ImagePreview>
 
 Live Suggest: Live Suggest provides real-time search term suggestions for creating a search.
 
@@ -35,7 +41,9 @@ Live Suggest: Live Suggest provides real-time search term suggestions for creati
 
 ## Live Suggest
 
-<img class="preview-img" align="right" alt="example of Live Preview" description="Depending on the type of the input from the user, the system provides instant feedback on password strength and validation." src="https://gw.alipayobjects.com/zos/rmsportal/koYsOzKwTcHvjpZULpov.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Live Preview" description="Depending on the type of the input from the user, the system provides instant feedback on password strength and validation." src="https://gw.alipayobjects.com/zos/rmsportal/koYsOzKwTcHvjpZULpov.png">
+</ImagePreview>
 
 Live Preview: A Live Preview gives the users a glimpse beforehand of how the application will interpret their input once submitted.
 
@@ -43,28 +51,40 @@ Live Preview: A Live Preview gives the users a glimpse beforehand of how the app
 
 <br>
 
-Progressive Disclosure: When users are faced with a series of steps, it is often best to provide hints only when they are needed, instead of cluttering the interface by displaying all the hints at once. Learn more cases on [Stay on the Page/Progressive Disclosure](/docs/spec/stay#Process-Flows)。
+Progressive Disclosure: When users are faced with a series of steps, it is often best to provide hints only when they are needed, instead of cluttering the interface by displaying all the hints at once. Learn more cases on [Stay on the Page/Progressive Disclosure](/docs/spec/stay#process-flows)。
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Loading Button" src="https://gw.alipayobjects.com/zos/rmsportal/cnAnCxfzSwUJeeXIUOIC.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Loading Button" src="https://gw.alipayobjects.com/zos/rmsportal/cnAnCxfzSwUJeeXIUOIC.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example of Loading Table" src="https://gw.alipayobjects.com/zos/rmsportal/agFZSlgdSOyCznCGXGcE.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Loading Table" src="https://gw.alipayobjects.com/zos/rmsportal/agFZSlgdSOyCznCGXGcE.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example of Loading List" src="https://gw.alipayobjects.com/zos/rmsportal/tVzqUunjctTxvSMmhSVv.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Loading List" src="https://gw.alipayobjects.com/zos/rmsportal/tVzqUunjctTxvSMmhSVv.png">
+</ImagePreview>
 
-<img class="preview-img" align="right" alt="example of Loading Page" src="https://gw.alipayobjects.com/zos/rmsportal/igxFnUdRHWaBXtTePuFf.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Loading Page" src="https://gw.alipayobjects.com/zos/rmsportal/igxFnUdRHWaBXtTePuFf.png">
+</ImagePreview>
 
 Progress Indicator: Progress Indicators keep a conversation going with the user when the rest of the interface is currently unavailable. Common Progress Indicators, such as Loading Button, Loading Table, Loading List and Loading Page, can be displayed respectively according to the frequency and importance of operation.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Click Refresh" src="https://gw.alipayobjects.com/zos/rmsportal/HTDCbBvlFKwsDwmcgzcw.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Click Refresh" src="https://gw.alipayobjects.com/zos/rmsportal/HTDCbBvlFKwsDwmcgzcw.png">
+</ImagePreview>
 
 Click Refresh: Click Refresh notifies the user of fresh content and provides button or tool to refresh.
 
 <br>
 
-<img class="preview-img" align="right" alt="example of Periodic Refresh"  description="The added list item turns to be highlighted and get back to normal in a few seconds." src="https://gw.alipayobjects.com/zos/rmsportal/kpUhmRudNWDxNzgUddEp.png">
+<ImagePreview>
+<img class="preview-img" alt="example of Periodic Refresh"  description="The added list item turns to be highlighted and get back to normal in a few seconds." src="https://gw.alipayobjects.com/zos/rmsportal/kpUhmRudNWDxNzgUddEp.png">
+</ImagePreview>
 
 Periodic Refresh: Periodic Refresh brings in fresh content on a periodic basis without direct user interaction.
