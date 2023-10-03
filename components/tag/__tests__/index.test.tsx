@@ -199,7 +199,7 @@ describe('Tag', () => {
     });
 
     it('should support ref', () => {
-      const ref: React.RefObject<HTMLSpanElement> = React.createRef();
+      const ref = React.createRef<HTMLSpanElement>();
       const { container } = render(
         <Tag.CheckableTag checked={false} ref={ref}>
           Tag Text
