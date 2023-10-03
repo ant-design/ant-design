@@ -213,7 +213,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
 
-请参考动态主题文档 [兼容旧版浏览器](/docs/react/customize-theme-cn#兼容旧版浏览器) 部分内容。
+请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style-cn) 部分内容。
 
 ## 如何关闭组件动画
 
@@ -237,7 +237,7 @@ import { ConfigProvider } from 'antd';
 
 ## 如何支持 SSR？
 
-请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+请参考动态主题文档 [服务端渲染](/docs/react/server-side-rendering-cn) 部分内容。
 
 ## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
 
