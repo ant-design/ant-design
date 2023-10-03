@@ -197,6 +197,21 @@ describe('Tag', () => {
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
     });
+
+    it('should support ref', () => {
+      const ref: React.RefObject<HTMLSpanElement> = React.createRef();
+      const { container } = render(
+        <Tag.CheckableTag checked={false} ref={ref}>
+          Tag Text
+        </Tag.CheckableTag>,
+      );
+      const refElement = ref.current;
+      const queryTarget = container.querySelector('.ant-tag');
+      expect(refElement instanceof HTMLSpanElement).toBe(true);
+      expect(refElement?.textContent).toBe('Tag Text');
+      expect(queryTarget?.textContent).toBe('Tag Text');
+      expect(refElement).toBe(queryTarget);
+    });
   });
   it('should onClick is undefined', async () => {
     const { container } = render(<Tag onClick={undefined} />);
