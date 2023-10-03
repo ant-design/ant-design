@@ -16,6 +16,16 @@ tag: vVERSION
 
 ---
 
+## 5.9.4
+
+`2023-09-28`
+
+- Button
+  - 🐞 修复 Button 组件只有两个汉字且嵌套在多层 span 中时间距丢失的问题。[#45126](https://github.com/ant-design/ant-design/pull/45126) [@MadCcc](https://github.com/MadCcc)
+  - 🐞 修复 Button 条件渲染时意外出现加载图标的问题。[#45030](https://github.com/ant-design/ant-design/pull/45030) [@lzl0304](https://github.com/lzl0304)
+- 🐞 修复 Tour 组件第一次展示时 `step.type` 无效的问题。[#45086](https://github.com/ant-design/ant-design/pull/45086) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Select 和 DatePicker 组件没有使用 `fontFamily` token 的问题。[#45088](https://github.com/ant-design/ant-design/pull/45088) [@MadCcc](https://github.com/MadCcc)
+
 ## 5.9.3
 
 `2023-09-25`

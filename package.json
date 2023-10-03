@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.9.3",
+  "version": "5.9.4",
   "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
@@ -185,7 +185,7 @@
     "@types/gtag.js": "^0.0.14",
     "@types/http-server": "^0.12.1",
     "@types/inquirer": "^9.0.3",
-    "@types/isomorphic-fetch": "^0.0.36",
+    "@types/isomorphic-fetch": "^0.0.37",
     "@types/jest": "^29.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
@@ -288,8 +288,9 @@
     "react-sticky-box": "^2.0.0",
     "regenerator-runtime": "^0.14.0",
     "remark": "^15.0.1",
-    "remark-cli": "^11.0.0",
+    "remark-cli": "^12.0.0",
     "remark-lint": "^9.0.0",
+    "remark-lint-no-undefined-references": "^4.2.1",
     "remark-preset-lint-recommended": "^6.0.0",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
@@ -317,11 +318,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "398 KiB"
+      "limit": "399 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "457 KiB"
+      "limit": "458 KiB"
     }
   ],
   "tnpm": {
