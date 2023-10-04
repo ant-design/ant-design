@@ -233,7 +233,7 @@ import { ConfigProvider } from 'antd';
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow Dom 场景](/docs/react/customize-theme-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何支持 SSR？
 
