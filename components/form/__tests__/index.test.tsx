@@ -357,7 +357,7 @@ describe('Form', () => {
     const { container } = render(
       <Form>
         <Form.Item name="test name">
-          <input />
+          <Select />
         </Form.Item>
       </Form>,
     );
@@ -368,7 +368,7 @@ describe('Form', () => {
     const { container } = render(
       <Form>
         <Form.Item name="test name" label="test label">
-          <input />
+          <Select />
         </Form.Item>
       </Form>,
     );
