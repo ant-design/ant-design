@@ -27,9 +27,9 @@ const App: React.FC = () => (
     autoComplete="off"
   >
     <Form.Item<FieldType>
-      label="Username"
-      name="username"
-      rules={[{ required: true, message: 'Please input your username!' }]}
+      label="Company Email"
+      name="Company Email"
+      rules={[{ required: true, message: 'Please input your company email!' }]}
     >
       <Input />
     </Form.Item>
