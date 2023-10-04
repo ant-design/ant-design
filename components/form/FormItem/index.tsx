@@ -255,9 +255,10 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    const element = label
-      ? cloneElement(mergedChildren, { ...mergedChildren.props, 'aria-label': label })
-      : mergedChildren;
+    const element =
+      label && isValidElement(mergedChildren)
+        ? cloneElement(mergedChildren, { ...mergedChildren.props, 'aria-label': label })
+        : mergedChildren;
     return wrapSSR(renderLayout(element) as JSX.Element);
   }
 
