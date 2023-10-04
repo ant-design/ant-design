@@ -255,7 +255,10 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapSSR(renderLayout(mergedChildren) as JSX.Element);
+    const element = label
+      ? cloneElement(mergedChildren, { ...mergedChildren.props, 'aria-label': label })
+      : mergedChildren;
+    return wrapSSR(renderLayout(element) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -365,6 +368,10 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             childProps['aria-required'] = 'true';
           }
 
+          if (label) {
+            childProps['aria-label'] = label;
+          }
+
           if (supportRef(mergedChildren)) {
             childProps.ref = getItemRef(mergedName, mergedChildren);
           }
@@ -387,6 +394,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             childProps['aria-required'],
             childProps['aria-invalid'],
             childProps['aria-describedby'],
+            childProps['aria-label'],
           ];
 
           childNode = (

@@ -353,6 +353,28 @@ describe('Form', () => {
     expect(container.querySelector('input')?.getAttribute('aria-required')).toBe('true');
   });
 
+  it('input element should have the prop aria-label is `Search` when prop `label` doesn`t exist', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test name">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-label')).toBe('Search');
+  });
+
+  it('input element should have the prop aria-label is same as prop `label` when it exists', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item name="test name" label="test label">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('input')?.getAttribute('aria-label')).toBe('test label');
+  });
+
   it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
     const { container } = render(
       <Form>
