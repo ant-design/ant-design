@@ -897,6 +897,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Bordered"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -947,6 +948,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="loading"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -997,6 +999,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Title"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -1047,6 +1050,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Column Header"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -1097,6 +1101,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Footer"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -1147,6 +1152,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Expandable"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -1197,6 +1203,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Checkbox"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -1247,6 +1254,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Fixed Header"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -1297,6 +1305,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Has Data"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -1347,6 +1356,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Ellipsis"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -1396,6 +1406,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Size"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -1488,6 +1499,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Table Scroll"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -1580,6 +1592,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Table Layout"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -1653,6 +1666,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Pagination Top"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -1764,6 +1778,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Pagination Bottom"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -4681,6 +4696,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Bordered"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -4731,6 +4747,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="loading"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -4781,6 +4798,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Title"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -4831,6 +4849,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Column Header"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -4881,6 +4900,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Footer"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -4931,6 +4951,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Expandable"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -4981,6 +5002,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Checkbox"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -5031,6 +5053,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Fixed Header"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -5081,6 +5104,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Has Data"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -5131,6 +5155,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Ellipsis"
                 class="ant-switch"
                 role="switch"
                 type="button"
@@ -5180,6 +5205,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Size"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -5272,6 +5298,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Table Scroll"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -5364,6 +5391,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Table Layout"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -5437,6 +5465,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Pagination Top"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -5548,6 +5577,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Pagination Bottom"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -18073,6 +18103,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Root Table Bordered"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"
@@ -18123,6 +18154,7 @@ Array [
             >
               <button
                 aria-checked="true"
+                aria-label="Child Table Bordered"
                 class="ant-switch ant-switch-checked"
                 role="switch"
                 type="button"

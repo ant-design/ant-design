@@ -42,6 +42,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-label="Field 0"
                     aria-required="true"
                     class="ant-input"
                     id="advanced_search_field-0"
@@ -86,6 +87,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
+                    aria-label="Field 1"
                     aria-required="true"
                     class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                   >
@@ -100,7 +102,7 @@ Array [
                           aria-controls="advanced_search_field-1_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
+                          aria-label="Field 1"
                           aria-owns="advanced_search_field-1_list"
                           aria-required="true"
                           autocomplete="off"
@@ -265,6 +267,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-label="Field 2"
                     aria-required="true"
                     class="ant-input"
                     id="advanced_search_field-2"
@@ -309,6 +312,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-label="Field 3"
                     aria-required="true"
                     class="ant-input"
                     id="advanced_search_field-3"
@@ -353,6 +357,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
+                    aria-label="Field 4"
                     aria-required="true"
                     class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                   >
@@ -367,7 +372,7 @@ Array [
                           aria-controls="advanced_search_field-4_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
+                          aria-label="Field 4"
                           aria-owns="advanced_search_field-4_list"
                           aria-required="true"
                           autocomplete="off"
@@ -532,6 +537,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-label="Field 5"
                     aria-required="true"
                     class="ant-input"
                     id="advanced_search_field-5"
@@ -651,6 +657,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Username"
               aria-required="true"
               class="ant-input"
               id="basic_username"
@@ -692,6 +699,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
               class="ant-input-affix-wrapper ant-input-password"
             >
               <input
+                aria-label="Password"
                 aria-required="true"
                 class="ant-input"
                 id="basic_password"
@@ -839,6 +847,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="Username"
                 aria-required="true"
                 class="ant-input"
                 id="basic_username"
@@ -880,6 +889,7 @@ Array [
                 class="ant-input-affix-wrapper ant-input-password"
               >
                 <input
+                  aria-label="Password"
                   aria-required="true"
                   class="ant-input"
                   id="basic_password"
@@ -951,6 +961,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="[object Object]"
                 class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width: 70%;"
               >
@@ -1015,7 +1026,7 @@ Array [
                           aria-controls="basic_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
+                          aria-label="[object Object]"
                           aria-owns="basic_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1234,6 +1245,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="Username"
                 aria-required="true"
                 class="ant-input"
                 id="responsive_username"
@@ -1275,6 +1287,7 @@ Array [
                 class="ant-input-affix-wrapper ant-input-password"
               >
                 <input
+                  aria-label="Password"
                   aria-required="true"
                   class="ant-input"
                   id="responsive_password"
@@ -1382,6 +1395,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="[object Object]"
                 class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width: 70%;"
               >
@@ -1446,7 +1460,7 @@ Array [
                           aria-controls="select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
+                          aria-label="[object Object]"
                           aria-owns="select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1631,6 +1645,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="col12"
                 class="ant-input"
                 id="col12"
                 type="text"
@@ -1680,6 +1695,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Note"
               aria-required="true"
               class="ant-input"
               id="control-hooks_note"
@@ -1718,6 +1734,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Gender"
               aria-required="true"
               class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
@@ -1732,7 +1749,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                     aria-controls="control-hooks_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Gender"
                     aria-owns="control-hooks_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -1963,6 +1980,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Note"
               aria-required="true"
               class="ant-input"
               id="control-ref_note"
@@ -2001,6 +2019,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Gender"
               aria-required="true"
               class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
@@ -2015,7 +2034,7 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                     aria-controls="control-ref_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Gender"
                     aria-owns="control-ref_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -2249,6 +2268,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Test"
                 aria-required="true"
                 class="ant-input"
                 id="custom-feedback-icons_custom-feedback-test-item"
@@ -2315,6 +2335,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
               class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Test"
                 aria-required="true"
                 class="ant-input"
                 id="custom-feedback-icons_custom-feedback-test-item2"
@@ -2671,6 +2692,7 @@ exports[`renders components/form/demo/dependencies.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Password"
               aria-required="true"
               class="ant-input"
               id="dependencies_password"
@@ -2709,6 +2731,7 @@ exports[`renders components/form/demo/dependencies.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Confirm Password"
               aria-required="true"
               class="ant-input"
               id="dependencies_password2"
@@ -2797,6 +2820,7 @@ Array [
                   class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                 >
                   <input
+                    aria-label="Checkbox"
                     class="ant-checkbox-input"
                     disabled=""
                     id="disabled"
@@ -2841,6 +2865,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Radio"
                 class="ant-radio-group ant-radio-group-outline"
               >
                 <label
@@ -2915,6 +2940,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="Input"
                 class="ant-input ant-input-disabled"
                 disabled=""
                 type="text"
@@ -2951,6 +2977,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Select"
                 class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
@@ -2964,7 +2991,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
+                      aria-label="Select"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -3095,6 +3122,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="TreeSelect"
                 class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
@@ -3108,7 +3136,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
+                      aria-label="TreeSelect"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -3279,6 +3307,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Cascader"
                 class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
               >
                 <div
@@ -3292,7 +3321,7 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
+                      aria-label="Cascader"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -3426,6 +3455,7 @@ Array [
                   class="ant-picker-input"
                 >
                   <input
+                    aria-label="DatePicker"
                     autocomplete="off"
                     disabled=""
                     placeholder="Select date"
@@ -4046,6 +4076,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="RangePicker"
                 class="ant-picker ant-picker-range ant-picker-disabled"
               >
                 <div
@@ -5324,6 +5355,7 @@ Array [
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-label="InputNumber"
                     autocomplete="off"
                     class="ant-input-number-input"
                     disabled=""
@@ -5364,6 +5396,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <textarea
+                aria-label="TextArea"
                 class="ant-input ant-input-disabled"
                 disabled=""
                 rows="4"
@@ -5400,6 +5433,7 @@ Array [
             >
               <button
                 aria-checked="false"
+                aria-label="Switch"
                 class="ant-switch ant-switch-disabled"
                 disabled=""
                 role="switch"
@@ -5464,6 +5498,7 @@ Array [
                     >
                       <input
                         accept=""
+                        aria-label="Upload"
                         disabled=""
                         style="display: none;"
                         type="file"
@@ -5532,6 +5567,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <button
+                aria-label="Button"
                 class="ant-btn ant-btn-default"
                 disabled=""
                 type="button"
@@ -5655,6 +5691,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Normal0"
               class="ant-input"
               placeholder="unavailable choice"
               type="text"
@@ -5691,6 +5728,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Fail0"
               class="ant-input ant-input-status-error"
               placeholder="unavailable choice"
               type="text"
@@ -5749,6 +5787,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="FailDisabled0"
               class="ant-input ant-input-disabled ant-input-status-error"
               disabled=""
               placeholder="unavailable choice"
@@ -5808,6 +5847,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Normal1"
               class="ant-input"
               placeholder="unavailable choice"
               type="text"
@@ -5844,6 +5884,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Fail1"
               class="ant-input ant-input-status-error"
               placeholder="unavailable choice"
               type="text"
@@ -5902,6 +5943,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="FailDisabled1"
               class="ant-input ant-input-disabled ant-input-status-error"
               disabled=""
               placeholder="unavailable choice"
@@ -5972,6 +6014,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                   Buggy!
                 </span>
                 <input
+                  aria-label="Normal2"
                   class="ant-input"
                   placeholder="unavailable choice"
                   type="text"
@@ -6021,6 +6064,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                   Buggy!
                 </span>
                 <input
+                  aria-label="Fail2"
                   class="ant-input ant-input-status-error"
                   placeholder="unavailable choice"
                   type="text"
@@ -6092,6 +6136,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                   Buggy!
                 </span>
                 <input
+                  aria-label="FailDisabled2"
                   class="ant-input ant-input-disabled ant-input-status-error"
                   disabled=""
                   placeholder="unavailable choice"
@@ -6161,6 +6206,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                 人民币
               </span>
               <input
+                aria-label="Normal3"
                 class="ant-input"
                 placeholder="unavailable choice"
                 type="text"
@@ -6206,6 +6252,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                 人民币
               </span>
               <input
+                aria-label="Fail3"
                 class="ant-input"
                 placeholder="unavailable choice"
                 type="text"
@@ -6273,6 +6320,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
                 人民币
               </span>
               <input
+                aria-label="FailDisabled3"
                 class="ant-input ant-input-disabled"
                 disabled=""
                 placeholder="unavailable choice"
@@ -6616,6 +6664,7 @@ exports[`renders components/form/demo/dynamic-form-items-complex.tsx extend cont
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-label="Name"
                     class="ant-input"
                     id="dynamic_form_complex_items_0_name"
                     type="text"
@@ -6852,6 +6901,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Name"
               aria-required="true"
               class="ant-input"
               id="dynamic_rule_username"
@@ -6891,6 +6941,7 @@ exports[`renders components/form/demo/dynamic-rule.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Nickname"
               class="ant-input ant-input-status-validating"
               id="dynamic_rule_nickname"
               placeholder="Please input your nickname"
@@ -7006,6 +7057,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Group Name"
               aria-required="true"
               class="ant-input"
               id="basicForm_group"
@@ -7184,6 +7236,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="First Name"
               class="ant-input"
               id="form_item_path_user_name_firstName"
               type="text"
@@ -7221,6 +7274,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Last Name"
               class="ant-input"
               id="form_item_path_user_name_lastName"
               type="text"
@@ -7258,6 +7312,7 @@ exports[`renders components/form/demo/form-item-path.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Age"
               class="ant-input"
               id="form_item_path_user_age"
               type="text"
@@ -7314,6 +7369,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="Username"
                 aria-required="true"
                 class="ant-input"
                 id="global_state_username"
@@ -7532,6 +7588,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="[object Object]"
               class="ant-input"
               id="label-ellipsis_username"
               type="text"
@@ -7576,6 +7633,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
               class="ant-input-affix-wrapper ant-input-password"
             >
               <input
+                aria-label="[object Object]"
                 class="ant-input"
                 id="label-ellipsis_password"
                 type="password"
@@ -7651,6 +7709,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Form Layout"
               class="ant-radio-group ant-radio-group-outline"
               id="layout"
             >
@@ -7744,6 +7803,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Field A"
               class="ant-input"
               placeholder="input placeholder"
               type="text"
@@ -7780,6 +7840,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Field B"
               class="ant-input"
               placeholder="input placeholder"
               type="text"
@@ -7858,6 +7919,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Normal label"
               aria-required="true"
               class="ant-input"
               id="wrap_username"
@@ -7898,6 +7960,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="A super long label text"
               aria-required="true"
               class="ant-input"
               id="wrap_password"
@@ -7936,6 +7999,7 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <button
+              aria-label=" "
               class="ant-btn ant-btn-primary"
               type="submit"
             >
@@ -7986,6 +8050,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Name"
               aria-required="true"
               class="ant-input"
               id="nest-messages_user_name"
@@ -8024,6 +8089,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Email"
               class="ant-input"
               id="nest-messages_user_email"
               type="text"
@@ -8125,6 +8191,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-label="Age"
                   autocomplete="off"
                   class="ant-input-number-input"
                   id="nest-messages_user_age"
@@ -8166,6 +8233,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Website"
               class="ant-input"
               id="nest-messages_user_website"
               type="text"
@@ -8203,6 +8271,7 @@ exports[`renders components/form/demo/nest-messages.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <textarea
+              aria-label="Introduction"
               class="ant-input"
               id="nest-messages_user_introduction"
             />
@@ -8476,6 +8545,7 @@ exports[`renders components/form/demo/ref-item.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="test"
               class="ant-input"
               id="test"
               type="text"
@@ -8566,6 +8636,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="E-mail"
               aria-required="true"
               class="ant-input"
               id="register_email"
@@ -8607,6 +8678,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Password"
                 aria-required="true"
                 class="ant-input"
                 id="register_password"
@@ -8676,6 +8748,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Confirm Password"
                 aria-required="true"
                 class="ant-input"
                 id="register_confirm"
@@ -8784,6 +8857,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Nickname"
               aria-required="true"
               class="ant-input"
               id="register_nickname"
@@ -8822,6 +8896,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Habitual Residence"
               aria-required="true"
               class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
@@ -8836,7 +8911,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_residence_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Habitual Residence"
                     aria-owns="register_residence_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9184,6 +9259,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   </div>
                 </span>
                 <input
+                  aria-label="Phone Number"
                   aria-required="true"
                   class="ant-input"
                   id="register_phone"
@@ -9295,6 +9371,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     class="ant-input-number-input-wrap"
                   >
                     <input
+                      aria-label="Donation"
                       aria-required="true"
                       autocomplete="off"
                       class="ant-input-number-input"
@@ -9482,6 +9559,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Website"
               aria-required="true"
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
@@ -9496,7 +9574,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_website_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Website"
                     aria-owns="register_website_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9562,6 +9640,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               data-count="0 / 100"
             >
               <textarea
+                aria-label="Intro"
                 aria-required="true"
                 class="ant-input"
                 id="register_intro"
@@ -9608,6 +9687,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Gender"
               aria-required="true"
               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
@@ -9622,7 +9702,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Gender"
                     aria-owns="register_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9797,6 +9877,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Captcha"
               class="ant-row"
               style="margin-left: -4px; margin-right: -4px;"
             >
@@ -9950,6 +10031,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Required Mark"
               class="ant-radio-group ant-radio-group-outline"
               id="requiredMarkValue"
             >
@@ -10104,6 +10186,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Field A"
               class="ant-input"
               placeholder="input placeholder"
               type="text"
@@ -10188,6 +10271,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Field B"
               class="ant-input"
               placeholder="input placeholder"
               type="text"
@@ -10263,6 +10347,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Form Size"
               class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
               id="size"
             >
@@ -10356,6 +10441,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Input"
               class="ant-input"
               type="text"
               value=""
@@ -10391,6 +10477,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Select"
               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
@@ -10404,7 +10491,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Select"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10534,6 +10621,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="TreeSelect"
               class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
@@ -10547,7 +10635,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="TreeSelect"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10717,6 +10805,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Cascader"
               class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -10730,7 +10819,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Cascader"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10863,6 +10952,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="DatePicker"
                   autocomplete="off"
                   placeholder="Select date"
                   readonly=""
@@ -11546,6 +11636,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-label="InputNumber"
                   autocomplete="off"
                   class="ant-input-number-input"
                   role="spinbutton"
@@ -11586,6 +11677,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
           >
             <button
               aria-checked="false"
+              aria-label="Switch"
               class="ant-switch"
               role="switch"
               type="button"
@@ -11635,6 +11727,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
+              aria-label="Button"
               class="ant-btn ant-btn-default"
               type="button"
             >
@@ -11691,6 +11784,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="DatePicker"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_date-picker"
@@ -12319,6 +12413,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="DatePicker[showTime]"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_date-time-picker"
@@ -14299,6 +14394,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="MonthPicker"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_month-picker"
@@ -14557,6 +14653,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="RangePicker"
               aria-required="true"
               class="ant-picker ant-picker-range"
             >
@@ -15772,6 +15869,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="RangePicker[showTime]"
               aria-required="true"
               class="ant-picker ant-picker-range"
             >
@@ -17807,6 +17905,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="TimePicker"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_time-picker"
@@ -19282,6 +19381,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="Name (Watch to trigger rerender)"
                 class="ant-input"
                 id="name"
                 type="text"
@@ -19383,6 +19483,7 @@ Array [
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-label="Age (Not Watch)"
                     autocomplete="off"
                     class="ant-input-number-input"
                     id="age"
@@ -19443,6 +19544,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Name"
               aria-required="true"
               class="ant-input"
               id="validateOnly_name"
@@ -19481,6 +19583,7 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Age"
               aria-required="true"
               class="ant-input"
               id="validateOnly_age"
@@ -19578,6 +19681,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <span
+              aria-label="Plain Text"
               class="ant-form-text"
             >
               China
@@ -19614,6 +19718,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Select"
               aria-required="true"
               class="ant-select ant-select-in-form-item ant-select-has-feedback ant-select-single ant-select-show-arrow"
             >
@@ -19628,7 +19733,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     aria-controls="validate_other_select_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Select"
                     aria-owns="validate_other_select_list"
                     aria-required="true"
                     autocomplete="off"
@@ -19787,6 +19892,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Select[multiple]"
               aria-required="true"
               class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
@@ -19809,7 +19915,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         aria-controls="validate_other_select-multiple_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-label="Search"
+                        aria-label="Select[multiple]"
                         aria-owns="validate_other_select-multiple_list"
                         aria-required="true"
                         autocomplete="off"
@@ -20088,6 +20194,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
           >
             <button
               aria-checked="false"
+              aria-label="Switch"
               class="ant-switch"
               id="validate_other_switch"
               role="switch"
@@ -20279,6 +20386,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Radio.Group"
               class="ant-radio-group ant-radio-group-outline"
               id="validate_other_radio-group"
             >
@@ -20372,6 +20480,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Radio.Button"
               aria-required="true"
               class="ant-radio-group ant-radio-group-outline"
               id="validate_other_radio-button"
@@ -20466,6 +20575,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Checkbox.Group"
               class="ant-checkbox-group"
               id="validate_other_checkbox-group"
             >
@@ -20653,6 +20763,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <ul
+              aria-label="Rate"
               class="ant-rate"
               id="validate_other_rate"
               role="radiogroup"
@@ -20994,6 +21105,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                   <input
                     accept=""
                     aria-describedby="validate_other_upload_extra"
+                    aria-label="Upload"
                     id="validate_other_upload"
                     style="display: none;"
                     type="file"
@@ -21628,6 +21740,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Fail"
               class="ant-input ant-input-status-error"
               id="error"
               placeholder="unavailable choice"
@@ -21713,6 +21826,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 </span>
               </span>
               <input
+                aria-label="Warning"
                 class="ant-input"
                 id="warning"
                 placeholder="Warning"
@@ -21754,6 +21868,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-affix-wrapper-status-validating ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Validating"
                 class="ant-input"
                 id="validating"
                 placeholder="I'm the content is being validated"
@@ -21844,6 +21959,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Success"
                 class="ant-input"
                 id="success"
                 placeholder="I'm the content"
@@ -21912,6 +22028,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Warning"
                 class="ant-input"
                 id="warning2"
                 placeholder="Warning"
@@ -21980,6 +22097,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Fail"
                 class="ant-input"
                 id="error2"
                 placeholder="unavailable choice"
@@ -22075,6 +22193,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="Success"
                   autocomplete="off"
                   placeholder="Select date"
                   readonly=""
@@ -22724,6 +22843,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="Warning"
                   autocomplete="off"
                   placeholder="Select time"
                   readonly=""
@@ -24180,6 +24300,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Error"
               class="ant-picker ant-picker-range ant-picker-status-error ant-picker-has-feedback"
               style="width: 100%;"
             >
@@ -25417,6 +25538,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Error"
               class="ant-select ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -25430,7 +25552,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Error"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25628,6 +25750,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Validating"
               class="ant-select ant-cascader ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -25641,7 +25764,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Validating"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25793,6 +25916,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Warning"
               class="ant-select ant-tree-select ant-select-in-form-item ant-select-status-warning ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -25806,7 +25930,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Warning"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -27361,6 +27485,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-label="Success"
                     autocomplete="off"
                     class="ant-input-number-input"
                     role="spinbutton"
@@ -27431,6 +27556,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Success"
                 class="ant-input"
                 placeholder="with allowClear"
                 type="text"
@@ -27524,6 +27650,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Warning"
                 class="ant-input"
                 placeholder="with input password"
                 type="password"
@@ -27614,6 +27741,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Error"
                 class="ant-input"
                 placeholder="with input password and allowClear"
                 type="password"
@@ -27734,6 +27862,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-mentions ant-mentions-status-error"
               >
                 <textarea
+                  aria-label="Fail"
                   class="rc-textarea"
                   rows="1"
                 />
@@ -27802,6 +27931,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               data-count="0"
             >
               <textarea
+                aria-label="Fail"
                 class="ant-input ant-input-status-error"
               />
               <span
@@ -27952,6 +28082,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
               class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Field A"
                 class="ant-input"
                 id="trigger_field_a"
                 placeholder="Validate required onBlur"
@@ -27997,6 +28128,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
               class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Field B"
                 class="ant-input"
                 id="trigger_field_b"
                 placeholder="Validate required debounce after 1s"
@@ -28042,6 +28174,7 @@ exports[`renders components/form/demo/validate-trigger.tsx extend context correc
               class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
             >
               <input
+                aria-label="Field C"
                 class="ant-input"
                 id="trigger_field_c"
                 placeholder="Validate one by one"
@@ -28094,6 +28227,7 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="URL"
               aria-required="true"
               class="ant-input"
               id="url"
@@ -28254,6 +28388,7 @@ exports[`renders components/form/demo/without-form-create.tsx extend context cor
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-label="Prime between 8 & 12"
                   aria-valuemax="12"
                   aria-valuemin="8"
                   aria-valuenow="11"

@@ -902,6 +902,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <input
+                              aria-label="Name"
                               aria-required="true"
                               class="ant-input"
                               id="name"
@@ -958,6 +959,7 @@ Array [
                                   http://
                                 </span>
                                 <input
+                                  aria-label="Url"
                                   aria-required="true"
                                   class="ant-input"
                                   id="url"
@@ -1014,6 +1016,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-label="Owner"
                               aria-required="true"
                               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
@@ -1028,7 +1031,7 @@ Array [
                                     aria-controls="owner_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
-                                    aria-label="Search"
+                                    aria-label="Owner"
                                     aria-owns="owner_list"
                                     aria-required="true"
                                     autocomplete="off"
@@ -1192,6 +1195,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-label="Type"
                               aria-required="true"
                               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
@@ -1206,7 +1210,7 @@ Array [
                                     aria-controls="type_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
-                                    aria-label="Search"
+                                    aria-label="Type"
                                     aria-owns="type_list"
                                     aria-required="true"
                                     autocomplete="off"
@@ -1375,6 +1379,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-label="Approver"
                               aria-required="true"
                               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
@@ -1389,7 +1394,7 @@ Array [
                                     aria-controls="approver_list"
                                     aria-expanded="false"
                                     aria-haspopup="listbox"
-                                    aria-label="Search"
+                                    aria-label="Approver"
                                     aria-owns="approver_list"
                                     aria-required="true"
                                     autocomplete="off"
@@ -1553,6 +1558,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <div
+                              aria-label="DateTime"
                               aria-required="true"
                               class="ant-picker ant-picker-range"
                               style="width: 100%;"
@@ -2779,6 +2785,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <textarea
+                              aria-label="Description"
                               aria-required="true"
                               class="ant-input"
                               id="description"

@@ -692,6 +692,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="单独 AutoComplete"
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
             >
               <div
@@ -705,7 +706,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="单独 AutoComplete"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -763,6 +764,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="单独 TreeSelect"
               class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
@@ -776,7 +778,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="单独 TreeSelect"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -1099,6 +1101,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="包含 search 图标正常"
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
@@ -1115,7 +1118,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
+                      aria-label="包含 search 图标正常"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-input"

@@ -83,6 +83,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-label="Content"
                 class="ant-input"
                 id="content"
                 placeholder="请输入"
@@ -754,6 +755,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Gap"
                 class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
                 style="display: flex;"
               >
@@ -992,6 +994,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
+                aria-label="Offset"
                 class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
                 style="display: flex;"
               >

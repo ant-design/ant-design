@@ -303,6 +303,7 @@ Array [
                 >
                   <button
                     aria-checked="false"
+                    aria-label="Active"
                     class="ant-switch"
                     role="switch"
                     type="button"
@@ -357,6 +358,7 @@ Array [
                 >
                   <button
                     aria-checked="false"
+                    aria-label="Button and Input Block"
                     class="ant-switch"
                     role="switch"
                     type="button"
@@ -410,6 +412,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
+                    aria-label="Size"
                     class="ant-radio-group ant-radio-group-outline"
                   >
                     <label
@@ -506,6 +509,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
+                    aria-label="Button Shape"
                     class="ant-radio-group ant-radio-group-outline"
                   >
                     <label
@@ -621,6 +625,7 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
+                    aria-label="Avatar Shape"
                     class="ant-radio-group ant-radio-group-outline"
                   >
                     <label

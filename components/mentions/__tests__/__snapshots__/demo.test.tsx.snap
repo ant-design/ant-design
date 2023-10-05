@@ -90,6 +90,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
               class="ant-mentions"
             >
               <textarea
+                aria-label="Top coders"
                 class="rc-textarea"
                 id="coders"
                 rows="1"
@@ -130,6 +131,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
               class="ant-mentions"
             >
               <textarea
+                aria-label="Bio"
                 aria-required="true"
                 class="rc-textarea"
                 id="bio"

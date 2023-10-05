@@ -309,6 +309,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="单独 AutoComplete"
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
             >
               <div
@@ -322,7 +323,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="单独 AutoComplete"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -367,6 +368,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="单独 TreeSelect"
               class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
@@ -380,7 +382,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="单独 TreeSelect"
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -574,6 +576,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="包含 search 图标正常"
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
@@ -590,7 +593,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-controls="undefined_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
+                      aria-label="包含 search 图标正常"
                       aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-input"

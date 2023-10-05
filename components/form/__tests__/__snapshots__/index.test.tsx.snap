@@ -134,6 +134,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
+                  aria-label="Form disabled"
                   class="ant-checkbox-input"
                   disabled=""
                   id="disabled"
@@ -178,6 +179,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Radio"
               class="ant-radio-group ant-radio-group-outline"
             >
               <label
@@ -252,6 +254,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-label="Input"
               class="ant-input ant-input-disabled"
               disabled=""
               type="text"
@@ -288,6 +291,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Select"
               class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
             >
               <div
@@ -301,7 +305,7 @@ exports[`Form form should support disabled 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Select"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -377,6 +381,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="TreeSelect"
               class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
             >
               <div
@@ -390,7 +395,7 @@ exports[`Form form should support disabled 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="TreeSelect"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -466,6 +471,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="Cascader"
               class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
             >
               <div
@@ -479,7 +485,7 @@ exports[`Form form should support disabled 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
+                    aria-label="Cascader"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -561,6 +567,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  aria-label="DatePicker"
                   autocomplete="off"
                   disabled=""
                   placeholder="Select date"
@@ -625,6 +632,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-label="RangePicker"
               class="ant-picker ant-picker-range ant-picker-disabled"
             >
               <div
@@ -802,6 +810,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-input-number-input-wrap"
               >
                 <input
+                  aria-label="InputNumber"
                   autocomplete="off"
                   class="ant-input-number-input"
                   disabled=""
@@ -842,6 +851,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <textarea
+              aria-label="TextArea"
               class="ant-input ant-input-disabled"
               disabled=""
               rows="4"
@@ -878,6 +888,7 @@ exports[`Form form should support disabled 1`] = `
           >
             <button
               aria-checked="false"
+              aria-label="Switch"
               class="ant-switch ant-switch-disabled"
               disabled=""
               role="switch"
@@ -940,6 +951,7 @@ exports[`Form form should support disabled 1`] = `
                 >
                   <input
                     accept=""
+                    aria-label="Upload"
                     disabled=""
                     style="display: none;"
                     type="file"
@@ -981,6 +993,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <button
+              aria-label="Button"
               class="ant-btn ant-btn-default"
               disabled=""
               type="button"

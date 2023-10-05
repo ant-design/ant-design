@@ -800,7 +800,7 @@ describe('Form', () => {
     );
 
     // if getByLabelText can get element, then it is a validate field with form control and label
-    expect(screen.queryByLabelText('test')).not.toBeInTheDocument();
+    expect(screen.queryByLabelText('test')).toBeInTheDocument();
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `null` is passed as `name` property',
     );
@@ -1263,7 +1263,7 @@ describe('Form', () => {
     expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(screen.getByLabelText(itemName)).toHaveAccessibleName('Search');
+    expect(screen.getByLabelText(itemName, { selector: 'input' })).toHaveAccessibleName(itemName);
 
     fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();
@@ -1273,7 +1273,7 @@ describe('Form', () => {
     mockFn.mockRestore();
 
     rerender(<Demo />);
-    expect(screen.getByLabelText(itemName)).toBeInTheDocument();
+    expect(screen.getByLabelText(itemName, { selector: 'input' })).toBeInTheDocument();
   });
 
   describe('tooltip', () => {
