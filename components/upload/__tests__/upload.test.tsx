@@ -615,11 +615,11 @@ describe('Upload', () => {
         <button type="button">upload</button>
       </Upload>,
     );
-    fireEvent.click(wrapper.querySelectorAll('.ant-upload')[1]);
+    fireEvent.click(wrapper.querySelector('.ant-upload')!);
     expect(onClick).toHaveBeenCalled();
-    fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-upload')[1]);
+    fireEvent.mouseEnter(wrapper.querySelector('.ant-upload')!);
     expect(onMouseEnter).toHaveBeenCalled();
-    fireEvent.mouseLeave(wrapper.querySelectorAll('.ant-upload')[1]);
+    fireEvent.mouseLeave(wrapper.querySelector('.ant-upload')!);
     expect(onMouseLeave).toHaveBeenCalled();
   });
 

@@ -5446,7 +5446,7 @@ Array [
                   class="ant-upload-list ant-upload-list-picture-card"
                 >
                   <div
-                    class="ant-upload ant-upload-select ant-upload-disabled"
+                    class="ant-upload-select ant-upload-disabled"
                   >
                     <span
                       class="ant-upload ant-upload-disabled"
@@ -20964,7 +20964,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               class="ant-upload-wrapper"
             >
               <div
-                class="ant-upload ant-upload-select"
+                class="ant-upload-select"
               >
                 <span
                   class="ant-upload"

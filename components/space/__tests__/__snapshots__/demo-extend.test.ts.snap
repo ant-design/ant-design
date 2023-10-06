@@ -173,7 +173,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
       class="ant-upload-wrapper"
     >
       <div
-        class="ant-upload ant-upload-select"
+        class="ant-upload-select"
       >
         <span
           class="ant-upload"

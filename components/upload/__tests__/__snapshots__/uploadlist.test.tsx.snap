@@ -5,7 +5,7 @@ exports[`Upload List handle error 1`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -167,7 +167,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -270,7 +270,7 @@ exports[`Upload List should non-image format file preview 1`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -988,7 +988,7 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -1135,7 +1135,7 @@ exports[`Upload List should support removeIcon and downloadIcon 2`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -1282,7 +1282,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"

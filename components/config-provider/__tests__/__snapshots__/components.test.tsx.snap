@@ -42161,7 +42161,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
   class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select"
+    class="config-upload-select"
   >
     <span
       class="config-upload"
@@ -42259,7 +42259,7 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
   class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-disabled"
+    class="config-upload-select config-upload-disabled"
   >
     <span
       class="config-upload config-upload-disabled"
@@ -42326,7 +42326,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
   class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select"
+    class="config-upload-select"
   >
     <span
       class="config-upload"
@@ -42424,7 +42424,7 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
   class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select"
+    class="config-upload-select"
   >
     <span
       class="config-upload"
@@ -42522,7 +42522,7 @@ exports[`ConfigProvider components Upload configProvider componentSize small 1`]
   class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select"
+    class="config-upload-select"
   >
     <span
       class="config-upload"
@@ -42620,7 +42620,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
   class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select"
+    class="ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -42718,7 +42718,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
   class="prefix-Upload-wrapper"
 >
   <div
-    class="prefix-Upload prefix-Upload-select"
+    class="prefix-Upload-select"
   >
     <span
       class="prefix-Upload"
