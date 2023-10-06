@@ -1,7 +1,8 @@
 // deps-lint-skip-all
+import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { CSSProperties } from 'react';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -93,7 +94,9 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     },
 
     [`${noticeCls}-content`]: {
-      display: 'inline-block',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       padding: contentPadding,
       background: contentBg,
       borderRadius: borderRadiusLG,
@@ -110,8 +113,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     [`${componentCls}-warning > ${iconCls}`]: {
       color: colorWarning,
     },
-    [`${componentCls}-info > ${iconCls},
-      ${componentCls}-loading > ${iconCls}`]: {
+    [`${componentCls}-info > ${iconCls}, ${componentCls}-loading > ${iconCls}`]: {
       color: colorInfo,
     },
   };
