@@ -448,7 +448,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   }
 
-  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
+  const uploadButtonCls = classNames(`${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: mergedDisabled,
   });
 

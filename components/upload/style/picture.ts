@@ -106,7 +106,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       display: 'inline-block',
       width: '100%',
 
-      [`${componentCls}${componentCls}-select`]: {
+      [`${componentCls}-select`]: {
         width: uploadPictureCardSize,
         height: uploadPictureCardSize,
         marginInlineEnd: token.marginXS,
@@ -240,7 +240,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       },
     },
     [`${componentCls}-wrapper${componentCls}-picture-circle-wrapper`]: {
-      [`${componentCls}${componentCls}-select`]: {
+      [`${componentCls}-select`]: {
         borderRadius: '50%',
       },
     },
