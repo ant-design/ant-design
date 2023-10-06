@@ -10,11 +10,11 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel'> {
   prefixCls?: string;
   current?: number;
   indicatorsRender?: (current: number, total: number) => ReactNode;
-  type?: 'default' | 'primary'; //	default	类型，影响底色与文字颜色
+  type?: 'default' | 'primary'; //	default type, affects the background color and text color
 }
 
 export interface TourStepProps extends RCTourStepProps {
-  cover?: ReactNode; // 展示的图片或者视频
+  cover?: ReactNode; // Display pictures or videos
   nextButtonProps?: {
     children?: ReactNode;
     onClick?: () => void;
@@ -28,7 +28,7 @@ export interface TourStepProps extends RCTourStepProps {
     style?: React.CSSProperties;
   };
   indicatorsRender?: (current: number, total: number) => ReactNode;
-  type?: 'default' | 'primary'; //	default	类型，影响底色与文字颜色
+  type?: 'default' | 'primary'; //	default type, affects the background color and text color
 }
 
 export interface TourLocale {
