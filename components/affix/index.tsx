@@ -77,8 +77,11 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
   const [placeholderStyle, setPlaceholderStyle] = React.useState<React.CSSProperties>();
 
+  const status = React.useRef<AffixStatus>(AffixStatus.None);
+
   const prevTarget = React.useRef<Window | HTMLElement | null>(null);
   const prevListener = React.useRef<EventListener>();
+
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -89,15 +92,22 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
 
   const internalOffsetTop = offsetBottom === undefined && offsetTop === undefined ? 0 : offsetTop;
 
-  const prepareMeasure = () => {
-    if (!fixedNodeRef.current || !placeholderNodeRef.current || !targetFunc) {
+  // =================== Measure ===================
+  const measure = () => {
+    if (
+      status.current !== AffixStatus.Prepare ||
+      !fixedNodeRef.current ||
+      !placeholderNodeRef.current ||
+      !targetFunc
+    ) {
       return;
     }
 
     const targetNode = targetFunc();
     if (targetNode) {
-      const newState: Partial<AffixState> = { status: AffixStatus.None };
-
+      const newState: Partial<AffixState> = {
+        status: AffixStatus.None,
+      };
       const placeholderRect = getTargetRect(placeholderNodeRef.current);
 
       if (
@@ -143,13 +153,18 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
         onChange?.(newState.lastAffix);
       }
 
+      status.current = newState.status!;
       setAffixStyle(newState.affixStyle);
       setPlaceholderStyle(newState.placeholderStyle);
       setLastAffix(newState.lastAffix);
     }
-    // Test if `updatePosition` called
+  };
+
+  const prepareMeasure = () => {
+    status.current = AffixStatus.Prepare;
+    measure();
     if (process.env.NODE_ENV === 'test') {
-      (props as any).onTestUpdatePosition?.();
+      (props as any)?.onTestUpdatePosition?.();
     }
   };
 
@@ -215,7 +230,6 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     // [Legacy] Wait for parent component ref has its value.
     // We should use target as directly element instead of function which makes element check hard.
     timer.current = setTimeout(addListeners);
-
     return () => removeListeners();
   }, []);
 
