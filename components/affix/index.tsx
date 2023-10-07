@@ -147,6 +147,10 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
       setPlaceholderStyle(newState.placeholderStyle);
       setLastAffix(newState.lastAffix);
     }
+    // Test if `updatePosition` called
+    if (process.env.NODE_ENV === 'test') {
+      (props as any).onTestUpdatePosition?.();
+    }
   };
 
   const updatePosition = throttleByAnimationFrame(() => {
@@ -228,7 +232,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     [rootClassName!]: affixStyle && rootClassName,
   });
 
-  const otherProps = omit(props, [
+  let otherProps = omit(props, [
     'prefixCls',
     'offsetTop',
     'offsetBottom',
@@ -237,6 +241,12 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     'affixPrefixCls',
     'rootClassName',
   ]);
+
+  if (process.env.NODE_ENV === 'test') {
+    otherProps = omit(otherProps as typeof otherProps & { onTestUpdatePosition: any }, [
+      'onTestUpdatePosition',
+    ]);
+  }
 
   return (
     <ResizeObserver onResize={updatePosition}>

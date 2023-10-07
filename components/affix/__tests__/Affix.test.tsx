@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import Affix from '..';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, waitFakeTimer } from '../../../tests/utils';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
@@ -13,6 +13,7 @@ interface AffixProps {
   offsetBottom?: number;
   style?: React.CSSProperties;
   onChange?: () => void;
+  onTestUpdatePosition?: () => void;
 }
 
 const AffixMounter: React.FC<AffixProps> = (props) => {
@@ -122,7 +123,7 @@ describe('Affix Render', () => {
 
   describe('updatePosition when target changed', () => {
     it('function change', () => {
-      document.body.innerHTML = '<div id="mounter" />';
+      document.body.innerHTML = `<div id="mounter" />`;
       const target = document.getElementById('mounter');
       const getTarget = () => target;
       const { container, rerender } = render(<Affix target={getTarget}>{null}</Affix>);
@@ -144,7 +145,7 @@ describe('Affix Render', () => {
       );
       await waitFakeTimer();
       await movePlaceholder(1000);
-      expect(container.querySelector<HTMLElement>('.ant-affix')).toBeTruthy();
+      expect(container.querySelector<HTMLDivElement>('.ant-affix')).toBeTruthy();
     });
 
     it('do not measure when hidden', async () => {
@@ -158,6 +159,39 @@ describe('Affix Render', () => {
       const secondAffixStyle = affixStyleEle ? affixStyleEle.getAttribute('style') : null;
 
       expect(firstAffixStyle).toEqual(secondAffixStyle);
+    });
+  });
+
+  describe('updatePosition when size changed', () => {
+    it('add class automatically', async () => {
+      document.body.innerHTML = '<div id="mounter" />';
+
+      const { container } = render(<AffixMounter offsetBottom={0} />, {
+        container: document.getElementById('mounter')!,
+      });
+
+      await waitFakeTimer();
+      await movePlaceholder(300);
+      expect(container.querySelector(`div[aria-hidden="true"]`)).toBeTruthy();
+      expect(container.querySelector('.ant-affix')?.getAttribute('style')).toBeTruthy();
+    });
+
+    // Trigger inner and outer element for the two <ResizeObserver>s.
+    ['.ant-btn', '.fixed'].forEach((selector) => {
+      it(`trigger listener when size change: ${selector}`, async () => {
+        const updateCalled = jest.fn();
+        const { container } = render(
+          <AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />,
+          { container: document.getElementById('mounter')! },
+        );
+
+        updateCalled.mockReset();
+        triggerResize(container.querySelector(selector)!);
+
+        await waitFakeTimer();
+
+        expect(updateCalled).toHaveBeenCalled();
+      });
     });
   });
 });
