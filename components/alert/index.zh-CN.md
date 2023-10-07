@@ -32,6 +32,7 @@ group:
 <code src="./demo/error-boundary.tsx">React 错误处理</code>
 <code src="./demo/custom-icon.tsx" debug>自定义图标</code>
 <code src="./demo/action.tsx">操作</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -56,3 +57,7 @@ group:
 | --- | --- | --- | --- | --- |
 | description | 自定义错误内容，如果未指定会展示报错堆栈 | ReactNode | {{ error stack }} |  |
 | message | 自定义错误标题，如果未指定会展示原生报错信息 | ReactNode | {{ error }} |  |
+
+## Design Token
+
+<ComponentTokenTable component="Alert"></ComponentTokenTable>

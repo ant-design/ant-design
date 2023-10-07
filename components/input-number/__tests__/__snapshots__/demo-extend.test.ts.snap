@@ -2,11 +2,10 @@
 
 exports[`renders components/input-number/demo/addon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -103,7 +102,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -516,7 +514,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -626,7 +623,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -850,7 +846,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number-group-wrapper"
@@ -1343,11 +1338,10 @@ exports[`renders components/input-number/demo/controls.tsx extend context correc
 
 exports[`renders components/input-number/demo/debug-token.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <div
       class="ant-input-number"
@@ -1685,11 +1679,10 @@ exports[`renders components/input-number/demo/disabled.tsx extend context correc
 
 exports[`renders components/input-number/demo/formatter.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <div
       class="ant-input-number"
@@ -1853,11 +1846,10 @@ exports[`renders components/input-number/demo/formatter.tsx extend context corre
 
 exports[`renders components/input-number/demo/keyboard.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <div
       class="ant-input-number"
@@ -1966,11 +1958,10 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
 
 exports[`renders components/input-number/demo/out-of-range.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-out-of-range"
@@ -2443,12 +2434,11 @@ exports[`renders components/input-number/demo/render-panel.tsx extend context co
 
 exports[`renders components/input-number/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-lg"
@@ -2529,7 +2519,6 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <div
       class="ant-input-number"
@@ -2610,7 +2599,6 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-sm"
@@ -2696,12 +2684,11 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
 
 exports[`renders components/input-number/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-status-error"
@@ -2780,7 +2767,6 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number ant-input-number-status-warning"
@@ -2859,7 +2845,6 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-error"

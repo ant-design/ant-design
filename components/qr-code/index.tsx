@@ -1,23 +1,20 @@
-'use client';
-
+import React, { useContext } from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
-import React, { useContext } from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import Button from '../button';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import Spin from '../spin';
-import theme from '../theme';
+import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
 import useStyle from './style/index';
 
-const { useToken } = theme;
-
 const QRCode: React.FC<QRCodeProps> = (props) => {
-  const { token } = useToken();
+  const [, token] = useToken();
   const {
     value,
     type = 'canvas',
@@ -59,19 +56,20 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
 
   const [locale] = useLocale('QRCode');
 
-  if (!value) {
-    if (process.env.NODE_ENV !== 'production') {
-      warning(false, 'QRCode', 'need to receive `value` props');
-    }
-    return null;
-  }
-
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('QRCode');
+
+    warning(!!value, 'usage', 'need to receive `value` props');
+
     warning(
       !(icon && errorLevel === 'L'),
-      'QRCode',
+      'usage',
       'ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
+  }
+
+  if (!value) {
+    return null;
   }
 
   const cls = classNames(prefixCls, className, rootClassName, hashId, {

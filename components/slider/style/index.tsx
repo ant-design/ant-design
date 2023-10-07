@@ -105,6 +105,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         transition: `background-color ${token.motionDurationMid}`,
       },
 
+      [`${componentCls}-track-draggable`]: {
+        // base on https://github.com/ant-design/ant-design/pull/42825/files#diff-9b9560a611e7ed0e6ef24ca9f1faff1e8c816d3f35ed6a1f73c36d2b42790aba
+        // zIndex: 1,
+        boxSizing: 'content-box',
+        backgroundClip: 'content-box',
+        border: 'solid rgba(0,0,0,0)',
+      },
+
       '&:hover': {
         [`${componentCls}-rail`]: {
           backgroundColor: token.railHoverBg,
@@ -290,6 +298,19 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
   const handlePos: keyof React.CSSProperties = horizontal ? 'insetBlockStart' : 'insetInlineStart';
   const markInset: keyof React.CSSProperties = horizontal ? 'top' : 'insetInlineStart';
 
+  const handlePosSize = (railSize * 3 - handleSize) / 2;
+  const draggableBorderSize = (handleSize - railSize) / 2;
+
+  const draggableBorder: React.CSSProperties = horizontal
+    ? {
+        borderWidth: `${draggableBorderSize}px 0`,
+        transform: `translateY(-${draggableBorderSize}px)`,
+      }
+    : {
+        borderWidth: `0 ${draggableBorderSize}px`,
+        transform: `translateX(-${draggableBorderSize}px)`,
+      };
+
   return {
     [railPadding]: railSize,
     [part]: railSize * 3,
@@ -303,8 +324,12 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       [part]: railSize,
     },
 
+    [`${componentCls}-track-draggable`]: {
+      ...draggableBorder,
+    },
+
     [`${componentCls}-handle`]: {
-      [handlePos]: (railSize * 3 - handleSize) / 2,
+      [handlePos]: handlePosSize,
     },
 
     [`${componentCls}-mark`]: {

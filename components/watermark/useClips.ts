@@ -69,7 +69,9 @@ export default function useClips() {
     // Copy from `ctx` and rotate
     rCtx.translate(realMaxSize / 2, realMaxSize / 2);
     rCtx.rotate(angle);
-    rCtx.drawImage(canvas, -contentWidth / 2, -contentHeight / 2);
+    if (contentWidth > 0 && contentHeight > 0) {
+      rCtx.drawImage(canvas, -contentWidth / 2, -contentHeight / 2);
+    }
 
     // Get boundary of rotated text
     function getRotatePos(x: number, y: number) {

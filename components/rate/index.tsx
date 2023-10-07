@@ -1,5 +1,3 @@
-'use client';
-
 import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
 import RcRate from 'rc-rate';

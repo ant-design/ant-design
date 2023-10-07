@@ -1,17 +1,13 @@
-import {
-  CheckOutlined,
-  LinkOutlined,
-  SnippetsOutlined,
-  ThunderboltOutlined,
-} from '@ant-design/icons';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
+import { Alert, Badge, Space, Tooltip } from 'antd';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -63,6 +59,31 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
+const useStyle = createStyles(({ token }) => {
+  const { borderRadius } = token;
+  return {
+    codeHideBtn: css`
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
+      border-top: 1px solid ${token.colorSplit};
+      color: ${token.colorTextSecondary};
+      transition: all 0.2s ease-in-out;
+      background-color: ${token.colorBgElevated};
+      cursor: pointer;
+      &:hover {
+        color: ${token.colorPrimary};
+      }
+      span {
+        margin-right: ${token.marginXXS}px;
+      }
+    `,
+  };
+});
+
 const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
@@ -86,6 +107,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
   const location = useLocation();
 
+  const { styles } = useStyle();
+
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
 
@@ -95,8 +118,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [copyTooltipOpen, setCopyTooltipOpen] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
   const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
@@ -115,18 +136,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const handleCodeExpand = (demo: string) => {
     setCodeExpand((prev) => !prev);
     track({ type: 'expand', demo });
-  };
-
-  const handleCodeCopied = (demo: string) => {
-    setCopied(true);
-    track({ type: 'copy', demo });
-  };
-
-  const onCopyTooltipOpenChange = (open: boolean) => {
-    setCopyTooltipOpen(open);
-    if (open) {
-      setCopied(false);
-    }
   };
 
   useEffect(() => {
@@ -199,12 +208,10 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches && matches[1] && !line.includes('antd')) {
+      if (matches?.[1]) {
         const paths = matches[1].split('/');
-        if (paths.length) {
-          const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-          acc[dep] = 'latest';
-        }
+        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
+        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
       }
       return acc;
     },
@@ -453,17 +460,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
-          <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
-            <Tooltip
-              open={copyTooltipOpen as boolean}
-              onOpenChange={onCopyTooltipOpenChange}
-              title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
-            >
-              {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
-                className: 'code-box-code-copy code-box-code-action',
-              })}
-            </Tooltip>
-          </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
             <a
               className="code-box-code-action"
@@ -509,8 +505,17 @@ createRoot(document.getElementById('container')).render(<Demo />);
             sourceCode={entryCode}
             jsxCode={jsx}
             styleCode={style}
-            onCodeTypeChange={(type) => setCodeType(type)}
+            onCodeTypeChange={setCodeType}
           />
+          <div
+            tabIndex={0}
+            role="button"
+            className={styles.codeHideBtn}
+            onClick={() => setCodeExpand(false)}
+          >
+            <UpOutlined />
+            <FormattedMessage id="app.demo.code.hide.simplify" />
+          </div>
         </section>
       )}
     </section>
@@ -525,10 +530,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
     if (!style) {
       return;
     }
-    const styleTag = document.createElement('style');
+    const styleTag = document.createElement('style') as HTMLStyleElement;
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
-    styleTag['data-demo-url'] = demoUrl;
+    (styleTag as any)['data-demo-url'] = demoUrl;
     document.head.appendChild(styleTag);
     return () => {
       document.head.removeChild(styleTag);
@@ -537,7 +542,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   if (version) {
     return (
-      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : undefined}>
         {codeBox}
       </Badge.Ribbon>
     );

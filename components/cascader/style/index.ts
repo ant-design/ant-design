@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -20,6 +21,26 @@ export interface ComponentToken {
    * @descEN Height of dropdown
    */
   dropdownHeight: number;
+  /**
+   * @desc 选项选中时背景色
+   * @descEN Background color of selected item
+   */
+  optionSelectedBg: string;
+  /**
+   * @desc 选项选中时字重
+   * @descEN Font weight of selected item
+   */
+  optionSelectedFontWeight: CSSProperties['fontWeight'];
+  /**
+   * @desc 选项内间距
+   * @descEN Padding of menu item
+   */
+  optionPadding: CSSProperties['padding'];
+  /**
+   * @desc 选项菜单（单列）内间距
+   * @descEN Padding of menu item (single column)
+   */
+  menuPadding: CSSProperties['padding'];
 }
 
 type CascaderToken = FullToken<'Cascader'>;
@@ -32,10 +53,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
     &${cascaderMenuItemCls}-expand ${cascaderMenuItemCls}-expand-icon,
     ${cascaderMenuItemCls}-loading-icon
   `;
-
-  const itemPaddingVertical = Math.round(
-    (token.controlHeight - token.fontSize * token.lineHeight) / 2,
-  );
 
   return [
     // =====================================================
@@ -91,7 +108,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
               minWidth: token.controlItemWidth,
               height: token.dropdownHeight,
               margin: 0,
-              padding: token.paddingXXS,
+              padding: token.menuPadding,
               overflow: 'auto',
               verticalAlign: 'top',
               listStyle: 'none',
@@ -106,7 +123,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
                 display: 'flex',
                 flexWrap: 'nowrap',
                 alignItems: 'center',
-                padding: `${itemPaddingVertical}px ${token.paddingSM}px`,
+                padding: token.optionPadding,
                 lineHeight: token.lineHeight,
                 cursor: 'pointer',
                 transition: `all ${token.motionDurationMid}`,
@@ -130,8 +147,8 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 
                 [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
                   [`&, &:hover`]: {
-                    fontWeight: token.fontWeightStrong,
-                    backgroundColor: token.controlItemBgActive,
+                    fontWeight: token.optionSelectedFontWeight,
+                    backgroundColor: token.optionSelectedBg,
                   },
                 },
 
@@ -170,8 +187,22 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Cascader', (token) => [genBaseStyle(token)], {
-  controlWidth: 184,
-  controlItemWidth: 111,
-  dropdownHeight: 180,
-});
+export default genComponentStyleHook(
+  'Cascader',
+  (token) => [genBaseStyle(token)],
+  (token) => {
+    const itemPaddingVertical = Math.round(
+      (token.controlHeight - token.fontSize * token.lineHeight) / 2,
+    );
+
+    return {
+      controlWidth: 184,
+      controlItemWidth: 111,
+      dropdownHeight: 180,
+      optionSelectedBg: token.controlItemBgActive,
+      optionSelectedFontWeight: token.fontWeightStrong,
+      optionPadding: `${itemPaddingVertical}px ${token.paddingSM}px`,
+      menuPadding: token.paddingXXS,
+    };
+  },
+);

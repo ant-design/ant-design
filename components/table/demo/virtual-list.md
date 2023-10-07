@@ -1,14 +1,7 @@
 ## zh-CN
 
-通过 `react-window` 引入虚拟滚动方案，实现 100000 条数据的高性能表格。
+通过 `virtual` 开启虚拟滚动，此时 `scroll.x` 与 `scroll.y` 必须设置且为 `number` 类型。
 
 ## en-US
 
-Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
-
-<style>
-  .virtual-table .ant-table-container:before,
-  .virtual-table .ant-table-container:after {
-    display: none;
-  }
-</style>
+Set `virtual` to enable virtual scroll, and `scroll.x` and `scroll.y` must be set at the same time with `number` type.

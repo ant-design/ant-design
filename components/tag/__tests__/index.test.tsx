@@ -147,7 +147,7 @@ describe('Tag', () => {
 
     const { container } = render(<Tag visible={false} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Tag] `visible` is deprecated, please use `visible && <Tag />` instead.',
+      'Warning: [antd: Tag] `visible` is deprecated. Please use `visible && <Tag />` instead.',
     );
     expect(container.querySelector('.ant-tag-hidden')).toBeTruthy();
 
@@ -196,6 +196,21 @@ describe('Tag', () => {
       const { container } = render(<Tag.CheckableTag checked={false} onChange={onChange} />);
       fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
       expect(onChange).toHaveBeenCalledWith(true);
+    });
+
+    it('should support ref', () => {
+      const ref = React.createRef<HTMLSpanElement>();
+      const { container } = render(
+        <Tag.CheckableTag checked={false} ref={ref}>
+          Tag Text
+        </Tag.CheckableTag>,
+      );
+      const refElement = ref.current;
+      const queryTarget = container.querySelector('.ant-tag');
+      expect(refElement instanceof HTMLSpanElement).toBe(true);
+      expect(refElement?.textContent).toBe('Tag Text');
+      expect(queryTarget?.textContent).toBe('Tag Text');
+      expect(refElement).toBe(queryTarget);
     });
   });
   it('should onClick is undefined', async () => {

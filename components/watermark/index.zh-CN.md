@@ -24,6 +24,7 @@ tag: New
 <code src="./demo/multi-line.tsx">多行水印</code>
 <code src="./demo/image.tsx">图片水印</code>
 <code src="./demo/custom.tsx">自定义配置</code>
+<code src="./demo/portal.tsx">Modal 与 Drawer</code>
 
 ## API
 
@@ -54,7 +55,7 @@ tag: New
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Watermark"></ComponentTokenTable>
 

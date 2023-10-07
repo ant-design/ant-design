@@ -1,5 +1,3 @@
-'use client';
-
 import InternalLayout, { Content, Footer, Header } from './layout';
 import Sider from './Sider';
 

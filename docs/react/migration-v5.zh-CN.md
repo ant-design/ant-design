@@ -18,7 +18,7 @@ tag: Updated
 ### 设计规范调整
 
 - 基础圆角调整，由统一的 `2px` 改为四级圆角，分别为 `2px` `4px` `6px` `8px`，分别应用于不同场景，比如默认尺寸的 Button 的圆角调整为了 `6px`。
-- 主色调整，由 <ColorChunk color="#1890ff" /></ColorChunk> 改为 <ColorChunk color="#1677ff" /></ColorChunk>。
+- 主色调整，由 `#1890ff` 改为 `#1677ff`。
 - 整体阴影调整，由原本的三级阴影调整为两级，分别用于常驻页面的组件（如 Card）和交互反馈（如 Dropdown）。
 - 部分组件内间距调整。
 - 整体去线框化。
@@ -308,6 +308,59 @@ export default () => (
 ### 旧版浏览器兼容
 
 Ant Design v5 使用 `:where` css selector 降低 CSS-in-JS hash 值优先级，如果你需要支持旧版本浏览器（如 IE 11、360 浏览器 等等）。可以通过 `@ant-design/cssinjs` 的 `StyleProvider` 去除降权操作。详情请参阅 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整)。
+
+## 多版本共存
+
+一般情况下，并不推荐多版本共存，它会让应用变得复杂（例如样式覆盖、ConfigProvider 不复用等问题）。我们更推荐使用微应用如 [qiankun](https://qiankun.umijs.org/) 等框架进行分页研发。
+
+### 通过别名安装 v5
+
+```bash
+$ npm install --save antd-v5@npm:antd@5
+# or
+$ yarn add antd-v5@npm:antd@5
+# or
+$ pnpm add antd-v5@npm:antd@5
+```
+
+对应的 package.json 为：
+
+```json
+{
+  "antd": "4.x",
+  "antd-v5": "npm:antd@5"
+}
+```
+
+现在，你项目中的 antd 还是 v4 版本，antd-v5 是 v5 版本。
+
+```tsx
+import React from 'react';
+import { Button as Button4 } from 'antd'; // v4
+import { Button as Button5 } from 'antd-v5'; // v5
+
+export default () => (
+  <>
+    <Button4 />
+    <Button5 />
+  </>
+);
+```
+
+接着配置 ConfigProvider 将 v5 `prefixCls` 改写，防止样式冲突：
+
+```tsx
+import React from 'react';
+import { ConfigProvider as ConfigProvider5 } from 'antd-v5';
+
+export default () => (
+  <ConfigProvider5 prefixCls="ant5">
+    <MyApp />
+  </ConfigProvider5>
+);
+```
+
+需要注意的是，npm 别名并不是所有的包管理器都有很好的支持。
 
 ## 遇到问题
 

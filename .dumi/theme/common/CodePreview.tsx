@@ -1,8 +1,43 @@
 import React, { useEffect, useMemo } from 'react';
-import Prism from 'prismjs';
+import { Tabs, Typography, Button } from 'antd';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
-import { Tabs } from 'antd';
+import Prism from 'prismjs';
+import { createStyles } from 'antd-style';
+
+const useStyle = createStyles(({ token, css }) => {
+  const { colorIcon, colorBgTextHover, antCls } = token;
+
+  return {
+    code: css`
+      position: relative;
+    `,
+
+    copyButton: css`
+      color: ${colorIcon};
+      position: absolute;
+      top: 0;
+      inset-inline-end: 16px;
+      width: 32px;
+      text-align: center;
+      background: ${colorBgTextHover};
+      padding: 0;
+    `,
+
+    copyIcon: css`
+      ${antCls}-typography-copy {
+        margin-inline-start: 0;
+      }
+      ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
+        color: ${colorIcon};
+
+        &:hover {
+          color: ${colorIcon};
+        }
+      }
+    `,
+  };
+});
 
 const LANGS = {
   tsx: 'TypeScript',
@@ -17,22 +52,16 @@ interface CodePreviewProps {
   onCodeTypeChange?: (activeKey: string) => void;
 }
 
-function toReactComponent(jsonML: any) {
+function toReactComponent(jsonML: any[]) {
   return toReactElement(jsonML, [
     [
       (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
-      (node: any, index: any) => {
-        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
+      (node: any, index: number) => {
         const attr = JsonML.getAttributes(node);
-        return React.createElement(
-          'pre',
-          {
-            key: index,
-            className: `language-${attr.lang}`,
-          },
-          React.createElement('code', {
-            dangerouslySetInnerHTML: { __html: attr.highlighted },
-          }),
+        return (
+          <pre key={index} className={`language-${attr.lang}`}>
+            <code dangerouslySetInnerHTML={{ __html: attr.highlighted }} />
+          </pre>
         );
       },
     ],
@@ -46,7 +75,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   onCodeTypeChange,
 }) => {
   // 避免 Tabs 数量不稳定的闪动问题
-  const initialCodes = {};
+  const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
   if (sourceCode) {
     initialCodes.tsx = '';
   }
@@ -57,7 +86,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
     initialCodes.style = '';
   }
   const [highlightedCodes, setHighlightedCodes] = React.useState(initialCodes);
-
+  const sourceCodes = {
+    tsx: sourceCode,
+    jsx: jsxCode,
+    style: styleCode,
+  } as Record<'tsx' | 'jsx' | 'style', string>;
   useEffect(() => {
     const codes = {
       tsx: Prism.highlight(sourceCode, Prism.languages.javascript, 'jsx'),
@@ -65,7 +98,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
       style: Prism.highlight(styleCode, Prism.languages.css, 'css'),
     };
     // 去掉空的代码类型
-    Object.keys(codes).forEach((key) => {
+    Object.keys(codes).forEach((key: keyof typeof codes) => {
       if (!codes[key]) {
         delete codes[key];
       }
@@ -74,12 +107,22 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   }, [jsxCode, sourceCode, styleCode]);
 
   const langList = Object.keys(highlightedCodes);
+
+  const { styles } = useStyle();
+
   const items = useMemo(
     () =>
-      langList.map((lang) => ({
+      langList.map((lang: keyof typeof LANGS) => ({
         label: LANGS[lang],
         key: lang,
-        children: toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }]),
+        children: (
+          <div className={styles.code}>
+            {toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])}
+            <Button type="text" className={styles.copyButton}>
+              <Typography.Text className={styles.copyIcon} copyable={{ text: sourceCodes[lang] }} />
+            </Button>
+          </div>
+        ),
       })),
     [JSON.stringify(highlightedCodes)],
   );
@@ -91,7 +134,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   if (langList.length === 1) {
     return toReactComponent([
       'pre',
-      { lang: langList[0], highlighted: highlightedCodes[langList[0]], className: 'highlight' },
+      {
+        lang: langList[0],
+        highlighted: highlightedCodes[langList[0] as keyof typeof LANGS],
+        className: 'highlight',
+      },
     ]);
   }
 

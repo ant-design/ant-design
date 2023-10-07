@@ -20,8 +20,8 @@ describe('notification', () => {
     await triggerMotionEnd();
 
     notification.config({
-      prefixCls: null,
-      getContainer: null,
+      prefixCls: undefined,
+      getContainer: undefined,
     });
 
     jest.useRealTimers();
@@ -153,7 +153,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
 
     notification.config({
-      prefixCls: null,
+      prefixCls: undefined,
     });
   });
 

@@ -31,6 +31,8 @@ demo:
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>大数据</code>
 <code src="./demo/block-node.tsx">占据整行</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/multiple-line.tsx" debug>多行</code>
 
 ## API
 
@@ -126,9 +128,9 @@ demo:
 | --- | --- |
 | scrollTo({ key: string \| number; align?: 'top' \| 'bottom' \| 'auto'; offset?: number }) | 虚拟滚动下，滚动到指定 key 条目 |
 
-## Design Token
+## 主题变量（Design Token）
 
-<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+<ComponentTokenTable component="Tree"></ComponentTokenTable>
 
 ## FAQ
 

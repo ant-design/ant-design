@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerAsc: 'Sortuj rosnąco',
     cancelSort: 'Usuń sortowanie',
   },
+  Tour: {
+    Next: 'Dalej',
+    Previous: 'Wróć',
+    Finish: 'Zakończ',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Anuluj',

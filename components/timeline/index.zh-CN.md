@@ -70,6 +70,6 @@ return (
 | children | 设置内容 | ReactNode | - |
 | position | 自定义节点位置 | `left` \| `right` | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Timeline"></ComponentTokenTable>

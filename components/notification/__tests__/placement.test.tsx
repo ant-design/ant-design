@@ -36,8 +36,8 @@ describe('Notification.placement', () => {
     await triggerMotionEnd();
 
     notification.config({
-      prefixCls: null,
-      getContainer: null,
+      prefixCls: undefined,
+      getContainer: undefined,
     });
 
     jest.useRealTimers();

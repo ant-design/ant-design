@@ -38,7 +38,7 @@ author: zombieJ
 
 ![Component CSS-in-JS](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yZMNSYVtxnAAAAAAAAAAAAAADrJ8AQ/original)
 
-也因此，我们发现可以复用这套机制，实现在在客户端侧感知组件样式是否已经注入过。
+也因此，我们发现可以复用这套机制，实现在客户端侧感知组件样式是否已经注入过。
 
 ## SSR HashMap
 

@@ -1,5 +1,3 @@
-'use client';
-
 import Col from './col';
 import useInternalBreakpoint from './hooks/useBreakpoint';
 import Row from './row';

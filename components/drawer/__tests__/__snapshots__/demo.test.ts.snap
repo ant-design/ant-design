@@ -93,11 +93,10 @@ exports[`renders components/drawer/demo/config-provider.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -218,14 +217,11 @@ exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
         viewBox="64 64 896 896"
         width="1em"
       >
-        <defs>
-          <style />
-        </defs>
         <path
           d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
         />
         <path
-          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+          d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
         />
       </svg>
     </span>
@@ -260,11 +256,10 @@ exports[`renders components/drawer/demo/no-mask.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <div
       class="ant-radio-group ant-radio-group-outline"
@@ -453,11 +448,10 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
   style="position:relative;z-index:999999"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         aria-checked="false"
@@ -486,7 +480,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         aria-checked="false"
@@ -515,7 +508,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         aria-checked="false"
@@ -576,11 +568,10 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-primary"

@@ -130,6 +130,13 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           textAlign: 'center',
           transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
         },
+
+        '&:last-child': {
+          '&::after': {
+            display: 'none',
+          },
+        },
+
         [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
           visibility: 'hidden',
         },

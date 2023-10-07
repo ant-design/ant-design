@@ -1116,13 +1116,32 @@ exports[`renders components/descriptions/demo/responsive.tsx extend context corr
               Database version: 3.4
               <br />
               Package: dds.mongo.mid
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Hardware Info
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <span>
+              CPU: 6 Core 3.5 GHz
               <br />
               Storage space: 10 GB
               <br />
               Replication factor: 3
               <br />
               Region: East China 1
-              <br />
             </span>
           </td>
         </tr>

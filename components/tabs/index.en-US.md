@@ -23,6 +23,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/centered.tsx">Centered</code>
 <code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/custom-indicator.tsx">Indicator</code>
 <code src="./demo/slide.tsx">Slide</code>
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
@@ -52,6 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
+| indicatorSize | Customize length of indicator, which is the same as tab by default | number \| (origin: number) => number | - | 5.9.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |

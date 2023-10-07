@@ -22,6 +22,7 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/async.tsx">Asynchronously close</code>
 <code src="./demo/footer.tsx">Customized Footer</code>
+<code src="./demo/footer-render.tsx">Customized Footer render function</code>
 <code src="./demo/hooks.tsx">Use hooks to get context</code>
 <code src="./demo/locale.tsx">Internationalization</code>
 <code src="./demo/manual.tsx">Manual to update destroy</code>
@@ -53,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
-| footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode | (OK and Cancel buttons) |  |
+| footer | Footer content, set as `footer={null}` when you don't need default buttons | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | (OK and Cancel buttons) |  |
 | forceRender | Force render Modal | boolean | false |  |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
@@ -103,7 +104,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | className | The className of container | string | - |  |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | content | Content | ReactNode | - |  |
-| footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode | - | 5.1.0 |
+| footer | Footer content, set as `footer: null` when you don't need default buttons | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
@@ -179,6 +180,14 @@ return <div>{contextHolder}</div>;
 // Return `true` when click `onOk` and `false` when click `onCancel`
 const confirmed = await modal.confirm({ ... });
 ```
+
+## footerRenderParams
+
+<!-- prettier-ignore -->
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| originNode | default node | React.ReactNode                   | -      |
+| extra      | extended options | { OkBtn: FC; CancelBtn: FC } | -      |
 
 ## Design Token
 

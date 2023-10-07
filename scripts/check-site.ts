@@ -36,6 +36,16 @@ describe('site test', () => {
     const { status, $ } = await render(`/${component}/`);
     expect(status).toBe(200);
     expect($('h1').text().toLowerCase()).toMatch(handleComponentName(component));
+
+    /**
+     * 断言组件的 api table 数量是否符合预期。
+     * 在 #45066, #45017 中，因为 markdown 写法问题，导致 api table 无法渲染。
+     * 结合每个组件页的 table 数量变动，可以判断出是否存在问题。
+     * （table 数量相对比较稳定，如果 PR 有新增，则应该更新这里快照）
+     */
+    const tables = $('.markdown table');
+
+    expect(tables.length).toMatchSnapshot();
   };
 
   beforeAll(() => {

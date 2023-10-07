@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import { Button, Radio, Space } from 'antd';
-import type { SpaceSize } from 'antd/es/space';
+import { Button, Radio, Slider, Space } from 'antd';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SpaceSize | [SpaceSize, SpaceSize]>('small');
-
+  const [size, setSize] = useState<SizeType | [SizeType, SizeType] | 'customize'>('small');
+  const [customSize, setCustomSize] = React.useState<number>(0);
   return (
     <>
       <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
-        <Radio value="small">Small</Radio>
-        <Radio value="middle">Middle</Radio>
-        <Radio value="large">Large</Radio>
+        {['small', 'middle', 'large', 'customize'].map((item) => (
+          <Radio key={item} value={item}>
+            {item}
+          </Radio>
+        ))}
       </Radio.Group>
       <br />
       <br />
-      <Space size={size}>
+      {size === 'customize' && (
+        <>
+          <Slider value={customSize} onChange={setCustomSize} />
+          <br />
+        </>
+      )}
+      <Space size={size !== 'customize' ? size : customSize}>
         <Button type="primary">Primary</Button>
         <Button>Default</Button>
         <Button type="dashed">Dashed</Button>

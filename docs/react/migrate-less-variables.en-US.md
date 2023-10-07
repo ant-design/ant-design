@@ -17,6 +17,10 @@ We could configure global token and component token for each component through t
 import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
+import { Checkbox, ConfigProvider, Radio } from 'antd';
+
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -42,7 +46,35 @@ export default App;
 
 ## Component Token
 
-<!-- ### Alert -->
+## Alert
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@alert-success-border-color` | `colorSuccessBorder` | Global token |
+| `@alert-success-bg-color` | `colorSuccessBg` | Global token |
+| `@alert-success-icon-color` | `colorSuccess` | Global token |
+| `@alert-info-border-color` | `colorInfoBorder` | Global token |
+| `@alert-info-bg-color` | `colorInfoBg` | Global token |
+| `@alert-info-icon-color` | `colorInfo` | Global token |
+| `@alert-warning-border-color` | `colorWarningBorder` | Global token |
+| `@alert-warning-bg-color` | `colorWarningBg` | Global token |
+| `@alert-warning-icon-color` | `colorWarning` | Global token |
+| `@alert-error-border-color` | `colorErrorBorder` | Global token |
+| `@alert-error-bg-color` | `colorErrorBg` | Global token |
+| `@alert-error-icon-color` | `colorError` | Global token |
+| `@alert-message-color` | `colorTextHeading` | Global token |
+| `@alert-text-color` | `colorText` | Global Token |
+| `@alert-close-color` | `colorIcon` | Global token |
+| `@alert-close-hover-color` | `colorIconHover` | Global token |
+| `@alert-padding-vertical` | `defaultPadding` | Control the whole padding |
+| `@alert-padding-horizontal` | `defaultPadding` | Control the whole padding |
+| `@alert-no-icon-padding-vertical` | - | Deprecated |
+| `@alert-with-description-no-icon-padding-vertical` | `withDescriptionPadding` | Control the whole padding |
+| `@alert-with-description-padding-vertical` | `withDescriptionPadding` | Control the whole padding |
+| `@alert-with-description-padding` | `withDescriptionPadding` | Control the whole padding |
+| `@alert-icon-top` | - | Deprecated |
+| `@alert-with-description-icon-size` | `withDescriptionIconSize` | - |
 
 ### Anchor
 
@@ -58,7 +90,7 @@ export default App;
 ### Avatar
 
 <!-- prettier-ignore -->
-| less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@avatar-size-base` | `containerSize` | - |
 | `@avatar-size-lg` | `containerSizeLG` | - |
@@ -73,12 +105,26 @@ export default App;
 | `@avatar-group-space` | `groupSpace` | - |
 | `@avatar-group-border-color` | `colorBorderBg` | Global Token |
 
-<!-- ### Badge -->
+### Badge
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@zindex-badge` | `indicatorZIndex` | - |
+| `@badge-height` | `indicatorHeight` | - |
+| `@badge-height-sm` | `indicatorHeightSM` | - |
+| `@badge-dot-size` | `dotSize` | - |
+| `@badge-font-size` | `textFontSize` | - |
+| `@badge-font-size-sm` | `textFontSizeSM` | - |
+| `@badge-font-weight` | `textFontWeight` | - |
+| `@badge-status-size` | `statusSize` | - |
+| `@badge-text-color` | `colorBgContainer` | Global Token |
+| `@badge-color` | `colorError` | Global Token |
 
 ### BreadCrumb
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@breadcrumb-base-color` | `itemColor` | - |
 | `@breadcrumb-last-item-color` | `lastItemColor` | - |
@@ -89,7 +135,54 @@ export default App;
 | `@breadcrumb-separator-color` | `separatorColor` | - |
 | `@breadcrumb-separator-margin` | `separatorMargin` | - |
 
-<!-- ### Button -->
+### Button
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@btn-font-weight` | `fontWeight` | - |
+| `@btn-border-radius-base` | `borderRadius` | Global Token |
+| `@btn-border-radius-sm` | `borderRadisuSM` | Global Token |
+| `@btn-border-width` | `lineWidth` | Global Token |
+| `@btn-border-style` | `lineStyle` | Global Token |
+| `@btn-shadow` | `defaultShadow` | - |
+| `@btn-primary-shadow` | `primaryShadow` | - |
+| `@btn-text-shadow` | - | Deprecated for no `text-shadow` any more |
+| `@btn-primary-color` | `primaryColor` | - |
+| `@btn-primary-bg` | `colorPrimary` | Global Token |
+| `@btn-default-color` | `colorText` | Global Token |
+| `@btn-default-bg` | `colorBgContainer` | Global Token |
+| `@btn-default-border` | `colorBorder` | Global Token |
+| `@btn-danger-color` | `dangerColor` | - |
+| `@btn-danger-bg` | `colorError` | Global Token |
+| `@btn-danger-border` | `colorError` | Global Token |
+| `@btn-disable-color` | `colorTextDisabled` | Global Token |
+| `@btn-disable-bg` | `colorBgContainerDisabled` | Global Token |
+| `@btn-disable-border` | `borderColorDisabled` | - |
+| `@btn-default-ghost-color` | `defaultGhostColor` | - |
+| `@btn-default-ghost-bg` | `ghostBg` | - |
+| `@btn-default-ghost-border` | `defaultGhostBorderColor` | - |
+| `@btn-font-size-lg` | `fontSizeLG` | Global Token |
+| `@btn-font-size-sm` | `fontSizeSM` | Global Token |
+| `@btn-padding-horizontal-base` | `paddingInline` | - |
+| `@btn-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@btn-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@btn-height-base` | `controlHeight` | Global Token |
+| `@btn-height-lg` | `controlHeightLG` | Global Token |
+| `@btn-height-sm` | `controlHeightSM` | Global Token |
+| `@btn-line-height` | `lineHeight` | Global Token |
+| `@btn-circle-size` | `controlHeight` | Global Token |
+| `@btn-circle-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-circle-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-size` | `controlHeight` | Global Token |
+| `@btn-square-size-lg` | `controlHeightLG` | Global Token |
+| `@btn-square-size-sm` | `controlHeightSM` | Global Token |
+| `@btn-square-only-icon-size` | `onlyIconSize` | - |
+| `@btn-square-only-icon-size-sm` | `onlyIconSizeSM` | - |
+| `@btn-square-only-icon-size-lg` | `onlyIconSizeLG` | - |
+| `@btn-group-border` | `groupBorderColor` | - |
+| `@btn-link-hover-bg` | `linkHoverBg` | - |
+| `@btn-text-hover-bg` | `textHoverBg` | - |
 
 ### Calendar
 
@@ -138,9 +231,19 @@ export default App;
 | `@carousel-dot-height` | `dotHeight` | - |
 | `@carousel-dot-active-width` | `dotActiveWidth` | - |
 
-<!-- ### Cascader -->
+### Cascader
 
-<!-- ### Checkbox -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@cascader-bg` | - | Deprecated |
+| `@cascader-item-selected-bg` | `optionSelectedBg` | - |
+| `@cascader-menu-bg` | - | Deprecated |
+| `@cascader-menu-border-color-split` | `colorSplit` | Global Token |
+| `@cascader-dropdown-vertical-padding` | `optionPadding` | - |
+| `@cascader-dropdown-edge-child-vertical-padding` | `menuPadding` | - |
+| `@cascader-dropdown-font-size` | - | Deprecated |
+| `@cascader-dropdown-line-height` | `lineHeight` | Global Token |
 
 ### Checkbox
 
@@ -150,12 +253,43 @@ export default App;
 | `@checkbox-size` | `controlInteractiveSize` | GlobalToken |
 | `@checkbox-color` | `colorPrimary` | - |
 | `@checkbox-check-color` | `colorWhite` | - |
-| `@checkbox-check-bg` | - | `colorPrimary` |
+| `@checkbox-check-bg` | `colorPrimary` | GlobalToken |
 | `@checkbox-border-width` | `lineWidth` | - |
 | `@checkbox-border-radius` | `borderRadiusSM` | - |
 | `@checkbox-group-item-margin-right` | - | Deprecated for style change |
 
-<!-- ### Collapse -->
+### Collapse
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@collapse-header-padding` | `headerPadding` | - |
+| `@collapse-header-padding-extra` | - | Depreacated |
+| `@collapse-header-bg` | `headerBg` | - |
+| `@collapse-content-padding` | `contentPadding` | - |
+| `@collapse-content-bg` | `contentBg` | - |
+| `@collapse-header-arrow-left` | - | Deprecated |
+
+### DatePicker
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@picker-bg` | `colorBgContainer` | Global Token |
+| `@picker-basic-cell-hover-color` | `cellHoverBg` | - |
+| `@picker-basic-cell-active-with-range-color` | `cellActiveWithRangeBg` | - |
+| `@picker-basic-cell-hover-with-range-color` | `cellHoverWithRangeBg` | - |
+| `@picker-basic-cell-disabled-bg` | `cellBgDisabled` | - |
+| `@picker-border-color` | `colorSplit` | Global Token |
+| `@picker-date-hover-range-border-color` | `cellRangeBorderColor` | - |
+| `@picker-date-hover-range-color` | `cellHoverWithRangeColor` | - |
+| `@picker-time-panel-column-width` | `timeColumnWidth` | - |
+| `@picker-time-panel-column-height` | `timeColumnHeight` | - |
+| `@picker-time-panel-cell-height` | `timeCellHeight` | - |
+| `@picker-panel-cell-height` | `cellHeight` | - |
+| `@picker-panel-cell-width` | `cellWidth` | - |
+| `@picker-text-height` | `textHeight` | - |
+| `@picker-panel-without-time-cell-height` | `withoutTimeCellHeight` | - |
 
 ### Descriptions
 
@@ -173,7 +307,16 @@ export default App;
 | `@descriptions-item-label-colon-margin-left` | `colonMarginLeft` | - |
 | `@descriptions-extra-color` | `extraColor` | - |
 
-<!-- ### Divider -->
+### Divider
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| --- | --- | --- |
+| `@divider-text-padding` | `textPaddingInline` | - |
+| `@divider-orientation-margin` | `orientationMargin` | - |
+| `@divider-color` | `colorSplit` | Global Token |
+| `@divider-vertical-gutter` | `verticalMarginInline` | - |
 
 ### Drawer
 
@@ -192,7 +335,7 @@ export default App;
 
 | Less variables                       | Component Token       | Note        |
 | ------------------------------------ | --------------------- | ----------- |
-| `@dropdown-selected-color`           | `colorPrimary`        | -           |
+| `@dropdown-selected-color`           | `colorPrimary`        | GlobalToken |
 | `@dropdown-menu-submenu-disabled-bg` | `colorBgElevated`     | GlobalToken |
 | `@dropdown-selected-bg`              | `controlItemBgActive` | GlobalToken |
 
@@ -203,7 +346,23 @@ export default App;
 | --- | --- | --- |
 | `@empty-font-size` | `fontSize` | GlobalToken |
 
-<!-- ### Form -->
+### Form
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@label-required-color` | `labelRequiredMarkColor` | - |
+| `@label-color` | `labelColor` | - |
+| `@form-warning-input-bg` | - | Deprecated |
+| `@form-item-margin-bottom` | `itemMarginBottom` | - |
+| `@form-item-trailing-colon` | - | Deprecated |
+| `@form-vertical-label-padding` | `verticalLabelPadding` | - |
+| `@form-vertical-label-margin` | `verticalLabelMargin` | - |
+| `@form-item-label-font-size` | `labelFontSize` | - |
+| `@form-item-label-height` | `labelHeight` | - |
+| `@form-item-label-colon-margin-right` | `labelColonMarginInlineEnd` | - |
+| `@form-item-label-colon-margin-left` | `labelColonMarginInlineStart` | - |
+| `@form-error-input-bg` | - | Deprecated |
 
 ### Image
 
@@ -218,9 +377,65 @@ export default App;
 | `@image-preview-operation-color` | `previewOperationColor` | - |
 | `@image-preview-operation-disabled-color` | `previewOperationColorDisabled` | - |
 
-<!-- ### Input -->
+### Input
 
-<!-- ### Layout -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-height-base` | `controlHeight` | Global Token |
+| `@input-height-lg` | `controlHeightLG` | Global Token |
+| `@input-height-sm` | `controlHeightSM` | Global Token |
+| `@input-padding-horizontal` | `paddingInline` | - |
+| `@input-padding-horizontal-base` | `paddingInline` | - |
+| `@input-padding-horizontal-sm` | `paddingInlineSM` | - |
+| `@input-padding-horizontal-lg` | `paddingInlineLG` | - |
+| `@input-padding-vertical-base` | `paddinBlock` | - |
+| `@input-padding-vertical-sm` | `paddingBlockSM` | - |
+| `@input-padding-vertical-lg` | `paddingBlockLG` | - |
+| `@input-placeholder-color` | `colorTextPlaceholder` | Global Token |
+| `@input-color` | `colorText` | Global Token |
+| `@input-icon-color` | - | 已废弃 |
+| `@input-border-color` | `colorBorder` | Global Token |
+| `@input-bg` | `colorBgContainer` | Global Token |
+| `@input-addon-bg` | `addonBg` | - |
+| `@input-hover-border-color` | `hoverBorderColor` | - |
+| `@input-disabled-bg` | `colorBgContainerDisabled` | Global Token |
+| `@input-outline-offset` | `activeShadow` | Control box-shadow when active |
+| `@input-icon-hover-color` | `colorIconHover` | Global Token |
+| `@input-disabled-color` | `colorTextDisabled` | Global Token |
+
+### InputNumber
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@input-number-hover-border-color` | `hoverBorderColor` | - |
+| `@input-number-handler-active-bg` | `handleActiveBg` | - |
+| `@input-number-handler-hover-bg` | `handleHoverColor` | Wrong usage in 4.x, which is actually text color |
+| `@input-number-handler-bg` | `handleBg` | - |
+| `@input-number-handler-border-color` | `handleBorderColor` | - |
+
+### Layout
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@layout-body-background` | `bodyBg` | - |
+| `@layout-header-background` | `headerBg` | - |
+| `@layout-header-height` | `headerHeight` | - |
+| `@layout-header-padding` | `headerPadding` | - |
+| `@layout-header-color` | `headerColor` | - |
+| `@layout-footer-padding` | `footerPadding` | - |
+| `@layout-footer-background` | `footerBg` | - |
+| `@layout-sider-background` | `siderBg` | - |
+| `@layout-trigger-height` | `triggerHeight` | - |
+| `@layout-trigger-background` | `triggerBg` | - |
+| `@layout-trigger-color` | `triggerColor` | - |
+| `@layout-zero-trigger-width` | `zeroTriggerWidth` | - |
+| `@layout-zero-trigger-height` | `zeroTriggerHeight` | - |
+| `@layout-sider-background-light` | `lightSiderBg` | - |
+| `@layout-trigger-background-light` | `lightTriggerBg` | - |
+| `@layout-trigger-color-light` | `lightTriggerColor` | - |
 
 ### List
 
@@ -350,7 +565,7 @@ export default App;
 <!-- prettier-ignore -->
 | Less variables | Component Token | Note |
 | --- | --- | --- |
-| `@popover-bg` | `colorBgContainer` | - |
+| `@popover-bg` | `colorBgElevated` | GlobalToken |
 | `@popover-color` | `colorText` | GlobalToken |
 | `@popover-min-width` | `minWidth` | - |
 | `@popover-min-height` | - | Deprecated  for style change |
@@ -360,7 +575,19 @@ export default App;
 | `@popover-distance` | `marginXXS` | Global Token |
 | `@popover-padding-horizontal` | - | Deprecated for style change |
 
-<!-- ### Progress -->
+### Progress
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@progress-default-color` | `defaultColor` | - |
+| `@progress-remaining-color` | `remainingColor` | - |
+| `@progress-info-text-color` | `colorText` | Global Token |
+| `@progress-text-color` | `circleTextColor` | - |
+| `@progress-radius` | `lineBorderRadius` | - |
+| `@progress-steps-item-bg` | `remainingColor` | - |
+| `@progress-text-font-size` | `fontSizeSM` | Global Token |
+| `@progress-circle-text-font-size` | `circleTextFontSize` | - |
 
 ### Radio
 
@@ -416,7 +643,32 @@ export default App;
 | `@segmented-label-hover-color` | `itemHoverColor` | - |
 | `@segmented-selected-bg` | `itemSelectedBg` | - |
 
-<!-- ### Select -->
+### Select
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@select-border-color` | `colorBorder` | Global Token |
+| `@select-item-selected-color` | `optionSelectedColor` | - |
+| `@select-item-selected-font-weight` | `optionSelectedFontWeight` | - |
+| `@select-dropdown-bg` | `colorBgElevated` | Global Token |
+| `@select-item-selected-bg` | `optionSelectedBg` | - |
+| `@select-item-active-bg` | `optionActiveBg` | - |
+| `@select-dropdown-vertical-padding` | `optionPadding` | Control the whole padding |
+| `@select-dropdown-font-size` | `optionFontSize` | - |
+| `@select-dropdown-line-height` | `optionLineHeight` | - |
+| `@select-dropdown-height` | `optionHeight` | - |
+| `@select-background` | `selectorBg` | - |
+| `@select-clear-background` | `clearBg` | - |
+| `@select-selection-item-bg` | `multipleItemBg` | - |
+| `@select-selection-item-border-color` | `multipleItemBorderColor` | - |
+| `@select-single-item-height-lg` | `singleItemHeightLG` | - |
+| `@select-multiple-item-height` | `multipleItemHeight` | - |
+| `@select-multiple-item-height-lg` | `multipleItemHeightLG` | - |
+| `@select-multiple-item-spacing-half` | - | Deprecated |
+| `@select-multiple-disabled-background` | `multipleSelectorBgDisabled` | - |
+| `@select-multiple-item-disabled-color` | `multipleItemColorDisabled` | - |
+| `@select-multiple-item-disabled-border-color` | `multipleItemBorderColorDisabled` | - |
 
 ### Skeleton
 
@@ -434,7 +686,7 @@ export default App;
 ### Slider
 
 <!-- prettier-ignore -->
-| Less 变量 | Component Token | 备注 |
+| Less variables | Component Token | Note |
 | --- | --- | --- |
 | `@slider-margin` | - | Could be customized with `className` or `style` |
 | `@slider-rail-background-color` | `railBg` | - |
@@ -456,6 +708,15 @@ export default App;
 | `@slider-dot-border-color-active` | `dotActiveBorderColor` | - |
 | `@slider-disabled-color` | `trackBgDisabled` | - |
 | `@slider-disabled-background-color` | - | Deprecated |
+
+### Spin
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@spin-dot-size-sm` | `dotSizeSM` | - |
+| `@spin-dot-size` | `dotSize` | - |
+| `@spin-dot-size-lg` | `dotSizeLG` | - |
 
 ### Statistic
 
@@ -493,9 +754,65 @@ export default App;
 | `@steps-vertical-tail-width` | - | Deprecated |
 | `@steps-vertical-tail-width-sm` | - | Deprecated |
 
-<!-- ### Switch -->
+### Switch
 
-<!-- ### Table -->
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@switch-height` | `trackHeight` | - |
+| `@switch-sm-height` | `trackHeightSM` | - |
+| `@switch-min-width` | `trackMinWidth` | - |
+| `@switch-sm-min-width` | `trackMinWidthSM` | - |
+| `@switch-disabled-opacity` | `opacityLoading` | Global Token |
+| `@switch-color` | `colorPrimary` | Global Token |
+| `@switch-bg` | `handleBg` | - |
+| `@switch-shadow-color` | `handleShadow` | Control `box-shadow`, not only shadow color |
+| `@switch-padding` | `trackPadding` | - |
+| `@switch-inner-margin-min` | `innerMinMargin` | - |
+| `@switch-inner-margin-max` | `innerMaxMargin` | - |
+| `@switch-sm-inner-margin-min` | `innerMinMarginSM` | - |
+| `@switch-sm-inner-margin-max` | `innerMaxMarginSM` | - |
+
+### Table
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@table-bg` | `colorBgContainer` | Global Token |
+| `@table-header-bg` | `headerBg` | - |
+| `@table-header-color` | `headerColor` | - |
+| `@table-header-sort-bg` | `headerSortActiveBg` | - |
+| `@table-body-sort-bg` | `bodySortActiveBg` | - |
+| `@table-row-hover-bg` | `rowHoverBg` | - |
+| `@table-selected-row-color` | `colorText` | Global Token |
+| `@table-selected-row-bg` | `rowSelectedBg` | - |
+| `@table-body-selected-sort-bg` | - | Deprecated, same as `rowSelectedBg` |
+| `@table-selected-row-hover-bg` | `rowSelectedHoverBg` | - |
+| `@table-expanded-row-bg` | `rowExpandedBg` | - |
+| `@table-padding-vertical` | `cellPaddingBlock` | - |
+| `@table-padding-horizontal` | `cellPaddingInline` | - |
+| `@table-padding-vertical-md` | `cellPaddingBlockMD` | - |
+| `@table-padding-horizontal-md` | `cellPaddingInlineMD` | - |
+| `@table-padding-vertical-sm` | `cellPaddingBlockSM` | - |
+| `@table-padding-horizontal-sm` | `cellPaddingInlineSM` | - |
+| `@table-border-color` | `borderColor` | - |
+| `@table-border-radius-base` | `headerBorderRadius` | - |
+| `@table-footer-bg` | `footerBg` | - |
+| `@table-footer-color` | `footerColor` | - |
+| `@table-header-bg-sm` | - | Deprecated, same as `headerBg` |
+| `@table-font-size` | `cellFontSize` | - |
+| `@table-font-size-md` | `cellFontSizeMD` | - |
+| `@table-font-size-sm` | `cellFontSizeSM` | - |
+| `@table-header-cell-split-color` | `headerSplitColor` | - |
+| `@table-header-sort-active-bg` | `headerSortHoverBg` | Misused in v4, and used as hover bg actually |
+| `@table-fixed-header-sort-active-bg` | `fixedHeaderSortActiveBg` | - |
+| `@table-header-filter-active-bg` | `headerFilterHoverBg` | - |
+| `@table-filter-btns-bg` | - | Deprecated, same as `filterDropdownBg` |
+| `@table-filter-dropdown-bg` | `filterDropdownBg` | - |
+| `@table-expand-icon-bg` | `expandIconBg` | - |
+| `@table-selection-column-width` | `selectionColumnWidth` | - |
+| `@table-sticky-scroll-bar-bg` | `stickyScrollBarBg` | - |
+| `@table-sticky-scroll-bar-radius` | `stickyScrollBarBorderRadius` | - |
 
 ### Tabs
 
@@ -551,8 +868,6 @@ export default App;
 | `@timeline-dot-bg` | `dotBg` | - |
 | `@timeline-item-padding-bottom` | `itemPaddingBottom` | - |
 
-<!-- ### TimePicker -->
-
 ### Tooltip
 
 <!-- prettier-ignore -->
@@ -563,7 +878,7 @@ export default App;
 | `@tooltip-bg` | `colorBgSpotlight` | Global Token |
 | `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
 | `@tooltip-distance` | `marginXXS` | Global Token |
-| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`, Deprecated |
 | `@tooltip-border-radius` | `borderRadius` | Global Token |
 
 ### Transfer
@@ -580,7 +895,18 @@ export default App;
 | `@transfer-item-padding-vertical` | `itemPaddingBlock` | - |
 | `@transfer-list-search-icon-top` | - | Deprecated |
 
-<!-- ### Tree -->
+### Tree 树形控件
+
+<!-- prettier-ignore -->
+| Less variables | Component Token | Note |
+| --- | --- | --- |
+| `@tree-bg` | `colorBgContainer` | Global Token |
+| `@tree-title-height` | `titleHeight` | - |
+| `@tree-child-padding` | - | Deprecated |
+| `@tree-directory-selected-color` | `directoryNodeSelectedColor` | - |
+| `@tree-directory-selected-bg` | `directoryNodeSelectedBg` | - |
+| `@tree-node-hover-bg` | `nodeHoverBg` | - |
+| `@tree-node-selected-bg` | `nodeSelectedBg` | - |
 
 ### Typography
 

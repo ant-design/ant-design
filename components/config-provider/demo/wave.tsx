@@ -62,7 +62,7 @@ const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) =
   // Motion
   requestAnimationFrame(() => {
     dot.ontransitionend = () => {
-      holder.parentElement?.removeChild(holder);
+      holder.remove();
     };
 
     dot.style.width = '200px';

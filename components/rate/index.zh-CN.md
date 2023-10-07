@@ -58,6 +58,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Rate"></ComponentTokenTable>

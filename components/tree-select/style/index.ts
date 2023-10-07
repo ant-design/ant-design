@@ -1,7 +1,10 @@
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { genTreeStyle } from '../../tree/style';
+import type { TreeSharedToken } from '../../tree/style';
+import { genTreeStyle, initComponentToken } from '../../tree/style';
+
+export interface ComponentToken extends TreeSharedToken {}
 
 interface TreeSelectToken extends FullToken<'TreeSelect'> {
   treePrefixCls: string;
@@ -25,7 +28,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
         // ====================== Tree ======================
         genTreeStyle(
           treePrefixCls,
-          mergeToken<AliasToken>(token, { colorBgContainer: colorBgElevated }),
+          mergeToken<AliasToken & TreeSharedToken>(token, { colorBgContainer: colorBgElevated }),
         ),
         {
           [treeCls]: {
@@ -64,8 +67,12 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
 
 // ============================== Export ==============================
 export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
-  return genComponentStyleHook('TreeSelect', (token) => {
-    const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
-    return [genBaseStyle(treeSelectToken)];
-  })(prefixCls);
+  return genComponentStyleHook(
+    'TreeSelect',
+    (token) => {
+      const treeSelectToken = mergeToken<TreeSelectToken>(token, { treePrefixCls });
+      return [genBaseStyle(treeSelectToken)];
+    },
+    initComponentToken,
+  )(prefixCls);
 }

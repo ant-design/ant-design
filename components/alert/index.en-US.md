@@ -31,6 +31,7 @@ Alert component for feedback.
 <code src="./demo/error-boundary.tsx">ErrorBoundary</code>
 <code src="./demo/custom-icon.tsx" debug>Custom Icon</code>
 <code src="./demo/action.tsx">Custom action</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -55,3 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ----------- | -------------------------------- | --------- | ----------------- | ------- |
 | description | Custom error description to show | ReactNode | {{ error stack }} |         |
 | message     | Custom error message to show     | ReactNode | {{ error }}       |         |
+
+## Design Token
+
+<ComponentTokenTable component="Alert"></ComponentTokenTable>

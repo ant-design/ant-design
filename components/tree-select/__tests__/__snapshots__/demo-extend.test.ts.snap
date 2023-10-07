@@ -1324,7 +1324,7 @@ Array [
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-topLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 300px; max-height: 400px; overflow: auto;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto; min-width: 300px;"
     >
       <div>
         <div>
@@ -1637,7 +1637,7 @@ Array [
 
 exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: Select] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+  "Warning: [antd: TreeSelect] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
 ]
 `;
 
@@ -1682,12 +1682,12 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
         <div>
           <div
-            class="ant-select-tree"
+            class="ant-select-tree ant-select-tree-active-focused"
             role="tree"
           >
             <div>
@@ -1840,12 +1840,11 @@ If you used to conditionally omit it with %s={condition && value}, pass %s={cond
 
 exports[`renders components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
@@ -2694,11 +2693,10 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
 
 exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
@@ -2727,7 +2725,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="true"
@@ -2756,7 +2753,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
