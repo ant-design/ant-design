@@ -12,19 +12,19 @@ author: Redjue
 
 ### RGB 色彩模型
 
-`RGB` 色彩模型是通过三原色（红、绿、蓝）的不同组合来表示色彩的，每个原色的取值范围是 0-255，三原色的组合可以表示 256<sup>3</sup> 种颜色，这些颜色可以组成一个立方体，如下图所示： ![RGB](https://user-images.githubusercontent.com/21119589/266228482-f1ff94b1-e7ca-40c5-8512-1bc5ab79c388.jpg)
+`RGB` 色彩模型是通过三原色（红、绿、蓝）的不同组合来表示色彩的，每个原色的取值范围是 0-255，三原色的组合可以表示 256<sup>3</sup> 种颜色，这些颜色可以组成一个立方体，如下图所示： ![RGB](https://user-images.githubusercontent.com/21119589/268834307-79fca808-d3a3-4fe8-b370-ea1ec472023c.png)
 
-在 `RGB` 色彩模型中，每个颜色都可以用一个三元组 `(R, G, B)` 来表示，其中 `R` 表示红色的取值，`G` 表示绿色的取值，`B` 表示蓝色的取值。例如，红色可以表示为 `(255, 0, 0)`，绿色可以表示为 `(0, 255, 0)`，蓝色可以表示为 `(0, 0, 255)`。
+在 `RGB` 色彩模型中，每个颜色都可以用一个三元组 `(R, G, B)` 来表示，其中 `R` 表示红色的取值，`G` 表示绿色的取值，`B` 表示蓝色的取值。例如，红色可以表示为 `rgb(255, 0, 0)`，绿色可以表示为 `rgb(0, 255, 0)`，蓝色可以表示为 `rgb(0, 0, 255)`。
 
 ### HSV/HSB 色彩模型
 
-`HSV` 色彩模型是通过色相（Hue）、饱和度（Saturation）、明度（Value）来表示色彩的，其中色相的取值范围是 0-360，饱和度和明度的取值范围是 0-100。HSV 色彩模型可以用一个圆锥体来表示，如下图所示： ![HSV](https://user-images.githubusercontent.com/21119589/266231236-d68ad9d7-9654-4bc5-8489-7cc52f2aabb1.png)
+`HSV` 色彩模型是通过色相（Hue）、饱和度（Saturation）、明度（Value）来表示色彩的，其中色相的取值范围是 0-360，饱和度和明度的取值范围是 0-100。HSV 色彩模型可以用一个圆锥体来表示，如下图所示： ![HSV](https://user-images.githubusercontent.com/21119589/268834741-83940b90-c709-492b-8a7e-f59d317411e9.png)
 
-在 `HSV` 色彩模型中，每个颜色都可以用一个三元组 `(H, S, V)` 来表示，其中 `H` 表示色相的取值，`S` 表示饱和度的取值，`V` 表示明度的取值。例如，红色可以表示为 `(0, 100, 100)`，绿色可以表示为 `(120, 100, 100)`，蓝色可以表示为 `(240, 100, 100)`。
+在 `HSV` 色彩模型中，每个颜色都可以用一个三元组 `(H, S, V)` 来表示，其中 `H` 表示色相的取值，`S` 表示饱和度的取值，`V` 表示明度的取值。例如，红色可以表示为 `hsv(0, 100, 100)`，绿色可以表示为 `hsv(120, 100, 100)`，蓝色可以表示为 `hsv(240, 100, 100)`。
 
 ### HEX 色彩模型
 
-`HEX` 色彩模型是通过十六进制数来表示色彩的，其中前两位表示红色的取值，中间两位表示绿色的取值，后两位表示蓝色的取值。例如，红色可以表示为 `#FF0000`，绿色可以表示为 `#00FF00`，蓝色可以表示为 `#0000FF`。如下图所示： ![HEX](https://user-images.githubusercontent.com/21119589/266569791-7f6afedd-3b84-4ee1-8c98-d3d4b16e8317.png)
+`HEX` 色彩模型是通过十六进制数来表示色彩的，其中前两位表示红色的取值，中间两位表示绿色的取值，后两位表示蓝色的取值。例如，红色可以表示为 `#FF0000`，绿色可以表示为 `#00FF00`，蓝色可以表示为 `#0000FF`。如下图所示： ![HEX](https://user-images.githubusercontent.com/21119589/268841812-1b8310f5-322b-45ec-b768-d4115cf7091d.png)
 
 这也是我们最常见的颜色表示方式，因为它可以直接在 CSS 中使用。而且表示方式非常简单，只需要将 RGB 色彩模型中的三个数字转换为十六进制数即可。
 
@@ -111,3 +111,9 @@ const alpha = (offset.x + centerOffsetX) / width;
 ## 总结
 
 通过这次开发之旅，我对色彩模型有了更深入的了解，也对 **Ant Design** 的开发流程有了更深入的了解。感谢 **Ant Design** 团队给我这次机会，也感谢大家的阅读。如果对细节实现感兴趣的童鞋，可以移步 [@rc-component/color-picker](https://github.com/react-component/color-picker) 查看源码实现。
+
+## 图片来源
+
+- https://zh.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E8%89%B2%E5%85%89%E6%A8%A1%E5%BC%8F#/media/File:RGB_color_solid_cube.png
+- https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4#/media/File:HSV_cone.png
+- https://zh.wikipedia.org/wiki/%E7%BD%91%E9%A1%B5%E9%A2%9C%E8%89%B2#/media/File:Web_Color_Charts.svg

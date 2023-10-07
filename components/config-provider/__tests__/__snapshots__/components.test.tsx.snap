@@ -42316,6 +42316,7 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
     >
       <input
         accept=""
+        disabled=""
         style="display: none;"
         type="file"
       />

@@ -162,6 +162,20 @@ exports[`renders components/button/demo/chinese-chars-loading.tsx extend context
     class="ant-space-item"
   >
     <button
+      class="ant-btn ant-btn-default ant-btn-two-chinese-chars"
+      type="button"
+    >
+      <span>
+        <span>
+          部署
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
       class="ant-btn ant-btn-default ant-btn-loading"
       type="button"
     >
@@ -1958,41 +1972,35 @@ Array [
         Button 2
       </span>
     </button>
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display: inline-block; cursor: not-allowed;"
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
-        disabled=""
-        style="pointer-events: none;"
-        type="button"
+      <span
+        class="ant-btn-icon"
       >
         <span
-          class="ant-btn-icon"
+          aria-label="download"
+          class="anticon anticon-download"
+          role="img"
         >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="download"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
         </span>
-      </button>
-    </span>
+      </span>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -2080,41 +2088,35 @@ Array [
         Button 2
       </span>
     </button>
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display: inline-block; cursor: not-allowed;"
+    <button
+      class="ant-btn ant-btn-primary ant-btn-icon-only"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
-        disabled=""
-        style="pointer-events: none;"
-        type="button"
+      <span
+        class="ant-btn-icon"
       >
         <span
-          class="ant-btn-icon"
+          aria-label="download"
+          class="anticon anticon-download"
+          role="img"
         >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="download"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
         </span>
-      </button>
-    </span>
+      </span>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
@@ -2202,41 +2204,35 @@ Array [
         Button 2
       </span>
     </button>
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display: inline-block; cursor: not-allowed;"
+    <button
+      class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
-        disabled=""
-        style="pointer-events: none;"
-        type="button"
+      <span
+        class="ant-btn-icon"
       >
         <span
-          class="ant-btn-icon"
+          aria-label="download"
+          class="anticon anticon-download"
+          role="img"
         >
-          <span
-            aria-label="download"
-            class="anticon anticon-download"
-            role="img"
+          <svg
+            aria-hidden="true"
+            data-icon="download"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="download"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
-          </span>
+            <path
+              d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
         </span>
-      </button>
-    </span>
+      </span>
+    </button>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"

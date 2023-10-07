@@ -1,11 +1,11 @@
-export default function use<T>(promise: PromiseLike<T>): T {
+function use<T>(promise: PromiseLike<T>): T {
   const internal: PromiseLike<T> & {
     status?: 'pending' | 'fulfilled' | 'rejected';
     value?: T;
     reason?: any;
   } = promise;
   if (internal.status === 'fulfilled') {
-    return internal.value;
+    return internal.value as T;
   }
   if (internal.status === 'rejected') {
     throw internal.reason;
@@ -26,3 +26,5 @@ export default function use<T>(promise: PromiseLike<T>): T {
     throw internal;
   }
 }
+
+export default use;

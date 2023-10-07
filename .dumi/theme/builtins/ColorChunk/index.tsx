@@ -4,7 +4,7 @@ import * as React from 'react';
 
 interface ColorChunkProps {
   children?: React.ReactNode;
-  color?: ColorInput;
+  value?: ColorInput;
 }
 
 const useStyle = createStyles(({ token, css }) => ({
@@ -27,12 +27,12 @@ const useStyle = createStyles(({ token, css }) => ({
 
 const ColorChunk: React.FC<ColorChunkProps> = (props) => {
   const { styles } = useStyle();
-  const { color, children } = props;
+  const { value, children } = props;
 
   const dotColor = React.useMemo(() => {
-    const _color = new TinyColor(color).toHex8String();
+    const _color = new TinyColor(value).toHex8String();
     return _color.endsWith('ff') ? _color.slice(0, -2) : _color;
-  }, [color]);
+  }, [value]);
 
   return (
     <span className={styles.codeSpan}>

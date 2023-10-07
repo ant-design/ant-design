@@ -26,6 +26,10 @@ const GlobalStyle: React.FC = () => {
         .markdown img {
           max-width: calc(100% - 32px);
           max-height: 100%;
+        }
+
+        .markdown > a > img,
+        .markdown > img {
           display: block;
           margin: 0 auto;
         }
@@ -366,13 +370,12 @@ const GlobalStyle: React.FC = () => {
               &:first-child {
                 width: 18%;
                 min-width: 58px;
-                color: #595959;
+                color: ${token.colorText};
                 font-weight: 600;
                 white-space: nowrap;
               }
 
               &:nth-child(2) {
-                width: 55%;
                 min-width: 160px;
               }
 

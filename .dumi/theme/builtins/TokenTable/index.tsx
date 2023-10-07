@@ -78,7 +78,7 @@ export function useColumns(): Exclude<TableProps<TokenData>['columns'], undefine
           typeof record.value === 'string' &&
           (record.value.startsWith('#') || record.value.startsWith('rgb'));
         if (isColor) {
-          return <ColorChunk color={record.value}>{record.value}</ColorChunk>;
+          return <ColorChunk value={record.value}>{record.value}</ColorChunk>;
         }
         return typeof record.value !== 'string' ? JSON.stringify(record.value) : record.value;
       },
