@@ -205,7 +205,7 @@ Same as above. You can adjust antd css priority to override. Related issue: [#38
 
 ## How to let CSS-in-JS work with shadow DOM?
 
-Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-usage).
+Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
 
 ## How to support SSR？
 

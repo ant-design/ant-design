@@ -19,7 +19,7 @@ export interface CheckableTagProps {
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
-const CheckableTag: React.FC<CheckableTagProps> = (props) => {
+const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     style,
@@ -54,6 +54,7 @@ const CheckableTag: React.FC<CheckableTagProps> = (props) => {
   return wrapSSR(
     <span
       {...restProps}
+      ref={ref}
       style={{
         ...style,
         ...tag?.style,
@@ -62,6 +63,6 @@ const CheckableTag: React.FC<CheckableTagProps> = (props) => {
       onClick={handleClick}
     />,
   );
-};
+});
 
 export default CheckableTag;
