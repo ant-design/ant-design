@@ -94,7 +94,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
     },
 
     [`${noticeCls}-content`]: {
-      display: 'flex',
+      display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
       padding: contentPadding,
