@@ -8,7 +8,7 @@ author: MadCcc
 
 在 5.10.0 中，我们为 Notificaition 组件引入了一个新的特性，让原本会堆满屏幕的的醒目提醒堆叠到了一起，让原本紧张感满满的组件迎来了一丝灵动：
 
-![Kapture 2023-10-07 at 15.29.20.gif](https://intranetproxy.alipay.com/skylark/lark/0/2023/gif/43956295/1696663795651-322d6a43-d72c-410f-922e-4f21585ceb38.gif#clientId=u1b5ab9db-426e-4&from=drop&height=636&id=uf293d7b0&originHeight=928&originWidth=584&originalType=binary&ratio=1&rotation=0&showTitle=false&size=4238442&status=done&style=none&taskId=ue5964647-71c1-4c86-b4b8-5d65c1001b7&title=&width=400)
+![Image](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZAFSQ60WMVEAAAAAAAAAAAAADrJ8AQ/original)
 
 我们非常喜欢这个新特性，所以在 5.10.0 之后我们把它作为了 Notificaiton 的默认行为。这个特性会带来一些观感上的改变，比如在展开状态下消息的展示顺序变为了从上到下为从新到旧，这与之前的默认行为恰好相反，但却是新的动画下的最佳顺序。<br />当然，用户可以通过 `stack: false` 来关闭这个特性并回到 5.9.x 之前的默认行为，详细请参考我们的文档。
 
@@ -30,9 +30,11 @@ author: MadCcc
 1. 我们不用担心在新消息高度太小时背后的消息有超出的情况；
 2. 只需要给定一个固定的偏移量，我们就可以得出背后两个消息框的位置与宽度，从而得到一个看起来很顺畅的动画效果。
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2023/png/43956295/1696667576235-8b4857d9-cf00-4960-be57-a5bac323fae3.png#clientId=u1b5ab9db-426e-4&from=paste&height=189&id=mfutE&originHeight=189&originWidth=419&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21033&status=done&style=none&taskId=u520d42a5-ff3f-4066-ab44-cb19b89ecb4&title=&width=419)
+![image.png](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*GmNORZEAwiUAAAAAAAAAAAAADrJ8AQ/original)
 
-当然也不是只要将高度直接相等就结束了，别忘了我们的 Notification 是支持展开的，在展开时所有的消息框都应该恢复到他原本的大小，并且由原本的高度来计算展开时的偏移量。但是宽高都已经被修改了，我们需要如何还原呢？为了实现这个新特性，我们在原本的消息框外层新增了一层 div，作为消息框的容器，来承担尺寸变化的职责。而原本的消息框则只保留了内容部分，保证自身的高度不受容器的影响。而宽度则是容器由 `scaleX` 来变化，这就避免了宽度变化导致文字换行撑高容器高度的情况。在这层结构下，我们既能得到正确的内容尺寸，又可以随意修改容器的尺寸，而不影响内容的排版，一举两得。 ![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2023/png/43956295/1696667649145-5f6c249f-139c-4ba4-9090-7bd7dfbc846c.png#clientId=u1b5ab9db-426e-4&from=paste&height=262&id=u4ff934fa&originHeight=262&originWidth=408&originalType=binary&ratio=1&rotation=0&showTitle=false&size=30058&status=done&style=none&taskId=ue20fd8d6-a2ca-46e0-baa2-d79f23ee9bd&title=&width=408)
+当然也不是只要将高度直接相等就结束了，别忘了我们的 Notification 是支持展开的，在展开时所有的消息框都应该恢复到他原本的大小，并且由原本的高度来计算展开时的偏移量。但是宽高都已经被修改了，我们需要如何还原呢？为了实现这个新特性，我们在原本的消息框外层新增了一层 div，作为消息框的容器，来承担尺寸变化的职责。而原本的消息框则只保留了内容部分，保证自身的高度不受容器的影响。而宽度则是容器由 `scaleX` 来变化，这就避免了宽度变化导致文字换行撑高容器高度的情况。在这层结构下，我们既能得到正确的内容尺寸，又可以随意修改容器的尺寸，而不影响内容的排版，一举两得。
+
+![image.png](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*1cZGRKgxucsAAAAAAAAAAAAADrJ8AQ/original)
 
 #### 定位方法
 
