@@ -62,7 +62,7 @@ export default function SingleNumber(props: SingleNumberProps) {
     setPrevCount(count);
   };
 
-  // Fallback if transition event not support
+  // Fallback if transition events are not supported
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       onTransitionEnd();
