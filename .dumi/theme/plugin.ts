@@ -44,9 +44,11 @@ class AntdReactTechStack extends ReactTechStack {
 
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
-      const pkgDependencyList = localPackage.dependencies;
 
-      props.pkgDependencyList = pkgDependencyList;
+      props.pkgDependencyList = {
+        ...localPackage.devDependencies,
+        ...localPackage.dependencies,
+      };
       props.jsx = sylvanas.parseText(code);
 
       if (md) {

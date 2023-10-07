@@ -65,7 +65,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | popupOverflow | Select like component popup logic. Can set to show in viewport or follow window scroll | 'viewport' \| 'scroll' <InlinePopover previewURL="https://user-images.githubusercontent.com/5378891/230344474-5b9f7e09-0a5d-49e8-bae8-7d2abed6c837.png"></InlinePopover> | 'viewport' | 5.5.0 |
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
-| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
+| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | [Theme](/docs/react/customize-theme#theme) | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 

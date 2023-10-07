@@ -7,7 +7,7 @@ import type { SliderRef } from 'rc-slider/lib/Slider';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { TooltipPlacement } from '../tooltip';
+import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 
@@ -28,7 +28,7 @@ export type HandleGeneratorFn = (config: {
 export type Formatter = (value?: number) => React.ReactNode;
 const defaultFormatter: Formatter = (val) => (typeof val === 'number' ? val.toString() : '');
 
-export interface SliderTooltipProps {
+export interface SliderTooltipProps extends AbstractTooltipProps {
   prefixCls?: string;
   open?: boolean;
   placement?: TooltipPlacement;
