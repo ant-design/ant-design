@@ -5,7 +5,7 @@ import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { nodeToGroup } from 'html2sketch';
 import copy from 'copy-to-clipboard';
 import { App } from 'antd';
-import type { AntdPreviewerProps } from '.';
+import type { AntdPreviewerProps } from './Previewer';
 
 const useStyle = createStyles(({ token, css }) => ({
   wrapper: css`
