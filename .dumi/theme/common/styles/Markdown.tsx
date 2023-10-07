@@ -376,7 +376,6 @@ const GlobalStyle: React.FC = () => {
               }
 
               &:nth-child(2) {
-                width: 55%;
                 min-width: 160px;
               }
 
