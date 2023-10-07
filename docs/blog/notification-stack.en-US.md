@@ -48,7 +48,7 @@ In terms of positioning, we chose the simplest method, absolutely positioning al
 
 If animation effects are not considered, there are other layout methods. For example, during the implementation process, we used flex layout to implement the order of expansion first, and then used negative `margin` to achieve the stacking effect. This is also an idea, but in fact there will be some problems with the animation effect: when a new message appears, all the messages below will have an instant displacement to make way for the new message. This problem and some other positioning problems will be merged together and ultimately difficult to solve perfectly, so we finally adopted the simplest method - absolute positioning, and all offsets were calculated manually.
 
-### 总结
+### Summary
 
 This new feature is an attempt by the antd team to improve the flexibility and fashion of components. We hope to bring you a better experience~
 
