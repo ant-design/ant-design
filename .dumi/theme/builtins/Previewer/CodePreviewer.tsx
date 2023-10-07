@@ -208,12 +208,10 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches && matches[1] && !line.includes('antd')) {
+      if (matches?.[1]) {
         const paths = matches[1].split('/');
-        if (paths.length) {
-          const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-          acc[dep] = 'latest';
-        }
+        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
+        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
       }
       return acc;
     },
