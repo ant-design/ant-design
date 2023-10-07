@@ -66,6 +66,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         color: token.colorText,
         fontSize,
         lineHeight,
+        wordBreak: 'break-all',
       },
 
       // ===================== Footer =====================
