@@ -1,5 +1,6 @@
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
+import useCSSVarToken from '@ant-design/cssinjs/es/hooks/useCSSVarToken';
 import React from 'react';
 import version from '../version';
 import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
@@ -63,27 +64,24 @@ export default function useToken(): [
     hashed,
     theme,
     components,
-    cssVariables,
   } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
 
-  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
-    mergedTheme,
-    [defaultSeedToken, rootDesignToken],
+  const [token, hashId] = useCSSVarToken<GlobalToken, SeedToken>(
+    {
+      tokens: [defaultSeedToken, rootDesignToken],
+      theme: mergedTheme,
+      override: { override: rootDesignToken, ...components },
+    },
     {
       salt,
-      override: { override: rootDesignToken, ...components },
       getComputedToken,
       // formatToken will not be consumed after 1.15.0 with getComputedToken.
       // But token will break if @ant-design/cssinjs is under 1.15.0 without it
       formatToken,
-      cssVar: cssVariables && {
-        className: 'light',
-        mapping: cssVarMap,
-      },
     },
   );
 
