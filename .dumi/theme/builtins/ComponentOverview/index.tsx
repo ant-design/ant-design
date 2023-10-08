@@ -4,9 +4,10 @@ import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
-import Link from '../../common/Link';
 import debounce from 'lodash/debounce';
+import scrollIntoView from 'scroll-into-view-if-needed';
 
+import Link from '../../common/Link';
 import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
@@ -157,6 +158,16 @@ const Overview: React.FC = () => {
             onChange={(e) => {
               setSearch(e.target.value);
               reportSearch(e.target.value);
+              if (sectionRef.current) {
+                scrollIntoView(sectionRef.current, {
+                  scrollMode: 'if-needed',
+                  block: 'start',
+                  behavior: (actions) =>
+                    actions.forEach(({ el, top }) => {
+                      el.scrollTop = top - 64;
+                    }),
+                });
+              }
             }}
             onKeyDown={onKeyDown}
             bordered={false}
