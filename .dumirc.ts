@@ -22,6 +22,9 @@ export default defineConfig({
     atomDirs: [{ type: 'component', dir: 'components' }],
     codeBlockMode: 'passive',
   },
+  codeSplitting: {
+    jsStrategy: 'granularChunks',
+  },
   locales: [
     { id: 'en-US', name: 'English', suffix: '' },
     { id: 'zh-CN', name: '中文', suffix: '-cn' },
