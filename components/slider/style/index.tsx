@@ -57,6 +57,11 @@ export interface ComponentToken {
   dotBorderColor: string;
   dotActiveBorderColor: string;
   trackBgDisabled: string;
+  /**
+   * @desc 滑块圆点hover颜色
+   * @descEN Border color of dot when hover
+   */
+  dotHoverBorderColor: string;
 }
 
 interface SliderToken extends FullToken<'Slider'> {
@@ -74,7 +79,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
     dotSize,
     marginFull,
     marginPart,
-    colorFillContentHover,
+    dotHoverBorderColor,
   } = token;
 
   return {
@@ -124,7 +129,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         },
 
         [`${componentCls}-dot`]: {
-          borderColor: colorFillContentHover,
+          borderColor: dotHoverBorderColor,
         },
 
         [`${componentCls}-handle::after`]: {
@@ -425,6 +430,7 @@ export default genComponentStyleHook(
       dotBorderColor: token.colorBorderSecondary,
       dotActiveBorderColor: token.colorPrimaryBorder,
       trackBgDisabled: token.colorBgContainerDisabled,
+      dotHoverBorderColor: token.colorFillContentHover,
     };
   },
 );

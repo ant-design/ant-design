@@ -38,6 +38,7 @@ const App: React.FC = () => (
           dotBorderColor: '#303030',
           dotActiveBorderColor: '#918542',
           trackBgDisabled: '#1a1b80',
+          dotHoverBorderColor: '#303030',
         },
       },
     }}
