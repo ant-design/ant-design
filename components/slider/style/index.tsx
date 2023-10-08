@@ -1,6 +1,7 @@
+import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type * as React from 'react';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -227,6 +228,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
 
       [`${componentCls}-dot`]: {
         position: 'absolute',
+        display: dotSize === 0 ? 'none' : 'inherit',
         width: dotSize,
         height: dotSize,
         backgroundColor: token.colorBgElevated,
@@ -353,6 +355,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
     [`${componentCls}-dot`]: {
       position: 'absolute',
       [handlePos]: (railSize - dotSize) / 2,
+      display: dotSize === 0 ? 'none' : 'inherit',
     },
   };
 };
