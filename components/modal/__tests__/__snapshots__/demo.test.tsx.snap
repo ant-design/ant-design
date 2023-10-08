@@ -41,7 +41,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width:100%"
   >
     <div
       aria-hidden="true"
@@ -126,7 +126,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width:100%"
   >
     <div
       aria-hidden="true"
@@ -211,7 +211,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width:200px;height:150px"
+    style="width:200px"
   >
     <div
       aria-hidden="true"
@@ -284,7 +284,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width:300px;height:200px"
+    style="width:300px"
   >
     <div
       aria-hidden="true"
@@ -957,7 +957,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width:100%"
   >
     <div
       aria-hidden="true"
@@ -1042,7 +1042,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width:200px;height:150px"
+    style="width:200px"
   >
     <div
       aria-hidden="true"
@@ -1115,7 +1115,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width:300px;height:200px"
+    style="width:300px"
   >
     <div
       aria-hidden="true"
