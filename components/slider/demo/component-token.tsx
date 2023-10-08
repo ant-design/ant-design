@@ -54,6 +54,9 @@ const App: React.FC = () => (
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
+    <div style={style}>
+      <Slider disabled vertical range marks={marks} defaultValue={[26, 37]} />
+    </div>
   </ConfigProvider>
 );
 

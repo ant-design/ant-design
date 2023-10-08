@@ -263,7 +263,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           ${componentCls}-dot
         `]: {
           backgroundColor: token.colorBgElevated,
-          borderColor: token.trackBgDisabled,
+          borderColor: token.dotBorderColor,
           boxShadow: 'none',
           cursor: 'not-allowed',
         },
