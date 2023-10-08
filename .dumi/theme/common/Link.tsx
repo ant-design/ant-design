@@ -1,4 +1,4 @@
-import type { MouseEvent } from 'react';
+import type { MouseEvent, MouseEventHandler } from 'react';
 import React, { forwardRef, useLayoutEffect, useMemo, useTransition } from 'react';
 import { useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
@@ -8,6 +8,7 @@ export interface LinkProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  onClick?: MouseEventHandler;
 }
 
 const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
@@ -24,6 +25,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   }, [to]);
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    props.onClick?.(e);
     if (!href?.startsWith('http')) {
       // Should support open in new tab
       if (!e.metaKey && !e.ctrlKey && !e.shiftKey) {
@@ -46,7 +48,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   }, [isPending]);
 
   return (
-    <a ref={ref} href={href} onClick={handleClick} {...rest}>
+    <a ref={ref} onClick={handleClick} {...rest} href={href}>
       {children}
     </a>
   );
