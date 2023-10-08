@@ -8,10 +8,10 @@ import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
-import Footer from '../../slots/Footer';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 import '../../static/style';
+import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
 
@@ -64,10 +64,9 @@ const DocLayout: React.FC = () => {
       ['/index'].some((path) => pathname.startsWith(path))
     ) {
       return (
-        <>
-          <div style={{ minHeight: '100vh' }}>{outlet}</div>
-          <Footer />
-        </>
+        <IndexLayout title={locale.title} desc={locale.description}>
+          {outlet}
+        </IndexLayout>
       );
     }
     if (pathname.startsWith('/docs/resource')) {
@@ -87,13 +86,10 @@ const DocLayout: React.FC = () => {
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />
-        <title>{locale?.title}</title>
         <link
           sizes="144x144"
           href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
         />
-        <meta name="description" content={locale.description} />
-        <meta property="og:title" content={locale?.title} />
         <meta property="og:description" content={locale.description} />
         <meta property="og:type" content="website" />
         <meta

@@ -59,6 +59,7 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
       visible={visible}
       // We do not really use this motionName
       motionName={`${prefixCls}-loading-icon-motion`}
+      motionLeave={visible}
       removeOnLeave
       onAppearStart={getCollapsedWidth}
       onAppearActive={(node) => getRealWidth(node, visible)}

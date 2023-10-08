@@ -9,6 +9,11 @@ const Text3 = () => 'Submit';
 
 const App: React.FC = () => (
   <Space wrap>
+    <Button>
+      <span>
+        <span>部署</span>
+      </span>
+    </Button>
     <Button loading>部署</Button>
     <Button loading>
       <Text1 />
