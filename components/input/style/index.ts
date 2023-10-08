@@ -319,7 +319,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.colorFillAlter,
+        backgroundColor: token.addonBg,
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
