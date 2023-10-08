@@ -194,12 +194,9 @@ const Overview: React.FC = () => {
                       url += urlSearch;
                     }
 
-                    /** Link 不能跳转到外链 */
-                    const ComponentLink = isExternalLink ? 'a' : Link;
-
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                        <ComponentLink to={url} href={url}>
+                        <Link to={url}>
                           <Card
                             onClick={() => onClickCard(url)}
                             bodyStyle={{
@@ -226,7 +223,7 @@ const Overview: React.FC = () => {
                               />
                             </div>
                           </Card>
-                        </ComponentLink>
+                        </Link>
                       </Col>
                     );
                   })}
