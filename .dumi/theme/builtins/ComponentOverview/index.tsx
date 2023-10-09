@@ -158,7 +158,7 @@ const Overview: React.FC = () => {
             onChange={(e) => {
               setSearch(e.target.value);
               reportSearch(e.target.value);
-              if (sectionRef.current) {
+              if (sectionRef.current && searchBarAffixed) {
                 scrollIntoView(sectionRef.current, {
                   scrollMode: 'if-needed',
                   block: 'start',
