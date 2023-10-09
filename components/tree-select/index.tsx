@@ -231,8 +231,8 @@ const InternalTreeSelect = <
 
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
-    `${prefixCls}-${variant}`,
     {
+      [`${prefixCls}-${variant}`]: variant !== 'borderless',
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',

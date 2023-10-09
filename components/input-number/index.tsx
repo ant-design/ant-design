@@ -97,8 +97,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const mergedDisabled = customDisabled ?? disabled;
 
   const inputNumberClass = classNames(
-    `${prefixCls}-${variant}`,
     {
+      [`${prefixCls}-${variant}`]: variant !== 'borderless',
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -146,10 +146,10 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         affixWrapper: classNames(
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           {
+            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'borderless',
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
           },
           hashId,
         ),

@@ -158,8 +158,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             {...additionalOverrideProps}
             locale={locale!.lang}
             className={classNames(
-              `${prefixCls}-${variant}`,
               {
+                [`${prefixCls}-${variant}`]: variant !== 'borderless',
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
               },
               getStatusClassNames(

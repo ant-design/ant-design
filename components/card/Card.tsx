@@ -160,8 +160,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const classString = classNames(
     prefixCls,
     card?.className,
-    `${prefixCls}-${variant}`,
     {
+      [`${prefixCls}-${variant}`]: variant !== 'borderless',
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,

@@ -176,8 +176,8 @@ function List<T>({
 
   const classString = classNames(
     prefixCls,
-    `${prefixCls}-${variant}`,
     {
+      [`${prefixCls}-${variant}`]: variant !== 'borderless',
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-split`]: split,

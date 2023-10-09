@@ -111,8 +111,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         className={classNames(
           prefixCls,
           descriptions?.className,
-          `${prefixCls}-${variant}`,
           {
+            [`${prefixCls}-${variant}`]: variant !== 'borderless',
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
