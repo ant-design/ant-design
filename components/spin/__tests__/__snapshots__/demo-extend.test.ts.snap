@@ -124,7 +124,7 @@ exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 1`
   type="button"
 >
   <span>
-    Show fullscreen
+    Show fullscreen for 2s
   </span>
 </button>
 `;
