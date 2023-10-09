@@ -319,7 +319,9 @@ export default function Theme() {
   const [themeData, setThemeData] = React.useState<ThemeData>(ThemeDefault);
 
   const onThemeChange = (_: Partial<ThemeData>, nextThemeData: ThemeData) => {
-    setThemeData({ ...ThemesInfo[nextThemeData.themeType], ...nextThemeData });
+    React.startTransition(() => {
+      setThemeData({ ...ThemesInfo[nextThemeData.themeType], ...nextThemeData });
+    });
   };
 
   const { compact, themeType, colorPrimary, ...themeToken } = themeData;
