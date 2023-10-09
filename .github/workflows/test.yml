@@ -362,3 +362,31 @@ jobs:
         env:
           LIB_DIR: ${{ matrix.module }}
     needs: compile
+
+  ################################ Site E2E Test ################################
+  site-e2e-test:
+    name: site-e2e-test
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: site e2e test
+        run: npm run predeploy
