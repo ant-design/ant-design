@@ -29,6 +29,10 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
   style?: React.CSSProperties;
   icon?: React.ReactNode;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
 }
 
@@ -50,6 +54,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     closeIcon,
     closable,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     ...props
   } = tagProps;
   const { getPrefixCls, direction, tag } = React.useContext(ConfigContext);
@@ -85,12 +90,12 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const tagClassName = classNames(
     prefixCls,
     tag?.className,
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-${color}`]: isInternalColor,
       [`${prefixCls}-has-color`]: color && !isInternalColor,
       [`${prefixCls}-hidden`]: !visible,
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
     },
     className,
     rootClassName,

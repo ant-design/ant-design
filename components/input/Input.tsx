@@ -63,6 +63,10 @@ export interface InputProps
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   [key: `data-${string}`]: string | undefined;
 }
@@ -71,6 +75,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     status: customStatus,
     size: customSize,
     disabled: customDisabled,
@@ -201,11 +206,11 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         ...classes,
         ...input?.classNames,
         input: classNames(
+          `${prefixCls}-${variant}`,
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-borderless`]: !bordered,
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,

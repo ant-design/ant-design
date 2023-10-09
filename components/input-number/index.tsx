@@ -1,15 +1,16 @@
+import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
 import type { InputNumberProps as RcInputNumberProps, ValueType } from 'rc-input-number';
 import RcInputNumber from 'rc-input-number';
-import * as React from 'react';
+
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
@@ -23,6 +24,10 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   prefix?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
@@ -45,6 +50,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     addonAfter,
     prefix,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     readOnly,
     status: customStatus,
     controls,
@@ -91,11 +97,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const mergedDisabled = customDisabled ?? disabled;
 
   const inputNumberClass = classNames(
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),

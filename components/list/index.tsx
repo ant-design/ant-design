@@ -1,23 +1,23 @@
-import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import classNames from 'classnames';
+
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useSize from '../config-provider/hooks/useSize';
 import { Row } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import Item from './Item';
-
 // CSSINJS
 import { ListContext } from './context';
+import Item from './Item';
 import useStyle from './style';
-import useSize from '../config-provider/hooks/useSize';
 
 export type { ListItemMetaProps, ListItemProps } from './Item';
 export type { ListConsumerProps } from './context';
@@ -42,6 +42,10 @@ export type ListSize = 'small' | 'default' | 'large';
 export type ListItemLayout = 'horizontal' | 'vertical';
 
 export interface ListProps<T> {
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   className?: string;
   rootClassName?: string;
@@ -73,6 +77,7 @@ function List<T>({
   pagination = false as ListProps<T>['pagination'],
   prefixCls: customizePrefixCls,
   bordered = false,
+  variant = bordered ? 'outlined' : 'borderless',
   split = true,
   className,
   rootClassName,
@@ -171,11 +176,11 @@ function List<T>({
 
   const classString = classNames(
     prefixCls,
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-split`]: split,
-      [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-loading`]: isLoading,
       [`${prefixCls}-grid`]: !!grid,
       [`${prefixCls}-something-after-last-item`]: isSomethingAfterLastItem(),

@@ -1,7 +1,8 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
@@ -24,6 +25,10 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   prefixCls?: string;
   title?: React.ReactNode;
   extra?: React.ReactNode;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   headStyle?: React.CSSProperties;
   bodyStyle?: React.CSSProperties;
@@ -67,6 +72,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     title,
     loading,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     size: customizeSize,
     type,
     cover,
@@ -154,9 +160,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const classString = classNames(
     prefixCls,
     card?.className,
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-bordered`]: bordered,
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,

@@ -30,6 +30,10 @@ export interface QRCodeProps extends QRProps {
   prefixCls?: string;
   icon?: string;
   iconSize?: number;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
   status?: 'active' | 'expired' | 'loading';

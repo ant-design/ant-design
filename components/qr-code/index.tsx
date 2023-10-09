@@ -25,6 +25,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     errorLevel = 'M',
     status = 'active',
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     onRefresh,
     style,
     className,
@@ -72,9 +73,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const cls = classNames(prefixCls, className, rootClassName, hashId, {
-    [`${prefixCls}-borderless`]: !bordered,
-  });
+  const cls = classNames(prefixCls, className, rootClassName, hashId, `${prefixCls}-${variant}`);
 
   return wrapSSR(
     <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>

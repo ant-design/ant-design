@@ -52,6 +52,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       size: customizeSize,
       disabled: customDisabled,
       bordered = true,
+      variant = bordered ? 'outlined' : 'borderless',
       placeholder,
       popupClassName,
       dropdownClassName,
@@ -130,9 +131,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         {...restProps}
         {...additionalOverrideProps}
         className={classNames(
+          `${prefixCls}-${variant}`,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize,
-            [`${prefixCls}-borderless`]: !bordered,
           },
           getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),
           hashId,

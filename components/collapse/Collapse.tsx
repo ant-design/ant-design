@@ -31,6 +31,10 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   prefixCls?: string;
   expandIcon?: (panelProps: PanelProps) => React.ReactNode;
@@ -66,6 +70,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     rootClassName,
     style,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     ghost,
     size: customizeSize,
     expandIconPosition = 'start',
@@ -116,8 +121,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   const collapseClassName = classNames(
     `${prefixCls}-icon-position-${mergedExpandIconPosition}`,
+    `${prefixCls}-${variant}`,
     {
-      [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
       [`${prefixCls}-${mergedSize}`]: mergedSize !== 'middle',

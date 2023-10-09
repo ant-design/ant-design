@@ -22,8 +22,8 @@ import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
-import useShowArrow from './useShowArrow';
 import useIcons from './useIcons';
+import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
@@ -46,6 +46,10 @@ export interface InternalSelectProps<
   size?: SizeType;
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
@@ -81,6 +85,7 @@ const InternalSelect = <
   {
     prefixCls: customizePrefixCls,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     className,
     rootClassName,
     getPopupContainer,
@@ -196,11 +201,11 @@ const InternalSelect = <
   const mergedDisabled = customDisabled ?? disabled;
 
   const mergedClassName = classNames(
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),

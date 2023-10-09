@@ -1,23 +1,28 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import type { BaseInputProps } from 'rc-input/lib/interface';
 import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
 import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
-import * as React from 'react';
-import { forwardRef } from 'react';
+
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { SizeType } from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   size?: SizeType;
   status?: InputStatus;
@@ -34,6 +39,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     size: customizeSize,
     disabled: customDisabled,
     status: customStatus,
@@ -108,8 +114,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       classNames={{
         ...classes,
         textarea: classNames(
+          `${prefixCls}-${variant}`,
           {
-            [`${prefixCls}-borderless`]: !bordered,
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },

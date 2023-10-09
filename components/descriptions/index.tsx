@@ -33,6 +33,10 @@ export interface DescriptionsProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   size?: 'middle' | 'small' | 'default';
   /**
@@ -57,6 +61,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     column,
     colon = true,
     bordered,
+    variant = bordered ? 'outlined' : 'borderless',
     layout,
     children,
     className,
@@ -106,9 +111,9 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
         className={classNames(
           prefixCls,
           descriptions?.className,
+          `${prefixCls}-${variant}`,
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
-            [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,

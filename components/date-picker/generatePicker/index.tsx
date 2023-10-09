@@ -1,3 +1,5 @@
+import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 import type {
   PickerBaseProps as RCPickerBaseProps,
   PickerDateProps as RCPickerDateProps,
@@ -8,8 +10,7 @@ import type {
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+
 import type { InputStatus } from '../../_util/statusUtils';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
@@ -26,6 +27,10 @@ type InjectDefaultProps<Props> = Omit<
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   status?: InputStatus;
 };

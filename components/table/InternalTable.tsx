@@ -93,6 +93,10 @@ export interface TableProps<RecordType>
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
   size?: SizeType;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   locale?: TableLocale;
   rootClassName?: string;
@@ -125,6 +129,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     style,
     size: customizeSize,
     bordered,
+    variant = bordered ? 'outlined' : 'borderless',
     dropdownPrefixCls: customizeDropdownPrefixCls,
     dataSource,
     pagination,
@@ -581,10 +586,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames({
+          className={classNames(`${prefixCls}-${variant}`, {
             [`${prefixCls}-middle`]: mergedSize === 'middle',
             [`${prefixCls}-small`]: mergedSize === 'small',
-            [`${prefixCls}-bordered`]: bordered,
             [`${prefixCls}-empty`]: rawData.length === 0,
           })}
           data={pageData}

@@ -29,8 +29,8 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
-import useShowArrow from '../select/useShowArrow';
 import useIcons from '../select/useIcons';
+import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
@@ -124,6 +124,10 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
      */
     showArrow?: boolean;
     disabled?: boolean;
+    variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+    /**
+     * @deprecated Please use `variant` instead
+     */
     bordered?: boolean;
     placement?: SelectCommonPlacement;
     suffixIcon?: React.ReactNode;
@@ -151,6 +155,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     rootClassName,
     multiple,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     transitionName,
     choiceTransitionName = '',
     popupClassName,
@@ -305,11 +310,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       prefixCls={prefixCls}
       className={classNames(
         !customizePrefixCls && cascaderPrefixCls,
+        `${prefixCls}-${variant}`,
         {
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-rtl`]: isRtl,
-          [`${prefixCls}-borderless`]: !bordered,
           [`${prefixCls}-in-form-item`]: isFormItemInput,
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),

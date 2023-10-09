@@ -36,7 +36,9 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     popupClassName?: string;
     rootClassName?: string;
   };
-  type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
+  type DatePickerProps = Omit<PickerProps<DateType>, 'bordered'> &
+    CustomPickerProps &
+    Pick<PickerProps<DateType>, 'bordered'>;
   type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
@@ -54,6 +56,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           rootClassName,
           size: customizeSize,
           bordered = true,
+          variant = bordered ? 'outlined' : 'borderless',
           placement,
           placeholder,
           popupClassName,
@@ -155,9 +158,9 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             {...additionalOverrideProps}
             locale={locale!.lang}
             className={classNames(
+              `${prefixCls}-${variant}`,
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
-                [`${prefixCls}-borderless`]: !bordered,
               },
               getStatusClassNames(
                 prefixCls,

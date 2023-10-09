@@ -21,8 +21,8 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
-import useShowArrow from '../select/useShowArrow';
 import useIcons from '../select/useIcons';
+import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
@@ -59,6 +59,10 @@ export interface TreeSelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -84,6 +88,7 @@ const InternalTreeSelect = <
     size: customizeSize,
     disabled: customDisabled,
     bordered = true,
+    variant = bordered ? 'outlined' : 'borderless',
     className,
     rootClassName,
     treeCheckable,
@@ -226,11 +231,11 @@ const InternalTreeSelect = <
 
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
+    `${prefixCls}-${variant}`,
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),

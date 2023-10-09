@@ -89,6 +89,10 @@ export interface RowProps {
   prefixCls: string;
   vertical: boolean;
   row: InternalDescriptionsItemType[];
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   colon: boolean;
   index: number;

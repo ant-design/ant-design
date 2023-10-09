@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
 
 function notEmpty(val: any) {
   return val !== undefined && val !== null;
@@ -13,6 +13,10 @@ export interface CellProps {
   style?: React.CSSProperties;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
+  variant?: 'outlined' | 'filled' | 'underlined' | 'borderless';
+  /**
+   * @deprecated Please use `variant` instead
+   */
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
