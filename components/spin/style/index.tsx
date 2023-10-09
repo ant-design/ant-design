@@ -27,11 +27,6 @@ export interface ComponentToken {
    * @descEN Large loading icon size
    */
   dotSizeLG: number;
-  /**
-   * @desc 在fullscreen为true时的背景颜色
-   * @descEN Background color when `fullscreen` is true
-   */
-  fullscreenBgColor: string;
 }
 
 interface SpinToken extends FullToken<'Spin'> {
@@ -68,12 +63,15 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       position: 'fixed',
       width: '100vw',
       height: '100vh',
-      background: token.fullscreenBgColor,
+      background: token.colorBgMask,
       zIndex: token.zIndexPopupBase,
       inset: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      [`${token.componentCls}-dot ${token.componentCls}-dot-item`]: {
+        backgroundColor: '#fff',
+      },
     },
 
     '&-nested-loading': {
@@ -274,6 +272,5 @@ export default genComponentStyleHook(
     dotSize: token.controlHeightLG / 2,
     dotSizeSM: token.controlHeightLG * 0.35,
     dotSizeLG: token.controlHeight,
-    fullscreenBgColor: new TinyColor(token.colorBgMask).setAlpha(0.2).toRgbString(),
   }),
 );
