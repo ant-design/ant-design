@@ -79,7 +79,7 @@ describe('message.config', () => {
     await awaitPromise();
 
     const noticeWithoutLeaving = Array.from(
-      document.querySelectorAll('.ant-message-notice'),
+      document.querySelectorAll('.ant-message-notice-wrapper'),
     ).filter((ele) => !ele.classList.contains('ant-message-move-up-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(5);
@@ -113,7 +113,7 @@ describe('message.config', () => {
       jest.advanceTimersByTime(2000);
     });
 
-    await triggerMotionEnd('.ant-message-notice');
+    await triggerMotionEnd('.ant-message-notice-wrapper');
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
 

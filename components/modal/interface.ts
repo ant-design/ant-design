@@ -2,6 +2,7 @@ import type { FC } from 'react';
 
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
+import type { DialogProps } from 'rc-dialog';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
@@ -48,9 +49,13 @@ export interface ModalProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
+  classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
+  styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
   mask?: boolean;
   keyboard?: boolean;
@@ -97,6 +102,7 @@ export interface ModalFuncProps {
   okCancel?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
+  /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
@@ -105,6 +111,7 @@ export interface ModalFuncProps {
   transitionName?: string;
   maskTransitionName?: string;
   direction?: DirectionType;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
   closeIcon?: React.ReactNode;
   footer?: ModalProps['footer'];

@@ -138,7 +138,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
-      'deprecated',
+      'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
   }

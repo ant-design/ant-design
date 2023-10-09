@@ -2,10 +2,7 @@ import * as React from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type {
-  NotificationAPI,
-  NotificationConfig as RcNotificationConfig,
-} from 'rc-notification/lib';
+import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -19,6 +16,7 @@ import type {
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
+import { useToken } from '../theme/internal';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -63,8 +61,10 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     rtl,
     onAllRemoved,
+    stack,
   } = props;
   const { getPrefixCls, getPopupContainer, notification } = React.useContext(ConfigContext);
+  const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
@@ -90,6 +90,14 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     onAllRemoved,
     renderNotifications,
+    stack:
+      stack === false
+        ? false
+        : {
+            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
+            offset: 8,
+            gap: token.margin,
+          },
   });
 
   // ================================ Ref ================================
