@@ -1,4 +1,5 @@
 import type { Meta } from 'rc-field-form/lib/interface';
+import React, { ReactElement } from 'react';
 
 import type { ValidateStatus } from './FormItem';
 import type { InternalNamePath } from './interface';
@@ -58,4 +59,21 @@ export function getStatus<DefaultValue>(
     status = 'success';
   }
   return status;
+}
+
+/**
+ * Get element inner text
+ */
+export function getTextFromElement(element: ReactElement): string {
+  let text = '';
+
+  React.Children.map(element.props.children, (child) => {
+    if (React.isValidElement(child)) {
+      text += getTextFromElement(child);
+    } else if (typeof child === 'string') {
+      text += child;
+    }
+  });
+
+  return text;
 }

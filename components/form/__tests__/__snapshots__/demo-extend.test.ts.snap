@@ -961,7 +961,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                aria-label="[object Object]"
+                aria-label="#36459"
                 class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width: 70%;"
               >
@@ -1026,7 +1026,7 @@ Array [
                           aria-controls="basic_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="[object Object]"
+                          aria-label="#36459"
                           aria-owns="basic_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1395,7 +1395,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                aria-label="[object Object]"
+                aria-label="#36459"
                 class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width: 70%;"
               >
@@ -1460,7 +1460,7 @@ Array [
                           aria-controls="select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="[object Object]"
+                          aria-label="#36459"
                           aria-owns="select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -7588,7 +7588,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
             class="ant-form-item-control-input-content"
           >
             <input
-              aria-label="[object Object]"
+              aria-label="longtextlongtextlongtextlongtextlongtextlongtextlongtext"
               class="ant-input"
               id="label-ellipsis_username"
               type="text"
@@ -7633,7 +7633,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
               class="ant-input-affix-wrapper ant-input-password"
             >
               <input
-                aria-label="[object Object]"
+                aria-label="longtext longtext longtext longtext longtext longtext longtext"
                 class="ant-input"
                 id="label-ellipsis_password"
                 type="password"

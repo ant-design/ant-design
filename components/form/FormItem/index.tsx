@@ -18,7 +18,7 @@ import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
-import { getFieldId, toArray } from '../util';
+import { getFieldId, getTextFromElement, toArray } from '../util';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
 
@@ -257,7 +257,10 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   if (!hasName && !isRenderProps && !dependencies) {
     const element =
       label && isValidElement(mergedChildren)
-        ? cloneElement(mergedChildren, { ...mergedChildren.props, 'aria-label': label })
+        ? cloneElement(mergedChildren, {
+            ...mergedChildren.props,
+            'aria-label': isValidElement(label) ? getTextFromElement(label) : label,
+          })
         : mergedChildren;
     return wrapSSR(renderLayout(element) as JSX.Element);
   }
@@ -370,7 +373,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           }
 
           if (label) {
-            childProps['aria-label'] = label;
+            childProps['aria-label'] = isValidElement(label) ? getTextFromElement(label) : label;
           }
 
           if (supportRef(mergedChildren)) {
