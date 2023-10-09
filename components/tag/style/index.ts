@@ -38,7 +38,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-block',
+      display: 'inline-flex',
       height: 'auto',
       marginInlineEnd: token.marginXS,
       paddingInline,
