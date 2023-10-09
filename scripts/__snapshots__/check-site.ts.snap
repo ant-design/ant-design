@@ -92,6 +92,10 @@ exports[`site test Component components/empty en Page 1`] = `1`;
 
 exports[`site test Component components/empty zh Page 1`] = `1`;
 
+exports[`site test Component components/flex en Page 1`] = `1`;
+
+exports[`site test Component components/flex zh Page 1`] = `1`;
+
 exports[`site test Component components/float-button en Page 1`] = `3`;
 
 exports[`site test Component components/float-button zh Page 1`] = `3`;
@@ -192,9 +196,9 @@ exports[`site test Component components/skeleton en Page 1`] = `6`;
 
 exports[`site test Component components/skeleton zh Page 1`] = `6`;
 
-exports[`site test Component components/slider en Page 1`] = `4`;
+exports[`site test Component components/slider en Page 1`] = `5`;
 
-exports[`site test Component components/slider zh Page 1`] = `4`;
+exports[`site test Component components/slider zh Page 1`] = `5`;
 
 exports[`site test Component components/space en Page 1`] = `3`;
 
