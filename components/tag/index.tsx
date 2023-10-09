@@ -91,7 +91,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     prefixCls,
     tag?.className,
     {
-      [`${prefixCls}-${variant}`]: variant !== 'borderless',
+      [`${prefixCls}-${variant}`]: variant !== 'outlined',
       [`${prefixCls}-${color}`]: isInternalColor,
       [`${prefixCls}-has-color`]: color && !isInternalColor,
       [`${prefixCls}-hidden`]: !visible,

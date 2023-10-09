@@ -311,7 +311,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       className={classNames(
         !customizePrefixCls && cascaderPrefixCls,
         {
-          [`${prefixCls}-${variant}`]: variant !== 'borderless',
+          [`${prefixCls}-${variant}`]: variant !== 'outlined',
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-rtl`]: isRtl,

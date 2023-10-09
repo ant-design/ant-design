@@ -98,7 +98,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const inputNumberClass = classNames(
     {
-      [`${prefixCls}-${variant}`]: variant !== 'borderless',
+      [`${prefixCls}-${variant}`]: variant !== 'outlined',
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -146,7 +146,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         affixWrapper: classNames(
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           {
-            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',

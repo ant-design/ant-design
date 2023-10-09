@@ -587,7 +587,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           expandable={mergedExpandable}
           prefixCls={prefixCls}
           className={classNames({
-            [`${prefixCls}-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-middle`]: mergedSize === 'middle',
             [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-empty`]: rawData.length === 0,

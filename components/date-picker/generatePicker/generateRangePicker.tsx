@@ -132,7 +132,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         {...additionalOverrideProps}
         className={classNames(
           {
-            [`${prefixCls}-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-${mergedSize}`]: mergedSize,
           },
           getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),

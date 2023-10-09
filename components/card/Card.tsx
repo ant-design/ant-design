@@ -161,7 +161,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     prefixCls,
     card?.className,
     {
-      [`${prefixCls}-${variant}`]: variant !== 'borderless',
+      [`${prefixCls}-${variant}`]: variant !== 'outlined',
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,

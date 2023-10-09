@@ -101,7 +101,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         affixWrapper: classNames(
           `${prefixCls}-textarea-affix-wrapper`,
           {
-            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
@@ -115,7 +115,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         ...classes,
         textarea: classNames(
           {
-            [`${prefixCls}-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },

@@ -207,7 +207,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         ...input?.classNames,
         input: classNames(
           {
-            [`${prefixCls}-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -221,7 +221,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       classes={{
         affixWrapper: classNames(
           {
-            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'borderless',
+            [`${prefixCls}-affix-wrapper-${variant}`]: variant !== 'outlined',
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
