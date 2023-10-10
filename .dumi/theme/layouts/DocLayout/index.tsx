@@ -60,7 +60,7 @@ const DocLayout: React.FC = () => {
     if (id) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
   }, [loading, hash]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
     }
