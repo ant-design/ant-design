@@ -171,7 +171,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   });
 
   const localizedTitle = title;
-  const introChildren = <div dangerouslySetInnerHTML={{ __html: description! }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
@@ -377,7 +376,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
           <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
-        <div className="code-box-description">{introChildren}</div>
+        {description && (
+          <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
+        )}
         <Space wrap size="middle" className="code-box-actions">
           {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
