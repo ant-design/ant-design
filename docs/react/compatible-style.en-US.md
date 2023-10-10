@@ -13,7 +13,7 @@ Please ref [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#stylepr
 
 ## Compatible adjustment
 
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating. If you want to support old browser (or some other CSS framework selector priority conflict like TailwindCSS), you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
+The CSS-in-JS feature of Ant Design uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers (or encounter priority conflicts like TailwindCSS), you can use "@ant-design/cssinjs" to disable the default lowering of specificity (please ensure version consistency with antd).
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
