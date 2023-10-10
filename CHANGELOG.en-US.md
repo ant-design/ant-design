@@ -44,7 +44,7 @@ tag: vVERSION
   - 🆕 Descriptions Added `titleColor` and `contentColor` to set the title color and content area text color. [#44729](https://github.com/ant-design/ant-design/pull/44729) [@Child-qjj](https://github.com/Child-qjj)
   - 🐞 Fixed the issue where the Input component Token `addonBg` is invalid. [#45222](https://github.com/ant-design/ant-design/pull/45222)
 - TypeScript
-  - 🤖 The ArgsProps for exported notifications are of type NotificationArgsProps. [#45147](https://github.com/ant-design/ant-design/pull/45147)
+  - 🤖 The ArgsProps type for exported Notification is NotificationArgsProps. [#45147](https://github.com/ant-design/ant-design/pull/45147)
 - 🌐 Locales
   - 🇵🇱 Added Tour locales for pl_PL. [#45166](https://github.com/ant-design/ant-design/pull/45166) [@antonisierakowski](https://github.com/antonisierakowski)
   - 🇰🇷 Optimize ko_KR locales. [#45150](https://github.com/ant-design/ant-design/pull/45150) [@owjs3901](https://github.com/owjs3901)

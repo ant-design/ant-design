@@ -44,7 +44,7 @@ tag: vVERSION
   - 🆕 Descriptions 新增 `titleColor` `contentColor` 用以设置标题颜色和内容区域文字颜色。[#44729](https://github.com/ant-design/ant-design/pull/44729) [@Child-qjj](https://github.com/Child-qjj)
   - 🐞 修复 Input 组件 Token `addonBg` 失效的问题。[#45222](https://github.com/ant-design/ant-design/pull/45222)
 - TypeScript
-  - 🤖 The ArgsProps type for exported Notification is NotificationArgsProps. [#45147](https://github.com/ant-design/ant-design/pull/45147)
+  - 🤖 导出 Notification 的 ArgsProps 类型为 NotificationArgsProps。[#45147](https://github.com/ant-design/ant-design/pull/45147)
 - 🌐 国际化
   - 🇵🇱 为 pl_PL 补充 Tour 国际化。[#45166](https://github.com/ant-design/ant-design/pull/45166) [@antonisierakowski](https://github.com/antonisierakowski)
   - 🇰🇷 优化 ko_KR 国际化。[#45150](https://github.com/ant-design/ant-design/pull/45150) [@owjs3901](https://github.com/owjs3901)
