@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { ConfigProvider } from 'antd';
-import type { TableProps } from '..';
+
+import type { Reference, TableProps } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -400,5 +401,12 @@ describe('Table', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('support reference', () => {
+    const tblRef = React.createRef<Reference>();
+    const { container } = render(<Table reference={tblRef} />);
+
+    expect(tblRef.current?.nativeElement).toBe(container.querySelector('.ant-table-wrapper')!);
   });
 });
