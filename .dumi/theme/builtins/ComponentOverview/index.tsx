@@ -3,9 +3,11 @@ import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import { Link, useIntl, useLocation, useSidebarData } from 'dumi';
+import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
+import scrollIntoView from 'scroll-into-view-if-needed';
 
+import Link from '../../common/Link';
 import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
@@ -102,7 +104,7 @@ const Overview: React.FC = () => {
   const [search, setSearch] = useState<string>(() => {
     const params = new URLSearchParams(urlSearch);
     if (params.has('s')) {
-      return params.get('s');
+      return params.get('s') || '';
     }
     return '';
   });
@@ -120,12 +122,12 @@ const Overview: React.FC = () => {
       data
         .filter((item) => item?.title)
         .map<{ title: string; children: Component[] }>((item) => ({
-          title: item?.title,
+          title: item?.title || '',
           children: item.children.map((child) => ({
-            title: child.frontmatter?.title,
-            subtitle: child.frontmatter.subtitle,
-            cover: child.frontmatter.cover,
-            coverDark: child.frontmatter.coverDark,
+            title: child.frontmatter?.title || '',
+            subtitle: child.frontmatter?.subtitle,
+            cover: child.frontmatter?.cover,
+            coverDark: child.frontmatter?.coverDark,
             link: child.link,
           })),
         }))
@@ -143,7 +145,7 @@ const Overview: React.FC = () => {
   return (
     <section className="markdown" ref={sectionRef}>
       <Divider />
-      <Affix offsetTop={anchorTop} onChange={setSearchBarAffixed}>
+      <Affix offsetTop={anchorTop} onChange={(affixed) => setSearchBarAffixed(!!affixed)}>
         <div
           className={styles.componentsOverviewAffix}
           style={searchBarAffixed ? affixedStyle : {}}
@@ -156,6 +158,16 @@ const Overview: React.FC = () => {
             onChange={(e) => {
               setSearch(e.target.value);
               reportSearch(e.target.value);
+              if (sectionRef.current && searchBarAffixed) {
+                scrollIntoView(sectionRef.current, {
+                  scrollMode: 'if-needed',
+                  block: 'start',
+                  behavior: (actions) =>
+                    actions.forEach(({ el, top }) => {
+                      el.scrollTop = top - 64;
+                    }),
+                });
+              }
             }}
             onKeyDown={onKeyDown}
             bordered={false}
@@ -193,13 +205,11 @@ const Overview: React.FC = () => {
                       url += urlSearch;
                     }
 
-                    /** Link 不能跳转到外链 */
-                    const ComponentLink = isExternalLink ? 'a' : Link;
-
                     return (
                       <Col xs={24} sm={12} lg={8} xl={6} key={component?.title}>
-                        <ComponentLink to={url} href={url} onClick={() => onClickCard(url)}>
+                        <Link to={url}>
                           <Card
+                            onClick={() => onClickCard(url)}
                             bodyStyle={{
                               backgroundRepeat: 'no-repeat',
                               backgroundPosition: 'bottom right',
@@ -224,7 +234,7 @@ const Overview: React.FC = () => {
                               />
                             </div>
                           </Card>
-                        </ComponentLink>
+                        </Link>
                       </Col>
                     );
                   })}

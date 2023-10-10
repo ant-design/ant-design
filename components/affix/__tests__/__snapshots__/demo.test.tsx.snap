@@ -84,10 +84,10 @@ exports[`renders components/affix/demo/on-change.tsx correctly 1`] = `
 
 exports[`renders components/affix/demo/target.tsx correctly 1`] = `
 <div
-  class="scrollable-container"
+  style="width:100%;height:100px;overflow:auto"
 >
   <div
-    class="background"
+    style="width:100%;height:1000px"
   >
     <div>
       <div

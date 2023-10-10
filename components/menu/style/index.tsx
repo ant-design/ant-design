@@ -601,6 +601,12 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 
         [`${componentCls}-title-content`]: {
           transition: `color ${motionDurationSlow}`,
+
+          // https://github.com/ant-design/ant-design/issues/41143
+          [`> ${antCls}-typography-ellipsis-single-line`]: {
+            display: 'inline',
+            verticalAlign: 'unset',
+          },
         },
 
         [`${componentCls}-item a`]: {

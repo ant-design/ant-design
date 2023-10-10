@@ -38,7 +38,6 @@ const GlobalStyle: React.FC = () => {
           margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
           max-width: 1024px;
-          width: 100%;
           display: block;
         }
 
@@ -370,13 +369,12 @@ const GlobalStyle: React.FC = () => {
               &:first-child {
                 width: 18%;
                 min-width: 58px;
-                color: #595959;
+                color: ${token.colorText};
                 font-weight: 600;
                 white-space: nowrap;
               }
 
               &:nth-child(2) {
-                width: 55%;
                 min-width: 160px;
               }
 
