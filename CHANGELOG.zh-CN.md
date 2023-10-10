@@ -24,7 +24,7 @@ tag: vVERSION
 - 🔥 Notification 组件支持 `stack` 配置，默认超过三个以上的提示会堆叠起来。[#44618](https://github.com/ant-design/ant-design/pull/44618)
 - 🔥 更新 Input、InputNumber、Select、Cascader、TreeSelect、DatePicker、ColorPicker 的激活态样式。[#45009](https://github.com/ant-design/ant-design/pull/45009)
 - 🆕 Watermark 支持通过 `textAlign` 设置文本对齐方向。[#44888](https://github.com/ant-design/ant-design/pull/44888) [@Yuiai01](https://github.com/Yuiai01)
-- 🆕 Slider 支持任意节点数并且将 xxStyles 迁移至语义化 `styles` 和 `classNames` 属性中。[#45000](https://github.com/ant-design/ant-design/pull/45000)
+- 🆕 Slider 支持任意节点数并且将 xxxStyle 迁移至语义化 `styles` 和 `classNames` 属性中。[#45000](https://github.com/ant-design/ant-design/pull/45000)
 - 🆕 Cascader 支持 Cascader.Panel 组件供内联使用。[#45089](https://github.com/ant-design/ant-design/pull/45089)
 - 🆕 Tooltip 添加 `fresh` 属性以支持在关闭时仍然需要更新内容的场景。[#45020](https://github.com/ant-design/ant-design/pull/45020)
 - 🆕 Drawer 支持通过 `classNames` 自定义内置模块的 `className`。[#44935](https://github.com/ant-design/ant-design/pull/44935)
