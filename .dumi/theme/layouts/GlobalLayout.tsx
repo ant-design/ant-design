@@ -22,6 +22,7 @@ import ThemeSwitch from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+import ScrollToAnchor from '../common/ScrollToAnchor';
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -166,6 +167,7 @@ const GlobalLayout: React.FC = () => {
 
   return (
     <DarkContext.Provider value={theme.includes('dark')}>
+      <ScrollToAnchor />
       <StyleProvider
         cache={styleCache}
         linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
