@@ -33,9 +33,9 @@ tag: vVERSION
   - 🆕 Modal 支持通过 `classNames` 自定义内置模块的 `className`。[#44934](https://github.com/ant-design/ant-design/pull/44934)
   - 🐞 修复 Modal.confirm `description` 是长文本时的内容溢出问题。[#45212](https://github.com/ant-design/ant-design/pull/45212)
 - 🐞 修复 Menu.Item 嵌套的 Typography 其 `ellipsis` 为 true 时无法垂直居中的问题。[#41146](https://github.com/ant-design/ant-design/pull/41146) [@Yuiai01](https://github.com/Yuiai01)
-- 🐞 修复 Autocomplete 内部 input 无法应用 fontFamily。[#45197](https://github.com/ant-design/ant-design/pull/45197) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Select 内部 input 无法应用 fontFamily。[#45197](https://github.com/ant-design/ant-design/pull/45197) [@Yuiai01](https://github.com/Yuiai01)
 - 🐞 修复 InputNumber 在 Space.Compact 中使用 addonBefore 时的边框问题。[#45004](https://github.com/ant-design/ant-design/pull/45004) [@Yuiai01](https://github.com/Yuiai01)
-- 🐞 修复 CheckableTag 不支持 ref 的问题。[#45164](https://github.com/ant-design/ant-design/pull/45164) [@mingming-ma](https://github.com/mingming-ma)
+- 🐞 修复 Tag.CheckableTag 不支持 ref 的问题。[#45164](https://github.com/ant-design/ant-design/pull/45164) [@mingming-ma](https://github.com/mingming-ma)
 - 🐞 修复 Avatar.Group 组件内的字体不支持响应式的问题。[#34722](https://github.com/ant-design/ant-design/pull/34722) [@laishiwen](https://github.com/laishiwen)
 - 🛠 重构 Affix 为函数组件。[#42674](https://github.com/ant-design/ant-design/pull/42674)
 - 🛠 Popover 组件废弃 `minWidth` 组件 token，并添加 `titleMinWidth` 作为替代。[#44750](https://github.com/ant-design/ant-design/pull/44750)
@@ -44,7 +44,7 @@ tag: vVERSION
   - 🆕 Descriptions 新增 `titleColor` `contentColor` 用以设置标题颜色和内容区域文字颜色。[#44729](https://github.com/ant-design/ant-design/pull/44729) [@Child-qjj](https://github.com/Child-qjj)
   - 🐞 修复 Input 组件 Token `addonBg` 失效的问题。[#45222](https://github.com/ant-design/ant-design/pull/45222)
 - TypeScript
-  - 🤖 导出通知的 ArgsProps 类型为 NotificationArgsProps。[#45147](https://github.com/ant-design/ant-design/pull/45147)
+  - 🤖 The ArgsProps type for exported Notification is NotificationArgsProps. [#45147](https://github.com/ant-design/ant-design/pull/45147)
 - 🌐 国际化
   - 🇵🇱 为 pl_PL 补充 Tour 国际化。[#45166](https://github.com/ant-design/ant-design/pull/45166) [@antonisierakowski](https://github.com/antonisierakowski)
   - 🇰🇷 优化 ko_KR 国际化。[#45150](https://github.com/ant-design/ant-design/pull/45150) [@owjs3901](https://github.com/owjs3901)
