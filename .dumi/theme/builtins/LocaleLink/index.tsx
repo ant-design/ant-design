@@ -45,10 +45,5 @@ export default function LocaleLink({ sourceType, to, ...props }: LocaleLinkProps
     linkProps.to = localeTo;
   }
 
-  // https://github.com/ant-design/ant-design/issues/45241
-  if (sourceType !== 'a') {
-    linkProps.reloadDocument = true;
-  }
-
   return <Component {...linkProps} />;
 }
