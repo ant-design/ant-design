@@ -294,9 +294,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="单独 AutoComplete"
+          title="Single AutoComplete."
         >
-          单独 AutoComplete
+          Single AutoComplete.
         </label>
       </div>
       <div
@@ -309,7 +309,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-label="单独 AutoComplete"
+              aria-label="Single AutoComplete."
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
             >
               <div
@@ -323,7 +323,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="单独 AutoComplete"
+                    aria-label="Single AutoComplete."
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -353,9 +353,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="单独 TreeSelect"
+          title="Single TreeSelect."
         >
-          单独 TreeSelect
+          Single TreeSelect.
         </label>
       </div>
       <div
@@ -368,7 +368,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-label="单独 TreeSelect"
+              aria-label="Single TreeSelect."
               class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
@@ -382,7 +382,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                     aria-controls="undefined_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="单独 TreeSelect"
+                    aria-label="Single TreeSelect."
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -441,9 +441,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="添加 Input.Group 正常"
+          title="Adding Input.Group is normal."
         >
-          添加 Input.Group 正常
+          Adding Input.Group is normal.
         </label>
       </div>
       <div
@@ -561,9 +561,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="包含 search 图标正常"
+          title="Including a search icon is normal."
         >
-          包含 search 图标正常
+          Including a search icon is normal.
         </label>
       </div>
       <div
@@ -576,7 +576,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-label="包含 search 图标正常"
+              aria-label="Including a search icon is normal."
               class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
@@ -593,7 +593,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                       aria-controls="undefined_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="包含 search 图标正常"
+                      aria-label="Including a search icon is normal."
                       aria-owns="undefined_list"
                       autocomplete="off"
                       class="ant-input"
@@ -647,9 +647,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="同时有 Input.Group 和图标发生移位"
+          title="There is a misalignment between Input.Group and the icon."
         >
-          同时有 Input.Group 和图标发生移位
+          There is a misalignment between Input.Group and the icon.
         </label>
       </div>
       <div
@@ -794,9 +794,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="同时有 Input.Group 和 Search 组件发生移位"
+          title="There is a misalignment between Input.Group and the Search components."
         >
-          同时有 Input.Group 和 Search 组件发生移位
+          There is a misalignment between Input.Group and the Search components.
         </label>
       </div>
       <div
@@ -954,9 +954,9 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
       >
         <label
           class=""
-          title="Input Group 和 Button 结合"
+          title="Combining Input Group and Button."
         >
-          Input Group 和 Button 结合
+          Combining Input Group and Button.
         </label>
       </div>
       <div

@@ -15,24 +15,24 @@ const formItemLayout = {
 
 const App: React.FC = () => (
   <Form style={{ margin: '0 auto' }} {...formItemLayout}>
-    <Form.Item label="单独 AutoComplete">
+    <Form.Item label="Single AutoComplete.">
       <AutoComplete />
     </Form.Item>
-    <Form.Item label="单独 TreeSelect">
+    <Form.Item label="Single TreeSelect.">
       <TreeSelect />
     </Form.Item>
-    <Form.Item label="添加 Input.Group 正常">
+    <Form.Item label="Adding Input.Group is normal.">
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete />
       </Input.Group>
     </Form.Item>
-    <Form.Item label="包含 search 图标正常">
+    <Form.Item label="Including a search icon is normal.">
       <AutoComplete>
         <Input suffix={<SearchOutlined />} />
       </AutoComplete>
     </Form.Item>
-    <Form.Item label="同时有 Input.Group 和图标发生移位">
+    <Form.Item label="There is a misalignment between Input.Group and the icon.">
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
@@ -40,7 +40,7 @@ const App: React.FC = () => (
         </AutoComplete>
       </Input.Group>
     </Form.Item>
-    <Form.Item label="同时有 Input.Group 和 Search 组件发生移位">
+    <Form.Item label="There is a misalignment between Input.Group and the Search components.">
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
@@ -48,7 +48,7 @@ const App: React.FC = () => (
         </AutoComplete>
       </Input.Group>
     </Form.Item>
-    <Form.Item label="Input Group 和 Button 结合">
+    <Form.Item label="Combining Input Group and Button.">
       <Input.Group compact>
         <TreeSelect style={{ width: '20%' }} />
         <AutoComplete>
