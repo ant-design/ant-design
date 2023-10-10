@@ -1,6 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { INTERNAL_HOOKS, type TableProps as RcTableProps, type Reference } from 'rc-table';
+import {
+  INTERNAL_HOOKS,
+  type Reference as RcReference,
+  type TableProps as RcTableProps,
+} from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import { useComposeRef } from 'rc-util';
 import omit from 'rc-util/lib/omit';
@@ -226,7 +230,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ============================= Refs =============================
   const rootRef = React.useRef<HTMLDivElement>(null);
-  const tblRef = React.useRef<Reference>(null);
+  const tblRef = React.useRef<RcReference>(null);
 
   const mergedRootRef = useComposeRef(rootRef, ref);
 
