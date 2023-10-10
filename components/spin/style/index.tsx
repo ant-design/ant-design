@@ -69,7 +69,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       alignItems: 'center',
       justifyContent: 'center',
       [`${token.componentCls}-dot ${token.componentCls}-dot-item`]: {
-        backgroundColor: '#fff',
+        backgroundColor: `${token.colorWhite}`,
       },
     },
 
