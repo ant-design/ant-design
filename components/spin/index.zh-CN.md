@@ -39,7 +39,7 @@ demo:
 | spinning | 是否为加载中状态 | boolean | true |
 | tip | 当作为包裹元素时，可以自定义描述文案 | ReactNode | - |
 | wrapperClassName | 包装器的类属性 | string | - |
-| fullscreen | 显示带有`Spin`组件的背景 | boolean | false | 5.10.0 |
+| fullscreen | 显示带有`Spin`组件的背景 | boolean | false | 5.11.0 |
 
 ### 静态方法
 
