@@ -64,9 +64,6 @@ const DocLayout: React.FC = () => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
     }
-    if (typeof (window as any)._hmt !== 'undefined') {
-      (window as any)._hmt.push(['_trackPageview', pathname + search]);
-    }
   }, [location]);
 
   const content = useMemo(() => {
