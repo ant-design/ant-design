@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2023-10-10`
 
-- 🔥 新增组件 Flex，用于设置弹性布局。[#44362](https://github.com/ant-design/ant-design/pull/44362)
+- 🔥 新增 Flex 组件，用于设置弹性布局。[#44362](https://github.com/ant-design/ant-design/pull/44362)
 - 🔥 Notification 组件支持 `stack` 配置，默认超过三个以上的提示会堆叠起来。[#44618](https://github.com/ant-design/ant-design/pull/44618)
 - 🔥 更新 Input、InputNumber、Select、Cascader、TreeSelect、DatePicker、ColorPicker 的激活态样式。[#45009](https://github.com/ant-design/ant-design/pull/45009)
 - 🆕 Watermark 支持通过 `textAlign` 设置文本对齐方向。[#44888](https://github.com/ant-design/ant-design/pull/44888) [@Yuiai01](https://github.com/Yuiai01)
