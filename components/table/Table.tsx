@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { EXPAND_COLUMN, Summary } from 'rc-table';
+import { EXPAND_COLUMN, Summary, type Reference } from 'rc-table';
 
 import type { AnyObject } from '../_util/type';
 import Column from './Column';
@@ -16,7 +16,7 @@ import InternalTable from './InternalTable';
 
 const Table = <RecordType extends AnyObject = AnyObject>(
   props: TableProps<RecordType>,
-  ref: React.Ref<HTMLDivElement>,
+  ref: React.Ref<Reference>,
 ) => {
   const renderTimesRef = React.useRef<number>(0);
   renderTimesRef.current += 1;

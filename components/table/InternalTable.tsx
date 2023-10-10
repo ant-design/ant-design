@@ -9,6 +9,7 @@ import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import { useComposeRef } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
+import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -152,7 +153,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     locale,
     showSorterTooltip = true,
     virtual,
-    reference,
   } = props;
 
   const warning = devUseWarning('Table');
@@ -232,9 +232,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const rootRef = React.useRef<HTMLDivElement>(null);
   const tblRef = React.useRef<RcReference>(null);
 
-  const mergedRootRef = useComposeRef(rootRef, ref);
-
-  React.useImperativeHandle(reference, () => ({
+  useProxyImperativeHandle(ref, () => ({
     ...tblRef.current!,
     nativeElement: rootRef.current!,
   }));
@@ -588,13 +586,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   return wrapSSR(
-    <div ref={mergedRootRef} className={wrapperClassNames} style={mergedStyle}>
+    <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <TableComponent
           {...virtualProps}
           {...tableProps}
-          reference={tblRef}
+          ref={tblRef}
           columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}
           expandable={mergedExpandable}

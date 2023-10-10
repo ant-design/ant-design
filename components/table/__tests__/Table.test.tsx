@@ -405,8 +405,12 @@ describe('Table', () => {
 
   it('support reference', () => {
     const tblRef = React.createRef<Reference>();
-    const { container } = render(<Table reference={tblRef} />);
+    const { container } = render(<Table ref={tblRef} />);
 
-    expect(tblRef.current?.nativeElement).toBe(container.querySelector('.ant-table-wrapper')!);
+    const wrapDom = container.querySelector('.ant-table-wrapper')!;
+
+    expect(tblRef.current).toHaveClass('ant-table-wrapper');
+    expect(tblRef.current?.nativeElement).toBe(wrapDom);
+    expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
   });
 });
