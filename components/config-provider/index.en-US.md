@@ -13,8 +13,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAA
 This component provides a configuration to all React components underneath itself via the [context API](https://facebook.github.io/react/docs/context.html). In the render tree all components will have access to the provided config.
 
 ```tsx
-import { ConfigProvider } from 'antd';
 import React from 'react';
+import { ConfigProvider } from 'antd';
 
 // ...
 const Demo: React.FC = () => (
@@ -46,6 +46,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/wave.tsx">Custom Wave</code>
 <code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 <code src="./demo/useConfig.tsx" debug>useConfig</code>
+<code src="./demo/warning.tsx" debug>warning</code>
 
 ## API
 
@@ -66,6 +67,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
 | theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | [Theme](/docs/react/customize-theme#theme) | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
+| warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
 ### ConfigProvider.config()
 
@@ -118,8 +120,9 @@ const {
 | datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer-cn#api), styles?: [DrawerProps\["styles"\]](/components/drawer-cn#api) } | - | 5.7.0, `classNames` and `styles`: 5.10.0 |
 | empty | Set Empty common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| flex | Set Flex common props | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
 | form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
 | image | Set Image common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties } | - | 4.2.0 |
@@ -128,7 +131,7 @@ const {
 | menu | Set Menu common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| modal | Set Modal common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#api), styles?: [ModalProps\["styles"\]](/components/modal-cn#api) } | - | 5.7.0, `classNames` and `styles`: 5.10.0 |
 | notification | Set Notification common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

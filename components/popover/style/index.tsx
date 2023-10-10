@@ -6,15 +6,22 @@ import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/int
 
 export interface ComponentToken {
   /**
+   * @deprecated Please use `titleMinWidth` instead
    * @desc 气泡卡片宽度
    * @descEN Width of Popover
    */
   width: number;
   /**
+   * @deprecated Please use `titleMinWidth` instead
    * @desc 气泡卡片最小宽度
    * @descEN Min width of Popover
    */
   minWidth: number;
+  /**
+   * @desc 气泡卡片标题最小宽度
+   * @descEN Min width of Popover title
+   */
+  titleMinWidth: number;
   /**
    * @desc 气泡卡片 z-index
    * @descEN z-index of Popover
@@ -32,7 +39,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
     popoverColor,
-    minWidth,
+    titleMinWidth,
     fontWeightStrong,
     popoverPadding,
     boxShadowSecondary,
@@ -85,7 +92,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-title`]: {
-          minWidth,
+          minWidth: titleMinWidth,
           marginBottom: marginXS,
           color: colorTextHeading,
           fontWeight: fontWeightStrong,
@@ -197,10 +204,14 @@ export default genComponentStyleHook(
   (token) => ({
     width: 177,
     minWidth: 177,
+    titleMinWidth: 177,
     zIndexPopup: token.zIndexPopupBase + 30,
   }),
   {
     resetStyle: false,
-    deprecatedTokens: [['width', 'minWidth']],
+    deprecatedTokens: [
+      ['width', 'titleMinWidth'],
+      ['minWidth', 'titleMinWidth'],
+    ],
   },
 );

@@ -49,6 +49,7 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 | color | The background color | string | - | 4.3.0 |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | Whether destroy tooltip when hidden | boolean | false |  |
+| fresh | Tooltip will cache content when it is closed by default. Setting this property will always keep updating | boolean | false | 5.10.0 |
 | getPopupContainer | The DOM container of the tip, the default behavior is to create a `div` element in `body` | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | Delay in seconds, before tooltip is shown on mouse enter | number | 0.1 |  |
 | mouseLeaveDelay | Delay in seconds, before tooltip is hidden on mouse leave | number | 0.1 |  |
@@ -78,3 +79,26 @@ It will follow `placement` config when screen has enough space. And flip when sp
 <img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
 
 When `placement` is set to edge align such as `topLeft` `bottomRight`, it will only do flip but not do shift.
+
+### Why Tooltip not update content when close?
+
+Tooltip will cache content when it is closed to avoid flicker when content is updated:
+
+```jsx
+// `title` will not blink when `user` is empty
+<Tooltip open={user} title={user?.name} />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
+
+If need update content when close, you can set `fresh` property ([#44830](https://github.com/ant-design/ant-design/issues/44830)):
+
+```jsx
+<Tooltip open={user} title={user?.name} fresh />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>

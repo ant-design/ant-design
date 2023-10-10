@@ -1,14 +1,12 @@
-import type { SharedInputToken, SharedComponentToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
-  initComponentToken,
-  initInputToken,
-  genActiveStyle,
   genBasicInputStyle,
   genDisabledStyle,
-  genHoverStyle,
   genInputGroupStyle,
   genPlaceholderStyle,
   genStatusStyle,
+  initComponentToken,
+  initInputToken,
 } from '../../input/style';
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
@@ -149,14 +147,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             height: controlHeightSM - 2 * lineWidth,
             padding: `0 ${paddingInlineSM}px`,
           },
-        },
-
-        '&:hover': {
-          ...genHoverStyle(token),
-        },
-
-        '&-focused': {
-          ...genActiveStyle(token),
         },
 
         // ===================== Out Of Range =====================
@@ -395,7 +385,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
-        ...genHoverStyle(token),
         zIndex: 1,
       },
 

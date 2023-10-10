@@ -450,91 +450,254 @@ exports[`renders components/notification/demo/placement.tsx extend context corre
 
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-notification-notice ant-notification-notice-pure-panel ant-notification-notice-closable"
+  class="ant-notification-notice-pure-panel"
 >
   <div
-    class="ant-notification-notice-content"
+    class="ant-notification-notice ant-notification-notice-closable"
   >
     <div
-      class="ant-notification-notice-with-icon"
-      role="alert"
+      class="ant-notification-notice-content"
     >
-      <span
-        aria-label="check-circle"
-        class="anticon anticon-check-circle ant-notification-notice-icon ant-notification-notice-icon-success"
-        role="img"
+      <div
+        class="ant-notification-notice-with-icon"
+        role="alert"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="check-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle ant-notification-notice-icon ant-notification-notice-icon-success"
+          role="img"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-          />
-        </svg>
-      </span>
-      <div
-        class="ant-notification-notice-message"
-      >
-        Hello World!
-      </div>
-      <div
-        class="ant-notification-notice-description"
-      >
-        Hello World?
-      </div>
-      <div
-        class="ant-notification-notice-btn"
-      >
-        <button
-          class="ant-btn ant-btn-primary ant-btn-sm"
-          type="button"
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+        <div
+          class="ant-notification-notice-message"
         >
-          <span>
-            My Button
-          </span>
-        </button>
+          Hello World!
+        </div>
+        <div
+          class="ant-notification-notice-description"
+        >
+          Hello World?
+        </div>
+        <div
+          class="ant-notification-notice-btn"
+        >
+          <button
+            class="ant-btn ant-btn-primary ant-btn-sm"
+            type="button"
+          >
+            <span>
+              My Button
+            </span>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <a
-    class="ant-notification-notice-close"
-    tabindex="0"
-  >
-    <span
-      class="ant-notification-close-x"
+    <a
+      class="ant-notification-notice-close"
+      tabindex="0"
     >
       <span
-        aria-label="close"
-        class="anticon anticon-close ant-notification-close-icon"
-        role="img"
+        class="ant-notification-close-x"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="close"
+          class="anticon anticon-close ant-notification-close-icon"
+          role="img"
         >
-          <path
-            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="close"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-  </a>
+    </a>
+  </div>
 </div>
 `;
 
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/notification/demo/stack.tsx extend context correctly 1`] = `
+<div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Enabled:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            aria-checked="true"
+            class="ant-switch ant-switch-checked"
+            role="switch"
+            type="button"
+          >
+            <div
+              class="ant-switch-handle"
+            />
+            <span
+              class="ant-switch-inner"
+            >
+              <span
+                class="ant-switch-inner-checked"
+              />
+              <span
+                class="ant-switch-inner-unchecked"
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <span>
+            Threshold:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-input-number"
+          >
+            <div
+              class="ant-input-number-handler-wrap"
+            >
+              <span
+                aria-disabled="false"
+                aria-label="Increase Value"
+                class="ant-input-number-handler ant-input-number-handler-up"
+                role="button"
+                unselectable="on"
+              >
+                <span
+                  aria-label="up"
+                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="up"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
+                class="ant-input-number-handler ant-input-number-handler-down"
+                role="button"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-input-number-input-wrap"
+            >
+              <input
+                aria-valuemax="10"
+                aria-valuemin="1"
+                aria-valuenow="3"
+                autocomplete="off"
+                class="ant-input-number-input"
+                role="spinbutton"
+                step="1"
+                value="3"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open the notification box
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/notification/demo/stack.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/notification/demo/update.tsx extend context correctly 1`] = `
 <button

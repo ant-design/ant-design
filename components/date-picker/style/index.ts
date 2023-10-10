@@ -996,14 +996,18 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
     errorActiveShadow,
     colorWarning,
     warningActiveShadow,
+    colorErrorHover,
+    colorWarningHover,
   } = token;
 
   return {
-    [`${componentCls}:not(${componentCls}-disabled)`]: {
+    [`${componentCls}:not(${componentCls}-disabled):not([disabled])`]: {
       [`&${componentCls}-status-error`]: {
-        '&, &:not([disabled]):hover': {
-          backgroundColor: colorBgContainer,
-          borderColor: colorError,
+        backgroundColor: colorBgContainer,
+        borderColor: colorError,
+
+        '&:hover': {
+          borderColor: colorErrorHover,
         },
 
         [`&${componentCls}-focused, &:focus`]: {
@@ -1021,9 +1025,11 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
       },
 
       [`&${componentCls}-status-warning`]: {
-        '&, &:not([disabled]):hover': {
-          backgroundColor: colorBgContainer,
-          borderColor: colorWarning,
+        backgroundColor: colorBgContainer,
+        borderColor: colorWarning,
+
+        '&:hover': {
+          borderColor: colorWarningHover,
         },
 
         [`&${componentCls}-focused, &:focus`]: {
@@ -1105,11 +1111,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         borderRadius,
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
 
-        '&:hover, &-focused': {
+        '&:hover': {
           ...genHoverStyle(token),
         },
 
-        '&-focused': {
+        [`&-focused${componentCls}`]: {
           ...genActiveStyle(token),
         },
 

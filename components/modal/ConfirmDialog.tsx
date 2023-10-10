@@ -168,7 +168,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     close,
     zIndex,
     afterClose,
-    visible,
     open,
     keyboard,
     centered,
@@ -191,7 +190,13 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
-    warning.deprecated(visible === undefined, 'visible', 'open');
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
@@ -238,9 +243,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         )}
         mask={mask}
         maskClosable={maskClosable}
-        maskStyle={maskStyle}
         style={style}
-        bodyStyle={bodyStyle}
+        styles={{
+          body: bodyStyle,
+          mask: maskStyle,
+        }}
         width={width}
         zIndex={zIndex}
         afterClose={afterClose}
