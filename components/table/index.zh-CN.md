@@ -126,6 +126,7 @@ const columns = [
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin-cn#api) | false |  |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) |  |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination-cn) 文档，设为 false 时不展示和进行分页 | object \| `false` | - |  |
+| reference | 同 `ref` ，支持获取原生 dom 元素以及操作方法。 | { nativeElement: HTMLDivElement, scrollTo: (config: { index?: number, key?: React.Key, top?: number }) => void } | - | 5.11.0 |
 | rowClassName | 表格行的类名 | function(record, index): string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowselection) | object | - |  |
@@ -170,7 +171,6 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
-<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
@@ -205,7 +205,7 @@ const columns = [
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |  |
+| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
 | onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
 
 ### ColumnGroup
