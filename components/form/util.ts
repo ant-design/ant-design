@@ -1,5 +1,5 @@
 import type { Meta } from 'rc-field-form/lib/interface';
-import React, { ReactElement } from 'react';
+import React from 'react';
 
 import type { ValidateStatus } from './FormItem';
 import type { InternalNamePath } from './interface';
@@ -64,7 +64,7 @@ export function getStatus<DefaultValue>(
 /**
  * Get element inner text
  */
-export function getTextFromElement(element: ReactElement): string {
+export function getTextFromElement(element: React.ReactElement): string {
   let text = '';
 
   React.Children.map(element.props.children, (child) => {
