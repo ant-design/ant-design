@@ -41,6 +41,9 @@ export default function useWatermark(
           backgroundSize: `${Math.floor(markWidth)}px`,
         }),
       );
+      // Prevents using the browser `Hide Element` to hide watermarks
+      watermarkEle.removeAttribute('class');
+
       container.append(watermarkEle);
     }
   };
