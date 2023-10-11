@@ -158,7 +158,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     </div>
   );
 
-  if (isNestedPattern) {
+  if (isNestedPattern && !fullscreen) {
     return (
       <div
         {...divProps}

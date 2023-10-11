@@ -40,6 +40,8 @@ const antRotate = new Keyframes('antRotate', {
   to: { transform: 'rotate(405deg)' },
 });
 
+const dotPadding = (token: SpinToken) => (token.dotSize - token.fontSize) / 2 + 2;
+
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => ({
   [`${token.componentCls}`]: {
     ...resetComponent(token),
@@ -67,9 +69,15 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       inset: 0,
       display: 'flex',
       alignItems: 'center',
+      flexDirection: 'column',
       justifyContent: 'center',
       [`${token.componentCls}-dot ${token.componentCls}-dot-item`]: {
         backgroundColor: token.colorWhite,
+      },
+      [`${token.componentCls}-text`]: {
+        fontSize: token.fontSize,
+        color: token.colorWhite,
+        paddingTop: dotPadding(token),
       },
     },
 
@@ -96,7 +104,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           position: 'absolute',
           top: '50%',
           width: '100%',
-          paddingTop: (token.dotSize - token.fontSize) / 2 + 2,
+          paddingTop: dotPadding(token),
           textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
           fontSize: token.fontSize,
         },
