@@ -17,10 +17,6 @@ We could configure global token and component token for each component through t
 import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
