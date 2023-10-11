@@ -74,7 +74,7 @@ Transfer accept `children` to customize render list, using follow props:
 | disabled | Disable list or not | boolean |  |
 | filteredItems | Filtered items | RecordType\[] |  |
 | selectedKeys | Selected items | string\[] |  |
-| onItemSelect | Select item | (key: string, selected: boolean, event?: React.MouseEvent) |  |
+| onItemSelect | Select item(The event parameter is passed to enable multiple selection while holding down the shift key) | (key: string, selected: boolean, event?: React.MouseEvent) |  |
 | onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |  |
 
 #### example
