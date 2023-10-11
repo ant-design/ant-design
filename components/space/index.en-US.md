@@ -55,6 +55,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect

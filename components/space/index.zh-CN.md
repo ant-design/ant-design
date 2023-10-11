@@ -63,6 +63,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect
