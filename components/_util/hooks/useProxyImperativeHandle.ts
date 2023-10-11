@@ -36,7 +36,7 @@ export default function useProxyImperativeHandle<
             return (refObj as any)[prop];
           }
 
-          return obj[prop];
+          return Reflect.get(obj, prop);
         },
       });
     }
