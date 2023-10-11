@@ -57,10 +57,10 @@ Describe changes from the user side, and list all potential break changes or oth
 
 ⚠️ Please check all items below before requesting a reviewing. ⚠️
 
-- [ ] Doc is updated/provided or not needed
-- [ ] Demo is updated/provided or not needed
-- [ ] TypeScript definition is updated/provided or not needed
-- [ ] Changelog is provided or not needed
+- [] Doc is updated/provided or not needed
+- [] Demo is updated/provided or not needed
+- [] TypeScript definition is updated/provided or not needed
+- [] Changelog is provided or not needed
 
 ---
 
