@@ -116,7 +116,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 | Ant Design 1.x | https://ant-design-1x.gitee.io |
 | Ant Design Pro | https://ant-design-pro.gitee.io/ |
 | Ant Design Mobile | https://ant-design-mobile.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
-| Ant Design Mini | https://ant-design-mini.antgroup.com/zh <br /> https://antd-mobile.gitee.io/ |
+| Ant Design Mini | https://ant-design-mini.antgroup.com <br /> https://antd-mobile.gitee.io/ |
 | Ant Design Charts | https://ant-design-charts.antgroup.com<br /> https://antd-mobile.gitee.io/ |
 | AntV | https://antv.antgroup.com |
 | Ant Motion | https://ant-motion.gitee.io |
@@ -213,7 +213,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## 动态样式有 `:where` 导致旧版浏览器不支持怎么办？
 
-请参考动态主题文档 [兼容旧版浏览器](/docs/react/customize-theme-cn#兼容旧版浏览器) 部分内容。
+请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style-cn) 部分内容。
 
 ## 如何关闭组件动画
 
@@ -233,11 +233,11 @@ import { ConfigProvider } from 'antd';
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow Dom 场景](/docs/react/customize-theme-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何支持 SSR？
 
-请参考动态主题文档 [服务端渲染](/docs/react/customize-theme-cn#服务端渲染) 部分内容。
+请参考动态主题文档 [服务端渲染](/docs/react/server-side-rendering-cn) 部分内容。
 
 ## V5 中 colorPrimary 和 colorInfo 及 colorLink 之间是什么关系？
 

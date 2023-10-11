@@ -1,17 +1,17 @@
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import { Helmet, useOutlet } from 'dumi';
+import { Helmet, useOutlet, useSiteData } from 'dumi';
 import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import zhCN from 'antd/es/locale/zh_CN';
 import ConfigProvider from 'antd/es/config-provider';
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
-import Footer from '../../slots/Footer';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
 import '../../static/style';
+import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
 
@@ -30,10 +30,11 @@ const locales = {
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
-  const { pathname, search } = location;
+  const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { direction } = useContext(SiteContext);
+  const { loading } = useSiteData();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -52,6 +53,13 @@ const DocLayout: React.FC = () => {
     }
   }, []);
 
+  // handle hash change or visit page hash from Link component, and jump after async chunk loaded
+  useEffect(() => {
+    const id = hash.replace('#', '');
+
+    if (id) document.getElementById(decodeURIComponent(id))?.scrollIntoView();
+  }, [loading, hash]);
+
   useEffect(() => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
@@ -64,10 +72,9 @@ const DocLayout: React.FC = () => {
       ['/index'].some((path) => pathname.startsWith(path))
     ) {
       return (
-        <>
-          <div style={{ minHeight: '100vh' }}>{outlet}</div>
-          <Footer />
-        </>
+        <IndexLayout title={locale.title} desc={locale.description}>
+          {outlet}
+        </IndexLayout>
       );
     }
     if (pathname.startsWith('/docs/resource')) {
@@ -87,13 +94,10 @@ const DocLayout: React.FC = () => {
           data-direction={direction}
           className={classNames({ rtl: direction === 'rtl' })}
         />
-        <title>{locale?.title}</title>
         <link
           sizes="144x144"
           href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
         />
-        <meta name="description" content={locale.description} />
-        <meta property="og:title" content={locale?.title} />
         <meta property="og:description" content={locale.description} />
         <meta property="og:type" content="website" />
         <meta

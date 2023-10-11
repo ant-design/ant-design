@@ -53,6 +53,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         flexDirection: 'column',
         flex: 'auto',
         rowGap: token.marginXS,
+        maxWidth: `calc(100% - ${token.modalConfirmIconSize + token.marginSM}px)`,
       },
 
       [`${confirmComponentCls}-title`]: {

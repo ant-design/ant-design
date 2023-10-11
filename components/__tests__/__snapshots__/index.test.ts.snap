@@ -27,6 +27,7 @@ exports[`antd exports modules correctly 1`] = `
   "Drawer",
   "Dropdown",
   "Empty",
+  "Flex",
   "FloatButton",
   "Form",
   "Grid",
