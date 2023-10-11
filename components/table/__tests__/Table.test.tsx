@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { ConfigProvider } from 'antd';
 
-import type { Reference, TableProps } from '..';
+import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -404,7 +404,7 @@ describe('Table', () => {
   });
 
   it('support reference', () => {
-    const tblRef = React.createRef<Reference>();
+    const tblRef = React.createRef<TableRef>();
     const { container } = render(<Table ref={tblRef} />);
 
     const wrapDom = container.querySelector('.ant-table-wrapper')!;

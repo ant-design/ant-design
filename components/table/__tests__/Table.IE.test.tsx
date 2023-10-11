@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { Reference } from '..';
+import type { TableRef } from '..';
 import Table from '..';
 import { render } from '../../../tests/utils';
 
@@ -11,7 +11,7 @@ describe('Table.IE', () => {
   });
 
   it('support reference', () => {
-    const tblRef = React.createRef<Reference>();
+    const tblRef = React.createRef<TableRef>();
     const { container } = render(<Table ref={tblRef} />);
 
     const wrapDom = container.querySelector('.ant-table-wrapper')!;
