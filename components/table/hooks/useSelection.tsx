@@ -111,8 +111,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const warning = devUseWarning('Table');
 
   // ========================= MultipleSelect =========================
-  const prevSelectedIndexRef = React.useRef(-1);
-  const [multipleSelect] = useMultipleSelect();
+  const [multipleSelect, updatePrevSelectedIndex] = useMultipleSelect();
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
@@ -352,7 +351,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         ...selection,
         onSelect: (...rest) => {
           selection.onSelect?.(...rest);
-          prevSelectedIndexRef.current = -1;
+          updatePrevSelectedIndex(-1);
         },
       }));
   }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
@@ -408,7 +407,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         );
 
         setSelectedKeys(keys, 'all');
-        prevSelectedIndexRef.current = -1;
+        updatePrevSelectedIndex(-1);
       };
 
       // ===================== Render =====================
@@ -584,9 +583,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   }
 
                   if (checked) {
-                    prevSelectedIndexRef.current = -1;
+                    updatePrevSelectedIndex(-1);
                   } else {
-                    prevSelectedIndexRef.current = currentSelectedIndex;
+                    updatePrevSelectedIndex(currentSelectedIndex);
                   }
                 }}
               />

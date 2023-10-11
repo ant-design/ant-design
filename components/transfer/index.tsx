@@ -1,5 +1,5 @@
 import type { ChangeEvent, CSSProperties } from 'react';
-import React, { useCallback, useContext, useRef } from 'react';
+import React, { useCallback, useContext } from 'react';
 import classNames from 'classnames';
 
 import useMultipleSelect from '../_util/hooks/useMultipleSelect';
@@ -170,12 +170,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setTargetSelectedKeys,
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
-  const [multipleSelectLeft] = useMultipleSelect();
-  const [multipleSelectRight] = useMultipleSelect();
-
-  // record last selected item index
-  const leftPrevSelectedIndexRef = useRef(-1);
-  const rightPrevSelectedIndexRef = useRef(-1);
+  const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect();
+  const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect();
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -198,11 +194,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const setPrevSelectedIndex = (direction: TransferDirection, value: number) => {
     const isLeftDirection = direction === 'left';
-    if (isLeftDirection) {
-      leftPrevSelectedIndexRef.current = value;
-    } else {
-      rightPrevSelectedIndexRef.current = value;
-    }
+    const updatePrevSelectedIndex = isLeftDirection
+      ? updateLeftPrevSelectedIndex
+      : updateRightPrevSelectedIndex;
+    updatePrevSelectedIndex(value);
   };
 
   const handleSelectChange = useCallback(
@@ -320,7 +315,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     currentSelectedIndex: number,
   ) => {
     const isLeftDirection = direction === 'left';
-    const multipleSelect = isLeftDirection ? multipleSelectLeft : multipleSelectRight;
+    const multipleSelect = isLeftDirection ? leftMultipleSelect : rightMultipleSelect;
     multipleSelect(currentSelectedIndex, data, holder);
   };
 
