@@ -51,5 +51,9 @@ export default function useMultipleSelect() {
     return changedKeys;
   };
 
-  return [multipleSelect];
+  const updatePrevSelectedIndex = (val: number) => {
+    prevSelectedIndexRef.current = val;
+  };
+
+  return [multipleSelect, updatePrevSelectedIndex] as const;
 }
