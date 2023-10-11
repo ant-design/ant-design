@@ -148,6 +148,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
             expandedKeys,
             startKey: key,
             endKey: lastSelectedKey.current,
+            fieldNames,
           }),
         ]),
       );

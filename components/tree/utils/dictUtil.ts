@@ -14,9 +14,9 @@ type FieldNames = TreeProps['fieldNames'];
 function traverseNodesKey(
   treeData: DataNode[],
   callback: (key: Key | number | null, node: DataNode) => boolean,
-  fieldNames?: FieldNames,
+  fieldNames: Required<NonNullable<FieldNames>>,
 ) {
-  const { key: fieldKey, children: fieldChildren } = fillFieldNames(fieldNames);
+  const { key: fieldKey, children: fieldChildren } = fieldNames;
 
   function processNode(dataNode: DataNode & FieldNames[keyof FieldNames]) {
     const key = dataNode[fieldKey];
@@ -35,11 +35,13 @@ export function calcRangeKeys({
   expandedKeys,
   startKey,
   endKey,
+  fieldNames,
 }: {
   treeData: DataNode[];
   expandedKeys: Key[];
   startKey?: Key;
   endKey?: Key;
+  fieldNames?: FieldNames;
 }): Key[] {
   const keys: Key[] = [];
   let record: Record = Record.None;
@@ -55,27 +57,31 @@ export function calcRangeKeys({
     return key === startKey || key === endKey;
   }
 
-  traverseNodesKey(treeData, (key: Key) => {
-    if (record === Record.End) {
-      return false;
-    }
-
-    if (matchKey(key)) {
-      // Match test
-      keys.push(key);
-
-      if (record === Record.None) {
-        record = Record.Start;
-      } else if (record === Record.Start) {
-        record = Record.End;
+  traverseNodesKey(
+    treeData,
+    (key: Key) => {
+      if (record === Record.End) {
         return false;
       }
-    } else if (record === Record.Start) {
-      // Append selection
-      keys.push(key);
-    }
-    return expandedKeys.includes(key);
-  });
+
+      if (matchKey(key)) {
+        // Match test
+        keys.push(key);
+
+        if (record === Record.None) {
+          record = Record.Start;
+        } else if (record === Record.Start) {
+          record = Record.End;
+          return false;
+        }
+      } else if (record === Record.Start) {
+        // Append selection
+        keys.push(key);
+      }
+      return expandedKeys.includes(key);
+    },
+    fillFieldNames(fieldNames),
+  );
 
   return keys;
 }
@@ -98,7 +104,7 @@ export function convertDirectoryKeysToNodes(
 
       return !!restKeys.length;
     },
-    fieldNames,
+    fillFieldNames(fieldNames),
   );
   return nodes;
 }
