@@ -147,7 +147,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Version |
 | --- | --- | --- | --- |
 | nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
-| scrollTo | Trigger to scroll to target position | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey` | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
 
 #### onRow usage
 
