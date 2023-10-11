@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.9.4",
+  "version": "5.10.0",
   "packageManager": "^npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
@@ -94,7 +94,7 @@
     "test-all": "sh -e ./scripts/test-all.sh",
     "test-node": "npm run version && jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
-    "site:test": "jest --config .jest.site.js --no-cache --force-exit",
+    "site:test": "jest --config .jest.site.js",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
     "argos": "tsx scripts/argos-upload.ts",
     "version": "tsx scripts/generate-version.ts",

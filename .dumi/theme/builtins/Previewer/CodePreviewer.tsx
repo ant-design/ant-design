@@ -8,7 +8,7 @@ import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
-import type { AntdPreviewerProps } from '.';
+import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -171,7 +171,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   });
 
   const localizedTitle = title;
-  const introChildren = <div dangerouslySetInnerHTML={{ __html: description }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
@@ -205,7 +204,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-  const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
+  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
       if (matches?.[1]) {
@@ -377,7 +376,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
           <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
-        <div className="code-box-description">{introChildren}</div>
+        {description && (
+          <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
+        )}
         <Space wrap size="middle" className="code-box-actions">
           {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
