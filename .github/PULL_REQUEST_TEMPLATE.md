@@ -10,22 +10,22 @@ Thank you!
 
 ### 🤔 This is a ...
 
-- [ ] New feature
-- [ ] Bug fix
-- [ ] Site / documentation update
-- [ ] Demo update
-- [ ] Component style update
-- [ ] TypeScript definition update
-- [ ] Bundle size optimization
-- [ ] Performance optimization
-- [ ] Enhancement feature
-- [ ] Internationalization
-- [ ] Refactoring
-- [ ] Code style optimization
-- [ ] Test Case
-- [ ] Branch merge
-- [ ] Workflow
-- [ ] Other (about what?)
+- [] New feature
+- [] Bug fix
+- [] Site / documentation update
+- [] Demo update
+- [] Component style update
+- [] TypeScript definition update
+- [] Bundle size optimization
+- [] Performance optimization
+- [] Enhancement feature
+- [] Internationalization
+- [] Refactoring
+- [] Code style optimization
+- [] Test Case
+- [] Branch merge
+- [] Workflow
+- [] Other (about what?)
 
 ### 🔗 Related issue link
 
