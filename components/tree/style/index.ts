@@ -85,6 +85,24 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
   },
 });
 
+// ============================== TreeSelect ==========================
+const getTreeSelectResetStyle = (token: TreeToken, isTreeSelect: boolean) => {
+  if (isTreeSelect) {
+    const { treeCls, treeNodeCls, treeNodePadding } = token;
+
+    return {
+      [`${treeCls}-list-holder-inner`]: {
+        paddingInlineEnd: `${treeNodePadding}px`,
+      },
+      [`${treeNodeCls}:first-child`]: {
+        paddingTop: `${treeNodePadding}px`,
+      },
+    };
+  }
+
+  return {};
+};
+
 // =============================== Base ===============================
 type TreeToken = FullToken<'Tree'> & {
   treeCls: string;
@@ -92,7 +110,11 @@ type TreeToken = FullToken<'Tree'> & {
   treeNodePadding: number;
 };
 
-export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
+export const genBaseStyle = (
+  prefixCls: string,
+  token: TreeToken,
+  isTreeSelect: boolean,
+): CSSObject => {
   const { treeCls, treeNodeCls, treeNodePadding, titleHeight, nodeSelectedBg, nodeHoverBg } = token;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
 
@@ -212,6 +234,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
       },
+      // Reset TreeSelect Style
+      // Ref: https://github.com/ant-design/ant-design/issues/44492
+      ...getTreeSelectResetStyle(token, isTreeSelect),
 
       // >>> Indent
       [`${treeCls}-indent`]: {
@@ -490,6 +515,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 export const genTreeStyle = (
   prefixCls: string,
   token: AliasToken & TreeSharedToken,
+  isTreeSelect = false,
 ): CSSInterpolation => {
   const treeCls = `.${prefixCls}`;
   const treeNodeCls = `${treeCls}-treenode`;
@@ -504,7 +530,7 @@ export const genTreeStyle = (
 
   return [
     // Basic
-    genBaseStyle(prefixCls, treeToken),
+    genBaseStyle(prefixCls, treeToken, isTreeSelect),
     // Directory
     genDirectoryStyle(treeToken),
   ];

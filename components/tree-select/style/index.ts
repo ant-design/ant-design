@@ -29,6 +29,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
         genTreeStyle(
           treePrefixCls,
           mergeToken<AliasToken & TreeSharedToken>(token, { colorBgContainer: colorBgElevated }),
+          true,
         ),
         {
           [treeCls]: {
