@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import difference from 'lodash/difference';
 import { Space, Switch, Table, Tag, Transfer } from 'antd';
 import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
 import type { TransferItem, TransferProps } from 'antd/es/transfer';
+import difference from 'lodash/difference';
 
 interface RecordType {
   key: string;
@@ -64,9 +64,9 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
           size="small"
           style={{ pointerEvents: listDisabled ? 'none' : undefined }}
           onRow={({ key, disabled: itemDisabled }) => ({
-            onClick: () => {
+            onClick: (event) => {
               if (itemDisabled || listDisabled) return;
-              onItemSelect(key as string, !listSelectedKeys.includes(key as string));
+              onItemSelect(key as string, !listSelectedKeys.includes(key as string), event);
             },
           })}
         />
