@@ -1,17 +1,13 @@
+import { useRef } from 'react';
+
 /**
  * @title multipleSelect hooks
  * @description multipleSelect by hold down shift key
  */
 export default function useMultipleSelect() {
-  const multipleSelect = <T>(
-    prevSelectedIndexRef: React.MutableRefObject<number>,
-    currentSelectedIndex: number,
-    data: any[],
-    selectedKeys: Set<T>,
-    updatePrevSelectedIndex = (index: number) => {
-      prevSelectedIndexRef.current = index;
-    },
-  ) => {
+  const prevSelectedIndexRef = useRef(-1);
+
+  const multipleSelect = <T>(currentSelectedIndex: number, data: any[], selectedKeys: Set<T>) => {
     // prevSelectedIndex reset case
     if (prevSelectedIndexRef.current < 0) {
       const selectedIndexArr: number[] = [];
@@ -28,7 +24,7 @@ export default function useMultipleSelect() {
           nearestIndex = item;
         }
       });
-      updatePrevSelectedIndex(nearestIndex ?? currentSelectedIndex);
+      prevSelectedIndexRef.current = nearestIndex ?? currentSelectedIndex;
     }
 
     // add/delete the selected range
@@ -44,11 +40,11 @@ export default function useMultipleSelect() {
           changedKeys.push(item);
         }
         selectedKeys.add(item);
-        updatePrevSelectedIndex(endIndex);
+        prevSelectedIndexRef.current = endIndex;
       } else {
         selectedKeys.delete(item);
         changedKeys.push(item);
-        updatePrevSelectedIndex(-1);
+        prevSelectedIndexRef.current = -1;
       }
     });
 
