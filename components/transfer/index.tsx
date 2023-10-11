@@ -170,7 +170,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setTargetSelectedKeys,
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
-  const [multipleSelect] = useMultipleSelect();
+  const [multipleSelectLeft] = useMultipleSelect();
+  const [multipleSelectRight] = useMultipleSelect();
 
   // record last selected item index
   const leftPrevSelectedIndexRef = useRef(-1);
@@ -319,12 +320,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     currentSelectedIndex: number,
   ) => {
     const isLeftDirection = direction === 'left';
-    const prevSelectedIndexRef = isLeftDirection
-      ? leftPrevSelectedIndexRef
-      : rightPrevSelectedIndexRef;
-    multipleSelect(prevSelectedIndexRef, currentSelectedIndex, data, holder, (index: number) => {
-      setPrevSelectedIndex(direction, index);
-    });
+    const multipleSelect = isLeftDirection ? multipleSelectLeft : multipleSelectRight;
+    multipleSelect(currentSelectedIndex, data, holder);
   };
 
   const onItemSelect = (
