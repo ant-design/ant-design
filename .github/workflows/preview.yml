@@ -17,7 +17,7 @@ jobs:
     permissions:
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
-    name: start preview info
+    name: Prepare preview
     runs-on: ubuntu-latest
     steps:
       - name: update status comment
@@ -30,7 +30,7 @@ jobs:
           body-include: "<!-- AUTO_PREVIEW_HOOK -->"
 
   setup:
-    name: prepare preview
+    name: Setup
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -63,7 +63,7 @@ jobs:
         run: npm ci
 
   build-site:
-    name: build preview
+    name: Build Preview Site
     runs-on: ubuntu-latest
     needs: setup
     steps:
@@ -109,7 +109,7 @@ jobs:
           path: ./pr-id.txt
 
   site-test:
-    name: site E2E test
+    name: Site E2E Test
     runs-on: ubuntu-latest
     needs: build-site
     steps:
@@ -138,7 +138,7 @@ jobs:
         run: npm run site:test
 
   preview-deploy:
-    name: deploy preview
+    name: Deploy Preview
     runs-on: ubuntu-latest
     needs: build-site
     steps:
@@ -166,7 +166,7 @@ jobs:
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
   preview-end:
-    name: build preview result
+    name: Preview End
     runs-on: ubuntu-latest
     needs:
       - build-site
