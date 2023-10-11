@@ -142,6 +142,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | onRow | Set props on per row | function(record, index) | - |  |
 | virtual | Support virtual list | boolean | - | 5.9.0 |
 
+### Table ref
+
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey` | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
+
 #### onRow usage
 
 Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`

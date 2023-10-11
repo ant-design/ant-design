@@ -1,9 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { INTERNAL_HOOKS, type TableProps as RcTableProps } from 'rc-table';
+import {
+  INTERNAL_HOOKS,
+  type Reference as RcReference,
+  type TableProps as RcTableProps,
+} from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 
+import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -221,6 +226,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ============================ Width =============================
   const getContainerWidth = useContainerWidth(prefixCls);
+
+  // ============================= Refs =============================
+  const rootRef = React.useRef<HTMLDivElement>(null);
+  const tblRef = React.useRef<RcReference>(null);
+
+  useProxyImperativeHandle(ref, () => ({
+    ...tblRef.current!,
+    nativeElement: rootRef.current!,
+  }));
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
@@ -571,12 +585,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   return wrapSSR(
-    <div ref={ref} className={wrapperClassNames} style={mergedStyle}>
+    <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <TableComponent
           {...virtualProps}
           {...tableProps}
+          ref={tblRef}
           columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}
           expandable={mergedExpandable}
