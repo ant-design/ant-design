@@ -6,7 +6,6 @@ import {
   type TableProps as RcTableProps,
 } from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
-import { useComposeRef } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
 import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';

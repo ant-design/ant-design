@@ -126,7 +126,6 @@ const columns = [
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin-cn#api) | false |  |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) |  |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination-cn) 文档，设为 false 时不展示和进行分页 | object \| `false` | - |  |
-| reference | 同 `ref` ，支持获取原生 dom 元素以及操作方法。 | { nativeElement: HTMLDivElement, scrollTo: (config: { index?: number, key?: React.Key, top?: number }) => void } | - | 5.11.0 |
 | rowClassName | 表格行的类名 | function(record, index): string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | `key` |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowselection) | object | - |  |
@@ -143,6 +142,13 @@ const columns = [
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
 | virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
+
+### Table ref
+
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| nativeElement | 最外层 div 元素 | HTMLDivElement | 5.11.0 |
+| scrollTo | 滚动到目标位置 | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
 
 #### onRow 用法
 

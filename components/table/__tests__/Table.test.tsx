@@ -280,7 +280,7 @@ describe('Table', () => {
       },
     ];
     const Wrapper: React.FC = () => {
-      const ref = React.useRef<HTMLDivElement>(null);
+      const ref = React.useRef<any>(null);
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);
