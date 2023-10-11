@@ -78,7 +78,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // Control
     lineWidth: mergedToken.lineWidth,
-    controlOutlineWidth: mergedToken.lineWidth * 2,
+    controlOutlineWidth: 0.5,
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
