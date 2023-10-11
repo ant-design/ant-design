@@ -1,7 +1,8 @@
-import { createStyles, useTheme } from 'antd-style';
 import * as React from 'react';
-import classNames from 'classnames';
 import { Space } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
+import classNames from 'classnames';
+
 import useLocale from '../../../../hooks/useLocale';
 
 export const THEMES = {
@@ -33,48 +34,54 @@ const locales = {
 
 const useStyle = createStyles(({ token, css }) => ({
   themeCard: css`
-      border-radius: ${token.borderRadius}px;
-      cursor: pointer;
-      transition: all ${token.motionDurationSlow};
-      overflow: hidden;
-      display: inline-block;
+    border-radius: ${token.borderRadius}px;
+    cursor: pointer;
+    transition: all ${token.motionDurationSlow};
+    overflow: hidden;
+    display: inline-block;
 
-      & > input[type="radio"] {
-        width: 0;
-        height: 0;
-        opacity: 0;
-        position: absolute;
-      }
+    & > input[type='radio'] {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      position: absolute;
+    }
 
-      img {
-        vertical-align: top;
-        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-          0 9px 28px 8px rgba(0, 0, 0, 0.05);
-      }
+    img {
+      vertical-align: top;
+      box-shadow:
+        0 3px 6px -4px rgba(0, 0, 0, 0.12),
+        0 6px 16px 0 rgba(0, 0, 0, 0.08),
+        0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    }
 
-      &:focus-within,
-      &:hover {
-        transform: scale(1.04);
-      }
-    `,
+    &:focus-within,
+    &:hover {
+      transform: scale(1.04);
+    }
+  `,
 
   themeCardActive: css`
-      box-shadow: 0 0 0 1px ${token.colorBgContainer},
-        0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
+    box-shadow:
+      0 0 0 1px ${token.colorBgContainer},
+      0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
 
-      &,
-      &:hover:not(:focus-within) {
-        transform: scale(1);
-      }
-    `,
+    &,
+    &:hover:not(:focus-within) {
+      transform: scale(1);
+    }
+  `,
 }));
 
 export interface ThemePickerProps {
+  id?: string;
   value?: string;
   onChange?: (value: string) => void;
 }
 
-export default function ThemePicker({ value, onChange }: ThemePickerProps) {
+export default function ThemePicker(props: ThemePickerProps) {
+  const { value, onChange, id } = props;
+
   const token = useTheme();
   const { styles } = useStyle();
 
@@ -82,7 +89,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
 
   return (
     <Space size={token.paddingLG}>
-      {Object.keys(THEMES).map((theme) => {
+      {Object.keys(THEMES).map((theme, index) => {
         const url = THEMES[theme as THEME];
 
         return (
@@ -94,7 +101,7 @@ export default function ThemePicker({ value, onChange }: ThemePickerProps) {
                 onChange?.(theme);
               }}
             >
-              <input type="radio" name="theme" />
+              <input type="radio" name="theme" id={index === 0 ? id : null} />
               <img src={url} alt={theme} />
             </label>
             <span>{locale[theme as keyof typeof locale]}</span>
