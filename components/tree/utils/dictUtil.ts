@@ -1,5 +1,6 @@
 import type { DataNode, Key } from 'rc-tree/lib/interface';
 import { fillFieldNames } from 'rc-tree/lib/utils/treeUtil';
+
 import type { TreeProps } from '../Tree';
 
 enum Record {
@@ -10,30 +11,18 @@ enum Record {
 
 type FieldNames = TreeProps['fieldNames'];
 
-interface TraverseDataNodesConfig {
-  fieldNames?: FieldNames;
-}
-
 function traverseNodesKey(
   treeData: DataNode[],
   callback: (key: Key | number | null, node: DataNode) => boolean,
-  // To avoid too many params, let use config instead of origin param
-  config?: TraverseDataNodesConfig | string,
+  fieldNames?: FieldNames,
 ) {
-  let mergedConfig: TraverseDataNodesConfig = {};
-  if (typeof config === 'object') {
-    mergedConfig = config;
-  } else {
-    mergedConfig = { fieldNames: fillFieldNames() };
-  }
-  mergedConfig = mergedConfig || {};
-  const { fieldNames } = mergedConfig;
+  const { key: fieldKey, children: fieldChildren } = fillFieldNames(fieldNames);
+
   function processNode(dataNode: DataNode & FieldNames[keyof FieldNames]) {
-    const { key: fieldKey, children: fieldChildren } = fillFieldNames(fieldNames);
     const key = dataNode[fieldKey];
     const children = dataNode[fieldChildren];
     if (callback(key, dataNode) !== false) {
-      traverseNodesKey(children || [], callback, { fieldNames });
+      traverseNodesKey(children || [], callback, fieldNames);
     }
   }
 
@@ -94,7 +83,7 @@ export function calcRangeKeys({
 export function convertDirectoryKeysToNodes(
   treeData: DataNode[],
   keys: Key[],
-  { fieldNames }: { fieldNames?: FieldNames },
+  fieldNames?: FieldNames,
 ) {
   const restKeys: Key[] = [...keys];
   const nodes: DataNode[] = [];
@@ -109,7 +98,7 @@ export function convertDirectoryKeysToNodes(
 
       return !!restKeys.length;
     },
-    { fieldNames },
+    fieldNames,
   );
   return nodes;
 }

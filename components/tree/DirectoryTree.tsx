@@ -1,3 +1,4 @@
+import * as React from 'react';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
@@ -7,9 +8,8 @@ import type { BasicDataNode } from 'rc-tree';
 import type { DataNode, EventDataNode, Key } from 'rc-tree/lib/interface';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
 
+import { ConfigContext } from '../config-provider';
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
 import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
@@ -137,9 +137,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       newSelectedKeys = keys;
       lastSelectedKey.current = key;
       cachedSelectedKeys.current = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, {
-        fieldNames,
-      });
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(
@@ -153,17 +151,13 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
           }),
         ]),
       );
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, {
-        fieldNames,
-      });
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
     } else {
       // Single click
       newSelectedKeys = [key];
       lastSelectedKey.current = key;
       cachedSelectedKeys.current = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, {
-        fieldNames,
-      });
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
     }
 
     props.onSelect?.(newSelectedKeys, newEvent);
