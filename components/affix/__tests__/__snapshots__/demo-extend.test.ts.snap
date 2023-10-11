@@ -90,10 +90,10 @@ exports[`renders components/affix/demo/on-change.tsx extend context correctly 2`
 
 exports[`renders components/affix/demo/target.tsx extend context correctly 1`] = `
 <div
-  class="scrollable-container"
+  style="width: 100%; height: 100px; overflow: auto;"
 >
   <div
-    class="background"
+    style="width: 100%; height: 1000px;"
   >
     <div>
       <div

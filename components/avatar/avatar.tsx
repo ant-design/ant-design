@@ -128,7 +128,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
           width: currentSize,
           height: currentSize,
           lineHeight: `${currentSize}px`,
-          fontSize: icon ? currentSize / 2 : 18,
+          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size]);
@@ -138,7 +138,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
     warning(
       !(typeof icon === 'string' && icon.length > 2),
-      'deprecated',
+      'breaking',
       `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
   }

@@ -28,6 +28,7 @@ demo:
 <code src="./demo/show-tooltip.tsx">控制 ToolTip 的显示</code>
 <code src="./demo/reverse.tsx">反向</code>
 <code src="./demo/draggableTrack.tsx">范围可拖拽</code>
+<code src="./demo/multiple.tsx">多点组合</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
@@ -37,6 +38,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | autoFocus | 自动获取焦点 | boolean | false |  |
+| classNames | 语义化结构 className | Record<SemanticDOM, string> | - | 5.10.0 |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | 值为 true 时，滑块为禁用状态 | boolean | false |  |
 | keyboard | 支持使用键盘操作 handler | boolean | true | 5.2.0+ |
@@ -48,14 +50,21 @@ demo:
 | range | 双滑块模式 | boolean \| [range](#range) | false |  |
 | reverse | 反向坐标轴 | boolean | false |  |
 | step | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 marks 标出来的部分 | number \| null | 1 |  |
+| styles | 语义化结构 className | Record<SemanticDOM, React.CSSProperties> | - | 5.10.0 |
 | tooltip | 设置 Tooltip 相关属性 | [tooltip](#tooltip) | - | 4.23.0 |
 | value | 设置当前取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | - |  |
 | vertical | 值为 true 时，Slider 为垂直方向 | boolean | false |  |
 | onAfterChange | 与 `onmouseup` 触发时机一致，把当前值作为参数传入 | (value) => void | - |  |
 | onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入 | (value) => void | - |  |
-| trackStyle | Slider 滑动条轨道样式 (选中范围内) | CSSProperties | - |  |
-| railStyle | Slider 滑动条轨道样式 (背景) | CSSProperties | - |  |
-| handleStyle | Slider 滑动滑块样式 | CSSProperties | - |  |
+
+### `styles` 和 `classNames` 属性
+
+| 名称   | 说明                             | 版本   |
+| ------ | -------------------------------- | ------ |
+| track  | 范围选择下，点和点之间单个选取条 | 5.10.0 |
+| tracks | 范围选择下，整个范围选取条       | 5.10.0 |
+| rail   | 背景条                           | 5.10.0 |
+| handle | 抓取点                           | 5.10.0 |
 
 ### range
 

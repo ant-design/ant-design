@@ -11,7 +11,10 @@ export const textEllipsis: CSSObject = {
   textOverflow: 'ellipsis',
 };
 
-export const resetComponent = (token: DerivativeToken): CSSObject => ({
+export const resetComponent = (
+  token: DerivativeToken,
+  needInheritFontFamily = false,
+): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,
   padding: 0,
@@ -21,7 +24,7 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
   lineHeight: token.lineHeight,
   listStyle: 'none',
   // font-feature-settings: @font-feature-settings-base;
-  fontFamily: token.fontFamily,
+  fontFamily: needInheritFontFamily ? 'inherit' : token.fontFamily,
 });
 
 export const resetIcon = (): CSSObject => ({

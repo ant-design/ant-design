@@ -57,8 +57,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     defaultValue: props.defaultOpen,
   });
 
-  // const isDestroyed = useDestroyed();
-
   const settingOpen = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,

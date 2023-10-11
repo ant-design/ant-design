@@ -4136,7 +4136,11 @@ Array [
             <span
               class="ant-menu-title-content"
             >
-              Option 3
+              <span
+                class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </span>
             </span>
           </li>
           <div
@@ -4300,7 +4304,11 @@ Array [
           <span
             class="ant-menu-title-content"
           >
-            Option 3
+            <span
+              class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+            >
+              Ant Design, a design language for background applications, is refined by Ant UED Team
+            </span>
           </span>
         </li>
         <div

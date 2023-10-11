@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Affix, Button } from 'antd';
 
 const App: React.FC = () => {
-  const [top, setTop] = useState(10);
-  const [bottom, setBottom] = useState(10);
-
+  const [top, setTop] = React.useState<number>(100);
+  const [bottom, setBottom] = React.useState<number>(100);
   return (
     <>
       <Affix offsetTop={top}>

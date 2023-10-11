@@ -1,25 +1,38 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls, width, notificationMarginEdge, animationMaxHeight } = token;
+  const { componentCls, notificationMarginEdge, animationMaxHeight } = token;
 
-  const notificationTopFadeIn = new Keyframes('antNotificationTopFadeIn', {
+  const noticeCls = `${componentCls}-notice`;
+
+  const rightFadeIn = new Keyframes('antNotificationFadeIn', {
     '0%': {
-      marginTop: '-100%',
+      transform: `translate3d(100%, 0, 0)`,
       opacity: 0,
     },
 
     '100%': {
-      marginTop: 0,
+      transform: `translate3d(0, 0, 0)`,
       opacity: 1,
     },
   });
 
-  const notificationBottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
+  const topFadeIn = new Keyframes('antNotificationTopFadeIn', {
+    '0%': {
+      top: -animationMaxHeight,
+      opacity: 0,
+    },
+
+    '100%': {
+      top: 0,
+      opacity: 1,
+    },
+  });
+
+  const bottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
       bottom: -animationMaxHeight,
       opacity: 0,
@@ -31,51 +44,62 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
     },
   });
 
-  const notificationLeftFadeIn = new Keyframes('antNotificationLeftFadeIn', {
+  const leftFadeIn = new Keyframes('antNotificationLeftFadeIn', {
     '0%': {
-      right: {
-        _skip_check_: true,
-        value: width,
-      },
+      transform: `translate3d(-100%, 0, 0)`,
       opacity: 0,
     },
 
     '100%': {
-      right: {
-        _skip_check_: true,
-        value: 0,
-      },
+      transform: `translate3d(0, 0, 0)`,
       opacity: 1,
     },
   });
 
   return {
-    [`&${componentCls}-top, &${componentCls}-bottom`]: {
-      marginInline: 0,
-    },
-
-    [`&${componentCls}-top`]: {
-      [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-        {
-          animationName: notificationTopFadeIn,
+    [componentCls]: {
+      [`&${componentCls}-top, &${componentCls}-bottom`]: {
+        marginInline: 0,
+        [noticeCls]: {
+          marginInline: 'auto auto',
         },
-    },
+      },
 
-    [`&${componentCls}-bottom`]: {
-      [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-        {
-          animationName: notificationBottomFadeIn,
+      [`&${componentCls}-top`]: {
+        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
+          {
+            animationName: topFadeIn,
+          },
+      },
+
+      [`&${componentCls}-bottom`]: {
+        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
+          {
+            animationName: bottomFadeIn,
+          },
+      },
+
+      [`&${componentCls}-topRight, &${componentCls}-bottomRight`]: {
+        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
+          {
+            animationName: rightFadeIn,
+          },
+      },
+
+      [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
+        marginInlineEnd: 0,
+        marginInlineStart: notificationMarginEdge,
+
+        [noticeCls]: {
+          marginInlineEnd: 'auto',
+          marginInlineStart: 0,
         },
-    },
 
-    [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
-      marginInlineEnd: 0,
-      marginInlineStart: notificationMarginEdge,
-
-      [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-        {
-          animationName: notificationLeftFadeIn,
-        },
+        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
+          {
+            animationName: leftFadeIn,
+          },
+      },
     },
   };
 };

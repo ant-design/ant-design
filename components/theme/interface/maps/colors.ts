@@ -119,6 +119,13 @@ export interface ColorNeutralMapToken {
    * @descEN This color is used to draw the user's strong attention to the background color, and is currently only used in the background color of Tooltip.
    */
   colorBgSpotlight: string;
+  /**
+   * @nameZH 毛玻璃容器背景色
+   * @nameEN Frosted glass container background color
+   * @desc 控制毛玻璃容器的背景色，通常为透明色。
+   * @descEN Control the background color of frosted glass container, usually transparent.
+   */
+  colorBgBlur: string;
 }
 
 /**

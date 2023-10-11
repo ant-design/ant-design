@@ -20,9 +20,9 @@ export interface ColorPickerToken extends FullToken<'ColorPicker'> {
   colorPickerPresetColorSize: number;
 }
 
-export const genActiveStyle = (token: ColorPickerToken) => ({
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
+export const genActiveStyle = (token: ColorPickerToken, borderColor: string) => ({
   borderInlineEndWidth: token.lineWidth,
+  borderColor,
   outline: 0,
 });
 
@@ -78,40 +78,24 @@ const genClearStyle = (
 };
 
 const genStatusStyle = (token: ColorPickerToken): CSSObject => {
-  const {
-    componentCls,
-    colorError,
-    colorWarning,
-    colorErrorBorderHover,
-    colorWarningBorderHover,
-    colorErrorOutline,
-    colorWarningOutline,
-  } = token;
+  const { componentCls, colorError, colorWarning, colorErrorHover, colorWarningHover } = token;
   return {
     [`&${componentCls}-status-error`]: {
       borderColor: colorError,
       '&:hover': {
-        borderColor: colorErrorBorderHover,
+        borderColor: colorErrorHover,
       },
       [`&${componentCls}-trigger-active`]: {
-        ...genActiveStyle(
-          mergeToken<ColorPickerToken>(token, {
-            controlOutline: colorErrorOutline,
-          }),
-        ),
+        ...genActiveStyle(token, colorError),
       },
     },
     [`&${componentCls}-status-warning`]: {
       borderColor: colorWarning,
       '&:hover': {
-        borderColor: colorWarningBorderHover,
+        borderColor: colorWarningHover,
       },
       [`&${componentCls}-trigger-active`]: {
-        ...genActiveStyle(
-          mergeToken<ColorPickerToken>(token, {
-            controlOutline: colorWarningOutline,
-          }),
-        ),
+        ...genActiveStyle(token, colorWarning),
       },
     },
   };
@@ -178,6 +162,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     colorBorder,
     paddingXXS,
     fontSize,
+    colorPrimaryHover,
   } = token;
 
   return [
@@ -221,12 +206,11 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             fontSize,
             color: colorText,
           },
-          '&-active': {
-            ...genActiveStyle(token),
-            borderColor: colorPrimary,
-          },
           '&:hover': {
-            borderColor: colorPrimary,
+            borderColor: colorPrimaryHover,
+          },
+          [`&${componentCls}-trigger-active`]: {
+            ...genActiveStyle(token, colorPrimary),
           },
           '&-disabled': {
             color: colorTextDisabled,

@@ -27,6 +27,7 @@ To input a value in a range.
 <code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
 <code src="./demo/reverse.tsx">Reverse</code>
 <code src="./demo/draggableTrack.tsx">Draggable track</code>
+<code src="./demo/multiple.tsx">Multiple handles</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -53,9 +54,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | vertical | If true, the slider will be vertical | boolean | false |  |
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
-| trackStyle | The style of slider track (the active range) | CSSProperties | - |  |
-| railStyle | The style of slider rail (the background) | CSSProperties | - |  |
-| handleStyle | The style of slider handle | CSSProperties | - |  |
+
+### `styles` 和 `classNames` 属性
+
+| Property | Description                                 | Version |
+| -------- | ------------------------------------------- | ------- |
+| track    | The track between handle to handle in range | 5.10.0  |
+| tracks   | Who track in range                          | 5.10.0  |
+| rail     | Background rail                             | 5.10.0  |
+| handle   | The handle pointer                          | 5.10.0  |
 
 ### range
 

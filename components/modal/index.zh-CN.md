@@ -34,6 +34,7 @@ demo:
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/static-info.tsx">静态方法</code>
 <code src="./demo/confirm.tsx">静态确认对话框</code>
+<code src="./demo/classNames.tsx">自定义内部模块 className</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
@@ -47,7 +48,8 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
-| bodyStyle | Modal body 样式 | CSSProperties |  |  |
+| classNames | 配置弹窗内置模块的 className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
+| styles | 配置弹窗内置模块的 style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
@@ -61,7 +63,6 @@ demo:
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
-| maskStyle | 遮罩样式 | CSSProperties |  |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
@@ -98,7 +99,6 @@ demo:
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - | 4.9.0 |
 | autoFocusButton | 指定自动获得焦点的按钮 | null \| `ok` \| `cancel` | `ok` |  |
-| bodyStyle | Modal body 样式 | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
@@ -111,7 +111,6 @@ demo:
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
-| maskStyle | 遮罩样式 | object | {} |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |

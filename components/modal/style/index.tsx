@@ -324,15 +324,8 @@ const genWireframeStyle: GenerateStyle<ModalToken> = (token) => {
       [`${antCls}-modal-body`]: {
         padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
       },
-      [`${confirmComponentCls}-body`]: {
-        [`> ${token.iconCls}`]: {
-          marginInlineEnd: token.margin,
-
-          // `content` after `icon` should set marginLeft
-          [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
-            marginInlineStart: token.modalConfirmIconSize + token.margin,
-          },
-        },
+      [`${confirmComponentCls}-body > ${token.iconCls}`]: {
+        marginInlineEnd: token.margin,
       },
       [`${confirmComponentCls}-btns`]: {
         marginTop: token.marginLG,

@@ -40,6 +40,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/align.tsx" debug>Text Align</code>
 <code src="./demo/textarea-resize.tsx" debug>TextArea</code>
 <code src="./demo/debug-addon.tsx" debug>debug Pre / Post tab</code>
+<code src="./demo/component-token.tsx" debug>debug token</code>
 
 ## API
 
