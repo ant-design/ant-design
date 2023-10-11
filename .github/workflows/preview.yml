@@ -155,10 +155,8 @@ jobs:
 
       # Download site artifact
       - name: download site artifact
-        uses: dawidd6/action-download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
-          workflow: ${{ github.event.workflow_run.workflow_id }}
-          run_id: ${{ github.event.workflow_run.id }}
           name: site
 
       - name: upload surge service
