@@ -1,6 +1,7 @@
+import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
 import { createTheme } from '@ant-design/cssinjs';
-import React from 'react';
+
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from './interface';
 import defaultDerivative from './themes/default';
 import defaultSeedToken from './themes/seed';
@@ -25,7 +26,8 @@ export interface DesignTokenProviderProps {
   token: Partial<AliasToken>;
   theme?: Theme<SeedToken, MapToken>;
   components?: ComponentsToken;
-  override: Partial<AliasToken> & ComponentsToken;
+  /** Just merge `token` & `override` at top to save perf */
+  override: { override: Partial<AliasToken> } & ComponentsToken;
   hashed?: string | boolean;
 }
 
