@@ -11,17 +11,21 @@ export const defaultTheme = createTheme(defaultDerivative);
 // To ensure snapshot stable. We disable hashed in test env.
 export const defaultConfig = {
   token: defaultSeedToken,
+  override: defaultSeedToken,
   hashed: true,
+};
+
+export type ComponentsToken = {
+  [key in keyof OverrideToken]?: OverrideToken[key] & {
+    theme?: Theme<SeedToken, MapToken>;
+  };
 };
 
 export interface DesignTokenProviderProps {
   token: Partial<AliasToken>;
   theme?: Theme<SeedToken, MapToken>;
-  components?: {
-    [key in keyof OverrideToken]?: OverrideToken[key] & {
-      theme?: Theme<SeedToken, MapToken>;
-    };
-  };
+  components?: ComponentsToken;
+  override: Partial<AliasToken> & ComponentsToken;
   hashed?: string | boolean;
 }
 

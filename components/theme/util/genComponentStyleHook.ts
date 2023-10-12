@@ -85,9 +85,15 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
   const concatComponent = cells.join('-');
 
   return (prefixCls: string): UseComponentStyleResult => {
+    console.time('🔥 1-1');
     const [theme, token, hashId] = useToken();
+    console.timeEnd('🔥 1-1');
+    console.time('🔥 1-2');
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
+
+    console.timeEnd('🔥 1-2');
+    console.time('🔥 2');
 
     // Shared config
     const sharedConfig: Omit<Parameters<typeof useStyleRegister>[0], 'path'> = {
@@ -101,6 +107,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       order: options.order || -999,
     };
 
+    console.timeEnd('🔥 2');
+    console.time('🔥 3');
+
     // Generate style for all a tags in antd component.
     useStyleRegister(
       { ...sharedConfig, clientOnly: false, path: ['Shared', rootPrefixCls] },
@@ -112,13 +121,20 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       ],
     );
 
+    console.timeEnd('🔥 3');
+    console.time('🔥 4');
+
     // Generate style for icons
     useResetIconStyle(iconPrefixCls);
 
-    return [
+    console.timeEnd('🔥 4');
+    console.time('🔥 5');
+
+    const ret = [
       useStyleRegister(
         { ...sharedConfig, path: [concatComponent, prefixCls, iconPrefixCls] },
         () => {
+          console.log('!!!!!!');
           const { token: proxyToken, flush } = statisticToken(token);
 
           const customComponentToken = { ...(token[component] as ComponentToken<ComponentName>) };
@@ -177,6 +193,10 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       ),
       hashId,
     ];
+
+    console.timeEnd('🔥 5');
+
+    return ret as any;
   };
 }
 

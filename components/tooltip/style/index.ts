@@ -132,6 +132,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
 // ============================== Export ==============================
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
+  console.time('s1');
   const useOriginHook = genComponentStyleHook(
     'Tooltip',
     (token) => {
@@ -162,5 +163,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
     },
   );
 
-  return useOriginHook(prefixCls);
+  console.timeEnd('s1');
+  console.time('s2');
+  const aaa = useOriginHook(prefixCls);
+  console.timeEnd('s2');
+
+  return aaa;
 };
