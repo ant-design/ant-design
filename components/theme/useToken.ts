@@ -58,15 +58,11 @@ export default function useToken(): [
   token: GlobalToken,
   hashId: string,
 ] {
-  console.time('🧶 1');
   const { token: rootDesignToken, hashed, theme, override } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
-
-  console.timeEnd('🧶 1');
-  console.time('🧶 2');
 
   const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
@@ -80,8 +76,6 @@ export default function useToken(): [
       formatToken,
     },
   );
-
-  console.timeEnd('🧶 2');
 
   return [mergedTheme, token, hashed ? hashId : ''];
 }

@@ -141,9 +141,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     autoAdjustOverflow = true,
   } = props;
 
-  console.clear();
-  console.time('Tooltip');
-
   const mergedShowArrow = !!arrow;
 
   const [, token] = useToken();
@@ -170,9 +167,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       forceAlign();
     },
   }));
-
-  console.timeEnd('Tooltip');
-  console.time('Tooltip');
 
   // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
@@ -214,9 +208,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       props.onVisibleChange?.(vis);
     }
   };
-
-  console.timeEnd('Tooltip');
-  console.time('Tooltip');
 
   const tooltipPlacements = React.useMemo<BuildInPlacements>(() => {
     let mergedArrowPointAtCenter = arrowPointAtCenter;
@@ -271,10 +262,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     tempOpen = false;
   }
 
-  console.timeEnd('Tooltip');
-  console.time('Tooltip233');
-  console.time('111');
-
   // ============================= Render =============================
   const child =
     isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
@@ -284,14 +271,8 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       ? classNames(childProps.className, openClassName || `${prefixCls}-open`)
       : childProps.className;
 
-  console.timeEnd('111');
-  console.time('222');
-
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
-
-  console.timeEnd('222');
-  console.time('333');
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -300,9 +281,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     ...overlayInnerStyle,
     ...colorInfo.overlayStyle,
   };
-
-  console.timeEnd('333');
-  console.time('444');
 
   const customOverlayClassName = classNames(
     overlayClassName,
@@ -314,11 +292,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     hashId,
   );
 
-  console.timeEnd('444');
-  console.timeEnd('Tooltip233');
-  console.time('Tooltip');
-
-  const ret = wrapSSR(
+  return wrapSSR(
     <RcTooltip
       {...otherProps}
       showArrow={mergedShowArrow}
@@ -346,10 +320,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>,
   );
-
-  console.timeEnd('Tooltip');
-
-  return ret;
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
 > & {
