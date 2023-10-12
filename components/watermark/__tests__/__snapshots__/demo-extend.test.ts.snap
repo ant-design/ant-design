@@ -9,7 +9,7 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`
     style="height: 500px;"
   />
   <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
   />
 </div>
 `;
@@ -49,7 +49,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
     />
     <div
-      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
     />
   </div>
   <form
@@ -1229,7 +1229,7 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
     style="height: 500px;"
   />
   <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px;"
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px; visibility: visible !important;"
   />
 </div>
 `;
@@ -1271,7 +1271,7 @@ Array [
     style="position: relative;"
   >
     <div
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
     />
   </div>,
 ]
