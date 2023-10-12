@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
 
+import type { CustomComponent } from '../_util/type';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
@@ -17,7 +18,7 @@ export interface AppProps extends AppConfig {
   rootClassName?: string;
   prefixCls?: string;
   children?: ReactNode;
-  component?: false | string | React.FC<any> | React.ComponentClass<any>;
+  component?: false | CustomComponent;
 }
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
