@@ -1040,6 +1040,9 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     colorPrimaryHover,
     colorPrimary,
     controlOutlineWidth,
+    controlOutline,
+    colorErrorOutline,
+    colorWarningOutline,
   } = token;
 
   return {
@@ -1059,9 +1062,9 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     addonBg: colorFillAlter,
     activeBorderColor: colorPrimary,
     hoverBorderColor: colorPrimaryHover,
-    activeShadow: `0 0 0 ${controlOutlineWidth}px ${colorPrimary}`,
-    errorActiveShadow: `none`,
-    warningActiveShadow: `none`,
+    activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
+    errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
+    warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
     hoverBg: '',
     activeBg: '',
   };

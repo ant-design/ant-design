@@ -20,9 +20,14 @@ export interface ColorPickerToken extends FullToken<'ColorPicker'> {
   colorPickerPresetColorSize: number;
 }
 
-export const genActiveStyle = (token: ColorPickerToken, borderColor: string) => ({
+export const genActiveStyle = (
+  token: ColorPickerToken,
+  borderColor: string,
+  outlineColor: string,
+) => ({
   borderInlineEndWidth: token.lineWidth,
   borderColor,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
   outline: 0,
 });
 
@@ -78,7 +83,15 @@ const genClearStyle = (
 };
 
 const genStatusStyle = (token: ColorPickerToken): CSSObject => {
-  const { componentCls, colorError, colorWarning, colorErrorHover, colorWarningHover } = token;
+  const {
+    componentCls,
+    colorError,
+    colorWarning,
+    colorErrorHover,
+    colorWarningHover,
+    colorErrorOutline,
+    colorWarningOutline,
+  } = token;
   return {
     [`&${componentCls}-status-error`]: {
       borderColor: colorError,
@@ -86,7 +99,7 @@ const genStatusStyle = (token: ColorPickerToken): CSSObject => {
         borderColor: colorErrorHover,
       },
       [`&${componentCls}-trigger-active`]: {
-        ...genActiveStyle(token, colorError),
+        ...genActiveStyle(token, colorError, colorErrorOutline),
       },
     },
     [`&${componentCls}-status-warning`]: {
@@ -95,7 +108,7 @@ const genStatusStyle = (token: ColorPickerToken): CSSObject => {
         borderColor: colorWarningHover,
       },
       [`&${componentCls}-trigger-active`]: {
-        ...genActiveStyle(token, colorWarning),
+        ...genActiveStyle(token, colorWarning, colorWarningOutline),
       },
     },
   };
@@ -163,6 +176,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     paddingXXS,
     fontSize,
     colorPrimaryHover,
+    controlOutline,
   } = token;
 
   return [
@@ -210,7 +224,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             borderColor: colorPrimaryHover,
           },
           [`&${componentCls}-trigger-active`]: {
-            ...genActiveStyle(token, colorPrimary),
+            ...genActiveStyle(token, colorPrimary, controlOutline),
           },
           '&-disabled': {
             color: colorTextDisabled,
