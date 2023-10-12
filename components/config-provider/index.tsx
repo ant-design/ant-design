@@ -560,7 +560,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       components: parsedComponents,
       override: {
         override: mergedToken,
-        ...components,
+        ...parsedComponents,
       },
     };
   }, [mergedTheme]);
