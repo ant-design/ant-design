@@ -12,7 +12,7 @@ export const defaultTheme = createTheme(defaultDerivative);
 // To ensure snapshot stable. We disable hashed in test env.
 export const defaultConfig = {
   token: defaultSeedToken,
-  override: defaultSeedToken,
+  override: { override: defaultSeedToken },
   hashed: true,
 };
 
