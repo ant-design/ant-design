@@ -13,6 +13,11 @@ Set components spacing.
 - Avoid components clinging together and set a unified space.
 - Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
 
+### Difference with Flex component
+
+- Space is used to set the spacing between inline elements. It will add a wrapper element for each child element for inline alignment. Suitable for equidistant arrangement of multiple child elements in rows and columns.
+- Flex is used to set the layout of block-level elements. It does not add a wrapper element. Suitable for layout of child elements in vertical or horizontal direction, and provides more flexibility and control.
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -55,6 +60,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect
