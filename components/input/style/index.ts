@@ -1061,8 +1061,8 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     activeShadow: `none`,
     errorActiveShadow: `none`,
     warningActiveShadow: `none`,
-    hoverBg: 'transparent',
-    activeBg: 'transparent',
+    hoverBg: '',
+    activeBg: '',
   };
 };
 
