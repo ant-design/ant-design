@@ -210,13 +210,25 @@ describe('App', () => {
     });
   });
 
-  it('component to false', () => {
-    const { container } = render(
-      <App component={false}>
-        <p />
-      </App>,
-    );
+  describe('component', () => {
+    it('replace', () => {
+      const { container } = render(
+        <App component="section">
+          <p />
+        </App>,
+      );
 
-    expect(container.querySelector('.ant-app')).toBeFalsy();
+      expect(container.querySelector('section.ant-app')).toBeTruthy();
+    });
+
+    it('to false', () => {
+      const { container } = render(
+        <App component={false}>
+          <p />
+        </App>,
+      );
+
+      expect(container.querySelector('.ant-app')).toBeFalsy();
+    });
   });
 });
