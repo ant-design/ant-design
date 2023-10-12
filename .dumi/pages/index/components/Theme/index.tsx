@@ -534,11 +534,20 @@ export default function Theme() {
                     <Form.Item label={locale.titleBorderRadius} name="borderRadius">
                       <RadiusPicker />
                     </Form.Item>
-                    <Form.Item label={locale.titleCompact} name="compact">
-                      <Radio.Group>
-                        <Radio value="default">{locale.default}</Radio>
-                        <Radio value="compact">{locale.compact}</Radio>
-                      </Radio.Group>
+                    <Form.Item label={locale.titleCompact} name="compact" htmlFor="compact_default">
+                      <Radio.Group
+                        options={[
+                          {
+                            label: locale.default,
+                            value: 'default',
+                            id: 'compact_default',
+                          },
+                          {
+                            label: locale.compact,
+                            value: 'compact',
+                          },
+                        ]}
+                      />
                     </Form.Item>
                   </Form>
                 </Card>

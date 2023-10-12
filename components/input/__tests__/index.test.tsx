@@ -517,6 +517,19 @@ describe('Input allowClear', () => {
     );
     expect(container).toMatchSnapshot();
   });
+
+  it('background should not be transparent', () => {
+    const { container } = render(<Input />);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+
+    // hover
+    fireEvent.mouseEnter(container.querySelector('input')!);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+
+    // focus
+    fireEvent.focus(container.querySelector('input')!);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+  });
 });
 
 describe('typescript types', () => {

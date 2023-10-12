@@ -78,6 +78,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - Use fully components and templates on MasterGo
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
+- AntBlocks UI for Figma
+  - https://uploads-ssl.webflow.com/64dc925e7cb893427a5c9cdc/64e4610f7818dcc7501057ad_antblocks-ui-card-img.svg
+  - High-quality, responsive, and customizable React components built on Ant Design
+  - https://www.antblocksui.com/#figma
 </ResourceCards>
 
 ## Articles
