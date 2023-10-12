@@ -35,6 +35,7 @@ const useStyle = createStyles(({ token, css }) => ({
 }));
 
 export interface ColorPickerProps {
+  id?: string;
   children?: React.ReactNode;
   value?: string | Color;
   onChange?: (value?: Color | string) => void;
@@ -66,7 +67,7 @@ const DebouncedColorPicker: React.FC<ColorPickerProps> = (props) => {
   );
 };
 
-const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange }) => {
+const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) => {
   const { styles } = useStyle();
 
   const matchColors = React.useMemo(() => {
@@ -95,6 +96,7 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange }) => {
         value={typeof value === 'string' ? value : value?.toHexString()}
         onChange={(event) => onChange?.(event.target.value)}
         style={{ width: 120 }}
+        id={id}
       />
 
       <Space size="middle">
