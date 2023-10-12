@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
+import classNames from 'classnames';
+
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
@@ -16,6 +17,7 @@ export interface AppProps extends AppConfig {
   rootClassName?: string;
   prefixCls?: string;
   children?: ReactNode;
+  component?: false | string | React.FC<any> | React.ComponentClass<any>;
 }
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
@@ -29,6 +31,7 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
     message,
     notification,
     style,
+    component = 'div',
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
@@ -60,15 +63,22 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
     [messageApi, notificationApi, ModalApi],
   );
 
+  // ============================ Render ============================
+  const Component = component === false ? React.Fragment : component;
+  const rootProps = {
+    className: customClassName,
+    style,
+  };
+
   return wrapSSR(
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <div className={customClassName} style={style}>
+        <Component {...rootProps}>
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
           {children}
-        </div>
+        </Component>
       </AppConfigContext.Provider>
     </AppContext.Provider>,
   );
