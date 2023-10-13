@@ -110,7 +110,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.17.0",
+    "@ant-design/cssinjs": "^1.17.1",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.18.3",
@@ -154,7 +154,7 @@
     "rc-tree": "~5.7.12",
     "rc-tree-select": "~5.13.0",
     "rc-upload": "~4.3.5",
-    "rc-util": "^5.37.0",
+    "rc-util": "^5.38.0",
     "scroll-into-view-if-needed": "^3.0.3",
     "throttle-debounce": "^5.0.0"
   },
@@ -217,7 +217,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "^2.3.0-alpha.4",
+    "dumi": "^2.3.0-alpha.7",
     "dumi-plugin-color-chunk": "^1.0.2",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^4.0.0",
