@@ -197,6 +197,7 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
 
   const addListeners = () => {
     const listenerTarget = targetFunc?.();
+    if (!listenerTarget) return;
     TRIGGER_EVENTS.forEach((eventName) => {
       if (prevListener.current) {
         prevTarget.current?.removeEventListener(eventName, prevListener.current);
