@@ -1249,7 +1249,7 @@ Array [
         type="button"
       >
         <span>
-          Show Modal
+          Show in Modal
         </span>
       </button>
     </div>
@@ -1261,10 +1261,30 @@ Array [
         type="button"
       >
         <span>
-          Show Drawer
+          Show in Drawer
         </span>
       </button>
     </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Not Show in Drawer
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+    />
   </div>,
   <div
     class=""

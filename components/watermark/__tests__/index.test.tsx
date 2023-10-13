@@ -135,7 +135,7 @@ describe('Watermark', () => {
       () => document.body.querySelector('.ant-drawer-content')!.lastChild!,
     );
 
-    it('inherit=false', async () => {
+    it('inherit = false', async () => {
       render(
         <Watermark inherit={false}>
           <Drawer open />
