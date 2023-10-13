@@ -31,6 +31,7 @@ export interface WatermarkProps {
   gap?: [number, number];
   offset?: [number, number];
   children?: React.ReactNode;
+  inherit?: boolean;
 }
 
 /**

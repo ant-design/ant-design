@@ -34,6 +34,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | width | The width of the watermark, the default value of `content` is its own width | number | 120 |  |
 | height | The height of the watermark, the default value of `content` is its own height | number | 64 |  |
+| inherit | Pass the watermark to the pop-up component such as Modal, Drawer | boolean | true | 5.11.0 |
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
 | zIndex | The z-index of the appended watermark element | number | 9 |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority (support base64 format) | string | - |  |
