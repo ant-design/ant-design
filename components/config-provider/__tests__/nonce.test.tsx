@@ -81,4 +81,18 @@ describe('ConfigProvider.Icon', () => {
       expect(style.nonce).toEqual('bamboo');
     });
   });
+
+  it('nonce applies to all style tags', () => {
+    render(
+      <ConfigProvider csp={{ nonce: 'bamboo' }} theme={{ token: { borderRadius: 2 } }}>
+        <Button />
+      </ConfigProvider>,
+    );
+
+    const styleNodes = document.querySelectorAll('style');
+
+    styleNodes.forEach((node) => {
+      expect(node?.nonce).toEqual('bamboo');
+    });
+  });
 });
