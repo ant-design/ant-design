@@ -61,6 +61,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     gap = [100, 100],
     offset,
     children,
+    inherit = true,
   } = props;
   const [, token] = useToken();
   const {
@@ -268,13 +269,19 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   );
 
   // ============================= Render =============================
+  const childNode = inherit ? (
+    <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+  ) : (
+    children
+  );
+
   return (
     <div
       ref={setContainer}
       className={classNames(className, rootClassName)}
       style={{ position: 'relative', ...style }}
     >
-      <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+      {childNode}
     </div>
   );
 };
