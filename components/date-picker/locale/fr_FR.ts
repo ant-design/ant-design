@@ -14,6 +14,21 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['Année de début', 'Année de fin'],
     rangeMonthPlaceholder: ['Mois de début', 'Mois de fin'],
     rangeWeekPlaceholder: ['Semaine de début', 'Semaine de fin'],
+    shortWeekDays: ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"],
+    shortMonths: [
+      "Jan",
+      "Fév",
+      "Mar",
+      "Avr",
+      "Mai",
+      "Juin",
+      "Juil",
+      "Août",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Déc"
+    ],
     ...CalendarLocale,
   },
   timePickerLocale: {
