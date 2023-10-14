@@ -113,7 +113,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     );
 
     // Generate style for icons
-    useResetIconStyle(iconPrefixCls);
+    useResetIconStyle(iconPrefixCls, csp);
 
     return [
       useStyleRegister(
