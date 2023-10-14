@@ -24,11 +24,11 @@ import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
   ButtonConfig,
-  DrawerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
+  DrawerConfig,
   FlexConfig,
   ModalConfig,
   PopupOverflow,
@@ -547,16 +547,21 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       parsedComponents[componentName] = parsedToken;
     });
 
+    const mergedToken = {
+      ...defaultSeedToken,
+      ...token,
+    };
+
     return {
       ...rest,
       theme: themeObj,
 
-      token: {
-        ...defaultSeedToken,
-        ...token,
-      },
-
+      token: mergedToken,
       components: parsedComponents,
+      override: {
+        override: mergedToken,
+        ...parsedComponents,
+      },
     };
   }, [mergedTheme]);
 
