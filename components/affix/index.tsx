@@ -45,10 +45,6 @@ enum AffixStatus {
   Prepare,
 }
 
-interface InternalAffixProps extends AffixProps {
-  affixPrefixCls: string;
-}
-
 interface AffixState {
   affixStyle?: React.CSSProperties;
   placeholderStyle?: React.CSSProperties;
@@ -61,17 +57,22 @@ interface AffixRef {
   updatePosition: ReturnType<typeof throttleByAnimationFrame>;
 }
 
-const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
+const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
   const {
     style,
     offsetTop,
     offsetBottom,
-    affixPrefixCls,
+    prefixCls,
+    className,
     rootClassName,
     children,
     target,
     onChange,
   } = props;
+
+  const { getPrefixCls, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
+
+  const affixPrefixCls = getPrefixCls('affix', prefixCls);
 
   const [lastAffix, setLastAffix] = React.useState(false);
   const [affixStyle, setAffixStyle] = React.useState<React.CSSProperties>();
@@ -85,8 +86,6 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
   const placeholderNodeRef = React.useRef<HTMLDivElement>(null);
   const fixedNodeRef = React.useRef<HTMLDivElement>(null);
   const timer = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const { getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const targetFunc = target ?? getTargetContainer ?? getDefaultTarget;
 
@@ -244,10 +243,11 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
 
-  const className = classNames({
-    [affixPrefixCls]: affixStyle,
-    [rootClassName!]: affixStyle && rootClassName,
-  });
+  const [wrapSSR, hashId] = useStyle(affixPrefixCls);
+
+  const rootCls = classNames(rootClassName, hashId, affixPrefixCls);
+
+  const mergedCls = classNames({ [rootCls]: affixStyle });
 
   let otherProps = omit(props, [
     'prefixCls',
@@ -255,42 +255,23 @@ const InternalAffix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref
     'offsetBottom',
     'target',
     'onChange',
-    'affixPrefixCls',
     'rootClassName',
   ]);
 
   if (process.env.NODE_ENV === 'test') {
-    otherProps = omit(otherProps as typeof otherProps & { onTestUpdatePosition: any }, [
-      'onTestUpdatePosition',
-    ]);
+    otherProps = omit(otherProps, ['onTestUpdatePosition' as any]);
   }
 
-  return (
+  return wrapSSR(
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} ref={placeholderNodeRef} {...otherProps}>
+      <div style={style} className={className} ref={placeholderNodeRef} {...otherProps}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
-        <div className={className} ref={fixedNodeRef} style={affixStyle}>
+        <div className={mergedCls} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
       </div>
-    </ResizeObserver>
+    </ResizeObserver>,
   );
-});
-
-const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls, rootClassName } = props;
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
-  const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
-
-  const [wrapSSR, hashId] = useStyle(affixPrefixCls);
-
-  const AffixProps: InternalAffixProps = {
-    ...props,
-    affixPrefixCls,
-    rootClassName: classNames(rootClassName, hashId),
-  };
-
-  return wrapSSR(<InternalAffix {...AffixProps} ref={ref} />);
 });
 
 if (process.env.NODE_ENV !== 'production') {
