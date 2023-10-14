@@ -4,6 +4,7 @@ import { Affix, Button } from 'antd';
 const containerStyle: React.CSSProperties = {
   width: '100%',
   height: 100,
+  borderRadius: 6,
   overflow: 'auto',
   border: '1px solid #40a9ff',
 };
