@@ -18,10 +18,11 @@ tag: vVERSION
 
 ## 5.10.1
 
-`2023-10-12`
+`2023-10-15`
 
 - ⚡️ Optimize CSS-in-JS Design Token cache matching. [#45302](https://github.com/ant-design/ant-design/pull/45302)
 - 🆕 Checkbox.Group &amp; Radio.Group `options` add missing `id` props. [#45287](https://github.com/ant-design/ant-design/pull/45287)
+- 🐞 Fix Affix that `target` not work. [#45314](https://github.com/ant-design/ant-design/pull/45314) [@mingming-ma](https://github.com/mingming-ma)
 - 🐞 MISC: Add `csp` attribute for icon style. [#45334](https://github.com/ant-design/ant-design/pull/45334) [@AlexeyTeterin](https://github.com/AlexeyTeterin)
 - 🐞 Fix Button that does not display loading status when `loading` property is set to `{ delay: 0 }`. [#45282](https://github.com/ant-design/ant-design/pull/45282) [@YDFlame13](https://github.com/YDFlame13)
 - 🐞 Fix Segmented text jump issue in Safari. [#45310](https://github.com/ant-design/ant-design/pull/45310)
