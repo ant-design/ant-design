@@ -257,7 +257,7 @@
     "jsdom": "^22.0.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^15.0.0",
     "lodash": "^4.17.21",
     "lunar-typescript": "^1.6.9",
     "lz-string": "^1.4.4",
