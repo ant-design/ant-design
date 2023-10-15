@@ -119,8 +119,8 @@
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.10.0",
     "@rc-component/trigger": "^1.17.0",
-    "classnames": "^2.2.6",
-    "copy-to-clipboard": "^3.2.0",
+    "classnames": "^2.3.2",
+    "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.1",
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.18.1",
@@ -155,7 +155,7 @@
     "rc-tree-select": "~5.13.0",
     "rc-upload": "~4.3.5",
     "rc-util": "^5.38.0",
-    "scroll-into-view-if-needed": "^3.0.3",
+    "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.0"
   },
   "devDependencies": {
@@ -166,7 +166,7 @@
     "@argos-ci/core": "^0.12.0",
     "@babel/eslint-plugin": "^7.19.1",
     "@biomejs/biome": "^1.0.0",
-    "@codesandbox/sandpack-react": "^2.6.9",
+    "@codesandbox/sandpack-react": "^2.9.0",
     "@dnd-kit/core": "^6.0.7",
     "@dnd-kit/modifiers": "^6.0.1",
     "@dnd-kit/sortable": "^7.0.2",
