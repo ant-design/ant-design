@@ -163,6 +163,23 @@ toc: false
   - 负责 Ant Design 前端基础设施研发。
   - 负责中后台设计/前端工具体系建设。
 
+### Node.js 工程师
+
+简历请投递：zhubin.gzb@antgroup.com
+
+> 注明简历来自 ant.design 官网
+
+- 岗位级别：P5/P6/P7/P8
+- 岗位地点：杭州/上海
+- 岗位要求：
+  - 在 Node.js 技术栈持续耕耘，情有独钟。
+  - 热爱开源。
+  - 坚持和善于用技术和工具解决其他问题。
+  - 丰富的 Node.js 研发经验。
+- 岗位职责：
+  - 负责 Node.js 前端基础设施研发。
+  - 负责大前端工具体系建设。
+
 ### ADI（Artificial Design Intelligence） 工程师
 
 简历和作品集请投递：jiayin.liu#antgroup.com
