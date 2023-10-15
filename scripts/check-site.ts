@@ -3,7 +3,7 @@
 import type http from 'http';
 import type https from 'https';
 import { join } from 'path';
-import cheerio from 'cheerio';
+import { load } from 'cheerio';
 import { globSync } from 'glob';
 import { createServer } from 'http-server';
 import fetch from 'isomorphic-fetch';
@@ -20,9 +20,9 @@ describe('site test', () => {
   const port = 3000;
   const render = async (path: string) => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
-      const html = await res.text();
-      const $ = cheerio.load(html, { decodeEntities: false, recognizeSelfClosing: true });
-      return { html, status: res.status, $ };
+      const html: string = await res.text();
+      const $ = load(html, { decodeEntities: false, recognizeSelfClosing: true });
+      return { status: res.status, $ };
     });
     return resp;
   };
