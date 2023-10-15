@@ -11,6 +11,7 @@ export interface LangBtnProps {
   value: 1 | 2;
   pure?: boolean;
   onClick?: React.MouseEventHandler;
+  ['aria-label']?: string;
 }
 
 const BASE_SIZE = '1.2em';
