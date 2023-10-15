@@ -20,7 +20,7 @@ describe('site test', () => {
   const port = 3000;
   const render = async (path: string) => {
     const resp = await fetch(`http://127.0.0.1:${port}${path}`).then(async (res) => {
-      const html = await res.text();
+      const html: string = await res.text();
       const $ = load(html, { decodeEntities: false, recognizeSelfClosing: true });
       return { html, status: res.status, $ };
     });
