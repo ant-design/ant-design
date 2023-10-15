@@ -18292,9 +18292,11 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
   >
     <div
       class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      style="z-index: 1000;"
     />
     <div
       class="config-modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -18385,9 +18387,11 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
   >
     <div
       class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      style="z-index: 1000;"
     />
     <div
       class="config-modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -18478,9 +18482,11 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
   >
     <div
       class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      style="z-index: 1000;"
     />
     <div
       class="config-modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -18571,9 +18577,11 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
   >
     <div
       class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      style="z-index: 1000;"
     />
     <div
       class="config-modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -18664,9 +18672,11 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
   >
     <div
       class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
+      style="z-index: 1000;"
     />
     <div
       class="config-modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -18757,9 +18767,11 @@ exports[`ConfigProvider components Modal normal 1`] = `
   >
     <div
       class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      style="z-index: 1000;"
     />
     <div
       class="ant-modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -18850,9 +18862,11 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
   >
     <div
       class="prefix-Modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
+      style="z-index: 1000;"
     />
     <div
       class="prefix-Modal-wrap"
+      style="z-index: 1000;"
       tabindex="-1"
     >
       <div
@@ -24437,7 +24451,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
   >
     <div>
       <div
@@ -24627,7 +24641,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
   >
     <div>
       <div
@@ -24755,7 +24769,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
   >
     <div>
       <div
@@ -24883,7 +24897,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
   >
     <div>
       <div
@@ -25011,7 +25025,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
   >
     <div>
       <div
@@ -25139,7 +25153,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   </div>
   <div
     class="prefix-Select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-Select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
   >
     <div>
       <div
