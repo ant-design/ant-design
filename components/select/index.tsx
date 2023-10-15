@@ -24,6 +24,7 @@ import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useShowArrow from './useShowArrow';
 import useIcons from './useIcons';
+import { useZIndex } from '../_util/hooks/useZIndex';
 
 type RawValue = string | number;
 
@@ -240,6 +241,9 @@ const InternalSelect = <
     );
   }
 
+  // ====================== zIndex =========================
+  const curZIndex = useZIndex('Select');
+
   // ====================== Render =======================
   return wrapSSR(
     <RcSelect<ValueType, OptionType>
@@ -266,6 +270,9 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
       disabled={mergedDisabled}
+      dropdownStyle={{
+        zIndex: curZIndex,
+      }}
     />,
   );
 };

@@ -639,6 +639,17 @@ exports[`renders components/modal/demo/modal-render.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/modal/demo/nested.tsx correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Modal
+  </span>
+</button>
+`;
+
 exports[`renders components/modal/demo/position.tsx correctly 1`] = `
 Array [
   <button
