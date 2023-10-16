@@ -49,6 +49,18 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
+      # Upload PR id for next workflow use
+      - name: Save PR number
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./pr-id.txt
+
+      - name: Upload PR number
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: pr
+          path: ./pr-id.txt
+
   build-site:
     name: build preview
     runs-on: ubuntu-latest
@@ -83,18 +95,6 @@ jobs:
           path: _site/
           retention-days: 5
 
-      # Upload PR id for next workflow use
-      - name: Save PR number
-        if: ${{ always() }}
-        run: echo ${{ github.event.number }} > ./pr-id.txt
-
-      - name: Upload PR number
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: pr
-          path: ./pr-id.txt
-
   site-test:
     name: site E2E test
     runs-on: ubuntu-latest
@@ -123,3 +123,19 @@ jobs:
 
       - name: run e2e test
         run: npm run site:test
+
+  preview-deploy:
+    name: preview deploy
+    runs-on: ubuntu-latest
+    needs: build-site
+    steps:
+      - name: download site artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+
+      - name: upload surge service
+        id: deploy
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${{ github.event.number }}-ant-design.surge.sh
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
