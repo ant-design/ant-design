@@ -22,8 +22,10 @@ jobs:
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     steps:
       - name: download pr artifact
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v2
         with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
       - name: save PR id
