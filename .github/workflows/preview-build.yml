@@ -125,7 +125,7 @@ jobs:
         run: npm run site:test
 
   preview-deploy:
-    name: preview deploy
+    name: deploy preview
     runs-on: ubuntu-latest
     needs: build-site
     steps:
