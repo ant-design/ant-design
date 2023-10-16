@@ -1,7 +1,8 @@
 name: PR Preview
 
 on:
-  pull_request_target:
+  # Why "pull_request" and not the safer "pull_request_target"? Because documentation and tests are required to be updated by PR authors, rather than pulling code from the target branch every time.
+  pull_request:
     types: [opened, synchronize, reopened]
 
 # Cancel prev CI if new commit come
