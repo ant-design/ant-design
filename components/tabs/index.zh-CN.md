@@ -77,8 +77,9 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 ### TabItemType
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | closeIcon | 自定义关闭图标，在 `type="editable-card"` 时有效。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | - |
+| destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.11.0 |
 | disabled | 禁用某一项 | boolean | false |
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |
 | key | 对应 activeKey | string | - |
