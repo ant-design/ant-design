@@ -242,7 +242,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const { curZIndex } = useZIndex('Select');
+  const { curZIndex, parentZIndex } = useZIndex('Select');
 
   // ====================== Render =======================
   return wrapSSR(
@@ -271,7 +271,7 @@ const InternalSelect = <
       dropdownClassName={rcSelectRtlDropdownClassName}
       disabled={mergedDisabled}
       dropdownStyle={
-        curZIndex == null
+        parentZIndex == null
           ? props.dropdownStyle
           : {
               ...props.dropdownStyle,
