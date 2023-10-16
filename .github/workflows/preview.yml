@@ -131,6 +131,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-site
     steps:
+      # We need get PR id first
+      - name: download pr artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: pr
+
       # Download site artifact
       - name: download site artifact
         uses: actions/download-artifact@v3
@@ -154,6 +160,11 @@ jobs:
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
     steps:
+      - name: download pr artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: pr
+
       - name: success comment
         if: needs.build-site.result == 'success' && needs.preview-deploy.result == 'success'
         uses: actions-cool/maintain-one-comment@v3
