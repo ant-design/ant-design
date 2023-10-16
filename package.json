@@ -118,7 +118,7 @@
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.10.0",
-    "@rc-component/trigger": "^1.17.0",
+    "@rc-component/trigger": "2.0.0-0",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.1",
@@ -336,6 +336,7 @@
   "overrides": {
     "dumi-plugin-color-chunk": {
       "dumi": "^2.3.0-alpha.4"
-    }
+    },
+    "@rc-component/trigger": "2.0.0-0"
   }
 }
