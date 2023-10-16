@@ -117,9 +117,9 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         marginInlineStart: paddingInline,
       },
       // To ensure that icon is vertically centered within the Tag component.
-      // [`> ${token.iconCls}`]: {
-      //   verticalAlign: '-0.15em',
-      // },
+      [`> ${token.iconCls}`]: {
+        verticalAlign: '-0.15em',
+      },
     },
     [`${componentCls}-borderless`]: {
       borderColor: 'transparent',
