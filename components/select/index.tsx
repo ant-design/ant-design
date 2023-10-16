@@ -270,9 +270,13 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{
-        zIndex: curZIndex,
-      }}
+      dropdownStyle={
+        curZIndex == null
+          ? {}
+          : {
+              zIndex: curZIndex,
+            }
+      }
     />,
   );
 };

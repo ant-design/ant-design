@@ -42,7 +42,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -488,7 +488,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -1627,7 +1627,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -2073,7 +2073,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -3211,7 +3211,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -3657,7 +3657,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -4789,7 +4789,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -5235,7 +5235,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -6436,7 +6436,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
                 <div
@@ -6907,7 +6907,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
             </div>
             <div
               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <div>
                 <div
@@ -8011,7 +8011,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -8457,7 +8457,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -10006,7 +10006,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div
@@ -10452,7 +10452,7 @@ Array [
         </div>
         <div
           class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 50;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div>
             <div

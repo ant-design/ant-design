@@ -130,7 +130,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           <Dialog
             width={width}
             {...restProps}
-            zIndex={curZIndex}
+            zIndex={curZIndex === null ? undefined : curZIndex}
             getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
             prefixCls={prefixCls}
             rootClassName={classNames(hashId, rootClassName)}

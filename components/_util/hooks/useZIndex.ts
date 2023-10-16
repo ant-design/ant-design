@@ -36,6 +36,9 @@ export const baseZIndexOffset: Record<ZIndexConsumer | ZIndexContainer, number> 
 export function useZIndex(consumer?: ZIndexConsumer) {
   const [, token] = useToken();
   const { zIndex: parentZIndex } = React.useContext(zIndexContext);
+  if (parentZIndex === null) {
+    return null;
+  }
   let baseZIndex = parentZIndex;
   if (consumer) {
     baseZIndex += baseZIndexOffset[consumer];
