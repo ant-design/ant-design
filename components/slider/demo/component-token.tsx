@@ -38,7 +38,6 @@ const App: React.FC = () => (
           dotBorderColor: '#303030',
           dotActiveBorderColor: '#918542',
           trackBgDisabled: '#1a1b80',
-          dotHoverBorderColor: '#303030',
         },
       },
     }}
@@ -53,9 +52,6 @@ const App: React.FC = () => (
     </div>
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
-    </div>
-    <div style={style}>
-      <Slider disabled vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
   </ConfigProvider>
 );
