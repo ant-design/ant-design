@@ -25,6 +25,7 @@ demo:
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/arrow.tsx">箭头</code>
 <code src="./demo/item.tsx">其他元素</code>
+<code src="./demo/render-props-children.tsx">render props做孩子</code>
 <code src="./demo/arrow-center.tsx">箭头指向</code>
 <code src="./demo/trigger.tsx">触发方式</code>
 <code src="./demo/event.tsx">触发事件</code>
