@@ -224,9 +224,9 @@ exports[`site test Component components/table en Page 1`] = `9`;
 
 exports[`site test Component components/table zh Page 1`] = `9`;
 
-exports[`site test Component components/tabs en Page 1`] = `2`;
+exports[`site test Component components/tabs en Page 1`] = `1`;
 
-exports[`site test Component components/tabs zh Page 1`] = `2`;
+exports[`site test Component components/tabs zh Page 1`] = `1`;
 
 exports[`site test Component components/tag en Page 1`] = `2`;
 
