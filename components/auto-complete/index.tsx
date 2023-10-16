@@ -65,6 +65,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
+  let { placeholder } = props;
 
   if (
     childNodes.length === 1 &&
@@ -72,6 +73,11 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     !isSelectOptionOrSelectOptGroup(childNodes[0])
   ) {
     [customizeInput] = childNodes;
+
+    // if auto-complete and customize input both have placeholder, we should merge it into input
+    if (placeholder && customizeInput.props.placeholder) {
+      placeholder = undefined;
+    }
   }
 
   const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
@@ -132,8 +138,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     <Select
       ref={ref}
       suffixIcon={null}
-      {...omit(props, ['dataSource', 'dropdownClassName'])}
+      {...omit(props, ['dataSource', 'dropdownClassName', 'placeholder'])}
       prefixCls={prefixCls}
+      placeholder={placeholder}
       popupClassName={popupClassName || dropdownClassName}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
