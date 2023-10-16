@@ -351,7 +351,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         ...selection,
         onSelect: (...rest) => {
           selection.onSelect?.(...rest);
-          updatePrevSelectedIndex(-1);
+          updatePrevSelectedIndex(null);
         },
       }));
   }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
@@ -407,7 +407,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         );
 
         setSelectedKeys(keys, 'all');
-        updatePrevSelectedIndex(-1);
+        updatePrevSelectedIndex(null);
       };
 
       // ===================== Render =====================
@@ -583,7 +583,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   }
 
                   if (checked) {
-                    updatePrevSelectedIndex(-1);
+                    updatePrevSelectedIndex(null);
                   } else {
                     updatePrevSelectedIndex(currentSelectedIndex);
                   }

@@ -2,6 +2,7 @@ import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
 import classNames from 'classnames';
 
+import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
 import useMultipleSelect from '../_util/hooks/useMultipleSelect';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -192,7 +193,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     [sourceSelectedKeys, targetSelectedKeys],
   );
 
-  const setPrevSelectedIndex = (direction: TransferDirection, value: number) => {
+  const setPrevSelectedIndex = (direction: TransferDirection, value: PrevSelectedIndex) => {
     const isLeftDirection = direction === 'left';
     const updatePrevSelectedIndex = isLeftDirection
       ? updateLeftPrevSelectedIndex
@@ -243,12 +244,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const moveToLeft = () => {
     moveTo('left');
-    setPrevSelectedIndex('left', -1);
+    setPrevSelectedIndex('left', null);
   };
 
   const moveToRight = () => {
     moveTo('right');
-    setPrevSelectedIndex('right', -1);
+    setPrevSelectedIndex('right', null);
   };
 
   const onItemSelectAll = (
@@ -271,7 +272,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       handleSelectChange(direction, mergedCheckedKeys);
       return mergedCheckedKeys;
     });
-    setPrevSelectedIndex(direction, -1);
+    setPrevSelectedIndex(direction, null);
   };
 
   const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
@@ -300,7 +301,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     const isSelected = holder.has(selectedKey);
     if (isSelected) {
       holder.delete(selectedKey);
-      setPrevSelectedIndex(direction, -1);
+      setPrevSelectedIndex(direction, null);
     }
     if (checked) {
       holder.add(selectedKey);
