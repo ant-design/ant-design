@@ -95,6 +95,7 @@
     "test-node": "npm run version && jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js",
+    "site:test:update": "npm run site && npm run site:test -u",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
     "argos": "tsx scripts/argos-upload.ts",
     "version": "tsx scripts/generate-version.ts",
