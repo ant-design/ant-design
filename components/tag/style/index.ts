@@ -38,7 +38,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-flex',
+      display: 'inline-block',
       height: 'auto',
       marginInlineEnd: token.marginXS,
       paddingInline,
@@ -115,6 +115,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       // To ensure that a space will be placed between character and `Icon`.
       [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
         marginInlineStart: paddingInline,
+      },
+      // To ensure that icon is vertically centered within the Tag component.
+      [`> ${token.iconCls} `]: {
+        verticalAlign: '-0.15em',
       },
     },
     [`${componentCls}-borderless`]: {
