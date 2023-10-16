@@ -7,6 +7,7 @@ import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -22,9 +23,8 @@ import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
-import useShowArrow from './useShowArrow';
 import useIcons from './useIcons';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
 
@@ -272,8 +272,9 @@ const InternalSelect = <
       disabled={mergedDisabled}
       dropdownStyle={
         curZIndex == null
-          ? {}
+          ? props.dropdownStyle
           : {
+              ...props.dropdownStyle,
               zIndex: curZIndex,
             }
       }
