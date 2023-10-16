@@ -1,0 +1,72 @@
+# Each PR will build preview site that help to check code is work as expect.
+
+name: Preview End
+
+on:
+  workflow_run:
+    workflows: ["Preview Build"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  upstream-workflow-results:
+    name: upstream workflow results
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.event == 'pull_request'
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
+    steps:
+      - name: download pr artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: pr
+
+      - name: save PR id
+        id: pr
+        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+
+      - name: summary jobs status
+        uses: actions/github-script@v6
+        id: summary
+        with:
+          script: |
+            const response = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: ${{ github.event.workflow_run.id }}
+            });
+            // { [name]: [conclusion] }
+            const jobs = (response.data?.jobs ?? []).reduce((acc, job) => {
+              if(job?.status === 'completed' && 'name' in job && 'conclusion' in job) {
+                acc[job.name] = job.conclusion;
+              }
+              return acc;
+            }, {});
+            return jobs;
+
+      - name: success comment
+        if: summary.outputs.result['build preview'] == 'success' && summary.outputs.result['preview deploy'] == 'success'
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: "<!-- AUTO_PREVIEW_HOOK -->"
+          number: ${{ steps.pr.outputs.id }}
+
+      - name: failed comment
+        if: summary.outputs.result['build preview'] == 'failure' || summary.outputs.result['preview deploy'] == 'failure'
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: "<!-- AUTO_PREVIEW_HOOK -->"
+          number: ${{ steps.pr.outputs.id }}
