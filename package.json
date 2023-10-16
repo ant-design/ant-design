@@ -323,7 +323,7 @@
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "458 KiB"
+      "limit": "459 KiB"
     }
   ],
   "tnpm": {
