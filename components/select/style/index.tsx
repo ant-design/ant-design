@@ -156,15 +156,21 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 // ============================== Status ==============================
 const genStatusStyle = (
   rootSelectCls: string,
-  token: {
-    componentCls: string;
-    antCls: string;
+  token: SelectToken & {
     borderHoverColor: string;
     borderActiveColor: string;
+    outlineColor: string;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
-  const { componentCls, borderHoverColor, antCls, borderActiveColor } = token;
+  const {
+    componentCls,
+    borderHoverColor,
+    antCls,
+    borderActiveColor,
+    outlineColor,
+    controlOutlineWidth,
+  } = token;
 
   const overwriteStyle: CSSObject = overwriteDefaultBorder
     ? {
@@ -186,6 +192,7 @@ const genStatusStyle = (
 
           [`${componentCls}-focused& ${componentCls}-selector`]: {
             borderColor: borderActiveColor,
+            boxShadow: `0 0 0 ${controlOutlineWidth}px ${outlineColor}`,
             outline: 0,
           },
         },
@@ -398,6 +405,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       mergeToken<any>(token, {
         borderHoverColor: token.colorPrimaryHover,
         borderActiveColor: token.colorPrimary,
+        outlineColor: token.controlOutline,
       }),
     ),
     genStatusStyle(
@@ -405,6 +413,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       mergeToken<any>(token, {
         borderHoverColor: token.colorErrorHover,
         borderActiveColor: token.colorError,
+        outlineColor: token.colorErrorOutline,
       }),
       true,
     ),
@@ -413,6 +422,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       mergeToken<any>(token, {
         borderHoverColor: token.colorWarningHover,
         borderActiveColor: token.colorWarning,
+        outlineColor: token.colorWarningOutline,
       }),
       true,
     ),

@@ -428,4 +428,10 @@ describe('Button', () => {
     fireEvent.click(container.querySelector('.change-btn')!);
     expect(container.querySelectorAll('.ant-btn-loading-icon').length).toBe(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/45273
+  it('should display loading when delay is zero', () => {
+    const { container } = render(<Button loading={{ delay: 0 }}>Button</Button>);
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+  });
 });
