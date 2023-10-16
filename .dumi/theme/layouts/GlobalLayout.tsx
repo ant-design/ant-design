@@ -45,7 +45,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
       }
       return null;
     })
-    .filter((item) => item);
+    .filter((item) => item) as typeof antdTheme.darkAlgorithm[];
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
@@ -109,7 +109,7 @@ const GlobalLayout: React.FC = () => {
     setSiteState({
       theme: _theme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      bannerVisible: storedBannerVisibleLastTime ? storedBannerVisible : true,
+      bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
     });
     // Handle isMobile
     updateMobileMode();
