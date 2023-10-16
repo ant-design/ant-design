@@ -15,13 +15,7 @@ export type ZIndexConsumer =
   | 'TimePicker'
   | 'Menu';
 
-export const baseZIndexOffset: Record<ZIndexConsumer | ZIndexContainer, number> = {
-  Modal: 0,
-  Drawer: 0,
-  Popover: 30,
-  Popconfirm: 60,
-  Tooltip: 70,
-  Tour: 70,
+export const baseZIndexOffset: Record<ZIndexConsumer, number> = {
   Select: 50,
   Dropdown: 50,
   Cascader: 50,
@@ -37,13 +31,19 @@ export function useZIndex(consumer?: ZIndexConsumer) {
   const [, token] = useToken();
   const { zIndex: parentZIndex } = React.useContext(zIndexContext);
   if (parentZIndex === null) {
-    return null;
+    return {
+      curZIndex: consumer ? baseZIndexOffset[consumer] : token.zIndexPopupBase,
+      parentZIndex: null,
+    };
   }
-  let baseZIndex = parentZIndex;
+  let curZIndex = parentZIndex;
   if (consumer) {
-    baseZIndex += baseZIndexOffset[consumer];
+    curZIndex += baseZIndexOffset[consumer];
   } else {
-    baseZIndex += token.zIndexPopupBase;
+    curZIndex += token.zIndexPopupBase;
   }
-  return baseZIndex;
+  return {
+    curZIndex,
+    parentZIndex,
+  };
 }

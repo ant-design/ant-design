@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Select } from 'antd';
 
 import type { ModalProps } from '..';
 import Modal from '..';
@@ -181,5 +182,34 @@ describe('Modal', () => {
     );
     expect(document.querySelector('.first-origin')).toMatchSnapshot();
     expect(document.querySelector('.second-props-origin')).toMatchSnapshot();
+  });
+
+  it('z-index should be accumulated in nested Modal', () => {
+    const options = [
+      {
+        label: 'Option 1',
+        value: '1',
+      },
+      {
+        label: 'Option 2',
+        value: '2',
+      },
+    ];
+    render(
+      <Modal open>
+        <Select open options={options} popupClassName="select1" />
+        <Modal open>
+          <Select open options={options} popupClassName="select2" />
+        </Modal>
+      </Modal>,
+    );
+    expect(
+      (document.querySelectorAll('.ant-modal-wrap')[0] as HTMLDivElement)!.style.zIndex,
+    ).toBeFalsy();
+    expect((document.querySelectorAll('.ant-modal-wrap')[1] as HTMLDivElement)!.style.zIndex).toBe(
+      '2000',
+    );
+    expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('1050');
+    expect((document.querySelector('.select2') as HTMLDivElement)!.style.zIndex).toBe('2050');
   });
 });

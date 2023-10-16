@@ -116,7 +116,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const panelRef = usePanelRef(`.${prefixCls}-content`);
 
   // ============================ zIndex ============================
-  const curZIndex = useZIndex();
+  const { curZIndex, parentZIndex } = useZIndex();
 
   // =========================== Render ===========================
   return wrapSSR(
@@ -130,7 +130,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           <Dialog
             width={width}
             {...restProps}
-            zIndex={curZIndex === null ? undefined : curZIndex}
+            zIndex={parentZIndex === null ? restProps.zIndex : curZIndex}
             getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
             prefixCls={prefixCls}
             rootClassName={classNames(hashId, rootClassName)}

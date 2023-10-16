@@ -242,7 +242,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const curZIndex = useZIndex('Select');
+  const { curZIndex } = useZIndex('Select');
 
   // ====================== Render =======================
   return wrapSSR(
