@@ -1241,7 +1241,7 @@ describe('Form', () => {
     expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(screen.getByLabelText(itemName)).toHaveAccessibleName('Search');
+    expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
 
     fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();

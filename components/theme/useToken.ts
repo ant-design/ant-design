@@ -1,10 +1,11 @@
+import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
-import React from 'react';
+
 import version from '../version';
-import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import type { DesignTokenProviderProps } from './context';
 import { defaultTheme, DesignTokenContext } from './context';
+import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 
@@ -57,12 +58,7 @@ export default function useToken(): [
   token: GlobalToken,
   hashId: string,
 ] {
-  const {
-    token: rootDesignToken,
-    hashed,
-    theme,
-    components,
-  } = React.useContext(DesignTokenContext);
+  const { token: rootDesignToken, hashed, theme, override } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
@@ -73,7 +69,7 @@ export default function useToken(): [
     [defaultSeedToken, rootDesignToken],
     {
       salt,
-      override: { override: rootDesignToken, ...components },
+      override,
       getComputedToken,
       // formatToken will not be consumed after 1.15.0 with getComputedToken.
       // But token will break if @ant-design/cssinjs is under 1.15.0 without it

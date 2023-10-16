@@ -1088,7 +1088,6 @@ Array [
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
