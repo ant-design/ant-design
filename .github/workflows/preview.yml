@@ -97,18 +97,6 @@ jobs:
           path: _site/
           retention-days: 5
 
-      # Upload PR id for next workflow use
-      - name: Save PR number
-        if: ${{ always() }}
-        run: echo ${{ github.event.number }} > ./pr-id.txt
-
-      - name: Upload PR number
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: pr
-          path: ./pr-id.txt
-
   site-test:
     name: site test
     runs-on: ubuntu-latest
@@ -149,11 +137,6 @@ jobs:
         with:
           name: pr
 
-      # Save PR id to output
-      - name: save PR id
-        id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
-
       # Download site artifact
       - name: download site artifact
         uses: actions/download-artifact@v3
@@ -163,7 +146,7 @@ jobs:
       - name: upload surge service
         id: deploy
         run: |
-          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          export DEPLOY_DOMAIN=https://preview-${{ github.event.number }}-ant-design.surge.sh
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
   preview-end:
@@ -182,20 +165,16 @@ jobs:
         with:
           name: pr
 
-      - name: save PR id
-        id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
-
       - name: success comment
         if: needs.build-site.result == 'success' && needs.preview-deploy.result == 'success'
         uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ github.event.number }}-ant-design.surge.sh)
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: "<!-- AUTO_PREVIEW_HOOK -->"
-          number: ${{ steps.pr.outputs.id }}
+          number: ${{ github.event.number }}
 
       - name: failed comment
         if: needs.build-site.result == 'failure' || needs.preview-deploy.result == 'failure'
@@ -206,4 +185,4 @@ jobs:
             <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
             <!-- AUTO_PREVIEW_HOOK -->
           body-include: "<!-- AUTO_PREVIEW_HOOK -->"
-          number: ${{ steps.pr.outputs.id }}
+          number: ${{ github.event.number }}
