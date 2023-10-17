@@ -213,6 +213,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const onMenuClick = React.useCallback(() => {
+    onOpenChange?.(false);
     setOpen(false);
   }, []);
 

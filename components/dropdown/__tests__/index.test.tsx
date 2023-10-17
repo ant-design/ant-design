@@ -264,4 +264,28 @@ describe('Dropdown', () => {
 
     expect(divRef.current).toBeTruthy();
   });
+
+  it('should trigger open event when click on item', () => {
+    const onOpenChange = jest.fn();
+
+    render(
+      <Dropdown
+        onOpenChange={onOpenChange}
+        open
+        menu={{
+          items: [
+            {
+              label: <div className="bamboo" />,
+              key: 1,
+            },
+          ],
+        }}
+      >
+        <a />
+      </Dropdown>,
+    );
+
+    fireEvent.click(document.body.querySelector('.bamboo')!);
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+  });
 });
