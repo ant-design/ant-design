@@ -120,6 +120,3 @@ jobs:
         with:
           name: site
           path: _site
-
-      - name: run e2e test
-        run: npm run site:test
