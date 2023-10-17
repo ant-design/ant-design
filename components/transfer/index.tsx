@@ -317,7 +317,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   ) => {
     const isLeftDirection = direction === 'left';
     const multipleSelect = isLeftDirection ? leftMultipleSelect : rightMultipleSelect;
-    multipleSelect(currentSelectedIndex, data, holder);
+    multipleSelect(currentSelectedIndex, data, holder, (item) => item.key);
   };
 
   const onItemSelect = (

@@ -10,14 +10,22 @@ export default function useMultipleSelect() {
   const [prevSelectedIndex, setPrevSelectedIndex] = useState<PrevSelectedIndex>(null);
 
   const multipleSelect = useCallback(
-    <T>(currentSelectedIndex: number, data: any[], selectedKeys: Set<T>) => {
+    <T, K>(currentSelectedIndex: number, data: T[], selectedKeys: Set<K>, key?: (item: T) => K) => {
+      const getKey = (item: T): K => {
+        if (typeof key === 'function') {
+          return key(item);
+        }
+
+        return item as unknown as K;
+      };
+
       let configPrevSelectedIndex = prevSelectedIndex;
 
       // prevSelectedIndex reset case
       if (prevSelectedIndex === null) {
         const selectedIndexArr: number[] = [];
         data.forEach((item, idx) => {
-          if (Array.from(selectedKeys).includes(item?.key ?? item)) {
+          if (selectedKeys.has(getKey(item))) {
             selectedIndexArr.push(idx);
           }
         });
@@ -37,9 +45,9 @@ export default function useMultipleSelect() {
       // add/delete the selected range
       const startIndex = Math.min(configPrevSelectedIndex || 0, currentSelectedIndex);
       const endIndex = Math.max(configPrevSelectedIndex || 0, currentSelectedIndex);
-      const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => item?.key ?? item);
-      const shouldSelected = rangeKeys.some((key) => !selectedKeys?.has(key));
-      const changedKeys: T[] = [];
+      const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => getKey(item));
+      const shouldSelected = rangeKeys.some((rangeKey) => !selectedKeys?.has(rangeKey));
+      const changedKeys: K[] = [];
 
       rangeKeys.forEach((item) => {
         if (shouldSelected) {
@@ -47,13 +55,13 @@ export default function useMultipleSelect() {
             changedKeys.push(item);
           }
           selectedKeys.add(item);
-          setPrevSelectedIndex(endIndex);
         } else {
           selectedKeys.delete(item);
           changedKeys.push(item);
-          setPrevSelectedIndex(null);
         }
       });
+
+      setPrevSelectedIndex(shouldSelected ? endIndex : null);
 
       return changedKeys;
     },
