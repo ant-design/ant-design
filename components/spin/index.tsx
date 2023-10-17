@@ -110,7 +110,10 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     setSpinning(false);
   }, [delay, customSpinning]);
 
-  const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
+  const isNestedPattern = React.useMemo<boolean>(
+    () => typeof children !== 'undefined' && !fullscreen,
+    [children, fullscreen],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
@@ -154,11 +157,13 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       aria-busy={spinning}
     >
       {renderIndicator(prefixCls, props)}
-      {tip && isNestedPattern ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+      {tip && (isNestedPattern || fullscreen) ? (
+        <div className={`${prefixCls}-text`}>{tip}</div>
+      ) : null}
     </div>
   );
 
-  if (isNestedPattern && !fullscreen) {
+  if (isNestedPattern) {
     return (
       <div
         {...divProps}

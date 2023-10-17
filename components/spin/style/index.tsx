@@ -60,6 +60,11 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       opacity: 1,
     },
 
+    [`${token.componentCls}-text`]: {
+      fontSize: token.fontSize,
+      paddingTop: dotPadding(token),
+    },
+
     '&-fullscreen': {
       position: 'fixed',
       width: '100vw',
@@ -75,9 +80,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         backgroundColor: token.colorWhite,
       },
       [`${token.componentCls}-text`]: {
-        fontSize: token.fontSize,
-        color: token.colorWhite,
-        paddingTop: dotPadding(token),
+        color: token.colorTextLightSolid,
       },
     },
 
@@ -104,9 +107,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           position: 'absolute',
           top: '50%',
           width: '100%',
-          paddingTop: dotPadding(token),
           textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
-          fontSize: token.fontSize,
         },
 
         [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
