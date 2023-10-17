@@ -1,7 +1,7 @@
 {
   "name": "antd",
   "version": "5.10.1",
-  "packageManager": "^npm@9.0.0",
+  "packageManager": "npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -95,6 +95,7 @@
     "test-node": "npm run version && jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js",
+    "site:test:update": "npm run site && npm run site:test -- -u",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
     "argos": "tsx scripts/argos-upload.ts",
     "version": "tsx scripts/generate-version.ts",
@@ -209,7 +210,7 @@
     "@typescript-eslint/parser": "^6.5.0",
     "antd-img-crop": "^4.9.0",
     "antd-style": "^3.5.0",
-    "antd-token-previewer": "^2.0.1",
+    "antd-token-previewer": "^2.0.4",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "circular-dependency-plugin": "^5.2.2",
