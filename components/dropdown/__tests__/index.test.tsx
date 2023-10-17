@@ -286,6 +286,6 @@ describe('Dropdown', () => {
     );
 
     fireEvent.click(document.body.querySelector('.bamboo')!);
-    expect(onOpenChange).toHaveBeenCalledWith(false);
+    expect(onOpenChange).toHaveBeenCalledWith(false, { source: 'menu' });
   });
 });
