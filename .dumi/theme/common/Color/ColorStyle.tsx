@@ -2,7 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
-const gray = {
+const gray: { [key: number]: string } = {
   1: '#fff',
   2: '#fafafa',
   3: '#f5f5f5',
@@ -25,7 +25,7 @@ const ColorStyle = () => {
     if (index <= 10) {
       return `
 .palette-${color}-${index} {
-  background: ${token[`${color}-${index}`]};
+  background: ${(token as any)[`${color}-${index}`]};
 }
 ${makePalette(color, index + 1)}
     `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Watermark, Modal, Drawer, Button, Space } from 'antd';
+import { Button, Drawer, Modal, Space, Watermark } from 'antd';
 
 const placeholder = (
   <div
@@ -18,15 +18,18 @@ const placeholder = (
 const App: React.FC = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [showDrawer, setShowDrawer] = React.useState(false);
+  const [showDrawer2, setShowDrawer2] = React.useState(false);
 
   const closeModal = () => setShowModal(false);
   const closeDrawer = () => setShowDrawer(false);
+  const closeDrawer2 = () => setShowDrawer2(false);
 
   return (
     <>
       <Space>
-        <Button onClick={() => setShowModal(true)}>Show Modal</Button>
-        <Button onClick={() => setShowDrawer(true)}>Show Drawer</Button>
+        <Button onClick={() => setShowModal(true)}>Show in Modal</Button>
+        <Button onClick={() => setShowDrawer(true)}>Show in Drawer</Button>
+        <Button onClick={() => setShowDrawer2(true)}>Not Show in Drawer</Button>
       </Space>
 
       <Watermark content="Ant Design">
@@ -40,6 +43,11 @@ const App: React.FC = () => {
           {placeholder}
         </Modal>
         <Drawer destroyOnClose open={showDrawer} title="Drawer" onClose={closeDrawer}>
+          {placeholder}
+        </Drawer>
+      </Watermark>
+      <Watermark content="Ant Design" inherit={false}>
+        <Drawer destroyOnClose open={showDrawer2} title="Drawer" onClose={closeDrawer2}>
           {placeholder}
         </Drawer>
       </Watermark>

@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { Reference } from 'rc-table';
 import type {
   FixedType,
   GetComponentProps,
@@ -16,12 +17,12 @@ import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
 
 export type RefTable = <RecordType extends AnyObject = AnyObject>(
-  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
+  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<Reference> },
 ) => React.ReactElement;
 
 export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & {
-    ref?: React.Ref<HTMLDivElement>;
+    ref?: React.Ref<Reference>;
   },
 ) => React.ReactElement;
 

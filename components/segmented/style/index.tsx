@@ -111,6 +111,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         cursor: 'pointer',
         transition: `color ${token.motionDurationMid} ${token.motionEaseInOut}`,
         borderRadius: token.borderRadiusSM,
+        // Fix Safari render bug
+        // https://github.com/ant-design/ant-design/issues/45250
+        transform: 'translateZ(0)',
 
         '&-selected': {
           ...getItemSelectedStyle(token),

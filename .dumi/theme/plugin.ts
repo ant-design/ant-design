@@ -155,12 +155,12 @@ const RoutesPlugin = (api: IApi) => {
         // 2. 提取每个样式到独立 css 文件
         styles.forEach((result) => {
           api.logger.event(
-            `${chalk.yellow(file.path)} include ${chalk.blue`[${result.key}]`} ${chalk.yellow(
-              result.ids.length,
+            `${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(
+              result!.ids.length,
             )} styles`,
           );
 
-          const cssFile = writeCSSFile(result.key, result.ids.join(''), result.css);
+          const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
 
           file.content = addLinkStyle(file.content, cssFile);
         });

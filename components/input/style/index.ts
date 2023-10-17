@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
@@ -335,7 +336,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.colorFillAlter,
+        backgroundColor: token.addonBg,
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -1017,6 +1018,20 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   };
 };
 
+// ============================== Range ===============================
+const genRangeStyle: GenerateStyle<InputToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-out-of-range`]: {
+      [`&, & input, & textarea, ${componentCls}-show-count-suffix, ${componentCls}-data-count`]: {
+        color: token.colorError,
+      },
+    },
+  };
+};
+
+// ============================== Tokens ==============================
 export function initInputToken(token: GlobalToken): SharedInputToken {
   return mergeToken<InputToken>(token, {
     inputAffixPadding: token.paddingXXS,
@@ -1039,6 +1054,10 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     colorFillAlter,
     colorPrimaryHover,
     colorPrimary,
+    controlOutlineWidth,
+    controlOutline,
+    colorErrorOutline,
+    colorWarningOutline,
   } = token;
 
   return {
@@ -1058,11 +1077,11 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     addonBg: colorFillAlter,
     activeBorderColor: colorPrimary,
     hoverBorderColor: colorPrimaryHover,
-    activeShadow: `none`,
-    errorActiveShadow: `none`,
-    warningActiveShadow: `none`,
-    hoverBg: 'transparent',
-    activeBg: 'transparent',
+    activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
+    errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
+    warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
+    hoverBg: '',
+    activeBg: '',
   };
 };
 
@@ -1078,6 +1097,7 @@ export default genComponentStyleHook(
       genAffixStyle(inputToken),
       genGroupStyle(inputToken),
       genSearchInputStyle(inputToken),
+      genRangeStyle(inputToken),
       // =====================================================
       // ==             Space Compact                       ==
       // =====================================================

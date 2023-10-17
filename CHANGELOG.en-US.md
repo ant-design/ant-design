@@ -16,6 +16,56 @@ tag: vVERSION
 
 ---
 
+## 5.10.1
+
+`2023-10-15`
+
+- ⚡️ Optimize CSS-in-JS Design Token cache matching. [#45302](https://github.com/ant-design/ant-design/pull/45302)
+- 🆕 Checkbox.Group &amp; Radio.Group `options` add missing `id` props. [#45287](https://github.com/ant-design/ant-design/pull/45287)
+- 🐞 Fix Affix that `target` not work. [#45314](https://github.com/ant-design/ant-design/pull/45314) [@mingming-ma](https://github.com/mingming-ma)
+- 🐞 MISC: Add `csp` attribute for icon style. [#45334](https://github.com/ant-design/ant-design/pull/45334) [@AlexeyTeterin](https://github.com/AlexeyTeterin)
+- 🐞 Fix Button that does not display loading status when `loading` property is set to `{ delay: 0 }`. [#45282](https://github.com/ant-design/ant-design/pull/45282) [@YDFlame13](https://github.com/YDFlame13)
+- 🐞 Fix Segmented text jump issue in Safari. [#45310](https://github.com/ant-design/ant-design/pull/45310)
+- 🐞 Fix Watermark that can be hidden via "Hide Element" feature in browser. [#45290](https://github.com/ant-design/ant-design/pull/45290) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Input that background should not be transparent when hovered or focused. [#45297](https://github.com/ant-design/ant-design/pull/45297) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Form call `resetFields` will still keep Form.List field when its `initialValue` is set. [#45284](https://github.com/ant-design/ant-design/pull/45284)
+- 🐞 Fix Tree.DirectoryTree `selectedNodes` in `onSelect` method could not get a value when configuring `fieldNames`. [#45036](https://github.com/ant-design/ant-design/pull/45036) [@Zian502](https://github.com/Zian502)
+- 💄 Revert outline style of Input, InputNumber, Select, Cascader, TreeSelect, DatePicker, TimePicker, ColorPicker. [#45286](https://github.com/ant-design/ant-design/pull/45286) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Card style with small size Tabs. [#45272](https://github.com/ant-design/ant-design/pull/45272) [@MadCcc](https://github.com/MadCcc)
+
+## 5.10.0
+
+`2023-10-10`
+
+- 🔥 New component Flex, used to set flexible layout. [#44362](https://github.com/ant-design/ant-design/pull/44362)
+- 🔥 Notification component supports `stack` configuration. By default, more than three notifications will be stacked. [#44618](https://github.com/ant-design/ant-design/pull/44618)
+- 🔥 Update the active styles of Input, InputNumber, Select, Cascader, TreeSelect, DatePicker, and ColorPicker. [#45009](https://github.com/ant-design/ant-design/pull/45009)
+- 🆕 Watermark supports setting the text alignment direction through `textAlign`. [#44888](https://github.com/ant-design/ant-design/pull/44888) [@Yuiai01](https://github.com/Yuiai01)
+- 🆕 Slider supports any number of nodes and migrates xxxStyles to semantic `styles` and `classNames` properties. [#45000](https://github.com/ant-design/ant-design/pull/45000)
+- 🆕 Cascader supports the Cascader.Panel component for inline use. [#45089](https://github.com/ant-design/ant-design/pull/45089)
+- 🆕 Tooltip adds `fresh` attribute to support scenarios where content still needs to be updated when closed. [#45020](https://github.com/ant-design/ant-design/pull/45020)
+- 🆕 Drawer supports customizing the `className` of built-in modules through `classNames`. [#44935](https://github.com/ant-design/ant-design/pull/44935)
+- 🆕 ConfigProvider supports the `warning` attribute to configure warning levels (e.g. filter out deprecated API warnings). [#44809](https://github.com/ant-design/ant-design/pull/44809)
+- Modal
+  - 🆕 Modal supports customizing the `className` of built-in modules through `classNames`. [#44934](https://github.com/ant-design/ant-design/pull/44934)
+  - 🐞 Fixed the content overflow problem when Modal.confirm `description` is a long text. [#45212](https://github.com/ant-design/ant-design/pull/45212)
+- 🐞 Fix the problem that the nested Typography of Menu.Item cannot be vertically centered when `ellipsis` is true. [#41146](https://github.com/ant-design/ant-design/pull/41146) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix Select internal input not being able to apply fontFamily. [#45197](https://github.com/ant-design/ant-design/pull/45197) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix InputNumber border issue when using `addonBefore` in Space.Compact. [#45004](https://github.com/ant-design/ant-design/pull/45004) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 Fix the problem that Tag.CheckableTag does not support ref. [#45164](https://github.com/ant-design/ant-design/pull/45164) [@mingming-ma](https://github.com/mingming-ma)
+- 🐞 Fixed the issue where the font in the Avatar.Group component does not support responsiveness. [#34722](https://github.com/ant-design/ant-design/pull/34722) [@laishiwen](https://github.com/laishiwen)
+- 🛠 Refactor Affix into a functional component. [#42674](https://github.com/ant-design/ant-design/pull/42674)
+- 🛠 The Popover component deprecates the `minWidth` component token and adds `titleMinWidth` as a replacement. [#44750](https://github.com/ant-design/ant-design/pull/44750)
+- 🌈 Token
+  - 🆕 Input adds `hoverBg` `activeBg` token to set the input box hover and activation background color. [#44752](https://github.com/ant-design/ant-design/pull/44752) [@Pan-yongyong](https://github.com/Pan-yongyong)
+  - 🆕 Descriptions Added `titleColor` and `contentColor` to set the title color and content area text color. [#44729](https://github.com/ant-design/ant-design/pull/44729) [@Child-qjj](https://github.com/Child-qjj)
+  - 🐞 Fixed the issue where the Input component Token `addonBg` is invalid. [#45222](https://github.com/ant-design/ant-design/pull/45222)
+- TypeScript
+  - 🤖 The ArgsProps type for exported Notification is NotificationArgsProps. [#45147](https://github.com/ant-design/ant-design/pull/45147)
+- 🌐 Locales
+  - 🇵🇱 Added Tour locales for pl_PL. [#45166](https://github.com/ant-design/ant-design/pull/45166) [@antonisierakowski](https://github.com/antonisierakowski)
+  - 🇰🇷 Optimize ko_KR locales. [#45150](https://github.com/ant-design/ant-design/pull/45150) [@owjs3901](https://github.com/owjs3901)
+
 ## 5.9.4
 
 `2023-09-28`
