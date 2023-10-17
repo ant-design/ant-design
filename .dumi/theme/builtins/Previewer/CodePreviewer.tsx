@@ -21,6 +21,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
+import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
 
 const { ErrorBoundary } = Alert;
 
@@ -363,9 +364,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
-        <ErrorBoundary>
-          <React.StrictMode>{liveDemo.current}</React.StrictMode>
-        </ErrorBoundary>
+        <LiveDemo />
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">

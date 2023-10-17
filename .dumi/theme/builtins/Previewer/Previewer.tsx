@@ -1,6 +1,6 @@
 import React from 'react';
 import type { IPreviewerProps } from 'dumi';
-import { useTabMeta } from 'dumi';
+import { LiveProvider, useTabMeta } from 'dumi';
 
 import CodePreviewer from './CodePreviewer';
 import DesignPreviewer from './DesignPreviewer';
@@ -16,7 +16,17 @@ const Previewer: React.FC<AntdPreviewerProps> = (props) => {
     return <DesignPreviewer {...props} />;
   }
 
-  return <CodePreviewer {...props} />;
+  return (
+    <LiveProvider
+      initialCode={
+        Object.entries(props.asset.dependencies).filter(([, { type }]) => type === 'FILE')[0][1]
+          .value
+      }
+      demoId={props.asset.id}
+    >
+      <CodePreviewer {...props} />
+    </LiveProvider>
+  );
 };
 
 export default Previewer;
