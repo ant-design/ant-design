@@ -198,6 +198,7 @@ export interface ConfigProviderProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
+  rangePicker?: ComponentStyleConfig;
   flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
