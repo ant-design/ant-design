@@ -210,7 +210,7 @@
     "@typescript-eslint/parser": "^6.5.0",
     "antd-img-crop": "^4.9.0",
     "antd-style": "^3.5.0",
-    "antd-token-previewer": "^2.0.1",
+    "antd-token-previewer": "^2.0.4",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "circular-dependency-plugin": "^5.2.2",
