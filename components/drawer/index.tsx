@@ -12,7 +12,7 @@ import { NoFormStyle } from '../form/context';
 // CSSINJS
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerPanelProps } from './DrawerPanel';
+import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
@@ -36,6 +36,8 @@ export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'pref
   visible?: boolean;
   /** @deprecated Please use `afterOpenChange` instead */
   afterVisibleChange?: (open: boolean) => void;
+  classNames?: DrawerClassNames;
+  styles?: DrawerStyles;
 }
 
 const defaultPushState: PushState = { distance: 180 };
@@ -93,6 +95,9 @@ const Drawer: React.FC<DrawerProps> & {
     [
       ['visible', 'open'],
       ['afterVisibleChange', 'afterOpenChange'],
+      ['headerStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+      ['footerStyle', 'styles.footer'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -148,6 +153,20 @@ const Drawer: React.FC<DrawerProps> & {
           maskMotion={maskMotion}
           motion={panelMotion}
           {...rest}
+          classNames={{
+            mask: classNames(rest.classNames?.mask, drawer?.classNames?.mask),
+            content: classNames(rest.classNames?.content, drawer?.classNames?.content),
+          }}
+          styles={{
+            mask: {
+              ...rest.styles?.mask,
+              ...drawer?.styles?.mask,
+            },
+            content: {
+              ...rest.styles?.content,
+              ...drawer?.styles?.content,
+            },
+          }}
           open={open ?? visible}
           mask={mask}
           push={push}

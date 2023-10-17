@@ -19,7 +19,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
-        ...resetComponent(token),
+        ...resetComponent(token, true),
 
         display: 'flex',
         borderRadius,

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { ConfigProvider } from 'antd';
-import type { TableProps } from '..';
+
+import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -279,7 +280,7 @@ describe('Table', () => {
       },
     ];
     const Wrapper: React.FC = () => {
-      const ref = React.useRef<HTMLDivElement>(null);
+      const ref = React.useRef<any>(null);
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);
@@ -400,5 +401,16 @@ describe('Table', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('support reference', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(<Table ref={tblRef} />);
+
+    const wrapDom = container.querySelector('.ant-table-wrapper')!;
+
+    expect(tblRef.current).toHaveClass('ant-table-wrapper');
+    expect(tblRef.current?.nativeElement).toBe(wrapDom);
+    expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
   });
 });

@@ -65,7 +65,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | popupOverflow | Select like component popup logic. Can set to show in viewport or follow window scroll | 'viewport' \| 'scroll' <InlinePopover previewURL="https://user-images.githubusercontent.com/5378891/230344474-5b9f7e09-0a5d-49e8-bae8-7d2abed6c837.png"></InlinePopover> | 'viewport' | 5.5.0 |
 | prefixCls | Set prefix className | string | `ant` |  |
 | renderEmpty | Set empty content of components. Ref [Empty](/components/empty/) | function(componentName: string): ReactNode | - |  |
-| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | - | - | 5.0.0 |
+| theme | Set theme, ref [Customize Theme](/docs/react/customize-theme) | [Theme](/docs/react/customize-theme#theme) | - | 5.0.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
 
@@ -120,7 +120,7 @@ const {
 | datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | descriptions | Set Descriptions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | divider | Set Divider common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| drawer | Set Drawer common props | { className?: string, style?: React.CSSProperties, classNames?: [DrawerProps\["classNames"\]](/components/drawer-cn#api), styles?: [DrawerProps\["styles"\]](/components/drawer-cn#api) } | - | 5.7.0, `classNames` and `styles`: 5.10.0 |
 | empty | Set Empty common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | flex | Set Flex common props | { className?: string, style?: React.CSSProperties, vertical?: boolean } | - | 5.10.0 |
 | form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) } | - | requiredMark: 4.8.0; colon: 4.18.0; scrollToFirstError: 5.2.0; className: 5.7.0; style: 5.7.0 |
@@ -131,7 +131,7 @@ const {
 | menu | Set Menu common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| modal | Set Modal common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#api), styles?: [ModalProps\["styles"\]](/components/modal-cn#api) } | - | 5.7.0, `classNames` and `styles`: 5.10.0 |
 | notification | Set Notification common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

@@ -54,7 +54,7 @@ export default function statisticToken<T extends object>(token: T) {
   let flush: (componentName: string, componentToken: Record<string, string | number>) => void =
     noop;
 
-  if (enableStatistic) {
+  if (enableStatistic && typeof Proxy !== 'undefined') {
     tokenKeys = new Set<string>();
 
     proxy = new Proxy(token, {

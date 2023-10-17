@@ -37,7 +37,7 @@ const Community: React.FC = () => {
   );
 };
 
-export const getEcosystemGroup = (): MenuProps['items'] => [
+export const getEcosystemGroup = (): Exclude<MenuProps['items'], undefined> => [
   {
     label: (
       <a href="https://charts.ant.design" target="_blank" rel="noopener noreferrer">

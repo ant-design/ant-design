@@ -1,6 +1,7 @@
+import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type * as React from 'react';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -98,11 +99,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         transition: `background-color ${token.motionDurationMid}`,
       },
 
-      [`${componentCls}-track`]: {
+      [`${componentCls}-track,${componentCls}-tracks`]: {
         position: 'absolute',
+        transition: `background-color ${token.motionDurationMid}`,
+      },
+
+      [`${componentCls}-track`]: {
         backgroundColor: token.trackBg,
         borderRadius: token.borderRadiusXS,
-        transition: `background-color ${token.motionDurationMid}`,
       },
 
       [`${componentCls}-track-draggable`]: {
@@ -320,7 +324,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       [part]: railSize,
     },
 
-    [`${componentCls}-track`]: {
+    [`${componentCls}-track,${componentCls}-tracks`]: {
       [part]: railSize,
     },
 

@@ -115,7 +115,7 @@ exports[`renders components/layout/demo/basic.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-layout"
+      class="ant-layout ant-layout-has-sider"
     >
       <aside
         class="ant-layout-sider ant-layout-sider-dark"
@@ -172,7 +172,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
     </div>
   </header>
   <div
-    class="ant-layout"
+    class="ant-layout ant-layout-has-sider"
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark"
@@ -429,7 +429,7 @@ exports[`renders components/layout/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/custom-trigger.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -1256,7 +1256,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout ant-layout-has-sider"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -1434,7 +1434,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
 
 exports[`renders components/layout/demo/side.tsx correctly 1`] = `
 <div
-  class="ant-layout"
+  class="ant-layout ant-layout-has-sider"
   style="min-height:100vh"
 >
   <aside
@@ -2154,7 +2154,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
       </ol>
     </nav>
     <div
-      class="ant-layout"
+      class="ant-layout ant-layout-has-sider"
       style="padding:24px 0;background:#ffffff"
     >
       <aside
@@ -2469,7 +2469,7 @@ exports[`renders components/layout/demo/top-side-2.tsx correctly 1`] = `
     />
   </header>
   <div
-    class="ant-layout"
+    class="ant-layout ant-layout-has-sider"
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark"

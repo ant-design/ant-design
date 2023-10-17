@@ -26,7 +26,7 @@ Ant Design's base color palette totals 120 colors, including 12 primary colors a
 
 <ColorPalettes></ColorPalettes>
 
-Ant Design's color palette also has the ability to further extend. After careful elaboration by designers and programmers, we have come up with a set of color generation tools that combine the natural variation of colors. When there is a need for further color design, designers simply define the primary colors according to certain rules and will get a complete range of derived colors automatically .
+Ant Design's color palette also has the ability to further extend. After careful elaboration by designers and programmers, we have come up with a set of color generation tools that combine the natural variation of colors. When there is a need for further color design, designers simply define the primary colors according to certain rules and will get a complete range of derived colors automatically.
 
 ### Neutral Color Palette
 

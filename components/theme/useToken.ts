@@ -1,11 +1,11 @@
+import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
-import useCSSVarToken from '@ant-design/cssinjs/es/hooks/useCSSVarToken';
-import React from 'react';
+
 import version from '../version';
-import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import type { DesignTokenProviderProps } from './context';
 import { defaultTheme, DesignTokenContext } from './context';
+import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 import cssVarMap from './util/cssVarMap';
@@ -59,31 +59,20 @@ export default function useToken(): [
   token: GlobalToken,
   hashId: string,
 ] {
-  const {
-    token: rootDesignToken,
-    hashed,
-    theme,
-    components,
-  } = React.useContext(DesignTokenContext);
+  const { token: rootDesignToken, hashed, theme, override } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
 
-  const [token, hashId] = useCSSVarToken<GlobalToken, SeedToken>(
-    {
-      tokens: [defaultSeedToken, rootDesignToken],
-      theme: mergedTheme,
-      override: { override: rootDesignToken, ...components },
-    },
-    {
-      salt,
-      getComputedToken,
-      // formatToken will not be consumed after 1.15.0 with getComputedToken.
-      // But token will break if @ant-design/cssinjs is under 1.15.0 without it
-      formatToken,
-    },
-  );
+  const [token, hashId] = useCSSVarToken<GlobalToken, SeedToken>({
+    salt,
+    override,
+    getComputedToken,
+    // formatToken will not be consumed after 1.15.0 with getComputedToken.
+    // But token will break if @ant-design/cssinjs is under 1.15.0 without it
+    formatToken,
+  });
 
   return [mergedTheme, token, hashed ? hashId : ''];
 }

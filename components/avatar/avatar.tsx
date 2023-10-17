@@ -128,7 +128,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
           width: currentSize,
           height: currentSize,
           lineHeight: `${currentSize}px`,
-          fontSize: icon ? currentSize / 2 : 18,
+          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size]);

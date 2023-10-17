@@ -540,21 +540,15 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <span
-      class="ant-tooltip-disabled-compatible-wrapper"
-      style="display:inline-block;cursor:not-allowed"
+    <button
+      class="ant-btn ant-btn-default"
+      disabled=""
+      type="button"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        disabled=""
-        style="pointer-events:none"
-        type="button"
-      >
-        <span>
-          Disabled
-        </span>
-      </button>
-    </span>
+      <span>
+        Disabled
+      </span>
+    </button>
   </div>
   <div
     class="ant-space-item"
@@ -682,7 +676,6 @@ exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"

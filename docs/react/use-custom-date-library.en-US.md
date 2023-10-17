@@ -13,7 +13,7 @@ You might want to use another date library (**Ant design currently supports [mom
 
 The first way is to use `generatePicker` (or `generateCalendar`) to help create Picker components.
 
-First, we initialize an antd demo with `create-react-app`. You can refer to [Use in TypeScript](/docs/react/use-in-typescript), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+First, we initialize an antd demo with `create-react-app`. You can refer to [Usage with create-react-app](/docs/react/use-with-create-react-app), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 ### DatePicker.tsx
 
@@ -38,10 +38,11 @@ Create `src/components/TimePicker.tsx`.
 For example:
 
 ```tsx
-import { DatePicker } from 'antd';
+import * as React from 'react';
 import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import type { Moment } from 'moment';
-import * as React from 'react';
+
+import DatePicker from './DatePicker';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 

@@ -5,6 +5,7 @@ import type { Options } from 'scroll-into-view-if-needed';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
+import type { ModalProps } from '../modal';
 import type { ButtonProps } from '../button';
 import type { FlexProps } from '../flex/interface';
 import type { RequiredMark } from '../form/Form';
@@ -15,6 +16,7 @@ import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
+import type { DrawerProps } from '../drawer';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -53,6 +55,11 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
+export interface ModalConfig extends ComponentStyleConfig {
+  classNames?: ModalProps['classNames'];
+  styles?: ModalProps['styles'];
+}
+
 export interface BadgeConfig extends ComponentStyleConfig {
   classNames?: BadgeProps['classNames'];
   styles?: BadgeProps['styles'];
@@ -61,6 +68,11 @@ export interface BadgeConfig extends ComponentStyleConfig {
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
+}
+
+export interface DrawerConfig extends ComponentStyleConfig {
+  classNames?: DrawerProps['classNames'];
+  styles?: DrawerProps['styles'];
 }
 
 export interface FlexConfig extends ComponentStyleConfig {
@@ -118,7 +130,7 @@ export interface ConfigConsumerProps {
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
-  drawer?: ComponentStyleConfig;
+  drawer?: DrawerConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
@@ -133,7 +145,7 @@ export interface ConfigConsumerProps {
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
-  modal?: ComponentStyleConfig;
+  modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;

@@ -74,14 +74,15 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
 ### TabItemType
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | - |
-| disabled | Set TabPane disabled | boolean | false |
-| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
-| key | TabPane's key | string | - |
-| label | TabPane's head display text | ReactNode | - |
-| children | TabPane's head display content | ReactNode | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | - |  |
+| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false | 5.11.0 |
+| disabled | Set TabPane disabled | boolean | false |  |
+| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |  |
+| key | TabPane's key | string | - |  |
+| label | TabPane's head display text | ReactNode | - |  |
+| children | TabPane's head display content | ReactNode | - |  |
 
 ## Design Token
 

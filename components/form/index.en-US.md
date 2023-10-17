@@ -605,6 +605,22 @@ In most case, we always recommend to use Form `initialValues`. Use Item `initial
 
 `getFieldsValue` returns collected field data by default, but the Form.Item node is not ready at the first render. You can get all field data by `getFieldsValue(true)`.
 
+### Why some component not response with `setFieldsValue` to `undefined`?
+
+`value` change from certain one to `undefined` in React means from controlled mode to uncontrolled mode. Thus it will not change display value but modified FormStore in fact. You can HOC to handle this:
+
+```jsx
+const MyInput = ({
+  // Force use controlled mode
+  value = '',
+  ...rest
+}) => <input value={value} {...rest} />;
+
+<Form.Item name="my">
+  <MyInput />
+</Form.Item>;
+```
+
 ### Why does `onFieldsChange` trigger three times on change when field sets `rules`?
 
 Validating is also part of the value updating. It pass follow steps:

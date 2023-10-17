@@ -94,3 +94,29 @@ jobs:
         with:
           name: pr
           path: ./pr-id.txt
+
+  site-test:
+    name: site E2E test
+    runs-on: ubuntu-latest
+    needs: [setup, build-site]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: download site artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+          path: _site

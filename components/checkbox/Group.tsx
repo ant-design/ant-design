@@ -1,11 +1,11 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
 import GroupContext from './GroupContext';
-
 import useStyle from './style';
 
 export type CheckboxValueType = string | number | boolean;
@@ -16,6 +16,7 @@ export interface CheckboxOptionType {
   style?: React.CSSProperties;
   disabled?: boolean;
   title?: string;
+  id?: string;
   onChange?: (e: CheckboxChangeEvent) => void;
 }
 
@@ -124,6 +125,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
           className={`${groupPrefixCls}-item`}
           style={option.style}
           title={option.title}
+          id={option.id}
         >
           {option.label}
         </Checkbox>

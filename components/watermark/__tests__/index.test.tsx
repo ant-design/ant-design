@@ -134,6 +134,19 @@ describe('Watermark', () => {
       <Drawer open />,
       () => document.body.querySelector('.ant-drawer-content')!.lastChild!,
     );
+
+    it('inherit = false', async () => {
+      render(
+        <Watermark inherit={false}>
+          <Drawer open />
+        </Watermark>,
+      );
+      await waitFakeTimer();
+
+      expect(document.body.querySelector('.ant-drawer-content')!.lastChild).toHaveClass(
+        'ant-drawer-wrapper-body',
+      );
+    });
   });
 
   it('should not crash if content is empty string', async () => {

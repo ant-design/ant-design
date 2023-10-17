@@ -1,0 +1,63 @@
+# Due to some special reasons, some accounts are blocked by circleCI 
+# and cannot trigger argos jobs through circleCI. 
+# These accounts can be configured in the whitelist list 
+# and do not need to rely on circleCI to directly trigger argos in the PR workflow
+
+name: Trigger Argos with white-listed users
+
+on: [push]
+
+permissions:
+  contents: read
+
+jobs:
+  trigger_argos_with_whitelist_users:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read white listed users
+        id: read_users
+        run: |
+          whitelist_file="argos-white-listed-users"
+          if [[ -f $whitelist_file ]]; then
+            users=$(cat $whitelist_file)
+            echo "whitelisted_users=$users" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check if user is whitelisted
+        id: check_user
+        run: |
+          whitelisted_users="${{ steps.read_users.outputs.whitelisted_users }}"
+          current_user="${{ github.actor }}"
+          if grep -Fxq "$current_user" <<< "$whitelisted_users"; then
+            echo "User is whitelisted"
+            echo "whitelisted=true" >> $GITHUB_OUTPUT
+          else
+            echo "User is not whitelisted"
+            echo "whitelisted=false" >> $GITHUB_OUTPUT
+          fi 
+
+      - name: install dependencies
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        run: yarn
+
+      - name: Build dist file
+        id: build
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        run: npm run dist:esbuild
+
+      - name: Run image screenshot tests
+        id: screenshot
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        run: npm run test-image
+
+      - name: Upload screenshots to Argos CI
+        id: upload
+        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
+        env:
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+          ARGOS_PARALLEL_NONCE: ${{ github.run_id }}-${{ github.run_number }}-${{ github.run_attempt }}
+        run: npm run argos

@@ -16,6 +16,81 @@ tag: vVERSION
 
 ---
 
+## 5.10.1
+
+`2023-10-15`
+
+- ⚡️ 优化 CSS-in-JS Design Token 缓存命中性能。[#45302](https://github.com/ant-design/ant-design/pull/45302)
+- 🆕 为 Checkbox.Group 与 Radio.Group 的 `options` 添加 `id` 属性支持。[#45287](https://github.com/ant-design/ant-design/pull/45287)
+- 🐞 修复 Affix 组件设置 `target` 失效的问题。[#45314](https://github.com/ant-design/ant-design/pull/45314) [@mingming-ma](https://github.com/mingming-ma)
+- 🐞 MISC: 为图标样式设置 `csp` 属性。[#45334](https://github.com/ant-design/ant-design/pull/45334) [@AlexeyTeterin](https://github.com/AlexeyTeterin)
+- 🐞 修复 Button 组件 `loading` 属性设置为 `{ delay: 0 }` 时不显示加载状态。[#45282](https://github.com/ant-design/ant-design/pull/45282) [@YDFlame13](https://github.com/YDFlame13)
+- 🐞 修复 Segmented 在 Safari 下切换时的样式跳动问题。[#45310](https://github.com/ant-design/ant-design/pull/45310)
+- 🐞 修复 Watermark可以使用浏览器的 `Hide Element` 来隐藏水印。[#45290](https://github.com/ant-design/ant-design/pull/45290) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Input 组件 hover 或者 focus 状态时背景色变为透明的问题。[#45297](https://github.com/ant-design/ant-design/pull/45297) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Form 在调用 `resetFields` 时，无法重置配置了 `initialValue` 的 Form.List 的问题。[#45284](https://github.com/ant-design/ant-design/pull/45284)
+- 🐞 修复 Tree.DirectoryTree 在配置 `fieldNames` 时，`onSelect` 方法中的 `selectedNodes` 无法获取值。[#45036](https://github.com/ant-design/ant-design/pull/45036) [@Zian502](https://github.com/Zian502)
+- 💄 回滚 Input、InputNumber、Select、Cascader、TreeSelect、DatePicker、TimePicker、ColorPicker 的描边样式。[#45286](https://github.com/ant-design/ant-design/pull/45286) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Card 搭配小尺寸 Tabs 时的样式问题。[#45272](https://github.com/ant-design/ant-design/pull/45272) [@MadCcc](https://github.com/MadCcc)
+
+## 5.10.0
+
+`2023-10-10`
+
+- 🔥 新增 Flex 组件，用于设置弹性布局。[#44362](https://github.com/ant-design/ant-design/pull/44362)
+- 🔥 Notification 组件支持 `stack` 配置，默认超过三个以上的提示会堆叠起来。[#44618](https://github.com/ant-design/ant-design/pull/44618)
+- 🔥 更新 Input、InputNumber、Select、Cascader、TreeSelect、DatePicker、ColorPicker 的激活态样式。[#45009](https://github.com/ant-design/ant-design/pull/45009)
+- 🆕 Watermark 支持通过 `textAlign` 设置文本对齐方向。[#44888](https://github.com/ant-design/ant-design/pull/44888) [@Yuiai01](https://github.com/Yuiai01)
+- 🆕 Slider 支持任意节点数并且将 xxxStyle 迁移至语义化 `styles` 和 `classNames` 属性中。[#45000](https://github.com/ant-design/ant-design/pull/45000)
+- 🆕 Cascader 支持 Cascader.Panel 组件供内联使用。[#45089](https://github.com/ant-design/ant-design/pull/45089)
+- 🆕 Tooltip 添加 `fresh` 属性以支持在关闭时仍然需要更新内容的场景。[#45020](https://github.com/ant-design/ant-design/pull/45020)
+- 🆕 Drawer 支持通过 `classNames` 自定义内置模块的 `className`。[#44935](https://github.com/ant-design/ant-design/pull/44935)
+- 🆕 ConfigProvider 支持 `warning` 属性以配置警告等级（如过滤掉废弃 API 警告）。[#44809](https://github.com/ant-design/ant-design/pull/44809)
+- Modal
+  - 🆕 Modal 支持通过 `classNames` 自定义内置模块的 `className`。[#44934](https://github.com/ant-design/ant-design/pull/44934)
+  - 🐞 修复 Modal.confirm `description` 是长文本时的内容溢出问题。[#45212](https://github.com/ant-design/ant-design/pull/45212)
+- 🐞 修复 Menu.Item 嵌套的 Typography 其 `ellipsis` 为 true 时无法垂直居中的问题。[#41146](https://github.com/ant-design/ant-design/pull/41146) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Select 内部 input 无法应用 fontFamily 的问题。[#45197](https://github.com/ant-design/ant-design/pull/45197) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 InputNumber 在 Space.Compact 中使用 `addonBefore` 时的边框问题。[#45004](https://github.com/ant-design/ant-design/pull/45004) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Tag.CheckableTag 不支持 ref 的问题。[#45164](https://github.com/ant-design/ant-design/pull/45164) [@mingming-ma](https://github.com/mingming-ma)
+- 🐞 修复 Avatar.Group 组件内的字体不支持响应式的问题。[#34722](https://github.com/ant-design/ant-design/pull/34722) [@laishiwen](https://github.com/laishiwen)
+- 🛠 重构 Affix 为函数组件。[#42674](https://github.com/ant-design/ant-design/pull/42674)
+- 🛠 Popover 组件废弃 `minWidth` 组件 token，并添加 `titleMinWidth` 作为替代。[#44750](https://github.com/ant-design/ant-design/pull/44750)
+- 🌈 Token
+  - 🆕 Input 新增 `hoverBg` `activeBg` token 用以设置输入框 hover 和 激活时背景颜色。[#44752](https://github.com/ant-design/ant-design/pull/44752) [@Pan-yongyong](https://github.com/Pan-yongyong)
+  - 🆕 Descriptions 新增 `titleColor` `contentColor` 用以设置标题颜色和内容区域文字颜色。[#44729](https://github.com/ant-design/ant-design/pull/44729) [@Child-qjj](https://github.com/Child-qjj)
+  - 🐞 修复 Input 组件 Token `addonBg` 失效的问题。[#45222](https://github.com/ant-design/ant-design/pull/45222)
+- TypeScript
+  - 🤖 导出 Notification 的 ArgsProps 类型为 NotificationArgsProps。[#45147](https://github.com/ant-design/ant-design/pull/45147)
+- 🌐 国际化
+  - 🇵🇱 为 pl_PL 补充 Tour 国际化。[#45166](https://github.com/ant-design/ant-design/pull/45166) [@antonisierakowski](https://github.com/antonisierakowski)
+  - 🇰🇷 优化 ko_KR 国际化。[#45150](https://github.com/ant-design/ant-design/pull/45150) [@owjs3901](https://github.com/owjs3901)
+
+## 5.9.4
+
+`2023-09-28`
+
+- Button
+  - 🐞 修复 Button 组件只有两个汉字且嵌套在多层 span 中时间距丢失的问题。[#45126](https://github.com/ant-design/ant-design/pull/45126) [@MadCcc](https://github.com/MadCcc)
+  - 🐞 修复 Button 条件渲染时意外出现加载图标的问题。[#45030](https://github.com/ant-design/ant-design/pull/45030) [@lzl0304](https://github.com/lzl0304)
+- 🐞 修复 Tour 组件第一次展示时 `step.type` 无效的问题。[#45086](https://github.com/ant-design/ant-design/pull/45086) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Select 和 DatePicker 组件没有使用 `fontFamily` token 的问题。[#45088](https://github.com/ant-design/ant-design/pull/45088) [@MadCcc](https://github.com/MadCcc)
+
+## 5.9.3
+
+`2023-09-25`
+
+- 🔥 Tooltip 删除对 `disabled` 子元素额外包括 `span` 的逻辑，现在始终能够正确触发。[#44895](https://github.com/ant-design/ant-design/pull/44895) [@Yuiai01](https://github.com/Yuiai01)
+- 🐞 修复 Popover 超出屏幕时不会自动调整偏移的问题。[#45015](https://github.com/ant-design/ant-design/pull/45015) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Tooltip / Popover 在内容高度变化时，位置会闪动的问题。[#44976](https://github.com/ant-design/ant-design/pull/44976)
+- 🛠 ComponentToken 移除 `radiusBase` 必须小于 `16` 的限制。[#44980](https://github.com/ant-design/ant-design/pull/44980)
+- 🐞 修复 Dropdown 通过 `dropdownRender` 渲染的子节点配置 `ref` 不生效的问题。[#44971](https://github.com/ant-design/ant-design/pull/44971)
+- 🐞 修复 Table `cellPaddingBlock` 不生效的问题。[#45040](https://github.com/ant-design/ant-design/pull/45040)
+- 🐞 修复 Input 组件在小尺寸 `controlHeight` 下高度不正确的问题。[#45048](https://github.com/ant-design/ant-design/pull/45048)
+- 🐞 修复 Typography 在设置 `fontSize` 为奇数时的样式问题。[#45031](https://github.com/ant-design/ant-design/pull/45031)
+- TypeScript
+  - 🤖 MISC: 修复 `@types/react@18.2.22` React.Key 定义更新引发的问题。[#44938](https://github.com/ant-design/ant-design/pull/44938)
+
 ## 5.9.2
 
 `2023-09-19`

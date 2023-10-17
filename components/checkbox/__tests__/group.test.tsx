@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
@@ -267,5 +268,12 @@ describe('CheckboxGroup', () => {
     fireEvent.change(container.querySelector('.ant-input')!, { target: { value: '' } });
     fireEvent.click(container.querySelector('.ant-checkbox-input')!);
     expect(onChange).toHaveBeenCalledWith(['A']);
+  });
+
+  it('options support id', () => {
+    const { container } = render(
+      <Checkbox.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
+    );
+    expect(container.querySelector('#bamboo')).toBeTruthy();
   });
 });

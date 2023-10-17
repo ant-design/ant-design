@@ -20,9 +20,14 @@ export interface ColorPickerToken extends FullToken<'ColorPicker'> {
   colorPickerPresetColorSize: number;
 }
 
-export const genActiveStyle = (token: ColorPickerToken) => ({
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
+export const genActiveStyle = (
+  token: ColorPickerToken,
+  borderColor: string,
+  outlineColor: string,
+) => ({
   borderInlineEndWidth: token.lineWidth,
+  borderColor,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
   outline: 0,
 });
 
@@ -82,8 +87,8 @@ const genStatusStyle = (token: ColorPickerToken): CSSObject => {
     componentCls,
     colorError,
     colorWarning,
-    colorErrorBorderHover,
-    colorWarningBorderHover,
+    colorErrorHover,
+    colorWarningHover,
     colorErrorOutline,
     colorWarningOutline,
   } = token;
@@ -91,27 +96,19 @@ const genStatusStyle = (token: ColorPickerToken): CSSObject => {
     [`&${componentCls}-status-error`]: {
       borderColor: colorError,
       '&:hover': {
-        borderColor: colorErrorBorderHover,
+        borderColor: colorErrorHover,
       },
       [`&${componentCls}-trigger-active`]: {
-        ...genActiveStyle(
-          mergeToken<ColorPickerToken>(token, {
-            controlOutline: colorErrorOutline,
-          }),
-        ),
+        ...genActiveStyle(token, colorError, colorErrorOutline),
       },
     },
     [`&${componentCls}-status-warning`]: {
       borderColor: colorWarning,
       '&:hover': {
-        borderColor: colorWarningBorderHover,
+        borderColor: colorWarningHover,
       },
       [`&${componentCls}-trigger-active`]: {
-        ...genActiveStyle(
-          mergeToken<ColorPickerToken>(token, {
-            controlOutline: colorWarningOutline,
-          }),
-        ),
+        ...genActiveStyle(token, colorWarning, colorWarningOutline),
       },
     },
   };
@@ -178,6 +175,8 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     colorBorder,
     paddingXXS,
     fontSize,
+    colorPrimaryHover,
+    controlOutline,
   } = token;
 
   return [
@@ -221,12 +220,11 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             fontSize,
             color: colorText,
           },
-          '&-active': {
-            ...genActiveStyle(token),
-            borderColor: colorPrimary,
-          },
           '&:hover': {
-            borderColor: colorPrimary,
+            borderColor: colorPrimaryHover,
+          },
+          [`&${componentCls}-trigger-active`]: {
+            ...genActiveStyle(token, colorPrimary, controlOutline),
           },
           '&-disabled': {
             color: colorTextDisabled,
