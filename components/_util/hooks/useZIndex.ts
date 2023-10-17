@@ -32,7 +32,7 @@ export function useZIndex(consumer?: ZIndexConsumer) {
   const { zIndex: parentZIndex } = React.useContext(zIndexContext);
   if (parentZIndex === null) {
     return {
-      curZIndex: consumer ? baseZIndexOffset[consumer] : token.zIndexPopupBase,
+      curZIndex: baseZIndexOffset[consumer!] ?? token.zIndexPopupBase,
       parentZIndex: null,
     };
   }
