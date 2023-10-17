@@ -28,6 +28,7 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+import { useToken } from '../theme/internal';
 
 type RawValue = string | number;
 
@@ -152,6 +153,7 @@ const InternalTreeSelect = <
 
   const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
+  const [, token] = useToken();
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -261,6 +263,8 @@ const InternalTreeSelect = <
       className={mergedClassName}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
+      // ref: Tree component `treeNodePadding` style variable
+      listItemScrollOffset={token.paddingXS / 2}
       treeCheckable={
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
