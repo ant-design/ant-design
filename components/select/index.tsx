@@ -272,7 +272,7 @@ const InternalSelect = <
       disabled={mergedDisabled}
       dropdownStyle={{
         ...props?.dropdownStyle,
-        zIndex: props.dropdownStyle?.zIndex ?? zIndex ?? undefined,
+        zIndex: props.dropdownStyle?.zIndex ?? zIndex,
       }}
     />,
   );
