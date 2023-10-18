@@ -42,7 +42,7 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
 export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer) {
   const [, token] = useToken();
   const { zIndex: parentZIndex } = React.useContext(zIndexContext);
-  const isContainer = isContainerType(componentType!);
+  const isContainer = isContainerType(componentType);
   let containerBaseZIndex = 0;
   if (isContainer) {
     containerBaseZIndex = token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
