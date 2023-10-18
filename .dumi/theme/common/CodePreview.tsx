@@ -4,8 +4,8 @@ import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import Prism from 'prismjs';
 import { createStyles } from 'antd-style';
-import LiveEditor from 'dumi/theme/slots/LiveEditor';
-import LiveError from 'dumi/theme/slots/LiveError';
+import LiveEditor from '../slots/LiveEditor';
+import LiveError from '../slots/LiveError';
 import { EditFilled } from '@ant-design/icons';
 import useLocale from '../../hooks/useLocale';
 
