@@ -116,17 +116,17 @@ const Modal: React.FC<ModalProps> = (props) => {
   const panelRef = usePanelRef(`.${prefixCls}-content`);
 
   // ============================ zIndex ============================
-  const { zIndex, containerBaseZIndex } = useZIndex('Modal');
+  const { containerZIndex, zIndex } = useZIndex('Modal');
 
   // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
-        <ZIndexContextProvider value={restProps.zIndex ?? zIndex ?? containerBaseZIndex}>
+        <ZIndexContextProvider value={restProps.zIndex ?? containerZIndex}>
           <Dialog
             width={width}
             {...restProps}
-            zIndex={restProps.zIndex ?? zIndex ?? undefined}
+            zIndex={restProps.zIndex ?? zIndex}
             getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
             prefixCls={prefixCls}
             rootClassName={classNames(hashId, rootClassName)}

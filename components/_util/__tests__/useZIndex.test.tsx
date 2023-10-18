@@ -10,12 +10,8 @@ const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContai
   children,
   containerType,
 }) => {
-  const { zIndex: curZIndex, containerBaseZIndex } = useZIndex(containerType);
-  return (
-    <ZIndexContextProvider value={curZIndex ?? containerBaseZIndex}>
-      {children}
-    </ZIndexContextProvider>
-  );
+  const { containerZIndex } = useZIndex(containerType);
+  return <ZIndexContextProvider value={containerZIndex}>{children}</ZIndexContextProvider>;
 };
 
 describe('Test useZIndex hooks', () => {

@@ -43,24 +43,14 @@ export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer) {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
-  let containerBaseZIndex = 0;
-  if (isContainer) {
-    containerBaseZIndex = token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
-  }
-  if (parentZIndex === null) {
-    return {
-      zIndex: null,
-      containerBaseZIndex,
-    };
-  }
-  let zIndex = parentZIndex;
+  let zIndex = parentZIndex ?? 0;
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
   } else {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
   return {
-    zIndex,
-    containerBaseZIndex,
+    zIndex: parentZIndex ? zIndex : undefined,
+    containerZIndex: zIndex,
   };
 }
