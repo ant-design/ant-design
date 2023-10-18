@@ -336,6 +336,9 @@
   "overrides": {
     "dumi-plugin-color-chunk": {
       "dumi": "^2.3.0-alpha.4"
+    },
+    "@ant-design/cssinjs": {
+      "dumi": "^2.3.0-alpha.4"
     }
   }
 }

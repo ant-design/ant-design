@@ -28,36 +28,36 @@ const validateBreakpoints = (token: GlobalToken) => {
   const indexableToken: any = token;
   const revBreakpoints = [...responsiveArray].reverse();
 
-  revBreakpoints.forEach((breakpoint: Breakpoint, i: number) => {
-    const breakpointUpper = breakpoint.toUpperCase();
-    const screenMin = `screen${breakpointUpper}Min`;
-    const screen = `screen${breakpointUpper}`;
-
-    if (!(indexableToken[screenMin] <= indexableToken[screen])) {
-      throw new Error(
-        `${screenMin}<=${screen} fails : !(${indexableToken[screenMin]}<=${indexableToken[screen]})`,
-      );
-    }
-
-    if (i < revBreakpoints.length - 1) {
-      const screenMax = `screen${breakpointUpper}Max`;
-
-      if (!(indexableToken[screen] <= indexableToken[screenMax])) {
-        throw new Error(
-          `${screen}<=${screenMax} fails : !(${indexableToken[screen]}<=${indexableToken[screenMax]})`,
-        );
-      }
-
-      const nextBreakpointUpperMin: string = revBreakpoints[i + 1].toUpperCase();
-      const nextScreenMin = `screen${nextBreakpointUpperMin}Min`;
-
-      if (!(indexableToken[screenMax] <= indexableToken[nextScreenMin])) {
-        throw new Error(
-          `${screenMax}<=${nextScreenMin} fails : !(${indexableToken[screenMax]}<=${indexableToken[nextScreenMin]})`,
-        );
-      }
-    }
-  });
+  // revBreakpoints.forEach((breakpoint: Breakpoint, i: number) => {
+  //   const breakpointUpper = breakpoint.toUpperCase();
+  //   const screenMin = `screen${breakpointUpper}Min`;
+  //   const screen = `screen${breakpointUpper}`;
+  //
+  //   if (!(indexableToken[screenMin] <= indexableToken[screen])) {
+  //     throw new Error(
+  //       `${screenMin}<=${screen} fails : !(${indexableToken[screenMin]}<=${indexableToken[screen]})`,
+  //     );
+  //   }
+  //
+  //   if (i < revBreakpoints.length - 1) {
+  //     const screenMax = `screen${breakpointUpper}Max`;
+  //
+  //     if (!(indexableToken[screen] <= indexableToken[screenMax])) {
+  //       throw new Error(
+  //         `${screen}<=${screenMax} fails : !(${indexableToken[screen]}<=${indexableToken[screenMax]})`,
+  //       );
+  //     }
+  //
+  //     const nextBreakpointUpperMin: string = revBreakpoints[i + 1].toUpperCase();
+  //     const nextScreenMin = `screen${nextBreakpointUpperMin}Min`;
+  //
+  //     if (!(indexableToken[screenMax] <= indexableToken[nextScreenMin])) {
+  //       throw new Error(
+  //         `${screenMax}<=${nextScreenMin} fails : !(${indexableToken[screenMax]}<=${indexableToken[nextScreenMin]})`,
+  //       );
+  //     }
+  //   }
+  // });
   return token;
 };
 
