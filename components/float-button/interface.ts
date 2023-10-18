@@ -6,7 +6,7 @@ import type BackTop from './BackTop';
 import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
 
-export type ButtonRef = HTMLAnchorElement & HTMLButtonElement;
+export type FloatButtonRef = HTMLAnchorElement & HTMLButtonElement;
 
 export type FloatButtonType = 'default' | 'primary';
 
