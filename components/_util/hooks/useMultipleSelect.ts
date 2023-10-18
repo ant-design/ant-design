@@ -19,28 +19,7 @@ export default function useMultipleSelect() {
         return item as unknown as K;
       };
 
-      let configPrevSelectedIndex = prevSelectedIndex;
-
-      // prevSelectedIndex reset case
-      if (prevSelectedIndex === null) {
-        const selectedIndexArr: number[] = [];
-        data.forEach((item, idx) => {
-          if (selectedKeys.has(getKey(item))) {
-            selectedIndexArr.push(idx);
-          }
-        });
-
-        // nearest item between currentIndex and selectedIndexArr
-        let nearestIndex = selectedIndexArr[0];
-        selectedIndexArr.forEach((item) => {
-          if (
-            Math.abs(item - currentSelectedIndex) < Math.abs(nearestIndex - currentSelectedIndex)
-          ) {
-            nearestIndex = item;
-          }
-        });
-        configPrevSelectedIndex = nearestIndex ?? currentSelectedIndex;
-      }
+      const configPrevSelectedIndex = prevSelectedIndex ?? currentSelectedIndex;
 
       // add/delete the selected range
       const startIndex = Math.min(configPrevSelectedIndex || 0, currentSelectedIndex);

@@ -294,7 +294,7 @@ describe('Table.rowSelection', () => {
     ]);
   });
 
-  it('continue multiple select after performing select', async () => {
+  it('reset last select key after deselect', async () => {
     jest.useFakeTimers();
     const onChange = jest.fn();
 
@@ -318,7 +318,6 @@ describe('Table.rowSelection', () => {
       return elements[0];
     };
 
-    // Continue multiple select when deselect
     fireEvent.click(first());
     expect(onChange).toHaveBeenLastCalledWith([0]);
     fireEvent.click(last());
@@ -328,7 +327,7 @@ describe('Table.rowSelection', () => {
     fireEvent.click(last(), {
       shiftKey: true,
     });
-    expect(onChange).toHaveBeenLastCalledWith([0, 1, 2, 3]);
+    expect(onChange).toHaveBeenLastCalledWith([0, 3]);
 
     jest.useRealTimers();
   });
