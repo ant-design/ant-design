@@ -36,7 +36,7 @@ export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
 };
 
 function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndexContainer {
-  return Object.keys(containerBaseZIndexOffset).includes(type);
+  return type in containerBaseZIndexOffset;
 }
 
 export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer) {
