@@ -39,7 +39,7 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
   return type in containerBaseZIndexOffset;
 }
 
-export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer) {
+export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer, customZIndex?: number) {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
@@ -50,7 +50,7 @@ export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer) {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
   return {
-    zIndex: parentZIndex ? zIndex : undefined,
-    containerZIndex: zIndex,
+    contextZIndex: zIndex,
+    zIndex: parentZIndex === undefined ? customZIndex : zIndex,
   };
 }
