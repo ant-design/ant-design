@@ -242,7 +242,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const { curZIndex, parentZIndex } = useZIndex('Select');
+  const { zIndex } = useZIndex('Select');
 
   // ====================== Render =======================
   return wrapSSR(
@@ -270,14 +270,10 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
       disabled={mergedDisabled}
-      dropdownStyle={
-        parentZIndex == null
-          ? props.dropdownStyle
-          : {
-              ...props.dropdownStyle,
-              zIndex: curZIndex,
-            }
-      }
+      dropdownStyle={{
+        ...props?.dropdownStyle,
+        zIndex: props.dropdownStyle?.zIndex ?? zIndex ?? undefined,
+      }}
     />,
   );
 };

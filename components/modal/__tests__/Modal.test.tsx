@@ -196,12 +196,15 @@ describe('Modal', () => {
       },
     ];
     render(
-      <Modal open>
-        <Select open options={options} popupClassName="select1" />
+      <>
+        <Select open options={options} popupClassName="select0" />
         <Modal open>
-          <Select open options={options} popupClassName="select2" />
+          <Select open options={options} popupClassName="select1" />
+          <Modal open>
+            <Select open options={options} popupClassName="select2" />
+          </Modal>
         </Modal>
-      </Modal>,
+      </>,
     );
     expect(
       (document.querySelectorAll('.ant-modal-wrap')[0] as HTMLDivElement)!.style.zIndex,
@@ -209,6 +212,7 @@ describe('Modal', () => {
     expect((document.querySelectorAll('.ant-modal-wrap')[1] as HTMLDivElement)!.style.zIndex).toBe(
       '2000',
     );
+    expect((document.querySelector('.select0') as HTMLDivElement)!.style.zIndex).toBeFalsy();
     expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('1050');
     expect((document.querySelector('.select2') as HTMLDivElement)!.style.zIndex).toBe('2050');
   });
