@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData } from 'dumi';
+import { FormattedMessage, useSiteData, LiveContext } from 'dumi';
 import LZString from 'lz-string';
 
 import type { AntdPreviewerProps } from './Previewer';
@@ -22,6 +22,8 @@ import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
 import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
+
+const { ErrorBoundary } = Alert;
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
@@ -105,6 +107,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const { pkg } = useSiteData();
   const location = useLocation();
+
+  const { enabled: liveEnabled } = useContext(LiveContext);
 
   const { styles } = useStyle();
 
@@ -362,7 +366,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
-        <LiveDemo />
+        {!liveEnabled ? (
+          <ErrorBoundary>
+            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          </ErrorBoundary>
+        ) : (
+          <LiveDemo />
+        )}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">

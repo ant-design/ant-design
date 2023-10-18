@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useContext } from 'react';
 import { Tabs, Typography, Button, Tooltip } from 'antd';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
@@ -8,6 +8,7 @@ import LiveEditor from '../slots/LiveEditor';
 import LiveError from '../slots/LiveError';
 import { EditFilled } from '@ant-design/icons';
 import useLocale from '../../hooks/useLocale';
+import { LiveContext } from 'dumi';
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorIcon, colorBgTextHover, antCls } = token;
@@ -139,6 +140,8 @@ const CodePreview: React.FC<CodePreviewProps> = ({
 
   const { styles } = useStyle();
 
+  const { enabled: liveEnabled } = useContext(LiveContext);
+
   const code = (
     <>
       <div className={styles.editor}>
@@ -158,7 +161,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
         key: lang,
         children: (
           <div className={styles.code}>
-            {lang === 'tsx'
+            {lang === 'tsx' && liveEnabled
               ? code
               : toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])}
             <Button type="text" className={styles.copyButton}>
@@ -175,7 +178,16 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   }
 
   if (langList.length === 1) {
-    return code;
+    return liveEnabled
+      ? code
+      : toReactComponent([
+          'pre',
+          {
+            lang: langList[0],
+            highlighted: highlightedCodes[langList[0] as keyof typeof LANGS],
+            className: 'highlight',
+          },
+        ]);
   }
 
   return <Tabs centered className="highlight" onChange={onCodeTypeChange} items={items} />;

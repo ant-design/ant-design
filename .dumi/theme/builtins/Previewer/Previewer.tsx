@@ -16,6 +16,12 @@ const Previewer: React.FC<AntdPreviewerProps> = (props) => {
     return <DesignPreviewer {...props} />;
   }
 
+  const codePreviewer = <CodePreviewer {...props} />;
+
+  if (props.live === false || props.iframe) {
+    return codePreviewer;
+  }
+
   return (
     <LiveProvider
       initialCode={
@@ -24,7 +30,7 @@ const Previewer: React.FC<AntdPreviewerProps> = (props) => {
       }
       demoId={props.asset.id}
     >
-      <CodePreviewer {...props} />
+      {codePreviewer}
     </LiveProvider>
   );
 };
