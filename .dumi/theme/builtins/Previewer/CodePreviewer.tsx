@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
@@ -22,8 +22,6 @@ import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
 import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
-
-const { ErrorBoundary } = Alert;
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
