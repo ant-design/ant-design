@@ -11,10 +11,10 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import FloatButtonGroupContext from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { BackTopProps, ButtonRef, FloatButtonProps, FloatButtonShape } from './interface';
+import type { BackTopProps, FloatButtonProps, FloatButtonRef, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop = React.forwardRef<ButtonRef, BackTopProps>((props, ref) => {
+const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -30,9 +30,9 @@ const BackTop = React.forwardRef<ButtonRef, BackTopProps>((props, ref) => {
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
-  const internalRef = React.useRef<ButtonRef>(null);
+  const internalRef = React.useRef<FloatButtonRef>(null);
 
-  const mergedRef = composeRef<ButtonRef>(ref, internalRef);
+  const mergedRef = composeRef<FloatButtonRef>(ref, internalRef);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     internalRef.current && internalRef.current.ownerDocument

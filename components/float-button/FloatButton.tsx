@@ -10,18 +10,18 @@ import Tooltip from '../tooltip';
 import FloatButtonGroupContext from './context';
 import Content from './FloatButtonContent';
 import type {
-  ButtonRef,
   CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonProps,
+  FloatButtonRef,
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton: React.ForwardRefRenderFunction<ButtonRef, FloatButtonProps> = (props, ref) => {
+const FloatButton = React.forwardRef<FloatButtonRef, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -103,14 +103,10 @@ const FloatButton: React.ForwardRefRenderFunction<ButtonRef, FloatButtonProps> =
       </button>
     ),
   );
-};
-
-const ForwardFloatButton = React.forwardRef<ButtonRef, FloatButtonProps>(
-  FloatButton,
-) as CompoundedComponent;
+}) as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
-  ForwardFloatButton.displayName = 'FloatButton';
+  FloatButton.displayName = 'FloatButton';
 }
 
-export default ForwardFloatButton;
+export default FloatButton;

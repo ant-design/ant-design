@@ -10,7 +10,7 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { ButtonRef, FloatButtonGroupProps } from './interface';
+import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
 import useStyle from './style';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
@@ -47,7 +47,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
-  const floatButtonRef = React.useRef<ButtonRef>(null);
+  const floatButtonRef = React.useRef<FloatButtonRef>(null);
 
   const hoverAction = React.useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
     const hoverTypeAction = {

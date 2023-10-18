@@ -66,7 +66,7 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<ButtonRef>
+  FloatButtonProps & React.RefAttributes<FloatButtonRef>
 > & {
   Group: typeof Group;
   BackTop: typeof BackTop;
