@@ -343,6 +343,10 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     onProgress,
     onSuccess,
     ...props,
+    className: classNames({
+      [`${prefixCls}-trigger-wrapper`]: true, // internal className, rewrite by antd upload
+      [`${prefixCls}-btn`]: type === 'drag',
+    }),
     data,
     multiple,
     action,
@@ -352,10 +356,14 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
-    hasControlInside,
+    styles: {
+      input: { display: 'unset', visibility: 'hidden' },
+    },
+    classNames: {
+      input: `${prefixCls}-trigger`,
+    },
   } as RcUploadProps;
 
-  delete rcUploadProps.className;
   delete rcUploadProps.style;
 
   // Remove id to avoid open by label when trigger is hidden
@@ -448,7 +456,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
           onDragOver={onFileDrop}
           onDragLeave={onFileDrop}
         >
-          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+          <RcUpload {...rcUploadProps} ref={upload}>
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>

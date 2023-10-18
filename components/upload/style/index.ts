@@ -31,9 +31,16 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
 
       [componentCls]: {
         outline: 0,
-        "input[type='file']": {
-          cursor: 'pointer',
+      },
+
+      [`${componentCls}-trigger`]: {
+        '&-wrapper': {
+          position: 'relative',
         },
+
+        cursor: 'pointer',
+        position: 'absolute',
+        inset: 0,
       },
 
       [`${componentCls}-select`]: {
