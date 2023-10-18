@@ -122,11 +122,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
-        <ZIndexContextProvider
-          value={{
-            zIndex: zIndex ?? containerBaseZIndex,
-          }}
-        >
+        <ZIndexContextProvider value={restProps.zIndex ?? zIndex ?? containerBaseZIndex}>
           <Dialog
             width={width}
             {...restProps}
