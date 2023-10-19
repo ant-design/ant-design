@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button, Spin } from 'antd';
 
 const App: React.FC = () => {
-  const [show, setShow] = useState(false);
+  const [spinning, setSpinning] = React.useState<boolean>(false);
 
   const showLoader = () => {
-    setShow(true);
-
+    setSpinning(true);
     setTimeout(() => {
-      setShow(false);
-    }, 2000);
+      setSpinning(false);
+    }, 3000);
   };
 
   return (
     <>
-      <Button onClick={showLoader}>Show fullscreen for 2s</Button>
-      {show && <Spin fullscreen size="large" />}
+      <Button onClick={showLoader}>Show fullscreen for 3s</Button>
+      <Spin spinning={spinning} fullscreen />
     </>
   );
 };
