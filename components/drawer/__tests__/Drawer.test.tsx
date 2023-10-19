@@ -7,6 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
+import { Select } from 'antd';
 
 const DrawerTest: React.FC<DrawerProps> = ({ getContainer }) => (
   <div>
@@ -308,6 +309,38 @@ describe('Drawer', () => {
         </Drawer>,
       );
       expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
+    });
+    it('z-index should be accumulated in nested Drawer', () => {
+      const options = [
+        {
+          label: 'Option 1',
+          value: '1',
+        },
+        {
+          label: 'Option 2',
+          value: '2',
+        },
+      ];
+      render(
+        <>
+          <Select open options={options} popupClassName="select0" />
+          <Drawer open>
+            <Select open options={options} popupClassName="select1" />
+            <Drawer open>
+              <Select open options={options} popupClassName="select2" />
+            </Drawer>
+          </Drawer>
+        </>,
+      );
+      expect(
+        (document.querySelectorAll('.ant-drawer')[0] as HTMLDivElement)!.style.zIndex,
+      ).toBeFalsy();
+      expect((document.querySelectorAll('.ant-drawer')[1] as HTMLDivElement)!.style.zIndex).toBe(
+        '2000',
+      );
+      expect((document.querySelector('.select0') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+      expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('1050');
+      expect((document.querySelector('.select2') as HTMLDivElement)!.style.zIndex).toBe('2050');
     });
   });
 });
