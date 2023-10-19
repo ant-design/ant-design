@@ -323,7 +323,7 @@ describe('Popconfirm', () => {
     expect(onOpenChange).toHaveBeenCalledTimes(1);
     expect(onVisibleChange).toHaveBeenCalledTimes(1);
   });
-  it('z-index should be accumulated in nested Modal', () => {
+  it('z-index should be accumulated in nested Popconfirm', () => {
     const options = [
       {
         label: 'Option 1',
