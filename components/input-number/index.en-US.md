@@ -19,7 +19,7 @@ When a numeric value needs to be provided.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/size.tsx">Sizes</code>
-<code src="./demo/addon.tsx">Pre / Post tab</code>
+<code src="./demo/compact.tsx">Space.Compact</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/digit.tsx">High precision decimals</code>
 <code src="./demo/formatter.tsx">Formatter</code>
@@ -38,8 +38,6 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
-| addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | autoFocus | If get focus when component mounted | boolean | false | - |
 | bordered | Whether has border style | boolean | true | 4.12.0 |
 | controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |

@@ -20,7 +20,7 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/addon.tsx">前置/后置标签</code>
+<code src="./demo/compact.tsx">紧凑模式</code>
 <code src="./demo/disabled.tsx">不可用</code>
 <code src="./demo/digit.tsx">高精度小数</code>
 <code src="./demo/formatter.tsx">格式化展示</code>
@@ -39,8 +39,6 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| addonAfter | 带标签的 input，设置后置标签 | ReactNode | - | 4.17.0 |
-| addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | bordered | 是否有边框 | boolean | true | 4.12.0 |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
