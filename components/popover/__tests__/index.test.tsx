@@ -90,7 +90,7 @@ describe('Popover', () => {
     );
     expect(Array.from(wrapper.container.children)).toMatchSnapshot();
   });
-  it('z-index should be accumulated in nested Modal', () => {
+  it('z-index should be accumulated in nested Popover', () => {
     const options = [
       {
         label: 'Option 1',
