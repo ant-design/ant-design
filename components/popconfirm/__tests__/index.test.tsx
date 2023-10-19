@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import { Select } from 'antd';
 
 describe('Popconfirm', () => {
   mountTest(Popconfirm);
@@ -321,5 +322,33 @@ describe('Popconfirm', () => {
 
     expect(onOpenChange).toHaveBeenCalledTimes(1);
     expect(onVisibleChange).toHaveBeenCalledTimes(1);
+  });
+  it('z-index should be accumulated in nested Modal', () => {
+    const options = [
+      {
+        label: 'Option 1',
+        value: '1',
+      },
+      {
+        label: 'Option 2',
+        value: '2',
+      },
+    ];
+    render(
+      <>
+        <Select open options={options} popupClassName="select0" />
+        <Popconfirm open title="test1" rootClassName="test1">
+          <Select open options={options} popupClassName="select1" />
+          <Popconfirm open title="test2" rootClassName="test2">
+            <Select open options={options} popupClassName="select2" />
+          </Popconfirm>
+        </Popconfirm>
+      </>,
+    );
+    expect((document.querySelector('.test1') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+    expect((document.querySelector('.test2') as HTMLDivElement)!.style.zIndex).toBe('2120');
+    expect((document.querySelector('.select0') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+    expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('1110');
+    expect((document.querySelector('.select2') as HTMLDivElement)!.style.zIndex).toBe('2170');
   });
 });

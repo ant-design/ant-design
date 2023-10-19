@@ -1,11 +1,14 @@
+import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import KeyCode from 'rc-util/lib/KeyCode';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement } from '../_util/reactNode';
+import zIndexContext from '../_util/zindexContext';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
@@ -96,37 +99,43 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
 
   const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Popconfirm', props.zIndex);
+
   return wrapSSR(
-    <Popover
-      {...omit(restProps, ['title'])}
-      trigger={trigger}
-      placement={placement}
-      onOpenChange={onInternalOpenChange}
-      open={open}
-      ref={ref}
-      overlayClassName={overlayClassNames}
-      content={
-        <Overlay
-          okType={okType}
-          icon={icon}
-          {...props}
-          prefixCls={prefixCls}
-          close={close}
-          onConfirm={onConfirm}
-          onCancel={onCancel}
-        />
-      }
-      data-popover-inject
-    >
-      {cloneElement(children, {
-        onKeyDown: (e: React.KeyboardEvent<any>) => {
-          if (React.isValidElement(children)) {
-            children?.props.onKeyDown?.(e);
-          }
-          onKeyDown(e);
-        },
-      })}
-    </Popover>,
+    <zIndexContext.Provider value={contextZIndex}>
+      <Popover
+        {...omit(restProps, ['title'])}
+        zIndex={zIndex}
+        trigger={trigger}
+        placement={placement}
+        onOpenChange={onInternalOpenChange}
+        open={open}
+        ref={ref}
+        overlayClassName={overlayClassNames}
+        content={
+          <Overlay
+            okType={okType}
+            icon={icon}
+            {...props}
+            prefixCls={prefixCls}
+            close={close}
+            onConfirm={onConfirm}
+            onCancel={onCancel}
+          />
+        }
+        data-popover-inject
+      >
+        {cloneElement(children, {
+          onKeyDown: (e: React.KeyboardEvent<any>) => {
+            if (React.isValidElement(children)) {
+              children?.props.onKeyDown?.(e);
+            }
+            onKeyDown(e);
+          },
+        })}
+      </Popover>
+    </zIndexContext.Provider>,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
