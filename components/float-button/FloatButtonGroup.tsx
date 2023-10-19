@@ -47,7 +47,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
-  const floatButtonRef = React.useRef<FloatButtonRef>(null);
+  const floatButtonRef = React.useRef<FloatButtonRef['nativeElement']>(null);
 
   const hoverAction = React.useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
     const hoverTypeAction = {

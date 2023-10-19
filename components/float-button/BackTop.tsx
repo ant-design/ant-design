@@ -14,7 +14,7 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { BackTopProps, FloatButtonProps, FloatButtonRef, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
+const BackTop = React.forwardRef<FloatButtonRef['nativeElement'], BackTopProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -30,9 +30,9 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
-  const internalRef = React.useRef<FloatButtonRef>(null);
+  const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
 
-  const mergedRef = composeRef<FloatButtonRef>(ref, internalRef);
+  const mergedRef = composeRef<FloatButtonRef['nativeElement']>(ref, internalRef);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     internalRef.current && internalRef.current.ownerDocument

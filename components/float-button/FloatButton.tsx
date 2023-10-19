@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { forwardRef, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -21,7 +21,7 @@ import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton = React.forwardRef<FloatButtonRef, FloatButtonProps>((props, ref) => {
+const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,

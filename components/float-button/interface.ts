@@ -6,7 +6,7 @@ import type BackTop from './BackTop';
 import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
 
-export type FloatButtonRef = {
+export interface FloatButtonRef {
   nativeElement: HTMLAnchorElement & HTMLButtonElement;
 }
 
@@ -68,7 +68,7 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<FloatButtonRef>
+  FloatButtonProps & React.RefAttributes<FloatButtonRef['nativeElement']>
 > & {
   Group: typeof Group;
   BackTop: typeof BackTop;
