@@ -1,7 +1,5 @@
 import React from 'react';
 
-export type ZIndexContext = number | undefined;
+const zIndexContext = React.createContext<number | undefined>(undefined);
 
-export const zIndexContext = React.createContext<ZIndexContext>(undefined);
-
-export const ZIndexContextProvider = zIndexContext.Provider;
+export default zIndexContext;

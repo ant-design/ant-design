@@ -1,6 +1,6 @@
 import React from 'react';
 import useToken from '../../theme/useToken';
-import { zIndexContext } from '../zindexContext';
+import zIndexContext from '../zindexContext';
 
 export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
 
@@ -39,7 +39,10 @@ function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndex
   return type in containerBaseZIndexOffset;
 }
 
-export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer, customZIndex?: number) {
+export function useZIndex(
+  componentType: ZIndexContainer | ZIndexConsumer,
+  customZIndex?: number,
+): [zIndex: number | undefined, contextZIndex: number] {
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
@@ -49,8 +52,5 @@ export function useZIndex(componentType: ZIndexContainer | ZIndexConsumer, custo
   } else {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
-  return {
-    contextZIndex: zIndex,
-    zIndex: parentZIndex === undefined ? customZIndex : zIndex,
-  };
+  return [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
 }

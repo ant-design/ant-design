@@ -7,7 +7,7 @@ import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
-import { ZIndexContextProvider } from '../_util/zindexContext';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
@@ -116,13 +116,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   const panelRef = usePanelRef(`.${prefixCls}-content`);
 
   // ============================ zIndex ============================
-  const { contextZIndex, zIndex } = useZIndex('Modal', restProps.zIndex);
+  const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
 
   // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
-        <ZIndexContextProvider value={contextZIndex}>
+        <zIndexContext.Provider value={contextZIndex}>
           <Dialog
             width={width}
             {...restProps}
@@ -152,7 +152,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             }}
             panelRef={panelRef}
           />
-        </ZIndexContextProvider>
+        </zIndexContext.Provider>
       </NoFormStyle>
     </NoCompactStyle>,
   );

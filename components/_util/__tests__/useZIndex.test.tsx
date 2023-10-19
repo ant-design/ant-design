@@ -1,17 +1,17 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
+import zIndexContext from '../zindexContext';
 
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
-import { ZIndexContextProvider } from '../zindexContext';
 
 const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({
   children,
   containerType,
 }) => {
-  const { contextZIndex } = useZIndex(containerType);
-  return <ZIndexContextProvider value={contextZIndex}>{children}</ZIndexContextProvider>;
+  const [, contextZIndex] = useZIndex(containerType);
+  return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
 };
 
 describe('Test useZIndex hooks', () => {
@@ -21,7 +21,7 @@ describe('Test useZIndex hooks', () => {
         it('parentZIndex should be parent zIndex', () => {
           const fn = jest.fn();
           const Child = () => {
-            const { zIndex } = useZIndex(key as ZIndexConsumer);
+            const [zIndex] = useZIndex(key as ZIndexConsumer);
             useEffect(() => {
               fn(zIndex);
             }, [zIndex]);

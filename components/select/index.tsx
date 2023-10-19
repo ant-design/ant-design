@@ -242,7 +242,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const { zIndex } = useZIndex('Select', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('Select', props.dropdownStyle?.zIndex as number);
 
   // ====================== Render =======================
   return wrapSSR(
