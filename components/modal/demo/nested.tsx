@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Modal, Select, Space } from 'antd';
+import { Modal, Select, Switch } from 'antd';
 
 const options = [
   {
@@ -13,56 +13,72 @@ const options = [
 ];
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean[]>([false, false, false]);
-
-  const toggleModal = (idx: number, value: boolean) => {
-    setIsModalOpen((p) => {
-      p[idx] = value;
-      return [...p];
-    });
-  };
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
-      <Button type="primary" onClick={() => toggleModal(0, true)}>
-        Open Modal
-      </Button>
+      <Switch
+        style={{ position: 'relative', zIndex: 4000 }}
+        checkedChildren="Open"
+        unCheckedChildren="Close"
+        onChange={(open) => setIsModalOpen(open)}
+      />
       <Modal
         title="Basic Modal"
-        open={isModalOpen[0]}
-        onOk={() => toggleModal(0, false)}
-        onCancel={() => toggleModal(0, false)}
+        open={isModalOpen}
+        footer={null}
         destroyOnClose
+        onCancel={() => setIsModalOpen(false)}
+        maskClosable={false}
+        closable={false}
+        styles={{
+          content: {
+            marginBlockStart: 100,
+          },
+        }}
       >
-        <Space>
-          <Button type="primary" onClick={() => toggleModal(1, true)}>
-            Nested Modal
-          </Button>
-          <Select open value="1" options={options} />
-        </Space>
+        <Select open value="1" options={options} />
         <Modal
           title="Nested Modal"
-          open={isModalOpen[1]}
-          onOk={() => toggleModal(1, false)}
-          onCancel={() => toggleModal(1, false)}
+          open={isModalOpen}
+          footer={null}
           destroyOnClose
+          mask={false}
+          onCancel={() => setIsModalOpen(false)}
+          maskClosable={false}
+          closable={false}
+          styles={{
+            content: {
+              marginBlockStart: 250,
+            },
+            body: {
+              display: 'flex',
+              justifyContent: 'center',
+            },
+          }}
         >
-          <Space>
-            <Button type="primary" onClick={() => toggleModal(2, true)}>
-              Nested Modal
-            </Button>
-            <Select open value="1" options={options} />
-          </Space>
+          <Select open value="1" options={options} />
+
           <Modal
             title="Nested Modal"
-            open={isModalOpen[2]}
-            onOk={() => toggleModal(2, false)}
-            onCancel={() => toggleModal(2, false)}
+            open={isModalOpen}
+            footer={null}
             destroyOnClose
+            mask={false}
+            maskClosable={false}
+            onCancel={() => setIsModalOpen(false)}
+            closable={false}
+            styles={{
+              content: {
+                marginBlockStart: 400,
+              },
+              body: {
+                display: 'flex',
+                justifyContent: 'flex-end',
+              },
+            }}
           >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
+            <Select open value="1" options={options} />
           </Modal>
         </Modal>
       </Modal>
