@@ -1,10 +1,13 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
+import zIndexContext from '../_util/zindexContext';
 import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
@@ -49,23 +52,31 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId);
 
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Popover', otherProps.zIndex);
+
   return wrapSSR(
-    <Tooltip
-      placement={placement}
-      trigger={trigger}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
-      overlayStyle={overlayStyle}
-      {...otherProps}
-      prefixCls={prefixCls}
-      overlayClassName={overlayCls}
-      ref={ref}
-      overlay={
-        title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
-      }
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
-      data-popover-inject
-    />,
+    <zIndexContext.Provider value={contextZIndex}>
+      <Tooltip
+        placement={placement}
+        trigger={trigger}
+        mouseEnterDelay={mouseEnterDelay}
+        mouseLeaveDelay={mouseLeaveDelay}
+        overlayStyle={overlayStyle}
+        {...otherProps}
+        zIndex={zIndex}
+        prefixCls={prefixCls}
+        overlayClassName={overlayCls}
+        ref={ref}
+        overlay={
+          title || content ? (
+            <Overlay prefixCls={prefixCls} title={title} content={content} />
+          ) : null
+        }
+        transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+        data-popover-inject
+      />
+    </zIndexContext.Provider>,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>

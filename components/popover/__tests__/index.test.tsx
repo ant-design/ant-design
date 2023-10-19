@@ -3,6 +3,7 @@ import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { Select } from 'antd';
 
 describe('Popover', () => {
   mountTest(Popover);
@@ -88,5 +89,33 @@ describe('Popover', () => {
       </ConfigProvider>,
     );
     expect(Array.from(wrapper.container.children)).toMatchSnapshot();
+  });
+  it('z-index should be accumulated in nested Modal', () => {
+    const options = [
+      {
+        label: 'Option 1',
+        value: '1',
+      },
+      {
+        label: 'Option 2',
+        value: '2',
+      },
+    ];
+    render(
+      <>
+        <Select open options={options} popupClassName="select0" />
+        <Popover open content="test1" rootClassName="test1">
+          <Select open options={options} popupClassName="select1" />
+          <Popover open content="test2" rootClassName="test2">
+            <Select open options={options} popupClassName="select2" />
+          </Popover>
+        </Popover>
+      </>,
+    );
+    expect((document.querySelector('.test1') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+    expect((document.querySelector('.test2') as HTMLDivElement)!.style.zIndex).toBe('2060');
+    expect((document.querySelector('.select0') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+    expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('1080');
+    expect((document.querySelector('.select2') as HTMLDivElement)!.style.zIndex).toBe('2110');
   });
 });
