@@ -11,12 +11,14 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { PresetColorType } from '../_util/colors';
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -292,33 +294,39 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     hashId,
   );
 
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
+
   return wrapSSR(
-    <RcTooltip
-      {...otherProps}
-      showArrow={mergedShowArrow}
-      placement={placement}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
-      prefixCls={prefixCls}
-      overlayClassName={customOverlayClassName}
-      overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
-      getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
-      ref={tooltipRef}
-      builtinPlacements={tooltipPlacements}
-      overlay={memoOverlayWrapper}
-      visible={tempOpen}
-      onVisibleChange={onOpenChange}
-      afterVisibleChange={afterOpenChange ?? afterVisibleChange}
-      overlayInnerStyle={formattedOverlayInnerStyle}
-      arrowContent={<span className={`${prefixCls}-arrow-content`} />}
-      motion={{
-        motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
-        motionDeadline: 1000,
-      }}
-      destroyTooltipOnHide={!!destroyTooltipOnHide}
-    >
-      {tempOpen ? cloneElement(child, { className: childCls }) : child}
-    </RcTooltip>,
+    <zIndexContext.Provider value={injectFromPopover ? undefined : contextZIndex}>
+      <RcTooltip
+        {...otherProps}
+        zIndex={zIndex}
+        showArrow={mergedShowArrow}
+        placement={placement}
+        mouseEnterDelay={mouseEnterDelay}
+        mouseLeaveDelay={mouseLeaveDelay}
+        prefixCls={prefixCls}
+        overlayClassName={customOverlayClassName}
+        overlayStyle={{ ...arrowContentStyle, ...overlayStyle }}
+        getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
+        ref={tooltipRef}
+        builtinPlacements={tooltipPlacements}
+        overlay={memoOverlayWrapper}
+        visible={tempOpen}
+        onVisibleChange={onOpenChange}
+        afterVisibleChange={afterOpenChange ?? afterVisibleChange}
+        overlayInnerStyle={formattedOverlayInnerStyle}
+        arrowContent={<span className={`${prefixCls}-arrow-content`} />}
+        motion={{
+          motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
+          motionDeadline: 1000,
+        }}
+        destroyTooltipOnHide={!!destroyTooltipOnHide}
+      >
+        {tempOpen ? cloneElement(child, { className: childCls }) : child}
+      </RcTooltip>
+    </zIndexContext.Provider>,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>

@@ -15,6 +15,7 @@ import Group from '../../input/Group';
 import Radio from '../../radio';
 import Switch from '../../switch';
 import { isTooltipOpen } from './util';
+import { Select } from 'antd';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -602,5 +603,33 @@ describe('Tooltip', () => {
     });
     expect(error).toHaveBeenCalled();
     error.mockRestore();
+  });
+  it('z-index should be accumulated in nested Tooltip', () => {
+    const options = [
+      {
+        label: 'Option 1',
+        value: '1',
+      },
+      {
+        label: 'Option 2',
+        value: '2',
+      },
+    ];
+    render(
+      <>
+        <Select open options={options} popupClassName="select0" />
+        <Tooltip open title="test1" rootClassName="test1">
+          <Select open options={options} popupClassName="select1" />
+          <Tooltip open title="test2" rootClassName="test2">
+            <Select open options={options} popupClassName="select2" />
+          </Tooltip>
+        </Tooltip>
+      </>,
+    );
+    expect((document.querySelector('.test1') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+    expect((document.querySelector('.test2') as HTMLDivElement)!.style.zIndex).toBe('2140');
+    expect((document.querySelector('.select0') as HTMLDivElement)!.style.zIndex).toBeFalsy();
+    expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('1120');
+    expect((document.querySelector('.select2') as HTMLDivElement)!.style.zIndex).toBe('2190');
   });
 });
