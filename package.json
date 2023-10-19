@@ -1,7 +1,7 @@
 {
   "name": "antd",
   "version": "5.10.1",
-  "packageManager": "^npm@9.0.0",
+  "packageManager": "npm@9.0.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -95,6 +95,7 @@
     "test-node": "npm run version && jest --config .jest.node.js --no-cache",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js",
+    "site:test:update": "npm run site && npm run site:test -- -u",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
     "argos": "tsx scripts/argos-upload.ts",
     "version": "tsx scripts/generate-version.ts",
@@ -129,10 +130,10 @@
     "rc-dialog": "~9.3.3",
     "rc-drawer": "~6.5.2",
     "rc-dropdown": "~4.1.0",
-    "rc-field-form": "~1.39.0",
+    "rc-field-form": "~1.40.0",
     "rc-image": "~7.3.1",
     "rc-input": "~1.3.5",
-    "rc-input-number": "~8.3.0",
+    "rc-input-number": "~8.4.0",
     "rc-mentions": "~2.9.1",
     "rc-menu": "~9.12.2",
     "rc-motion": "^2.9.0",
@@ -148,7 +149,7 @@
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.35.1",
-    "rc-tabs": "~12.13.0",
+    "rc-tabs": "~12.13.1",
     "rc-textarea": "~1.5.1",
     "rc-tooltip": "~6.1.1",
     "rc-tree": "~5.7.12",
@@ -209,7 +210,7 @@
     "@typescript-eslint/parser": "^6.5.0",
     "antd-img-crop": "^4.9.0",
     "antd-style": "^3.5.0",
-    "antd-token-previewer": "^2.0.1",
+    "antd-token-previewer": "^2.0.4",
     "chalk": "^4.0.0",
     "cheerio": "1.0.0-rc.12",
     "circular-dependency-plugin": "^5.2.2",
@@ -323,7 +324,7 @@
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "458 KiB"
+      "limit": "459 KiB"
     }
   ],
   "tnpm": {
