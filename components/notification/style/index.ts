@@ -181,7 +181,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
         position: 'fixed',
         zIndex: token.zIndexPopup,
-        marginInlineEnd: notificationMarginEdge,
+        marginRight: {
+          value: notificationMarginEdge,
+          _skip_check_: true,
+        },
 
         [`${componentCls}-hook-holder`]: {
           position: 'relative',
