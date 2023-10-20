@@ -37,9 +37,7 @@ describe('Table.typescript', () => {
     const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
     expect(table).toBeTruthy();
   });
-});
 
-describe('Table.typescript types', () => {
   it('ColumnProps', () => {
     interface User {
       name: string;
@@ -55,5 +53,10 @@ describe('Table.typescript types', () => {
     ];
 
     expect(columns).toBeTruthy();
+  });
+
+  it('table pagination position support none', () => {
+    const table = <Table pagination={{ position: ['none', 'none'] }} />;
+    expect(table).toBeTruthy();
   });
 });
