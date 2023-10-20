@@ -28,6 +28,7 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
+import { useZIndex } from '../../_util/hooks/useZIndex';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
@@ -138,6 +139,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const [contextLocale] = useLocale('DatePicker', enUS);
 
         const locale = { ...contextLocale, ...props.locale! };
+        // ============================ zIndex ============================
+        const [zIndex] = useZIndex(
+          picker === 'time' ? 'TimePicker' : 'DatePicker',
+          props.popupStyle?.zIndex as number,
+        );
 
         return wrapSSR(
           <RCPicker<DateType>
@@ -182,6 +188,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               rootClassName,
               popupClassName || dropdownClassName,
             )}
+            popupStyle={{
+              ...props.popupStyle,
+              zIndex,
+            }}
             allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
           />,
         );

@@ -27,6 +27,7 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
+import { useZIndex } from '../../_util/hooks/useZIndex';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -110,6 +111,12 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const locale = { ...contextLocale, ...props.locale! };
 
+    // ============================ zIndex ============================
+    const [zIndex] = useZIndex(
+      picker === 'time' ? 'TimePicker' : 'DatePicker',
+      props.popupStyle?.zIndex as number,
+    );
+
     return wrapSSR(
       <RCRangePicker<DateType>
         separator={
@@ -147,6 +154,10 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         components={Components}
         direction={direction}
         dropdownClassName={classNames(hashId, popupClassName || dropdownClassName, rootClassName)}
+        popupStyle={{
+          ...props.popupStyle,
+          zIndex,
+        }}
         allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );

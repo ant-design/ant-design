@@ -1,7 +1,23 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import { Drawer, Dropdown, Modal, Popconfirm, Popover, Select, Tooltip, Tour } from 'antd';
+import type { MenuProps } from 'antd';
+import {
+  AutoComplete,
+  Cascader,
+  ColorPicker,
+  DatePicker,
+  Drawer,
+  Dropdown,
+  Menu,
+  Modal,
+  Popconfirm,
+  Popover,
+  Select,
+  Tooltip,
+  Tour,
+  TreeSelect,
+} from 'antd';
 
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
@@ -15,36 +31,39 @@ const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContai
   return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
 };
 
-const containerComponent: Record<ZIndexContainer, React.FC<PropsWithChildren>> = {
-  Modal: ({ children, ...restProps }) => (
-    <Modal {...restProps} open>
+const containerComponent: Record<
+  ZIndexContainer,
+  React.FC<PropsWithChildren<{ rootClassName?: string }>>
+> = {
+  Modal: ({ children, rootClassName, ...restProps }) => (
+    <Modal rootClassName={rootClassName} {...restProps} open>
       {children}
     </Modal>
   ),
-  Drawer: ({ children, ...restProps }) => (
-    <Drawer {...restProps} open>
+  Drawer: ({ children, rootClassName, ...restProps }) => (
+    <Drawer rootClassName={rootClassName} {...restProps} open>
       {children}
     </Drawer>
   ),
-  Popover: ({ children, ...restProps }) => (
-    <Popover {...restProps} open content="test1" rootClassName="test1">
+  Popover: ({ children, rootClassName, ...restProps }) => (
+    <Popover rootClassName={rootClassName} {...restProps} open content="test">
       {children}
     </Popover>
   ),
-  Popconfirm: ({ children, ...restProps }) => (
-    <Popconfirm {...restProps} open title="test1" rootClassName="test1">
+  Popconfirm: ({ children, rootClassName, ...restProps }) => (
+    <Popconfirm rootClassName={rootClassName} {...restProps} open title="test">
       {children}
     </Popconfirm>
   ),
-  Tooltip: ({ children, ...restProps }) => (
-    <Tooltip {...restProps} open title="test1" rootClassName="test1">
+  Tooltip: ({ children, rootClassName, ...restProps }) => (
+    <Tooltip rootClassName={rootClassName} {...restProps} open title="test">
       {children}
     </Tooltip>
   ),
-  Tour: ({ children, ...restProps }) => (
+  Tour: ({ children, rootClassName, ...restProps }) => (
     <Tour
+      rootClassName={rootClassName}
       {...restProps}
-      rootClassName="tour0"
       steps={[
         {
           title: 'cover title',
@@ -66,11 +85,48 @@ const options = [
   },
 ];
 
-const consumerComponent: Record<ZIndexConsumer, React.FC<PropsWithChildren>> = {
-  Select: ({ children, ...restProps }) => <Select {...restProps} options={options} open />,
-  Dropdown: ({ children, ...restProps }) => (
+const items: MenuProps['items'] = [
+  {
+    label: 'Test',
+    key: 'SubMenu',
+    children: [
+      {
+        type: 'group',
+        label: 'Item 1',
+        children: [
+          {
+            label: 'Option 1',
+            key: 'setting:1',
+          },
+          {
+            label: 'Option 2',
+            key: 'setting:2',
+          },
+        ],
+      },
+      {
+        type: 'group',
+        label: 'Item 2',
+        children: [
+          {
+            label: 'Option 3',
+            key: 'setting:3',
+          },
+          {
+            label: 'Option 4',
+            key: 'setting:4',
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string }>> = {
+  Select: (props) => <Select {...props} options={options} open />,
+  Dropdown: (props) => (
     <Dropdown
-      {...restProps}
+      {...props}
       menu={{
         items: options.map((item) => ({
           key: item.value,
@@ -78,22 +134,24 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<PropsWithChildren>> = {
         })),
       }}
       open
-    />
+    >
+      <button type="button">test</button>
+    </Dropdown>
   ),
-  Cascader: () => <div>Cascader</div>,
-  TreeSelect: () => <div>TreeSelect</div>,
-  AutoComplete: () => <div>AutoComplete</div>,
-  ColorPicker: () => <div>ColorPicker</div>,
-  DatePicker: () => <div>DatePicker</div>,
-  TimePicker: () => <div>TimePicker</div>,
-  Menu: () => <div>Menu</div>,
+  Cascader: (props) => <Cascader {...props} options={options} open />,
+  TreeSelect: (props) => <TreeSelect {...props} treeData={options} open />,
+  AutoComplete: (props) => <AutoComplete {...props} options={options} open />,
+  ColorPicker: (props) => <ColorPicker {...props} open />,
+  DatePicker: (props) => <DatePicker {...props} open />,
+  TimePicker: (props) => <DatePicker.TimePicker {...props} open />,
+  Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
 };
 
 describe('Test useZIndex hooks', () => {
   Object.keys(containerBaseZIndexOffset).forEach((containerKey) => {
     Object.keys(consumerBaseZIndexOffset).forEach((key) => {
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
-        it('parentZIndex should be parent zIndex', () => {
+        it('Test hooks', () => {
           const fn = jest.fn();
           const Child = () => {
             const [zIndex] = useZIndex(key as ZIndexConsumer);
@@ -115,6 +173,41 @@ describe('Test useZIndex hooks', () => {
           render(<App />);
           expect(fn).toHaveBeenLastCalledWith(
             (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+              consumerBaseZIndexOffset[key as ZIndexConsumer],
+          );
+        });
+        it('Test Component', () => {
+          const Container = containerComponent[containerKey as ZIndexContainer];
+          const Consumer = consumerComponent[key as ZIndexConsumer];
+
+          const App = () => (
+            <>
+              <Consumer rootClassName="consumer1" />
+              <Container rootClassName="container1">
+                <Consumer rootClassName="consumer2" />
+                <Container rootClassName="container2">
+                  <Consumer rootClassName="consumer3" />
+                </Container>
+              </Container>
+            </>
+          );
+
+          render(<App />);
+
+          expect((document.querySelector('.consumer1') as HTMLDivElement).style.zIndex).toBeFalsy();
+          if (containerKey !== 'Tour') {
+            expect(
+              (document.querySelector('.container1') as HTMLDivElement).style.zIndex,
+            ).toBeFalsy();
+          } else {
+            expect((document.querySelector('.container1') as HTMLDivElement).style.zIndex).toBe(
+              '1001',
+            );
+          }
+
+          expect((document.querySelector('.consumer2') as HTMLDivElement).style.zIndex).toBe(
+            1000 +
+              containerBaseZIndexOffset[containerKey as ZIndexContainer] +
               consumerBaseZIndexOffset[key as ZIndexConsumer],
           );
         });
