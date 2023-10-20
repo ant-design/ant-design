@@ -5,6 +5,7 @@ import zIndexContext from '../zindexContext';
 
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
+import { Drawer, Modal } from 'antd';
 
 const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({
   children,
@@ -12,6 +13,23 @@ const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContai
 }) => {
   const [, contextZIndex] = useZIndex(containerType);
   return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
+};
+
+const containerComponent: Record<ZIndexContainer, React.FC<PropsWithChildren>> = {
+  Modal: ({ children, ...restProps }) => (
+    <Modal {...restProps} open>
+      {children}
+    </Modal>
+  ),
+  Drawer: ({ children, ...restProps }) => (
+    <Drawer {...restProps} open>
+      {children}
+    </Drawer>
+  ),
+  Popover: () => <div>Popover</div>,
+  Popconfirm: () => <div>Popconfirm</div>,
+  Tooltip: () => <div>Tooltip</div>,
+  Tour: () => <div>Tour</div>,
 };
 
 describe('Test useZIndex hooks', () => {
