@@ -118,6 +118,19 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
 
 exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-default"
+  type="button"
+>
+  <span>
+    Show fullscreen for 2s
+  </span>
+</button>
+`;
+
+exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = `
 <div
   class="example"
