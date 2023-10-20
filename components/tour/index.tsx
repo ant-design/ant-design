@@ -2,7 +2,9 @@ import React, { useContext, useMemo } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import getPlacements from '../_util/placements';
+import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
@@ -63,16 +65,22 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     />
   );
 
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
+
   return wrapSSR(
-    <RCTour
-      {...restProps}
-      rootClassName={customClassName}
-      prefixCls={prefixCls}
-      animated
-      renderPanel={mergedRenderPanel}
-      builtinPlacements={builtinPlacements}
-      steps={mergedSteps}
-    />,
+    <zIndexContext.Provider value={contextZIndex}>
+      <RCTour
+        {...restProps}
+        zIndex={zIndex}
+        rootClassName={customClassName}
+        prefixCls={prefixCls}
+        animated
+        renderPanel={mergedRenderPanel}
+        builtinPlacements={builtinPlacements}
+        steps={mergedSteps}
+      />
+    </zIndexContext.Provider>,
   );
 };
 
