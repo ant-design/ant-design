@@ -28,8 +28,15 @@ const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
 
-  return createStyles(({ token, css }) => {
+  return createStyles(({ token, css, cx }) => {
     const textShadow = `0 0 3px ${token.colorBgContainer}`;
+
+    const mask = cx(css`
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(2.5px);
+      transition: all 1s ease;
+    `);
 
     return {
       holder: css`
@@ -42,7 +49,13 @@ const useStyle = () => {
         overflow: hidden;
         perspective: 800px;
         row-gap: ${token.marginXL}px;
+
+        &:hover .${mask} {
+          backdrop-filter: none;
+        }
       `,
+
+      mask,
 
       typography: css`
         text-align: center;
@@ -117,6 +130,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
         {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+        <div className={styles.mask} />
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
