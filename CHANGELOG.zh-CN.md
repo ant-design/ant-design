@@ -21,7 +21,7 @@ tag: vVERSION
 `2023-10-20`
 
 - 🐞 Layout 支持自动检测 `hasSider` 以防止在 SSR 场景下的闪烁问题。[#45361](https://github.com/ant-design/ant-design/pull/45361)
-- 🐞 修复 FloatButton 组件显示 `findDOMNode is deprecated in StrictMode` 警告的问题。[#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 FloatButton.BackTop 组件显示 `findDOMNode is deprecated in StrictMode` 警告的问题。[#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 ColorPicker 不支持 `id` 和 `data-*` 属性的问题。[#45413](https://github.com/ant-design/ant-design/pull/45413) [@cheng87126](https://github.com/cheng87126)
 - 🐞 修复 Table 当 `column.showSorterTooltip` 是一个对象时排序 tooltip 不显示的问题。[#45403](https://github.com/ant-design/ant-design/pull/45403)
 - 🐞 修复 Form `inline` 模式在小屏幕发生元素重叠的问题。[#45340](https://github.com/ant-design/ant-design/pull/45340) [@Yuiai01](https://github.com/Yuiai01)
