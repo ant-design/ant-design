@@ -44,6 +44,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   componentsOverviewSearch: css`
     padding: 0;
+    box-shadow: none !important;
     .anticon-search {
       color: ${token.colorTextDisabled};
     }
