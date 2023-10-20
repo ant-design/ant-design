@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import zIndexContext from '../zindexContext';
+import { Drawer, Dropdown, Modal, Popconfirm, Popover, Select, Tooltip, Tour } from 'antd';
 
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
-import { Drawer, Modal } from 'antd';
+import zIndexContext from '../zindexContext';
 
 const WrapWithProvider: React.FC<PropsWithChildren<{ containerType: ZIndexContainer }>> = ({
   children,
@@ -26,10 +26,67 @@ const containerComponent: Record<ZIndexContainer, React.FC<PropsWithChildren>> =
       {children}
     </Drawer>
   ),
-  Popover: () => <div>Popover</div>,
-  Popconfirm: () => <div>Popconfirm</div>,
-  Tooltip: () => <div>Tooltip</div>,
-  Tour: () => <div>Tour</div>,
+  Popover: ({ children, ...restProps }) => (
+    <Popover {...restProps} open content="test1" rootClassName="test1">
+      {children}
+    </Popover>
+  ),
+  Popconfirm: ({ children, ...restProps }) => (
+    <Popconfirm {...restProps} open title="test1" rootClassName="test1">
+      {children}
+    </Popconfirm>
+  ),
+  Tooltip: ({ children, ...restProps }) => (
+    <Tooltip {...restProps} open title="test1" rootClassName="test1">
+      {children}
+    </Tooltip>
+  ),
+  Tour: ({ children, ...restProps }) => (
+    <Tour
+      {...restProps}
+      rootClassName="tour0"
+      steps={[
+        {
+          title: 'cover title',
+          description: children,
+        },
+      ]}
+    />
+  ),
+};
+
+const options = [
+  {
+    label: 'Option 1',
+    value: '1',
+  },
+  {
+    label: 'Option 2',
+    value: '2',
+  },
+];
+
+const consumerComponent: Record<ZIndexConsumer, React.FC<PropsWithChildren>> = {
+  Select: ({ children, ...restProps }) => <Select {...restProps} options={options} open />,
+  Dropdown: ({ children, ...restProps }) => (
+    <Dropdown
+      {...restProps}
+      menu={{
+        items: options.map((item) => ({
+          key: item.value,
+          label: item.label,
+        })),
+      }}
+      open
+    />
+  ),
+  Cascader: () => <div>Cascader</div>,
+  TreeSelect: () => <div>TreeSelect</div>,
+  AutoComplete: () => <div>AutoComplete</div>,
+  ColorPicker: () => <div>ColorPicker</div>,
+  DatePicker: () => <div>DatePicker</div>,
+  TimePicker: () => <div>TimePicker</div>,
+  Menu: () => <div>Menu</div>,
 };
 
 describe('Test useZIndex hooks', () => {
