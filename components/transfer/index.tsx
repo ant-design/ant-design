@@ -174,11 +174,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
     string
-  >();
+  >((item) => item.key);
   const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
     KeyWise<RecordType>,
     string
-  >();
+  >((item) => item.key);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -323,7 +323,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   ) => {
     const isLeftDirection = direction === 'left';
     const multipleSelect = isLeftDirection ? leftMultipleSelect : rightMultipleSelect;
-    multipleSelect(currentSelectedIndex, data, holder, (item) => item.key);
+    multipleSelect(currentSelectedIndex, data, holder);
   };
 
   const onItemSelect = (
