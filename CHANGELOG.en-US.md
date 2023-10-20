@@ -21,7 +21,7 @@ tag: vVERSION
 `2023-10-20`
 
 - 🐞 Layout support auto `hasSider` check to avoid blink in SSR. [#45361](https://github.com/ant-design/ant-design/pull/45361)
-- 🐞 Fix FloatButton throws warning `findDOMNode is deprecated in StrictMode`. [#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix FloatButton.BackTop throws warning `findDOMNode is deprecated in StrictMode`. [#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix ColorPicker does not supports `id` and `data-*` attributes. [#45413](https://github.com/ant-design/ant-design/pull/45413) [@cheng87126](https://github.com/cheng87126)
 - 🐞 Fix Table sorter tooltip cannot be open when `column.showSorterTooltip` is a object. [#45403](https://github.com/ant-design/ant-design/pull/45403)
 - 🐞 Fix `Form` with `inline` mode makes elements overlap on the small screen. [#45340](https://github.com/ant-design/ant-design/pull/45340) [@Yuiai01](https://github.com/Yuiai01)
