@@ -47,7 +47,7 @@ export interface DropdownProps {
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
@@ -196,7 +196,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onOpenChange?.(nextOpen);
+    onOpenChange?.(nextOpen, { source: 'trigger' });
     onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
@@ -215,6 +215,7 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const onMenuClick = React.useCallback(() => {
+    onOpenChange?.(false, { source: 'menu' });
     setOpen(false);
   }, []);
 
