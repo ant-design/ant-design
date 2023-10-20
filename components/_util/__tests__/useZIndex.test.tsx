@@ -150,11 +150,11 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
 };
 
 describe('Test useZIndex hooks', () => {
-  // const containers = Object.keys(containerComponent);
-  // const consumers = Object.keys(consumerComponent);
-  const containers: ZIndexContainer[] = ['Drawer'];
+  const containers = Object.keys(containerComponent);
+  const consumers = Object.keys(consumerComponent);
+  // const containers: ZIndexContainer[] = ['Modal'];
   // const containers: ZIndexContainer[] = Object.keys(containerComponent) as ZIndexContainer[];
-  const consumers: ZIndexConsumer[] = ['Dropdown'];
+  // const consumers: ZIndexConsumer[] = ['Menu'];
   containers.forEach((containerKey) => {
     consumers.forEach((key) => {
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
@@ -164,31 +164,40 @@ describe('Test useZIndex hooks', () => {
         afterEach(() => {
           jest.useRealTimers();
         });
-        // it('Test hooks', () => {
-        //   const fn = jest.fn();
-        //   const Child = () => {
-        //     const [zIndex] = useZIndex(key as ZIndexConsumer);
-        //     useEffect(() => {
-        //       fn(zIndex);
-        //     }, [zIndex]);
-        //     return <div>Child</div>;
-        //   };
+        it('Test hooks', () => {
+          const fn = jest.fn();
+          const Child = () => {
+            const [zIndex] = useZIndex(key as ZIndexConsumer);
+            useEffect(() => {
+              fn(zIndex);
+            }, [zIndex]);
+            return <div>Child</div>;
+          };
 
-        //   const App = () => (
-        //     <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-        //       <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-        //         <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-        //           <Child />
-        //         </WrapWithProvider>
-        //       </WrapWithProvider>
-        //     </WrapWithProvider>
-        //   );
-        //   render(<App />);
-        //   expect(fn).toHaveBeenLastCalledWith(
-        //     (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-        //       consumerBaseZIndexOffset[key as ZIndexConsumer],
-        //   );
-        // });
+          const App = () => (
+            <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+              <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+                <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+                  <Child />
+                </WrapWithProvider>
+              </WrapWithProvider>
+            </WrapWithProvider>
+          );
+          render(<App />);
+          if (key === 'ColorPicker') {
+            expect(fn).toHaveBeenLastCalledWith(
+              (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+                1000 +
+                containerBaseZIndexOffset.Popover +
+                consumerBaseZIndexOffset[key as ZIndexConsumer],
+            );
+          } else {
+            expect(fn).toHaveBeenLastCalledWith(
+              (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+                consumerBaseZIndexOffset[key as ZIndexConsumer],
+            );
+          }
+        });
         it('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
@@ -241,13 +250,12 @@ describe('Test useZIndex hooks', () => {
             );
           } else {
             let selector = '.consumer2';
-            if (['Menu', 'TreeSelect', 'AutoComplete'].includes(key)) {
+            if (['TreeSelect', 'AutoComplete', 'Select', 'Cascader'].includes(key)) {
               selector = '.consumer2.ant-slide-up';
             } else if (['DatePicker', 'TimePicker'].includes(key)) {
               selector = '.consumer2.ant-picker-dropdown';
-            }
-            if (containerKey === 'Drawer') {
-              console.log(document.body.outerHTML);
+            } else if (['Menu'].includes(key)) {
+              selector = '.consumer2.ant-menu-submenu-placement-rightTop';
             }
 
             expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(

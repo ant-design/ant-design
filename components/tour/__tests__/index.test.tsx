@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useRef } from 'react';
-import { Select } from 'antd';
 
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -564,46 +563,5 @@ describe('Tour', () => {
     fireEvent.click(screen.getByRole('button', { name: 'target' }));
     expect(document.querySelector('.should-be-primary')).toBeTruthy();
     expect(document.querySelector('.should-be-primary')).toHaveClass('ant-tour-primary');
-  });
-  it('z-index should be accumulated in nested Modal', () => {
-    const options = [
-      {
-        label: 'Option 1',
-        value: '1',
-      },
-      {
-        label: 'Option 2',
-        value: '2',
-      },
-    ];
-    const App: React.FC = () => (
-      <Tour
-        rootClassName="tour0"
-        steps={[
-          {
-            title: 'cover title',
-            description: (
-              <>
-                <Select open options={options} popupClassName="select0" />
-                <Tour
-                  rootClassName="tour1"
-                  steps={[
-                    {
-                      title: 'cover title',
-                      description: <Select open options={options} popupClassName="select1" />,
-                    },
-                  ]}
-                />
-              </>
-            ),
-          },
-        ]}
-      />
-    );
-    render(<App />);
-    expect((document.querySelector('.tour0') as HTMLDivElement)!.style.zIndex).toBe('1001');
-    expect((document.querySelector('.tour1') as HTMLDivElement)!.style.zIndex).toBe('2140');
-    expect((document.querySelector('.select0') as HTMLDivElement)!.style.zIndex).toBe('1120');
-    expect((document.querySelector('.select1') as HTMLDivElement)!.style.zIndex).toBe('2190');
   });
 });

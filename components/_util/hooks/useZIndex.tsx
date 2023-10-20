@@ -47,7 +47,6 @@ export function useZIndex(
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
   let zIndex = parentZIndex ?? 0;
-  console.log(componentType, parentZIndex);
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
   } else if (componentType === 'ColorPicker') {
