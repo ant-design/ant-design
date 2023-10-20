@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Radio, Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
 
 interface DataType {
   key: string;
@@ -10,13 +10,7 @@ interface DataType {
   tags: string[];
 }
 
-type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
+type TablePaginationPosition = NonNullable<TablePaginationConfig['position']>[number];
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },
