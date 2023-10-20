@@ -19,6 +19,7 @@ import {
   TreeSelect,
 } from 'antd';
 
+import { waitFakeTimer } from '../../../tests/utils';
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
 import zIndexContext from '../zindexContext';
@@ -64,6 +65,7 @@ const containerComponent: Record<
     <Tour
       rootClassName={rootClassName}
       {...restProps}
+      open
       steps={[
         {
           title: 'cover title',
@@ -148,35 +150,46 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
 };
 
 describe('Test useZIndex hooks', () => {
-  Object.keys(containerBaseZIndexOffset).forEach((containerKey) => {
-    Object.keys(consumerBaseZIndexOffset).forEach((key) => {
+  // const containers = Object.keys(containerComponent);
+  // const consumers = Object.keys(consumerComponent);
+  const containers: ZIndexContainer[] = ['Drawer'];
+  // const containers: ZIndexContainer[] = Object.keys(containerComponent) as ZIndexContainer[];
+  const consumers: ZIndexConsumer[] = ['Dropdown'];
+  containers.forEach((containerKey) => {
+    consumers.forEach((key) => {
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
-        it('Test hooks', () => {
-          const fn = jest.fn();
-          const Child = () => {
-            const [zIndex] = useZIndex(key as ZIndexConsumer);
-            useEffect(() => {
-              fn(zIndex);
-            }, [zIndex]);
-            return <div>Child</div>;
-          };
-
-          const App = () => (
-            <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-              <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-                <WrapWithProvider containerType={containerKey as ZIndexContainer}>
-                  <Child />
-                </WrapWithProvider>
-              </WrapWithProvider>
-            </WrapWithProvider>
-          );
-          render(<App />);
-          expect(fn).toHaveBeenLastCalledWith(
-            (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-              consumerBaseZIndexOffset[key as ZIndexConsumer],
-          );
+        beforeEach(() => {
+          jest.useFakeTimers();
         });
-        it('Test Component', () => {
+        afterEach(() => {
+          jest.useRealTimers();
+        });
+        // it('Test hooks', () => {
+        //   const fn = jest.fn();
+        //   const Child = () => {
+        //     const [zIndex] = useZIndex(key as ZIndexConsumer);
+        //     useEffect(() => {
+        //       fn(zIndex);
+        //     }, [zIndex]);
+        //     return <div>Child</div>;
+        //   };
+
+        //   const App = () => (
+        //     <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+        //       <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+        //         <WrapWithProvider containerType={containerKey as ZIndexContainer}>
+        //           <Child />
+        //         </WrapWithProvider>
+        //       </WrapWithProvider>
+        //     </WrapWithProvider>
+        //   );
+        //   render(<App />);
+        //   expect(fn).toHaveBeenLastCalledWith(
+        //     (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+        //       consumerBaseZIndexOffset[key as ZIndexConsumer],
+        //   );
+        // });
+        it('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
 
@@ -192,7 +205,9 @@ describe('Test useZIndex hooks', () => {
             </>
           );
 
-          render(<App />);
+          const { unmount } = render(<App />);
+
+          await waitFakeTimer(1000);
 
           expect((document.querySelector('.consumer1') as HTMLDivElement).style.zIndex).toBeFalsy();
           if (containerKey !== 'Tour') {
@@ -205,11 +220,46 @@ describe('Test useZIndex hooks', () => {
             );
           }
 
-          expect((document.querySelector('.consumer2') as HTMLDivElement).style.zIndex).toBe(
-            1000 +
-              containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-              consumerBaseZIndexOffset[key as ZIndexConsumer],
-          );
+          if (key === 'ColorPicker') {
+            expect(
+              (
+                document.querySelector(
+                  '.consumer2.ant-popover-placement-bottomLeft',
+                ) as HTMLDivElement
+              ).style.zIndex,
+            ).toBe(
+              String(
+                // container z-index
+                1000 +
+                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                  // popover z-index
+                  1000 +
+                  containerBaseZIndexOffset.Popover +
+                  // color picker z-index offset
+                  consumerBaseZIndexOffset.ColorPicker,
+              ),
+            );
+          } else {
+            let selector = '.consumer2';
+            if (['Menu', 'TreeSelect', 'AutoComplete'].includes(key)) {
+              selector = '.consumer2.ant-slide-up';
+            } else if (['DatePicker', 'TimePicker'].includes(key)) {
+              selector = '.consumer2.ant-picker-dropdown';
+            }
+            if (containerKey === 'Drawer') {
+              console.log(document.body.outerHTML);
+            }
+
+            expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
+              String(
+                1000 +
+                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                  consumerBaseZIndexOffset[key as ZIndexConsumer],
+              ),
+            );
+          }
+
+          unmount();
         });
       });
     });

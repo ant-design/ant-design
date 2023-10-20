@@ -300,7 +300,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const content = (
     <RcTooltip
       {...otherProps}
-      zIndex={zIndex}
+      zIndex={injectFromPopover ? otherProps.zIndex : zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}

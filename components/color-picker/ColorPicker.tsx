@@ -252,9 +252,7 @@ const ColorPicker: CompoundedComponent = (props) => {
         </NoFormStyle>
       }
       overlayClassName={mergePopupCls}
-      overlayStyle={{
-        zIndex,
-      }}
+      zIndex={zIndex}
       {...popoverProps}
     >
       {children || (

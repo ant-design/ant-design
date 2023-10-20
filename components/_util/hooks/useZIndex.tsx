@@ -47,10 +47,16 @@ export function useZIndex(
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
   let zIndex = parentZIndex ?? 0;
+  console.log(componentType, parentZIndex);
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
+  } else if (componentType === 'ColorPicker') {
+    zIndex +=
+      token.zIndexPopupBase +
+      consumerBaseZIndexOffset[componentType] +
+      consumerBaseZIndexOffset[componentType];
   } else {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
-  return [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
+  return [customZIndex ?? parentZIndex === undefined ? customZIndex : zIndex, zIndex];
 }
