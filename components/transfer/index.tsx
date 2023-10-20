@@ -171,8 +171,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setTargetSelectedKeys,
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
-  const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect();
-  const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect();
+  const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
+    KeyWise<RecordType>,
+    string
+  >();
+  const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
+    KeyWise<RecordType>,
+    string
+  >();
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');

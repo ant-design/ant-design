@@ -111,7 +111,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const warning = devUseWarning('Table');
 
   // ========================= MultipleSelect =========================
-  const [multipleSelect, updatePrevSelectedIndex] = useMultipleSelect();
+  const [multipleSelect, updatePrevSelectedIndex] = useMultipleSelect<React.Key, React.Key>();
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
