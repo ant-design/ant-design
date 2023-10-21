@@ -149,6 +149,18 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
 };
 
+function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
+  let selector = baseSelector;
+  if (['TreeSelect', 'AutoComplete', 'Select', 'Cascader'].includes(consumer)) {
+    selector = `${baseSelector}.ant-slide-up`;
+  } else if (['DatePicker', 'TimePicker'].includes(consumer)) {
+    selector = `${baseSelector}.ant-picker-dropdown`;
+  } else if (['Menu'].includes(consumer)) {
+    selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
+  }
+  return selector;
+}
+
 describe('Test useZIndex hooks', () => {
   const containers = Object.keys(containerComponent);
   const consumers = Object.keys(consumerComponent);
@@ -245,19 +257,21 @@ describe('Test useZIndex hooks', () => {
               ),
             );
           } else {
-            let selector = '.consumer2';
-            if (['TreeSelect', 'AutoComplete', 'Select', 'Cascader'].includes(key)) {
-              selector = '.consumer2.ant-slide-up';
-            } else if (['DatePicker', 'TimePicker'].includes(key)) {
-              selector = '.consumer2.ant-picker-dropdown';
-            } else if (['Menu'].includes(key)) {
-              selector = '.consumer2.ant-menu-submenu-placement-rightTop';
-            }
+            let selector = getConsumerSelector('.consumer2', key as ZIndexConsumer);
 
             expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
               String(
                 1000 +
                   containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                  consumerBaseZIndexOffset[key as ZIndexConsumer],
+              ),
+            );
+
+            selector = getConsumerSelector('.consumer3', key as ZIndexConsumer);
+
+            expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
+              String(
+                (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
                   consumerBaseZIndexOffset[key as ZIndexConsumer],
               ),
             );
