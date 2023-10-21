@@ -197,17 +197,10 @@ describe('Test useZIndex hooks', () => {
             </WrapWithProvider>
           );
           render(<App />);
-          if (key === 'ColorPicker') {
-            expect(fn).toHaveBeenLastCalledWith(
-              (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-                consumerBaseZIndexOffset[key as ZIndexConsumer],
-            );
-          } else {
-            expect(fn).toHaveBeenLastCalledWith(
-              (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-                consumerBaseZIndexOffset[key as ZIndexConsumer],
-            );
-          }
+          expect(fn).toHaveBeenLastCalledWith(
+            (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+              consumerBaseZIndexOffset[key as ZIndexConsumer],
+          );
         });
         it('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
