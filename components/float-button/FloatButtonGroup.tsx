@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react';
+import React, { memo, useCallback, useContext, useEffect } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -10,7 +10,7 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { FloatButtonGroupProps } from './interface';
+import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
 import useStyle from './style';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
@@ -45,10 +45,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const [open, setOpen] = useMergedState(false, { value: customOpen });
 
-  const floatButtonGroupRef = useRef<HTMLDivElement>(null);
-  const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
-  const hoverAction = useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
+  const floatButtonRef = React.useRef<FloatButtonRef['nativeElement']>(null);
+
+  const hoverAction = React.useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
     const hoverTypeAction = {
       onMouseEnter() {
         setOpen(true);
