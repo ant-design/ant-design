@@ -35,7 +35,7 @@ const useStyle = () => {
     const mask = cx(css`
       position: absolute;
       inset: 0;
-      backdrop-filter: blur(2.5px);
+      backdrop-filter: blur(4px);
       transition: all 1s ease;
     `);
 
