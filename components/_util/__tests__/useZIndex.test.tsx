@@ -36,34 +36,33 @@ const containerComponent: Record<
   ZIndexContainer,
   React.FC<PropsWithChildren<{ rootClassName?: string }>>
 > = {
-  Modal: ({ children, rootClassName, ...restProps }) => (
-    <Modal rootClassName={rootClassName} {...restProps} open>
+  Modal: ({ children, ...restProps }) => (
+    <Modal {...restProps} open>
       {children}
     </Modal>
   ),
-  Drawer: ({ children, rootClassName, ...restProps }) => (
-    <Drawer rootClassName={rootClassName} {...restProps} open>
+  Drawer: ({ children, ...restProps }) => (
+    <Drawer {...restProps} open>
       {children}
     </Drawer>
   ),
-  Popover: ({ children, rootClassName, ...restProps }) => (
-    <Popover rootClassName={rootClassName} {...restProps} open content="test">
+  Popover: ({ children, ...restProps }) => (
+    <Popover {...restProps} open content="test">
       {children}
     </Popover>
   ),
-  Popconfirm: ({ children, rootClassName, ...restProps }) => (
-    <Popconfirm rootClassName={rootClassName} {...restProps} open title="test">
+  Popconfirm: ({ children, ...restProps }) => (
+    <Popconfirm {...restProps} open title="test">
       {children}
     </Popconfirm>
   ),
-  Tooltip: ({ children, rootClassName, ...restProps }) => (
-    <Tooltip rootClassName={rootClassName} {...restProps} open title="test">
+  Tooltip: ({ children, ...restProps }) => (
+    <Tooltip {...restProps} open title="test">
       {children}
     </Tooltip>
   ),
-  Tour: ({ children, rootClassName, ...restProps }) => (
+  Tour: ({ children, ...restProps }) => (
     <Tour
-      rootClassName={rootClassName}
       {...restProps}
       open
       steps={[
