@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.10.2
 
-`2023-10-20`
+`2023-10-21`
 
 - 🐞 Layout support auto `hasSider` check to avoid blink in SSR. [#45361](https://github.com/ant-design/ant-design/pull/45361)
 - 🐞 Fix FloatButton.BackTop throws warning `findDOMNode is deprecated in StrictMode`. [#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)

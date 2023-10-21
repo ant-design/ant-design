@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.10.2
 
-`2023-10-20`
+`2023-10-21`
 
 - 🐞 Layout 支持自动检测 `hasSider` 以防止在 SSR 场景下的闪烁问题。[#45361](https://github.com/ant-design/ant-design/pull/45361)
 - 🐞 修复 FloatButton.BackTop 组件显示 `findDOMNode is deprecated in StrictMode` 警告的问题。[#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)
