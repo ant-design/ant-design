@@ -49,13 +49,8 @@ export function useZIndex(
   let zIndex = parentZIndex ?? 0;
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
-  } else if (componentType === 'ColorPicker') {
-    zIndex +=
-      token.zIndexPopupBase +
-      consumerBaseZIndexOffset[componentType] +
-      consumerBaseZIndexOffset[componentType];
   } else {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
-  return [customZIndex ?? parentZIndex === undefined ? customZIndex : zIndex, zIndex];
+  return [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
 }

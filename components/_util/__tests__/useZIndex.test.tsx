@@ -153,8 +153,9 @@ describe('Test useZIndex hooks', () => {
   const containers = Object.keys(containerComponent);
   const consumers = Object.keys(consumerComponent);
   // const containers: ZIndexContainer[] = ['Modal'];
+  // const consumers: ZIndexConsumer[] = ['ColorPicker'];
   // const containers: ZIndexContainer[] = Object.keys(containerComponent) as ZIndexContainer[];
-  // const consumers: ZIndexConsumer[] = ['Menu'];
+
   containers.forEach((containerKey) => {
     consumers.forEach((key) => {
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
@@ -187,8 +188,6 @@ describe('Test useZIndex hooks', () => {
           if (key === 'ColorPicker') {
             expect(fn).toHaveBeenLastCalledWith(
               (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-                1000 +
-                containerBaseZIndexOffset.Popover +
                 consumerBaseZIndexOffset[key as ZIndexConsumer],
             );
           } else {
@@ -241,9 +240,6 @@ describe('Test useZIndex hooks', () => {
                 // container z-index
                 1000 +
                   containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                  // popover z-index
-                  1000 +
-                  containerBaseZIndexOffset.Popover +
                   // color picker z-index offset
                   consumerBaseZIndexOffset.ColorPicker,
               ),
