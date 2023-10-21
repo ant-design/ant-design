@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -39,6 +40,8 @@ const antRotate = new Keyframes('antRotate', {
   to: { transform: 'rotate(405deg)' },
 });
 
+const dotPadding = (token: SpinToken) => (token.dotSize - token.fontSize) / 2 + 2;
+
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => ({
   [`${token.componentCls}`]: {
     ...resetComponent(token),
@@ -55,6 +58,37 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       position: 'static',
       display: 'inline-block',
       opacity: 1,
+    },
+
+    [`${token.componentCls}-text`]: {
+      fontSize: token.fontSize,
+      paddingTop: dotPadding(token),
+    },
+    '&-fullscreen': {
+      position: 'fixed',
+      width: '100vw',
+      height: '100vh',
+      backgroundColor: token.colorBgMask,
+      zIndex: token.zIndexPopupBase,
+      inset: 0,
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      pointerEvents: 'none',
+      opacity: 0,
+      visibility: 'hidden',
+      transition: `all ${token.motionDurationMid}`,
+      '&-show': {
+        opacity: 1,
+        visibility: 'visible',
+      },
+      [`${token.componentCls}-dot ${token.componentCls}-dot-item`]: {
+        backgroundColor: token.colorWhite,
+      },
+      [`${token.componentCls}-text`]: {
+        color: token.colorTextLightSolid,
+      },
     },
 
     '&-nested-loading': {
@@ -80,9 +114,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           position: 'absolute',
           top: '50%',
           width: '100%',
-          paddingTop: (token.dotSize - token.fontSize) / 2 + 2,
           textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
-          fontSize: token.fontSize,
         },
 
         [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {

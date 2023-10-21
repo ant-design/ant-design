@@ -42,7 +42,7 @@ export default App;
 
 ## 组件变量
 
-## Alert 警告提示
+### Alert 警告提示
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |
