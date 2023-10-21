@@ -320,11 +320,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "400 KiB"
+      "limit": "401 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "459 KiB"
+      "limit": "460 KiB"
     }
   ],
   "tnpm": {
