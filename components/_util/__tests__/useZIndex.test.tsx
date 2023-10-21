@@ -157,26 +157,25 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
     selector = `${baseSelector}.ant-picker-dropdown`;
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
+  } else if (consumer === 'ColorPicker') {
+    selector = `${baseSelector}.ant-popover-placement-bottomLeft`;
   }
   return selector;
 }
 
 describe('Test useZIndex hooks', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+  });
   const containers = Object.keys(containerComponent);
   const consumers = Object.keys(consumerComponent);
-  // const containers: ZIndexContainer[] = ['Modal'];
-  // const consumers: ZIndexConsumer[] = ['ColorPicker'];
-  // const containers: ZIndexContainer[] = Object.keys(containerComponent) as ZIndexContainer[];
 
   containers.forEach((containerKey) => {
     consumers.forEach((key) => {
       describe(`Test ${key} zIndex in ${containerKey}`, () => {
-        beforeEach(() => {
-          jest.useFakeTimers();
-        });
-        afterEach(() => {
-          jest.useRealTimers();
-        });
         it('Test hooks', () => {
           const fn = jest.fn();
           const Child = () => {
@@ -233,42 +232,24 @@ describe('Test useZIndex hooks', () => {
             );
           }
 
-          if (key === 'ColorPicker') {
-            expect(
-              (
-                document.querySelector(
-                  '.consumer2.ant-popover-placement-bottomLeft',
-                ) as HTMLDivElement
-              ).style.zIndex,
-            ).toBe(
-              String(
-                // container z-index
-                1000 +
-                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                  // color picker z-index offset
-                  consumerBaseZIndexOffset.ColorPicker,
-              ),
-            );
-          } else {
-            let selector = getConsumerSelector('.consumer2', key as ZIndexConsumer);
+          let selector = getConsumerSelector('.consumer2', key as ZIndexConsumer);
 
-            expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
-              String(
-                1000 +
-                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                  consumerBaseZIndexOffset[key as ZIndexConsumer],
-              ),
-            );
+          expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
+            String(
+              1000 +
+                containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                consumerBaseZIndexOffset[key as ZIndexConsumer],
+            ),
+          );
 
-            selector = getConsumerSelector('.consumer3', key as ZIndexConsumer);
+          selector = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
-            expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
-              String(
-                (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                  consumerBaseZIndexOffset[key as ZIndexConsumer],
-              ),
-            );
-          }
+          expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
+            String(
+              (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
+                consumerBaseZIndexOffset[key as ZIndexConsumer],
+            ),
+          );
 
           unmount();
         });
