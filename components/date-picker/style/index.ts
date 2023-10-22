@@ -920,7 +920,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           transition: `background ${motionDurationMid}`,
           overflowX: 'hidden',
 
-           '&::-webkit-scrollbar': {
+          '&::-webkit-scrollbar': {
             width: '7px',
             backgroundColor: ' #f1f1f1',
           },
@@ -933,7 +933,18 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           '&::-webkit-scrollbar-thumb:hover': {
             backgroundColor: '#7a7a7a',
           },
-          
+          // 兼容firefox
+          '&': {
+            scrollbarWidth: 'thin',
+            scrollbarColor: `#b6b2b2 #f1f1f1`,
+          },
+          '&::-moz-scrollbar-thumb': {
+            backgroundColor: '#b6b2b2',
+          },
+          '&::-moz-scrollbar-track': {
+            backgroundColor: ' #f1f1f1',
+          },
+
           '&::after': {
             display: 'block',
             height: timeColumnHeight - timeCellHeight,
