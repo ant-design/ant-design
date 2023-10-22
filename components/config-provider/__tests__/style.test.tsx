@@ -1056,7 +1056,7 @@ describe('ConfigProvider support style and className props', () => {
         <RangePicker />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-picker-range')).toHaveClass('test-class');
+    expect(container.querySelector('.ant-picker')).toHaveClass('test-class');
   });
 
   it('Should RangePicker style works', () => {
@@ -1070,9 +1070,7 @@ describe('ConfigProvider support style and className props', () => {
         <RangePicker style={{ fontSize: '16px' }} />
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-picker-range')).toHaveStyle(
-      'color: red; font-size: 16px;',
-    );
+    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
   });
 
   it('Should message className & style works', () => {
