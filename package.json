@@ -1,7 +1,7 @@
 {
   "name": "antd",
   "version": "5.10.2",
-  "packageManager": "npm@9.0.0",
+  "packageManager": "npm@9.9.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
