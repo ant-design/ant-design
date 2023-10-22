@@ -920,17 +920,17 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           transition: `background ${motionDurationMid}`,
           overflowX: 'hidden',
 
-           '&-::-webkit-scrollbar': {
+           '&::-webkit-scrollbar': {
             width: '7px',
             backgroundColor: ' #f1f1f1',
           },
 
-          '&-::-webkit-scrollbar-thumb': {
+          '&::-webkit-scrollbar-thumb': {
             backgroundColor: '#b6b2b2',
             borderRadius: '5px',
           },
 
-          '&-::-webkit-scrollbar-thumb:hover': {
+          '&::-webkit-scrollbar-thumb:hover': {
             backgroundColor: '#7a7a7a',
           },
           
