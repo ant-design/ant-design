@@ -183,7 +183,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.2",
     "@types/fs-extra": "^11.0.1",
-    "@types/gtag.js": "^0.0.16",
+    "@types/gtag.js": "^0.0.17",
     "@types/http-server": "^0.12.1",
     "@types/inquirer": "^9.0.3",
     "@types/isomorphic-fetch": "^0.0.38",
