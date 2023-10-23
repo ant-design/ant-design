@@ -205,10 +205,10 @@ describe('Test useZIndex hooks', () => {
   afterEach(() => {
     jest.useRealTimers();
   });
-  // const containers = ['Modal'];
-  // const consumers = ['SelectLike'];
   const containers = Object.keys(containerComponent);
-  const consumers = Object.keys(consumerComponent);
+  // const containers = ['Modal'];
+  const consumers = ['Dropdown'];
+  // const consumers = Object.keys(consumerComponent);
 
   containers.forEach((containerKey) => {
     consumers.forEach((key) => {
@@ -239,7 +239,7 @@ describe('Test useZIndex hooks', () => {
           );
         });
         // 先暂时不测试，等所有的消费组件功能都合并过去后再统一测试
-        it.skip('Test Component', async () => {
+        it('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
 

@@ -7,11 +7,13 @@ import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
@@ -261,27 +263,36 @@ const Dropdown: CompoundedComponent = (props) => {
     );
   };
 
+  // =========================== zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Dropdown', props.overlayStyle?.zIndex as number);
+
   // ============================ Render ============================
   return wrapSSR(
-    <RcDropdown
-      alignPoint={alignPoint!}
-      {...omit(props, ['rootClassName'])}
-      mouseEnterDelay={mouseEnterDelay}
-      mouseLeaveDelay={mouseLeaveDelay}
-      visible={mergedOpen}
-      builtinPlacements={builtinPlacements}
-      arrow={!!arrow}
-      overlayClassName={overlayClassNameCustomized}
-      prefixCls={prefixCls}
-      getPopupContainer={getPopupContainer || getContextPopupContainer}
-      transitionName={memoTransitionName}
-      trigger={triggerActions}
-      overlay={renderOverlay}
-      placement={memoPlacement}
-      onVisibleChange={onInnerOpenChange}
-    >
-      {dropdownTrigger}
-    </RcDropdown>,
+    <zIndexContext.Provider value={contextZIndex}>
+      <RcDropdown
+        alignPoint={alignPoint!}
+        {...omit(props, ['rootClassName'])}
+        mouseEnterDelay={mouseEnterDelay}
+        mouseLeaveDelay={mouseLeaveDelay}
+        visible={mergedOpen}
+        builtinPlacements={builtinPlacements}
+        arrow={!!arrow}
+        overlayClassName={overlayClassNameCustomized}
+        prefixCls={prefixCls}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
+        transitionName={memoTransitionName}
+        trigger={triggerActions}
+        overlay={renderOverlay}
+        placement={memoPlacement}
+        onVisibleChange={onInnerOpenChange}
+        overlayStyle={{
+          ...props.overlayStyle,
+          zIndex,
+        }}
+      >
+        {dropdownTrigger}
+      </RcDropdown>
+    </zIndexContext.Provider>,
   );
 };
 
