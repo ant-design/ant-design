@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
@@ -7,8 +7,9 @@ import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import { GroupMask } from '../Group';
-import ComponentsBlock from './ComponentsBlock';
 import useMouseTransform from './useMouseTransform';
+
+const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
 const locales = {
   cn: {
@@ -34,7 +35,7 @@ const useStyle = () => {
     const mask = cx(css`
       position: absolute;
       inset: 0;
-      backdrop-filter: blur(2.5px);
+      backdrop-filter: blur(4px);
       transition: all 1s ease;
     `);
 
@@ -48,6 +49,8 @@ const useStyle = () => {
         position: relative;
         overflow: hidden;
         perspective: 800px;
+        /* fix safari bug by removing blur style */
+        transform: translateZ(1000px);
         row-gap: ${token.marginXL}px;
 
         &:hover .${mask} {
@@ -129,7 +132,9 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+        <Suspense fallback={null}>
+          {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+        </Suspense>
         <div className={styles.mask} />
 
         <Typography className={styles.typography}>
