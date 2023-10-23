@@ -49,6 +49,8 @@ const useStyle = () => {
         position: relative;
         overflow: hidden;
         perspective: 800px;
+        /* fix safari bug by removing blur style */
+        transform: translateZ(1000px);
         row-gap: ${token.marginXL}px;
 
         &:hover .${mask} {
