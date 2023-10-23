@@ -84,9 +84,9 @@ exports[`site test Component components/drawer en Page 1`] = `1`;
 
 exports[`site test Component components/drawer zh Page 1`] = `1`;
 
-exports[`site test Component components/dropdown en Page 1`] = `2`;
+exports[`site test Component components/dropdown en Page 1`] = `1`;
 
-exports[`site test Component components/dropdown zh Page 1`] = `2`;
+exports[`site test Component components/dropdown zh Page 1`] = `1`;
 
 exports[`site test Component components/empty en Page 1`] = `1`;
 
