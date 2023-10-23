@@ -233,6 +233,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/clickable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -944,6 +946,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-dot"
@@ -1195,6 +1199,8 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx extend contex
 </div>
 `;
 
+exports[`renders components/steps/demo/customized-progress-dot.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -1275,13 +1281,14 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
               aria-hidden="true"
               data-icon="close"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
               />
             </svg>
           </span>
@@ -1339,6 +1346,8 @@ exports[`renders components/steps/demo/error.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/error.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
 <div
@@ -1534,6 +1543,8 @@ exports[`renders components/steps/demo/icon.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/icon.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] = `
 <div>
@@ -2384,6 +2395,8 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/steps/demo/inline.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/label-placement.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -2582,7 +2595,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              aria-valuenow="60"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -2592,36 +2606,36 @@ Array [
                 <svg
                   class="ant-progress-circle"
                   role="presentation"
-                  viewBox="-50 -50 100 100"
+                  viewBox="0 0 100 100"
                 >
                   <circle
                     class="ant-progress-circle-trail"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="1"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 122.63715789784806; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 122.63715789784806; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                 </svg>
                 <span
@@ -2814,6 +2828,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/steps/demo/label-placement.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/nav.tsx extend context correctly 1`] = `
 Array [
@@ -3276,6 +3292,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/nav.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/progress.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-with-progress"
@@ -3348,7 +3366,8 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
           class="ant-steps-progress-icon"
         >
           <div
-            class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+            aria-valuenow="60"
+            class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
             role="progressbar"
           >
             <div
@@ -3358,36 +3377,36 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
               <svg
                 class="ant-progress-circle"
                 role="presentation"
-                viewBox="-50 -50 100 100"
+                viewBox="0 0 100 100"
               >
                 <circle
                   class="ant-progress-circle-trail"
-                  cx="0"
-                  cy="0"
+                  cx="50"
+                  cy="50"
                   r="48"
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+                  style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
                 />
                 <circle
                   class="ant-progress-circle-path"
-                  cx="0"
-                  cy="0"
+                  cx="50"
+                  cy="50"
                   opacity="1"
                   r="48"
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 122.63715789784806; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                  style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 122.63715789784806; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                 />
                 <circle
                   class="ant-progress-circle-path"
-                  cx="0"
-                  cy="0"
+                  cx="50"
+                  cy="50"
                   opacity="0"
                   r="48"
                   stroke-linecap="round"
                   stroke-width="4"
-                  style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                  style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                 />
               </svg>
               <span
@@ -3460,6 +3479,8 @@ exports[`renders components/steps/demo/progress.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/progress.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/progress-debug.tsx extend context correctly 1`] = `
 Array [
@@ -3595,7 +3616,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              aria-valuenow="0"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3605,36 +3627,36 @@ Array [
                 <svg
                   class="ant-progress-circle"
                   role="presentation"
-                  viewBox="-50 -50 100 100"
+                  viewBox="0 0 100 100"
                 >
                   <circle
                     class="ant-progress-circle-trail"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                 </svg>
                 <span
@@ -3777,7 +3799,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              aria-valuenow="0"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3787,36 +3810,36 @@ Array [
                 <svg
                   class="ant-progress-circle"
                   role="presentation"
-                  viewBox="-50 -50 100 100"
+                  viewBox="0 0 100 100"
                 >
                   <circle
                     class="ant-progress-circle-trail"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                 </svg>
                 <span
@@ -3959,7 +3982,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              aria-valuenow="0"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -3969,36 +3993,36 @@ Array [
                 <svg
                   class="ant-progress-circle"
                   role="presentation"
-                  viewBox="-50 -50 100 100"
+                  viewBox="0 0 100 100"
                 >
                   <circle
                     class="ant-progress-circle-trail"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                 </svg>
                 <span
@@ -4141,7 +4165,8 @@ Array [
             class="ant-steps-progress-icon"
           >
             <div
-              class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info"
+              aria-valuenow="0"
+              class="ant-progress ant-progress-status-normal ant-progress-circle ant-progress-show-info"
               role="progressbar"
             >
               <div
@@ -4151,36 +4176,36 @@ Array [
                 <svg
                   class="ant-progress-circle"
                   role="presentation"
-                  viewBox="-50 -50 100 100"
+                  viewBox="0 0 100 100"
                 >
                   <circle
                     class="ant-progress-circle-trail"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                   <circle
                     class="ant-progress-circle-path"
-                    cx="0"
-                    cy="0"
+                    cx="50"
+                    cy="50"
                     opacity="0"
                     r="48"
                     stroke-linecap="round"
                     stroke-width="4"
-                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 0 0; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
+                    style="stroke: #52C41A; stroke-dasharray: 301.59289474462014px 301.59289474462014; stroke-dashoffset: 301.58289474462015; transform: rotate(-90deg); transform-origin: 50px 50px; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0; transition-duration: 0s, 0s;"
                   />
                 </svg>
                 <span
@@ -4254,6 +4279,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/steps/demo/progress-debug.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 1`] = `
 Array [
@@ -4560,6 +4587,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/progress-dot-small.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -4865,6 +4894,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/progress-dot-small.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -4998,6 +5029,8 @@ exports[`renders components/steps/demo/simple.tsx extend context correctly 1`] =
 </div>
 `;
 
+exports[`renders components/steps/demo/simple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/small-size.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
@@ -5109,6 +5142,8 @@ exports[`renders components/steps/demo/small-size.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/small-size.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/step-next.tsx extend context correctly 1`] = `
 Array [
@@ -5223,6 +5258,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/step-next.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -5233,7 +5270,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -5252,7 +5289,7 @@ Array [
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -5491,6 +5528,8 @@ Array [
 ]
 `;
 
+exports[`renders components/steps/demo/steps-in-steps.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical"
@@ -5618,6 +5657,8 @@ exports[`renders components/steps/demo/vertical.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/steps/demo/vertical.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/steps/demo/vertical-small.tsx extend context correctly 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-small"
@@ -5744,6 +5785,8 @@ exports[`renders components/steps/demo/vertical-small.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/vertical-small.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/steps/demo/wireframe.tsx extend context correctly 1`] = `
 <div
@@ -5877,3 +5920,5 @@ exports[`renders components/steps/demo/wireframe.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/steps/demo/wireframe.tsx extend context correctly 2`] = `[]`;

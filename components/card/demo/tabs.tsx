@@ -1,5 +1,5 @@
-import { Card } from 'antd';
 import React, { useState } from 'react';
+import { Card } from 'antd';
 
 const tabList = [
   {
@@ -20,15 +20,15 @@ const contentList: Record<string, React.ReactNode> = {
 const tabListNoTitle = [
   {
     key: 'article',
-    tab: 'article',
+    label: 'article',
   },
   {
     key: 'app',
-    tab: 'app',
+    label: 'app',
   },
   {
     key: 'project',
-    tab: 'project',
+    label: 'project',
   },
 ];
 
@@ -69,6 +69,9 @@ const App: React.FC = () => {
         activeTabKey={activeTabKey2}
         tabBarExtraContent={<a href="#">More</a>}
         onTabChange={onTab2Change}
+        tabProps={{
+          size: 'middle',
+        }}
       >
         {contentListNoTitle[activeTabKey2]}
       </Card>

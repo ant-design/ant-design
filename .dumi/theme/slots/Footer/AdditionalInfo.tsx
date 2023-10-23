@@ -45,10 +45,8 @@ export default function InfoNewVersion() {
     const { content } = getComputedStyle(p);
     setSupportWhere(String(content).includes('CHECK'));
 
-    return () => {
-      document.body.removeChild(p);
-      removeCSS(whereCls);
-    };
+    document.body.removeChild(p);
+    removeCSS(whereCls);
   }, []);
 
   return supportWhere ? null : (

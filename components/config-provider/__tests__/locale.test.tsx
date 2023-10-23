@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
 import ConfigProvider from '..';
+import { act, fireEvent, render } from '../../../tests/utils';
 import DatePicker from '../../date-picker';
+import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
 import type { Locale } from '../../locale';
 import LocaleProvider from '../../locale';
 import enUS from '../../locale/en_US';
@@ -9,7 +10,6 @@ import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
 import TimePicker from '../../time-picker';
-import { act, render, fireEvent } from '../../../tests/utils';
 
 describe('ConfigProvider.Locale', () => {
   function $$(selector: string): NodeListOf<Element> {

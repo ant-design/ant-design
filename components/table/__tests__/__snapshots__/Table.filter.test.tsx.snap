@@ -574,7 +574,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           class="ant-checkbox-wrapper"
         >
           <span
-            class="ant-checkbox"
+            class="ant-checkbox ant-wave-target"
           >
             <input
               class="ant-checkbox-input"
@@ -603,7 +603,7 @@ exports[`Table.filter renders menu correctly 1`] = `
           class="ant-checkbox-wrapper"
         >
           <span
-            class="ant-checkbox"
+            class="ant-checkbox ant-wave-target"
           >
             <input
               class="ant-checkbox-input"
@@ -714,7 +714,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           class="ant-radio-wrapper"
         >
           <span
-            class="ant-radio"
+            class="ant-radio ant-wave-target"
           >
             <input
               class="ant-radio-input"
@@ -743,7 +743,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
           class="ant-radio-wrapper"
         >
           <span
-            class="ant-radio"
+            class="ant-radio ant-wave-target"
           >
             <input
               class="ant-radio-input"

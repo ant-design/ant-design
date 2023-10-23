@@ -128,7 +128,7 @@ title: 数据列表
 ### 批量操作
 
 <ImagePreview>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i6PJT6ArtcgAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" src="https://github.com/ant-design/ant-design/assets/10286961/0ed9e155-488b-4114-a3ea-9c9de78d7899">
 </ImagePreview>
 
 当用户勾选条目后，触发批量操作模式，列表工具栏呼出批量操作工具条。

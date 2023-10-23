@@ -2,11 +2,31 @@ import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import getArrowStyle from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
+import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
-  zIndexPopup: number;
+  /**
+   * @deprecated Please use `titleMinWidth` instead
+   * @desc 气泡卡片宽度
+   * @descEN Width of Popover
+   */
   width: number;
+  /**
+   * @deprecated Please use `titleMinWidth` instead
+   * @desc 气泡卡片最小宽度
+   * @descEN Min width of Popover
+   */
+  minWidth: number;
+  /**
+   * @desc 气泡卡片标题最小宽度
+   * @descEN Min width of Popover title
+   */
+  titleMinWidth: number;
+  /**
+   * @desc 气泡卡片 z-index
+   * @descEN z-index of Popover
+   */
+  zIndexPopup: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
@@ -18,9 +38,8 @@ export type PopoverToken = FullToken<'Popover'> & {
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
-    popoverBg,
     popoverColor,
-    width,
+    titleMinWidth,
     fontWeightStrong,
     popoverPadding,
     boxShadowSecondary,
@@ -29,6 +48,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     zIndexPopup,
     marginXS,
     colorBgElevated,
+    popoverBg,
   } = token;
 
   return [
@@ -48,6 +68,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
+        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
         '--antd-arrow-background-color': colorBgElevated,
 
         '&-rtl': {
@@ -71,7 +92,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         },
 
         [`${componentCls}-title`]: {
-          minWidth: width,
+          minWidth: titleMinWidth,
           marginBottom: marginXS,
           color: colorTextHeading,
           fontWeight: fontWeightStrong,
@@ -168,9 +189,9 @@ export default genComponentStyleHook(
     const { colorBgElevated, colorText, wireframe } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
+      popoverPadding: 12, // Fixed Value
       popoverBg: colorBgElevated,
       popoverColor: colorText,
-      popoverPadding: 12, // Fixed Value
     });
 
     return [
@@ -180,8 +201,17 @@ export default genComponentStyleHook(
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
-  ({ zIndexPopupBase }) => ({
-    zIndexPopup: zIndexPopupBase + 30,
+  (token) => ({
     width: 177,
+    minWidth: 177,
+    titleMinWidth: 177,
+    zIndexPopup: token.zIndexPopupBase + 30,
   }),
+  {
+    resetStyle: false,
+    deprecatedTokens: [
+      ['width', 'titleMinWidth'],
+      ['minWidth', 'titleMinWidth'],
+    ],
+  },
 );

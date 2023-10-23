@@ -36,8 +36,8 @@ describe('Notification.placement', () => {
     await triggerMotionEnd();
 
     notification.config({
-      prefixCls: null,
-      getContainer: null,
+      prefixCls: undefined,
+      getContainer: undefined,
     });
 
     jest.useRealTimers();
@@ -152,7 +152,7 @@ describe('Notification.placement', () => {
       act(() => {
         jest.runAllTimers();
       });
-      document.querySelectorAll('.ant-notification-notice').forEach((ele) => {
+      document.querySelectorAll('.ant-notification-notice-wrapper').forEach((ele) => {
         fireEvent.animationEnd(ele);
       });
       expect($container.querySelector('.ant-notification')).toBeFalsy();

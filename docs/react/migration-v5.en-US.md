@@ -1,5 +1,8 @@
 ---
-order: 8
+group:
+  title: Migration
+  order: 2
+order: 0
 title: V4 to V5
 ---
 
@@ -14,7 +17,7 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 ### Design specification
 
 - Basic rounded corner adjustment, changed from `2px` to four layers of radius, which are `2px` `4px` `6px` and `8px`. For example, radius of default Button is modified from `2px` to `6px`.
-- Primary color adjustment, changed from <ColorChunk color="#1890ff" /></ColorChunk> to <ColorChunk color="#1677ff" /></ColorChunk>.
+- Primary color adjustment, changed from `#1890ff` to `#1677ff`.
 - Global shadow optimization, adjusted from three layers of shadows to two layers, which are used in common components (Card .e.g) and popup components (Dropdown .e.g).
 - Overall reduction in wireframe usage.
 
@@ -196,8 +199,8 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js
-const { theme } = require('antd/lib');
 const { convertLegacyToken } = require('@ant-design/compatible/lib');
+const { theme } = require('antd/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
@@ -216,7 +219,7 @@ module.exports = {
 };
 ```
 
-Ant then remove antd less reference in your less file:
+And then remove antd less reference in your less file:
 
 ```diff
 // Your less file
@@ -277,9 +280,94 @@ module.exports = {
 };
 ```
 
+### Switch to theme of v4 <Badge>Updated</Badge>
+
+If you don't want the style to change after upgrade, we have provided a v4 theme in `@ant-design/compatible` that can restore v4 style.
+
+````diff
+
+```sandpack
+const sandpackConfig = {
+  dependencies: {
+    '@ant-design/compatible': 'v5-compatible-v4',
+  },
+};
+
+import {
+  defaultTheme,   // Default theme
+  darkTheme,      // Dark theme
+} from '@ant-design/compatible';
+import { ConfigProvider, Button, Radio, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={defaultTheme}>
+    <Space direction="vertical">
+      <Button type="primary">Button</Button>
+      <Radio.Group>
+        <Radio value={1}>A</Radio>
+        <Radio value={2}>B</Radio>
+        <Radio value={3}>C</Radio>
+        <Radio value={4}>D</Radio>
+      </Radio.Group>
+    </Space>
+  </ConfigProvider>
+);
+````
+
 ### Legacy browser support
 
 Ant Design v5 using `:where` css selector to reduce CSS-in-JS hash priority. You can use `@ant-design/cssinjs` `StyleProvider` to cancel this function. Please ref [Compatible adjustment](/docs/react/customize-theme#compatible-adjustment).
+
+## Multiple versions coexist
+
+We do not recommend multiple versions coexist, it will make the application more complex (such as style override, ConfigProvider not reused, etc.). It's better to use micro-applications such as [qiankun](https://qiankun.umijs.org/) for page level development.
+
+### Install v5 through alias
+
+```bash
+$ npm install --save antd-v5@npm:antd@5
+# or
+$ yarn add antd-v5@npm:antd@5
+# or
+$ pnpm add antd-v5@npm:antd@5
+```
+
+The package.json will be:
+
+```json
+{
+  "antd": "4.x",
+  "antd-v5": "npm:antd@5"
+}
+```
+
+Now, antd in your project is still v4, and antd-v5 is v5.
+
+```tsx
+import React from 'react';
+import { Button as Button4 } from 'antd'; // v4
+import { Button as Button5 } from 'antd-v5'; // v5
+
+export default () => (
+  <>
+    <Button4 />
+    <Button5 />
+  </>
+);
+```
+
+Then config `prefixCls` of ConfigProvider to avoid style conflict:
+
+```tsx
+import React from 'react';
+import { ConfigProvider as ConfigProvider5 } from 'antd-v5';
+
+export default () => (
+  <ConfigProvider5 prefixCls="ant5">
+    <MyApp />
+  </ConfigProvider5>
+);
+```
 
 ## Encounter problems
 

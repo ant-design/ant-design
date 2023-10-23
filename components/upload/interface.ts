@@ -1,22 +1,23 @@
+import type * as React from 'react';
 import type {
   RcFile as OriRcFile,
-  UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
+  UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
-import type * as React from 'react';
-import type { ProgressProps } from '../progress';
+
+import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
 }
 
-export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
+export type UploadFileStatus = 'error' | 'done' | 'uploading' | 'removed';
 
 export interface HttpRequestHeader {
   [key: string]: string;
 }
 
-export interface UploadFile<T = any> {
+export interface UploadFile<T = any> extends ProgressAriaProps {
   uid: string;
   size?: number;
   name: string;
@@ -109,6 +110,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
+  rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
   onRemove?: (file: UploadFile<T>) => void | boolean | Promise<void | boolean>;

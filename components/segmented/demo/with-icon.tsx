@@ -1,6 +1,6 @@
 import React from 'react';
-import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
+import { Segmented } from 'antd';
 
 export default () => (
   <Segmented

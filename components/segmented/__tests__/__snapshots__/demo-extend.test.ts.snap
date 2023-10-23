@@ -82,6 +82,8 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/segmented/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/block.tsx extend context correctly 1`] = `
 <div
   class="ant-segmented ant-segmented-block"
@@ -136,6 +138,92 @@ exports[`renders components/segmented/demo/block.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/segmented/demo/block.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 1`] = `
+<div
+  class="ant-segmented"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Weekly"
+      >
+        Weekly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Quarterly"
+      >
+        Quarterly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="Yearly"
+      >
+        Yearly
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`renders components/segmented/demo/componentToken.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/controlled.tsx extend context correctly 1`] = `
 <div
   class="ant-segmented"
@@ -189,6 +277,8 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/segmented/demo/controlled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/controlled-two.tsx extend context correctly 1`] = `
 Array [
@@ -298,13 +388,14 @@ Array [
 ]
 `;
 
+exports[`renders components/segmented/demo/controlled-two.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -519,13 +610,14 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
 </div>
 `;
 
+exports[`renders components/segmented/demo/custom.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-disabled"
@@ -670,13 +762,14 @@ exports[`renders components/segmented/demo/disabled.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/segmented/demo/disabled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -744,6 +837,8 @@ exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 
   </div>
 </div>
 `;
+
+exports[`renders components/segmented/demo/dynamic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/icon-only.tsx extend context correctly 1`] = `
 <div
@@ -827,13 +922,14 @@ exports[`renders components/segmented/demo/icon-only.tsx extend context correctl
 </div>
 `;
 
+exports[`renders components/segmented/demo/icon-only.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented ant-segmented-lg"
@@ -917,7 +1013,6 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-segmented"
@@ -1085,13 +1180,14 @@ exports[`renders components/segmented/demo/size.tsx extend context correctly 1`]
 </div>
 `;
 
+exports[`renders components/segmented/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div>
       <div
@@ -1158,7 +1254,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div>
       <div
@@ -1289,7 +1384,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
             class="ant-select-selection-search"
           >
             <input
-              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
@@ -1400,6 +1494,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
 </div>
 `;
 
+exports[`renders components/segmented/demo/size-consistent.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/segmented/demo/with-icon.tsx extend context correctly 1`] = `
 <div
   class="ant-segmented"
@@ -1487,3 +1583,5 @@ exports[`renders components/segmented/demo/with-icon.tsx extend context correctl
   </div>
 </div>
 `;
+
+exports[`renders components/segmented/demo/with-icon.tsx extend context correctly 2`] = `[]`;

@@ -1,5 +1,7 @@
 ---
-order: 11
+group:
+  title: Other
+order: 2
 title: FAQ
 ---
 
@@ -113,7 +115,7 @@ If you need some features which should not be included in antd, try to extend an
 
 ## How to get the definition which is not export?
 
-antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取： antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
 
 ```tsx
 import { Table } from 'antd';
@@ -155,7 +157,7 @@ In a real world development, you may need a `YearPicker`, `MonthRangePicker` or 
 
 Like [the explanation](https://github.com/ant-design/ant-design/issues/11586#issuecomment-429189877) explains, this is because `<DatePicker mode="year" />` does not equal the `YearPicker`, nor is `<RangePicker mode="month" />` equal to `MonthRangePicker`. The `mode` property was added to support [showing time picker panel in DatePicker](https://github.com/ant-design/ant-design/issues/5190) in antd 3.0, which simply controls the displayed panel, and won't change the original date picking behavior of `DatePicker`/`RangePicker` (for instance you will still need to click date cell to finish selection in a `DatePicker`, whatever the `mode` is).
 
-Likewise，`disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
+Likewise, `disabledDate` [cannot work on year/month panels](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118) of `<DatePicker mode="year/month" />`, but only on cells of date panel.
 
 ### Workaround
 
@@ -169,13 +171,7 @@ Static methods like message/notification/Modal.confirm are not using the same re
 
 1. Replace original usages with [message.useMessage](/components/message/#components-message-demo-hooks), [notification.useNotification](/components/notification/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-notification) and [Modal.useModal](/components/modal/#why-i-can-not-access-context-redux-configprovider-localeprefixcls-in-modalxxx).
 
-2. Use `ConfigProvider.config` to config `prefixCls` globally.
-
-```js
-ConfigProvider.config({
-  prefixCls: 'ant',
-});
-```
+2. Use [App.useApp](/components/app-cn#%E5%9F%BA%E7%A1%80%E7%94%A8%E6%B3%95) to get message/notification/modal instance.
 
 ## Why shouldn't I use component internal props or state with ref?
 
@@ -189,7 +185,7 @@ For historical reasons, the display names of the pop components are not uniform,
 
 ## Dynamic style using `:where` selector which not support old browser.
 
-Please ref dynamic theme document [Compatible Adjustment](/docs/react/customize-theme#compatible-adjustment) part.
+Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/compatible-style) part.
 
 ## How to disable motion?
 
@@ -209,11 +205,15 @@ Same as above. You can adjust antd css priority to override. Related issue: [#38
 
 ## How to let CSS-in-JS work with shadow DOM?
 
-Please ref document [Shadow Dom Usage](/docs/react/customize-theme#shadow-dom-usage).
+Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
 
 ## How to support SSR？
 
-Please ref dynamic theme document [SSR](/docs/react/customize-theme#server-side-render-ssr) part.
+Please ref dynamic theme document [SSR](/docs/react/server-side-rendering) part.
+
+## What is the relationship between colorPrimary and colorInfo and colorLink in V5?
+
+In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed Token](../react/customize-theme.en-US.md#seed-token), so they are independent of each other. `colorLink` is an [Alias Token](../react/customize-theme.en-US.md#alias-token), inherits `colorInfo` by default, and is independent of `colorPrimary`.
 
 ## How to spell Ant Design correctly?
 
@@ -234,3 +234,61 @@ Here are some typical wrong examples:
 ## Do you guys have any channel or website for submitting monetary donations, like through PayPal or Alipay?
 
 [https://opencollective.com/ant-design](https://opencollective.com/ant-design)
+
+## Use Form's `setFieldsValue` method to report an error if the object type contains `null`
+
+When we try to set the form value using the `setFieldsValue` method in the form instance of the form component, if the passed object contains the type null, such as:
+
+```tsx
+// This is not real world code, just for explain
+import { Form } from 'antd';
+
+type Test = {
+  value: string[] | null;
+};
+
+export default () => {
+  const [form] = Form.useForm<Test>();
+
+  form.setFieldsValue({
+    value: null, // Error: Type "null" cannot be assigned to type "string[] | undefined".
+  });
+};
+```
+
+If you encounter the above error, please check the current project `tsconfig.json` contains the following configuration:
+
+```json
+{
+  "strictNullChecks": true
+}
+```
+
+The above problem occurs if `strictNullChecks` is set to `true`, If you can determine the project don't need this configuration (see [strictNullChecks](https://www.typescriptlang.org/zh/tsconfig#strictNullChecks) to judge whether need the configuration). You can try changing to `false` to turn off the control strict check. However, if you do need to enable this feature, you can avoid this situation by using other types instead of `null` when defining types
+
+## The antd component reported an error when using the App Router of Next.js
+
+If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, etc., you may get the following error:
+
+```bash
+Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
+```
+
+At present, this problem is waiting for Next.js to give an official solution, before this, if you use sub-components in your page, you can try to add the following client tag at the top of the page to solve this problem:
+
+```tsx
+'use client';
+
+// This is not real world code, just for explain
+export default () => {
+  return (
+    <div className="App">
+      <Form>
+        <Form.Item>
+          <Button type="primary">Button</Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+```

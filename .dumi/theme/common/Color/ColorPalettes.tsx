@@ -1,4 +1,4 @@
-import classnames from 'classnames';
+import classNames from 'classnames';
 import React from 'react';
 import Palette from './Palette';
 
@@ -80,7 +80,7 @@ const colors = [
 const ColorPalettes: React.FC<{ dark?: boolean }> = (props) => {
   const { dark } = props;
   return (
-    <div className={classnames('color-palettes', { 'color-palettes-dark': dark })}>
+    <div className={classNames('color-palettes', { 'color-palettes-dark': dark })}>
       {colors.map((color) => (
         <Palette key={color.name} color={color} dark={dark} showTitle />
       ))}

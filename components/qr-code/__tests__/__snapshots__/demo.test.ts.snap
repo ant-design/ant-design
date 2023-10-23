@@ -1,0 +1,436 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
+<img
+  alt="icon"
+  height="100"
+  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+  width="100"
+/>
+`;
+
+exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:transparent"
+    >
+      <canvas
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <input
+      class="ant-input"
+      maxlength="60"
+      placeholder="-"
+      type="text"
+      value="https://ant.design/"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:transparent"
+    >
+      <canvas
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:#f5f5f5"
+    >
+      <canvas
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/qr-code/demo/customSize.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-btn-group"
+    style="margin-bottom:16px"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="minus"
+          class="anticon anticon-minus"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="minus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Smaller
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span
+        class="ant-btn-icon"
+      >
+        <span
+          aria-label="plus"
+          class="anticon anticon-plus"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="plus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+            />
+            <path
+              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Larger
+      </span>
+    </button>
+  </div>,
+  <div
+    class="ant-qrcode"
+    style="width:160px;height:160px;background-color:transparent"
+  >
+    <canvas
+      height="134"
+      style="height:134px;width:134px"
+      width="134"
+    />
+    <img
+      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      style="display:none"
+    />
+  </div>,
+]
+`;
+
+exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
+<div
+  id="myqrcode"
+>
+  <div
+    class="ant-qrcode"
+    style="margin-bottom:16px;width:160px;height:160px;background-color:#fff"
+  >
+    <canvas
+      height="134"
+      style="height:134px;width:134px"
+      width="134"
+    />
+  </div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Download
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/qr-code/demo/errorlevel.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-qrcode"
+    style="margin-bottom:16px;width:160px;height:160px;background-color:transparent"
+  >
+    <canvas
+      height="134"
+      style="height:134px;width:134px"
+      width="134"
+    />
+  </div>,
+  <div
+    class="ant-segmented"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="L"
+        >
+          L
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="M"
+        >
+          M
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="Q"
+        >
+          Q
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+          title="H"
+        >
+          H
+        </div>
+      </label>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
+<div
+  class="ant-qrcode"
+  style="width:160px;height:160px;background-color:transparent"
+>
+  <canvas
+    height="134"
+    style="height:134px;width:134px"
+    width="134"
+  />
+  <img
+    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    style="display:none"
+  />
+</div>
+`;
+
+exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap:wrap"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:transparent"
+    >
+      <div
+        class="ant-qrcode-mask"
+      >
+        <div
+          aria-busy="true"
+          aria-live="polite"
+          class="ant-spin ant-spin-spinning"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </div>
+      </div>
+      <canvas
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:transparent"
+    >
+      <div
+        class="ant-qrcode-mask"
+      >
+        <p
+          class="ant-qrcode-expired"
+        >
+          QR code expired
+        </p>
+        <button
+          class="ant-btn ant-btn-link"
+          type="button"
+        >
+          <span
+            class="ant-btn-icon"
+          >
+            <span
+              aria-label="reload"
+              class="anticon anticon-reload"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="reload"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.1 209.3l-56.4 44.1C775.8 155.1 656.2 92 521.9 92 290 92 102.3 279.5 102 511.5 101.7 743.7 289.8 932 521.9 932c181.3 0 335.8-115 394.6-276.1 1.5-4.2-.7-8.9-4.9-10.3l-56.7-19.5a8 8 0 00-10.1 4.8c-1.8 5-3.8 10-5.9 14.9-17.3 41-42.1 77.8-73.7 109.4A344.77 344.77 0 01655.9 829c-42.3 17.9-87.4 27-133.8 27-46.5 0-91.5-9.1-133.8-27A341.5 341.5 0 01279 755.2a342.16 342.16 0 01-73.7-109.4c-17.9-42.4-27-87.4-27-133.9s9.1-91.5 27-133.9c17.3-41 42.1-77.8 73.7-109.4 31.6-31.6 68.4-56.4 109.3-73.8 42.3-17.9 87.4-27 133.8-27 46.5 0 91.5 9.1 133.8 27a341.5 341.5 0 01109.3 73.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.6 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c-.1-6.6-7.8-10.3-13-6.2z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span>
+            Refresh
+          </span>
+        </button>
+      </div>
+      <canvas
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:transparent"
+    >
+      <canvas
+        height="134"
+        style="height:134px;width:134px"
+        width="134"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-qrcode"
+      style="width:160px;height:160px;background-color:transparent"
+    >
+      <svg
+        height="134"
+        viewBox="0 0 25 25"
+        width="134"
+      >
+        <path
+          d="M0,0 h25v25H0z"
+          fill="transparent"
+          shape-rendering="crispEdges"
+        />
+        <path
+          d="M0 0h7v1H0zM8 0h2v1H8zM11 0h5v1H11zM18,0 h7v1H18zM0 1h1v1H0zM6 1h1v1H6zM10 1h6v1H10zM18 1h1v1H18zM24,1 h1v1H24zM0 2h1v1H0zM2 2h3v1H2zM6 2h1v1H6zM8 2h1v1H8zM10 2h1v1H10zM12 2h1v1H12zM15 2h1v1H15zM18 2h1v1H18zM20 2h3v1H20zM24,2 h1v1H24zM0 3h1v1H0zM2 3h3v1H2zM6 3h1v1H6zM8 3h2v1H8zM15 3h1v1H15zM18 3h1v1H18zM20 3h3v1H20zM24,3 h1v1H24zM0 4h1v1H0zM2 4h3v1H2zM6 4h1v1H6zM10 4h1v1H10zM12 4h1v1H12zM14 4h3v1H14zM18 4h1v1H18zM20 4h3v1H20zM24,4 h1v1H24zM0 5h1v1H0zM6 5h1v1H6zM8 5h1v1H8zM11 5h1v1H11zM15 5h2v1H15zM18 5h1v1H18zM24,5 h1v1H24zM0 6h7v1H0zM8 6h1v1H8zM10 6h1v1H10zM12 6h1v1H12zM14 6h1v1H14zM16 6h1v1H16zM18,6 h7v1H18zM8 7h1v1H8zM14 7h3v1H14zM1 8h1v1H1zM3 8h1v1H3zM5 8h8v1H5zM15 8h5v1H15zM21 8h2v1H21zM24,8 h1v1H24zM0 9h3v1H0zM7 9h1v1H7zM9 9h2v1H9zM16 9h3v1H16zM24,9 h1v1H24zM4 10h1v1H4zM6 10h2v1H6zM16 10h2v1H16zM20 10h1v1H20zM23,10 h2v1H23zM0 11h1v1H0zM2 11h2v1H2zM8 11h1v1H8zM11 11h2v1H11zM14 11h1v1H14zM18 11h3v1H18zM0 12h2v1H0zM4 12h4v1H4zM10 12h3v1H10zM17 12h2v1H17zM21 12h1v1H21zM23,12 h2v1H23zM1 13h2v1H1zM5 13h1v1H5zM7 13h1v1H7zM9 13h1v1H9zM11 13h1v1H11zM18 13h2v1H18zM21 13h2v1H21zM24,13 h1v1H24zM0 14h1v1H0zM2 14h2v1H2zM6 14h2v1H6zM9 14h1v1H9zM11 14h1v1H11zM18 14h3v1H18zM22 14h1v1H22zM24,14 h1v1H24zM1 15h1v1H1zM3 15h3v1H3zM7 15h1v1H7zM9 15h2v1H9zM13 15h1v1H13zM15 15h3v1H15zM20 15h1v1H20zM23 15h1v1H23zM0 16h3v1H0zM4 16h1v1H4zM6 16h1v1H6zM9 16h1v1H9zM12 16h1v1H12zM14 16h1v1H14zM16 16h7v1H16zM8 17h1v1H8zM10 17h1v1H10zM12 17h5v1H12zM20 17h2v1H20zM24,17 h1v1H24zM0 18h7v1H0zM8 18h3v1H8zM14 18h3v1H14zM18 18h1v1H18zM20 18h2v1H20zM23,18 h2v1H23zM0 19h1v1H0zM6 19h1v1H6zM8 19h2v1H8zM13 19h1v1H13zM16 19h1v1H16zM20 19h3v1H20zM24,19 h1v1H24zM0 20h1v1H0zM2 20h3v1H2zM6 20h1v1H6zM9 20h1v1H9zM11 20h3v1H11zM16 20h6v1H16zM23,20 h2v1H23zM0 21h1v1H0zM2 21h3v1H2zM6 21h1v1H6zM8 21h2v1H8zM11 21h1v1H11zM15 21h1v1H15zM17 21h1v1H17zM19 21h4v1H19zM0 22h1v1H0zM2 22h3v1H2zM6 22h1v1H6zM9 22h5v1H9zM15 22h1v1H15zM19 22h2v1H19zM22 22h1v1H22zM24,22 h1v1H24zM0 23h1v1H0zM6 23h1v1H6zM8 23h1v1H8zM10 23h1v1H10zM13 23h1v1H13zM15 23h4v1H15zM21 23h1v1H21zM0 24h7v1H0zM14 24h3v1H14zM19 24h1v1H19zM23,24 h2v1H23z"
+          fill="rgba(0, 0, 0, 0.88)"
+          shape-rendering="crispEdges"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;

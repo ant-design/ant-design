@@ -1,28 +1,27 @@
+import React, { forwardRef, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React, { useContext, useMemo } from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
-import Content from './FloatButtonContent';
 import FloatButtonGroupContext from './context';
+import Content from './FloatButtonContent';
 import type {
   CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonProps,
+  FloatButtonRef,
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton: React.ForwardRefRenderFunction<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
-> = (props, ref) => {
+const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -65,49 +64,49 @@ const FloatButton: React.ForwardRefRenderFunction<
     [prefixCls, description, icon, type],
   );
 
-  const buttonNode: React.ReactNode = (
-    <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
-      <Badge {...badgeProps}>
-        <div className={`${prefixCls}-body`}>
-          <Content {...contentProps} />
-        </div>
-      </Badge>
-    </Tooltip>
+  let buttonNode = (
+    <div className={`${prefixCls}-body`}>
+      <Content {...contentProps} />
+    </div>
   );
 
+  if ('badge' in props) {
+    buttonNode = <Badge {...badgeProps}>{buttonNode}</Badge>;
+  }
+
+  if ('tooltip' in props) {
+    buttonNode = (
+      <Tooltip title={tooltip} placement={direction === 'rtl' ? 'right' : 'left'}>
+        {buttonNode}
+      </Tooltip>
+    );
+  }
+
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('FloatButton');
+
     warning(
       !(shape === 'circle' && description),
-      'FloatButton',
+      'usage',
       'supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
   }
 
   return wrapSSR(
     props.href ? (
-      <a ref={ref as React.LegacyRef<HTMLAnchorElement>} {...restProps} className={classString}>
+      <a ref={ref} {...restProps} className={classString}>
         {buttonNode}
       </a>
     ) : (
-      <button
-        ref={ref as React.LegacyRef<HTMLButtonElement>}
-        {...restProps}
-        className={classString}
-        type="button"
-      >
+      <button ref={ref} {...restProps} className={classString} type="button">
         {buttonNode}
       </button>
     ),
   );
-};
+}) as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   FloatButton.displayName = 'FloatButton';
 }
 
-const ForwardFloatButton = React.forwardRef<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
->(FloatButton) as CompoundedComponent;
-
-export default ForwardFloatButton;
+export default FloatButton;

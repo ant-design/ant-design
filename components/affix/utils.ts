@@ -1,6 +1,3 @@
-import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import type { InternalAffixClass } from '.';
-
 export type BindElement = HTMLElement | Window | null | undefined;
 
 export function getTargetRect(target: BindElement): DOMRect {
@@ -26,81 +23,4 @@ export function getFixedBottom(
     return offsetBottom + targetBottomOffset;
   }
   return undefined;
-}
-
-// ======================== Observer ========================
-const TRIGGER_EVENTS = [
-  'resize',
-  'scroll',
-  'touchstart',
-  'touchmove',
-  'touchend',
-  'pageshow',
-  'load',
-];
-
-interface ObserverEntity {
-  target: HTMLElement | Window;
-  affixList: any[];
-  eventHandlers: { [eventName: string]: any };
-}
-
-let observerEntities: ObserverEntity[] = [];
-
-export function getObserverEntities() {
-  // Only used in test env. Can be removed if refactor.
-  return observerEntities;
-}
-
-export function addObserveTarget<T extends InternalAffixClass>(
-  target: HTMLElement | Window | null,
-  affix?: T,
-): void {
-  if (!target) {
-    return;
-  }
-
-  let entity = observerEntities.find((item) => item.target === target);
-
-  if (entity) {
-    entity.affixList.push(affix);
-  } else {
-    entity = {
-      target,
-      affixList: [affix],
-      eventHandlers: {},
-    };
-    observerEntities.push(entity);
-
-    // Add listener
-    TRIGGER_EVENTS.forEach((eventName) => {
-      entity!.eventHandlers[eventName] = addEventListener(target, eventName, () => {
-        entity!.affixList.forEach((targetAffix) => {
-          targetAffix.lazyUpdatePosition();
-        });
-      });
-    });
-  }
-}
-
-export function removeObserveTarget<T extends InternalAffixClass>(affix: T): void {
-  const observerEntity = observerEntities.find((oriObserverEntity) => {
-    const hasAffix = oriObserverEntity.affixList.some((item) => item === affix);
-    if (hasAffix) {
-      oriObserverEntity.affixList = oriObserverEntity.affixList.filter((item) => item !== affix);
-    }
-    return hasAffix;
-  });
-
-  if (observerEntity && observerEntity.affixList.length === 0) {
-    observerEntities = observerEntities.filter((item) => item !== observerEntity);
-
-    // Remove listener
-    TRIGGER_EVENTS.forEach((eventName) => {
-      const handler = observerEntity.eventHandlers[eventName];
-      if (handler && handler.remove) {
-        handler.remove();
-      }
-    });
-  }
 }

@@ -1,8 +1,8 @@
-import { ColorPicker, Space, theme } from 'antd';
-import type { Color } from 'antd/es/color-picker';
 import React, { useMemo, useState } from 'react';
+import { Button, ColorPicker, theme } from 'antd';
+import type { Color } from 'antd/es/color-picker';
 
-export default () => {
+const Demo: React.FC = () => {
   const { token } = theme.useToken();
   const [color, setColor] = useState<Color | string>(token.colorPrimary);
 
@@ -11,19 +11,17 @@ export default () => {
     [color],
   );
 
+  const btnStyle: React.CSSProperties = {
+    backgroundColor: bgColor,
+  };
+
   return (
     <ColorPicker value={color} onChange={setColor}>
-      <Space>
-        <div
-          style={{
-            width: token.sizeMD,
-            height: token.sizeMD,
-            borderRadius: token.borderRadiusSM,
-            backgroundColor: bgColor,
-          }}
-        />
-        <span>{bgColor}</span>
-      </Space>
+      <Button type="primary" style={btnStyle}>
+        open
+      </Button>
     </ColorPicker>
   );
 };
+
+export default Demo;

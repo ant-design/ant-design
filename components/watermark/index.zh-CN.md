@@ -1,12 +1,13 @@
 ---
 category: Components
 subtitle: 水印
-group: 其他
+group: 反馈
 title: Watermark
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 1
+tag: New
 ---
 
 给页面的某个区域加上水印。
@@ -23,8 +24,11 @@ demo:
 <code src="./demo/multi-line.tsx">多行水印</code>
 <code src="./demo/image.tsx">图片水印</code>
 <code src="./demo/custom.tsx">自定义配置</code>
+<code src="./demo/portal.tsx">Modal 与 Drawer</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Watermark
 
@@ -32,6 +36,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | width | 水印的宽度，`content` 的默认值为自身的宽度 | number | 120 |  |
 | height | 水印的高度，`content` 的默认值为自身的高度 | number | 64 |  |
+| inherit | 是否将水印传导给弹出组件如 Modal、Drawer | boolean | true | 5.11.0 |
 | rotate | 水印绘制时，旋转的角度，单位 `°` | number | -22 |  |
 | zIndex | 追加的水印元素的 z-index | number | 9 |  |
 | image | 图片源，建议导出 2 倍或 3 倍图，优先级高 (支持 base64 格式) | string | - |  |
@@ -45,13 +50,14 @@ demo:
 <!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| color | 字体颜色 | string | rgba(0,0,0,.15) |  |
+| color | 字体颜色 | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) |  |
 | fontSize | 字体大小 | number | 16 |  |
 | fontWeight | 字体粗细 | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | 字体类型 | string | sans-serif |  |
 | fontStyle | 字体样式 | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+| textAlign | 指定文本对齐方向  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | 5.10.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Watermark"></ComponentTokenTable>
 

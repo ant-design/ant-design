@@ -73,8 +73,7 @@ describe('Popconfirm', () => {
     expect(popconfirm.container.querySelector('.ant-popover')?.className).toContain(
       'ant-popover-placement-top',
     );
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
-    expect(popconfirm.container.querySelector('.ant-popover')?.innerHTML).toMatchSnapshot();
+    expect(popconfirm.container.querySelector('.ant-popover')).toMatchSnapshot();
   });
 
   it('shows content for render functions', async () => {
@@ -300,5 +299,27 @@ describe('Popconfirm', () => {
     await waitFakeTimer();
     fireEvent.click(popconfirm.container.querySelector('.ant-popover-inner-content')!);
     expect(onPopupClick).toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42314
+  it('legacy onVisibleChange should only trigger once', async () => {
+    const onOpenChange = jest.fn();
+    const onVisibleChange = jest.fn();
+
+    const { container } = render(
+      <Popconfirm
+        title="will unmount"
+        onOpenChange={onOpenChange}
+        onVisibleChange={onVisibleChange}
+      >
+        <span className="target" />
+      </Popconfirm>,
+    );
+
+    fireEvent.click(container.querySelector('.target')!);
+    await waitFakeTimer();
+
+    expect(onOpenChange).toHaveBeenCalledTimes(1);
+    expect(onVisibleChange).toHaveBeenCalledTimes(1);
   });
 });

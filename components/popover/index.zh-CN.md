@@ -28,8 +28,11 @@ demo:
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数    | 说明     | 类型                         | 默认值 | 版本 |
 | ------- | -------- | ---------------------------- | ------ | ---- |
@@ -42,6 +45,10 @@ demo:
 
 请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Popover"></ComponentTokenTable>
+
+## FAQ
+
+请参考 [Tooltip FAQ](/components/tooltip#faq)。

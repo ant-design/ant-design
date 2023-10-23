@@ -42,8 +42,11 @@ return (
 <code src="./demo/right.tsx">右侧时间轴点</code>
 <code src="./demo/label.tsx">标签</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Timeline
 
@@ -67,6 +70,6 @@ return (
 | children | 设置内容 | ReactNode | - |
 | position | 自定义节点位置 | `left` \| `right` | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Timeline"></ComponentTokenTable>

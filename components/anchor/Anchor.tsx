@@ -1,18 +1,17 @@
-import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
 import * as React from 'react';
+import classNames from 'classnames';
+import { useEvent } from 'rc-util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
+import getScroll from '../_util/getScroll';
+import scrollTo from '../_util/scrollTo';
+import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import getScroll from '../_util/getScroll';
-import scrollTo from '../_util/scrollTo';
-import warning from '../_util/warning';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
-
 import useStyle from './style';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
@@ -77,6 +76,7 @@ export interface AnchorProps {
   onChange?: (currentActiveLink: string) => void;
   items?: AnchorLinkItemProps[];
   direction?: AnchorDirection;
+  replace?: boolean;
 }
 
 interface InternalAnchorProps extends AnchorProps {
@@ -113,7 +113,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const {
     rootClassName,
     anchorPrefixCls: prefixCls,
-    className = '',
+    className,
     style,
     offsetTop,
     affix = true,
@@ -127,17 +127,18 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     onChange,
     getContainer,
     getCurrentAnchor,
+    replace,
   } = props;
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    warning(!children, 'Anchor', '`Anchor children` is deprecated. Please use `items` instead.');
-  }
+    const warning = devUseWarning('Anchor');
 
-  if (process.env.NODE_ENV !== 'production') {
+    warning.deprecated(!children, 'Anchor children', 'items');
+
     warning(
       !(anchorDirection === 'horizontal' && items?.some((n) => 'children' in n)),
-      'Anchor',
+      'usage',
       '`Anchor items#children` is not supported when `Anchor` direction is horizontal.',
     );
   }
@@ -150,7 +151,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
   const animating = React.useRef<boolean>(false);
 
-  const { direction, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const { direction, getTargetContainer, anchor } =
+    React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -213,6 +215,8 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   };
 
   const setCurrentActiveLink = useEvent((link: string) => {
+    // FIXME: Seems a bug since this compare is not equals
+    // `activeLinkRef` is parsed value which will always trigger `onChange` event.
     if (activeLinkRef.current === link) {
       return;
     }
@@ -231,14 +235,13 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     if (animating.current) {
       return;
     }
-    if (typeof getCurrentAnchor === 'function') {
-      return;
-    }
+
     const currentActiveLink = getInternalCurrentAnchor(
       links,
       targetOffset !== undefined ? targetOffset : offsetTop || 0,
       bounds,
     );
+
     setCurrentActiveLink(currentActiveLink);
   }, [dependencyListItem, targetOffset, offsetTop]);
 
@@ -278,6 +281,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    anchor?.className,
   );
 
   const anchorClass = classNames(prefixCls, {
@@ -290,13 +294,14 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
 
   const wrapperStyle: React.CSSProperties = {
     maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
+    ...anchor?.style,
     ...style,
   };
 
   const createNestedLink = (options?: AnchorLinkItemProps[]) =>
     Array.isArray(options)
       ? options.map((item) => (
-          <AnchorLink {...item} key={item.key}>
+          <AnchorLink replace={replace} {...item} key={item.key}>
             {anchorDirection === 'vertical' && createNestedLink(item.children)}
           </AnchorLink>
         ))

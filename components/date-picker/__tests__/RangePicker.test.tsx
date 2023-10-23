@@ -1,14 +1,15 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React, { useState } from 'react';
 import type { RangeValue } from 'rc-picker/lib/interface';
-import { resetWarned } from '../../_util/warning';
+import React, { useState } from 'react';
+import userEvent from '@testing-library/user-event';
+import { CloseCircleFilled } from '@ant-design/icons';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import { render, resetMockDate, setMockDate, screen, waitFor } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 import enUS from '../locale/en_US';
-
-import { closePicker, openPicker, selectCell } from './utils';
+import { closeCircleByRole, expectCloseCircle, closePicker, openPicker, selectCell } from './utils';
 
 dayjs.extend(customParseFormat);
 
@@ -126,5 +127,39 @@ describe('RangePicker', () => {
     expect(container.querySelector('.legacy')).toBeTruthy();
 
     errSpy.mockRestore();
+  });
+
+  it('allows or prohibits clearing as applicable', async () => {
+    const somepoint = dayjs('2023-08-01');
+    const { rerender } = render(<RangePicker locale={enUS} value={[somepoint, somepoint]} />);
+
+    const { role, options } = closeCircleByRole;
+    await userEvent.hover(screen.getByRole(role, options));
+    await waitFor(() => expectCloseCircle(true));
+
+    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={false} />);
+    await waitFor(() => expectCloseCircle(false));
+
+    rerender(
+      <RangePicker
+        locale={enUS}
+        value={[somepoint, somepoint]}
+        allowClear={{ clearIcon: <CloseCircleFilled /> }}
+      />,
+    );
+    await waitFor(() => expectCloseCircle(true));
+
+    rerender(
+      <RangePicker
+        locale={enUS}
+        value={[somepoint, somepoint]}
+        allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+      />,
+    );
+    await waitFor(() => expectCloseCircle(false));
+    await userEvent.hover(screen.getByTestId('custom-clear'));
+
+    rerender(<RangePicker locale={enUS} value={[somepoint, somepoint]} allowClear={{}} />);
+    await waitFor(() => expectCloseCircle(true));
   });
 });

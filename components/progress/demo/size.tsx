@@ -1,5 +1,5 @@
-import { Progress, Space } from 'antd';
 import React from 'react';
+import { Progress, Space } from 'antd';
 
 const App: React.FC = () => (
   <>

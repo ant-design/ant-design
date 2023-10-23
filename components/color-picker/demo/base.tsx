@@ -1,10 +1,6 @@
-import { ColorPicker, theme } from 'antd';
-import type { Color } from 'antd/es/color-picker';
-import React, { useState } from 'react';
+import React from 'react';
+import { ColorPicker } from 'antd';
 
-export default () => {
-  const { token } = theme.useToken();
-  const [color, setColor] = useState<Color | string>(token.colorPrimary);
+const Demo = () => <ColorPicker />;
 
-  return <ColorPicker value={color} onChange={setColor} />;
-};
+export default Demo;

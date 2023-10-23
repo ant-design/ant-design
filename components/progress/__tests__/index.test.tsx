@@ -1,5 +1,5 @@
-import { Tooltip } from 'antd';
 import React, { useState } from 'react';
+import { Tooltip } from 'antd';
 import type { ProgressProps } from '..';
 import Progress from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -190,18 +190,18 @@ describe('Progress', () => {
 
   it('steps should be changeable when has strokeColor', () => {
     const { container: wrapper, rerender } = render(
-      <Progress steps={5} percent={60} strokeColor="#1890ff" />,
+      <Progress steps={5} percent={60} strokeColor="#1677ff" />,
     );
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[0].style.backgroundColor,
-    ).toBe('rgb(24, 144, 255)');
-    rerender(<Progress steps={5} percent={40} strokeColor="#1890ff" />);
+    ).toBe('rgb(22, 119, 255)');
+    rerender(<Progress steps={5} percent={40} strokeColor="#1677ff" />);
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[2].style.backgroundColor,
     ).toBe('');
     expect(
       wrapper.querySelectorAll<HTMLDivElement>('.ant-progress-steps-item')[1].style.backgroundColor,
-    ).toBe('rgb(24, 144, 255)');
+    ).toBe('rgb(22, 119, 255)');
   });
 
   it('steps should support trailColor', () => {
@@ -260,7 +260,7 @@ describe('Progress', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="circle" />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
+      'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
     );
   });
 
@@ -275,7 +275,7 @@ describe('Progress', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<Progress size={[60, 20]} type="dashboard" />);
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Progress] Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
+      'Warning: [antd: Progress] Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
     );
   });
 
@@ -384,5 +384,24 @@ describe('Progress', () => {
       expect.stringContaining('findDOMNode is deprecated in StrictMode'),
     );
     errSpy.mockRestore();
+  });
+
+  it('should be accessible', () => {
+    const { container: wrapper, rerender } = render(
+      <Progress percent={70} aria-label="My progress" />,
+    );
+    let progress = wrapper.querySelector('[role="progressbar"]');
+    expect(progress).toHaveAttribute('aria-label', 'My progress');
+    expect(progress).toHaveAttribute('aria-valuenow', '70');
+
+    rerender(
+      <>
+        <span id="progressLabel">My progress</span>
+        <Progress percent={90} aria-labelledby="progressLabel" />
+      </>,
+    );
+    progress = wrapper.querySelector('[role="progressbar"]');
+    expect(progress).toHaveAttribute('aria-labelledby', 'progressLabel');
+    expect(progress).toHaveAttribute('aria-valuenow', '90');
   });
 });

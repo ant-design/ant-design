@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ConfigProvider from '..';
+import { fireEvent, pureRender } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
-import { pureRender, fireEvent } from '../../../tests/utils';
 
 interface Props {
   spy: () => void;

@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { supportNodeRef, useComposeRef } from 'rc-util';
+
+import { NoCompactStyle } from '../space/Compact';
 import type { MenuProps } from './menu';
 
 // Used for Dropdown only
@@ -14,9 +17,10 @@ export interface OverrideContextProps {
 const OverrideContext = React.createContext<OverrideContextProps | null>(null);
 
 /** @internal Only used for Dropdown component. Do not use this in your production. */
-export const OverrideProvider: React.FC<OverrideContextProps & { children: React.ReactNode }> = (
-  props,
-) => {
+export const OverrideProvider = React.forwardRef<
+  HTMLElement,
+  OverrideContextProps & { children: React.ReactNode }
+>((props, ref) => {
   const { children, ...restProps } = props;
   const override = React.useContext(OverrideContext);
 
@@ -32,8 +36,17 @@ export const OverrideProvider: React.FC<OverrideContextProps & { children: React
     ],
   );
 
-  return <OverrideContext.Provider value={context}>{children}</OverrideContext.Provider>;
-};
+  const canRef = supportNodeRef(children);
+  const mergedRef = useComposeRef(ref, canRef ? (children as any).ref : null);
+
+  return (
+    <OverrideContext.Provider value={context}>
+      <NoCompactStyle>
+        {canRef ? React.cloneElement(children as React.ReactElement, { ref: mergedRef }) : children}
+      </NoCompactStyle>
+    </OverrideContext.Provider>
+  );
+});
 
 /** @internal Only used for Dropdown component. Do not use this in your production. */
 export default OverrideContext;

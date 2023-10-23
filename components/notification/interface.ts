@@ -4,13 +4,15 @@ interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
 }
 
-export type NotificationPlacement =
-  | 'top'
-  | 'topLeft'
-  | 'topRight'
-  | 'bottom'
-  | 'bottomLeft'
-  | 'bottomRight';
+export const NotificationPlacements = [
+  'top',
+  'topLeft',
+  'topRight',
+  'bottom',
+  'bottomLeft',
+  'bottomRight',
+] as const;
+export type NotificationPlacement = typeof NotificationPlacements[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
@@ -27,8 +29,9 @@ export interface ArgsProps {
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
-  closeIcon?: React.ReactNode;
+  closeIcon?: boolean | React.ReactNode;
   props?: DivProps;
+  role?: 'alert' | 'status';
 }
 
 type StaticFn = (args: ArgsProps) => void;
@@ -63,4 +66,5 @@ export interface NotificationConfig {
   placement?: NotificationPlacement;
   maxCount?: number;
   rtl?: boolean;
+  stack?: boolean | { threshold?: number };
 }

@@ -9,10 +9,10 @@ import type {
   ReactNode,
 } from 'react';
 import React, { Children, forwardRef, useContext } from 'react';
+import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
-import { cloneElement } from '../_util/reactNode';
-import { ListContext } from './index';
+import { ListContext } from './context';
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;

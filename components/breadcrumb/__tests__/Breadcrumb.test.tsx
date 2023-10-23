@@ -362,4 +362,41 @@ describe('Breadcrumb', () => {
   it('Breadcrumb.Item menu type', () => {
     expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
   });
+
+  it('dropdownProps in items should be worked', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('Breadcrumb params type test', () => {
+    interface Params {
+      key1?: number;
+      key2?: string;
+    }
+    expect(
+      <Breadcrumb<Params>
+        params={{
+          key1: 1,
+          key2: 'test',
+        }}
+      />,
+    ).toBeTruthy();
+  });
 });

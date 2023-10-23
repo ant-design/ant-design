@@ -71,6 +71,8 @@ Array [
 ]
 `;
 
+exports[`renders components/grid/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/flex.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -280,6 +282,8 @@ Array [
 ]
 `;
 
+exports[`renders components/grid/demo/flex.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/flex-align.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -435,6 +439,8 @@ Array [
 ]
 `;
 
+exports[`renders components/grid/demo/flex-align.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/flex-order.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -507,6 +513,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/grid/demo/flex-order.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 1`] = `
 Array [
@@ -610,6 +618,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/grid/demo/flex-stretch.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/gutter.tsx extend context correctly 1`] = `
 Array [
@@ -735,11 +745,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin: -12px -8px -12px -8px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 24px;"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -749,7 +759,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -759,7 +769,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -769,7 +779,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -779,7 +789,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -789,7 +799,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -799,7 +809,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -809,7 +819,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding: 12px 8px 12px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         style="background: rgb(0, 146, 255); padding: 8px 0px;"
@@ -820,6 +830,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/grid/demo/gutter.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/offset.tsx extend context correctly 1`] = `
 Array [
@@ -862,6 +874,8 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/grid/demo/offset.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/playground.tsx extend context correctly 1`] = `
 Array [
@@ -911,6 +925,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1026,6 +1041,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1141,6 +1157,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="2"
@@ -1212,11 +1229,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin: -8px -8px -8px -8px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1224,7 +1241,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1232,7 +1249,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1240,7 +1257,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1248,7 +1265,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1256,7 +1273,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1264,7 +1281,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1272,7 +1289,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1282,11 +1299,11 @@ Array [
   Another Row:,
   <div
     class="ant-row"
-    style="margin: -8px -8px -8px -8px;"
+    style="margin-left: -8px; margin-right: -8px; row-gap: 16px;"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1294,7 +1311,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1302,7 +1319,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1310,7 +1327,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding: 8px 8px 8px 8px;"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div>
         Column
@@ -1343,6 +1360,8 @@ Array [
   </pre>,
 ]
 `;
+
+exports[`renders components/grid/demo/playground.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/responsive.tsx extend context correctly 1`] = `
 <div
@@ -1366,6 +1385,8 @@ exports[`renders components/grid/demo/responsive.tsx extend context correctly 1`
 </div>
 `;
 
+exports[`renders components/grid/demo/responsive.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -1388,6 +1409,8 @@ exports[`renders components/grid/demo/responsive-more.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/grid/demo/responsive-more.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
@@ -1405,6 +1428,8 @@ exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/grid/demo/sort.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 1`] = `
 Array [
   Current break point: ,
@@ -1415,3 +1440,5 @@ Array [
   </span>,
 ]
 `;
+
+exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 2`] = `[]`;

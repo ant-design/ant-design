@@ -1,11 +1,11 @@
 // Thanks to material-ui ❤️
 // Create chunks for Argos: https://github.com/mui/material-ui/pull/23518
 // https://github.com/mui/material-ui/blob/af81aae3b292ed180e7652a665fad1be2b38a7b3/scripts/pushArgos.js
-import argos from '@argos-ci/core';
 import childProcess from 'child_process';
+import util from 'util';
+import argos from '@argos-ci/core';
 import glob from 'fast-glob';
 import lodashChunk from 'lodash/chunk';
-import util from 'util';
 
 const execFileNode = util.promisify(childProcess.execFile);
 
@@ -19,7 +19,7 @@ function execFile(command: string, args: string[]) {
 
 const screenshotsBase = 'imageSnapshots';
 const screenshotsChunks = `imageSnapshots-chunks`;
-const BATCH_SIZE = 200;
+const BATCH_SIZE = 128;
 
 async function cpToTemp(screenshot: string, target: string) {
   await execFile('mkdir', ['-p', target]);
@@ -40,6 +40,9 @@ async function run() {
     ),
   );
 
+  // eslint-disable-next-line no-console -- pipe stdout
+  console.log('Chunk Size:', chunks.length, '/', 'Total Snapshots:', screenshots.length);
+
   for (let i = 0; i < chunks.length; i += 1) {
     // eslint-disable-next-line no-await-in-loop
     const result = await argos.upload({
@@ -51,7 +54,7 @@ async function run() {
       },
     });
     // eslint-disable-next-line no-console -- pipe stdout
-    console.log(result);
+    console.log(i, '>', result);
   }
 }
 

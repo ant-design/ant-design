@@ -24,8 +24,11 @@ demo:
 <code src="./demo/position.tsx">位置</code>
 <code src="./demo/autoplay.tsx">自动切换</code>
 <code src="./demo/fade.tsx">渐显</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -48,7 +51,7 @@ demo:
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Carousel"></ComponentTokenTable>
 

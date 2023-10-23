@@ -26,8 +26,11 @@ demo:
 <code src="./demo/clear.tsx">清除</code>
 <code src="./demo/character.tsx">其他字符</code>
 <code src="./demo/character-function.tsx">自定义字符</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -55,6 +58,6 @@ demo:
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Rate"></ComponentTokenTable>

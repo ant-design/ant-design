@@ -1,8 +1,8 @@
 import React from 'react';
 import { Global, css } from '@emotion/react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
-const gray = {
+const gray: { [key: number]: string } = {
   1: '#fff',
   2: '#fafafa',
   3: '#f5f5f5',
@@ -19,7 +19,7 @@ const gray = {
 };
 
 const ColorStyle = () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   const makePalette = (color: string, index: number = 1): string => {
     if (index <= 10) {
@@ -37,7 +37,7 @@ ${makePalette(color, index + 1)}
     if (index <= 13) {
       return `
 .palette-gray-${index} {
-  background: ${(gray as any)[index]};
+  background: ${gray[index]};
 }
 ${makeGrayPalette(index + 1)}
     `;

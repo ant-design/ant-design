@@ -14,6 +14,10 @@ import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genStatusStyle from './status';
 
 export interface ComponentToken {
+  /**
+   * @desc 下拉菜单 z-index
+   * @descEN z-index of dropdown
+   */
   zIndexPopup: number;
 }
 
@@ -70,9 +74,10 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           content: '""',
         },
 
-        [`&-trigger${antCls}-btn > ${iconCls}-down`]: {
-          fontSize: fontSizeIcon,
-          transform: 'none',
+        [`&-trigger${antCls}-btn`]: {
+          [`& > ${iconCls}-down, & > ${antCls}-btn-icon > ${iconCls}-down`]: {
+            fontSize: fontSizeIcon,
+          },
         },
 
         [`${componentCls}-wrap`]: {

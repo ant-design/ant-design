@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { FormattedMessage, Link, useFullSidebarData, useLocation } from 'dumi';
+import { FormattedMessage, useFullSidebarData, useLocation } from 'dumi';
+import { MenuOutlined } from '@ant-design/icons';
+import { createStyles, css } from 'antd-style';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
-import { css } from '@emotion/react';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
-import useSiteToken from '../../../hooks/useSiteToken';
 import useLocale from '../../../hooks/useLocale';
+import Link from '../../common/Link';
 
 // ============================= Theme =============================
 const locales = {
@@ -29,10 +29,9 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary } = token;
+const useStyle = createStyles(({ token }) => {
+  const { antCls, iconCls, fontFamily, headerHeight, menuItemBorder, colorPrimary, colorText } =
+    token;
 
   return {
     nav: css`
@@ -57,6 +56,17 @@ const useStyle = () => {
             bottom: auto;
             left: 12px;
             border-width: ${menuItemBorder}px;
+          }
+
+          a {
+            color: ${colorText};
+          }
+
+          a:before {
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+            content: "";
           }
         }
 
@@ -95,11 +105,10 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
-  isClient: boolean;
   responsive: null | 'narrow' | 'crowded';
   directionText: string;
   onLangChange: () => void;
@@ -108,7 +117,6 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
-  isClient,
   isMobile,
   responsive,
   directionText,
@@ -121,7 +129,7 @@ export default ({
   const sidebarData = useFullSidebarData();
   const blogList = sidebarData['/docs/blog']?.[0]?.children || [];
 
-  const style = useStyle();
+  const { styles } = useStyle();
 
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
@@ -207,7 +215,8 @@ export default ({
           label: (
             <Link
               to={utils.getLocalizedPathname(
-                blogList.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))[0].link,
+                blogList.sort((a, b) => (a.frontmatter?.date > b.frontmatter?.date ? -1 : 1))[0]
+                  .link,
                 isZhCN,
                 search,
               )}
@@ -226,16 +235,21 @@ export default ({
       ),
       key: 'docs/resources',
     },
-    isZhCN &&
-    isClient &&
-    window.location.host !== 'ant-design.antgroup.com' &&
-    window.location.host !== 'ant-design.gitee.io'
+    isZhCN
       ? {
-          label: '国内镜像',
+          label: (
+            <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
+              国内镜像
+            </a>
+          ),
           key: 'mirror',
           children: [
             {
-              label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
+              label: (
+                <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
+                  官方镜像
+                </a>
+              ),
               icon: (
                 <img
                   alt="logo"
@@ -247,7 +261,11 @@ export default ({
               key: 'antgroup',
             },
             {
-              label: <a href="https://ant-design.gitee.io">Gitee 镜像</a>,
+              label: (
+                <a href="https://ant-design.gitee.io" target="_blank" rel="noreferrer">
+                  Gitee 镜像
+                </a>
+              ),
               icon: (
                 <img
                   alt="gitee"
@@ -268,7 +286,7 @@ export default ({
     <Menu
       mode={menuMode}
       selectedKeys={[activeMenuItem]}
-      css={style.nav}
+      className={styles.nav}
       disabledOverflow
       items={items}
       style={{ borderRight: 0 }}

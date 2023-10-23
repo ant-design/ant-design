@@ -50,6 +50,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAA
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 Ant Design 的布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：
 
 - [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
@@ -85,6 +87,6 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Grid"></ComponentTokenTable>

@@ -1,14 +1,10 @@
 import * as React from 'react';
+import { createStyles, css, useTheme } from 'antd-style';
 import { Row, Col, Typography } from 'antd';
-import { css } from '@emotion/react';
 import type { Recommendation } from './util';
-import useSiteToken from '../../../hooks/useSiteToken';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
-  return {
-    card: css`
+const useStyle = createStyles(({ token }) => ({
+  card: css`
       height: 300px;
       background-size: 100% 100%;
       background-position: center;
@@ -70,16 +66,15 @@ const useStyle = () => {
         }
       }
     `,
-  };
-};
+}));
 
 export interface RecommendsProps {
   recommendations?: Recommendation[];
 }
 
 export default function Recommends({ recommendations = [] }: RecommendsProps) {
-  const { token } = useSiteToken();
-  const style = useStyle();
+  const token = useTheme();
+  const { styles } = useStyle();
 
   return (
     <Row gutter={token.marginLG}>
@@ -89,7 +84,7 @@ export default function Recommends({ recommendations = [] }: RecommendsProps) {
         return (
           <Col key={index} span={8}>
             {data ? (
-              <div css={style.card} style={{ backgroundImage: `url(${data.img})` }}>
+              <div className={styles.card} style={{ backgroundImage: `url(${data.img})` }}>
                 <div className="intro">
                   <Typography.Title level={4}>{data?.title}</Typography.Title>
                   <Typography.Paragraph>{data.description}</Typography.Paragraph>

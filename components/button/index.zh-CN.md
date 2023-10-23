@@ -50,8 +50,11 @@ group:
 <code src="./demo/block.tsx">Block 按钮</code>
 <code src="./demo/legacy-group.tsx" debug>废弃的 Block 组</code>
 <code src="./demo/chinese-chars-loading.tsx" debug>加载中状态 bug 还原</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`。
 
@@ -72,7 +75,7 @@ group:
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
 | styles | 语义化结构 style | Record<SemanticDOM, CSSProperties> | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
-| type | 设置按钮类型 | `primary` \| `ghost` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
+| type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
 
 支持原生 button 的其他所有属性。
@@ -83,7 +86,7 @@ group:
 | ---- | ------------ | ----- |
 | icon | 设置图标元素 | 5.5.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Button"></ComponentTokenTable>
 
@@ -93,7 +96,7 @@ group:
 
 根据 Ant Design 设计规范要求，我们会在按钮内(文本按钮和链接按钮除外)只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider-cn#api) 的 `autoInsertSpaceInButton` 为 `false`。
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0; width: 100px" alt="移除两个汉字之间的空格"  />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none; margin: 0" width="100px" height="64px" alt="移除两个汉字之间的空格"  />
 
 <style>
 .site-button-ghost-wrapper {

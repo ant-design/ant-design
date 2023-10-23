@@ -12,14 +12,27 @@ export interface PresetsItem {
   label: ReactNode;
   colors: (string | Color)[];
 }
+export type TriggerType = 'click' | 'hover';
 
+export type TriggerPlacement =
+  | 'top'
+  | 'topLeft'
+  | 'topRight'
+  | 'bottom'
+  | 'bottomLeft'
+  | 'bottomRight';
 export interface ColorPickerBaseProps {
   color?: Color;
   prefixCls: string;
   format?: keyof typeof ColorFormat;
   allowClear?: boolean;
-  clearColor?: boolean;
+  colorCleared?: boolean;
   disabled?: boolean;
+  disabledAlpha?: boolean;
   presets?: PresetsItem[];
+  panelRender?: ColorPickerProps['panelRender'];
   onFormatChange?: ColorPickerProps['onFormatChange'];
+  onChangeComplete?: ColorPickerProps['onChangeComplete'];
 }
+
+export type ColorValueType = Color | string | null;

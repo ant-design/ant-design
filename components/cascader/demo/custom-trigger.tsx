@@ -42,7 +42,7 @@ const App: React.FC = () => {
       {text}
       &nbsp;
       <Cascader options={options} onChange={onChange}>
-        <a href="#">Change city</a>
+        <a>Change city</a>
       </Cascader>
     </span>
   );

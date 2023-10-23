@@ -5,4 +5,5 @@ demoTest('calendar', {
   testRootProps: {
     value: dayjs(),
   },
+  skip: ['lunar.tsx'],
 });

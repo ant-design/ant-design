@@ -1,6 +1,6 @@
 import React from 'react';
-import { TimePicker } from 'antd';
 import dayjs from 'dayjs';
+import { TimePicker } from 'antd';
 
 const format = 'HH:mm';
 

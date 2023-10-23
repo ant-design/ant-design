@@ -5,7 +5,12 @@ import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../th
 import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 文字提示 z-index
+   * @descEN z-index of tooltip
+   */
   zIndexPopup: number;
+  /** @deprecated */
   colorBgDefault: string;
 }
 
@@ -62,6 +67,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           backgroundColor: tooltipBg,
           borderRadius: tooltipBorderRadius,
           boxShadow: boxShadowSecondary,
+          boxSizing: 'border-box',
         },
 
         // Limit left and right placement radius
@@ -151,6 +157,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       zIndexPopup: zIndexPopupBase + 70,
       colorBgDefault: colorBgSpotlight,
     }),
+    {
+      resetStyle: false,
+    },
   );
 
   return useOriginHook(prefixCls);

@@ -45,7 +45,7 @@ const App: React.FC = () => {
         okText="Yes"
         cancelText="No"
       >
-        <Button type="link">Delete a task</Button>
+        <Button danger>Delete a task</Button>
       </Popconfirm>
       <br />
       <br />

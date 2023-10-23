@@ -20,46 +20,63 @@ Used when the user needs to customize the color selection.
 
 <!-- prettier-ignore -->
 <code src="./demo/base.tsx">Basic Usage</code>
-<code src="./demo/disabled.tsx" debug>Disable</code>
+<code src="./demo/size.tsx">Trigger size</code>
+<code src="./demo/controlled.tsx">controlled mode</code>
+<code src="./demo/change-completed.tsx">Color change completed</code>
+<code src="./demo/text-render.tsx">Rendering Trigger Text</code>
+<code src="./demo/disabled.tsx">Disable</code>
+<code src="./demo/disabled-alpha.tsx">Disabled Alpha</code>
 <code src="./demo/allowClear.tsx">Clear Color</code>
 <code src="./demo/trigger.tsx">Custom Trigger</code>
+<code src="./demo/trigger-event.tsx">Custom Trigger Event</code>
 <code src="./demo/format.tsx">Color Format</code>
 <code src="./demo/presets.tsx">Preset Colors</code>
+<code src="./demo/panel-render.tsx">Custom Render Panel</code>
 <code src="./demo/pure-panel.tsx" debug>Pure Render</code>
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 > This component is available since `antd@5.5.0`.
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default |
-| :-- | :-- | :-- | :-- |
-| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` |
-| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - |
-| value | Value of color | string \| `Color` | - |
-| defaultValue | Default value of color | string \| `Color` | - |
-| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - |
-| allowClear | 	Allow clearing color selected | boolean | false |
-| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - |
-| children | Trigger of ColorPicker | React.ReactNode | - |
-| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` |
-| open | Whether to show popup | boolean | - |
-| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - |
-| disabled | Disable ColorPicker | boolean | - |
-| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` |
-| arrow | Configuration for popup arrow | boolean | `{ pointAtCenter: boolean }` | - |
+| Property | Description | Type | Default | Version |
+| :-- | :-- | :-- | :-- | :-- |
+| allowClear | 	Allow clearing color selected | boolean | false | |
+| arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
+| children | Trigger of ColorPicker | React.ReactNode | - | |
+| defaultValue | Default value of color | string \| `Color` | - | |
+| defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
+| disabled | Disable ColorPicker | boolean | - | |
+| disabledAlpha | Disable Alpha | boolean | - | 5.8.0 |
+| destroyTooltipOnHide | Whether destroy popover when hidden | `boolean` | false | 5.7.0 |
+| format | Format of color | `rgb` \| `hex` \| `hsb` | `hex` | |
+| open | Whether to show popup | boolean | - | |
+| presets | 	Preset colors | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | |
+| placement | Placement of popup | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
+| panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
+| showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
+| size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
+| value | Value of color | string \| `Color` | - | |
+| onChange | Callback when `value` is changed | `(value: Color, hex: string) => void` | - | |
+| onChangeComplete | Called when color pick ends   | `(value: Color) => void` | - | 5.7.0 |
+| onFormatChange | Callback when `format` is changed | `(format: 'hex' \| 'rgb' \| 'hsb') => void` | - | |
+| onOpenChange | Callback when `open` is changed | `(open: boolean) => void` | - | |
+| onClear | Called when clear | `() => void` | - | 5.6.0 |
 
 ### Color
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default |
 | :-- | :-- | :-- | :-- |
-| toHex | Convert to `hex` format characters | `() => string` | - |
-| toHexString | Convert to `hex` format color string | `() => string` | - |
+| toHex | Convert to `hex` format characters, the return type like: `1677ff` | `() => string` | - |
+| toHexString | Convert to `hex` format color string, the return type like: `#1677ff` | `() => string` | - |
 | toHsb | Convert to `hsb` object  | `() => ({ h: number, s: number, b: number, a number })` | - |
-| toHsbString | Convert to `hsb` format color string | `() => string` | - |
+| toHsbString | Convert to `hsb` format color string, the return type like: `hsb(215, 91%, 100%)` | `() => string` | - |
 | toRgb | Convert to `rgb` object  | `() => ({ r: number, g: number, b: number, a number })` | - |
-| toRgbString | Convert to `rgb` format color string | `() => string` | - |
+| toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | `() => string` | - |
 
 ## FAQ
 

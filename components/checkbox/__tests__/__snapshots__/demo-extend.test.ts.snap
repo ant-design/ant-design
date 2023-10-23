@@ -5,7 +5,7 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
   class="ant-checkbox-wrapper"
 >
   <span
-    class="ant-checkbox"
+    class="ant-checkbox ant-wave-target"
   >
     <input
       class="ant-checkbox-input"
@@ -21,13 +21,15 @@ exports[`renders components/checkbox/demo/basic.tsx extend context correctly 1`]
 </label>
 `;
 
+exports[`renders components/checkbox/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 1`] = `
 Array [
   <label
     class="ant-checkbox-wrapper"
   >
     <span
-      class="ant-checkbox ant-checkbox-indeterminate"
+      class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
     >
       <input
         aria-checked="mixed"
@@ -53,7 +55,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -73,7 +75,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -92,7 +94,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -112,6 +114,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/check-all.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/controller.tsx extend context correctly 1`] = `
 Array [
   <p
@@ -121,7 +125,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -159,6 +163,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/controller.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 1`] = `
 <div
   style="padding: 56px;"
@@ -167,7 +173,7 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
   >
     <span
-      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
         checked=""
@@ -206,21 +212,22 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
 </div>
 `;
 
+exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <label
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -235,7 +242,6 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div>
         Bamboo
@@ -248,7 +254,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -266,18 +272,17 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <label
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -292,7 +297,6 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <div>
         Bamboo
@@ -305,7 +309,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
         class="ant-radio-wrapper"
       >
         <span
-          class="ant-radio"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -329,7 +333,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       class="ant-checkbox-wrapper"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -348,7 +352,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       class="ant-checkbox-wrapper"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -371,7 +375,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -390,7 +394,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -406,25 +410,57 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
       </span>
     </label>
   </div>
-  <label
-    class="ant-checkbox-wrapper"
-  >
-    <span
-      class="ant-checkbox"
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
     >
-      <input
-        class="ant-checkbox-input"
-        type="checkbox"
-      />
       <span
-        class="ant-checkbox-inner"
-      />
-    </span>
-    <span>
-      Aligned
-    </span>
-  </label>
+        class="ant-checkbox ant-wave-target"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Aligned
+      </span>
+    </label>
+  </div>
+  <div>
+    <label
+      class="ant-checkbox-wrapper"
+    >
+      <span
+        class="ant-checkbox ant-wave-target"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        <span
+          style="font-size: 32px;"
+        >
+          Aligned
+        </span>
+      </span>
+    </label>
+  </div>
 </div>
+`;
+
+exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Checkbox] \`value\` is not a valid prop, do you mean \`checked\`?",
+]
 `;
 
 exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
@@ -433,7 +469,7 @@ Array [
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
-      class="ant-checkbox ant-checkbox-disabled"
+      class="ant-checkbox ant-wave-target ant-checkbox-disabled"
     >
       <input
         class="ant-checkbox-input"
@@ -450,7 +486,7 @@ Array [
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
-      class="ant-checkbox ant-checkbox-indeterminate ant-checkbox-disabled"
+      class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled"
     >
       <input
         aria-checked="mixed"
@@ -468,7 +504,7 @@ Array [
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
   >
     <span
-      class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
         checked=""
@@ -484,6 +520,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/group.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -493,7 +531,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -513,7 +551,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -532,7 +570,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -557,7 +595,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -576,7 +614,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -596,7 +634,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
@@ -621,7 +659,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
       >
         <input
           checked=""
@@ -642,7 +680,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-disabled"
+        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
       >
         <input
           class="ant-checkbox-input"
@@ -662,7 +700,7 @@ Array [
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item"
     >
       <span
-        class="ant-checkbox ant-checkbox-disabled"
+        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
       >
         <input
           class="ant-checkbox-input"
@@ -682,6 +720,8 @@ Array [
 ]
 `;
 
+exports[`renders components/checkbox/demo/group.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"
@@ -697,7 +737,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -720,7 +760,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -743,7 +783,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -766,7 +806,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -789,7 +829,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
         class="ant-checkbox-wrapper"
       >
         <span
-          class="ant-checkbox"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -808,3 +848,5 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/checkbox/demo/layout.tsx extend context correctly 2`] = `[]`;

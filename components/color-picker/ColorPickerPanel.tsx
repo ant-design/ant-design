@@ -1,52 +1,65 @@
-import { ColorPickerPanel as RcColorPickerPanel } from '@rc-component/color-picker';
+import type { HsbaColorType } from '@rc-component/color-picker';
 import type { FC } from 'react';
 import React from 'react';
 import Divider from '../divider';
 import type { Color } from './color';
-import ColorClear from './components/ColorClear';
-import ColorInput from './components/ColorInput';
-import ColorPresets from './components/ColorPresets';
+import PanelPicker from './components/PanelPicker';
+import PanelPresets from './components/PanelPresets';
+import { PanelPickerProvider, PanelPresetsProvider } from './context';
 import type { ColorPickerBaseProps } from './interface';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
-  onChange?: (value?: Color) => void;
-  onClear?: (clear?: boolean) => void;
+  onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
+  onClear?: () => void;
 }
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
-  const { prefixCls, allowClear, presets, onChange, onClear, color, ...injectProps } = props;
-  const colorPickerPanelPrefixCls = `${prefixCls}-inner-panel`;
+  const { prefixCls, presets, panelRender, color, onChange, onClear, ...injectProps } = props;
+  const colorPickerPanelPrefixCls = `${prefixCls}-inner-content`;
 
-  const extraPanelRender = (panel: React.ReactNode) => (
-    <div className={colorPickerPanelPrefixCls}>
-      {allowClear && (
-        <ColorClear
-          prefixCls={prefixCls}
-          value={color}
-          onChange={(clearColor) => {
-            onChange?.(clearColor);
-            onClear?.(true);
-          }}
-          {...injectProps}
-        />
-      )}
-      {panel}
-      <ColorInput value={color} onChange={onChange} prefixCls={prefixCls} {...injectProps} />
-      {Array.isArray(presets) && (
-        <>
-          <Divider className={`${colorPickerPanelPrefixCls}-divider`} />
-          <ColorPresets value={color} presets={presets} prefixCls={prefixCls} onChange={onChange} />
-        </>
-      )}
-    </div>
+  // ==== Inject props ===
+  const panelPickerProps = {
+    prefixCls,
+    value: color,
+    onChange,
+    onClear,
+    ...injectProps,
+  };
+
+  const panelPresetsProps = React.useMemo(
+    () => ({
+      prefixCls,
+      value: color,
+      presets,
+      onChange,
+    }),
+    [prefixCls, color, presets, onChange],
   );
+
+  // ====================== Render ======================
+  const innerPanel = (
+    <>
+      <PanelPicker />
+      {Array.isArray(presets) && <Divider className={`${colorPickerPanelPrefixCls}-divider`} />}
+      <PanelPresets />
+    </>
+  );
+
   return (
-    <RcColorPickerPanel
-      prefixCls={prefixCls}
-      value={color?.toHsb()}
-      onChange={onChange}
-      panelRender={extraPanelRender}
-    />
+    <PanelPickerProvider value={panelPickerProps}>
+      <PanelPresetsProvider value={panelPresetsProps}>
+        <div className={colorPickerPanelPrefixCls}>
+          {typeof panelRender === 'function'
+            ? panelRender(innerPanel, {
+                components: {
+                  Picker: PanelPicker,
+                  Presets: PanelPresets,
+                },
+              })
+            : innerPanel}
+        </div>
+      </PanelPresetsProvider>
+    </PanelPickerProvider>
   );
 };
 

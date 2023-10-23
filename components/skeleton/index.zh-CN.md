@@ -25,8 +25,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 <code src="./demo/element.tsx">按钮/头像/输入框/图像/自定义节点</code>
 <code src="./demo/children.tsx">包含子组件</code>
 <code src="./demo/list.tsx">列表</code>
+<code src="./demo/componentToken.tsx" debug>自定义组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Skeleton
 
@@ -76,6 +79,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | active | 是否展示动画效果 | boolean                         | false  |
 | size   | 设置输入框的大小 | `large` \| `small` \| `default` | -      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Skeleton"></ComponentTokenTable>

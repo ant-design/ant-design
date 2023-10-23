@@ -4,7 +4,7 @@ jest.mock('../../_util/scrollTo');
 import React from 'react';
 import type { TablePaginationConfig, TableProps } from '..';
 import Table from '..';
-import { fireEvent, render, act } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import scrollTo from '../../_util/scrollTo';
 import { resetWarned } from '../../_util/warning';
 

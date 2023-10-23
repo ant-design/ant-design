@@ -29,8 +29,11 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 <code src="./demo/icon-only.tsx">With Icon only</code>
 <code src="./demo/controlled-two.tsx" debug>Controlled Synced mode</code>
 <code src="./demo/size-consistent.tsx" debug>Consistent height</code>
+<code src="./demo/componentToken.tsx" debug>Custom component token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 > This component is available since `antd@4.20.0`
 

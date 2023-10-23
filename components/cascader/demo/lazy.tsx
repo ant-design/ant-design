@@ -6,7 +6,6 @@ interface Option {
   label: React.ReactNode;
   children?: Option[];
   isLeaf?: boolean;
-  loading?: boolean;
 }
 
 const optionLists: Option[] = [
@@ -31,11 +30,9 @@ const App: React.FC = () => {
 
   const loadData = (selectedOptions: Option[]) => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
-    targetOption.loading = true;
 
     // load options lazily
     setTimeout(() => {
-      targetOption.loading = false;
       targetOption.children = [
         {
           label: `${targetOption.label} Dynamic 1`,

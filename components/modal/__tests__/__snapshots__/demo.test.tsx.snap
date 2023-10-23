@@ -33,6 +33,37 @@ exports[`renders components/modal/demo/button-props.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/modal/demo/classNames.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Modal
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        ConfigProvider
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
 <div
   style="display:flex;flex-direction:column;row-gap:16px"
@@ -41,7 +72,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width:100%"
   >
     <div
       aria-hidden="true"
@@ -68,13 +99,14 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
               aria-hidden="true"
               data-icon="close"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
               />
             </svg>
           </span>
@@ -125,7 +157,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width:100%"
   >
     <div
       aria-hidden="true"
@@ -152,13 +184,14 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
               aria-hidden="true"
               data-icon="close"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
               />
             </svg>
           </span>
@@ -209,7 +242,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width:200px;height:150px"
+    style="width:200px"
   >
     <div
       aria-hidden="true"
@@ -248,9 +281,13 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -278,7 +315,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width:300px;height:200px"
+    style="width:300px"
   >
     <div
       aria-hidden="true"
@@ -295,7 +332,7 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -316,15 +353,19 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
@@ -361,12 +402,11 @@ exports[`renders components/modal/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap:wrap"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -379,7 +419,6 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -392,7 +431,6 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -405,7 +443,6 @@ exports[`renders components/modal/demo/confirm.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -463,13 +500,43 @@ exports[`renders components/modal/demo/footer.tsx correctly 1`] = `
 </button>
 `;
 
-exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
+exports[`renders components/modal/demo/footer-render.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Modal
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Modal Confirm
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -482,7 +549,6 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -495,7 +561,6 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -523,11 +588,10 @@ exports[`renders components/modal/demo/hooks.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/locale.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -633,13 +697,14 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
               aria-hidden="true"
               data-icon="close"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
               />
             </svg>
           </span>
@@ -729,9 +794,13 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -776,7 +845,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -797,15 +866,19 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
@@ -842,12 +915,11 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap:wrap"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -860,7 +932,6 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -873,7 +944,6 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px;padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -886,7 +956,6 @@ exports[`renders components/modal/demo/static-info.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -919,7 +988,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width:100%;height:200px"
+    style="width:100%"
   >
     <div
       aria-hidden="true"
@@ -946,13 +1015,14 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
               aria-hidden="true"
               data-icon="close"
               fill="currentColor"
+              fill-rule="evenodd"
               focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
               />
             </svg>
           </span>
@@ -1003,7 +1073,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width:200px;height:150px"
+    style="width:200px"
   >
     <div
       aria-hidden="true"
@@ -1042,9 +1112,13 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -1072,7 +1146,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width:300px;height:200px"
+    style="width:300px"
   >
     <div
       aria-hidden="true"
@@ -1089,7 +1163,7 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -1110,15 +1184,19 @@ exports[`renders components/modal/demo/wireframe.tsx correctly 1`] = `
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div

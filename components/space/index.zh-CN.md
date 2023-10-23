@@ -17,6 +17,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 - 可以设置各种水平对齐方式。
 - 需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact（自 `antd@4.24.0` 版本开始提供该组件）。
 
+### 与 Flex 组件的区别
+
+- Space 为内联元素提供间距，其本身会为每一个子元素添加包裹元素用于内联对齐。适用于行、列中多个子元素的等距排列。
+- Flex 为块级元素提供间距，其本身不会添加包裹元素。适用于垂直或水平方向上的子元素布局，并提供了更多的灵活性和控制能力。
+
 ## 代码演示
 
 <!-- prettier-ignore -->
@@ -24,7 +29,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/vertical.tsx">垂直间距</code>
 <code src="./demo/size.tsx">间距大小</code>
 <code src="./demo/align.tsx">对齐</code>
-<code src="./demo/customize.tsx">自定义尺寸</code>
 <code src="./demo/wrap.tsx">自动换行</code>
 <code src="./demo/split.tsx">分隔符</code>
 <code src="./demo/compact.tsx">紧凑布局组合</code>
@@ -36,6 +40,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/gap-in-line.tsx" debug>Flex gap 样式</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Space
 
@@ -62,6 +68,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect
@@ -72,6 +79,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-## Design Token
+### `styles` 和 `classNames` 属性
+
+<!-- prettier-ignore -->
+| 名称 | 说明  | 版本  |
+| ---- | --------------------- | ----- |
+| item | 设置 `Space` 包裹的子组件 | 5.6.0 |
+
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Space"></ComponentTokenTable>

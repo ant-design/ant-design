@@ -27,6 +27,7 @@ exports[`antd dist files exports modules correctly 1`] = `
   "Drawer",
   "Dropdown",
   "Empty",
+  "Flex",
   "FloatButton",
   "Form",
   "Grid",

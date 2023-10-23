@@ -1,6 +1,6 @@
+import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
 import React from 'react';
 import { FloatButton } from 'antd';
-import { CustomerServiceOutlined, CommentOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => (
   <>

@@ -15,6 +15,7 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`
         ${componentCls}-title,
         ${componentCls}-footer,
+        ${componentCls}-cell,
         ${componentCls}-thead > tr > th,
         ${componentCls}-tbody > tr > th,
         ${componentCls}-tbody > tr > td,
@@ -43,7 +44,7 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       // https://github.com/ant-design/ant-design/issues/35167
-      [`${componentCls}-selection-column`]: {
+      [`${componentCls}-selection-extra`]: {
         paddingInlineStart: `${paddingHorizontal / 4}px`,
       },
     },

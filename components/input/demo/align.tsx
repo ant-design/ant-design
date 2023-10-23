@@ -15,10 +15,9 @@ import {
 } from 'antd';
 
 const { Text } = Typography;
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
-const narrowStyle = {
+const narrowStyle: React.CSSProperties = {
   width: 50,
 };
 
@@ -57,6 +56,11 @@ const options = [
   },
 ];
 
+const selectOptions = [
+  { value: 'jack', label: 'Jack' },
+  { value: 'lucy', label: 'Lucy' },
+];
+
 const App: React.FC = () => (
   <>
     <Mentions style={{ width: 100 }} rows={1} />
@@ -69,14 +73,9 @@ const App: React.FC = () => (
     <InputNumber style={{ width: 100 }} />
     <DatePicker style={{ width: 100 }} />
     <TimePicker style={{ width: 100 }} />
-    <Select style={{ width: 100 }} defaultValue="jack">
-      <Option value="jack">Jack</Option>
-      <Option value="lucy">Lucy</Option>
-      <Option value="disabled" disabled>
-        Disabled
-      </Option>
-      <Option value="Yiminghe">yiminghe</Option>
-    </Select>
+    <Select style={{ width: 100 }} defaultValue="jack" options={selectOptions} />
+    <Select style={{ width: 100 }} defaultValue="" options={selectOptions} />
+    <Select style={{ width: 100 }} options={selectOptions} />
     <TreeSelect style={{ width: 100 }} />
     <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} />
     <RangePicker />

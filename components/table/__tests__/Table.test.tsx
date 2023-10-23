@@ -1,6 +1,7 @@
-import { ConfigProvider } from 'antd';
 import React, { useRef } from 'react';
-import type { TableProps } from '..';
+import { ConfigProvider } from 'antd';
+
+import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -251,7 +252,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    render(<Table columns={columns} rowKey={(record, index) => record + index} />);
+    render(<Table columns={columns} rowKey={(record, index) => record.key + index} />);
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
@@ -279,7 +280,7 @@ describe('Table', () => {
       },
     ];
     const Wrapper: React.FC = () => {
-      const ref = React.useRef<HTMLDivElement>(null);
+      const ref = React.useRef<any>(null);
       return <Table ref={ref} columns={columns} />;
     };
     render(<Wrapper />);
@@ -400,5 +401,16 @@ describe('Table', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('support reference', () => {
+    const tblRef = React.createRef<TableRef>();
+    const { container } = render(<Table ref={tblRef} />);
+
+    const wrapDom = container.querySelector('.ant-table-wrapper')!;
+
+    expect(tblRef.current).toHaveClass('ant-table-wrapper');
+    expect(tblRef.current?.nativeElement).toBe(wrapDom);
+    expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
   });
 });
