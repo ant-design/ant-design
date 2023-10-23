@@ -20935,7 +20935,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="config-popover-arrow"
@@ -21021,7 +21021,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="config-popover-arrow"
@@ -21109,7 +21109,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="config-popover-arrow"
@@ -21195,7 +21195,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="config-popover-arrow"
@@ -21281,7 +21281,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize small
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popconfirm config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="config-popover-arrow"
@@ -21367,7 +21367,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="ant-popover-arrow"
@@ -21453,7 +21453,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popconfirm ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 3160;"
   >
     <div
       class="ant-popover-arrow"
@@ -21539,7 +21539,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="config-popover-arrow"
@@ -21566,7 +21566,7 @@ exports[`ConfigProvider components Popover configProvider componentDisabled 1`] 
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="config-popover-arrow"
@@ -21593,7 +21593,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="config-popover-arrow"
@@ -21620,7 +21620,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="config-popover-arrow"
@@ -21647,7 +21647,7 @@ exports[`ConfigProvider components Popover configProvider componentSize small 1`
   </span>
   <div
     class="config-popover config-zoom-big-appear config-zoom-big-appear-prepare config-zoom-big config-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="config-popover-arrow"
@@ -21674,7 +21674,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
   </span>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="ant-popover-arrow"
@@ -21701,7 +21701,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   </span>
   <div
     class="prefix-Popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big prefix-Popover-placement-top"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
   >
     <div
       class="prefix-Popover-arrow"

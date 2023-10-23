@@ -134,7 +134,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               </div>
               <div
                 class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2100;"
               >
                 <div
                   class="ant-popover-arrow"
