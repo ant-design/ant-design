@@ -16,7 +16,7 @@ export default function useMultipleSelect<T, K>(getKey: (item: T) => K) {
       // add/delete the selected range
       const startIndex = Math.min(configPrevSelectedIndex || 0, currentSelectedIndex);
       const endIndex = Math.max(configPrevSelectedIndex || 0, currentSelectedIndex);
-      const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => getKey?.(item));
+      const rangeKeys = data.slice(startIndex, endIndex + 1).map((item) => getKey(item));
       const shouldSelected = rangeKeys.some((rangeKey) => !selectedKeys?.has(rangeKey));
       const changedKeys: K[] = [];
 
