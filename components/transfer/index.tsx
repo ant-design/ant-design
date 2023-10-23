@@ -353,11 +353,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const onLeftItemSelect = (selectedKey: string, checked: boolean, event: React.MouseEvent) => {
-    onItemSelect('left', selectedKey, checked, event?.shiftKey);
+    onItemSelect('left', selectedKey, checked, event.shiftKey);
   };
 
   const onRightItemSelect = (selectedKey: string, checked: boolean, event: React.MouseEvent) => {
-    onItemSelect('right', selectedKey, checked, event?.shiftKey);
+    onItemSelect('right', selectedKey, checked, event.shiftKey);
   };
 
   const onRightItemRemove = (keys: string[]) => {

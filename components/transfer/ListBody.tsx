@@ -73,7 +73,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
-  const onClick = (item: RecordType, event: React.MouseEvent) => {
+  const onClick = (item: RecordType, event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
     onItemSelect?.(item.key, !selectedKeys.includes(item.key), event);
   };
 

@@ -50,8 +50,12 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }: TableTransfe
             : difference(listSelectedKeys, treeSelectedKeys);
           onItemSelectAll(diffKeys as string[], selected);
         },
-        onSelect({ key }, selected) {
-          onItemSelect(key as string, selected);
+        onSelect({ key }, selected, _selectedRows, nativeEvent) {
+          onItemSelect(
+            key as string,
+            selected,
+            nativeEvent as unknown as React.MouseEvent<Element, MouseEvent>,
+          );
         },
         selectedRowKeys: listSelectedKeys,
       };

@@ -77,7 +77,7 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 | disabled | 是否禁用列表 | boolean |  |
 | filteredItems | 过滤后的数据 | RecordType\[] |  |
 | selectedKeys | 选中的条目 | string\[] |  |
-| onItemSelect | 勾选条目(传入参数 event 支持按住 shift 键进行多选操作) | (key: string, selected: boolean, event?: React.MouseEvent) |  |
+| onItemSelect | 勾选条目(传入参数 event 的作用在于可支持按住 shift 键进行多选操作) | (key: string, selected: boolean, event: React.MouseEvent<Element, MouseEvent>) |  |
 | onItemSelectAll | 勾选一组条目 | (keys: string\[], selected: boolean) |  |
 
 #### 参考示例
