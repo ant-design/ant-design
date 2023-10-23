@@ -300,7 +300,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const content = (
     <RcTooltip
       {...otherProps}
-      zIndex={zIndex}
+      zIndex={injectFromPopover ? otherProps.zIndex : zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}
@@ -326,10 +326,6 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
-
-  if (injectFromPopover) {
-    return wrapSSR(content);
-  }
 
   return wrapSSR(<zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>);
 }) as React.ForwardRefExoticComponent<
