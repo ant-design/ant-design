@@ -238,7 +238,7 @@ describe('Test useZIndex hooks', () => {
               consumerBaseZIndexOffset[key as ZIndexConsumer],
           );
         });
-        // 先暂时不测试，等所有的消费逐渐功能都合并过去后再统一测试
+        // 先暂时不测试，等所有的消费组件功能都合并过去后再统一测试
         it.skip('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
