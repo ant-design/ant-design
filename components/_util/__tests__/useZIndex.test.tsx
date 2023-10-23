@@ -205,11 +205,10 @@ describe('Test useZIndex hooks', () => {
   afterEach(() => {
     jest.useRealTimers();
   });
-  // const containers = ['Modal'];
-  // const consumers = ['SelectLike'];
   const containers = Object.keys(containerComponent);
+  // const containers = ['Modal'];
+  const consumers = ['Dropdown', 'SelectLike'];
   // const consumers = Object.keys(consumerComponent);
-  const consumers = ['SelectLike'];
 
   containers.forEach((containerKey) => {
     consumers.forEach((key) => {
