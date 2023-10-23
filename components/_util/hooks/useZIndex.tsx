@@ -4,34 +4,21 @@ import zIndexContext from '../zindexContext';
 
 export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
 
-export type ZIndexConsumer =
-  | 'Select'
-  | 'Dropdown'
-  | 'Cascader'
-  | 'TreeSelect'
-  | 'AutoComplete'
-  | 'ColorPicker'
-  | 'DatePicker'
-  | 'TimePicker'
-  | 'Menu';
+export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'ColorPicker' | 'DatePicker' | 'Menu';
 
 export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Modal: 0,
   Drawer: 0,
-  Popover: 30,
-  Popconfirm: 60,
+  Popover: 70,
+  Popconfirm: 70,
   Tooltip: 70,
   Tour: 70,
 };
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
-  Select: 50,
+  SelectLike: 50,
   Dropdown: 50,
-  Cascader: 50,
-  TreeSelect: 50,
-  AutoComplete: 50,
   ColorPicker: 30,
   DatePicker: 50,
-  TimePicker: 50,
   Menu: 50,
 };
 
