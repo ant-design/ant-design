@@ -1049,7 +1049,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: NaN;"
                               >
                                 <div>
                                   <div
@@ -1226,7 +1226,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: NaN;"
                               >
                                 <div>
                                   <div
@@ -1408,7 +1408,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: NaN;"
                               >
                                 <div>
                                   <div
@@ -1635,7 +1635,7 @@ Array [
                             </div>
                             <div
                               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                             >
                               <div
                                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -2804,7 +2804,11 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/drawer/demo/form-in-drawer.tsx extend context correctly 2`] = `
+[
+  "Warning: \`NaN\` is an invalid value for the \`%s\` css style property.%s",
+]
+`;
 
 exports[`renders components/drawer/demo/multi-level-drawer.tsx extend context correctly 1`] = `
 Array [
