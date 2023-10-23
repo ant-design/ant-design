@@ -122,6 +122,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-color-picker-trigger"
+                id="color"
               >
                 <div
                   class="ant-color-picker-color-block"
