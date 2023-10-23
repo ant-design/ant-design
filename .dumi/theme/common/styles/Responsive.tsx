@@ -1,16 +1,16 @@
 import { css, Global } from '@emotion/react';
 import React from 'react';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { useTheme } from 'antd-style';
 
 export default () => {
-  const { token } = useSiteToken();
+  const token = useTheme();
 
   return (
     <Global
       styles={css`
         .nav-phone-icon {
           position: absolute;
-          top: 25px;
+          bottom: 17px;
           right: 30px;
           z-index: 1;
           display: none;
@@ -87,7 +87,7 @@ export default () => {
           }
 
           .prev-next-nav {
-            width: ~'calc(100% - 32px)';
+            width: calc(100% - 32px);
             margin-left: 16px;
 
             .ant-row-rtl & {

@@ -11,18 +11,6 @@ title: Ant Design of React
   <img width="160" src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"/>
 </div>
 
-<style>
-.pic-plus > * {
-  display: inline-block !important;
-  vertical-align: middle;
-}
-.pic-plus span {
-  margin: 0 20px;
-  color: #aaa;
-  font-size: 30px;
-}
-</style>
-
 ---
 
 ## ✨ 特性
@@ -56,17 +44,11 @@ title: Ant Design of React
 
 ## 安装
 
-### 使用 npm 或 yarn 安装
+### 使用 npm 或 yarn 或 pnpm 安装
 
-**我们推荐使用 npm 或 yarn 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
+**我们推荐使用 [npm](https://www.npmjs.com/) 或 [yarn](https://github.com/yarnpkg/yarn/) 或 [pnpm](https://pnpm.io/zh/) 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
-```bash
-$ npm install antd --save
-```
-
-```bash
-$ yarn add antd
-```
+<InstallDependencies npm='$ npm install antd --save' yarn='$ yarn add antd' pnpm='$ pnpm install antd --save'></InstallDependencies>
 
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 

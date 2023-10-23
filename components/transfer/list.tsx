@@ -2,11 +2,13 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import React, { useMemo, useRef, useState } from 'react';
+import { isValidElement } from '../_util/reactNode';
+import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
-import { isValidElement } from '../_util/reactNode';
-import { groupKeysMap } from '../_util/transKeys';
+import type { ListBodyRef, TransferListBodyProps } from './ListBody';
+import DefaultListBody, { OmitProps } from './ListBody';
 import type {
   KeyWiseTransferItem,
   RenderResult,
@@ -16,8 +18,6 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
-import type { ListBodyRef, TransferListBodyProps } from './ListBody';
-import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
 const defaultRender = () => null;
@@ -34,6 +34,8 @@ function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: Recor
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
+const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
+
 export interface RenderedItem<RecordType> {
   renderedText: string;
   renderedEl: React.ReactNode;
@@ -46,12 +48,12 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   titleText: React.ReactNode;
   dataSource: RecordType[];
-  filterOption?: (filterText: string, item: RecordType) => boolean;
+  filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onItemSelect: (key: string, check: boolean) => void;
-  onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+  onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
   /** Render item */
@@ -72,6 +74,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
+  selectionsIcon?: React.ReactNode;
 }
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
@@ -99,6 +102,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     itemsUnit,
     itemUnit,
     selectAllLabel,
+    selectionsIcon,
     footer,
     renderList,
     onItemSelectAll,
@@ -110,7 +114,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   } = props;
 
   const [filterValue, setFilterValue] = useState<string>('');
-
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,7 +128,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const matchFilter = (text: string, item: RecordType) => {
     if (filterOption) {
-      return filterOption(filterValue, item);
+      return filterOption(filterValue, item, direction);
     }
     return text.includes(filterValue);
   };
@@ -345,8 +348,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeys.push(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, true);
-          onItemSelectAll?.(newUnCheckedKeys, false);
+          onItemSelectAll?.(newCheckedKeys, 'replace');
         },
       },
     ];
@@ -354,7 +356,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const dropdown: React.ReactNode = (
     <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
-      <DownOutlined />
+      {isValidIcon(selectionsIcon) ? selectionsIcon : <DownOutlined />}
     </Dropdown>
   );
 

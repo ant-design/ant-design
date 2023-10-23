@@ -291,6 +291,21 @@ describe('Breadcrumb', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  it('should support Breadcrumb.Item customized menu items key', () => {
+    const key = 'test-key';
+    const { container } = render(
+      <Breadcrumb>
+        <Breadcrumb.Item dropdownProps={{ open: true }} menu={{ items: [{ key }] }}>
+          test-item
+        </Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+
+    const item = container.querySelector<HTMLElement>('.ant-dropdown-menu-item');
+
+    expect(item?.getAttribute('data-menu-id')?.endsWith(key)).toBeTruthy();
+  });
+
   it('should support string `0` and number `0`', () => {
     const { container } = render(
       <Breadcrumb
@@ -342,5 +357,46 @@ describe('Breadcrumb', () => {
     const wrapper = render(<Breadcrumb items={[{ title: 'test', className: testClassName }]} />);
     const item = await wrapper.findByText('test');
     expect(item).toHaveClass(testClassName);
+  });
+
+  it('Breadcrumb.Item menu type', () => {
+    expect(<Breadcrumb.Item menu={{ selectable: true }} />).toBeTruthy();
+  });
+
+  it('dropdownProps in items should be worked', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+            dropdownProps: { open: true },
+          },
+        ]}
+      />,
+    );
+    expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('Breadcrumb params type test', () => {
+    interface Params {
+      key1?: number;
+      key2?: string;
+    }
+    expect(
+      <Breadcrumb<Params>
+        params={{
+          key1: 1,
+          key2: 'test',
+        }}
+      />,
+    ).toBeTruthy();
   });
 });

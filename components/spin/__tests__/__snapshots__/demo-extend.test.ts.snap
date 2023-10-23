@@ -25,6 +25,8 @@ exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/spin/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
@@ -53,6 +55,8 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   </span>
 </div>
 `;
+
+exports[`renders components/spin/demo/custom-indicator.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 1`] = `
 <div>
@@ -112,6 +116,8 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = `
 <div
   class="example"
@@ -140,6 +146,8 @@ exports[`renders components/spin/demo/inside.tsx extend context correctly 1`] = 
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/inside.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = `
 <div>
@@ -199,13 +207,14 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = 
 </div>
 `;
 
+exports[`renders components/spin/demo/nested.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -232,7 +241,6 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -286,21 +294,21 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/spin/demo/size.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         <div
           class="ant-spin-nested-loading"
@@ -345,7 +353,6 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
       >
         <div
           class="ant-spin-nested-loading"
@@ -497,3 +504,5 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders components/spin/demo/tip.tsx extend context correctly 2`] = `[]`;

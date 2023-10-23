@@ -1,5 +1,4 @@
-/* eslint-disable react/no-string-refs, react/prefer-es6-class */
-import produce from 'immer';
+import { produce } from 'immer';
 import { cloneDeep } from 'lodash';
 import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React, { useEffect, useRef } from 'react';
@@ -8,8 +7,8 @@ import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
+import Form from '../../form';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
@@ -481,7 +480,7 @@ describe('Upload', () => {
     // Delay return true for remove
     await waitFakeTimer();
     await act(async () => {
-      await removePromise(true);
+      removePromise(true);
     });
 
     expect(onChange).toHaveBeenCalled();
@@ -772,6 +771,48 @@ describe('Upload', () => {
           name: 'foo.png',
         }),
       ]);
+
+      // Only trigger for file in `maxCount`
+      onChange.mock.calls.forEach((args) => {
+        expect(args[0].file.name).toBe('foo.png');
+      });
+    });
+
+    // https://github.com/ant-design/ant-design/issues/43190
+    it('should trigger onChange when remove', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={2}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // Click delete
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+
+      await waitFakeTimer();
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 1 file
+          fileList: [expect.anything()],
+        }),
+      );
     });
   });
 

@@ -44,8 +44,11 @@ return (
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Mentions
 
@@ -88,3 +91,7 @@ return (
 | disabled  | 是否可选       | boolean             | -      |
 | className | css 类名       | string              | -      |
 | style     | 选项样式       | React.CSSProperties | -      |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Mentions"></ComponentTokenTable>

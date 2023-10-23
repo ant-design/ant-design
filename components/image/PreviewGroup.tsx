@@ -9,6 +9,7 @@ import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from 'rc-image';
 import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import * as React from 'react';
+import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
 
@@ -44,12 +45,13 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
+    const mergedRootClassName = classNames(hashId, _preview.rootClassName ?? '');
 
     return {
       ..._preview,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
-      rootClassName: hashId,
+      rootClassName: mergedRootClassName,
     };
   }, [preview]);
 

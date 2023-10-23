@@ -29,6 +29,8 @@ Checkbox component.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 #### Checkbox
 
 | Property | Description | Type | Default | Version |
@@ -69,3 +71,19 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Checkbox"></ComponentTokenTable>
+
+## FAQ
+
+### Why not work in Form.Item?
+
+Form.Item default bind value to `value` property, but Checkbox value property is `checked`. You can use `valuePropName` to change bind property.
+
+```tsx | pure
+<Form.Item name="fieldA" valuePropName="checked">
+  <Checkbox />
+</Form.Item>
+```

@@ -28,8 +28,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 <code src="./demo/all.tsx">全部展示</code>
 <code src="./demo/itemRender.tsx">上一步和下一步</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ```jsx
 <Pagination onChange={onChange} total={50} />
@@ -56,3 +59,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | total | 数据总数 | number | 0 |  |
 | onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
 | onShowSizeChange | pageSize 变化的回调 | function(current, size) | - |  |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Pagination"></ComponentTokenTable>

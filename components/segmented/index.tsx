@@ -6,11 +6,9 @@ import type {
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-
 import useStyle from './style';
 
 export type { SegmentedValue } from 'rc-segmented';
@@ -52,17 +50,17 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     block,
     options = [],
     size: customSize = 'middle',
+    style,
     ...restProps
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ===================== Size =====================
-  const size = React.useContext(SizeContext);
-  const mergedSize = customSize || size;
+  const mergedSize = useSize(customSize);
 
   // syntactic sugar to support `icon` for Segmented Item
   const extendedOptions = React.useMemo<RCSegmentedProps['options']>(
@@ -85,19 +83,25 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
     [options, prefixCls],
   );
 
+  const cls = classNames(
+    className,
+    rootClassName,
+    segmented?.className,
+    {
+      [`${prefixCls}-block`]: block,
+      [`${prefixCls}-sm`]: mergedSize === 'small',
+      [`${prefixCls}-lg`]: mergedSize === 'large',
+    },
+    hashId,
+  );
+
+  const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
+
   return wrapSSR(
     <RcSegmented
       {...restProps}
-      className={classNames(
-        className,
-        rootClassName,
-        {
-          [`${prefixCls}-block`]: block,
-          [`${prefixCls}-sm`]: mergedSize === 'small',
-          [`${prefixCls}-lg`]: mergedSize === 'large',
-        },
-        hashId,
-      )}
+      className={cls}
+      style={mergedStyle}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}

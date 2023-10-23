@@ -1,23 +1,35 @@
-import type { InputToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
-  genActiveStyle,
   genBasicInputStyle,
   genDisabledStyle,
   genPlaceholderStyle,
   genStatusStyle,
+  initComponentToken,
   initInputToken,
 } from '../../input/style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
 import { resetComponent, textEllipsis } from '../../style';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
-export interface ComponentToken {
+export interface ComponentToken extends SharedComponentToken {
+  /**
+   * @desc 弹层 z-index
+   * @descEN z-index of popup
+   */
   zIndexPopup: number;
+  /**
+   * @desc 弹层高度
+   * @descEN Height of popup
+   */
   dropdownHeight: number;
+  /**
+   * @desc 菜单项高度
+   * @descEN Height of menu item
+   */
   controlItemWidth: number;
 }
 
-type MentionsToken = InputToken<FullToken<'Mentions'>>;
+type MentionsToken = FullToken<'Mentions'> & SharedInputToken;
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
@@ -29,10 +41,12 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     motionDurationSlow,
     lineHeight,
     controlHeight,
-    inputPaddingHorizontal,
-    inputPaddingVertical,
+    paddingInline,
+    paddingBlock,
     fontSize,
     colorBgElevated,
+    paddingXXS,
+    borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
   } = token;
@@ -63,14 +77,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         },
       },
 
-      '&-focused': {
-        ...genActiveStyle(token),
-      },
-
       [`&-affix-wrapper ${componentCls}-suffix`]: {
         position: 'absolute',
         top: 0,
-        insetInlineEnd: inputPaddingHorizontal,
+        insetInlineEnd: paddingInline,
         bottom: 0,
         zIndex: 1,
         display: 'inline-flex',
@@ -84,7 +94,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         boxSizing: 'border-box',
         minHeight: controlHeight - 2,
         margin: 0,
-        padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
+        padding: `${paddingBlock}px ${paddingInline}px`,
         overflow: 'inherit',
         overflowX: 'hidden',
         overflowY: 'auto',
@@ -143,6 +153,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
+        padding: paddingXXS,
         backgroundColor: colorBgElevated,
         borderRadius: borderRadiusLG,
         outline: 'none',
@@ -154,7 +165,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
         [`${componentCls}-dropdown-menu`]: {
           maxHeight: token.dropdownHeight,
-          marginBottom: 0,
+          margin: 0,
           paddingInlineStart: 0, // Override default ul/ol
           overflow: 'auto',
           listStyle: 'none',
@@ -167,6 +178,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             minWidth: token.controlItemWidth,
             padding: `${itemPaddingVertical}px ${controlPaddingHorizontal}px`,
             color: colorText,
+            borderRadius,
             fontWeight: 'normal',
             lineHeight,
             cursor: 'pointer',
@@ -174,20 +186,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
             '&:hover': {
               backgroundColor: controlItemBgHover,
-            },
-
-            '&:first-child': {
-              borderStartStartRadius: borderRadiusLG,
-              borderStartEndRadius: borderRadiusLG,
-              borderEndStartRadius: 0,
-              borderEndEndRadius: 0,
-            },
-
-            '&:last-child': {
-              borderStartStartRadius: 0,
-              borderStartEndRadius: 0,
-              borderEndStartRadius: borderRadiusLG,
-              borderEndEndRadius: borderRadiusLG,
             },
 
             '&-disabled': {
@@ -221,10 +219,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 export default genComponentStyleHook(
   'Mentions',
   (token) => {
-    const mentionsToken = initInputToken<FullToken<'Mentions'>>(token);
+    const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));
     return [genMentionsStyle(mentionsToken)];
   },
   (token) => ({
+    ...initComponentToken(token),
     dropdownHeight: 250,
     controlItemWidth: 100,
     zIndexPopup: token.zIndexPopupBase + 50,

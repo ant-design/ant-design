@@ -21,6 +21,8 @@ const localeValues: Locale = {
     filterConfirm: 'OK',
     filterReset: 'Återställ',
     filterEmptyText: 'Inga filter',
+    filterCheckall: 'Markera alla objekt',
+    filterSearchPlaceholder: 'Sök i filter',
     emptyText: 'Ingen data',
     selectAll: 'Markera nuvarande sida',
     selectInvert: 'Invertera nuvarande sida',
@@ -32,6 +34,11 @@ const localeValues: Locale = {
     triggerDesc: 'Klicka för att sortera i fallande ordning',
     triggerAsc: 'Klicka för att sortera i stigande ordning',
     cancelSort: 'Klicka för att avbryta sortering',
+  },
+  Tour: {
+    Next: 'Nästa',
+    Previous: 'Föregående',
+    Finish: 'Avsluta',
   },
   Modal: {
     okText: 'OK',
@@ -128,6 +135,10 @@ const localeValues: Locale = {
   },
   Image: {
     preview: 'Förhandsgranska',
+  },
+  QRCode: {
+    expired: 'QR-koden har upphört att gälla',
+    refresh: 'Uppdatera',
   },
 };
 

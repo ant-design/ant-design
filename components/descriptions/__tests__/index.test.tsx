@@ -1,9 +1,11 @@
-import MockDate from 'mockdate';
 import React from 'react';
+import MockDate from 'mockdate';
+
 import Descriptions from '..';
-import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Descriptions', () => {
   mountTest(Descriptions);
@@ -19,7 +21,7 @@ describe('Descriptions', () => {
     errorSpy.mockRestore();
   });
 
-  it('when max-width: 575px，column=1', () => {
+  it('when max-width: 575px, column=1', () => {
     const wrapper = render(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -34,7 +36,7 @@ describe('Descriptions', () => {
     wrapper.unmount();
   });
 
-  it('when max-width: 575px，column=2', () => {
+  it('when max-width: 575px, column=2', () => {
     // eslint-disable-next-line global-require
     const wrapper = render(
       <Descriptions column={{ xs: 2 }}>
@@ -46,6 +48,36 @@ describe('Descriptions', () => {
     );
     expect(wrapper.container.querySelectorAll('tr')).toHaveLength(2);
     wrapper.unmount();
+  });
+
+  it('when max-width: 575px, column=2, span=2', () => {
+    // eslint-disable-next-line global-require
+    const { container } = render(
+      <Descriptions
+        column={{ xs: 2 }}
+        items={[
+          {
+            label: 'Product',
+            children: 'Cloud Database',
+            span: { xs: 2 },
+          },
+          {
+            label: 'Billing',
+            children: 'Prepaid',
+            span: { xs: 1 },
+          },
+          {
+            label: 'Time',
+            children: '18:00:00',
+            span: { xs: 1 },
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-descriptions-item')[0]).toHaveAttribute('colSpan', '2');
+    expect(container.querySelectorAll('.ant-descriptions-item')[1]).toHaveAttribute('colSpan', '1');
+    expect(container.querySelectorAll('.ant-descriptions-item')[2]).toHaveAttribute('colSpan', '1');
   });
 
   it('column is number', () => {
@@ -266,5 +298,73 @@ describe('Descriptions', () => {
     const container = getByTestId('test-id');
     expect(container).toHaveAttribute('data-id', '12345');
     expect(container).toHaveAttribute('aria-describedby', 'some-label');
+  });
+
+  it('Descriptions should inherit the size from ConfigProvider if the componentSize is set', () => {
+    const { container } = render(
+      <ConfigProvider componentSize="small">
+        <Descriptions bordered>
+          <Descriptions.Item label="small">small</Descriptions.Item>
+        </Descriptions>
+      </ConfigProvider>,
+    );
+    expect(container.querySelectorAll('.ant-descriptions-small')).toHaveLength(1);
+  });
+
+  it('should items work', () => {
+    const { container } = render(
+      <Descriptions
+        items={[
+          {
+            key: '1',
+            label: 'UserName',
+            children: 'Zhou Maomao',
+          },
+          {
+            key: '2',
+            label: 'Telephone',
+            children: '1810000000',
+          },
+          {
+            key: '3',
+            label: 'Live',
+            children: 'Hangzhou, Zhejiang',
+          },
+        ]}
+      />,
+    );
+    expect(container.querySelector('.ant-descriptions-item')).toBeTruthy();
+    expect(container.querySelectorAll('.ant-descriptions-item')).toHaveLength(3);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Descriptions nested within an Item are unaffected by the external borderless style', () => {
+    const { container } = render(
+      <Descriptions bordered>
+        <Descriptions.Item>
+          <Descriptions bordered={false} />
+        </Descriptions.Item>
+      </Descriptions>,
+    );
+
+    const nestDesc = container.querySelectorAll('.ant-descriptions')?.[1];
+    const view = nestDesc.querySelector('.ant-descriptions-view');
+    expect(getComputedStyle(view!).border).toBeFalsy();
+  });
+
+  it('Should Descriptions not throw react key prop error in jsx mode', () => {
+    render(
+      <Descriptions title="User Info">
+        <Descriptions.Item key="1" label="UserName">
+          Zhou Maomao
+        </Descriptions.Item>
+        <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`key` is not a prop'),
+      expect.anything(),
+      expect.anything(),
+    );
   });
 });

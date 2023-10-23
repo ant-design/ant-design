@@ -1,12 +1,11 @@
 import * as React from 'react';
+import type { AnyObject } from './type';
 
 export const { isValidElement } = React;
 
 export function isFragment(child: any): boolean {
   return child && isValidElement(child) && child.type === React.Fragment;
 }
-
-type AnyObject = Record<PropertyKey, any>;
 
 type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | void);
 

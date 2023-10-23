@@ -36,6 +36,8 @@ By clicking the input box, you can select a time from a popup panel.
 
 ---
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -47,12 +49,12 @@ dayjs.extend(customParseFormat)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Whether allow clearing text | boolean | true |  |
+| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
+| cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| changeOnBlur | Trigger `change` when blur. e.g. datetime picker no need click confirm button | boolean | false | 5.5.0 |
 | className | The className of picker | string | - |  |
-| clearIcon | The custom clear icon | ReactNode | - |  |
-| clearText | The clear tooltip of icon | string | clear |  |
 | defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
 | disabledTime | To specify the time that cannot be selected | [DisabledTime](#disabledtime) | - | 4.19.0 |
@@ -117,6 +119,10 @@ type RangeDisabledTime = (
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
 };
 ```
+
+## Design Token
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
 ## FAQ
 

@@ -18,6 +18,10 @@ On longer web pages, it's helpful to stick component into the viewport. This is 
 
 Please note that Affix should not cover other content on the page, especially when the size of the viewport is small.
 
+> Notes for developers
+>
+> After version `5.10.0`, we rewrite Affix use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -27,6 +31,8 @@ Please note that Affix should not cover other content on the page, especially wh
 <code src="./demo/debug.tsx" debug>debug</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -45,7 +51,7 @@ Please note that Affix should not cover other content on the page, especially wh
 
 ### When binding container with `target` in Affix, elements sometimes move out of the container.
 
-We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/2xyj5zr85p>
+We only listen to container scroll events for performance consideration. You can add custom listeners if you still want to: <https://codesandbox.io/s/stupefied-maxwell-ophqnm?file=/index.js>
 
 Related issues：[#3938](https://github.com/ant-design/ant-design/issues/3938) [#5642](https://github.com/ant-design/ant-design/issues/5642) [#16120](https://github.com/ant-design/ant-design/issues/16120)
 

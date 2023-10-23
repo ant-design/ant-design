@@ -11,10 +11,11 @@ import useWave from './useWave';
 export interface WaveProps {
   disabled?: boolean;
   children?: React.ReactNode;
+  component?: string;
 }
 
 const Wave: React.FC<WaveProps> = (props) => {
-  const { children, disabled } = props;
+  const { children, disabled, component } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const containerRef = useRef<HTMLElement>(null);
 
@@ -23,7 +24,7 @@ const Wave: React.FC<WaveProps> = (props) => {
   const [, hashId] = useStyle(prefixCls);
 
   // =============================== Wave ===============================
-  const showWave = useWave(containerRef, classNames(prefixCls, hashId));
+  const showWave = useWave(containerRef, classNames(prefixCls, hashId), component);
 
   // ============================== Effect ==============================
   React.useEffect(() => {
@@ -36,7 +37,6 @@ const Wave: React.FC<WaveProps> = (props) => {
     const onClick = (e: MouseEvent) => {
       // Fix radio button click twice
       if (
-        (e.target as HTMLElement).tagName === 'INPUT' ||
         !isVisible(e.target as HTMLElement) ||
         // No need wave
         !node.getAttribute ||
@@ -48,7 +48,7 @@ const Wave: React.FC<WaveProps> = (props) => {
         return;
       }
 
-      showWave();
+      showWave(e);
     };
 
     // Bind events

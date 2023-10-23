@@ -1,10 +1,12 @@
+import * as React from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
-import RcImage, { type ImageProps } from 'rc-image';
-import * as React from 'react';
+import RcImage from 'rc-image';
+import type { ImageProps } from 'rc-image';
+
+import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
-import { getTransitionName } from '../_util/motion';
 // CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
@@ -13,16 +15,20 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-const Image: CompositionImage<ImageProps> = ({
-  prefixCls: customizePrefixCls,
-  preview,
-  rootClassName,
-  ...otherProps
-}) => {
+const Image: CompositionImage<ImageProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    preview,
+    className,
+    rootClassName,
+    style,
+    ...otherProps
+  } = props;
   const {
     getPrefixCls,
     locale: contextLocale = defaultLocale,
     getPopupContainer: getContextPopupContainer,
+    image,
   } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('image', customizePrefixCls);
@@ -33,6 +39,9 @@ const Image: CompositionImage<ImageProps> = ({
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedRootClassName = classNames(rootClassName, hashId);
+
+  const mergedClassName = classNames(className, hashId, image?.className);
+
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
       return preview;
@@ -54,17 +63,21 @@ const Image: CompositionImage<ImageProps> = ({
     };
   }, [preview, imageLocale]);
 
+  const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
+
   return wrapSSR(
     <RcImage
-      prefixCls={`${prefixCls}`}
+      prefixCls={prefixCls}
       preview={mergedPreview}
       rootClassName={mergedRootClassName}
+      className={mergedClassName}
+      style={mergedStyle}
       {...otherProps}
     />,
   );
 };
 
-export { ImageProps };
+export type { ImageProps };
 
 Image.PreviewGroup = PreviewGroup;
 

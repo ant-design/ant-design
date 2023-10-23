@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import TreeSelect, { TreeNode } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('TreeSelect', () => {
@@ -62,6 +62,43 @@ describe('TreeSelect', () => {
       'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `popupClassName` instead.',
     );
     expect(container.querySelector('.legacy')).toBeTruthy();
+
+    errSpy.mockRestore();
+  });
+
+  it('warning for legacy dropdownMatchSelectWidth', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<TreeSelect dropdownMatchSelectWidth open />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('support aria-*', async () => {
+    const { container } = render(
+      <TreeSelect
+        open
+        treeData={[{ value: 'parent 1', title: 'parnet 1', 'aria-label': 'label' }]}
+      />,
+    );
+    expect(
+      container.querySelector('.ant-select-tree-treenode-leaf-last')?.getAttribute('aria-label'),
+    ).toBe('label');
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<TreeSelect showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
 
     errSpy.mockRestore();
   });

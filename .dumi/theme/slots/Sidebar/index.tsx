@@ -1,15 +1,12 @@
-import React, { useContext } from 'react';
+import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
-import { Col, ConfigProvider, Menu } from 'antd';
 import MobileMenu from 'rc-drawer';
-import { css } from '@emotion/react';
-import SiteContext from '../SiteContext';
+import React, { useContext } from 'react';
+import { Col, ConfigProvider, Menu } from 'antd';
 import useMenu from '../../../hooks/useMenu';
-import useSiteToken from '../../../hooks/useSiteToken';
+import SiteContext from '../SiteContext';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-
+const useStyle = createStyles(({ token, css }) => {
   const { antCls, fontFamily, colorSplit } = token;
 
   return {
@@ -44,17 +41,17 @@ const useStyle = () => {
         }
 
         > ${antCls}-menu-item,
-          > ${antCls}-menu-submenu
-          > ${antCls}-menu-submenu-title,
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-title,
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-list
-          > ${antCls}-menu-item,
-          &${antCls}-menu-inline
-          > ${antCls}-menu-item-group
-          > ${antCls}-menu-item-group-list
-          > ${antCls}-menu-item {
+        > ${antCls}-menu-submenu
+        > ${antCls}-menu-submenu-title,
+        > ${antCls}-menu-item-group
+        > ${antCls}-menu-item-group-title,
+        > ${antCls}-menu-item-group
+        > ${antCls}-menu-item-group-list
+        > ${antCls}-menu-item,
+        &${antCls}-menu-inline
+        > ${antCls}-menu-item-group
+        > ${antCls}-menu-item-group-list
+        > ${antCls}-menu-item {
           padding-left: 40px !important;
 
           ${antCls}-row-rtl & {
@@ -108,10 +105,10 @@ const useStyle = () => {
 
       .main-menu-inner {
         position: sticky;
-        top: 0;
+        top: ${token.headerHeight + token.contentMarginTop}px;
         width: 100%;
         height: 100%;
-        max-height: 100vh;
+        max-height: calc(100vh - ${token.headerHeight + token.contentMarginTop}px);
         overflow: hidden;
       }
 
@@ -120,25 +117,25 @@ const useStyle = () => {
       }
     `,
   };
-};
+});
 
 const Sidebar: React.FC = () => {
   const sidebarData = useSidebarData();
   const { isMobile, theme } = useContext(SiteContext);
-  const styles = useStyle();
+  const { styles } = useStyle();
 
   const [menuItems, selectedKey] = useMenu();
   const isDark = theme.includes('dark');
-  const {
-    token: { colorBgContainer },
-  } = useSiteToken();
+  const { colorBgContainer } = useTheme();
 
   const menuChild = (
-    <ConfigProvider theme={{ components: { Menu: { colorItemBg: colorBgContainer } } }}>
+    <ConfigProvider
+      theme={{ components: { Menu: { itemBg: colorBgContainer, darkItemBg: colorBgContainer } } }}
+    >
       <Menu
         items={menuItems}
         inlineIndent={30}
-        css={styles.asideContainer}
+        className={styles.asideContainer}
         mode="inline"
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
@@ -150,7 +147,7 @@ const Sidebar: React.FC = () => {
   return isMobile ? (
     <MobileMenu key="Mobile-menu">{menuChild}</MobileMenu>
   ) : (
-    <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} css={styles.mainMenu}>
+    <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className={styles.mainMenu}>
       <section className="main-menu-inner">{menuChild}</section>
     </Col>
   );

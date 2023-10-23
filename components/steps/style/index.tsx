@@ -1,7 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSProperties } from 'react';
+import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genStepsCustomIconStyle from './custom-icon';
+import genStepsInlineStyle from './inline';
 import genStepsLabelPlacementStyle from './label-placement';
 import genStepsNavStyle from './nav';
 import genStepsProgressStyle from './progress';
@@ -9,28 +12,78 @@ import genStepsProgressDotStyle from './progress-dot';
 import genStepsRTLStyle from './rtl';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
-import genStepsInlineStyle from './inline';
-import { resetComponent } from '../../style';
 
 export interface ComponentToken {
-  descriptionWidth: number;
+  /**
+   * @desc 描述区域最大宽度
+   * @descEN Max width of description area
+   */
+  descriptionMaxWidth: number;
+  /**
+   * @desc 自定义图标容器尺寸
+   * @descEN Size of custom icon container
+   */
+  customIconSize: number;
+  /**
+   * @desc 自定义图标 top
+   * @descEN Top of custom icon
+   */
+  customIconTop: number;
+  /**
+   * @desc 自定义图标大小
+   * @descEN Font size of custom icon
+   */
+  customIconFontSize: number;
+  /**
+   * @desc 图标容器尺寸
+   * @descEN Size of icon container
+   */
+  iconSize: number;
+  /**
+   * @desc 图标 top
+   * @descEN Top of icon
+   */
+  iconTop: number;
+  /**
+   * @desc 图标大小
+   * @descEN Size of icon
+   */
+  iconFontSize: number;
+  /**
+   * @desc 点状步骤点大小
+   * @descEN Size of dot
+   */
+  dotSize: number;
+  /**
+   * @desc 点状步骤点当前大小
+   * @descEN Current size of dot
+   */
+  dotCurrentSize: number;
+  /**
+   * @desc 可跳转步骤条箭头颜色
+   * @descEN Color of arrow in nav
+   */
+  navArrowColor: string;
+  /**
+   * @desc 可跳转步骤条内容最大宽度
+   * @descEN Max width of nav content
+   */
+  navContentMaxWidth: CSSProperties['maxWidth'];
+  /**
+   * @desc 小号步骤条图标大小
+   * @descEN Size of small steps icon
+   */
+  iconSizeSM: number;
+  /**
+   * @desc 标题行高
+   * @descEN Line height of title
+   */
+  titleLineHeight: number;
 }
 
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
   processTailColor: string;
-  stepsNavArrowColor: string;
-  stepsIconSize: number;
-  stepsIconCustomSize: number;
-  stepsIconCustomTop: number;
-  stepsIconCustomFontSize: number;
-  stepsIconTop: number;
-  stepsIconFontSize: number;
-  stepsTitleLineHeight: number;
-  stepsSmallIconSize: number;
-  stepsDotSize: number;
-  stepsCurrentDotSize: number;
-  stepsNavContentMaxWidth: string;
   // Steps component less variable
   processIconColor: string;
   processTitleColor: string;
@@ -118,6 +171,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
 const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow } = token;
   const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
+  const stepItemIconCls = `${stepsItemCls}-icon`;
 
   return {
     [stepsItemCls]: {
@@ -136,35 +190,41 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     },
     [`${stepsItemCls}-container`]: {
       outline: 'none',
+
+      [`&:focus-visible`]: {
+        [stepItemIconCls]: {
+          ...genFocusOutline(token),
+        },
+      },
     },
-    [`${stepsItemCls}-icon, ${stepsItemCls}-content`]: {
+    [`${stepItemIconCls}, ${stepsItemCls}-content`]: {
       display: 'inline-block',
       verticalAlign: 'top',
     },
-    [`${stepsItemCls}-icon`]: {
-      width: token.stepsIconSize,
-      height: token.stepsIconSize,
+    [stepItemIconCls]: {
+      width: token.iconSize,
+      height: token.iconSize,
       marginTop: 0,
       marginBottom: 0,
       marginInlineStart: 0,
       marginInlineEnd: token.marginXS,
-      fontSize: token.stepsIconFontSize,
+      fontSize: token.iconFontSize,
       fontFamily: token.fontFamily,
-      lineHeight: `${token.stepsIconSize}px`,
+      lineHeight: `${token.iconSize}px`,
       textAlign: 'center',
-      borderRadius: token.stepsIconSize,
+      borderRadius: token.iconSize,
       border: `${token.lineWidth}px ${token.lineType} transparent`,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
         position: 'relative',
-        top: token.stepsIconTop,
+        top: token.iconTop,
         color: token.colorPrimary,
         lineHeight: 1,
       },
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: token.stepsIconSize / 2 - token.paddingXXS,
+      top: token.iconSize / 2 - token.paddingXXS,
       insetInlineStart: 0,
       width: '100%',
 
@@ -184,11 +244,11 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
-      lineHeight: `${token.stepsTitleLineHeight}px`,
+      lineHeight: `${token.titleLineHeight}px`,
 
       '&::after': {
         position: 'absolute',
-        top: token.stepsTitleLineHeight / 2,
+        top: token.titleLineHeight / 2,
         insetInlineStart: '100%',
         display: 'block',
         width: 9999,
@@ -278,7 +338,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = (token) => 
           display: 'none',
         },
         '&-description': {
-          maxWidth: token.descriptionWidth,
+          maxWidth: token.descriptionMaxWidth,
           whiteSpace: 'normal',
         },
       },
@@ -329,10 +389,6 @@ export default genComponentStyleHook(
     const {
       wireframe,
       colorTextDisabled,
-      fontSizeHeading3,
-      fontSize,
-      controlHeight,
-      controlHeightSM,
       controlHeightLG,
       colorTextLightSolid,
       colorText,
@@ -345,26 +401,10 @@ export default genComponentStyleHook(
       colorError,
       colorBgContainer,
       colorBorderSecondary,
+      colorSplit,
     } = token;
 
-    const stepsIconSize = token.controlHeight;
-    const processTailColor = token.colorSplit;
-
     const stepsToken = mergeToken<StepsToken>(token, {
-      // Steps variable default.less
-      processTailColor,
-      stepsNavArrowColor: colorTextDisabled,
-      stepsIconSize,
-      stepsIconCustomSize: stepsIconSize,
-      stepsIconCustomTop: 0,
-      stepsIconCustomFontSize: controlHeightSM,
-      stepsIconTop: -0.5, // magic for ui experience
-      stepsIconFontSize: fontSize,
-      stepsTitleLineHeight: controlHeight,
-      stepsSmallIconSize: fontSizeHeading3,
-      stepsDotSize: controlHeight / 4,
-      stepsCurrentDotSize: controlHeightLG / 4,
-      stepsNavContentMaxWidth: 'auto',
       // Steps component less variable
       processIconColor: colorTextLightSolid,
       processTitleColor: colorText,
@@ -372,10 +412,11 @@ export default genComponentStyleHook(
       processIconBgColor: colorPrimary,
       processIconBorderColor: colorPrimary,
       processDotColor: colorPrimary,
+      processTailColor: colorSplit,
       waitIconColor: wireframe ? colorTextDisabled : colorTextLabel,
       waitTitleColor: colorTextDescription,
       waitDescriptionColor: colorTextDescription,
-      waitTailColor: processTailColor,
+      waitTailColor: colorSplit,
       waitIconBgColor: wireframe ? colorBgContainer : colorFillContent,
       waitIconBorderColor: wireframe ? colorTextDisabled : 'transparent',
       waitDotColor: colorTextDisabled,
@@ -389,7 +430,7 @@ export default genComponentStyleHook(
       errorIconColor: colorTextLightSolid,
       errorTitleColor: colorError,
       errorDescriptionColor: colorError,
-      errorTailColor: processTailColor,
+      errorTailColor: colorSplit,
       errorIconBgColor: colorError,
       errorIconBorderColor: colorError,
       errorDotColor: colorError,
@@ -403,7 +444,29 @@ export default genComponentStyleHook(
 
     return [genStepsStyle(stepsToken)];
   },
-  {
-    descriptionWidth: 140,
+  (token) => {
+    const {
+      colorTextDisabled,
+      fontSize,
+      controlHeightSM,
+      controlHeight,
+      controlHeightLG,
+      fontSizeHeading3,
+    } = token;
+    return {
+      titleLineHeight: controlHeight,
+      customIconSize: controlHeight,
+      customIconTop: 0,
+      customIconFontSize: controlHeightSM,
+      iconSize: controlHeight,
+      iconTop: -0.5, // magic for ui experience
+      iconFontSize: fontSize,
+      iconSizeSM: fontSizeHeading3,
+      dotSize: controlHeight / 4,
+      dotCurrentSize: controlHeightLG / 4,
+      navArrowColor: colorTextDisabled,
+      navContentMaxWidth: 'auto',
+      descriptionMaxWidth: 140,
+    };
   },
 );

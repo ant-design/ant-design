@@ -5,6 +5,7 @@ import { RawPurePanel as PopoverRawPurePanel } from '../popover/PurePanel';
 import type { TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import useStyle from './style';
+import { withPureRenderTheme } from '../_util/PurePanel';
 
 export interface PurePanelProps extends TourStepProps {}
 
@@ -36,4 +37,4 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   );
 };
 
-export default PurePanel;
+export default withPureRenderTheme(PurePanel);

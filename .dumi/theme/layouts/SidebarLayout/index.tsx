@@ -1,21 +1,21 @@
-import { css } from '@emotion/react';
+import { createStyles } from 'antd-style';
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';
 import Sidebar from '../../slots/Sidebar';
 
-const useStyle = () => ({
+const useStyle = createStyles(({ css, token }) => ({
   main: css`
     display: flex;
-    margin-top: 40px;
+    margin-top: ${token.contentMarginTop}px;
   `,
-});
+}));
 
 const SidebarLayout: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const { main } = useStyle();
+  const { styles } = useStyle();
   return (
-    <main css={main}>
+    <main className={styles.main}>
       <CommonHelmet />
       <Sidebar />
       <Content>{children}</Content>

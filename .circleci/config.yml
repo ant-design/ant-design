@@ -7,18 +7,17 @@ version: 2.1
 jobs:
   test-argos-ci:
     docker:
-      - image: cimg/node:16.19.1-browsers
+      - image: cimg/node:21.0-browsers
+    environment:
+      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - checkout
       - run:
           name: Install node_modules
-          command: npm i
-      - run:
-          name: Install argos cli
-          command: npm i fast-glob lodash @argos-ci/core
+          command: yarn
       - run:
           name: Build dist file
-          command: npm run dist
+          command: npm run dist:esbuild
       - run:
           name: Run image screenshot tests
           command: npm run test-image

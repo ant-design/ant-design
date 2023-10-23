@@ -1,10 +1,20 @@
 import React from 'react';
 import { cloneElement, isFragment } from '../_util/reactNode';
+import type { BaseButtonProps, LegacyButtonType } from './button';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 export const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 
-export function isString(str: any) {
+export function convertLegacyProps(
+  type?: LegacyButtonType,
+): Pick<BaseButtonProps, 'danger' | 'type'> {
+  if (type === 'danger') {
+    return { danger: true };
+  }
+  return { type };
+}
+
+export function isString(str: any): str is string {
   return typeof str === 'string';
 }
 
@@ -30,7 +40,7 @@ function splitCNCharsBySpace(child: React.ReactElement | string | number, needIn
     });
   }
 
-  if (typeof child === 'string') {
+  if (isString(child)) {
     return isTwoCNChar(child) ? <span>{child.split('').join(SPACE)}</span> : <span>{child}</span>;
   }
 
@@ -64,7 +74,7 @@ export function spaceChildren(children: React.ReactNode, needInserted: boolean) 
   );
 }
 
-const ButtonTypes = ['default', 'primary', 'ghost', 'dashed', 'link', 'text'] as const;
+const ButtonTypes = ['default', 'primary', 'dashed', 'link', 'text'] as const;
 export type ButtonType = typeof ButtonTypes[number];
 
 const ButtonShapes = ['default', 'circle', 'round'] as const;

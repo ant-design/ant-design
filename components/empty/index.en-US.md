@@ -24,6 +24,8 @@ Empty state placeholder.
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 ```jsx
 <Empty>
   <Button>Create</Button>
@@ -62,3 +64,7 @@ Empty state placeholder.
     background-image: url("https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png");
   }
 </style>
+
+## Design Token
+
+<ComponentTokenTable component="Empty"></ComponentTokenTable>

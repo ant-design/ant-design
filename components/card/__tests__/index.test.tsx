@@ -1,11 +1,11 @@
-import React from 'react';
+import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { screen, render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
 import Card from '../index';
-import '@testing-library/jest-dom';
 
 describe('Card', () => {
   mountTest(Card);
@@ -87,6 +87,39 @@ describe('Card', () => {
     expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
   });
 
+  it('tab size extend card size', () => {
+    const { container: largeContainer } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(largeContainer.querySelectorAll('.ant-tabs-large').length === 0).toBeFalsy();
+
+    const { container } = render(
+      <Card
+        title="Card title"
+        tabList={[
+          {
+            key: 'key',
+            tab: 'tab',
+          },
+        ]}
+        size="small"
+      >
+        <p>Card content</p>
+      </Card>,
+    );
+    expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
+  });
+
   it('get ref of card', () => {
     const cardRef = React.createRef<HTMLDivElement>();
 
@@ -97,5 +130,48 @@ describe('Card', () => {
     );
 
     expect(cardRef.current).toHaveClass('ant-card');
+  });
+
+  it('should show tab when tabList is empty', () => {
+    const { container } = render(
+      <Card title="Card title" tabList={[]} tabProps={{ type: 'editable-card' }}>
+        <p>Card content</p>
+      </Card>,
+    );
+
+    expect(container.querySelector('.ant-tabs')).toBeTruthy();
+    expect(container.querySelector('.ant-tabs-nav-add')).toBeTruthy();
+  });
+
+  it('correct pass tabList props', () => {
+    const { container } = render(
+      <Card
+        tabList={[
+          {
+            label: 'Basic',
+            key: 'basic',
+          },
+          {
+            tab: 'Deprecated',
+            key: 'deprecated',
+          },
+          {
+            tab: 'Disabled',
+            key: 'disabled',
+            disabled: true,
+          },
+          {
+            tab: 'NotClosable',
+            key: 'notClosable',
+            closable: false,
+          },
+        ]}
+        tabProps={{
+          type: 'editable-card',
+        }}
+      />,
+    );
+
+    expect(container.firstChild).toMatchSnapshot();
   });
 });

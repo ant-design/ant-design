@@ -1,21 +1,14 @@
-import {
-  CheckOutlined,
-  LinkOutlined,
-  SnippetsOutlined,
-  ThunderboltOutlined,
-} from '@ant-design/icons';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import type { IPreviewerProps } from 'dumi';
 import { FormattedMessage, useSiteData } from 'dumi';
-import toReactElement from 'jsonml-to-react-element';
-import JsonML from 'jsonml.js/lib/utils';
 import LZString from 'lz-string';
-import Prism from 'prismjs';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
+
+import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -30,28 +23,6 @@ import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
 
 const { ErrorBoundary } = Alert;
-
-function toReactComponent(jsonML: any) {
-  return toReactElement(jsonML, [
-    [
-      (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
-      (node: any, index: any) => {
-        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
-        const attr = JsonML.getAttributes(node);
-        return React.createElement(
-          'pre',
-          {
-            key: index,
-            className: `language-${attr.lang}`,
-          },
-          React.createElement('code', {
-            dangerouslySetInnerHTML: { __html: attr.highlighted },
-          }),
-        );
-      },
-    ],
-  ]);
-}
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
@@ -88,7 +59,32 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
-const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
+const useStyle = createStyles(({ token }) => {
+  const { borderRadius } = token;
+  return {
+    codeHideBtn: css`
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
+      border-top: 1px solid ${token.colorSplit};
+      color: ${token.colorTextSecondary};
+      transition: all 0.2s ease-in-out;
+      background-color: ${token.colorBgElevated};
+      cursor: pointer;
+      &:hover {
+        color: ${token.colorPrimary};
+      }
+      span {
+        margin-right: ${token.marginXXS}px;
+      }
+    `,
+  };
+});
+
+const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
     expand,
@@ -97,17 +93,21 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     children,
     title,
     description,
-    debug,
+    originDebug,
     jsx,
     style,
     compact,
     background,
-    filePath,
+    filename,
     version,
+    clientOnly,
+    pkgDependencyList,
   } = props;
 
   const { pkg } = useSiteData();
   const location = useLocation();
+
+  const { styles } = useStyle();
 
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
@@ -118,8 +118,6 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [copyTooltipOpen, setCopyTooltipOpen] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
   const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
@@ -127,13 +125,6 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
-
-  const highlightedCodes = {
-    jsx: Prism.highlight(jsx, Prism.languages.javascript, 'jsx'),
-    tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'jsx'),
-  };
-
-  const highlightedStyle = style ? Prism.highlight(style, Prism.languages.css, 'css') : '';
 
   useEffect(() => {
     const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
@@ -147,18 +138,6 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
     track({ type: 'expand', demo });
   };
 
-  const handleCodeCopied = (demo: string) => {
-    setCopied(true);
-    track({ type: 'copy', demo });
-  };
-
-  const onCopyTooltipOpenChange = (open: boolean) => {
-    setCopyTooltipOpen(open);
-    if (open) {
-      setCopied(false);
-    }
-  };
-
   useEffect(() => {
     if (asset.id === hash.slice(1)) {
       anchorRef.current?.click();
@@ -168,6 +147,8 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
   useEffect(() => {
     setCodeExpand(expand);
   }, [expand]);
+
+  const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
 
   if (!liveDemo.current) {
     liveDemo.current = iframe ? (
@@ -180,17 +161,16 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
         />
       </BrowserFrame>
     ) : (
-      children
+      mergedChildren
     );
   }
 
   const codeBoxClass = classNames('code-box', {
     expand: codeExpand,
-    'code-box-debug': debug,
+    'code-box-debug': originDebug,
   });
 
   const localizedTitle = title;
-  const introChildren = <div dangerouslySetInnerHTML={{ __html: description }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
@@ -200,7 +180,7 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
       <html lang="en">
         <head>
           <meta charset="utf-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          <meta name="viewport" content="width=device-width">
           <meta name="theme-color" content="#000000">
         </head>
         <body>
@@ -224,15 +204,13 @@ const CodePreviewer: React.FC<IPreviewerProps> = (props) => {
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-  const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
+  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches && matches[1] && !line.includes('antd')) {
+      if (matches?.[1]) {
         const paths = matches[1].split('/');
-        if (paths.length) {
-          const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-          acc[dep] = 'latest';
-        }
+        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
+        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
       }
       return acc;
     },
@@ -328,12 +306,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
     main: 'index.js',
     dependencies: {
       ...dependencies,
+      'rc-util': pkgDependencyList['rc-util'],
       react: '^18.0.0',
       'react-dom': '^18.0.0',
-      'react-scripts': '^4.0.0',
+      'react-scripts': '^5.0.0',
     },
     devDependencies: {
-      typescript: '^4.0.5',
+      typescript: '^5.0.2',
     },
     scripts: {
       start: 'react-scripts start',
@@ -387,18 +366,19 @@ createRoot(document.getElementById('container')).render(<Demo />);
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
-        {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
-          <Tooltip title={debug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+          <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
             <a href={`#${asset.id}`} ref={anchorRef}>
               {localizedTitle}
             </a>
           </Tooltip>
-          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filePath} />
+          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
-        <div className="code-box-description">{introChildren}</div>
+        {description && (
+          <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
+        )}
         <Space wrap size="middle" className="code-box-actions">
           {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
@@ -408,7 +388,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 rel="noreferrer"
                 href={docsOnlineUrl}
               >
-                <LinkOutlined className="code-box-online" />
+                <LinkOutlined aria-label="open in new tab" className="code-box-online" />
               </a>
             </Tooltip>
           )}
@@ -481,23 +461,17 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
-          <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
-            <Tooltip
-              open={copyTooltipOpen as boolean}
-              onOpenChange={onCopyTooltipOpenChange}
-              title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
-            >
-              {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
-                className: 'code-box-code-copy code-box-code-action',
-              })}
-            </Tooltip>
-          </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a className="code-box-code-action" target="_blank" rel="noreferrer" href={demoUrl}>
+            <a
+              className="code-box-code-action"
+              aria-label="open in new tab"
+              target="_blank"
+              rel="noreferrer"
+              href={demoUrl}
+            >
               <ExternalLinkIcon className="code-box-separate" />
             </a>
           </Tooltip>
-
           <Tooltip
             title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
           >
@@ -526,26 +500,50 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
         </Space>
       </section>
-      <section className={highlightClass} key="code">
-        <CodePreview
-          codes={highlightedCodes}
-          toReactComponent={toReactComponent}
-          onCodeTypeChange={(type) => setCodeType(type)}
-        />
-        {highlightedStyle ? (
-          <div key="style" className="highlight">
-            <pre>
-              <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-            </pre>
+      {codeExpand && (
+        <section className={highlightClass} key="code">
+          <CodePreview
+            sourceCode={entryCode}
+            jsxCode={jsx}
+            styleCode={style}
+            onCodeTypeChange={setCodeType}
+          />
+          <div
+            tabIndex={0}
+            role="button"
+            className={styles.codeHideBtn}
+            onClick={() => setCodeExpand(false)}
+          >
+            <UpOutlined />
+            <FormattedMessage id="app.demo.code.hide.simplify" />
           </div>
-        ) : null}
-      </section>
+        </section>
+      )}
     </section>
   );
 
+  useEffect(() => {
+    // In Safari, if style tag be inserted into non-head tag,
+    // it will affect the rendering ability of the browser,
+    // resulting in some response delays like following issue:
+    // https://github.com/ant-design/ant-design/issues/39995
+    // So we insert style tag into head tag.
+    if (!style) {
+      return;
+    }
+    const styleTag = document.createElement('style') as HTMLStyleElement;
+    styleTag.type = 'text/css';
+    styleTag.innerHTML = style;
+    (styleTag as any)['data-demo-url'] = demoUrl;
+    document.head.appendChild(styleTag);
+    return () => {
+      document.head.removeChild(styleTag);
+    };
+  }, [style, demoUrl]);
+
   if (version) {
     return (
-      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : undefined}>
         {codeBox}
       </Badge.Ribbon>
     );

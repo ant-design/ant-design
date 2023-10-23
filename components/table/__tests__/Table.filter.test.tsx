@@ -1,8 +1,10 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/no-multi-comp */
 import React, { useEffect, useState } from 'react';
+
 import type { ColumnGroupType, ColumnType, TableProps } from '..';
 import Table from '..';
+import { resetWarned } from '../../_util/warning';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
@@ -11,7 +13,6 @@ import Menu from '../../menu';
 import type { SelectProps } from '../../select';
 import Select from '../../select';
 import Tooltip from '../../tooltip';
-import { resetWarned } from '../../_util/warning';
 import type { TreeColumnFilterItem } from '../hooks/useFilter/FilterDropdown';
 import type {
   ColumnFilterItem,
@@ -134,6 +135,8 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
+    resetWarned();
+
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     const { container } = render(
       createTable({
@@ -760,6 +763,7 @@ describe('Table.filter', () => {
         });
         // Another time of Filter show
         // https://github.com/ant-design/ant-design/issues/15593
+        fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
 
         fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
@@ -1190,6 +1194,7 @@ describe('Table.filter', () => {
       />,
     );
 
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
     fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     expect(onChange).toHaveBeenCalled();
@@ -1468,7 +1473,7 @@ describe('Table.filter', () => {
   });
 
   it('filtered should work after change', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [filtered, setFiltered] = React.useState(true);
       const columns = [
         {
@@ -2389,9 +2394,19 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     expect(renderedNames(container)).toEqual(['Jack']);
 
-    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox')[2]);
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.click(container.querySelectorAll('.ant-tree-checkbox-inner')[2]);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+    });
 
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[2]);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
@@ -2482,7 +2497,7 @@ describe('Table.filter', () => {
       defaultFilteredValue: ['girl'],
     };
 
-    const { container, rerender } = render(
+    const { container } = render(
       createTable({
         columns: [columnFilter],
       }),
@@ -2498,7 +2513,7 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('button.ant-btn-link')!, nativeEvent);
     expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
-    rerender(
+    const { container: container2 } = render(
       createTable({
         columns: [
           {
@@ -2509,15 +2524,15 @@ describe('Table.filter', () => {
       }),
     );
 
-    fireEvent.click(container.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
+    fireEvent.click(container2.querySelector('span.ant-dropdown-trigger')!, nativeEvent);
     act(() => {
       jest.runAllTimers();
     });
-    fireEvent.click(container.querySelector('.ant-table-filter-dropdown-checkall')!);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
-    fireEvent.click(container.querySelector('button.ant-btn-link')!, nativeEvent);
-    expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
-    expect(container.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe('Girl');
+    fireEvent.click(container2.querySelector('.ant-table-filter-dropdown-checkall')!);
+    expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
+    fireEvent.click(container2.querySelector('button.ant-btn-link')!, nativeEvent);
+    expect(container2.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(container2.querySelector('.ant-tree-checkbox-checked+span')?.textContent).toBe('Girl');
   });
 
   it('filterDropdown should not override customize Menu selectable', () => {
@@ -2776,5 +2791,68 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary')!);
 
     expect(renderedNames(container)).toEqual(['Jack']);
+  });
+
+  it('changes to table data should not reset the filter dropdown state being changed by a user', () => {
+    const tableProps = {
+      key: 'stabletable',
+      rowKey: 'name',
+      dataSource: [],
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filteredValue: [], // User is controlling filteredValue. It begins with no items checked.
+          filters: [{ text: 'J', value: 'J' }],
+          onFilter: (value: any, record: any) => record.name.includes(value),
+        },
+      ],
+    };
+
+    const { container, rerender } = render(createTable(tableProps));
+
+    // User opens filter Dropdown.
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
+
+    // There is one checkbox and it begins unchecked.
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
+      false,
+    );
+
+    // User checks it.
+    fireEvent.click(container.querySelector('input[type="checkbox"]')!);
+
+    // The checkbox is now checked.
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
+      true,
+    );
+
+    // Table data changes while the dropdown is open and a user is setting filters.
+    rerender(createTable({ ...tableProps, dataSource: [{ name: 'Foo' }] }));
+
+    // The checkbox is still checked.
+    expect(container.querySelector<HTMLInputElement>('input[type="checkbox"]')!.checked).toEqual(
+      true,
+    );
+  });
+
+  it('should not crash when filterDropdown is boolean', () => {
+    const tableProps = {
+      key: 'stabletable',
+      rowKey: 'name',
+      dataSource: [],
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          filterDropdown: true,
+        },
+      ],
+    };
+
+    const { container } = render(createTable(tableProps));
+
+    // User opens filter Dropdown.
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
   });
 });

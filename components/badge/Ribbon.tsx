@@ -1,10 +1,11 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
+import classNames from 'classnames';
+
 import type { PresetColorType } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
-import useStyle from './style';
 import { isPresetColor } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
+import { ConfigContext } from '../config-provider';
+import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -16,17 +17,20 @@ export interface RibbonProps {
   color?: LiteralUnion<PresetColorType>;
   children?: React.ReactNode;
   placement?: RibbonPlacement;
+  rootClassName?: string;
 }
 
-const Ribbon: React.FC<RibbonProps> = ({
-  className,
-  prefixCls: customizePrefixCls,
-  style,
-  color,
-  children,
-  text,
-  placement = 'end',
-}) => {
+const Ribbon: React.FC<RibbonProps> = (props) => {
+  const {
+    className,
+    prefixCls: customizePrefixCls,
+    style,
+    color,
+    children,
+    text,
+    placement = 'end',
+    rootClassName,
+  } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
   const colorInPreset = isPresetColor(color, false);
@@ -47,7 +51,7 @@ const Ribbon: React.FC<RibbonProps> = ({
     cornerColorStyle.color = color;
   }
   return wrapSSR(
-    <div className={classNames(`${prefixCls}-wrapper`, hashId)}>
+    <div className={classNames(`${prefixCls}-wrapper`, rootClassName, hashId)}>
       {children}
       <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
         <span className={`${prefixCls}-text`}>{text}</span>

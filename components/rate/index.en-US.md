@@ -25,8 +25,11 @@ Rate component.
 <code src="./demo/clear.tsx">Clear star</code>
 <code src="./demo/character.tsx">Other Character</code>
 <code src="./demo/character-function.tsx">Customize character</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -53,3 +56,7 @@ Rate component.
 | ------- | ------------ |
 | blur()  | Remove focus |
 | focus() | Get focus    |
+
+## Design Token
+
+<ComponentTokenTable component="Rate"></ComponentTokenTable>

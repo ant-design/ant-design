@@ -1,5 +1,7 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Select image', () => {
-  imageDemoTest('select', { skip: ['basic.tsx'] });
+  imageDemoTest('select', {
+    splitTheme: ['debug-flip-shift.tsx'],
+  });
 });

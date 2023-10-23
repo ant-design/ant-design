@@ -61,3 +61,17 @@
 - [ ] 代码演示已提供或无须提供
 - [ ] TypeScript 定义已补充或无须补充
 - [ ] Changelog 已提供或无须提供
+
+---
+
+<!--
+以下为 copilot 自动生成的 CR 结果，请勿修改
+-->
+
+### 🚀 概述
+
+copilot:summary
+
+### 🔍 实现细节
+
+copilot:walkthrough

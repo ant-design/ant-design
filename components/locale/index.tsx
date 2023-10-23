@@ -1,18 +1,21 @@
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
-import warning from '../_util/warning';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
+
+import { devUseWarning } from '../_util/warning';
 import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
 import type { ModalLocale } from '../modal/locale';
-import type { TourLocale } from '../tour/interface';
 import { changeConfirmLocale } from '../modal/locale';
 import type { PaginationLocale } from '../pagination/Pagination';
 import type { PopconfirmLocale } from '../popconfirm/PurePanel';
 import type { TableLocale } from '../table/interface';
+import type { TourLocale } from '../tour/interface';
 import type { TransferLocale } from '../transfer';
 import type { UploadLocale } from '../upload/interface';
 import type { LocaleContextProps } from './context';
 import LocaleContext from './context';
+
+export { default as useLocale } from './useLocale';
 
 export const ANT_MARK = 'internalMark';
 
@@ -50,6 +53,9 @@ export interface Locale {
     expired: string;
     refresh: string;
   };
+  ColorPicker?: {
+    presetEmpty: string;
+  };
 }
 
 export interface LocaleProviderProps {
@@ -63,18 +69,18 @@ const LocaleProvider: React.FC<LocaleProviderProps> = (props) => {
   const { locale = {} as Locale, children, _ANT_MARK__ } = props;
 
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('LocaleProvider');
+
     warning(
       _ANT_MARK__ === ANT_MARK,
-      'LocaleProvider',
+      'deprecated',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
     );
   }
 
   React.useEffect(() => {
-    changeConfirmLocale(locale && locale.Modal);
-    return () => {
-      changeConfirmLocale();
-    };
+    const clearLocale = changeConfirmLocale(locale && locale.Modal);
+    return clearLocale;
   }, [locale]);
 
   const getMemoizedContextValue = React.useMemo<LocaleContextProps>(

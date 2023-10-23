@@ -32,6 +32,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
@@ -46,8 +48,13 @@ demo:
 | description | 确认内容的详细描述 | ReactNode \| () => ReactNode | - | 5.1.0 |
 | onCancel | 点击取消的回调 | function(e) | - |  |
 | onConfirm | 点击确认的回调 | function(e) | - |  |
+| onPopupClick | 弹出气泡点击事件 | function(e) | - | 5.5.0 |
 
 更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 
 ## 注意
 

@@ -1,18 +1,20 @@
+import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import React, { memo, useContext, useEffect, useRef, useState } from 'react';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { composeRef } from 'rc-util/lib/ref';
+
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import FloatButtonGroupContext from './context';
-import type { BackTopProps, FloatButtonProps, FloatButtonShape } from './interface';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+import type { BackTopProps, FloatButtonProps, FloatButtonRef, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop: React.FC<BackTopProps> = (props) => {
+const BackTop = React.forwardRef<FloatButtonRef['nativeElement'], BackTopProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -28,10 +30,14 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 
   const [visible, setVisible] = useState<boolean>(visibilityHeight === 0);
 
-  const ref = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
+  const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
+
+  const mergedRef = composeRef<FloatButtonRef['nativeElement']>(ref, internalRef);
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
-    ref.current && ref.current.ownerDocument ? ref.current.ownerDocument : window;
+    internalRef.current && internalRef.current.ownerDocument
+      ? internalRef.current.ownerDocument
+      : window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
@@ -72,7 +78,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
       {({ className: motionClassName }) => (
         <FloatButton
-          ref={ref}
+          ref={mergedRef}
           {...contentProps}
           onClick={scrollToTop}
           className={classNames(className, motionClassName)}
@@ -80,10 +86,10 @@ const BackTop: React.FC<BackTopProps> = (props) => {
       )}
     </CSSMotion>,
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   BackTop.displayName = 'BackTop';
 }
 
-export default memo(BackTop);
+export default BackTop;

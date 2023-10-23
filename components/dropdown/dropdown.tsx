@@ -1,23 +1,23 @@
+import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
+import type { AlignType } from '@rc-component/trigger';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { MenuProps } from '../menu';
-import Menu from '../menu';
-import { OverrideProvider } from '../menu/OverrideContext';
-import { NoCompactStyle } from '../space/Compact';
+
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
-import warning from '../_util/warning';
-import DropdownButton from './dropdown-button';
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import type { MenuProps } from '../menu';
+import Menu from '../menu';
+import { OverrideProvider } from '../menu/OverrideContext';
+import { useToken } from '../theme/internal';
 import useStyle from './style';
-import theme from '../theme';
 
 const Placements = [
   'topLeft',
@@ -31,21 +31,9 @@ const Placements = [
 ] as const;
 
 type Placement = typeof Placements[number];
+type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
-
-type Align = {
-  points?: [string, string];
-  offset?: [number, number];
-  targetOffset?: [number, number];
-  overflow?: {
-    adjustX?: boolean;
-    adjustY?: boolean;
-  };
-  useCssRight?: boolean;
-  useCssBottom?: boolean;
-  useCssTransform?: boolean;
-};
 
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
@@ -61,7 +49,7 @@ export interface DropdownProps {
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
-  align?: Align;
+  align?: AlignType;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
@@ -87,68 +75,10 @@ export interface DropdownProps {
 }
 
 type CompoundedComponent = React.FC<DropdownProps> & {
-  Button: typeof DropdownButton;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 };
 
 const Dropdown: CompoundedComponent = (props) => {
-  const {
-    getPopupContainer: getContextPopupContainer,
-    getPrefixCls,
-    direction,
-  } = React.useContext(ConfigContext);
-
-  // Warning for deprecated usage
-  if (process.env.NODE_ENV !== 'production') {
-    [
-      ['visible', 'open'],
-      ['onVisibleChange', 'onOpenChange'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        `\`${deprecatedName}\` is deprecated which will be removed in next major version, please use \`${newName}\` instead.`,
-      );
-    });
-
-    warning(
-      !('overlay' in props),
-      'Dropdown',
-      '`overlay` is deprecated. Please use `menu` instead.',
-    );
-  }
-
-  const getTransitionName = () => {
-    const rootPrefixCls = getPrefixCls();
-    const { placement = '', transitionName } = props;
-    if (transitionName !== undefined) {
-      return transitionName;
-    }
-    if (placement.includes('top')) {
-      return `${rootPrefixCls}-slide-down`;
-    }
-    return `${rootPrefixCls}-slide-up`;
-  };
-
-  const getPlacement = () => {
-    const { placement } = props;
-    if (!placement) {
-      return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
-    }
-
-    if (placement.includes('Center')) {
-      const newPlacement = placement.slice(0, placement.indexOf('Center'));
-      warning(
-        !placement.includes('Center'),
-        'Dropdown',
-        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
-      );
-      return newPlacement;
-    }
-
-    return placement;
-  };
-
   const {
     menu,
     arrow,
@@ -162,32 +92,82 @@ const Dropdown: CompoundedComponent = (props) => {
     rootClassName,
     open,
     onOpenChange,
-
     // Deprecated
     visible,
     onVisibleChange,
     mouseEnterDelay = 0.15,
     mouseLeaveDelay = 0.1,
     autoAdjustOverflow = true,
+    placement = '',
+    overlay,
+    transitionName,
   } = props;
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
+
+  // Warning for deprecated usage
+  const warning = devUseWarning('Dropdown');
 
   if (process.env.NODE_ENV !== 'production') {
     [
       ['visible', 'open'],
       ['onVisibleChange', 'onOpenChange'],
     ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+
+    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
+  }
+
+  const memoTransitionName = React.useMemo<string>(() => {
+    const rootPrefixCls = getPrefixCls();
+
+    if (transitionName !== undefined) {
+      return transitionName;
+    }
+    if (placement.includes('top')) {
+      return `${rootPrefixCls}-slide-down`;
+    }
+    return `${rootPrefixCls}-slide-up`;
+  }, [getPrefixCls, placement, transitionName]);
+
+  const memoPlacement = React.useMemo<DropdownPlacement>(() => {
+    if (!placement) {
+      return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
+    }
+
+    if (placement.includes('Center')) {
+      return placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
+    }
+
+    return placement as DropdownPlacement;
+  }, [placement, direction]);
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (placement.includes('Center')) {
+      const newPlacement = placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
       warning(
-        !(deprecatedName in props),
-        'Dropdown',
-        `\`${deprecatedName}\` is deprecated, please use \`${newName}\` instead.`,
+        !placement.includes('Center'),
+        'deprecated',
+        `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
       );
+    }
+
+    [
+      ['visible', 'open'],
+      ['onVisibleChange', 'onOpenChange'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
   const child = React.Children.only(children) as React.ReactElement<any>;
 
@@ -239,7 +219,6 @@ const Dropdown: CompoundedComponent = (props) => {
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
-    const { overlay } = props;
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
@@ -271,12 +250,12 @@ const Dropdown: CompoundedComponent = (props) => {
           // Warning if use other mode
           warning(
             !mode || mode === 'vertical',
-            'Dropdown',
+            'usage',
             `mode="${mode}" is not supported for Dropdown's Menu.`,
           );
         }}
       >
-        <NoCompactStyle>{overlayNode}</NoCompactStyle>
+        {overlayNode}
       </OverrideProvider>
     );
   };
@@ -294,10 +273,10 @@ const Dropdown: CompoundedComponent = (props) => {
       overlayClassName={overlayClassNameCustomized}
       prefixCls={prefixCls}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      transitionName={getTransitionName()}
+      transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={getPlacement()}
+      placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
     >
       {dropdownTrigger}
@@ -305,13 +284,23 @@ const Dropdown: CompoundedComponent = (props) => {
   );
 };
 
-Dropdown.Button = DropdownButton;
+function postPureProps(props: DropdownProps) {
+  return {
+    ...props,
+    align: {
+      overflow: {
+        adjustX: false,
+        adjustY: false,
+      },
+    },
+  };
+}
 
 // We don't care debug panel
-const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls);
+const PurePanel = genPurePanel(Dropdown, 'dropdown', (prefixCls) => prefixCls, postPureProps);
 
 /* istanbul ignore next */
-const WrapPurePanel = (props: DropdownProps) => (
+const WrapPurePanel: React.FC<DropdownProps> = (props) => (
   <PurePanel {...props}>
     <span />
   </PurePanel>

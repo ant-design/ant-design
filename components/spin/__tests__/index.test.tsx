@@ -1,9 +1,9 @@
-import React from 'react';
 import { render } from '@testing-library/react';
-import { waitFakeTimer } from '../../../tests/utils';
+import React from 'react';
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { waitFakeTimer } from '../../../tests/utils';
 
 describe('Spin', () => {
   mountTest(Spin);
@@ -51,5 +51,16 @@ describe('Spin', () => {
   it('should render 0', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
+  });
+
+  it('warning tip without nest', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin tip="Not Show" />);
+    expect(container.querySelector('.ant-spin-text')).toBeFalsy();
+
+    expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Spin] `tip` only work in nest pattern.');
+
+    errSpy.mockRestore();
   });
 });

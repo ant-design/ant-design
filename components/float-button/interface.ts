@@ -1,14 +1,22 @@
 import type React from 'react';
-import type Group from './FloatButtonGroup';
-import type BackTop from './BackTop';
+
+import type { BadgeProps } from '../badge';
 import type { TooltipProps } from '../tooltip';
+import type BackTop from './BackTop';
+import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
+
+export interface FloatButtonRef {
+  nativeElement: HTMLAnchorElement & HTMLButtonElement;
+}
 
 export type FloatButtonType = 'default' | 'primary';
 
 export type FloatButtonShape = 'circle' | 'square';
 
 export type FloatButtonGroupTrigger = 'click' | 'hover';
+
+export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
 
 export interface FloatButtonProps {
   prefixCls?: string;
@@ -22,7 +30,9 @@ export interface FloatButtonProps {
   tooltip?: TooltipProps['title'];
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
+  badge?: FloatButtonBadgeProps;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  ['aria-label']?: React.HtmlHTMLAttributes<HTMLButtonElement>['aria-label'];
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
@@ -58,7 +68,7 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<HTMLAnchorElement | HTMLButtonElement>
+  FloatButtonProps & React.RefAttributes<FloatButtonRef['nativeElement']>
 > & {
   Group: typeof Group;
   BackTop: typeof BackTop;

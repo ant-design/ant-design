@@ -6,8 +6,8 @@ import type { InputProps, InputRef } from '..';
 import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Form from '../../form';
 import { resetWarned } from '../../_util/warning';
+import Form from '../../form';
 import { triggerFocus } from '../Input';
 
 describe('Input', () => {
@@ -124,7 +124,7 @@ describe('Input', () => {
     render(<Input.Group />);
 
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Input.Group] 'Input.Group' is deprecated. Please use 'Space.Compact' instead.",
+      'Warning: [antd: Input.Group] `Input.Group` is deprecated. Please use `Space.Compact` instead.',
     );
   });
 });
@@ -398,7 +398,7 @@ describe('Input allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/31927
   it('should correctly when useState', () => {
-    const App = () => {
+    const App: React.FC = () => {
       const [query, setQuery] = useState('');
       return (
         <Input
@@ -440,6 +440,95 @@ describe('Input allowClear', () => {
   it('should support custom clearIcon', () => {
     const { container } = render(<Input allowClear={{ clearIcon: 'clear' }} />);
     expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
+  });
+
+  it('should support classNames and styles', () => {
+    const { container } = render(
+      <>
+        <Input
+          value="123"
+          showCount
+          prefixCls="rc-input"
+          prefix="prefix"
+          suffix="suffix"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+            prefix: 'custom-prefix',
+            suffix: 'custom-suffix',
+            count: 'custom-count',
+          }}
+          styles={{
+            input: { color: 'red' },
+            prefix: { color: 'blue' },
+            suffix: { color: 'yellow' },
+            count: { color: 'green' },
+          }}
+        />
+        <Input
+          value="123"
+          addonAfter="addon"
+          showCount
+          prefixCls="rc-input"
+          prefix="prefix"
+          suffix="suffix"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+            prefix: 'custom-prefix',
+            suffix: 'custom-suffix',
+            count: 'custom-count',
+          }}
+          styles={{
+            input: { color: 'red' },
+            prefix: { color: 'blue' },
+            suffix: { color: 'yellow' },
+            count: { color: 'green' },
+          }}
+        />
+        <Input
+          value="123"
+          prefixCls="rc-input"
+          className="custom-class"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+          }}
+          styles={{
+            input: { color: 'red' },
+          }}
+        />
+        <Input
+          value="123"
+          prefixCls="rc-input"
+          className="custom-class"
+          addonAfter="addon"
+          style={{ backgroundColor: 'red' }}
+          classNames={{
+            input: 'custom-input',
+          }}
+          styles={{
+            input: { color: 'red' },
+          }}
+        />
+      </>,
+    );
+    expect(container).toMatchSnapshot();
+  });
+
+  it('background should not be transparent', () => {
+    const { container } = render(<Input />);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+
+    // hover
+    fireEvent.mouseEnter(container.querySelector('input')!);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
+
+    // focus
+    fireEvent.focus(container.querySelector('input')!);
+    expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
   });
 });
 

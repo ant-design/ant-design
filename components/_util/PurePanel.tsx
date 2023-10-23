@@ -2,6 +2,23 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 
+export function withPureRenderTheme(Component: any) {
+  return function PureRenderThemeComponent(props: any) {
+    return (
+      <ConfigProvider
+        theme={{
+          token: {
+            motion: false,
+            zIndexPopupBase: 0,
+          },
+        }}
+      >
+        <Component {...props} />
+      </ConfigProvider>
+    );
+  };
+}
+
 export interface BaseProps {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -11,9 +28,12 @@ export interface BaseProps {
 export default function genPurePanel<ComponentProps extends BaseProps>(
   Component: any,
   defaultPrefixCls?: string,
-  getDropdownCls?: (prefixCls: string) => string,
+  getDropdownCls?: null | ((prefixCls: string) => string),
+  postProps?: (props: ComponentProps) => ComponentProps,
 ) {
-  return function PurePanel(props: Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean }) {
+  type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
+
+  function PurePanel(props: WrapProps) {
     const { prefixCls: customizePrefixCls, style } = props;
 
     const holderRef = React.useRef<HTMLDivElement>(null);
@@ -56,37 +76,34 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
       }
     }, []);
 
+    let mergedProps: WrapProps = {
+      ...props,
+      style: {
+        ...style,
+        margin: 0,
+      },
+      open,
+      visible: open,
+      getPopupContainer: () => holderRef.current!,
+    };
+
+    if (postProps) {
+      mergedProps = postProps(mergedProps as ComponentProps);
+    }
+
     return (
-      <ConfigProvider
-        theme={{
-          token: {
-            motionDurationFast: '0.01s',
-            motionDurationMid: '0.01s',
-            motionDurationSlow: '0.01s',
-          },
+      <div
+        ref={holderRef}
+        style={{
+          paddingBottom: popupHeight,
+          position: 'relative',
+          minWidth: popupWidth,
         }}
       >
-        <div
-          ref={holderRef}
-          style={{
-            paddingBottom: popupHeight,
-            position: 'relative',
-            width: 'fit-content',
-            minWidth: popupWidth,
-          }}
-        >
-          <Component
-            {...props}
-            style={{
-              ...style,
-              margin: 0,
-            }}
-            open={open}
-            visible={open}
-            getPopupContainer={() => holderRef.current!}
-          />
-        </div>
-      </ConfigProvider>
+        <Component {...mergedProps} />
+      </div>
     );
-  } as typeof Component;
+  }
+
+  return withPureRenderTheme(PurePanel);
 }

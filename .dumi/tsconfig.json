@@ -1,16 +1,7 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-    "jsxImportSource": "@emotion/react",
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "baseUrl": "../",
-    "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "antd": ["components/index.tsx"],
-      "antd/es/*": ["components/*"],
-      "dumi/theme/*": [".dumi/theme/*"]
-    }
+    "resolveJsonModule": true
   },
-  "include": ["./**/*", "../site/theme/template/Content"]
+  "include": ["**/*"]
 }

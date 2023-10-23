@@ -1,12 +1,15 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
+import { LayoutContext } from './context';
+import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
 
 export interface GeneratorProps {
   suffixCls?: string;
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
   displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -16,21 +19,8 @@ export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   hasSider?: boolean;
 }
 
-export interface LayoutContextProps {
-  siderHook: {
-    addSider: (id: string) => void;
-    removeSider: (id: string) => void;
-  };
-}
-export const LayoutContext = React.createContext<LayoutContextProps>({
-  siderHook: {
-    addSider: () => null,
-    removeSider: () => null,
-  },
-});
-
 interface BasicPropsWithTagName extends BasicProps {
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
 }
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
@@ -45,7 +35,7 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   };
 }
 
-const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     suffixCls,
@@ -57,7 +47,7 @@ const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
@@ -70,7 +60,7 @@ const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) 
   );
 });
 
-const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const { direction } = React.useContext(ConfigContext);
 
   const [siders, setSiders] = React.useState<string[]>([]);
@@ -82,21 +72,25 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     children,
     hasSider,
     tagName: Tag,
+    style,
     ...others
   } = props;
 
   const passedProps = omit(others, ['suffixCls']);
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, layout } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+  const mergedHasSider = useHasSider(siders, children, hasSider);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {
-      [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
+      [`${prefixCls}-has-sider`]: mergedHasSider,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    layout?.className,
     className,
     rootClassName,
     hashId,
@@ -118,7 +112,12 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 
   return wrapSSR(
     <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} {...passedProps}>
+      <Tag
+        ref={ref}
+        className={classString}
+        style={{ ...layout?.style, ...style }}
+        {...passedProps}
+      >
         {children}
       </Tag>
     </LayoutContext.Provider>,
@@ -126,7 +125,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 });
 
 const Layout = generator({
-  tagName: 'section',
+  tagName: 'div',
   displayName: 'Layout',
 })(BasicLayout);
 
@@ -148,6 +147,6 @@ const Content = generator({
   displayName: 'Content',
 })(Basic);
 
-export { Header, Footer, Content };
+export { Content, Footer, Header };
 
 export default Layout;

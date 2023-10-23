@@ -1,54 +1,85 @@
-import { Button, Tooltip } from 'antd';
 import React from 'react';
+import { Button, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 
-const buttonWidth = 70;
+const buttonWidth = 78;
+const gap = 8;
+
+const btnProps = {
+  style: {
+    width: buttonWidth,
+  },
+};
 
 const App: React.FC = () => (
   <div>
-    <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
+    <div style={{ display: 'flex', marginLeft: buttonWidth, whiteSpace: 'nowrap', columnGap: gap }}>
       <Tooltip placement="topLeft" title={text}>
-        <Button>TL</Button>
+        <Button {...btnProps}>TL</Button>
       </Tooltip>
       <Tooltip placement="top" title={text}>
-        <Button>Top</Button>
+        <Button {...btnProps}>Top</Button>
       </Tooltip>
       <Tooltip placement="topRight" title={text}>
-        <Button>TR</Button>
+        <Button {...btnProps}>TR</Button>
       </Tooltip>
     </div>
-    <div style={{ width: buttonWidth, float: 'left' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: buttonWidth,
+        float: 'left',
+        rowGap: gap,
+      }}
+    >
       <Tooltip placement="leftTop" title={text}>
-        <Button>LT</Button>
+        <Button {...btnProps}>LT</Button>
       </Tooltip>
       <Tooltip placement="left" title={text}>
-        <Button>Left</Button>
+        <Button {...btnProps}>Left</Button>
       </Tooltip>
       <Tooltip placement="leftBottom" title={text}>
-        <Button>LB</Button>
+        <Button {...btnProps}>LB</Button>
       </Tooltip>
     </div>
-    <div style={{ width: buttonWidth, marginLeft: buttonWidth * 4 + 24 }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: buttonWidth,
+        marginLeft: buttonWidth * 4 + 24,
+        rowGap: gap,
+      }}
+    >
       <Tooltip placement="rightTop" title={text}>
-        <Button>RT</Button>
+        <Button {...btnProps}>RT</Button>
       </Tooltip>
       <Tooltip placement="right" title={text}>
-        <Button>Right</Button>
+        <Button {...btnProps}>Right</Button>
       </Tooltip>
       <Tooltip placement="rightBottom" title={text}>
-        <Button>RB</Button>
+        <Button {...btnProps}>RB</Button>
       </Tooltip>
     </div>
-    <div style={{ marginLeft: buttonWidth, clear: 'both', whiteSpace: 'nowrap' }}>
+    <div
+      style={{
+        display: 'flex',
+        marginLeft: buttonWidth,
+        clear: 'both',
+        whiteSpace: 'nowrap',
+        columnGap: gap,
+      }}
+    >
       <Tooltip placement="bottomLeft" title={text}>
-        <Button>BL</Button>
+        <Button {...btnProps}>BL</Button>
       </Tooltip>
       <Tooltip placement="bottom" title={text}>
-        <Button>Bottom</Button>
+        <Button {...btnProps}>Bottom</Button>
       </Tooltip>
       <Tooltip placement="bottomRight" title={text}>
-        <Button>BR</Button>
+        <Button {...btnProps}>BR</Button>
       </Tooltip>
     </div>
   </div>

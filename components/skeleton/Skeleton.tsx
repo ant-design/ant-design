@@ -4,10 +4,10 @@ import { ConfigContext } from '../config-provider';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
 import SkeletonButton from './Button';
-import SkeletonNode from './Node';
 import Element from './Element';
 import SkeletonImage from './Image';
 import SkeletonInput from './Input';
+import SkeletonNode from './Node';
 import type { SkeletonParagraphProps } from './Paragraph';
 import Paragraph from './Paragraph';
 import type { SkeletonTitleProps } from './Title';
@@ -101,7 +101,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
     round,
   } = props;
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, skeleton } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
@@ -168,13 +168,14 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-round`]: round,
       },
+      skeleton?.className,
       className,
       rootClassName,
       hashId,
     );
 
     return wrapSSR(
-      <div className={cls} style={style}>
+      <div className={cls} style={{ ...skeleton?.style, ...style }}>
         {avatarNode}
         {contentNode}
       </div>,

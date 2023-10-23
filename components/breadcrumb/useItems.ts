@@ -1,11 +1,11 @@
 import { useMemo } from 'react';
-import type { BreadcrumbItemType, BreadcrumbSeparatorType, ItemType, Route } from './Breadcrumb';
+import type { BreadcrumbItemType, BreadcrumbSeparatorType, ItemType } from './Breadcrumb';
 
 type MergedType = BreadcrumbItemType & {
-  children?: Route['children'];
+  children?: ItemType['children'];
 };
 
-function route2item(route: Route): MergedType {
+function route2item(route: ItemType): MergedType {
   const { breadcrumbName, children, ...rest } = route;
 
   const clone: MergedType = {
@@ -27,7 +27,7 @@ function route2item(route: Route): MergedType {
 
 export default function useItems(
   items?: ItemType[],
-  routes?: Route[],
+  routes?: ItemType[],
 ): Partial<MergedType & BreadcrumbSeparatorType>[] | null {
   return useMemo<ItemType[] | null>(() => {
     if (items) {

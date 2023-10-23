@@ -1,6 +1,6 @@
+import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
-import { resetComponent } from '../../style';
 
 const genFilterStyle: GenerateStyle<TableToken> = (token) => {
   const {
@@ -29,6 +29,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
     controlItemBgHover,
     controlItemBgActive,
     boxShadowSecondary,
+    filterDropdownMenuBg,
   } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
@@ -77,6 +78,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           backgroundColor: tableFilterDropdownBg,
           borderRadius,
           boxShadow: boxShadowSecondary,
+          overflow: 'hidden',
 
           // Reset menu
           [`${dropdownPrefixCls}-menu`]: {
@@ -86,6 +88,8 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
             overflowX: 'hidden',
             border: 0,
             boxShadow: 'none',
+            borderRadius: 'unset',
+            backgroundColor: filterDropdownMenuBg,
 
             '&:empty::after': {
               display: 'block',

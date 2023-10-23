@@ -3,21 +3,21 @@ import type { LayoutToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genLayoutLightStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
-  const { componentCls, colorBgContainer, colorBgBody, colorText } = token;
+  const { componentCls, bodyBg, lightSiderBg, lightTriggerBg, lightTriggerColor } = token;
 
   return {
     [`${componentCls}-sider-light`]: {
-      background: colorBgContainer,
+      background: lightSiderBg,
 
       [`${componentCls}-sider-trigger`]: {
-        color: colorText,
-        background: colorBgContainer,
+        color: lightTriggerColor,
+        background: lightTriggerBg,
       },
 
       [`${componentCls}-sider-zero-width-trigger`]: {
-        color: colorText,
-        background: colorBgContainer,
-        border: `1px solid ${colorBgBody}`, // Safe to modify to any other color
+        color: lightTriggerColor,
+        background: lightTriggerBg,
+        border: `1px solid ${bodyBg}`, // Safe to modify to any other color
         borderInlineStart: 0,
       },
     },

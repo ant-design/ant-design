@@ -1,6 +1,6 @@
 import React from 'react';
-import { Alert, Breadcrumb } from 'antd';
 import { HashRouter, Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Alert, Breadcrumb } from 'antd';
 
 const Apps = () => (
   <ul className="app-list">

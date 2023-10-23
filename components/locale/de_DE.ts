@@ -20,6 +20,7 @@ const localeValues: Locale = {
     filterTitle: 'Filter-Menü',
     filterConfirm: 'OK',
     filterReset: 'Zurücksetzen',
+    filterEmptyText: 'Keine Filter',
     filterSearchPlaceholder: 'Suche in Filtern',
     filterCheckall: 'Alle auswählen',
     selectAll: 'Selektiere Alle',
@@ -32,6 +33,11 @@ const localeValues: Locale = {
     triggerDesc: 'Klicken zur absteigenden  Sortierung',
     triggerAsc: 'Klicken zur aufsteigenden Sortierung',
     cancelSort: 'Klicken zum Abbrechen der Sortierung',
+  },
+  Tour: {
+    Next: 'Weiter',
+    Previous: 'Zurück',
+    Finish: 'Fertig',
   },
   Modal: {
     okText: 'OK',
@@ -118,12 +124,16 @@ const localeValues: Locale = {
         range: 'Die Anzahl an ${label} muss zwischen ${min} und ${max} liegen',
       },
       pattern: {
-        mismatch: '${label} enspricht nicht dem ${pattern} Muster',
+        mismatch: '${label} entspricht nicht dem ${pattern} Muster',
       },
     },
   },
   Image: {
     preview: 'Vorschau',
+  },
+  QRCode: {
+    expired: 'QR-Code abgelaufen',
+    refresh: 'Aktualisieren',
   },
 };
 

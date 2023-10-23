@@ -1,18 +1,40 @@
-import type { FC } from 'react';
-import React from 'react';
+import React, { Suspense } from 'react';
 import type { IPreviewerProps } from 'dumi';
-import { useTabMeta } from 'dumi';
-import CodePreviewer from './CodePreviewer';
-import DesignPreviewer from './DesignPreviewer';
+import { Skeleton, Alert } from 'antd';
+import { createStyles } from 'antd-style';
 
-const Previewer: FC<IPreviewerProps> = ({ ...props }) => {
-  const tab = useTabMeta();
+const { ErrorBoundary } = Alert;
 
-  if (tab?.frontmatter.title === 'Design') {
-    return <DesignPreviewer {...props} />;
-  }
+const Previewer = React.lazy(() => import('./Previewer'));
 
-  return <CodePreviewer {...props} />;
+const useStyle = createStyles(({ css }) => ({
+  skeletonWrapper: css`
+    width: 100% !important;
+    height: 500px;
+    margin-bottom: 16px;
+  `,
+}));
+
+export default (props: IPreviewerProps) => {
+  const { styles } = useStyle();
+  return (
+    <ErrorBoundary>
+      <Suspense
+        fallback={
+          <Skeleton.Node
+            active
+            className={styles.skeletonWrapper}
+            style={{
+              width: '100%',
+              height: '100%',
+            }}
+          >
+            {' '}
+          </Skeleton.Node>
+        }
+      >
+        <Previewer {...props} />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
-
-export default Previewer;

@@ -28,6 +28,8 @@ demo:
 
 ## API
 
+通用属性参考：[通用属性](/docs/react/common-props)
+
 | 参数             | 说明                                         | 类型          | 默认值    |
 | ---------------- | -------------------------------------------- | ------------- | --------- |
 | delay            | 延迟显示加载效果的时间（防止闪烁）           | number (毫秒) | -         |
@@ -42,3 +44,7 @@ demo:
 - `Spin.setDefaultIndicator(indicator: ReactNode)`
 
   你可以自定义全局默认 Spin 的元素。
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Spin"></ComponentTokenTable>

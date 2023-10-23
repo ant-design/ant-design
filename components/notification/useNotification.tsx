@@ -1,21 +1,26 @@
 import * as React from 'react';
-import { useNotification as useRcNotification } from 'rc-notification';
-import type { NotificationAPI } from 'rc-notification/lib';
+import type { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
+import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
+import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import type { ComponentStyleConfig } from '../config-provider/context';
 import type {
-  NotificationInstance,
   ArgsProps,
-  NotificationPlacement,
   NotificationConfig,
+  NotificationInstance,
+  NotificationPlacement,
 } from './interface';
-import { getPlacementStyle, getMotion } from './util';
-import warning from '../_util/warning';
-import useStyle from './style';
 import { getCloseIcon, PureContent } from './PurePanel';
+import useStyle from './style';
+import { getMotion, getPlacementStyle } from './util';
+import { useToken } from '../theme/internal';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
+const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -26,8 +31,26 @@ type HolderProps = NotificationConfig & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  hashId: string;
+  notification?: ComponentStyleConfig;
 }
+
+const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
+  const [, hashId] = useStyle(prefixCls);
+  return (
+    <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
+      {children}
+    </NotificationProvider>
+  );
+};
+
+const renderNotifications: RcNotificationConfig['renderNotifications'] = (
+  node,
+  { prefixCls, key },
+) => (
+  <Wrapper prefixCls={prefixCls} key={key}>
+    {node}
+  </Wrapper>
+);
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
@@ -38,19 +61,18 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     rtl,
     onAllRemoved,
+    stack,
   } = props;
-  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, notification } = React.useContext(ConfigContext);
+  const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement) =>
+  const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  // Style
-  const [, hashId] = useStyle(prefixCls);
-
-  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -67,13 +89,22 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
+    renderNotifications,
+    stack:
+      stack === false
+        ? false
+        : {
+            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
+            offset: 8,
+            gap: token.margin,
+          },
   });
 
   // ================================ Ref ================================
   React.useImperativeHandle(ref, () => ({
     ...api,
     prefixCls,
-    hashId,
+    notification,
   }));
 
   return holder;
@@ -87,6 +118,8 @@ export function useInternalNotification(
 ): readonly [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
+  const warning = devUseWarning('Notification');
+
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
@@ -96,19 +129,34 @@ export function useInternalNotification(
       if (!holderRef.current) {
         warning(
           false,
-          'Notification',
+          'usage',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );
         return;
       }
 
-      const { open: originOpen, prefixCls, hashId } = holderRef.current;
+      const { open: originOpen, prefixCls, notification } = holderRef.current;
+
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { message, description, icon, type, btn, className, ...restConfig } = config;
+      const {
+        message,
+        description,
+        icon,
+        type,
+        btn,
+        className,
+        style,
+        role = 'alert',
+        closeIcon,
+        ...restConfig
+      } = config;
+
+      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
 
       return originOpen({
-        placement: 'topRight',
+        // use placement from props instead of hard-coding "topRight"
+        placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
         content: (
           <PureContent
@@ -118,9 +166,17 @@ export function useInternalNotification(
             message={message}
             description={description}
             btn={btn}
+            role={role}
           />
         ),
-        className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
+        className: classNames(
+          type && `${noticePrefixCls}-${type}`,
+          className,
+          notification?.className,
+        ),
+        style: { ...notification?.style, ...style },
+        closeIcon: realCloseIcon,
+        closable: !!realCloseIcon,
       });
     };
 

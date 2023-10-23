@@ -1,14 +1,16 @@
-import React, { useRef, memo, useContext, useEffect, useCallback, useMemo } from 'react';
+import React, { memo, useCallback, useContext, useEffect } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+
+import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
-import type { FloatButtonGroupProps } from './interface';
+import FloatButton, { floatButtonPrefixCls } from './FloatButton';
+import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
 import useStyle from './style';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
@@ -24,6 +26,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     trigger,
     children,
     onOpenChange,
+    open: customOpen,
+    ...floatButtonProps
   } = props;
 
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -39,12 +43,13 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const wrapperCls = classNames(hashId, `${groupPrefixCls}-wrap`);
 
-  const [open, setOpen] = useMergedState(false, { value: props.open });
+  const [open, setOpen] = useMergedState(false, { value: customOpen });
 
-  const floatButtonGroupRef = useRef<HTMLDivElement>(null);
-  const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
-  const hoverAction = useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
+  const floatButtonRef = React.useRef<FloatButtonRef['nativeElement']>(null);
+
+  const hoverAction = React.useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
     const hoverTypeAction = {
       onMouseEnter() {
         setOpen(true);
@@ -88,6 +93,17 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     }
   }, [trigger]);
 
+  // =================== Warning =====================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('FloatButton.Group');
+
+    warning(
+      !('open' in props) || !!trigger,
+      'usage',
+      '`open` need to be used together with `trigger`',
+    );
+  }
+
   return wrapSSR(
     <FloatButtonGroupProvider value={shape}>
       <div ref={floatButtonGroupRef} className={groupCls} style={style} {...hoverAction}>
@@ -104,6 +120,8 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
               shape={shape}
               icon={open ? closeIcon : icon}
               description={description}
+              aria-label={props['aria-label']}
+              {...floatButtonProps}
             />
           </>
         ) : (

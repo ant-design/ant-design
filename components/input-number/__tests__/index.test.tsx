@@ -1,10 +1,11 @@
-import React from 'react';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import React from 'react';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
 
 describe('InputNumber', () => {
   focusTest(InputNumber, { refFocus: true });
@@ -67,6 +68,32 @@ describe('InputNumber', () => {
     );
     expect(
       container.querySelector('.anticon-arrow-down')?.className.includes('my-class-name'),
+    ).toBe(true);
+  });
+
+  it('renders correctly when the controlled mode number is out of range', () => {
+    const App: React.FC = () => {
+      const [value, setValue] = React.useState<number | null>(1);
+      return (
+        <>
+          <InputNumber min={1} max={10} value={value} onChange={(v) => setValue(v)} />
+          <Button
+            type="primary"
+            onClick={() => {
+              setValue(99);
+            }}
+          >
+            Reset
+          </Button>
+        </>
+      );
+    };
+    const { container } = render(<App />);
+    fireEvent.click(container.querySelector('button')!);
+    expect(
+      container
+        .querySelector('.ant-input-number')
+        ?.className.includes('ant-input-number-out-of-range'),
     ).toBe(true);
   });
 });

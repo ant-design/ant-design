@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, fireEvent, pureRender } from '../../../tests/utils';
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import notification from '..';
+import { fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
@@ -153,5 +154,39 @@ describe('notification.hooks', () => {
 
       errorSpy.mockRestore();
     });
+  });
+
+  it('not export style in SSR', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [, holder] = notification.useNotification();
+
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+    };
+
+    render(<Demo />);
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText).not.toContain('.ant-notification');
+  });
+
+  it('disable stack', () => {
+    const Demo = () => {
+      const [api, holder] = notification.useNotification({ stack: false });
+
+      React.useEffect(() => {
+        api.info({
+          message: null,
+          description: 'test',
+        });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.ant-notification-stack')).toBeFalsy();
   });
 });

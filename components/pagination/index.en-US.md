@@ -27,8 +27,11 @@ A long list can be divided into several pages using `Pagination`, and only one p
 <code src="./demo/all.tsx">Show All</code>
 <code src="./demo/itemRender.tsx">Prev and next</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ```jsx
 <Pagination onChange={onChange} total={50} />
@@ -55,3 +58,7 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Pagination"></ComponentTokenTable>

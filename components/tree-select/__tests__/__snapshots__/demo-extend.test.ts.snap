@@ -14,6 +14,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -35,7 +36,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
       <div>
@@ -223,6 +224,8 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/tree-select/demo/async.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -237,6 +240,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -255,7 +259,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
       <div>
@@ -565,6 +569,8 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
 </div>
 `;
 
+exports[`renders components/tree-select/demo/basic.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -604,13 +610,14 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
                 aria-hidden="true"
                 data-icon="close"
                 fill="currentColor"
+                fill-rule="evenodd"
                 focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
                 />
               </svg>
             </span>
@@ -628,6 +635,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -651,7 +659,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -830,6 +838,8 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
 </div>
 `;
 
+exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -852,6 +862,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -880,7 +891,7 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
       <div>
@@ -1190,6 +1201,8 @@ exports[`renders components/tree-select/demo/multiple.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1287,6 +1300,7 @@ Array [
         <input
           aria-autocomplete="list"
           aria-controls="rc_select_TEST_OR_SSR_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
@@ -1304,8 +1318,8 @@ Array [
       </span>
     </div>
     <div
-      class="ant-select-dropdown ant-slide-down-appear ant-slide-down-appear-prepare ant-slide-down ant-tree-select-dropdown ant-select-dropdown-placement-topLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 300px; max-height: 400px; overflow: auto;"
+      class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-topLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto; min-width: 300px;"
     >
       <div>
         <div>
@@ -1616,6 +1630,12 @@ Array [
 ]
 `;
 
+exports[`renders components/tree-select/demo/placement.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: TreeSelect] \`dropdownMatchSelectWidth\` is deprecated. Please use \`popupMatchSelectWidth\` instead.",
+]
+`;
+
 exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   style="padding-bottom: 0px; position: relative; min-width: 0;"
@@ -1656,12 +1676,12 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
     </div>
     <div
       class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-      style="left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div>
         <div>
           <div
-            class="ant-select-tree"
+            class="ant-select-tree ant-select-tree-active-focused"
             role="tree"
           >
             <div>
@@ -1802,14 +1822,23 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
 </div>
 `;
 
+exports[`renders components/tree-select/demo/render-panel.tsx extend context correctly 2`] = `
+[
+  "Warning: Received \`%s\` for a non-boolean attribute \`%s\`.
+
+If you want to write it to the DOM, pass a string instead: %s="%s" or %s={value.toString()}.
+
+If you used to conditionally omit it with %s={condition && value}, pass %s={condition ? value : undefined} instead.%s",
+]
+`;
+
 exports[`renders components/tree-select/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
@@ -1824,6 +1853,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -1845,7 +1875,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -1952,6 +1982,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
               <input
                 aria-autocomplete="list"
                 aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
@@ -1980,7 +2011,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div
@@ -2066,6 +2097,8 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/tree-select/demo/status.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
@@ -2080,6 +2113,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -2098,7 +2132,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
       <div>
@@ -2408,6 +2442,8 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
 </div>
 `;
 
+exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
@@ -2422,6 +2458,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
       <input
         aria-autocomplete="list"
         aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
@@ -2443,7 +2480,7 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; max-height: 400px; overflow: auto;"
   >
     <div>
       <div>
@@ -2642,13 +2679,42 @@ exports[`renders components/tree-select/demo/treeData.tsx extend context correct
 </div>
 `;
 
+exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          showIcon
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          showIcon
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
   >
     <button
       aria-checked="true"
@@ -2677,7 +2743,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <button
       aria-checked="false"
@@ -2720,6 +2785,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
           <input
             aria-autocomplete="list"
             aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
@@ -2739,7 +2805,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-        style="left: -1000vw; top: -1000vh; box-sizing: border-box;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <div>
           <div>
@@ -2865,3 +2931,5 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
   </div>
 </div>
 `;
+
+exports[`renders components/tree-select/demo/treeLine.tsx extend context correctly 2`] = `[]`;

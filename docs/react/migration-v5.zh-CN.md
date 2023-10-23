@@ -1,6 +1,10 @@
 ---
-order: 8
+group:
+  title: 迁移
+  order: 2
+order: 0
 title: 从 v4 到 v5
+tag: Updated
 ---
 
 本文档将帮助你从 antd `4.x` 版本升级到 antd `5.x` 版本，如果你是 `3.x` 或者更老的版本，请先参考之前的[升级文档](https://4x.ant.design/docs/react/migration-v4-cn)升级到 4.x。
@@ -14,7 +18,7 @@ title: 从 v4 到 v5
 ### 设计规范调整
 
 - 基础圆角调整，由统一的 `2px` 改为四级圆角，分别为 `2px` `4px` `6px` `8px`，分别应用于不同场景，比如默认尺寸的 Button 的圆角调整为了 `6px`。
-- 主色调整，由 <ColorChunk color="#1890ff" /></ColorChunk> 改为 <ColorChunk color="#1677ff" /></ColorChunk>。
+- 主色调整，由 `#1890ff` 改为 `#1677ff`。
 - 整体阴影调整，由原本的三级阴影调整为两级，分别用于常驻页面的组件（如 Card）和交互反馈（如 Dropdown）。
 - 部分组件内间距调整。
 - 整体去线框化。
@@ -114,6 +118,7 @@ title: 从 v4 到 v5
 
 #### 组件重构与移除
 
+- 移除 `locale-provider` 目录。`LocaleProvider` 在 v4 中已移除，请使用 `ConfigProvider` 替代。
 - 移除 Comment 组件，移至 `@ant-design/compatible` 中维护。
 - 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
 
@@ -268,9 +273,94 @@ module.exports = {
 };
 ```
 
+### 使用 V4 主题包 <Badge>Updated</Badge>
+
+如果你不希望样式在升级后发生变化，我们在兼容包中提供了完整的 V4 主题，可以还原到 V4 的样式。
+
+```sandpack
+const sandpackConfig = {
+  dependencies: {
+    '@ant-design/compatible': 'v5-compatible-v4',
+  },
+};
+
+import {
+  defaultTheme,   // 默认主题
+  darkTheme,      // 暗色主题
+} from '@ant-design/compatible';
+import { ConfigProvider, Button, Radio, Space } from 'antd';
+
+export default () => (
+  <ConfigProvider theme={defaultTheme}>
+    <Space direction="vertical">
+      <Button type="primary">Button</Button>
+      <Radio.Group>
+        <Radio value={1}>A</Radio>
+        <Radio value={2}>B</Radio>
+        <Radio value={3}>C</Radio>
+        <Radio value={4}>D</Radio>
+      </Radio.Group>
+    </Space>
+  </ConfigProvider>
+);
+```
+
 ### 旧版浏览器兼容
 
 Ant Design v5 使用 `:where` css selector 降低 CSS-in-JS hash 值优先级，如果你需要支持旧版本浏览器（如 IE 11、360 浏览器 等等）。可以通过 `@ant-design/cssinjs` 的 `StyleProvider` 去除降权操作。详情请参阅 [兼容性调整](/docs/react/customize-theme-cn#兼容性调整)。
+
+## 多版本共存
+
+一般情况下，并不推荐多版本共存，它会让应用变得复杂（例如样式覆盖、ConfigProvider 不复用等问题）。我们更推荐使用微应用如 [qiankun](https://qiankun.umijs.org/) 等框架进行分页研发。
+
+### 通过别名安装 v5
+
+```bash
+$ npm install --save antd-v5@npm:antd@5
+# or
+$ yarn add antd-v5@npm:antd@5
+# or
+$ pnpm add antd-v5@npm:antd@5
+```
+
+对应的 package.json 为：
+
+```json
+{
+  "antd": "4.x",
+  "antd-v5": "npm:antd@5"
+}
+```
+
+现在，你项目中的 antd 还是 v4 版本，antd-v5 是 v5 版本。
+
+```tsx
+import React from 'react';
+import { Button as Button4 } from 'antd'; // v4
+import { Button as Button5 } from 'antd-v5'; // v5
+
+export default () => (
+  <>
+    <Button4 />
+    <Button5 />
+  </>
+);
+```
+
+接着配置 ConfigProvider 将 v5 `prefixCls` 改写，防止样式冲突：
+
+```tsx
+import React from 'react';
+import { ConfigProvider as ConfigProvider5 } from 'antd-v5';
+
+export default () => (
+  <ConfigProvider5 prefixCls="ant5">
+    <MyApp />
+  </ConfigProvider5>
+);
+```
+
+需要注意的是，npm 别名并不是所有的包管理器都有很好的支持。
 
 ## 遇到问题
 

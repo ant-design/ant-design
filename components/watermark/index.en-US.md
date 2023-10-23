@@ -1,6 +1,6 @@
 ---
 category: Components
-group: Other
+group: Feedback
 title: Watermark
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
@@ -22,8 +22,11 @@ Add specific text or patterns to the page.
 <code src="./demo/multi-line.tsx">Multi-line watermark</code>
 <code src="./demo/image.tsx">Image watermark</code>
 <code src="./demo/custom.tsx">Custom configuration</code>
+<code src="./demo/portal.tsx">Modal or Drawer</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Watermark
 
@@ -44,11 +47,16 @@ Add specific text or patterns to the page.
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| color | font color | string | rgba(0,0,0,.15) |  |
+| color | font color | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) |  |
 | fontSize | font size | number | 16 |  |
 | fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+| textAlign | specify the text alignment direction  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | 5.10.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Watermark"></ComponentTokenTable>
 
 ## FAQ
 

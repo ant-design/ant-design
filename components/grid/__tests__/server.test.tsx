@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Col, Row } from '..';
 import { render } from '../../../tests/utils';
 
@@ -12,18 +13,14 @@ describe('Grid.Server', () => {
       </Row>,
     );
 
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginLeft).toEqual('-4px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginRight).toEqual('-4px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginTop).toEqual('-8px');
-    expect((container.querySelector('.ant-row') as HTMLElement)!.style.marginBottom).toEqual(
-      '-8px',
-    );
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginLeft).toBe('-4px');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginRight).toBe('-4px');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginTop).toBe('');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginBottom).toBe('');
 
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingLeft).toEqual('4px');
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingRight).toEqual('4px');
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingTop).toEqual('8px');
-    expect((container.querySelector('.ant-col') as HTMLElement)!.style.paddingBottom).toEqual(
-      '8px',
-    );
+    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingLeft).toBe('4px');
+    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingRight).toBe('4px');
+    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingTop).toBe('');
+    expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingBottom).toBe('');
   });
 });

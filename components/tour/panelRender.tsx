@@ -4,9 +4,10 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import type { ButtonProps } from '../button';
 import Button from '../button';
+import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import useLocale from '../locale/useLocale';
 import type { TourStepProps } from './interface';
+import useClosable from '../_util/hooks/useClosable';
 
 function isValidNode(node: ReactNode): boolean {
   return node !== undefined && node !== null;
@@ -17,9 +18,18 @@ interface TourPanelProps {
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
+  closeIcon?: ReactNode;
 }
 
-const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicatorsRender }) => {
+// Due to the independent design of Panel, it will be too coupled to put in rc-tour,
+// so a set of Panel logic is implemented separately in antd.
+const TourPanel: React.FC<TourPanelProps> = ({
+  stepProps,
+  current,
+  type,
+  indicatorsRender,
+  closeIcon,
+}) => {
   const {
     prefixCls,
     total = 1,
@@ -33,11 +43,25 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
     nextButtonProps,
     prevButtonProps,
     type: stepType,
-    arrow,
-    className,
+    closeIcon: stepCloseIcon,
   } = stepProps;
 
-  const mergedType = typeof stepType !== 'undefined' ? stepType : type;
+  const mergedType = stepType ?? type;
+
+  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
+  const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
+
+  const [closable, mergedDisplayCloseIcon] = useClosable(
+    mergedClosable,
+    mergedCloseIcon,
+    (icon) => (
+      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+        {icon}
+      </span>
+    ),
+    <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    true,
+  );
 
   const isLastStep = current === total - 1;
 
@@ -95,16 +119,9 @@ const TourPanel: React.FC<TourPanelProps> = ({ stepProps, current, type, indicat
   const [contextLocale] = useLocale('Tour', defaultLocale.Tour);
 
   return (
-    <div
-      className={classNames(
-        mergedType === 'primary' ? `${prefixCls}-primary` : '',
-        className,
-        `${prefixCls}-content`,
-      )}
-    >
-      {arrow && <div className={`${prefixCls}-arrow`} key="arrow" />}
+    <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-inner`}>
-        <CloseOutlined className={`${prefixCls}-close`} onClick={onClose} />
+        {closable && mergedDisplayCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}

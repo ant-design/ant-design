@@ -12,12 +12,32 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Vui lòng chọn',
+  },
   Table: {
     filterTitle: 'Bộ lọc',
     filterConfirm: 'Đồng ý',
     filterReset: 'Bỏ lọc',
+    filterEmptyText: 'Không có bộ lọc',
+    filterCheckall: 'Chọn tất cả',
+    filterSearchPlaceholder: 'Tìm kiếm bộ lọc',
+    emptyText: 'Trống',
     selectAll: 'Chọn tất cả',
     selectInvert: 'Chọn ngược lại',
+    selectNone: 'Bỏ chọn tất cả',
+    selectionAll: 'Chọn tất cả',
+    sortTitle: 'Sắp xếp',
+    expand: 'Mở rộng dòng',
+    collapse: 'Thu gọn dòng',
+    triggerDesc: 'Nhấp để sắp xếp giảm dần',
+    triggerAsc: 'Nhấp để sắp xếp tăng dần',
+    cancelSort: 'Nhấp để hủy sắp xếp',
+  },
+  Tour: {
+    Next: 'Tiếp',
+    Previous: 'Trước',
+    Finish: 'Hoàn thành',
   },
   Modal: {
     okText: 'Đồng ý',
@@ -33,6 +53,34 @@ const localeValues: Locale = {
     searchPlaceholder: 'Tìm ở đây',
     itemUnit: 'mục',
     itemsUnit: 'mục',
+    remove: 'Gỡ bỏ',
+    selectCurrent: 'Chọn trang hiện tại',
+    removeCurrent: 'Gỡ bỏ trang hiện tại',
+    selectAll: 'Chọn tất cả',
+    removeAll: 'Gỡ bỏ tất cả',
+    selectInvert: 'Đảo ngược trang hiện tại',
+  },
+  Upload: {
+    uploading: 'Đang tải lên...',
+    removeFile: 'Gỡ bỏ tập tin',
+    uploadError: 'Lỗi tải lên',
+    previewFile: 'Xem trước tập tin',
+    downloadFile: 'Tải tập tin',
+  },
+  Empty: {
+    description: 'Trống',
+  },
+  Icon: {
+    icon: 'icon',
+  },
+  Text: {
+    edit: 'Chỉnh sửa',
+    copy: 'Sao chép',
+    copied: 'Đã sao chép',
+    expand: 'Mở rộng',
+  },
+  PageHeader: {
+    back: 'Quay lại',
   },
   Form: {
     optional: '(Tùy chọn)',
@@ -84,15 +132,12 @@ const localeValues: Locale = {
       },
     },
   },
-  Upload: {
-    uploading: 'Đang tải lên...',
-    removeFile: 'Gỡ bỏ tập tin',
-    uploadError: 'Lỗi tải lên',
-    previewFile: 'Xem trước tập tin',
-    downloadFile: 'Tải tập tin',
+  Image: {
+    preview: 'Xem trước',
   },
-  Empty: {
-    description: 'Trống',
+  QRCode: {
+    expired: 'Mã QR hết hạn',
+    refresh: 'Làm mới',
   },
 };
 

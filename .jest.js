@@ -1,4 +1,4 @@
-const compileModules = ['dnd-core', 'react-sticky-box', 'tween-one', '@babel', '@ant-design'];
+const compileModules = ['react-sticky-box', 'rc-tween-one', '@babel', '@ant-design', 'countup.js'];
 
 const ignoreList = [];
 
@@ -33,6 +33,8 @@ module.exports = {
     '/\\.(css|less)$/': 'identity-obj-proxy',
     '^antd$': '<rootDir>/components/index',
     '^antd/es/(.*)$': '<rootDir>/components/$1',
+    '^antd/lib/(.*)$': '<rootDir>/components/$1',
+    '^antd/locale/(.*)$': '<rootDir>/components/locale/$1',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {

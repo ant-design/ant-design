@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -8,24 +9,37 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     antCls,
     iconCls,
     fontSizeIcon,
+    padding,
     paddingXS,
     tableHeaderIconColor,
     tableHeaderIconColorHover,
+    tableSelectionColumnWidth,
+    tableSelectedRowBg,
+    tableSelectedRowHoverBg,
+    tableRowHoverBg,
   } = token;
+
   return {
     [`${componentCls}-wrapper`]: {
       // ========================== Selections ==========================
       [`${componentCls}-selection-col`]: {
-        width: token.tableSelectionColumnWidth,
+        width: tableSelectionColumnWidth,
+        [`&${componentCls}-selection-col-with-dropdown`]: {
+          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4,
+        },
       },
 
       [`${componentCls}-bordered ${componentCls}-selection-col`]: {
-        width: token.tableSelectionColumnWidth + paddingXS * 2,
+        width: tableSelectionColumnWidth + paddingXS * 2,
+        [`&${componentCls}-selection-col-with-dropdown`]: {
+          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4 + paddingXS * 2,
+        },
       },
 
       [`
         table tr th${componentCls}-selection-column,
-        table tr td${componentCls}-selection-column
+        table tr td${componentCls}-selection-column,
+        ${componentCls}-selection-column
       `]: {
         paddingInlineEnd: token.paddingXS,
         paddingInlineStart: token.paddingXS,
@@ -66,6 +80,25 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           '&:hover': {
             color: tableHeaderIconColorHover,
+          },
+        },
+      },
+
+      // ============================= Rows =============================
+      [`${componentCls}-tbody`]: {
+        [`${componentCls}-row`]: {
+          [`&${componentCls}-row-selected`]: {
+            [`> ${componentCls}-cell`]: {
+              background: tableSelectedRowBg,
+
+              '&-row-hover': {
+                background: tableSelectedRowHoverBg,
+              },
+            },
+          },
+
+          [`> ${componentCls}-cell-row-hover`]: {
+            background: tableRowHoverBg,
           },
         },
       },
