@@ -18,8 +18,8 @@ export type ZIndexConsumer =
 export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Modal: 0,
   Drawer: 0,
-  Popover: 30,
-  Popconfirm: 60,
+  Popover: 70,
+  Popconfirm: 70,
   Tooltip: 70,
   Tour: 70,
 };

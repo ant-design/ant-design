@@ -3,9 +3,7 @@ import classNames from 'classnames';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
-import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import Tooltip from '../tooltip';
@@ -53,10 +51,8 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const overlayCls = classNames(overlayClassName, hashId);
 
   // ============================ zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Popover', otherProps.zIndex);
-  const injectFromPopover = (props as any)['data-popover-inject'];
 
-  const contentNode = (
+  return wrapSSR(
     <Tooltip
       placement={placement}
       trigger={trigger}
@@ -64,7 +60,6 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       mouseLeaveDelay={mouseLeaveDelay}
       overlayStyle={overlayStyle}
       {...otherProps}
-      zIndex={injectFromPopover ? otherProps.zIndex : zIndex}
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
@@ -73,15 +68,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
-    />
-  );
-
-  if (injectFromPopover) {
-    return contentNode;
-  }
-
-  return wrapSSR(
-    <zIndexContext.Provider value={contextZIndex}>{contentNode}</zIndexContext.Provider>,
+    />,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>

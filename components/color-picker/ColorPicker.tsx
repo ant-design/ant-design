@@ -253,7 +253,6 @@ const ColorPicker: CompoundedComponent = (props) => {
       }
       overlayClassName={mergePopupCls}
       zIndex={zIndex}
-      data-popover-inject
       {...popoverProps}
     >
       {children || (
