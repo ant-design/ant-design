@@ -1,14 +1,11 @@
-import React, { useEffect, useMemo, useContext } from 'react';
-import { Tabs, Typography, Button, Tooltip } from 'antd';
+import { Button, Tabs, Typography } from 'antd';
+import { createStyles } from 'antd-style';
+import { LiveContext } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
 import Prism from 'prismjs';
-import { createStyles } from 'antd-style';
-import LiveEditor from '../slots/LiveEditor';
-import LiveError from '../slots/LiveError';
-import { EditFilled } from '@ant-design/icons';
-import useLocale from '../../hooks/useLocale';
-import { LiveContext } from 'dumi';
+import React, { useContext, useEffect, useMemo } from 'react';
+import LiveCode from './LiveCode';
 
 const useStyle = createStyles(({ token, css }) => {
   const { colorIcon, colorBgTextHover, antCls } = token;
@@ -42,19 +39,6 @@ const useStyle = createStyles(({ token, css }) => {
         }
       }
     `,
-
-    editor: css`
-      .npm__react-simple-code-editor__textarea {
-        outline: none;
-      }
-    `,
-
-    editableIcon: css`
-      position: absolute;
-      bottom: 16px;
-      right: 16px;
-      color: ${colorIcon};
-    `,
   };
 });
 
@@ -87,23 +71,12 @@ function toReactComponent(jsonML: any[]) {
   ]);
 }
 
-const locales = {
-  cn: {
-    demoEditable: '当前 Demo 可编辑',
-  },
-  en: {
-    demoEditable: 'Current demo is editable',
-  },
-};
-
 const CodePreview: React.FC<CodePreviewProps> = ({
   sourceCode = '',
   jsxCode = '',
   styleCode = '',
   onCodeTypeChange,
 }) => {
-  const [locale] = useLocale(locales);
-
   // 避免 Tabs 数量不稳定的闪动问题
   const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
   if (sourceCode) {
@@ -142,18 +115,6 @@ const CodePreview: React.FC<CodePreviewProps> = ({
 
   const { enabled: liveEnabled } = useContext(LiveContext);
 
-  const code = (
-    <>
-      <div className={styles.editor}>
-        <LiveEditor />
-        <LiveError />
-      </div>
-      <Tooltip title={locale.demoEditable}>
-        <EditFilled className={styles.editableIcon} />
-      </Tooltip>
-    </>
-  );
-
   const items = useMemo(
     () =>
       langList.map((lang: keyof typeof LANGS) => ({
@@ -161,9 +122,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
         key: lang,
         children: (
           <div className={styles.code}>
-            {lang === 'tsx' && liveEnabled
-              ? code
-              : toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])}
+            {lang === 'tsx' && liveEnabled ? (
+              <LiveCode />
+            ) : (
+              toReactComponent(['pre', { lang, highlighted: highlightedCodes[lang] }])
+            )}
             <Button type="text" className={styles.copyButton}>
               <Typography.Text className={styles.copyIcon} copyable={{ text: sourceCodes[lang] }} />
             </Button>
@@ -178,16 +141,18 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   }
 
   if (langList.length === 1) {
-    return liveEnabled
-      ? code
-      : toReactComponent([
-          'pre',
-          {
-            lang: langList[0],
-            highlighted: highlightedCodes[langList[0] as keyof typeof LANGS],
-            className: 'highlight',
-          },
-        ]);
+    return liveEnabled ? (
+      <LiveCode />
+    ) : (
+      toReactComponent([
+        'pre',
+        {
+          lang: langList[0],
+          highlighted: highlightedCodes[langList[0] as keyof typeof LANGS],
+          className: 'highlight',
+        },
+      ])
+    );
   }
 
   return <Tabs centered className="highlight" onChange={onCodeTypeChange} items={items} />;
