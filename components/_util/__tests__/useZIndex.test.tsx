@@ -206,9 +206,9 @@ describe('Test useZIndex hooks', () => {
     jest.useRealTimers();
   });
   const containers = Object.keys(containerComponent);
+  const consumers = Object.keys(consumerComponent);
   // const containers = ['Modal'];
-  const consumers = ['Dropdown', 'SelectLike', 'ColorPicker', 'DatePicker'];
-  // const consumers = Object.keys(consumerComponent);
+  // const consumers = ['Dropdown', 'SelectLike', 'ColorPicker', 'DatePicker'];
 
   containers.forEach((containerKey) => {
     consumers.forEach((key) => {
@@ -259,22 +259,16 @@ describe('Test useZIndex hooks', () => {
 
           await waitFakeTimer(1000);
 
-          expect((document.querySelector('.consumer1') as HTMLDivElement).style.zIndex).toBeFalsy();
-          if (containerKey !== 'Tour') {
-            expect(
-              (document.querySelector('.container1') as HTMLDivElement).style.zIndex,
-            ).toBeFalsy();
-          } else {
-            expect((document.querySelector('.container1') as HTMLDivElement).style.zIndex).toBe(
-              '1001',
-            );
-          }
-
+          const selector1 = getConsumerSelector('.consumer1', key as ZIndexConsumer);
           const selector2 = getConsumerSelector('.consumer2', key as ZIndexConsumer);
           const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
           if (['SelectLike', 'DatePicker'].includes(key)) {
-            let comps = document.querySelectorAll(selector2);
+            let comps = document.querySelectorAll(selector1);
+            comps.forEach((comp) => {
+              expect((comp as HTMLDivElement).style.zIndex).toBeFalsy();
+            });
+            comps = document.querySelectorAll(selector2);
             comps.forEach((comp) => {
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
@@ -295,6 +289,15 @@ describe('Test useZIndex hooks', () => {
               );
             });
           } else {
+            if (key === 'Tour') {
+              expect((document.querySelector(selector1) as HTMLDivElement).style.zIndex).toBe(
+                '1001',
+              );
+            } else {
+              expect(
+                (document.querySelector(selector1) as HTMLDivElement).style.zIndex,
+              ).toBeFalsy();
+            }
             expect((document.querySelector(selector2) as HTMLDivElement).style.zIndex).toBe(
               String(
                 1000 +
