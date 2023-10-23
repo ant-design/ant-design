@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from 'react';
+import React, { forwardRef, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -14,16 +14,14 @@ import type {
   FloatButtonBadgeProps,
   FloatButtonContentProps,
   FloatButtonProps,
+  FloatButtonRef,
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton: React.ForwardRefRenderFunction<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
-> = (props, ref) => {
+const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -96,29 +94,19 @@ const FloatButton: React.ForwardRefRenderFunction<
 
   return wrapSSR(
     props.href ? (
-      <a ref={ref as React.RefObject<HTMLAnchorElement>} {...restProps} className={classString}>
+      <a ref={ref} {...restProps} className={classString}>
         {buttonNode}
       </a>
     ) : (
-      <button
-        ref={ref as React.RefObject<HTMLButtonElement>}
-        {...restProps}
-        className={classString}
-        type="button"
-      >
+      <button ref={ref} {...restProps} className={classString} type="button">
         {buttonNode}
       </button>
     ),
   );
-};
-
-const ForwardFloatButton = React.forwardRef<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
->(FloatButton) as CompoundedComponent;
+}) as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
-  ForwardFloatButton.displayName = 'FloatButton';
+  FloatButton.displayName = 'FloatButton';
 }
 
-export default ForwardFloatButton;
+export default FloatButton;

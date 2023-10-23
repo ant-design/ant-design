@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
@@ -7,8 +7,9 @@ import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import { GroupMask } from '../Group';
-import ComponentsBlock from './ComponentsBlock';
 import useMouseTransform from './useMouseTransform';
+
+const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
 const locales = {
   cn: {
@@ -28,8 +29,15 @@ const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
 
-  return createStyles(({ token, css }) => {
+  return createStyles(({ token, css, cx }) => {
     const textShadow = `0 0 3px ${token.colorBgContainer}`;
+
+    const mask = cx(css`
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(4px);
+      transition: all 1s ease;
+    `);
 
     return {
       holder: css`
@@ -41,8 +49,16 @@ const useStyle = () => {
         position: relative;
         overflow: hidden;
         perspective: 800px;
+        /* fix safari bug by removing blur style */
+        transform: translateZ(1000px);
         row-gap: ${token.marginXL}px;
+
+        &:hover .${mask} {
+          backdrop-filter: none;
+        }
       `,
+
+      mask,
 
       typography: css`
         text-align: center;
@@ -116,7 +132,10 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+        <Suspense fallback={null}>
+          {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+        </Suspense>
+        <div className={styles.mask} />
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
