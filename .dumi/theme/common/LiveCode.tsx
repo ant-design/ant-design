@@ -41,10 +41,10 @@ const useStyle = createStyles(({ token, css }) => {
 
 const locales = {
   cn: {
-    demoEditable: '当前 Demo 可编辑',
+    demoEditable: '编辑 Demo 可实时预览',
   },
   en: {
-    demoEditable: 'Current demo is editable',
+    demoEditable: 'Edit demo with real-time preview',
   },
 };
 
