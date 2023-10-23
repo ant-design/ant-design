@@ -290,7 +290,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('Cascader', restProps.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', restProps.dropdownStyle?.zIndex as number);
 
   // ==================== Render =====================
   const renderNode = (

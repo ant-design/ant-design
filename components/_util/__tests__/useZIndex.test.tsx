@@ -124,7 +124,34 @@ const items: MenuProps['items'] = [
 ];
 
 const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string }>> = {
-  Select: (props) => <Select {...props} options={options} open />,
+  SelectLike: ({ rootClassName, ...props }) => (
+    <>
+      <Select
+        {...props}
+        rootClassName={`${rootClassName} comp-item comp-Select`}
+        options={options}
+        open
+      />
+      <Cascader
+        {...props}
+        rootClassName={`${rootClassName} comp-item comp-Cascader`}
+        options={options}
+        open
+      />
+      <TreeSelect
+        {...props}
+        rootClassName={`${rootClassName} comp-item comp-TreeSelect`}
+        treeData={options}
+        open
+      />
+      <AutoComplete
+        {...props}
+        rootClassName={`${rootClassName} comp-item comp-AutoComplete`}
+        options={options}
+        open
+      />
+    </>
+  ),
   Dropdown: (props) => (
     <Dropdown
       {...props}
@@ -139,21 +166,30 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
       <button type="button">test</button>
     </Dropdown>
   ),
-  Cascader: (props) => <Cascader {...props} options={options} open />,
-  TreeSelect: (props) => <TreeSelect {...props} treeData={options} open />,
-  AutoComplete: (props) => <AutoComplete {...props} options={options} open />,
   ColorPicker: (props) => <ColorPicker {...props} open />,
-  DatePicker: (props) => <DatePicker {...props} open />,
-  TimePicker: (props) => <DatePicker.TimePicker {...props} open />,
+  DatePicker: ({ rootClassName, ...props }) => (
+    <>
+      <DatePicker {...props} rootClassName={`${rootClassName} comp-item comp-DatePicker`} open />
+      <DatePicker.TimePicker
+        {...props}
+        rootClassName={`${rootClassName} comp-item comp-TimePicker`}
+        open
+      />
+    </>
+  ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
 };
 
 function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
   let selector = baseSelector;
-  if (['TreeSelect', 'AutoComplete', 'Select', 'Cascader'].includes(consumer)) {
-    selector = `${baseSelector}.ant-slide-up`;
-  } else if (['DatePicker', 'TimePicker'].includes(consumer)) {
-    selector = `${baseSelector}.ant-picker-dropdown`;
+  if (consumer === 'SelectLike') {
+    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete']
+      .map((item) => `${baseSelector}.comp-${item}.ant-slide-up`)
+      .join(',');
+  } else if (consumer === 'DatePicker') {
+    selector = ['DatePicker', 'TimePicker']
+      .map((item) => `${baseSelector}.comp-${item}.ant-picker-dropdown`)
+      .join(',');
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
   } else if (consumer === 'ColorPicker') {
@@ -169,6 +205,8 @@ describe('Test useZIndex hooks', () => {
   afterEach(() => {
     jest.useRealTimers();
   });
+  // const containers = ['Modal'];
+  // const consumers = ['SelectLike'];
   const containers = Object.keys(containerComponent);
   const consumers = Object.keys(consumerComponent);
 
@@ -231,24 +269,46 @@ describe('Test useZIndex hooks', () => {
             );
           }
 
-          let selector = getConsumerSelector('.consumer2', key as ZIndexConsumer);
+          const selector2 = getConsumerSelector('.consumer2', key as ZIndexConsumer);
+          const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
-          expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
-            String(
-              1000 +
-                containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                consumerBaseZIndexOffset[key as ZIndexConsumer],
-            ),
-          );
+          if (['SelectLike', 'DatePicker'].includes(key)) {
+            let comps = document.querySelectorAll(selector2);
+            comps.forEach((comp) => {
+              expect((comp as HTMLDivElement).style.zIndex).toBe(
+                String(
+                  1000 +
+                    containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                    consumerBaseZIndexOffset[key as ZIndexConsumer],
+                ),
+              );
+            });
 
-          selector = getConsumerSelector('.consumer3', key as ZIndexConsumer);
+            comps = document.querySelectorAll(selector3);
+            comps.forEach((comp) => {
+              expect((comp as HTMLDivElement).style.zIndex).toBe(
+                String(
+                  (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
+                    consumerBaseZIndexOffset[key as ZIndexConsumer],
+                ),
+              );
+            });
+          } else {
+            expect((document.querySelector(selector2) as HTMLDivElement).style.zIndex).toBe(
+              String(
+                1000 +
+                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                  consumerBaseZIndexOffset[key as ZIndexConsumer],
+              ),
+            );
 
-          expect((document.querySelector(selector) as HTMLDivElement).style.zIndex).toBe(
-            String(
-              (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                consumerBaseZIndexOffset[key as ZIndexConsumer],
-            ),
-          );
+            expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
+              String(
+                (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
+                  consumerBaseZIndexOffset[key as ZIndexConsumer],
+              ),
+            );
+          }
 
           unmount();
         });

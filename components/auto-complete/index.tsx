@@ -130,7 +130,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   const prefixCls = getPrefixCls('select', customizePrefixCls);
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('AutoComplete', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
 
   return (
     <Select

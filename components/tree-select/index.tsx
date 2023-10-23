@@ -251,7 +251,7 @@ const InternalTreeSelect = <
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('TreeSelect', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
 
   const returnNode = (
     <RcTreeSelect

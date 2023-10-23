@@ -140,10 +140,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         const locale = { ...contextLocale, ...props.locale! };
         // ============================ zIndex ============================
-        const [zIndex] = useZIndex(
-          picker === 'time' ? 'TimePicker' : 'DatePicker',
-          props.popupStyle?.zIndex as number,
-        );
+        const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
         return wrapSSR(
           <RCPicker<DateType>
