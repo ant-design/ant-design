@@ -123,7 +123,6 @@
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "dayjs": "^1.11.1",
-    "moment": "^2.29.4",
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.18.1",
     "rc-checkbox": "~3.1.0",
