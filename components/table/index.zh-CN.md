@@ -260,7 +260,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
-| columnTitle | 自定义列表选择框标题 | ReactNode | - |  |
+| columnTitle | 自定义列表选择框标题 | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |

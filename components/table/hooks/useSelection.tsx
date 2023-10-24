@@ -415,6 +415,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       // ===================== Render =====================
       // Title Cell
       let title: React.ReactNode;
+      let columnTitleCheckbox: React.ReactNode;
       if (selectionType !== 'radio') {
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
@@ -459,22 +460,26 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         const allDisabledSomeChecked =
           allDisabled && allDisabledData.some(({ checked }) => checked);
 
+        columnTitleCheckbox = (
+          <Checkbox
+            checked={
+              !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
+            }
+            indeterminate={
+              !allDisabled
+                ? !checkedCurrentAll && checkedCurrentSome
+                : !allDisabledAndChecked && allDisabledSomeChecked
+            }
+            onChange={onSelectAllChange}
+            disabled={flattedData.length === 0 || allDisabled}
+            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            skipGroup
+          />
+        );
+
         title = !hideSelectAll && (
           <div className={`${prefixCls}-selection`}>
-            <Checkbox
-              checked={
-                !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
-              }
-              indeterminate={
-                !allDisabled
-                  ? !checkedCurrentAll && checkedCurrentSome
-                  : !allDisabledAndChecked && allDisabledSomeChecked
-              }
-              onChange={onSelectAllChange}
-              disabled={flattedData.length === 0 || allDisabled}
-              aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
-              skipGroup
-            />
+            {columnTitleCheckbox}
             {customizeSelections}
           </div>
         );
@@ -665,6 +670,16 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
       });
 
+      const renderColumnTitle = () => {
+        if (!rowSelection?.columnTitle) {
+          return title;
+        }
+        if (typeof rowSelection.columnTitle === 'function') {
+          return rowSelection.columnTitle(columnTitleCheckbox);
+        }
+        return rowSelection.columnTitle;
+      };
+
       // Replace with real selection column
       const selectionColumn: ColumnsType<RecordType>[0] & {
         RC_TABLE_INTERNAL_COL_DEFINE: Record<string, any>;
@@ -672,7 +687,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         fixed: mergedFixed,
         width: selectionColWidth,
         className: `${prefixCls}-selection-column`,
-        title: rowSelection.columnTitle || title,
+        title: renderColumnTitle(),
         render: renderSelectionCell,
         onCell: rowSelection.onCell,
         [INTERNAL_COL_DEFINE]: { className: columnCls },
