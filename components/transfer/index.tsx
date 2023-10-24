@@ -352,12 +352,28 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
   };
 
-  const onLeftItemSelect = (selectedKey: string, checked: boolean, event: React.MouseEvent) => {
-    onItemSelect('left', selectedKey, checked, event.shiftKey);
+  const onLeftItemClick = (
+    selectedKey: string,
+    checked: boolean,
+    e: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    onItemSelect('left', selectedKey, checked, e.shiftKey);
   };
 
-  const onRightItemSelect = (selectedKey: string, checked: boolean, event: React.MouseEvent) => {
-    onItemSelect('right', selectedKey, checked, event.shiftKey);
+  const onRightItemClick = (
+    selectedKey: string,
+    checked: boolean,
+    e: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    onItemSelect('right', selectedKey, checked, e.shiftKey);
+  };
+
+  const onLeftItemSelect = (selectedKey: string, checked: boolean) => {
+    onItemSelect('left', selectedKey, checked, false);
+  };
+
+  const onRightItemSelect = (selectedKey: string, checked: boolean) => {
+    onItemSelect('right', selectedKey, checked, false);
   };
 
   const onRightItemRemove = (keys: string[]) => {
@@ -423,6 +439,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         checkedKeys={sourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
+        onClick={onLeftItemClick}
         onItemSelect={onLeftItemSelect}
         onItemSelectAll={onLeftItemSelectAll}
         render={render}
@@ -460,6 +477,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         checkedKeys={targetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
+        onClick={onRightItemClick}
         onItemSelect={onRightItemSelect}
         onItemSelectAll={onRightItemSelectAll}
         onItemRemove={onRightItemRemove}

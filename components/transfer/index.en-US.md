@@ -68,14 +68,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Transfer accept `children` to customize render list, using follow props:
 
-| Property | Description | Type | Version |
-| --- | --- | --- | --- |
-| direction | List render direction | `left` \| `right` |  |
-| disabled | Disable list or not | boolean |  |
-| filteredItems | Filtered items | RecordType\[] |  |
-| selectedKeys | Selected items | string\[] |  |
-| onItemSelect | Select item(The event parameter is passed to enable multiple selection while holding down the shift key) | (key: string, selected: boolean, event: React.MouseEvent<Element, MouseEvent>) |  |
-| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |  |
+| Property        | Description             | Type                                 | Version |
+| --------------- | ----------------------- | ------------------------------------ | ------- |
+| direction       | List render direction   | `left` \| `right`                    |         |
+| disabled        | Disable list or not     | boolean                              |         |
+| filteredItems   | Filtered items          | RecordType\[]                        |         |
+| selectedKeys    | Selected items          | string\[]                            |         |
+| onItemSelect    | Select item             | (key: string, selected: boolean)     |         |
+| onItemSelectAll | Select a group of items | (keys: string\[], selected: boolean) |         |
 
 #### example
 

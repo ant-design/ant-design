@@ -47,7 +47,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     showRemove,
     pagination,
     onScroll,
-    onItemSelect,
+    onClick,
     onItemRemove,
   } = props;
   const [current, setCurrent] = React.useState<number>(1);
@@ -73,8 +73,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
-  const onClick = (item: RecordType, event: React.MouseEvent<HTMLLIElement, MouseEvent>) => {
-    onItemSelect?.(item.key, !selectedKeys.includes(item.key), event);
+  const handleClick = (item: RecordType, e: React.MouseEvent<Element, MouseEvent>) => {
+    onClick(item.key, !selectedKeys.includes(item.key), e);
   };
 
   const onRemove = (item: RecordType) => {
@@ -130,7 +130,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
             renderedEl={renderedEl}
             prefixCls={prefixCls}
             showRemove={showRemove}
-            onClick={onClick}
+            onClick={handleClick}
             onRemove={onRemove}
             checked={selectedKeys.includes(item.key)}
             disabled={globalDisabled || item.disabled}
