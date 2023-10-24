@@ -101,7 +101,7 @@ export default function ThemePicker(props: ThemePickerProps) {
                 onChange?.(theme);
               }}
             >
-              <input type="radio" name="theme" id={index === 0 ? id : null} />
+              <input type="radio" name="theme" id={index === 0 ? id : undefined} />
               <img src={url} alt={theme} />
             </label>
             <span>{locale[theme as keyof typeof locale]}</span>

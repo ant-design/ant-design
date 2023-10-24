@@ -1,7 +1,7 @@
 import React from 'react';
 import type { MessageInstance, ConfigOptions as MessageConfig } from '../message/interface';
 import type { NotificationInstance, NotificationConfig } from '../notification/interface';
-import type { ModalStaticFunctions } from '../modal/confirm';
+import type { HookAPI as ModalHookAPI } from '../modal/useModal';
 
 export type AppConfig = {
   message?: MessageConfig;
@@ -10,11 +10,10 @@ export type AppConfig = {
 
 export const AppConfigContext = React.createContext<AppConfig>({});
 
-type ModalType = Omit<ModalStaticFunctions, 'warn'>;
 export interface useAppProps {
   message: MessageInstance;
   notification: NotificationInstance;
-  modal: ModalType;
+  modal: ModalHookAPI;
 }
 
 const AppContext = React.createContext<useAppProps>({

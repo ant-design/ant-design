@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ConfigProvider, theme } from 'antd';
 import { createStyles, css } from 'antd-style';
 
 import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
 // import BannerRecommends, { BannerRecommendsFallback } from './components/BannerRecommends';
-import ComponentsList from './components/ComponentsList';
-import DesignFramework from './components/DesignFramework';
-import Group from './components/Group';
 import PreviewBanner from './components/PreviewBanner';
-import Theme from './components/Theme';
+import Group from './components/Group';
+
+const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
+const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
+const Theme = React.lazy(() => import('./components/Theme'));
 
 const useStyle = createStyles(() => ({
   image: css`
@@ -58,7 +59,9 @@ const Homepage: React.FC = () => {
             algorithm: theme.defaultAlgorithm,
           }}
         >
-          <Theme />
+          <Suspense fallback={null}>
+            <Theme />
+          </Suspense>
         </ConfigProvider>
 
         {/* 组件列表 */}
@@ -69,7 +72,9 @@ const Homepage: React.FC = () => {
           description={locale.assetsDesc}
           id="design"
         >
-          <ComponentsList />
+          <Suspense fallback={null}>
+            <ComponentsList />
+          </Suspense>
         </Group>
 
         {/* 设计语言 */}
@@ -85,7 +90,9 @@ const Homepage: React.FC = () => {
             />
           }
         >
-          <DesignFramework />
+          <Suspense fallback={null}>
+            <DesignFramework />
+          </Suspense>
         </Group>
       </div>
     </section>

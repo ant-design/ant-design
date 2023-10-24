@@ -5,6 +5,7 @@ const containerStyle: React.CSSProperties = {
   width: '100%',
   height: 100,
   overflow: 'auto',
+  border: '1px solid #40a9ff',
 };
 
 const style: React.CSSProperties = {

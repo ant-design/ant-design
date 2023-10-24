@@ -30,6 +30,11 @@ const locales = {
     shortMessage: '支付宝语雀 · 大学生公益计划火热进行中！',
     more: '了解更多',
   },
+  en: {
+    message: '',
+    shortMessage: '',
+    more: '',
+  },
 };
 
 const useStyle = createStyles(({ token, css }) => {

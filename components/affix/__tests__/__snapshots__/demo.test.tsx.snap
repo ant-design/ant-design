@@ -84,7 +84,7 @@ exports[`renders components/affix/demo/on-change.tsx correctly 1`] = `
 
 exports[`renders components/affix/demo/target.tsx correctly 1`] = `
 <div
-  style="width:100%;height:100px;overflow:auto"
+  style="width:100%;height:100px;overflow:auto;border:1px solid #40a9ff"
 >
   <div
     style="width:100%;height:1000px"

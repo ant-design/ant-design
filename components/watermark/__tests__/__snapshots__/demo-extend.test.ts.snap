@@ -122,6 +122,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-color-picker-trigger"
+                id="color"
               >
                 <div
                   class="ant-color-picker-color-block"
@@ -253,7 +254,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-label="Search"
                                   aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"

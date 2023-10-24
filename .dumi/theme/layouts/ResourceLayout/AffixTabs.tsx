@@ -57,7 +57,7 @@ const AffixTabs: React.FC = () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const idsRef = React.useRef<string[]>([]);
   const [loaded, setLoaded] = React.useState(false);
-  const [fixedId, setFixedId] = React.useState<string | null>(null);
+  const [fixedId, setFixedId] = React.useState<string | undefined>(undefined);
 
   const {
     styles: { affixTabs, affixTabsFixed, span },
@@ -100,7 +100,7 @@ const AffixTabs: React.FC = () => {
         }
       }
 
-      setFixedId(null);
+      setFixedId(undefined);
     }
 
     return throttle(doSync);
