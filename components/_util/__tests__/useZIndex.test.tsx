@@ -207,7 +207,7 @@ describe('Test useZIndex hooks', () => {
   });
   const containers = Object.keys(containerComponent);
   // const containers = ['Modal'];
-  const consumers = ['Dropdown', 'SelectLike'];
+  const consumers = ['Dropdown', 'SelectLike', 'ColorPicker'];
   // const consumers = Object.keys(consumerComponent);
 
   containers.forEach((containerKey) => {
