@@ -39,6 +39,39 @@ exports[`renders components/modal/demo/button-props.tsx extend context correctly
 
 exports[`renders components/modal/demo/button-props.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/classNames.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Open Modal
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        ConfigProvider
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/modal/demo/classNames.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/component-token.tsx extend context correctly 1`] = `
 <div
   style="display: flex; flex-direction: column; row-gap: 16px;"
@@ -47,7 +80,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width: 100%; height: 200px;"
+    style="width: 100%;"
   >
     <div
       aria-hidden="true"
@@ -132,7 +165,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width: 100%; height: 200px;"
+    style="width: 100%;"
   >
     <div
       aria-hidden="true"
@@ -217,7 +250,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width: 200px; height: 150px;"
+    style="width: 200px;"
   >
     <div
       aria-hidden="true"
@@ -256,9 +289,13 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -286,7 +323,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width: 300px; height: 200px;"
+    style="width: 300px;"
   >
     <div
       aria-hidden="true"
@@ -303,7 +340,7 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -324,15 +361,19 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
@@ -371,12 +412,11 @@ exports[`renders components/modal/demo/component-token.tsx extend context correc
 
 exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -389,7 +429,6 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -402,7 +441,6 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -415,7 +453,6 @@ exports[`renders components/modal/demo/confirm.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-dashed"
@@ -485,11 +522,10 @@ exports[`renders components/modal/demo/footer.tsx extend context correctly 2`] =
 
 exports[`renders components/modal/demo/footer-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -519,11 +555,10 @@ exports[`renders components/modal/demo/footer-render.tsx extend context correctl
 
 exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -536,7 +571,6 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -549,7 +583,6 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -579,11 +612,10 @@ exports[`renders components/modal/demo/hooks.tsx extend context correctly 2`] = 
 
 exports[`renders components/modal/demo/locale.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -794,9 +826,13 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -841,7 +877,7 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -862,15 +898,19 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div
@@ -909,12 +949,11 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
 
 exports[`renders components/modal/demo/static-info.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -8px;"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  style="flex-wrap: wrap;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -927,7 +966,6 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -940,7 +978,6 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 8px; padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -953,7 +990,6 @@ exports[`renders components/modal/demo/static-info.tsx extend context correctly 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 8px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -990,7 +1026,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel"
     role="dialog"
-    style="width: 100%; height: 200px;"
+    style="width: 100%;"
   >
     <div
       aria-hidden="true"
@@ -1075,7 +1111,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
     role="dialog"
-    style="width: 200px; height: 150px;"
+    style="width: 200px;"
   >
     <div
       aria-hidden="true"
@@ -1114,9 +1150,13 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
               </svg>
             </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              A good news!
+              <div
+                class="ant-modal-confirm-content"
+              >
+                A good news!
+              </div>
             </div>
           </div>
           <div
@@ -1144,7 +1184,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
     aria-modal="true"
     class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
     role="dialog"
-    style="width: 300px; height: 200px;"
+    style="width: 300px;"
   >
     <div
       aria-hidden="true"
@@ -1161,7 +1201,7 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
           class="ant-modal-confirm-body-wrapper"
         >
           <div
-            class="ant-modal-confirm-body"
+            class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
           >
             <span
               aria-label="exclamation-circle"
@@ -1182,15 +1222,19 @@ exports[`renders components/modal/demo/wireframe.tsx extend context correctly 1`
                 />
               </svg>
             </span>
-            <span
-              class="ant-modal-confirm-title"
-            >
-              Confirm This?
-            </span>
             <div
-              class="ant-modal-confirm-content"
+              class="ant-modal-confirm-paragraph"
             >
-              Some descriptions.
+              <span
+                class="ant-modal-confirm-title"
+              >
+                Confirm This?
+              </span>
+              <div
+                class="ant-modal-confirm-content"
+              >
+                Some descriptions.
+              </div>
             </div>
           </div>
           <div

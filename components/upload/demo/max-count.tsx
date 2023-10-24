@@ -5,14 +5,14 @@ import { Button, Space, Upload } from 'antd';
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }} size="large">
     <Upload
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
       listType="picture"
       maxCount={1}
     >
       <Button icon={<UploadOutlined />}>Upload (Max: 1)</Button>
     </Upload>
     <Upload
-      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+      action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
       listType="picture"
       maxCount={3}
       multiple

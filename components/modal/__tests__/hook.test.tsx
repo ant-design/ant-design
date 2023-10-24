@@ -1,15 +1,15 @@
+import React from 'react';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
-import React from 'react';
 import { act } from 'react-dom/test-utils';
 
 import Modal from '..';
-import zhCN from '../../locale/zh_CN';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Input from '../../input';
+import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
 jest.mock('rc-util/lib/Portal');
@@ -410,10 +410,55 @@ describe('Modal.hook', () => {
     jest.useRealTimers();
   });
 
-  it('support await', async () => {
+  describe('support await', () => {
+    it('click', async () => {
+      jest.useFakeTimers();
+
+      let notReady = true;
+      let lastResult: boolean | null = null;
+
+      const Demo: React.FC = () => {
+        const [modal, contextHolder] = Modal.useModal();
+
+        React.useEffect(() => {
+          (async () => {
+            lastResult = await modal.confirm({
+              content: <Input />,
+              onOk: async () => {
+                if (notReady) {
+                  notReady = false;
+                  return Promise.reject();
+                }
+              },
+            });
+          })();
+        }, []);
+
+        return contextHolder;
+      };
+
+      render(<Demo />);
+
+      // Wait for modal show
+      await waitFakeTimer();
+
+      // First time click should not close
+      fireEvent.click(document.querySelector('.ant-btn-primary')!);
+      await waitFakeTimer();
+      expect(lastResult).toBeFalsy();
+
+      // Second time click to close
+      fireEvent.click(document.querySelector('.ant-btn-primary')!);
+      await waitFakeTimer();
+      expect(lastResult).toBeTruthy();
+
+      jest.useRealTimers();
+    });
+  });
+
+  it('esc', async () => {
     jest.useFakeTimers();
 
-    let notReady = true;
     let lastResult: boolean | null = null;
 
     const Demo: React.FC = () => {
@@ -423,12 +468,6 @@ describe('Modal.hook', () => {
         (async () => {
           lastResult = await modal.confirm({
             content: <Input />,
-            onOk: async () => {
-              if (notReady) {
-                notReady = false;
-                return Promise.reject();
-              }
-            },
           });
         })();
       }, []);
@@ -441,16 +480,13 @@ describe('Modal.hook', () => {
     // Wait for modal show
     await waitFakeTimer();
 
-    // First time click should not close
-    fireEvent.click(document.querySelector('.ant-btn-primary')!);
+    // ESC to close
+    fireEvent.keyDown(document.querySelector('.ant-modal')!, {
+      key: 'Esc',
+      keyCode: KeyCode.ESC,
+    });
     await waitFakeTimer();
-    expect(lastResult).toBeFalsy();
 
-    // Second time click to close
-    fireEvent.click(document.querySelector('.ant-btn-primary')!);
-    await waitFakeTimer();
-    expect(lastResult).toBeTruthy();
-
-    jest.useRealTimers();
+    expect(lastResult).toBe(false);
   });
 });

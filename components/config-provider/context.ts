@@ -1,16 +1,22 @@
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
+
+import type { WarningContextProps } from '../_util/warning';
+import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
+import type { DrawerProps } from '../drawer';
+import type { FlexProps } from '../flex/interface';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
+import type { ModalProps } from '../modal';
 import type { SpaceProps } from '../space';
+import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
-import type { SizeType } from './SizeContext';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { ShowWaveEffect } from '../_util/wave/interface';
+import type { SizeType } from './SizeContext';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -48,6 +54,11 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
+export interface ModalConfig extends ComponentStyleConfig {
+  classNames?: ModalProps['classNames'];
+  styles?: ModalProps['styles'];
+}
+
 export interface BadgeConfig extends ComponentStyleConfig {
   classNames?: BadgeProps['classNames'];
   styles?: BadgeProps['styles'];
@@ -56,6 +67,15 @@ export interface BadgeConfig extends ComponentStyleConfig {
 export interface ButtonConfig extends ComponentStyleConfig {
   classNames?: ButtonProps['classNames'];
   styles?: ButtonProps['styles'];
+}
+
+export interface DrawerConfig extends ComponentStyleConfig {
+  classNames?: DrawerProps['classNames'];
+  styles?: DrawerProps['styles'];
+}
+
+export interface FlexConfig extends ComponentStyleConfig {
+  vertical?: FlexProps['vertical'];
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -109,7 +129,7 @@ export interface ConfigConsumerProps {
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
-  drawer?: ComponentStyleConfig;
+  drawer?: DrawerConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
@@ -124,7 +144,7 @@ export interface ConfigConsumerProps {
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
-  modal?: ComponentStyleConfig;
+  modal?: ModalConfig;
   progress?: ComponentStyleConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
@@ -143,7 +163,7 @@ export interface ConfigConsumerProps {
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig;
+  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
@@ -151,8 +171,10 @@ export interface ConfigConsumerProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
-
+  rangePicker?: ComponentStyleConfig;
+  flex?: FlexConfig;
   wave?: WaveConfig;
+  warning?: WarningContextProps;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

@@ -1,39 +1,36 @@
-import toArray from 'rc-util/lib/Children/toArray';
-import type React from 'react';
 import { useMemo } from 'react';
-import type { DescriptionsItemType } from '..';
-import warning from '../../_util/warning';
+
+import type { InternalDescriptionsItemType } from '..';
+import { devUseWarning } from '../../_util/warning';
 
 function getFilledItem(
-  rowItem: DescriptionsItemType,
+  rowItem: InternalDescriptionsItemType,
   rowRestCol: number,
   span?: number,
-): DescriptionsItemType {
+): [item: InternalDescriptionsItemType, exceed: boolean] {
   let clone = rowItem;
+  let exceed = false;
 
   if (span === undefined || span > rowRestCol) {
     clone = {
       ...rowItem,
       span: rowRestCol,
     };
-    warning(
-      span === undefined,
-      'Descriptions',
-      'Sum of column `span` in a line not match `column` of Descriptions.',
-    );
+
+    exceed = span !== undefined;
   }
-  return clone;
+  return [clone, exceed];
 }
 
-// Convert children into items
-const transChildren2Items = (childNodes?: React.ReactNode) =>
-  toArray(childNodes).map((node) => ({ ...node?.props }));
-
 // Calculate the sum of span in a row
-function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
-  const rows: DescriptionsItemType[][] = [];
-  let tmpRow: DescriptionsItemType[] = [];
+function getCalcRows(
+  rowItems: InternalDescriptionsItemType[],
+  mergedColumn: number,
+): [rows: InternalDescriptionsItemType[][], exceed: boolean] {
+  const rows: InternalDescriptionsItemType[][] = [];
+  let tmpRow: InternalDescriptionsItemType[] = [];
   let rowRestCol = mergedColumn;
+  let exceed = false;
 
   rowItems
     .filter((n) => n)
@@ -43,7 +40,10 @@ function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
 
       // Additional handle last one
       if (index === rowItems.length - 1) {
-        tmpRow.push(getFilledItem(rowItem, rowRestCol, span));
+        const [item, itemExceed] = getFilledItem(rowItem, rowRestCol, span);
+        exceed = exceed || itemExceed;
+
+        tmpRow.push(item);
         rows.push(tmpRow);
         return;
       }
@@ -52,27 +52,27 @@ function getCalcRows(rowItems: DescriptionsItemType[], mergedColumn: number) {
         rowRestCol -= mergedSpan;
         tmpRow.push(rowItem);
       } else {
-        tmpRow.push(getFilledItem(rowItem, rowRestCol, mergedSpan));
+        const [item, itemExceed] = getFilledItem(rowItem, rowRestCol, mergedSpan);
+        exceed = exceed || itemExceed;
+
+        tmpRow.push(item);
         rows.push(tmpRow);
         rowRestCol = mergedColumn;
         tmpRow = [];
       }
     });
 
-  return rows;
+  return [rows, exceed];
 }
 
-const useRow = (
-  mergedColumn: number,
-  items?: DescriptionsItemType[],
-  children?: React.ReactNode,
-) => {
-  const rows = useMemo(() => {
-    if (Array.isArray(items)) {
-      return getCalcRows(items, mergedColumn);
-    }
-    return getCalcRows(transChildren2Items(children), mergedColumn);
-  }, [items, children, mergedColumn]);
+const useRow = (mergedColumn: number, items: InternalDescriptionsItemType[]) => {
+  const [rows, exceed] = useMemo(() => getCalcRows(items, mergedColumn), [items, mergedColumn]);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Descriptions');
+
+    warning(!exceed, 'usage', 'Sum of column `span` in a line not match `column` of Descriptions.');
+  }
 
   return rows;
 };

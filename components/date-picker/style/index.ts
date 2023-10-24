@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+
 import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
   genActiveStyle,
@@ -682,7 +683,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         textAlign: 'center',
 
         '&-extra': {
-          padding: `0 ${paddingSM}`,
+          padding: `0 ${paddingSM}px`,
           lineHeight: `${textHeight - 2 * lineWidth}px`,
           textAlign: 'start',
 
@@ -995,14 +996,18 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
     errorActiveShadow,
     colorWarning,
     warningActiveShadow,
+    colorErrorHover,
+    colorWarningHover,
   } = token;
 
   return {
-    [`${componentCls}:not(${componentCls}-disabled)`]: {
+    [`${componentCls}:not(${componentCls}-disabled):not([disabled])`]: {
       [`&${componentCls}-status-error`]: {
-        '&, &:not([disabled]):hover': {
-          backgroundColor: colorBgContainer,
-          borderColor: colorError,
+        backgroundColor: colorBgContainer,
+        borderColor: colorError,
+
+        '&:hover': {
+          borderColor: colorErrorHover,
         },
 
         [`&${componentCls}-focused, &:focus`]: {
@@ -1020,9 +1025,11 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
       },
 
       [`&${componentCls}-status-warning`]: {
-        '&, &:not([disabled]):hover': {
-          backgroundColor: colorBgContainer,
-          borderColor: colorWarning,
+        backgroundColor: colorBgContainer,
+        borderColor: colorWarning,
+
+        '&:hover': {
+          borderColor: colorWarningHover,
         },
 
         [`&${componentCls}-focused, &:focus`]: {
@@ -1104,11 +1111,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         borderRadius,
         transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}`,
 
-        '&:hover, &-focused': {
+        '&:hover': {
           ...genHoverStyle(token),
         },
 
-        '&-focused': {
+        [`&-focused${componentCls}`]: {
           ...genActiveStyle(token),
         },
 
@@ -1147,6 +1154,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             background: 'transparent',
             border: 0,
             borderRadius: 0,
+            fontFamily: 'inherit',
 
             '&:focus': {
               boxShadow: 'none',

@@ -1,5 +1,3 @@
-'use client';
-
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';

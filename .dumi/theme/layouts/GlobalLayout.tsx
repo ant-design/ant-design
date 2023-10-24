@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
+import dayjs from 'dayjs';
 import {
   createCache,
   extractStyle,
@@ -9,7 +10,7 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { theme as antdTheme, App } from 'antd';
+import { App, theme as antdTheme } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
@@ -26,6 +27,7 @@ type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
 
 const RESPONSIVE_MOBILE = 768;
+export const ANT_DESIGN_NOT_SHOW_BANNER = 'ANT_DESIGN_NOT_SHOW_BANNER';
 
 // const styleCache = createCache();
 // if (typeof global !== 'undefined') {
@@ -33,25 +35,29 @@ const RESPONSIVE_MOBILE = 768;
 // }
 
 const getAlgorithm = (themes: ThemeName[] = []) =>
-  themes.map((theme) => {
-    if (theme === 'dark') {
-      return antdTheme.darkAlgorithm;
-    }
-    if (theme === 'compact') {
-      return antdTheme.compactAlgorithm;
-    }
-    return antdTheme.defaultAlgorithm;
-  });
+  themes
+    .map((theme) => {
+      if (theme === 'dark') {
+        return antdTheme.darkAlgorithm;
+      }
+      if (theme === 'compact') {
+        return antdTheme.compactAlgorithm;
+      }
+      return null;
+    })
+    .filter((item) => item) as typeof antdTheme.darkAlgorithm[];
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
   const { pathname } = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [{ theme = [], direction, isMobile }, setSiteState] = useLayoutState<SiteState>({
-    isMobile: false,
-    direction: 'ltr',
-    theme: [],
-  });
+  const [{ theme = [], direction, isMobile, bannerVisible = false }, setSiteState] =
+    useLayoutState<SiteState>({
+      isMobile: false,
+      direction: 'ltr',
+      theme: [],
+      bannerVisible: false,
+    });
 
   const updateSiteConfig = useCallback(
     (props: SiteState) => {
@@ -74,6 +80,10 @@ const GlobalLayout: React.FC = () => {
             ...nextSearchParams,
             theme: value.filter((t) => t !== 'light'),
           });
+
+          document
+            .querySelector('html')
+            ?.setAttribute('data-prefers-color', value.includes('dark') ? 'dark' : 'light');
         }
       });
 
@@ -91,8 +101,16 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
+    const storedBannerVisibleLastTime =
+      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    const storedBannerVisible =
+      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
-    setSiteState({ theme: _theme, direction: _direction === 'rtl' ? 'rtl' : 'ltr' });
+    setSiteState({
+      theme: _theme,
+      direction: _direction === 'rtl' ? 'rtl' : 'ltr',
+      bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
+    });
     // Handle isMobile
     updateMobileMode();
 
@@ -108,8 +126,9 @@ const GlobalLayout: React.FC = () => {
       updateSiteConfig,
       theme: theme!,
       isMobile: isMobile!,
+      bannerVisible,
     }),
-    [isMobile, direction, updateSiteConfig, theme],
+    [isMobile, direction, updateSiteConfig, theme, bannerVisible],
   );
 
   const [styleCache] = React.useState(() => createCache());

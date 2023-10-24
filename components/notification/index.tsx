@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 
@@ -7,6 +5,8 @@ import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
+
+export type { ArgsProps };
 
 let notification: GlobalNotification | null = null;
 

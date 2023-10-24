@@ -30,6 +30,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/user-profile.tsx">Preview drawer</code>
 <code src="./demo/multi-level-drawer.tsx">Multi-level drawer</code>
 <code src="./demo/size.tsx">Preset size</code>
+<code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
 <code src="./demo/no-mask.tsx" debug>No mask</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -46,14 +47,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
-| bodyStyle | Style of the drawer content part | CSSProperties | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top dom style | string | - |  |
+| classNames | Config Drawer build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
+| styles | onfig Drawer build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
 | contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
-| footerStyle | Style of the drawer footer part | CSSProperties | - |  |
 | forceRender | Pre-render Drawer component forcibly | boolean | false |  |
 | getContainer | mounted node and display window for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | headerStyle | Style of the drawer header part | CSSProperties | - |  |
@@ -61,7 +62,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether to show mask or not | boolean | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
-| maskStyle | Style for Drawer's mask element | CSSProperties | {} |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |

@@ -1,7 +1,8 @@
-import { createStyles, css } from 'antd-style';
 import React, { useMemo, useState } from 'react';
-import { CSSMotionList } from 'rc-motion';
+import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
+import { CSSMotionList } from 'rc-motion';
+
 import { COLOR_IMAGES, getClosetColor } from './colorUtil';
 
 export interface BackgroundImageProps {
@@ -36,7 +37,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
   const [keyList, setKeyList] = useState<string[]>([]);
 
   React.useLayoutEffect(() => {
-    setKeyList([activeColor]);
+    setKeyList([activeColor as string]);
   }, [activeColor]);
 
   return (
@@ -56,7 +57,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({ colorPrimary, isLight
         const entity = COLOR_IMAGES.find((ent) => ent.color === color);
 
         if (!entity || !entity.url) {
-          return null;
+          return null as unknown as React.ReactElement;
         }
 
         const { opacity } = style || {};

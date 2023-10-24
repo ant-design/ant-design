@@ -6,6 +6,7 @@ import { version } from './package.json';
 import * as fs from 'fs-extra';
 
 export default defineConfig({
+  plugins: ['dumi-plugin-color-chunk'],
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [new RegExp('index/components/')],
@@ -13,6 +14,7 @@ export default defineConfig({
   ssr: process.env.NODE_ENV === 'production' ? {} : false,
   hash: true,
   mfsu: false,
+  live: true,
   crossorigin: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],

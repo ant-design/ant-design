@@ -17,7 +17,7 @@ Array [
 
 exports[`renders components/back-top/demo/basic.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: BackTop] \`BackTop\` is deprecated, please use \`FloatButton.BackTop\` instead.",
+  "Warning: [antd: BackTop] \`BackTop\` is deprecated. Please use \`FloatButton.BackTop\` instead.",
 ]
 `;
 
@@ -54,6 +54,6 @@ exports[`renders components/back-top/demo/custom.tsx extend context correctly 1`
 
 exports[`renders components/back-top/demo/custom.tsx extend context correctly 2`] = `
 [
-  "Warning: [antd: BackTop] \`BackTop\` is deprecated, please use \`FloatButton.BackTop\` instead.",
+  "Warning: [antd: BackTop] \`BackTop\` is deprecated. Please use \`FloatButton.BackTop\` instead.",
 ]
 `;

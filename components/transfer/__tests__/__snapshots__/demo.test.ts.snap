@@ -3753,12 +3753,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="margin-top:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         aria-checked="false"
@@ -5991,11 +5990,10 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
 
 exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-transfer ant-transfer-status-error"
@@ -7827,12 +7825,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="margin-top:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         aria-checked="false"

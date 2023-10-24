@@ -195,6 +195,15 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         ...genFocusStyle(token),
       },
 
+      [`&${componentCls}-two-chinese-chars::first-letter`]: {
+        letterSpacing: '0.34em',
+      },
+
+      [`&${componentCls}-two-chinese-chars > *:not(${iconCls})`]: {
+        marginInlineEnd: '-0.34em',
+        letterSpacing: '0.34em',
+      },
+
       // make `btn-icon-only` not too narrow
       [`&-icon-only${componentCls}-compact-item`]: {
         flex: 'none',

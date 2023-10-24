@@ -140,6 +140,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
+| virtual | Support virtual list | boolean | - | 5.9.0 |
+
+### Table ref
+
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey` | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
 
 #### onRow usage
 
@@ -288,9 +296,9 @@ Properties for row selection.
 ## Using in TypeScript
 
 ```tsx
+import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
-import React from 'react';
 
 interface User {
   key: number;

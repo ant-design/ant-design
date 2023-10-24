@@ -1,5 +1,3 @@
-'use client';
-
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
@@ -8,7 +6,7 @@ import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { isPresetColor, isPresetStatusColor } from '../_util/colors';
 import useClosable from '../_util/hooks/useClosable';
 import type { LiteralUnion } from '../_util/type';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
@@ -59,11 +57,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      !('visible' in props),
-      'Tag',
-      '`visible` is deprecated, please use `visible && <Tag />` instead.',
-    );
+    const warning = devUseWarning('Tag');
+
+    warning.deprecated(!('visible' in props), 'visible', 'visible && <Tag />');
   }
 
   React.useEffect(() => {

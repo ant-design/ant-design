@@ -17,10 +17,6 @@ We could configure global token and component token for each component through t
 import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -878,7 +874,7 @@ export default App;
 | `@tooltip-bg` | `colorBgSpotlight` | Global Token |
 | `@tooltip-arrow-width` | `sizePopupArrow` | Global Token |
 | `@tooltip-distance` | `marginXXS` | Global Token |
-| `@tooltip-arrow-color` | - | same as `@tooltip-bg`，Deprecated |
+| `@tooltip-arrow-color` | - | same as `@tooltip-bg`, Deprecated |
 | `@tooltip-border-radius` | `borderRadius` | Global Token |
 
 ### Transfer

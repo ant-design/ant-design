@@ -72,7 +72,7 @@ describe('TreeSelect', () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(<TreeSelect dropdownMatchSelectWidth open />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Select] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
+      'Warning: [antd: TreeSelect] `dropdownMatchSelectWidth` is deprecated. Please use `popupMatchSelectWidth` instead.',
     );
 
     errSpy.mockRestore();

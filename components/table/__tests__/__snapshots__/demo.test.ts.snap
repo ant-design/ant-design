@@ -101,11 +101,10 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -157,11 +156,10 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -218,11 +216,10 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -2140,11 +2137,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2155,11 +2151,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2244,11 +2239,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2259,11 +2253,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2348,11 +2341,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2363,11 +2355,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2452,11 +2443,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2467,11 +2457,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2556,11 +2545,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2571,11 +2559,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2660,11 +2647,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2675,11 +2661,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2764,11 +2749,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2779,11 +2763,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2868,11 +2851,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2883,11 +2865,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -2972,11 +2953,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -2987,11 +2967,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -3076,11 +3055,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -3091,11 +3069,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5384,11 +5361,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5399,11 +5375,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5488,11 +5463,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5503,11 +5477,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5592,11 +5565,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5607,11 +5579,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5696,11 +5667,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5711,11 +5681,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5800,11 +5769,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5815,11 +5783,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -5904,11 +5871,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -5919,11 +5885,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6008,11 +5973,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6023,11 +5987,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6112,11 +6075,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6127,11 +6089,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6216,11 +6177,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6231,11 +6191,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -6320,11 +6279,10 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Delete
@@ -6335,11 +6293,10 @@ Array [
                         >
                           <a>
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
+                              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right:8px"
                               >
                                 More actions
                               </div>
@@ -13300,11 +13257,10 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -13359,11 +13315,10 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -13423,11 +13378,10 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                     >
                       <div
                         class="ant-space-item"
-                        style="margin-right:16px"
                       >
                         <a>
                           Invite
@@ -15181,11 +15135,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15193,7 +15146,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15269,11 +15221,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15281,7 +15232,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15357,11 +15307,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15369,7 +15318,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15846,11 +15794,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15858,7 +15805,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -15934,11 +15880,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -15946,7 +15891,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16022,11 +15966,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16034,7 +15977,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16511,11 +16453,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16523,7 +16464,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16599,11 +16539,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16611,7 +16550,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -16687,11 +16625,10 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                                           >
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Pause
@@ -16699,7 +16636,6 @@ Array [
                                             </div>
                                             <div
                                               class="ant-space-item"
-                                              style="margin-right:16px"
                                             >
                                               <a>
                                                 Stop
@@ -17661,11 +17597,10 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Invite
@@ -17719,11 +17654,10 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Invite
@@ -17782,11 +17716,10 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:16px"
                         >
                           <a>
                             Invite
@@ -17897,12 +17830,11 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
 exports[`renders components/table/demo/reset-filter.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -17915,7 +17847,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -23940,7 +23871,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
         >
           <div
             class="ant-table-header ant-table-sticky-holder"
-            style="overflow:hidden;top:0"
+            style="overflow:hidden;top:64px"
           >
             <table
               style="table-layout:fixed;visibility:hidden"
@@ -25740,12 +25671,11 @@ Array [
 exports[`renders components/table/demo/tree-data.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       CheckStrictly:
     </div>
@@ -26050,12 +25980,11 @@ Array [
 exports[`renders components/table/demo/tree-table-ellipsis.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     style="margin-bottom:16px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       Fixed first column:
     </div>
@@ -26768,191 +26697,4 @@ Array [
     </div>
   </div>,
 ]
-`;
-
-exports[`renders components/table/demo/virtual-list.tsx correctly 1`] = `
-<div
-  class="ant-table-wrapper virtual-table"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table ant-table-fixed-header ant-table-scroll-horizontal"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-header"
-            style="overflow:hidden"
-          >
-            <table
-              style="table-layout:fixed"
-            >
-              <colgroup>
-                <col
-                  style="width:150px"
-                />
-                <col
-                  style="width:0"
-                />
-                <col
-                  style="width:0"
-                />
-                <col
-                  style="width:0"
-                />
-                <col
-                  style="width:200px"
-                />
-                <col
-                  style="width:100px"
-                />
-              </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    A
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    B
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    C
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    D
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    E
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                    scope="col"
-                  >
-                    F
-                  </th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div
-            class="virtual-grid"
-            style="position:relative;height:300px;width:0;overflow:auto;-webkit-overflow-scrolling:touch;will-change:transform;direction:ltr"
-          >
-            <div
-              style="height:5000028px;width:350px"
-            >
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:0;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                0
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:0;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                0
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:54px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                1
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:54px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                1
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:108px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                2
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:108px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                2
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:162px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                3
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:162px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                3
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:216px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                4
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:216px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                4
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:270px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                5
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:270px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                5
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:0;top:324px;height:54px;width:150px;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                6
-              </div>
-              <div
-                class="virtual-table-cell"
-                style="position:absolute;left:150px;top:324px;height:54px;width:0;box-sizing:border-box;padding:16px;border-bottom:1px solid rgba(5, 5, 5, 0.06);background:#ffffff"
-              >
-                6
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 `;

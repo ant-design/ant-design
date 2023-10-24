@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
+
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -83,7 +84,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(min-width: 1200px)',
-        } as any),
+        }) as any,
     );
 
     const { container, asFragment } = render(
@@ -96,10 +97,10 @@ describe('Grid', () => {
     );
     expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-20px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-20px');
-    expect(container.querySelector('div')!.style.marginTop).toEqual('-200px');
-    expect(container.querySelector('div')!.style.marginBottom).toEqual('-200px');
+    expect(container.querySelector('div')?.style.marginLeft).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginRight).toBe('-20px');
+    expect(container.querySelector('div')?.style.marginTop).toBe('');
+    expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
 
   it('renders wrapped Col correctly', () => {
@@ -132,10 +133,10 @@ describe('Grid', () => {
 
   it('should work current when gutter is array', () => {
     const { container } = render(<Row gutter={[16, 20]} />);
-    expect(container.querySelector('div')!.style.marginLeft).toEqual('-8px');
-    expect(container.querySelector('div')!.style.marginRight).toEqual('-8px');
-    expect(container.querySelector('div')!.style.marginTop).toEqual('-10px');
-    expect(container.querySelector('div')!.style.marginBottom).toEqual('-10px');
+    expect(container.querySelector('div')?.style.marginLeft).toBe('-8px');
+    expect(container.querySelector('div')?.style.marginRight).toBe('-8px');
+    expect(container.querySelector('div')?.style.marginTop).toBe('');
+    expect(container.querySelector('div')?.style.marginBottom).toBe('');
   });
 
   // By jsdom mock, actual jsdom not implemented matchMedia
@@ -150,7 +151,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
 
     let screensVar;
@@ -181,7 +182,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
     const { container } = render(<Row align="middle" />);
     expect(container.innerHTML).toContain('ant-row-middle');
@@ -201,7 +202,7 @@ describe('Grid', () => {
           },
           removeListener: jest.fn(),
           matches: query === '(max-width: 575px)',
-        } as any),
+        }) as any,
     );
     const { container } = render(<Row justify="center" />);
     expect(container.innerHTML).toContain('ant-row-center');

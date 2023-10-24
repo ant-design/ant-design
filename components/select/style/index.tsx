@@ -110,6 +110,7 @@ export interface SelectToken extends FullToken<'Select'> {
   rootPrefixCls: string;
   inputPaddingHorizontalBase: number;
   multipleSelectItemHeight: number;
+  selectHeight: number;
 }
 
 // ============================= Selector =============================
@@ -132,6 +133,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       input: {
         cursor: 'auto',
         color: 'inherit',
+        height: '100%',
       },
     },
 
@@ -154,21 +156,26 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
 // ============================== Status ==============================
 const genStatusStyle = (
   rootSelectCls: string,
-  token: {
-    componentCls: string;
-    antCls: string;
+  token: SelectToken & {
     borderHoverColor: string;
+    borderActiveColor: string;
     outlineColor: string;
-    controlOutlineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
-  const { componentCls, borderHoverColor, outlineColor, antCls } = token;
+  const {
+    componentCls,
+    borderHoverColor,
+    antCls,
+    borderActiveColor,
+    outlineColor,
+    controlOutlineWidth,
+  } = token;
 
   const overwriteStyle: CSSObject = overwriteDefaultBorder
     ? {
         [`${componentCls}-selector`]: {
-          borderColor: borderHoverColor,
+          borderColor: borderActiveColor,
         },
       }
     : {};
@@ -179,14 +186,14 @@ const genStatusStyle = (
         {
           ...overwriteStyle,
 
-          [`${componentCls}-focused& ${componentCls}-selector`]: {
-            borderColor: borderHoverColor,
-            boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
-            outline: 0,
-          },
-
           [`&:hover ${componentCls}-selector`]: {
             borderColor: borderHoverColor,
+          },
+
+          [`${componentCls}-focused& ${componentCls}-selector`]: {
+            borderColor: borderActiveColor,
+            boxShadow: `0 0 0 ${controlOutlineWidth}px ${outlineColor}`,
+            outline: 0,
           },
         },
     },
@@ -206,6 +213,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
       border: 'none',
       outline: 'none',
       appearance: 'none',
+      fontFamily: 'inherit',
 
       '&::-webkit-search-cancel-button': {
         display: 'none',
@@ -217,7 +225,7 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
-  const { componentCls, inputPaddingHorizontalBase, iconCls } = token;
+  const { antCls, componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
   return {
     [componentCls]: {
@@ -239,7 +247,14 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       [`${componentCls}-selection-item`]: {
         flex: 1,
         fontWeight: 'normal',
+        position: 'relative',
+        userSelect: 'none',
         ...textEllipsis,
+
+        // https://github.com/ant-design/ant-design/issues/40421
+        [`> ${antCls}-typography`]: {
+          display: 'inline',
+        },
       },
 
       // ======================= Placeholder =======================
@@ -389,6 +404,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       componentCls,
       mergeToken<any>(token, {
         borderHoverColor: token.colorPrimaryHover,
+        borderActiveColor: token.colorPrimary,
         outlineColor: token.controlOutline,
       }),
     ),
@@ -396,6 +412,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       `${componentCls}-status-error`,
       mergeToken<any>(token, {
         borderHoverColor: token.colorErrorHover,
+        borderActiveColor: token.colorError,
         outlineColor: token.colorErrorOutline,
       }),
       true,
@@ -404,6 +421,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
       `${componentCls}-status-warning`,
       mergeToken<any>(token, {
         borderHoverColor: token.colorWarningHover,
+        borderActiveColor: token.colorWarning,
         outlineColor: token.colorWarningOutline,
       }),
       true,
@@ -426,6 +444,7 @@ export default genComponentStyleHook(
       rootPrefixCls,
       inputPaddingHorizontalBase: token.paddingSM - 1,
       multipleSelectItemHeight: token.multipleItemHeight,
+      selectHeight: token.controlHeight,
     });
 
     return [genSelectStyle(selectToken)];

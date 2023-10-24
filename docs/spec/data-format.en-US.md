@@ -55,7 +55,7 @@ We suggest the following formats:
 | Format | How and when to use | Examples |
 | --- | --- | --- |
 | Year, month, day | In China `YYYY-MM-DD` format is used by default. | 2019-12-08 |
-| Terms | When a special term containing a date expressed with numbers，display a `.` between the month and the day, and quotation marks should be added before and after the term. | 6.1 children's day |
+| Terms | When a special term containing a date expressed with numbers, display a `.` between the month and the day, and quotation marks should be added before and after the term. | 6.1 children's day |
 | Date range | Put `~` or `-` between the date or time range (space is required before and after). | 2018-12-08 ~ 2019-12-07 |
 
 **Time Format:**
@@ -77,7 +77,7 @@ To the users, the accuracy of time is not so important as the immediacy of the i
 | Less than 1 hour     | N minutes ago                               |
 | Within 24 hours      | N hours ago                                 |
 | Longer than 24 hours | `MM-DD HH:MM`, e.g. "12-08 08:00"           |
-| Longer than one year | `YYYY-MM-DD HH:MM`，e.g. "2019-12-08 08:00" |
+| Longer than one year | `YYYY-MM-DD HH:MM`, e.g. "2019-12-08 08:00" |
 
 ### Data Redaction
 

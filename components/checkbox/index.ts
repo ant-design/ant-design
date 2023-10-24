@@ -1,16 +1,15 @@
-'use client';
-
 import type * as React from 'react';
+import type { CheckboxRef } from 'rc-checkbox';
 import type { CheckboxProps } from './Checkbox';
 import InternalCheckbox from './Checkbox';
 import Group from './Group';
 
-export type { CheckboxRef } from 'rc-checkbox';
 export type { CheckboxChangeEvent, CheckboxProps } from './Checkbox';
 export type { CheckboxGroupProps, CheckboxOptionType } from './Group';
+export type { CheckboxRef };
 
 type CompoundedComponent = React.ForwardRefExoticComponent<
-  CheckboxProps & React.RefAttributes<HTMLInputElement>
+  CheckboxProps & React.RefAttributes<CheckboxRef>
 > & {
   Group: typeof Group;
   /** @internal */

@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
 import { getTransitionName } from '../_util/motion';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
@@ -16,8 +16,10 @@ import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
 import Dialog from './Modal';
+import ConfirmCmp from './style/confirmCmp';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
+  prefixCls: string;
   afterClose?: () => void;
   close?: (...args: any[]) => void;
   /**
@@ -46,6 +48,7 @@ export function ConfirmContent(
   },
 ) {
   const {
+    prefixCls,
     icon,
     okText,
     cancelText,
@@ -58,11 +61,15 @@ export function ConfirmContent(
     ...resetProps
   } = props;
 
-  warning(
-    !(typeof icon === 'string' && icon.length > 2),
-    'Modal',
-    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Modal');
+
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'breaking',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+  }
 
   // Icon
   let mergedIcon: React.ReactNode = icon;
@@ -118,14 +125,22 @@ export function ConfirmContent(
     </>
   );
 
+  const hasTitle = props.title !== undefined && props.title !== null;
+
+  const bodyCls = `${confirmPrefixCls}-body`;
+
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div className={`${confirmPrefixCls}-body`}>
+      <div
+        className={classNames(bodyCls, {
+          [`${bodyCls}-has-title`]: hasTitle,
+        })}
+      >
         {mergedIcon}
-        {props.title === undefined ? null : (
-          <span className={`${confirmPrefixCls}-title`}>{props.title}</span>
-        )}
-        <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+        <div className={`${confirmPrefixCls}-paragraph`}>
+          {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}
+          <div className={`${confirmPrefixCls}-content`}>{props.content}</div>
+        </div>
       </div>
 
       {footer === undefined || typeof footer === 'function' ? (
@@ -142,6 +157,8 @@ export function ConfirmContent(
       ) : (
         footer
       )}
+
+      <ConfirmCmp prefixCls={prefixCls} />
     </div>
   );
 }
@@ -151,7 +168,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     close,
     zIndex,
     afterClose,
-    visible,
     open,
     keyboard,
     centered,
@@ -168,14 +184,19 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     closeIcon,
     modalRender,
     focusTriggerAfterClose,
+    onConfirm,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
-    warning(
-      visible === undefined,
-      'Modal',
-      `\`visible\` is deprecated, please use \`open\` instead.`,
-    );
+    const warning = devUseWarning('Modal');
+
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
@@ -207,7 +228,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
           { [`${confirmPrefixCls}-centered`]: !!props.centered },
           wrapClassName,
         )}
-        onCancel={() => close?.({ triggerCancel: true })}
+        onCancel={() => {
+          close?.({ triggerCancel: true });
+          onConfirm?.(false);
+        }}
         open={open}
         title=""
         footer={null}
@@ -219,9 +243,11 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         )}
         mask={mask}
         maskClosable={maskClosable}
-        maskStyle={maskStyle}
         style={style}
-        bodyStyle={bodyStyle}
+        styles={{
+          body: bodyStyle,
+          mask: maskStyle,
+        }}
         width={width}
         zIndex={zIndex}
         afterClose={afterClose}

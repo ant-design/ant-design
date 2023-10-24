@@ -418,11 +418,10 @@ exports[`renders components/collapse/demo/borderless.tsx extend context correctl
 
 exports[`renders components/collapse/demo/collapsible.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-collapse ant-collapse-icon-position-start"
@@ -483,7 +482,6 @@ exports[`renders components/collapse/demo/collapsible.tsx extend context correct
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom: 8px;"
   >
     <div
       class="ant-collapse ant-collapse-icon-position-start"
@@ -1102,7 +1100,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"

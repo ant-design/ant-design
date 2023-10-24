@@ -132,11 +132,10 @@ Array [
 exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap:wrap;row-gap:8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag"
@@ -146,7 +145,6 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag"
@@ -160,7 +158,6 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag"
@@ -191,7 +188,6 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <span
       class="ant-tag"
@@ -229,12 +225,11 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
 exports[`renders components/tag/demo/borderless.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -244,7 +239,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -254,7 +248,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -285,7 +278,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -320,12 +312,11 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-processing ant-tag-borderless"
@@ -335,7 +326,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-success ant-tag-borderless"
@@ -345,7 +335,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-error ant-tag-borderless"
@@ -355,7 +344,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-warning ant-tag-borderless"
@@ -365,7 +353,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -375,7 +362,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-red ant-tag-borderless"
@@ -385,7 +371,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-volcano ant-tag-borderless"
@@ -395,7 +380,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-orange ant-tag-borderless"
@@ -405,7 +389,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-gold ant-tag-borderless"
@@ -415,7 +398,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-lime ant-tag-borderless"
@@ -425,7 +407,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-green ant-tag-borderless"
@@ -435,7 +416,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-cyan ant-tag-borderless"
@@ -445,7 +425,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-blue ant-tag-borderless"
@@ -455,7 +434,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-geekblue ant-tag-borderless"
@@ -465,7 +443,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-purple ant-tag-borderless"
@@ -482,12 +459,11 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
   style="background-color:#f5f5f5;padding:16px"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -497,7 +473,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -507,7 +482,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -538,7 +512,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-borderless"
@@ -573,12 +546,11 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     role="separator"
   />
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -588,7 +560,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-red ant-tag-borderless"
@@ -598,7 +569,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-volcano ant-tag-borderless"
@@ -608,7 +578,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-orange ant-tag-borderless"
@@ -618,7 +587,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-gold ant-tag-borderless"
@@ -628,7 +596,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-lime ant-tag-borderless"
@@ -638,7 +605,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-green ant-tag-borderless"
@@ -648,7 +614,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-cyan ant-tag-borderless"
@@ -658,7 +623,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-blue ant-tag-borderless"
@@ -668,7 +632,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-geekblue ant-tag-borderless"
@@ -678,7 +641,6 @@ exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-purple ant-tag-borderless"
@@ -699,11 +661,10 @@ Array [
   </span>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap:wrap;row-gap:8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-checkable"
@@ -713,7 +674,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
@@ -723,7 +683,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-checkable"
@@ -733,7 +692,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-checkable"
@@ -759,11 +717,10 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap:wrap;row-gap:8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-magenta"
@@ -773,7 +730,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-red"
@@ -783,7 +739,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-volcano"
@@ -793,7 +748,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-orange"
@@ -803,7 +757,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-gold"
@@ -813,7 +766,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-lime"
@@ -823,7 +775,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-green"
@@ -833,7 +784,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-cyan"
@@ -843,7 +793,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-blue"
@@ -853,7 +802,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-geekblue"
@@ -863,7 +811,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-purple"
@@ -884,11 +831,10 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap:wrap;row-gap:8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -899,7 +845,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -910,7 +855,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -921,7 +865,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-has-color"
@@ -937,11 +880,10 @@ Array [
 exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap:wrap;row-gap:8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-magenta-inverse"
@@ -951,7 +893,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-red-inverse"
@@ -961,7 +902,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-volcano-inverse"
@@ -971,7 +911,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-orange-inverse"
@@ -981,7 +920,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-gold-inverse"
@@ -991,7 +929,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-lime-inverse"
@@ -1001,7 +938,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-green-inverse"
@@ -1011,7 +947,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-cyan-inverse"
@@ -1021,7 +956,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-blue-inverse"
@@ -1031,7 +965,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-geekblue-inverse"
@@ -1041,7 +974,6 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-purple-inverse"
@@ -1055,11 +987,10 @@ exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
 exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap:wrap;row-gap:8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag"
@@ -1073,7 +1004,6 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-magenta"
@@ -1104,7 +1034,6 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-error"
@@ -1136,7 +1065,6 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-red-inverse"
@@ -1146,7 +1074,6 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -1156,7 +1083,6 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-processing"
@@ -1191,131 +1117,119 @@ exports[`renders components/tag/demo/component-token.tsx correctly 1`] = `
 exports[`renders components/tag/demo/control.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap:wrap;row-gap:8px"
 >
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+    <span
+      class="ant-tag"
+      style="user-select:none"
     >
-      <div
-        class="ant-space-item"
-        style="margin-right:0;padding-bottom:8px"
+      <span>
+        Unremovable
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-tag"
+      style="user-select:none"
+    >
+      <span>
+        Tag 2
+      </span>
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
       >
-        <span
-          class="ant-tag"
-          style="user-select:none"
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <span>
-            Unremovable
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right:0;padding-bottom:8px"
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-tag"
+      style="user-select:none"
+    >
+      <span>
+        Tag 3
+      </span>
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
       >
-        <span
-          class="ant-tag"
-          style="user-select:none"
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <span>
-            Tag 2
-          </span>
-          <span
-            aria-label="close"
-            class="anticon anticon-close ant-tag-close-icon"
-            role="img"
-            tabindex="-1"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              fill-rule="evenodd"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-              />
-            </svg>
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
-        style="margin-right:0;padding-bottom:8px"
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-tag"
+      style="height:22px;background:#ffffff;border-style:dashed"
+    >
+      <span
+        aria-label="plus"
+        class="anticon anticon-plus"
+        role="img"
       >
-        <span
-          class="ant-tag"
-          style="user-select:none"
+        <svg
+          aria-hidden="true"
+          data-icon="plus"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <span>
-            Tag 3
-          </span>
-          <span
-            aria-label="close"
-            class="anticon anticon-close ant-tag-close-icon"
-            role="img"
-            tabindex="-1"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="close"
-              fill="currentColor"
-              fill-rule="evenodd"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-              />
-            </svg>
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom:8px"
-      >
-        <span
-          class="ant-tag"
-          style="height:22px;background:#ffffff;border-style:dashed"
-        >
-          <span
-            aria-label="plus"
-            class="anticon anticon-plus"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="plus"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-              />
-              <path
-                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
-              />
-            </svg>
-          </span>
-           New Tag
-        </span>
-      </div>
-    </div>
+          <path
+            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+          />
+          <path
+            d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+          />
+        </svg>
+      </span>
+      <span>
+        New Tag
+      </span>
+    </span>
   </div>
 </div>
 `;
@@ -1390,11 +1304,10 @@ Array [
 exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;margin-bottom:-8px"
+  style="flex-wrap:wrap;row-gap:8px"
 >
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1426,7 +1339,6 @@ exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1458,7 +1370,6 @@ exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:0;padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1490,7 +1401,6 @@ exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom:8px"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -1537,11 +1447,10 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap:wrap;row-gap:8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-success"
@@ -1551,7 +1460,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-processing"
@@ -1561,7 +1469,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-error"
@@ -1571,7 +1478,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-warning"
@@ -1581,7 +1487,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-default"
@@ -1602,11 +1507,10 @@ Array [
   </div>,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    style="flex-wrap:wrap;row-gap:8px"
   >
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-success"
@@ -1640,7 +1544,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-processing"
@@ -1671,7 +1574,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-error"
@@ -1703,7 +1605,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-warning"
@@ -1737,7 +1638,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:0;padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-default"
@@ -1771,7 +1671,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <span
         class="ant-tag ant-tag-default"

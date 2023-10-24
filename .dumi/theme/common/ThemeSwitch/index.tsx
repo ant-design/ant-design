@@ -1,19 +1,21 @@
+import React from 'react';
 import { BgColorsOutlined, SmileOutlined } from '@ant-design/icons';
+import { FloatButton } from 'antd';
+import { useTheme } from 'antd-style';
 import { CompactTheme, DarkTheme } from 'antd-token-previewer/es/icons';
 // import { Motion } from 'antd-token-previewer/es/icons';
 import { FormattedMessage, Link, useLocation } from 'dumi';
-import React from 'react';
-import { useTheme } from 'antd-style';
-import { FloatButton } from 'antd';
+
+import useThemeAnimation from '../../../hooks/useThemeAnimation';
 import { getLocalizedPathname, isZhCN } from '../../utils';
 import ThemeIcon from './ThemeIcon';
 
 export type ThemeName = 'light' | 'dark' | 'compact' | 'motion-off' | 'happy-work';
 
-export type ThemeSwitchProps = {
+export interface ThemeSwitchProps {
   value?: ThemeName[];
   onChange: (value: ThemeName[]) => void;
-};
+}
 
 const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
   const { value = ['light'], onChange } = props;
@@ -22,6 +24,9 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
 
   // const isMotionOff = value.includes('motion-off');
   const isHappyWork = value.includes('happy-work');
+  const isDark = value.includes('dark');
+
+  const toggleAnimationTheme = useThemeAnimation();
 
   return (
     <FloatButton.Group
@@ -42,9 +47,12 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
       </Link>
       <FloatButton
         icon={<DarkTheme />}
-        type={value.includes('dark') ? 'primary' : 'default'}
-        onClick={() => {
-          if (value.includes('dark')) {
+        type={isDark ? 'primary' : 'default'}
+        onClick={(e) => {
+          // Toggle animation when switch theme
+          toggleAnimationTheme(e, isDark);
+
+          if (isDark) {
             onChange(value.filter((theme) => theme !== 'dark'));
           } else {
             onChange([...value, 'dark']);
@@ -64,23 +72,6 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = (props) => {
         }}
         tooltip={<FormattedMessage id="app.theme.switch.compact" />}
       />
-      {/* Too many float button. Hide motion one */}
-      {/* <FloatButton
-        icon={<Motion />}
-        type={!isMotionOff ? 'primary' : 'default'}
-        onClick={() => {
-          if (isMotionOff) {
-            onChange(value.filter((theme) => theme !== 'motion-off'));
-          } else {
-            onChange([...value, 'motion-off']);
-          }
-        }}
-        tooltip={
-          <FormattedMessage
-            id={isMotionOff ? 'app.theme.switch.motion.off' : 'app.theme.switch.motion.on'}
-          />
-        }
-      /> */}
       <FloatButton
         badge={{ dot: true }}
         icon={<SmileOutlined />}

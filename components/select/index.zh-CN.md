@@ -57,11 +57,10 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean | false |  |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
-| clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -137,7 +136,7 @@ demo:
 | key   | Key  | string                  | -      |      |
 | label | 组名 | string \| React.Element | -      |      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Select"></ComponentTokenTable>
 

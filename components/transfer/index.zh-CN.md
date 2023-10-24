@@ -97,7 +97,7 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 return <Transfer rowKey={(record) => record.uid} />;
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Transfer"></ComponentTokenTable>
 

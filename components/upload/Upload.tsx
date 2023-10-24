@@ -1,15 +1,15 @@
+import * as React from 'react';
+import { flushSync } from 'react-dom';
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
-import { flushSync } from 'react-dom';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import UploadList from './UploadList';
 import type {
   RcFile,
   ShowUploadListInterface,
@@ -18,6 +18,7 @@ import type {
   UploadProps,
 } from './interface';
 import useStyle from './style';
+import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
@@ -78,17 +79,17 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const upload = React.useRef<RcUpload>(null);
 
-  warning(
-    'fileList' in props || !('value' in props),
-    'Upload',
-    '`value` is not a valid prop, do you mean `fileList`?',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Upload');
 
-  warning(
-    !('transformFile' in props),
-    'Upload',
-    '`transformFile` is deprecated. Please use `beforeUpload` directly.',
-  );
+    warning(
+      'fileList' in props || !('value' in props),
+      'usage',
+      '`value` is not a valid prop, do you mean `fileList`?',
+    );
+
+    warning.deprecated(!('transformFile' in props), 'transformFile', 'beforeUpload');
+  }
 
   // Control mode will auto fill file uid if not provided
   React.useMemo(() => {

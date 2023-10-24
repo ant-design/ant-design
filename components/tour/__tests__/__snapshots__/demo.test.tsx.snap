@@ -15,11 +15,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -32,7 +31,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -94,11 +92,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -111,7 +108,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -173,11 +169,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -190,7 +185,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -252,11 +246,10 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -269,7 +262,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
     >
       <button
         class="ant-btn ant-btn-primary"

@@ -90,11 +90,11 @@ describe('Transfer.Search', () => {
     const filterOption = jest.fn();
 
     const { container } = testLibRender(
-      <Transfer 
-        filterOption={filterOption} 
-        dataSource={dataSource} 
+      <Transfer
+        filterOption={filterOption}
+        dataSource={dataSource}
         targetKeys={['b']}
-        showSearch 
+        showSearch
       />,
     );
 
@@ -102,7 +102,7 @@ describe('Transfer.Search', () => {
       container
         ?.querySelectorAll('.ant-transfer-list')
         ?.item(0)
-        ?.querySelector('input[type="text"]')!, 
+        ?.querySelector('input[type="text"]')!,
       { target: { value: 'a' } },
     );
     expect(filterOption).toHaveBeenNthCalledWith(
@@ -121,7 +121,7 @@ describe('Transfer.Search', () => {
       container
         ?.querySelectorAll('.ant-transfer-list')
         ?.item(1)
-        ?.querySelector('input[type="text"]')!, 
+        ?.querySelector('input[type="text"]')!,
       { target: { value: 'b' } },
     );
     expect(filterOption).toHaveBeenCalledWith(

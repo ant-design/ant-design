@@ -1,5 +1,3 @@
-'use client';
-
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -58,8 +56,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     value: props.open,
     defaultValue: props.defaultOpen,
   });
-
-  // const isDestroyed = useDestroyed();
 
   const settingOpen = (
     value: boolean,

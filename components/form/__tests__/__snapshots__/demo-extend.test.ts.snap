@@ -100,7 +100,6 @@ Array [
                           aria-controls="advanced_search_field-1_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="advanced_search_field-1_list"
                           aria-required="true"
                           autocomplete="off"
@@ -367,7 +366,6 @@ Array [
                           aria-controls="advanced_search_field-4_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="advanced_search_field-4_list"
                           aria-required="true"
                           autocomplete="off"
@@ -550,11 +548,10 @@ Array [
       style="text-align: right;"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-primary"
@@ -567,7 +564,6 @@ Array [
         </div>
         <div
           class="ant-space-item"
-          style="margin-right: 8px;"
         >
           <button
             class="ant-btn ant-btn-default"
@@ -1017,7 +1013,6 @@ Array [
                           aria-controls="basic_select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="basic_select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1448,7 +1443,6 @@ Array [
                           aria-controls="select_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="select_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -1734,7 +1728,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                     aria-controls="control-hooks_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="control-hooks_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -2017,7 +2010,6 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
                     aria-controls="control-ref_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="control-ref_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -2215,6 +2207,177 @@ exports[`renders components/form/demo/control-ref.tsx extend context correctly 1
 
 exports[`renders components/form/demo/control-ref.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="custom-feedback-icons"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-wrap: nowrap;"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
+            id="custom-feedback-icons_custom-feedback-test-item_help"
+            role="alert"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            />
+          </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
+  </div>
+  <div
+    class="ant-form-item acss-140b0ev ant-form-item-with-help"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class="ant-form-item-required"
+          for="custom-feedback-icons_custom-feedback-test-item2"
+          title="Test"
+        >
+          Test
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                aria-required="true"
+                class="ant-input"
+                id="custom-feedback-icons_custom-feedback-test-item2"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+        <div
+          style="display: flex; flex-wrap: nowrap;"
+        >
+          <div
+            class="ant-form-item-explain ant-form-show-help-appear ant-form-show-help-appear-start ant-form-show-help ant-form-item-explain-connected"
+            id="custom-feedback-icons_custom-feedback-test-item2_help"
+            role="alert"
+          >
+            <div
+              class="ant-form-show-help-item-appear ant-form-show-help-item-appear-start ant-form-show-help-item"
+              style="height: 0px; opacity: 0;"
+            />
+          </div>
+          <div
+            style="width: 0px; height: 24px;"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item-margin-offset"
+      style="margin-bottom: -24px;"
+    />
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="submit"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/custom-feedback-icons.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/customized-form-controls.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
@@ -2268,7 +2431,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2795,7 +2957,6 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -2939,7 +3100,6 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -3123,7 +3283,6 @@ Array [
                       aria-controls="rc_select_TEST_OR_SSR_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-label="Search"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -5295,6 +5454,7 @@ Array [
                     >
                       <input
                         accept=""
+                        disabled=""
                         style="display: none;"
                         type="file"
                       />
@@ -5415,6 +5575,7 @@ Array [
                 />
                 <div
                   aria-disabled="true"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="0"
@@ -8665,7 +8826,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_residence_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="register_residence_list"
                     aria-required="true"
                     autocomplete="off"
@@ -8884,7 +9044,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           aria-controls="register_prefix_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="register_prefix_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -9152,7 +9311,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           aria-controls="register_suffix_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-label="Search"
                           aria-owns="register_suffix_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -9325,7 +9483,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_website_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="register_website_list"
                     aria-required="true"
                     autocomplete="off"
@@ -9451,7 +9608,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                     aria-controls="register_gender_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="register_gender_list"
                     aria-required="true"
                     autocomplete="off"
@@ -10233,7 +10389,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10376,7 +10531,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -10559,7 +10713,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -19337,11 +19490,10 @@ exports[`renders components/form/demo/validate-only.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -19458,7 +19610,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                     aria-controls="validate_other_select_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="validate_other_select_list"
                     aria-required="true"
                     autocomplete="off"
@@ -19639,7 +19790,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         aria-controls="validate_other_select-multiple_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-label="Search"
                         aria-owns="validate_other_select-multiple_list"
                         aria-required="true"
                         autocomplete="off"
@@ -20008,6 +20158,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               </div>
               <div
                 aria-disabled="false"
+                aria-orientation="horizontal"
                 aria-valuemax="100"
                 aria-valuemin="0"
                 aria-valuenow="0"
@@ -20992,7 +21143,9 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-color-picker-trigger"
+              id="validate_other_color-picker"
             >
               <div
                 class="ant-color-picker-color-block"
@@ -21124,7 +21277,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                 aria-controls="rc_select_TEST_OR_SSR_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-label="Search"
                                 aria-owns="rc_select_TEST_OR_SSR_list"
                                 autocomplete="off"
                                 class="ant-select-selection-search-input"
@@ -21389,11 +21541,10 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -25260,7 +25411,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25471,7 +25621,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -25636,7 +25785,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-label="Search"
                     aria-owns="rc_select_TEST_OR_SSR_list"
                     autocomplete="off"
                     class="ant-select-selection-search-input"
@@ -27730,6 +27878,168 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
 
 exports[`renders components/form/demo/validate-static.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form ant-form-vertical"
+  id="trigger"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-alert ant-alert-info ant-alert-no-icon"
+    data-show="true"
+    role="alert"
+  >
+    <div
+      class="ant-alert-content"
+    >
+      <div
+        class="ant-alert-message"
+      >
+        Use 'max' rule, continue type chars to see it
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="trigger_field_a"
+          title="Field A"
+        >
+          Field A
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                id="trigger_field_a"
+                placeholder="Validate required onBlur"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="trigger_field_b"
+          title="Field B"
+        >
+          Field B
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                id="trigger_field_b"
+                placeholder="Validate required debounce after 1s"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="trigger_field_c"
+          title="Field C"
+        >
+          Field C
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback"
+            >
+              <input
+                class="ant-input"
+                id="trigger_field_c"
+                placeholder="Validate one by one"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              />
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/validate-trigger.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
   autocomplete="off"
@@ -27790,11 +28100,10 @@ exports[`renders components/form/demo/warning-only.tsx extend context correctly 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
               >
                 <button
                   class="ant-btn ant-btn-primary"

@@ -540,7 +540,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     // We check icon is not exist in the body
-    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(2);
+    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(1);
     expect(
       document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
     ).toBeFalsy();
@@ -651,10 +651,16 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('bodyStyle', async () => {
+    resetWarned();
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     await open({ bodyStyle: { width: 500 } });
 
     const { width } = $$('.ant-modal-body')[0].style;
     expect(width).toBe('500px');
+    expect(spy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `bodyStyle` is deprecated. Please use `styles.body` instead.',
+    );
+    spy.mockRestore();
   });
 
   describe('the callback close should be a method when onCancel has a close parameter', () => {

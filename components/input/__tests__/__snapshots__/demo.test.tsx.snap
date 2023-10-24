@@ -2,11 +2,10 @@
 
 exports[`renders components/input/demo/addon.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -34,7 +33,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -59,7 +57,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                   aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -128,7 +125,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                   aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -180,7 +176,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -221,7 +216,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -278,7 +272,6 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
                   aria-controls="undefined_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-label="Search"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -329,6 +322,89 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
           type="text"
           value="mysite"
         />
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/input/demo/advance-count.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap:16px"
+>
+  <div>
+    <h5
+      class="ant-typography"
+    >
+      Exceed Max
+    </h5>
+    <span
+      class="ant-input-affix-wrapper ant-input-out-of-range"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="Hello, antd!"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          class="ant-input-show-count-suffix"
+        >
+          12 / 10
+        </span>
+      </span>
+    </span>
+  </div>
+  <div>
+    <h5
+      class="ant-typography"
+    >
+      Emoji count as length 1
+    </h5>
+    <span
+      class="ant-input-affix-wrapper"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="🔥🔥🔥"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          class="ant-input-show-count-suffix"
+        >
+          3
+        </span>
+      </span>
+    </span>
+  </div>
+  <div>
+    <h5
+      class="ant-typography"
+    >
+      Not exceed max
+    </h5>
+    <span
+      class="ant-input-affix-wrapper"
+    >
+      <input
+        class="ant-input"
+        type="text"
+        value="🔥 antd"
+      />
+      <span
+        class="ant-input-suffix"
+      >
+        <span
+          class="ant-input-show-count-suffix"
+        >
+          6 / 6
+        </span>
       </span>
     </span>
   </div>
@@ -613,7 +689,6 @@ Array [
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -660,6 +735,121 @@ Array [
     </span>
   </div>,
   <div
+    class="ant-select ant-select-single ant-select-show-arrow"
+    style="width:100px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-item"
+        title=""
+      />
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  <div
+    class="ant-select ant-select-single ant-select-show-arrow"
+    style="width:100px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          type="search"
+          unselectable="on"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      />
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-select-suffix"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  <div
     class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
     style="width:100px"
   >
@@ -674,7 +864,6 @@ Array [
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -731,7 +920,6 @@ Array [
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -982,7 +1170,6 @@ Array [
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -1376,11 +1563,10 @@ exports[`renders components/input/demo/borderless-debug.tsx correctly 1`] = `
 
 exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-space-compact"
@@ -1394,7 +1580,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-space-compact"
@@ -1415,7 +1600,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-space-compact"
@@ -1509,7 +1693,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-space-compact"
@@ -1532,7 +1715,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:16px"
   >
     <div
       class="ant-space-compact"
@@ -1551,7 +1733,6 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1660,17 +1841,15 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
 
 exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     Input addon Button:
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -1700,7 +1879,6 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper"
@@ -1730,19 +1908,16 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <br />
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     Input addon Button icon:
   </div>
@@ -1796,20 +1971,18 @@ exports[`renders components/input/demo/debug-addon.tsx correctly 1`] = `
 
 exports[`renders components/input/demo/focus.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap:wrap;margin-bottom:-8px"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      style="flex-wrap:wrap"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -1822,7 +1995,6 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -1835,7 +2007,6 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -1848,7 +2019,6 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="margin-right:8px;padding-bottom:8px"
       >
         <button
           class="ant-btn ant-btn-default"
@@ -1861,7 +2031,6 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom:8px"
       >
         <button
           aria-checked="true"
@@ -1892,7 +2061,6 @@ exports[`renders components/input/demo/focus.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <br />
   </div>
@@ -2035,7 +2203,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2271,7 +2438,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2568,7 +2734,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2628,7 +2793,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2693,7 +2857,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2781,7 +2944,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2842,7 +3004,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2878,7 +3039,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2939,7 +3099,6 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2990,11 +3149,10 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
 
 exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-affix-wrapper ant-input-password"
@@ -3036,7 +3194,6 @@ exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-affix-wrapper ant-input-password"
@@ -3080,11 +3237,10 @@ exports[`renders components/input/demo/password-input.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-right:8px"
       >
         <span
           class="ant-input-affix-wrapper ant-input-password"
@@ -3252,11 +3408,10 @@ Array [
 
 exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -3308,7 +3463,6 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -3394,7 +3548,6 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search"
@@ -3485,7 +3638,6 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
@@ -3536,7 +3688,6 @@ exports[`renders components/input/demo/search-input.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
@@ -3811,7 +3962,10 @@ Array [
 `;
 
 exports[`renders components/input/demo/show-count.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap:32px"
+>
   <span
     class="ant-input-affix-wrapper"
   >
@@ -3830,15 +3984,14 @@ Array [
         0 / 20
       </span>
     </span>
-  </span>,
-  <br />,
-  <br />,
+  </span>
   <span
     class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
     data-count="0 / 100"
   >
     <textarea
       class="ant-input"
+      placeholder="can resize"
     />
     <span
       class="ant-input-suffix"
@@ -3849,8 +4002,28 @@ Array [
         0 / 100
       </span>
     </span>
-  </span>,
-]
+  </span>
+  <span
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
+    data-count="0 / 100"
+    style="height:120px;resize:none"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="disable resize"
+      style="resize:none"
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        class="ant-input-data-count"
+      >
+        0 / 100
+      </span>
+    </span>
+  </span>
+</div>
 `;
 
 exports[`renders components/input/demo/size.tsx correctly 1`] = `
@@ -3963,12 +4136,11 @@ Array [
 
 exports[`renders components/input/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <input
       class="ant-input ant-input-status-error"
@@ -3979,7 +4151,6 @@ exports[`renders components/input/demo/status.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <input
       class="ant-input ant-input-status-warning"
@@ -3990,7 +4161,6 @@ exports[`renders components/input/demo/status.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <span
       class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
@@ -4140,50 +4310,6 @@ Array [
             />
           </svg>
         </span>
-      </span>
-    </span>
-  </span>,
-]
-`;
-
-exports[`renders components/input/demo/textarea-show-count.tsx correctly 1`] = `
-Array [
-  <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
-    data-count="0 / 100"
-    style="height:120px;margin-bottom:24px"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="can resize"
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        class="ant-input-data-count"
-      >
-        0 / 100
-      </span>
-    </span>
-  </span>,
-  <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
-    data-count="0 / 100"
-    style="height:120px;resize:none"
-  >
-    <textarea
-      class="ant-input"
-      placeholder="disable resize"
-      style="resize:none"
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        class="ant-input-data-count"
-      >
-        0 / 100
       </span>
     </span>
   </span>,

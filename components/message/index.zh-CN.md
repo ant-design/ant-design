@@ -107,12 +107,12 @@ message.config({
 | --- | --- | --- | --- | --- |
 | duration | 默认自动关闭延时，单位秒 | number | 3 |  |
 | getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLElement | () => document.body |  |
-| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |  |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | number | 8 |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Message"></ComponentTokenTable>
 

@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
 import type RcTree from 'rc-tree';
-import type { Key } from 'react';
+import type { Key } from 'rc-tree/lib/interface';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -263,5 +263,39 @@ describe('Directory Tree', () => {
     const treeRef = React.createRef<RcTree>();
     render(createTree({ ref: treeRef }));
     expect('scrollTo' in treeRef.current!).toBeTruthy();
+  });
+
+  it('fieldNames support', () => {
+    const treeData = [
+      {
+        id: '0-0-0',
+        label: 'Folder',
+        child: [
+          {
+            label: 'Folder2',
+            id: '0-0-1',
+            child: [
+              {
+                label: 'File',
+                id: '0-0-2',
+                isLeaf: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const onSelect = jest.fn();
+    const { container } = render(
+      createTree({
+        defaultExpandAll: true,
+        // @ts-ignore
+        treeData,
+        onSelect,
+        fieldNames: { key: 'id', title: 'label', children: 'child' },
+      }),
+    );
+    fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
+    expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
   });
 });

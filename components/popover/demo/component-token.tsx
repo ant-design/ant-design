@@ -15,7 +15,7 @@ const App: React.FC = () => (
     theme={{
       components: {
         Popover: {
-          minWidth: 40,
+          titleMinWidth: 40,
         },
       },
     }}

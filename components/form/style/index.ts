@@ -384,7 +384,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls, rootPrefixCls } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
     [`${componentCls}-horizontal`]: {
@@ -399,9 +399,14 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
         minWidth: 0,
       },
 
+      // Do not change this to `ant-col-24`! `-24` match all the responsive rules
       // https://github.com/ant-design/ant-design/issues/32980
-      [`${formItemCls}-label.${rootPrefixCls}-col-24 + ${formItemCls}-control`]: {
-        minWidth: 'unset',
+      // https://github.com/ant-design/ant-design/issues/34903
+      // https://github.com/ant-design/ant-design/issues/44538
+      [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
+        [`& + ${formItemCls}-control`]: {
+          minWidth: 'unset',
+        },
       },
     },
   };
@@ -467,7 +472,8 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
 
   return {
     [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-    [componentCls]: {
+    // ref: https://github.com/ant-design/ant-design/issues/45122
+    [`${componentCls}:not(${componentCls}-inline)`]: {
       [formItemCls]: {
         flexWrap: 'wrap',
 

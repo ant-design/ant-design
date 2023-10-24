@@ -44,9 +44,11 @@ class AntdReactTechStack extends ReactTechStack {
 
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
-      const pkgDependencyList = localPackage.dependencies;
 
-      props.pkgDependencyList = pkgDependencyList;
+      props.pkgDependencyList = {
+        ...localPackage.devDependencies,
+        ...localPackage.dependencies,
+      };
       props.jsx = sylvanas.parseText(code);
 
       if (md) {
@@ -153,12 +155,12 @@ const RoutesPlugin = (api: IApi) => {
         // 2. 提取每个样式到独立 css 文件
         styles.forEach((result) => {
           api.logger.event(
-            `${chalk.yellow(file.path)} include ${chalk.blue`[${result.key}]`} ${chalk.yellow(
-              result.ids.length,
+            `${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(
+              result!.ids.length,
             )} styles`,
           );
 
-          const cssFile = writeCSSFile(result.key, result.ids.join(''), result.css);
+          const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
 
           file.content = addLinkStyle(file.content, cssFile);
         });

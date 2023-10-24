@@ -43,6 +43,6 @@ group:
 | style | 分割线样式对象 | CSSProperties | - |  |
 | type | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Divider"></ComponentTokenTable>

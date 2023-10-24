@@ -59,6 +59,7 @@ demo:
 
 ```jsx
 import locale from 'antd/es/date-picker/locale/zh_CN';
+
 import 'dayjs/locale/zh-cn';
 
 <DatePicker locale={locale} />;
@@ -68,6 +69,7 @@ import 'dayjs/locale/zh-cn';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
 
 <ConfigProvider locale={locale}>
@@ -125,7 +127,6 @@ import 'dayjs/locale/zh-cn';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期，如果开始时间或结束时间为 `null` 或者 `undefined`，日期范围将是一个开区间 | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | 不可选择的时间 | function(date) | - |  |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD` |  |
@@ -143,7 +144,6 @@ import 'dayjs/locale/zh-cn';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
@@ -156,7 +156,6 @@ import 'dayjs/locale/zh-cn';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-\QQ` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
@@ -167,7 +166,6 @@ import 'dayjs/locale/zh-cn';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
@@ -178,7 +176,6 @@ import 'dayjs/locale/zh-cn';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-wo` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
@@ -192,7 +189,6 @@ import 'dayjs/locale/zh-cn';
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | 自定义单元格的内容。 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
 | disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`) | - |  |
@@ -217,7 +213,7 @@ type GenericFn = (value: Dayjs) => string;
 export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 
@@ -245,7 +241,9 @@ export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
 
 ```js
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
+
 import updateLocale from 'dayjs/plugin/updateLocale';
 
 dayjs.extend(updateLocale);

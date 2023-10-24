@@ -1,5 +1,3 @@
-'use client';
-
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
@@ -101,7 +99,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
-    compactItemClassnames,
     hashId,
   );
   const wrapperClassName = `${prefixCls}-group`;
@@ -110,7 +107,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={classNames(className, rootClassName)}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}

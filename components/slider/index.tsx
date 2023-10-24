@@ -1,14 +1,13 @@
-'use client';
-
+import React from 'react';
 import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import type { SliderRef } from 'rc-slider/lib/Slider';
-import React from 'react';
-import warning from '../_util/warning';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
-import type { TooltipPlacement } from '../tooltip';
+import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 
@@ -29,7 +28,7 @@ export type HandleGeneratorFn = (config: {
 export type Formatter = (value?: number) => React.ReactNode;
 const defaultFormatter: Formatter = (val) => (typeof val === 'number' ? val.toString() : '');
 
-export interface SliderTooltipProps {
+export interface SliderTooltipProps extends AbstractTooltipProps {
   prefixCls?: string;
   open?: boolean;
   placement?: TooltipPlacement;
@@ -57,6 +56,9 @@ export interface SliderBaseProps {
   tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 
+  styles?: RcSliderProps['styles'];
+  classNames?: RcSliderProps['classNames'];
+
   // Deprecated
   /** @deprecated `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead. */
   tooltipPrefixCls?: string;
@@ -79,19 +81,25 @@ export interface SliderSingleProps extends SliderBaseProps {
   defaultValue?: number;
   onChange?: (value: number) => void;
   onAfterChange?: (value: number) => void;
+  /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.track` instead */
   trackStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.rail` instead */
   railStyle?: React.CSSProperties;
 }
 
 export interface SliderRangeProps extends SliderBaseProps {
   range: true | SliderRange;
-  value?: [number, number];
-  defaultValue?: [number, number];
-  onChange?: (value: [number, number]) => void;
-  onAfterChange?: (value: [number, number]) => void;
+  value?: number[];
+  defaultValue?: number[];
+  onChange?: (value: number[]) => void;
+  onAfterChange?: (value: number[]) => void;
+  /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties[];
+  /** @deprecated Please use `styles.track` instead */
   trackStyle?: React.CSSProperties[];
+  /** @deprecated Please use `styles.rail` instead */
   railStyle?: React.CSSProperties;
 }
 
@@ -167,6 +175,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   // Warning for deprecated usage
   if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Slider');
+
     [
       ['tooltipPrefixCls', 'prefixCls'],
       ['getTooltipPopupContainer', 'getPopupContainer'],
@@ -174,11 +184,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       ['tooltipPlacement', 'placement'],
       ['tooltipVisible', 'open'],
     ].forEach(([deprecatedName, newName]) => {
-      warning(
-        !(deprecatedName in props),
-        'Slider',
-        `\`${deprecatedName}\` is deprecated, please use \`tooltip.${newName}\` instead.`,
-      );
+      warning.deprecated(!(deprecatedName in props), deprecatedName, `tooltip.${newName}`);
     });
   }
 

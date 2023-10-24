@@ -1,21 +1,22 @@
+import * as React from 'react';
+import { forwardRef } from 'react';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
 import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import { forwardRef } from 'react';
+
 import initCollapseMotion from '../_util/motion';
 import { cloneElement, isValidElement } from '../_util/reactNode';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
+import type { ItemType } from './hooks/useItems';
+import useItems from './hooks/useItems';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
-import type { ItemType } from './hooks/useItems';
-import useItems from './hooks/useItems';
 import useStyle from './style';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
@@ -70,23 +71,23 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
-  warning(
-    !('inlineCollapsed' in props && mode !== 'inline'),
-    'Menu',
-    '`inlineCollapsed` should only be used when `mode` is inline.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Menu');
 
-  warning(
-    !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
-    'Menu',
-    '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
-  );
+    warning(
+      !('inlineCollapsed' in props && mode !== 'inline'),
+      'usage',
+      '`inlineCollapsed` should only be used when `mode` is inline.',
+    );
 
-  warning(
-    'items' in props && !children,
-    'Menu',
-    '`children` will be removed in next major version. Please use `items` instead.',
-  );
+    warning(
+      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
+      'usage',
+      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+    );
+
+    warning.deprecated('items' in props && !children, 'children', 'items');
+  }
 
   overrideObj.validator?.({ mode });
 
@@ -126,8 +127,12 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   let mergedExpandIcon: MenuProps['expandIcon'];
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
+  } else if (expandIcon === null || expandIcon === false) {
+    mergedExpandIcon = null;
+  } else if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
+    mergedExpandIcon = null;
   } else {
-    const beClone: React.ReactNode = expandIcon || overrideObj.expandIcon;
+    const beClone: React.ReactNode = (expandIcon ?? overrideObj.expandIcon) as React.ReactNode;
     mergedExpandIcon = cloneElement(beClone, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,

@@ -1,5 +1,5 @@
 import { presetPrimaryColors } from '@ant-design/colors';
-import warning from '../_util/warning';
+
 import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
 
@@ -17,11 +17,6 @@ export function getSuccessPercent({ success, successPercent }: ProgressProps) {
   let percent = successPercent;
   /** @deprecated Use `percent` instead */
   if (success && 'progress' in success) {
-    warning(
-      false,
-      'Progress',
-      '`success.progress` is deprecated. Please use `success.percent` instead.',
-    );
     percent = success.progress;
   }
   if (success && 'percent' in success) {
@@ -80,14 +75,6 @@ export const getSize = (
     } else if (typeof size === 'number') {
       [width, height] = [size, size];
     } else {
-      if (process.env.NODE_ENV !== 'production') {
-        warning(
-          false,
-          'Progress',
-          'Type "circle" and "dashbord" do not accept array as `size`, please use number or preset size instead.',
-        );
-      }
-
       width = (size[0] ?? size[1] ?? 120) as number;
       height = (size[0] ?? size[1] ?? 120) as number;
     }

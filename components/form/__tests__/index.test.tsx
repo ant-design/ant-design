@@ -1,14 +1,16 @@
-import classNames from 'classnames';
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
-import scrollIntoView from 'scroll-into-view-if-needed';
 import type { ColProps } from 'antd/es/grid';
+import classNames from 'classnames';
+import scrollIntoView from 'scroll-into-view-if-needed';
+import { AlertFilled } from '@ant-design/icons';
+
 import type { FormInstance } from '..';
 import Form from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, pureRender, render, screen, waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
@@ -1239,8 +1241,7 @@ describe('Form', () => {
     expect((Util.getFieldId as () => string)()).toBe(itemName);
 
     // make sure input id is parentNode
-    expect(screen.getByLabelText(itemName)).toHaveAttribute('id', itemName);
-    expect(screen.getByLabelText(itemName)).toHaveAccessibleName('Search');
+    expect(screen.getByLabelText(itemName)).toHaveAccessibleName(itemName);
 
     fireEvent.click(container.querySelector('button')!);
     await waitFakeTimer();
@@ -1407,38 +1408,101 @@ describe('Form', () => {
     expect(subFormInstance).toBe(formInstance);
   });
 
-  it('noStyle should not affect status', () => {
-    const Demo: React.FC = () => (
-      <Form>
-        <Form.Item validateStatus="error" noStyle>
-          <Select className="custom-select" />
-        </Form.Item>
-        <Form.Item validateStatus="error">
+  describe('noStyle with status', () => {
+    it('noStyle should not affect status', async () => {
+      const Demo: React.FC = () => (
+        <Form>
+          {/* should change status */}
+          <Form.Item validateStatus="error" noStyle>
+            <Select className="custom-select" />
+          </Form.Item>
+
+          {/* should follow parent status */}
+          <Form.Item validateStatus="error" hasFeedback>
+            <Form.Item noStyle>
+              <Select className="custom-select-b" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error" hasFeedback>
+            <Form.Item noStyle validateStatus="warning" hasFeedback={false}>
+              <Select className="custom-select-c" />
+            </Form.Item>
+          </Form.Item>
+
+          {/* should follow child status */}
           <Form.Item noStyle>
-            <Select className="custom-select-b" />
+            <Form.Item validateStatus="warning">
+              <Select className="custom-select-d" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-        <Form.Item validateStatus="error">
-          <Form.Item noStyle validateStatus="warning">
-            <Select className="custom-select-c" />
+
+          {/* should follow child status */}
+          <Form.Item validateStatus="error">
+            <Form.Item noStyle validateStatus="">
+              <Select className="custom-select-e" />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-        <Form.Item noStyle>
-          <Form.Item validateStatus="warning">
-            <Select className="custom-select-d" />
+        </Form>
+      );
+      const { container } = render(<Demo />);
+
+      await waitFakeTimer();
+
+      expect(container.querySelector('.custom-select')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select')).not.toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-status-error');
+      expect(container.querySelector('.custom-select-b')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-b')
+          ?.querySelector('.ant-form-item-feedback-icon-error'),
+      ).toBeTruthy();
+
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-c')).toHaveClass('ant-select-in-form-item');
+      expect(
+        container
+          .querySelector('.custom-select-c')
+          ?.querySelector('.ant-form-item-feedback-icon-warning'),
+      ).toBeFalsy();
+
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-status-warning');
+      expect(container.querySelector('.custom-select-d')).toHaveClass('ant-select-in-form-item');
+
+      expect(container.querySelector('.custom-select-e')).not.toHaveClass(
+        'ant-select-status-error',
+      );
+      expect(container.querySelector('.custom-select-e')).toHaveClass('ant-select-in-form-item');
+    });
+
+    it('parent pass status', async () => {
+      const { container } = render(
+        <Form>
+          <Form.Item label="name">
+            <Form.Item name="first" noStyle rules={[{ required: true }]}>
+              <Input />
+            </Form.Item>
+            <Form.Item name="last" noStyle>
+              <Input />
+            </Form.Item>
           </Form.Item>
-        </Form.Item>
-      </Form>
-    );
-    const { container } = render(<Demo />);
-    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
-    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
-    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+        </Form>,
+      );
+
+      // Input and set back to empty
+      await changeValue(0, 'Once');
+      await changeValue(0, '');
+
+      expect(container.querySelector('.ant-form-item-explain-error')?.textContent).toEqual(
+        "'first' is required",
+      );
+
+      expect(container.querySelectorAll('input')[0]).toHaveClass('ant-input-status-error');
+      expect(container.querySelectorAll('input')[1]).not.toHaveClass('ant-input-status-error');
+    });
   });
 
   it('should not affect Popup children style', () => {
@@ -1608,7 +1672,7 @@ describe('Form', () => {
   it('form child components should be given priority to own disabled props when it in a disabled form', () => {
     const props = {
       name: 'file',
-      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      action: 'https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188',
       headers: {
         authorization: 'authorization-text',
       },
@@ -1651,20 +1715,21 @@ describe('Form', () => {
     const App2 = () => <Form disabled>{renderComps()}</Form>;
 
     const wrapper2 = render(<App2 />);
-    // 时间范围组件中会有两个 input 框，因此虽然上述只有 18 个组件，但，实际有 19 个 带有 disabled 属性的表单组件
-    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(19);
+    // 时间范围组件中会有两个 input 框，Upload 为叠加
+    // 因此虽然上述只有 18 个组件，但实际有 20 个 带有 disabled 属性的表单组件
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App3 = () => <Form disabled>{renderComps(true)}</Form>;
 
     const wrapper3 = render(<App3 />);
 
-    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App4 = () => <Form>{renderComps(true)}</Form>;
 
     const wrapper4 = render(<App4 />);
 
-    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App5 = () => <Form>{renderComps()}</Form>;
 
@@ -1779,6 +1844,66 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-is-validating')).toBeTruthy();
     expect(container.querySelector('.ant-form-item-has-warning')).toBeTruthy();
     expect(container.querySelector('.ant-form-item-has-error')).toBeTruthy();
+  });
+
+  it('custom feedback icons should display when pass hasFeedback prop', async () => {
+    const App = ({ trigger = false }: { trigger?: boolean }) => {
+      const form = useRef<FormInstance<any>>(null);
+
+      useEffect(() => {
+        if (!trigger) return;
+        form.current?.validateFields();
+      }, [trigger]);
+
+      return (
+        <Form
+          ref={form}
+          feedbackIcons={() => ({
+            error: <AlertFilled id="custom-error-icon" />,
+          })}
+        >
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            label="Success"
+            name="name1"
+            hasFeedback={{
+              icons: () => ({
+                error: <AlertFilled id="custom-error-icon2" />,
+              }),
+            }}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your value 3',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+    const { container, rerender } = render(<App />);
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(0);
+
+    rerender(<App trigger />);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.ant-form-item-has-feedback').length).toBe(2);
+    expect(container.querySelectorAll('#custom-error-icon, #custom-error-icon2').length).toBe(2);
   });
 
   // https://github.com/ant-design/ant-design/issues/41621

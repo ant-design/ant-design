@@ -17,10 +17,6 @@ title: 从 Less 变量到 Design Token
 import React from 'react';
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
@@ -46,7 +42,7 @@ export default App;
 
 ## 组件变量
 
-## Alert 警告提示
+### Alert 警告提示
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |

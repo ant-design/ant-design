@@ -26,7 +26,6 @@ demo:
 <code src="./demo/line-mini.tsx">小型进度条</code>
 <code src="./demo/circle-micro.tsx">响应式进度圈</code>
 <code src="./demo/circle-mini.tsx">小型进度圈</code>
-<code src="./demo/circle-dynamic.tsx">进度圈动态展示</code>
 <code src="./demo/dynamic.tsx">动态展示</code>
 <code src="./demo/format.tsx">自定义文字格式</code>
 <code src="./demo/dashboard.tsx">仪表盘</code>
@@ -77,6 +76,6 @@ demo:
 | gapPosition | 仪表盘进度条缺口位置 | `top` \| `bottom` \| `left` \| `right` | `bottom` | - |
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | - |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Progress"></ComponentTokenTable>

@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
@@ -66,6 +67,16 @@ export interface SharedComponentToken {
    * @descEN Box-shadow when active in warning status
    */
   warningActiveShadow: string;
+  /**
+   * @desc 输入框hover状态时背景颜色
+   * @descEN Background color when the input box hovers
+   */
+  hoverBg: string;
+  /**
+   * @desc 输入框激活状态时背景颜色
+   * @descEN Background color when the input box is activated
+   */
+  activeBg: string;
 }
 
 export interface ComponentToken extends SharedComponentToken {}
@@ -92,12 +103,14 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.hoverBorderColor,
+  backgroundColor: token.hoverBg,
 });
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.activeBorderColor,
   boxShadow: token.activeShadow,
   outline: 0,
+  backgroundColor: token.activeBg,
 });
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
@@ -109,7 +122,12 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle(mergeToken<InputToken>(token, { hoverBorderColor: token.colorBorder })),
+    ...genHoverStyle(
+      mergeToken<InputToken>(token, {
+        hoverBorderColor: token.colorBorder,
+        hoverBg: token.colorBgContainerDisabled,
+      }),
+    ),
   },
 });
 
@@ -148,7 +166,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         borderColor: colorErrorBorderHover,
       },
 
-      '&:focus, &-focused': {
+      '&:focus, &:focus-within': {
         ...genActiveStyle(
           mergeToken<InputToken>(token, {
             activeBorderColor: colorError,
@@ -168,7 +186,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
         borderColor: colorWarningBorderHover,
       },
 
-      '&:focus, &-focused': {
+      '&:focus, &:focus-within': {
         ...genActiveStyle(
           mergeToken<InputToken>(token, {
             activeBorderColor: colorWarning,
@@ -201,12 +219,11 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-
   '&:hover': {
     ...genHoverStyle(token),
   },
 
-  '&:focus, &-focused': {
+  '&:focus, &:focus-within': {
     ...genActiveStyle(token),
   },
 
@@ -319,7 +336,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.colorFillAlter,
+        backgroundColor: token.addonBg,
         border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -329,13 +346,14 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         [`${antCls}-select`]: {
           margin: `-${token.paddingBlock + 1}px -${token.paddingInline}px`,
 
-          [`&${antCls}-select-single:not(${antCls}-select-customize-input)`]: {
-            [`${antCls}-select-selector`]: {
-              backgroundColor: 'inherit',
-              border: `${token.lineWidth}px ${token.lineType} transparent`,
-              boxShadow: 'none',
+          [`&${antCls}-select-single:not(${antCls}-select-customize-input):not(${antCls}-pagination-size-changer)`]:
+            {
+              [`${antCls}-select-selector`]: {
+                backgroundColor: 'inherit',
+                border: `${token.lineWidth}px ${token.lineType} transparent`,
+                boxShadow: 'none',
+              },
             },
-          },
 
           '&-open, &-focused': {
             [`${antCls}-select-selector`]: {
@@ -635,7 +653,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       display: 'inline-flex',
 
       [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
-        ...genHoverStyle(token),
         zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
           zIndex: 0,
@@ -843,6 +860,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             borderStartEndRadius: token.borderRadius,
             borderEndEndRadius: token.borderRadius,
             borderEndStartRadius: 0,
+            boxShadow: 'none',
           },
 
           [`${searchPrefixCls}-button:not(${antCls}-btn-primary)`]: {
@@ -1000,6 +1018,20 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   };
 };
 
+// ============================== Range ===============================
+const genRangeStyle: GenerateStyle<InputToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-out-of-range`]: {
+      [`&, & input, & textarea, ${componentCls}-show-count-suffix, ${componentCls}-data-count`]: {
+        color: token.colorError,
+      },
+    },
+  };
+};
+
+// ============================== Tokens ==============================
 export function initInputToken(token: GlobalToken): SharedInputToken {
   return mergeToken<InputToken>(token, {
     inputAffixPadding: token.paddingXXS,
@@ -1021,6 +1053,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     controlPaddingHorizontal,
     colorFillAlter,
     colorPrimaryHover,
+    colorPrimary,
     controlOutlineWidth,
     controlOutline,
     colorErrorOutline,
@@ -1030,7 +1063,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
   return {
     paddingBlock: Math.max(
       Math.round(((controlHeight - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-      3,
+      0,
     ),
     paddingBlockSM: Math.max(
       Math.round(((controlHeightSM - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
@@ -1042,11 +1075,13 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
     paddingInlineSM: controlPaddingHorizontalSM - lineWidth,
     paddingInlineLG: controlPaddingHorizontal - lineWidth,
     addonBg: colorFillAlter,
-    activeBorderColor: colorPrimaryHover,
+    activeBorderColor: colorPrimary,
     hoverBorderColor: colorPrimaryHover,
     activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
     errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
     warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
+    hoverBg: '',
+    activeBg: '',
   };
 };
 
@@ -1062,6 +1097,7 @@ export default genComponentStyleHook(
       genAffixStyle(inputToken),
       genGroupStyle(inputToken),
       genSearchInputStyle(inputToken),
+      genRangeStyle(inputToken),
       // =====================================================
       // ==             Space Compact                       ==
       // =====================================================

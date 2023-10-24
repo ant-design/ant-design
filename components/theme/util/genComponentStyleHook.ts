@@ -113,7 +113,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     );
 
     // Generate style for icons
-    useResetIconStyle(iconPrefixCls);
+    useResetIconStyle(iconPrefixCls, csp);
 
     return [
       useStyleRegister(
@@ -184,8 +184,12 @@ export interface SubStyleComponentProps {
   prefixCls: string;
 }
 
+// Get from second argument
+type RestParameters<T extends any[]> = T extends [any, ...infer Rest] ? Rest : never;
+
 export const genSubStyleComponent: <ComponentName extends OverrideComponent>(
-  ...args: Parameters<typeof genComponentStyleHook<ComponentName>>
+  componentName: [ComponentName, string],
+  ...args: RestParameters<Parameters<typeof genComponentStyleHook<ComponentName>>>
 ) => ComponentType<SubStyleComponentProps> = (componentName, styleFn, getDefaultToken, options) => {
   const useStyle = genComponentStyleHook(componentName, styleFn, getDefaultToken, {
     resetStyle: false,
@@ -195,8 +199,18 @@ export const genSubStyleComponent: <ComponentName extends OverrideComponent>(
     ...options,
   });
 
-  return ({ prefixCls }: SubStyleComponentProps) => {
+  const StyledComponent: ComponentType<SubStyleComponentProps> = ({
+    prefixCls,
+  }: SubStyleComponentProps) => {
     useStyle(prefixCls);
     return null;
   };
+
+  if (process.env.NODE_ENV !== 'production') {
+    StyledComponent.displayName = `SubStyle_${
+      Array.isArray(componentName) ? componentName.join('.') : componentName
+    }`;
+  }
+
+  return StyledComponent;
 };

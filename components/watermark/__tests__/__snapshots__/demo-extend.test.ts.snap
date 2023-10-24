@@ -9,7 +9,7 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`
     style="height: 500px;"
   />
   <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
   />
 </div>
 `;
@@ -49,7 +49,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
     />
     <div
-      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+      style="z-index: 11; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
     />
   </div>
   <form
@@ -122,6 +122,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-color-picker-trigger"
+                id="color"
               >
                 <div
                   class="ant-color-picker-color-block"
@@ -253,7 +254,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   aria-controls="rc_select_TEST_OR_SSR_list"
                                   aria-expanded="false"
                                   aria-haspopup="listbox"
-                                  aria-label="Search"
                                   aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -543,6 +543,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   aria-disabled="false"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="1"
                   aria-valuenow="16"
@@ -617,6 +618,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   aria-disabled="false"
+                  aria-orientation="horizontal"
                   aria-valuemax="100"
                   aria-valuemin="0"
                   aria-valuenow="11"
@@ -691,6 +693,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 />
                 <div
                   aria-disabled="false"
+                  aria-orientation="horizontal"
                   aria-valuemax="180"
                   aria-valuemin="-180"
                   aria-valuenow="-22"
@@ -751,12 +754,11 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
                 style="display: flex;"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-form-item"
@@ -990,12 +992,11 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-baseline"
+                class="ant-space ant-space-horizontal ant-space-align-baseline ant-space-gap-row-small ant-space-gap-col-small"
                 style="display: flex;"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
                 >
                   <div
                     class="ant-form-item"
@@ -1228,7 +1229,7 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
     style="height: 500px;"
   />
   <div
-    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px;"
+    style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 226px; visibility: visible !important;"
   />
 </div>
 `;
@@ -1238,18 +1239,17 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
 exports[`renders components/watermark/demo/portal.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
-          Show Modal
+          Show in Modal
         </span>
       </button>
     </div>
@@ -1261,7 +1261,19 @@ Array [
         type="button"
       >
         <span>
-          Show Drawer
+          Show in Drawer
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Not Show in Drawer
         </span>
       </button>
     </div>
@@ -1271,7 +1283,15 @@ Array [
     style="position: relative;"
   >
     <div
-      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px;"
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
+    />
+  </div>,
+  <div
+    class=""
+    style="position: relative;"
+  >
+    <div
+      style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,00'); background-size: 218px; visibility: visible !important;"
     />
   </div>,
 ]

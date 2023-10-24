@@ -15,10 +15,11 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   return {
     [`${componentCls}-single${suffixCls}`]: {
       fontSize: token.fontSize,
+      height: token.controlHeight,
 
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
-        ...resetComponent(token),
+        ...resetComponent(token, true),
 
         display: 'flex',
         borderRadius,
@@ -42,16 +43,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           padding: 0,
           lineHeight: `${selectHeightWithoutBorder}px`,
           transition: `all ${token.motionDurationSlow}, visibility 0s`,
-
-          // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
-          '@supports (-moz-appearance: meterbar)': {
-            lineHeight: `${selectHeightWithoutBorder}px`,
-          },
-        },
-
-        [`${componentCls}-selection-item`]: {
-          position: 'relative',
-          userSelect: 'none',
+          alignSelf: 'center',
         },
 
         [`${componentCls}-selection-placeholder`]: {
@@ -63,9 +55,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [[
           '&:after',
           /* For '' value baseline align */
-          `${componentCls}-selection-item:after`,
+          `${componentCls}-selection-item:empty:after`,
           /* For undefined value baseline align */
-          `${componentCls}-selection-placeholder:after`,
+          `${componentCls}-selection-placeholder:empty:after`,
         ].join(',')]: {
           display: 'inline-block',
           width: 0,
@@ -92,7 +84,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       [`&:not(${componentCls}-customize-input)`]: {
         [`${componentCls}-selector`]: {
           width: '100%',
-          height: token.controlHeight,
+          height: '100%',
           padding: `0 ${inputPaddingHorizontalBase}px`,
 
           [`${componentCls}-selection-search-input`]: {

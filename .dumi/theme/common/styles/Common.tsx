@@ -3,7 +3,7 @@ import React from 'react';
 import { useTheme } from 'antd-style';
 
 export default () => {
-  const { headerHeight, margin } = useTheme();
+  const { anchorTop } = useTheme();
 
   return (
     <Global
@@ -60,8 +60,16 @@ export default () => {
         border-style: none;
       }
 
-      html {
-        scroll-padding-top: ${headerHeight + margin}px;
+      [id] {
+        scroll-margin-top: ${anchorTop}px;
+      }
+
+      [data-prefers-color='dark'] {
+        color-scheme: dark;
+      }
+
+      [data-prefers-color='light'] {
+        color-scheme: light;
       }
     `}
     />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Button, ConfigProvider, Space, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { Link, useLocation } from 'dumi';
@@ -7,7 +7,9 @@ import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import { GroupMask } from '../Group';
-import ComponentsBlock from './ComponentsBlock';
+import useMouseTransform from './useMouseTransform';
+
+const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
 const locales = {
   cn: {
@@ -27,8 +29,15 @@ const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
 
-  return createStyles(({ token, css }) => {
+  return createStyles(({ token, css, cx }) => {
     const textShadow = `0 0 3px ${token.colorBgContainer}`;
+
+    const mask = cx(css`
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(4px);
+      transition: all 1s ease;
+    `);
 
     return {
       holder: css`
@@ -40,8 +49,16 @@ const useStyle = () => {
         position: relative;
         overflow: hidden;
         perspective: 800px;
+        /* fix safari bug by removing blur style */
+        transform: translateZ(1000px);
         row-gap: ${token.marginXL}px;
+
+        &:hover .${mask} {
+          backdrop-filter: none;
+        }
       `,
+
+      mask,
 
       typography: css`
         text-align: center;
@@ -81,11 +98,12 @@ const useStyle = () => {
     };
   })();
 };
+
 export interface PreviewBannerProps {
   children?: React.ReactNode;
 }
 
-export default function PreviewBanner(props: PreviewBannerProps) {
+const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
   const { children } = props;
 
   const [locale] = useLocale(locales);
@@ -95,8 +113,10 @@ export default function PreviewBanner(props: PreviewBannerProps) {
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
+  const [componentsBlockStyle, mouseEvents] = useMouseTransform();
+
   return (
-    <GroupMask>
+    <GroupMask {...mouseEvents}>
       {/* Image Left Top */}
       <img
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
@@ -112,7 +132,10 @@ export default function PreviewBanner(props: PreviewBannerProps) {
 
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
-        {!isMobile && <ComponentsBlock className={styles.block} />}
+        <Suspense fallback={null}>
+          {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+        </Suspense>
+        <div className={styles.mask} />
 
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
@@ -129,9 +152,10 @@ export default function PreviewBanner(props: PreviewBannerProps) {
             <Button size="large">{locale.designLanguage}</Button>
           </Link>
         </Space>
-
         <div className={styles.child}>{children}</div>
       </div>
     </GroupMask>
   );
-}
+};
+
+export default PreviewBanner;

@@ -1,14 +1,14 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import warning from '../_util/warning';
+import classNames from 'classnames';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+// CSSINJS
+import useStyle from './style';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 import TimelineItemList from './TimelineItemList';
 import useItems from './useItems';
-
-// CSSINJS
-import useStyle from './style';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -35,7 +35,9 @@ const Timeline: CompoundedComponent = (props) => {
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    warning(!children, 'Timeline', '`Timeline.Item` is deprecated. Please use `items` instead.');
+    const warning = devUseWarning('Timeline');
+
+    warning.deprecated(!children, 'Timeline.Item', 'items');
   }
 
   // Style

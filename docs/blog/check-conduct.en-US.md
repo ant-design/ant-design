@@ -10,7 +10,7 @@ In the Tree or similar components (such as TreeSelect, Cascader), needs check fu
 
 Before we start, let's establish a consensus. That is, when a node is `disabled`, it cannot be clicked `checked`. Then we take the following Tree structure as an example:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*eMq8S7Pq0lQAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*eMq8S7Pq0lQAAAAAAAAAAAAADrJ8AQ/original" />
 
 Next, we check the root node `parent 1`, and analyze the similarities and differences of different check transmission strategies.
 
@@ -18,31 +18,31 @@ Next, we check the root node `parent 1`, and analyze the similarities and differ
 
 This is the most intuitive strategy, all nodes will be checked:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QQp-R4EMteAAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*QQp-R4EMteAAAAAAAAAAAAAADrJ8AQ/original" />
 
 You can immediately see the problem with this strategy, we mentioned earlier that `disabled` nodes are not allowed to be `checked`. But when the parent node is not `disabled`, its child nodes will be forcibly checked. This will cause the `disabled` node to "can" be checked, which is obviously unreasonable.
 
 ### All checkable nodes are checked
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BzrZRbT1gCEAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BzrZRbT1gCEAAAAAAAAAAAAADrJ8AQ/original" />
 
 From the checkbox interaction, it looks good, but it's not intuitive. After `parent 1` is checked, `leaf 2` is checked by conduction. But the middle node `parent 1-0` is not checked. At some deep enough level, this strategy can cause the user to be unaware that a check has been propagated:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3mHLQZvTgWsAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3mHLQZvTgWsAAAAAAAAAAAAADrJ8AQ/original" />
 
 When there is no scrolling, the user can't realize that the upper `disabled` is not checked, but the top is checked:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xTqPQbdX6B0AAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xTqPQbdX6B0AAAAAAAAAAAAADrJ8AQ/original" />
 
 ### Check only reachable checkable nodes
 
 This is also the current strategy of antd, when a node is checked, it will propagate upwards and downwards from the node until `disabled` stops. When there are multiple `disabled` in the node, they will each check the status management:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EIK0Rbq92CMAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EIK0Rbq92CMAAAAAAAAAAAAADrJ8AQ/original" />
 
 Conversely check `leaf 2`, it will not conduct:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ytr9SrJUvD4AAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Ytr9SrJUvD4AAAAAAAAAAAAADrJ8AQ/original" />
 
 The advantage of this strategy is that users can clearly see the selection process. Compared with the previous strategy, users only need a small area to understand the check logic in the scrolling scene.
 
@@ -54,19 +54,19 @@ Note: We only introduce simple conduction logic here. Please refer to [actual co
 
 When a node is checked, we will add `key` to `checkedKeys`. We iterate over each `key` in the new `checkedKeys` for conduction checks. The first step will be conduction from top to bottom (in the example below we check `0-0`):
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*30UnR60SSD8AAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*30UnR60SSD8AAAAAAAAAAAAADrJ8AQ/original" />
 
 We record the current node `0-0` and the transmitted `0-0-0` and `0-0-1`:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*jo7wQZVX9S0AAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*jo7wQZVX9S0AAAAAAAAAAAAADrJ8AQ/original" />
 
 In the second step, we will conduct upwards from this node:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k5hoSKM1OMYAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k5hoSKM1OMYAAAAAAAAAAAAADrJ8AQ/original" />
 
 Similarly, record the node `0` that was passed on:
 
-![Tree](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yqBETbq8ugQAAAAAAAAAAAAADrJ8AQ/original)
+<img alt="Tree" height="300" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yqBETbq8ugQAAAAAAAAAAAAADrJ8AQ/original" />
 
 When the parent node is checked, the parent node of the parent node may also be checked, so we need to continue to conduct upward until the root node or `disabled` node.
 

@@ -1,5 +1,3 @@
-'use client';
-
 import ColorPicker from './ColorPicker';
 
 export type { ColorPickerProps } from './ColorPicker';
