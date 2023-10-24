@@ -524,6 +524,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onOpenChange={onVisibleChange}
         getPopupContainer={getPopupContainer}
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+        {...column.filterDropdownProps}
       >
         <span
           role="button"

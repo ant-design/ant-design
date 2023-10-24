@@ -11,6 +11,7 @@ import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
+import type { DropdownProps } from '../dropdown';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
@@ -131,6 +132,10 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
+  filterDropdownProps?: Omit<
+    DropdownProps,
+    'dropdownRender' | 'open' | 'onOpenChange' | 'getPopupContainer'
+  >;
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;
