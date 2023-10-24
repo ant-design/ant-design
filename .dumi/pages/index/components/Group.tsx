@@ -20,8 +20,6 @@ export const GroupMask: React.FC<GroupMaskProps> = (props) => {
     ? {}
     : {
         position: 'relative',
-        background: `rgba(255, 255, 255, 0.1)`,
-        backdropFilter: `blur(25px)`,
         zIndex: 1,
       };
 

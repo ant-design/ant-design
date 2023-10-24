@@ -73,7 +73,7 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
   return {
     [`${componentCls}-stack`]: {
       [`& > ${componentCls}-notice-wrapper`]: {
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${token.motionDurationSlow}, backdrop-filter 0s`,
         position: 'absolute',
 
         ...genStackChildrenStyle(token),

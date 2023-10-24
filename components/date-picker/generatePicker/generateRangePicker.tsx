@@ -48,6 +48,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       prefixCls: customizePrefixCls,
       getPopupContainer: customGetPopupContainer,
       className,
+      style,
       placement,
       size: customizeSize,
       disabled: customDisabled,
@@ -63,7 +64,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     } = props;
 
     const innerRef = React.useRef<RCRangePicker<DateType>>(null);
-    const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
+    const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { format, showTime, picker } = props as any;
@@ -138,8 +139,10 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           hashId,
           compactItemClassnames,
           className,
+          rangePicker?.className,
           rootClassName,
         )}
+        style={{ ...rangePicker?.style, ...style }}
         locale={locale.lang}
         prefixCls={prefixCls}
         getPopupContainer={customGetPopupContainer || getPopupContainer}

@@ -1045,6 +1045,34 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
   });
 
+  it('Should RangePicker className works', () => {
+    const { RangePicker } = TimePicker;
+    const { container } = render(
+      <ConfigProvider
+        rangePicker={{
+          className: 'test-class',
+        }}
+      >
+        <RangePicker />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker')).toHaveClass('test-class');
+  });
+
+  it('Should RangePicker style works', () => {
+    const { RangePicker } = TimePicker;
+    const { container } = render(
+      <ConfigProvider
+        rangePicker={{
+          style: { color: 'red' },
+        }}
+      >
+        <RangePicker style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
   it('Should message className & style works', () => {
     const Demo: React.FC = () => {
       const [messageApi, contextHolder] = message.useMessage();

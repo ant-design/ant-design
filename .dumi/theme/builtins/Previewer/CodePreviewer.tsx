@@ -5,7 +5,7 @@ import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData } from 'dumi';
+import { FormattedMessage, useSiteData, LiveContext } from 'dumi';
 import LZString from 'lz-string';
 
 import type { AntdPreviewerProps } from './Previewer';
@@ -21,6 +21,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
+import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
 
 const { ErrorBoundary } = Alert;
 
@@ -106,6 +107,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const { pkg } = useSiteData();
   const location = useLocation();
+
+  const { enabled: liveEnabled } = useContext(LiveContext);
 
   const { styles } = useStyle();
 
@@ -363,9 +366,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
-        <ErrorBoundary>
-          <React.StrictMode>{liveDemo.current}</React.StrictMode>
-        </ErrorBoundary>
+        {!liveEnabled ? (
+          <ErrorBoundary>
+            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          </ErrorBoundary>
+        ) : (
+          <LiveDemo />
+        )}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
