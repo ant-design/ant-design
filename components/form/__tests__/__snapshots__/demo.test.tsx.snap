@@ -9971,7 +9971,9 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-color-picker-trigger"
+              id="validate_other_color-picker"
             >
               <div
                 class="ant-color-picker-color-block"

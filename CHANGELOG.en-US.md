@@ -16,6 +16,21 @@ tag: vVERSION
 
 ---
 
+## 5.10.2
+
+`2023-10-21`
+
+- 🐞 Layout support auto `hasSider` check to avoid blink in SSR. [#45361](https://github.com/ant-design/ant-design/pull/45361)
+- 🐞 Fix FloatButton.BackTop throws warning `findDOMNode is deprecated in StrictMode`. [#45390](https://github.com/ant-design/ant-design/pull/45390) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix ColorPicker does not supports `id` and `data-*` attributes. [#45413](https://github.com/ant-design/ant-design/pull/45413) [@cheng87126](https://github.com/cheng87126)
+- 🐞 Fix Table sorter tooltip cannot be open when `column.showSorterTooltip` is a object. [#45403](https://github.com/ant-design/ant-design/pull/45403)
+- 🐞 Fix `Form` with `inline` mode makes elements overlap on the small screen. [#45340](https://github.com/ant-design/ant-design/pull/45340) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Remove duplicate disabled styles in Upload.Dragger. [#45446](https://github.com/ant-design/ant-design/pull/45446) [@vagusX](https://github.com/vagusX)
+- TypeScript
+  - 🐞 Table `pagination.position` should accept `'none'`. [#45398](https://github.com/ant-design/ant-design/pull/45398)
+- RTL
+  - 💄 Fix Notification's incorrect `margin` in `rtl` mode. [#45386](https://github.com/ant-design/ant-design/pull/45386)
+
 ## 5.10.1
 
 `2023-10-15`
@@ -1298,7 +1313,7 @@ tag: vVERSION
 - 🛠 Refactor styles with CSS-in-JS for all components.
   - 🗑 Remove less and css in package. [#36244](https://github.com/ant-design/ant-design/pull/36244)
 - 🛠 Change date library from Moment.js to Day.js, for more: [Use custom date library](https://ant.design/docs/react/use-custom-date-library). [b22815d](https://github.com/ant-design/ant-design/commit/b22815d4d223b80755b472e14d7888beab8dd1da) [@iamkun](https://github.com/iamkun)
-- 🛠 React Notification to support React 18 concurrent mode and refactor useNotification hook，which is preferred instead of static function. [#35423](https://github.com/ant-design/ant-design/pull/35423) [#35568](https://github.com/ant-design/ant-design/pull/35568)
+- 🛠 React Notification to support React 18 concurrent mode and refactor useNotification hook, which is preferred instead of static function. [#35423](https://github.com/ant-design/ant-design/pull/35423) [#35568](https://github.com/ant-design/ant-design/pull/35568)
 - 🛠 Slider props related with Tooltip are unified into `tooltip`. [#37043](https://github.com/ant-design/ant-design/pull/37043) [@yykoypj](https://github.com/yykoypj)
 - 🛠 Migrate official site to [dumi@2](https://next.d.umijs.org/). [#38328](https://github.com/ant-design/ant-design/pull/38328)
 

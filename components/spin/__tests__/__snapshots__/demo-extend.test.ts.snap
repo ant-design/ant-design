@@ -119,14 +119,38 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
 exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 1`] = `
-<button
-  class="ant-btn ant-btn-default"
-  type="button"
->
-  <span>
-    Show fullscreen for 2s
-  </span>
-</button>
+Array [
+  <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Show fullscreen for 3s
+    </span>
+  </button>,
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin ant-spin-fullscreen"
+  >
+    <span
+      class="ant-spin-dot ant-spin-dot-spin"
+    >
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+      <i
+        class="ant-spin-dot-item"
+      />
+    </span>
+  </div>,
+]
 `;
 
 exports[`renders components/spin/demo/fullscreen.tsx extend context correctly 2`] = `[]`;
