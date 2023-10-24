@@ -1,3 +1,7 @@
+/**
+ * live: false
+ */
+
 import { EllipsisOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
 import React, { useState } from 'react';

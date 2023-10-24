@@ -1,7 +1,7 @@
 {
   "name": "antd",
   "version": "5.10.2",
-  "packageManager": "npm@9.0.0",
+  "packageManager": "npm@10.2.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -137,7 +137,7 @@
     "rc-mentions": "~2.9.1",
     "rc-menu": "~9.12.2",
     "rc-motion": "^2.9.0",
-    "rc-notification": "~5.2.0",
+    "rc-notification": "~5.3.0",
     "rc-pagination": "~3.6.1",
     "rc-picker": "~3.14.5",
     "rc-progress": "~3.5.1",
@@ -183,7 +183,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.2",
     "@types/fs-extra": "^11.0.1",
-    "@types/gtag.js": "^0.0.16",
+    "@types/gtag.js": "^0.0.17",
     "@types/http-server": "^0.12.1",
     "@types/inquirer": "^9.0.3",
     "@types/isomorphic-fetch": "^0.0.38",
@@ -199,7 +199,7 @@
     "@types/prismjs": "^1.26.0",
     "@types/progress": "^2.0.5",
     "@types/qs": "^6.9.7",
-    "@types/react": "18.2.29",
+    "@types/react": "18.2.31",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-highlight-words": "^0.16.4",
@@ -218,7 +218,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "^2.3.0-alpha.7",
+    "dumi": "^2.3.0-alpha.9",
     "dumi-plugin-color-chunk": "^1.0.2",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^4.0.0",
@@ -320,7 +320,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "399 KiB"
+      "limit": "400 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
