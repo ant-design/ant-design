@@ -5,6 +5,8 @@ import type { AliasToken, DerivativeToken } from '../theme/internal';
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
 
+export const FocusOutlineOffset = 1;
+
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
   whiteSpace: 'nowrap',
@@ -130,7 +132,7 @@ export const genCommonStyle = (token: DerivativeToken, componentPrefixCls: strin
 
 export const genFocusOutline = (token: AliasToken): CSSObject => ({
   outline: `${token.lineWidthFocus}px solid ${token.colorPrimaryBorder}`,
-  outlineOffset: 1,
+  outlineOffset: FocusOutlineOffset,
   transition: 'outline-offset 0s, outline 0s',
 });
 

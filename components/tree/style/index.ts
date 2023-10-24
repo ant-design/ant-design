@@ -1,7 +1,7 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import { genFocusOutline, resetComponent } from '../../style';
+import { genFocusOutline, FocusOutlineOffset, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { AliasToken, DerivativeToken, FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -92,10 +92,15 @@ const getTreeSelectResetStyle = (token: TreeToken, isTreeSelect: boolean) => {
 
     return {
       [`${treeCls}-list-holder-inner`]: {
-        paddingInlineEnd: `${treeNodePadding}px`,
+        paddingInlineEnd: `${treeNodePadding + FocusOutlineOffset}px`,
       },
       [`${treeNodeCls}:first-child`]: {
-        paddingTop: `${treeNodePadding}px`,
+        paddingTop: `${treeNodePadding + FocusOutlineOffset}px`,
+      },
+      [`${treeNodeCls}:last-child`]: {
+        [`${treeCls}-node-content-wrapper`]: {
+          marginBottom: `${FocusOutlineOffset}px`,
+        },
       },
     };
   }

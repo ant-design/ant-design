@@ -29,6 +29,7 @@ import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
 import { useToken } from '../theme/internal';
+import { FocusOutlineOffset } from '../style';
 
 type RawValue = string | number;
 
@@ -155,6 +156,8 @@ const InternalTreeSelect = <
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
   const [, token] = useToken();
 
+  const listItemScrollOffset = token.paddingXS / 2 + FocusOutlineOffset;
+
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
     `${treeSelectPrefixCls}-dropdown`,
@@ -264,7 +267,7 @@ const InternalTreeSelect = <
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       // ref: Tree component `treeNodePadding` style variable
-      listItemScrollOffset={token.paddingXS / 2}
+      listItemScrollOffset={listItemScrollOffset}
       treeCheckable={
         treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
       }
