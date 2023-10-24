@@ -207,7 +207,7 @@ describe('Test useZIndex hooks', () => {
   });
   const containers = Object.keys(containerComponent);
   // const containers = ['Modal'];
-  const consumers = ['Dropdown'];
+  const consumers = ['Dropdown', 'SelectLike'];
   // const consumers = Object.keys(consumerComponent);
 
   containers.forEach((containerKey) => {
@@ -312,7 +312,7 @@ describe('Test useZIndex hooks', () => {
           }
 
           unmount();
-        });
+        }, 15000);
       });
     });
   });

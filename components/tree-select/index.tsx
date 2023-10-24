@@ -28,6 +28,7 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+import { useZIndex } from '../_util/hooks/useZIndex';
 
 type RawValue = string | number;
 
@@ -249,6 +250,9 @@ const InternalTreeSelect = <
     />
   );
 
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+
   const returnNode = (
     <RcTreeSelect
       virtual={virtual}
@@ -276,6 +280,10 @@ const InternalTreeSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
+      dropdownStyle={{
+        ...props.dropdownStyle,
+        zIndex,
+      }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
