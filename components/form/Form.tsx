@@ -8,7 +8,7 @@ import type { Options } from 'scroll-into-view-if-needed';
 import { ConfigContext } from '../config-provider';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
-import { SizeContextProvider } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
@@ -179,7 +179,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   return wrapSSR(
     <DisabledContextProvider disabled={disabled}>
-      <SizeContextProvider size={mergedSize}>
+      <SizeContext.Provider value={mergedSize}>
         <FormProvider
           {...{
             // This is not list in API, we pass with spread
@@ -198,7 +198,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
             />
           </FormContext.Provider>
         </FormProvider>
-      </SizeContextProvider>
+      </SizeContext.Provider>
     </DisabledContextProvider>,
   );
 };
