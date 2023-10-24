@@ -207,7 +207,7 @@ describe('Test useZIndex hooks', () => {
   });
   const containers = Object.keys(containerComponent);
   // const containers = ['Modal'];
-  const consumers = ['Dropdown', 'SelectLike', 'ColorPicker'];
+  const consumers = ['Dropdown', 'SelectLike', 'ColorPicker', 'DatePicker'];
   // const consumers = Object.keys(consumerComponent);
 
   containers.forEach((containerKey) => {
@@ -238,7 +238,7 @@ describe('Test useZIndex hooks', () => {
               consumerBaseZIndexOffset[key as ZIndexConsumer],
           );
         });
-        // 先暂时不测试，等所有的消费组件功能都合并过去后再统一测试
+
         it('Test Component', async () => {
           const Container = containerComponent[containerKey as ZIndexContainer];
           const Consumer = consumerComponent[key as ZIndexConsumer];
