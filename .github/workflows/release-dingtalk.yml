@@ -5,7 +5,7 @@
 # 4. Then the new tag will trigger this current action
 # 5. The action will generate a new release, and publish DingDing notification at the same time
 
-name: Release Helper
+name: DingTalk Release Notification
 
 on:
   create
@@ -20,7 +20,7 @@ jobs:
     if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
-      - name: release antd
+      - name: Send to Ant Design DingGroup
         uses: actions-cool/release-helper@v2
         with:
           trigger: 'tag'
@@ -36,7 +36,7 @@ jobs:
           prettier: true
           prerelease-filter: '-, a, b, A, B'
 
-      - name: notice bigfish
+      - name: Send to Bigfish DingGroup
         uses: actions-cool/release-helper@v2
         with:
           trigger: 'tag'
