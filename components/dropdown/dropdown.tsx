@@ -217,7 +217,7 @@ const Dropdown: CompoundedComponent = (props) => {
       return;
     }
     setOpen(false);
-  }, [menu]);
+  }, [menu?.selectable, menu?.multiple]);
 
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
