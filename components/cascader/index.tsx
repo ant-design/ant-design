@@ -34,6 +34,7 @@ import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
+import { useZIndex } from '../_util/hooks/useZIndex';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -288,6 +289,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('SelectLike', restProps.dropdownStyle?.zIndex as number);
+
   // ==================== Render =====================
   const renderNode = (
     <RcCascader
@@ -324,6 +328,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
+      dropdownStyle={{
+        ...restProps.dropdownStyle,
+        zIndex,
+      }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

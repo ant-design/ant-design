@@ -1049,7 +1049,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
                               >
                                 <div>
                                   <div
@@ -1226,7 +1226,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
                               >
                                 <div>
                                   <div
@@ -1408,7 +1408,7 @@ Array [
                               </div>
                               <div
                                 class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
                               >
                                 <div>
                                   <div
@@ -1635,7 +1635,7 @@ Array [
                             </div>
                             <div
                               class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1050;"
                             >
                               <div
                                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -2867,6 +2867,7 @@ Array [
             </button>
             <div
               class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+              style="z-index: 2000;"
               tabindex="-1"
             >
               <div
@@ -3536,6 +3537,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             Some contents...
             <div
               class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
+              style="z-index: 2000;"
               tabindex="-1"
             >
               <div

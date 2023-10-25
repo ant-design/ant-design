@@ -669,6 +669,36 @@ exports[`renders components/modal/demo/modal-render.tsx extend context correctly
 
 exports[`renders components/modal/demo/modal-render.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/nested.tsx extend context correctly 1`] = `
+<button
+  aria-checked="false"
+  class="ant-switch"
+  role="switch"
+  style="position: relative; z-index: 4000;"
+  type="button"
+>
+  <div
+    class="ant-switch-handle"
+  />
+  <span
+    class="ant-switch-inner"
+  >
+    <span
+      class="ant-switch-inner-checked"
+    >
+      Open
+    </span>
+    <span
+      class="ant-switch-inner-unchecked"
+    >
+      Close
+    </span>
+  </span>
+</button>
+`;
+
+exports[`renders components/modal/demo/nested.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/position.tsx extend context correctly 1`] = `
 Array [
   <button
