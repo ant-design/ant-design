@@ -135,8 +135,8 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   };
 
   const renderListBody = (defaultListProps: TransferListBodyProps<RecordType>) => {
-    const { onItemSelect: originOnItemSelect, ...restProps } = defaultListProps;
-    const onItemSelect = (key: string, check: boolean) => originOnItemSelect(key, check);
+    const { onItemSelect: onInternalItemSelect, ...restProps } = defaultListProps;
+    const onItemSelect = (key: string, check: boolean) => onInternalItemSelect(key, check);
     const listProps = { ...restProps, onItemSelect };
     let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
     const customize: boolean = !!bodyContent;
