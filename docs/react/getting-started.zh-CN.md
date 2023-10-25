@@ -109,7 +109,7 @@ createRoot(document.getElementById('root')).render(<App />);
 
 ### 4. 下一步
 
-实际项目开发中，你会需要构建、调试、代理、打包部署等一系列工程化的需求。您可以阅读后面的文档或者使用以下脚手架和范例：
+在实际项目开发中，你会遇到构建、调试、代理、打包部署等一系列工程化的需求。你可以阅读后面的文档或者使用以下脚手架和范例：
 
 - [Ant Design Pro](https://pro.ant.design/)
 - [create-next-app](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)
