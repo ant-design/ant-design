@@ -164,7 +164,7 @@
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^17.3.2",
     "@antv/g6": "^4.8.13",
-    "@argos-ci/core": "^0.12.0",
+    "@argos-ci/core": "^1.0.0",
     "@babel/eslint-plugin": "^7.19.1",
     "@biomejs/biome": "^1.0.0",
     "@codesandbox/sandpack-react": "^2.6.9",
