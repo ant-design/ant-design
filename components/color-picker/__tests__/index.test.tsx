@@ -402,8 +402,19 @@ describe('ColorPicker', () => {
       />,
     );
     expect(componentContainer.querySelector('.custom-panel')).toBeTruthy();
+    expect(
+      componentContainer.querySelector('.ant-color-picker-inner-content-customized'),
+    ).toBeTruthy();
     expect(componentContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
     expect(componentContainer).toMatchSnapshot();
+  });
+
+  it('Should panelRender work with original component', async () => {
+    const { container: panelContainer } = render(
+      <ColorPicker open panelRender={(originPanel) => originPanel} />,
+    );
+    expect(panelContainer.querySelector('.ant-color-picker-inner-content-customized')).toBeFalsy();
+    expect(panelContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
   });
 
   it('Should null work as expect', async () => {

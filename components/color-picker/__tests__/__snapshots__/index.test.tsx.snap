@@ -50,7 +50,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
           class="ant-popover-inner-content"
         >
           <div
-            class="ant-color-picker-inner-content"
+            class="ant-color-picker-inner-content ant-color-picker-inner-content-customized"
           >
             <div
               class="custom-panel"
@@ -338,7 +338,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
           class="ant-popover-inner-content"
         >
           <div
-            class="ant-color-picker-inner-content"
+            class="ant-color-picker-inner-content ant-color-picker-inner-content-customized"
           >
             <div
               class="custom-panel"

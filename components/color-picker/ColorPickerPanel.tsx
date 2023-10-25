@@ -7,6 +7,7 @@ import PanelPicker from './components/PanelPicker';
 import PanelPresets from './components/PanelPresets';
 import { PanelPickerProvider, PanelPresetsProvider } from './context';
 import type { ColorPickerBaseProps } from './interface';
+import classNames from 'classnames';
 
 interface ColorPickerPanelProps extends ColorPickerBaseProps {
   onChange?: (value?: Color, type?: HsbaColorType, pickColor?: boolean) => void;
@@ -45,18 +46,25 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
     </>
   );
 
+  const panelNode =
+    typeof panelRender === 'function'
+      ? panelRender(innerPanel, {
+          components: {
+            Picker: PanelPicker,
+            Presets: PanelPresets,
+          },
+        })
+      : innerPanel;
+
   return (
     <PanelPickerProvider value={panelPickerProps}>
       <PanelPresetsProvider value={panelPresetsProps}>
-        <div className={colorPickerPanelPrefixCls}>
-          {typeof panelRender === 'function'
-            ? panelRender(innerPanel, {
-                components: {
-                  Picker: PanelPicker,
-                  Presets: PanelPresets,
-                },
-              })
-            : innerPanel}
+        <div
+          className={classNames(colorPickerPanelPrefixCls, {
+            [`${colorPickerPanelPrefixCls}-customized`]: panelNode !== innerPanel,
+          })}
+        >
+          {panelNode}
         </div>
       </PanelPresetsProvider>
     </PanelPickerProvider>
