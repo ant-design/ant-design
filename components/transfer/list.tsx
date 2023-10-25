@@ -53,8 +53,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onClick: (key: string, check: boolean, e: React.MouseEvent<Element, MouseEvent>) => void;
-  onItemSelect: (key: string, check: boolean) => void;
+  onItemSelect: (key: string, check: boolean, e?: React.MouseEvent<Element, MouseEvent>) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
@@ -135,11 +134,14 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     return text.includes(filterValue);
   };
 
-  const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
+  const renderListBody = (defaultListProps: TransferListBodyProps<RecordType>) => {
+    const { onItemSelect: originOnItemSelect, ...restProps } = defaultListProps;
+    const onItemSelect = (key: string, check: boolean) => originOnItemSelect(key, check);
+    const listProps = { ...restProps, onItemSelect };
     let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
-      bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
+      bodyContent = <DefaultListBody ref={listBodyRef} {...defaultListProps} />;
     }
     return { customize, bodyContent };
   };

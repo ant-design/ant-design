@@ -47,7 +47,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     showRemove,
     pagination,
     onScroll,
-    onClick,
+    onItemSelect,
     onItemRemove,
   } = props;
   const [current, setCurrent] = React.useState<number>(1);
@@ -74,7 +74,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
   const onInternalClick = (item: RecordType, e: React.MouseEvent<Element, MouseEvent>) => {
-    onClick(item.key, !selectedKeys.includes(item.key), e);
+    onItemSelect(item.key, !selectedKeys.includes(item.key), e);
   };
 
   const onRemove = (item: RecordType) => {

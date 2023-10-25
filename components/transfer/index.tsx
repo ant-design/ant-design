@@ -74,6 +74,10 @@ export interface TransferLocale {
   removeCurrent?: string;
 }
 
+interface TransferChildrenProps<T> extends TransferListBodyProps<T> {
+  onItemSelect: (key: string, check: boolean) => void;
+}
+
 export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
@@ -100,7 +104,7 @@ export interface TransferProps<RecordType> {
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
+  children?: (props: TransferChildrenProps<RecordType>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
@@ -330,7 +334,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     direction: TransferDirection,
     selectedKey: string,
     checked: boolean,
-    multiple: boolean,
+    multiple?: boolean,
   ) => {
     const isLeftDirection = direction === 'left';
     const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
@@ -352,28 +356,20 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     }
   };
 
-  const onLeftItemClick = (
+  const onLeftItemSelect = (
     selectedKey: string,
     checked: boolean,
-    e: React.MouseEvent<Element, MouseEvent>,
+    e?: React.MouseEvent<Element, MouseEvent>,
   ) => {
-    onItemSelect('left', selectedKey, checked, e.shiftKey);
+    onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
 
-  const onRightItemClick = (
+  const onRightItemSelect = (
     selectedKey: string,
     checked: boolean,
-    e: React.MouseEvent<Element, MouseEvent>,
+    e?: React.MouseEvent<Element, MouseEvent>,
   ) => {
-    onItemSelect('right', selectedKey, checked, e.shiftKey);
-  };
-
-  const onLeftItemSelect = (selectedKey: string, checked: boolean) => {
-    onItemSelect('left', selectedKey, checked, false);
-  };
-
-  const onRightItemSelect = (selectedKey: string, checked: boolean) => {
-    onItemSelect('right', selectedKey, checked, false);
+    onItemSelect('right', selectedKey, checked, e?.shiftKey);
   };
 
   const onRightItemRemove = (keys: string[]) => {
@@ -439,7 +435,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         checkedKeys={sourceSelectedKeys}
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
-        onClick={onLeftItemClick}
         onItemSelect={onLeftItemSelect}
         onItemSelectAll={onLeftItemSelectAll}
         render={render}
@@ -477,7 +472,6 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         checkedKeys={targetSelectedKeys}
         handleFilter={rightFilter}
         handleClear={handleRightClear}
-        onClick={onRightItemClick}
         onItemSelect={onRightItemSelect}
         onItemSelectAll={onRightItemSelectAll}
         onItemRemove={onRightItemRemove}
