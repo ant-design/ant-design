@@ -80,24 +80,25 @@ describe('Transfer.List', () => {
     ).toBeTruthy();
   });
 
-  it('should onItemSelect arguments number correctly', () => {
-    expect(() => {
-      const { container } = render(
-        <List
-          {...listCommonProps}
-          renderList={({ onItemSelect }) => (
-            <div
-              className="custom-list-body"
-              onClick={() => {
-                expect(onItemSelect).toHaveLength(2);
-              }}
-            >
-              custom list body
-            </div>
-          )}
-        />,
-      );
-      fireEvent.click(container.querySelector('.custom-list-body')!);
-    }).not.toThrow();
+  it('onItemSelect should be called correctly', () => {
+    const onItemSelect = jest.fn();
+    const { container } = render(
+      <List
+        {...listCommonProps}
+        onItemSelect={onItemSelect}
+        renderList={(props) => (
+          <div
+            className="custom-list-body"
+            onClick={(e) => {
+              props.onItemSelect('a', false, e);
+            }}
+          >
+            custom list body
+          </div>
+        )}
+      />,
+    );
+    fireEvent.click(container.querySelector('.custom-list-body')!);
+    expect(onItemSelect).toHaveBeenCalledWith('a', false);
   });
 });
