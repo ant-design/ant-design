@@ -91,10 +91,10 @@ export interface SliderSingleProps extends SliderBaseProps {
 
 export interface SliderRangeProps extends SliderBaseProps {
   range: true | SliderRange;
-  value?: number[];
-  defaultValue?: number[];
-  onChange?: (value: number[]) => void;
-  onAfterChange?: (value: number[]) => void;
+  value?: [number, number];
+  defaultValue?: [number, number];
+  onChange?: (value: [number, number]) => void;
+  onAfterChange?: (value: [number, number]) => void;
   /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties[];
   /** @deprecated Please use `styles.track` instead */
