@@ -78,6 +78,10 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectionsIcon?: React.ReactNode;
 }
 
+export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {
+  onItemSelect: (key: string, check: boolean) => void;
+}
+
 const TransferList = <RecordType extends KeyWiseTransferItem>(
   props: TransferListProps<RecordType>,
 ) => {
@@ -137,7 +141,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   const renderListBody = (defaultListProps: TransferListBodyProps<RecordType>) => {
     const { onItemSelect: onInternalItemSelect, ...restProps } = defaultListProps;
     const onItemSelect = (key: string, check: boolean) => onInternalItemSelect(key, check);
-    const listProps = { ...restProps, onItemSelect };
+    const listProps: TransferCustomListBodyProps<RecordType> = { ...restProps, onItemSelect };
     let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {

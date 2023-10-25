@@ -18,9 +18,8 @@ import defaultLocale from '../locale/en_US';
 import useData from './hooks/useData';
 import useSelection from './hooks/useSelection';
 import type { PaginationType } from './interface';
-import type { TransferListProps } from './list';
+import type { TransferCustomListBodyProps, TransferListProps } from './list';
 import List from './list';
-import type { TransferListBodyProps } from './ListBody';
 import Operation from './operation';
 import Search from './search';
 import useStyle from './style';
@@ -74,10 +73,6 @@ export interface TransferLocale {
   removeCurrent?: string;
 }
 
-interface TransferChildrenProps<T> extends TransferListBodyProps<T> {
-  onItemSelect: (key: string, check: boolean) => void;
-}
-
 export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
@@ -104,7 +99,7 @@ export interface TransferProps<RecordType> {
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferChildrenProps<RecordType>) => React.ReactNode;
+  children?: (props: TransferCustomListBodyProps<RecordType>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
