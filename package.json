@@ -124,7 +124,7 @@
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.1",
     "qrcode.react": "^3.1.0",
-    "rc-cascader": "~3.18.1",
+    "rc-cascader": "~3.19.1",
     "rc-checkbox": "~3.1.0",
     "rc-collapse": "~3.7.1",
     "rc-dialog": "~9.3.4",
@@ -152,8 +152,8 @@
     "rc-tabs": "~12.13.1",
     "rc-textarea": "~1.5.1",
     "rc-tooltip": "~6.1.1",
-    "rc-tree": "~5.7.12",
-    "rc-tree-select": "~5.13.0",
+    "rc-tree": "~5.8.0",
+    "rc-tree-select": "~5.14.0",
     "rc-upload": "~4.3.5",
     "rc-util": "^5.38.0",
     "scroll-into-view-if-needed": "^3.1.0",
@@ -320,11 +320,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "400 KiB"
+      "limit": "401 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "459 KiB"
+      "limit": "460 KiB"
     }
   ],
   "tnpm": {

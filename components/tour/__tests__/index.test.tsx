@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useRef } from 'react';
+
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
