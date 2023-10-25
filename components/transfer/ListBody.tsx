@@ -73,7 +73,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
     }
   }, [filteredRenderItems, mergedPagination, pageSize]);
 
-  const handleClick = (item: RecordType, e: React.MouseEvent<Element, MouseEvent>) => {
+  const onInternalClick = (item: RecordType, e: React.MouseEvent<Element, MouseEvent>) => {
     onClick(item.key, !selectedKeys.includes(item.key), e);
   };
 
@@ -130,7 +130,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
             renderedEl={renderedEl}
             prefixCls={prefixCls}
             showRemove={showRemove}
-            onClick={handleClick}
+            onClick={onInternalClick}
             onRemove={onRemove}
             checked={selectedKeys.includes(item.key)}
             disabled={globalDisabled || item.disabled}
