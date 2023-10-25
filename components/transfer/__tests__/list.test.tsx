@@ -80,7 +80,7 @@ describe('Transfer.List', () => {
     ).toBeTruthy();
   });
 
-  it('should onItemSelect args number correctly', () => {
+  it('should onItemSelect arguments number correctly', () => {
     expect(() => {
       const { container } = render(
         <List
