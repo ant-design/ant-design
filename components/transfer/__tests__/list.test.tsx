@@ -1,7 +1,8 @@
 import React from 'react';
+
 import type { KeyWiseTransferItem } from '..';
+import { fireEvent, render } from '../../../tests/utils';
 import type { TransferListProps } from '../list';
-import { render } from '../../../tests/utils';
 import List from '../list';
 
 const listCommonProps: TransferListProps<KeyWiseTransferItem> = {
@@ -77,5 +78,26 @@ describe('Transfer.List', () => {
         '.ant-transfer-list .ant-transfer-list-header .test-dropdown-icon',
       ),
     ).toBeTruthy();
+  });
+
+  it('should onItemSelect args number correctly', () => {
+    expect(() => {
+      const { container } = render(
+        <List
+          {...listCommonProps}
+          renderList={({ onItemSelect }) => (
+            <div
+              className="custom-list-body"
+              onClick={() => {
+                expect(onItemSelect).toHaveLength(2);
+              }}
+            >
+              custom list body
+            </div>
+          )}
+        />,
+      );
+      fireEvent.click(container.querySelector('.custom-list-body')!);
+    }).not.toThrow();
   });
 });
