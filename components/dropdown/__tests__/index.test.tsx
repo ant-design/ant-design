@@ -264,4 +264,49 @@ describe('Dropdown', () => {
 
     expect(divRef.current).toBeTruthy();
   });
+
+  it('is still open after selection in multiple mode', () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Dropdown
+        trigger={['click']}
+        menu={{
+          items: [
+            {
+              label: '1',
+              key: 1,
+            },
+            {
+              label: '2',
+              key: 2,
+            },
+          ],
+          selectable: true,
+          multiple: true,
+        }}
+      >
+        <a />
+      </Dropdown>,
+    );
+
+    // Open
+    fireEvent.click(container.querySelector('a')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Selecting item
+    fireEvent.click(container.querySelector('.ant-dropdown-menu-item')!);
+
+    // Force Motion move on
+    for (let i = 0; i < 10; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+
+    expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
+
+    jest.useRealTimers();
+  });
 });
