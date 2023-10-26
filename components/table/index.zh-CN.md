@@ -190,7 +190,7 @@ const columns = [
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | 筛选菜单项是否可搜索 | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
 | filters | 表头的筛选菜单项 | object\[] | - |  |
-| fixed | （IE 下无效）列是否固定，可选 true (等效于 left) `left` `right` | boolean \| string | false |  |
+| fixed | （IE 下无效）列是否固定，可选 `true` (等效于 `left`) `left` `right` | boolean \| string | false |  |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引 | function(text, record, index) {} | - |  |
 | responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
@@ -198,7 +198,7 @@ const columns = [
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | 4.3.0 |
 | showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip-cn/#api) | true |  |
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
-| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。 需要服务端单列排序可设为 true，如果要支持服务端多个字段排序可设置为 `{ multiple: number }` | function \| boolean \| { compare: function, multiple: number } | - |  |
+| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。需要服务端排序可设为 `true`（单列排序） 或 `{ multiple: number }`（多列排序） | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
@@ -240,7 +240,7 @@ const columns = [
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
-| fixed | 控制展开图标是否固定，可选 true `left` `right` | boolean \| string | false | 4.16.0 |
+| fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | 4.16.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
 | showExpandColumn | 设置是否展示行展开列 | boolean | true | 4.18.0 |
@@ -278,7 +278,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - |
-| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
 | y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | string \| number | - |
 
 ### selection
