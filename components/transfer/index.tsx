@@ -2,6 +2,8 @@ import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
 import classNames from 'classnames';
 
+import type { PrevSelectedIndex } from '../_util/hooks/useMultipleSelect';
+import useMultipleSelect from '../_util/hooks/useMultipleSelect';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -16,9 +18,8 @@ import defaultLocale from '../locale/en_US';
 import useData from './hooks/useData';
 import useSelection from './hooks/useSelection';
 import type { PaginationType } from './interface';
-import type { TransferListProps } from './list';
+import type { TransferCustomListBodyProps, TransferListProps } from './list';
 import List from './list';
-import type { TransferListBodyProps } from './ListBody';
 import Operation from './operation';
 import Search from './search';
 import useStyle from './style';
@@ -98,7 +99,7 @@ export interface TransferProps<RecordType> {
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
+  children?: (props: TransferCustomListBodyProps<RecordType>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
@@ -169,6 +170,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setTargetSelectedKeys,
   ] = useSelection(leftDataSource, rightDataSource, selectedKeys);
 
+  const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect<
+    KeyWise<RecordType>,
+    string
+  >((item) => item.key);
+  const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect<
+    KeyWise<RecordType>,
+    string
+  >((item) => item.key);
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
 
@@ -187,6 +197,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     },
     [sourceSelectedKeys, targetSelectedKeys],
   );
+
+  const setPrevSelectedIndex = (direction: TransferDirection, value: PrevSelectedIndex) => {
+    const isLeftDirection = direction === 'left';
+    const updatePrevSelectedIndex = isLeftDirection
+      ? updateLeftPrevSelectedIndex
+      : updateRightPrevSelectedIndex;
+    updatePrevSelectedIndex(value);
+  };
 
   const handleSelectChange = useCallback(
     (direction: TransferDirection, holder: string[]) => {
@@ -231,10 +249,12 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const moveToLeft = () => {
     moveTo('left');
+    setPrevSelectedIndex('left', null);
   };
 
   const moveToRight = () => {
     moveTo('right');
+    setPrevSelectedIndex('right', null);
   };
 
   const onItemSelectAll = (
@@ -257,6 +277,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       handleSelectChange(direction, mergedCheckedKeys);
       return mergedCheckedKeys;
     });
+    setPrevSelectedIndex(direction, null);
   };
 
   const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
@@ -275,27 +296,75 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const handleRightClear = () => onSearch?.('right', '');
 
-  const onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
-    const holder = [...(direction === 'left' ? sourceSelectedKeys : targetSelectedKeys)];
-    const index = holder.indexOf(selectedKey);
-    if (index > -1) {
-      holder.splice(index, 1);
+  const handleSingleSelect = (
+    direction: TransferDirection,
+    holder: Set<string>,
+    selectedKey: string,
+    checked: boolean,
+    currentSelectedIndex: number,
+  ) => {
+    const isSelected = holder.has(selectedKey);
+    if (isSelected) {
+      holder.delete(selectedKey);
+      setPrevSelectedIndex(direction, null);
     }
     if (checked) {
-      holder.push(selectedKey);
+      holder.add(selectedKey);
+      setPrevSelectedIndex(direction, currentSelectedIndex);
     }
-    handleSelectChange(direction, holder);
+  };
+
+  const handleMultipleSelect = (
+    direction: TransferDirection,
+    data: KeyWise<RecordType>[],
+    holder: Set<string>,
+    currentSelectedIndex: number,
+  ) => {
+    const isLeftDirection = direction === 'left';
+    const multipleSelect = isLeftDirection ? leftMultipleSelect : rightMultipleSelect;
+    multipleSelect(currentSelectedIndex, data, holder);
+  };
+
+  const onItemSelect = (
+    direction: TransferDirection,
+    selectedKey: string,
+    checked: boolean,
+    multiple?: boolean,
+  ) => {
+    const isLeftDirection = direction === 'left';
+    const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
+    const holderSet = new Set(holder);
+    const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
+      (item) => !item.disabled,
+    );
+    const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
+    // multiple select by hold down the shift key
+    if (multiple && holder.length > 0) {
+      handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
+    } else {
+      handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
+    }
+    const holderArr = Array.from(holderSet);
+    handleSelectChange(direction, holderArr);
     if (!props.selectedKeys) {
-      setStateKeys(direction, holder);
+      setStateKeys(direction, holderArr);
     }
   };
 
-  const onLeftItemSelect = (selectedKey: string, checked: boolean) => {
-    onItemSelect('left', selectedKey, checked);
+  const onLeftItemSelect = (
+    selectedKey: string,
+    checked: boolean,
+    e?: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
 
-  const onRightItemSelect = (selectedKey: string, checked: boolean) => {
-    onItemSelect('right', selectedKey, checked);
+  const onRightItemSelect = (
+    selectedKey: string,
+    checked: boolean,
+    e?: React.MouseEvent<Element, MouseEvent>,
+  ) => {
+    onItemSelect('right', selectedKey, checked, e?.shiftKey);
   };
 
   const onRightItemRemove = (keys: string[]) => {
