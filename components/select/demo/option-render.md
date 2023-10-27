@@ -4,4 +4,4 @@
 
 ## en-US
 
-Use `optionRender` to freely expand dropdown menu items.
+Use `optionRender` to freely customize dropdown menu items.
