@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Select, Space } from 'antd';
+import { Checkbox, Select, Space } from 'antd';
 import type { SelectProps } from 'antd';
 
 const options: SelectProps['options'] = [
@@ -32,7 +32,7 @@ const App: React.FC = () => {
       onChange={setValue}
       optionRender={(oriOption) => (
         <Space>
-          <Radio checked={value === oriOption.value} />
+          <Checkbox checked={value === oriOption.value} />
           <span>{oriOption.label}</span>
         </Space>
       )}
