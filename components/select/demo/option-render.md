@@ -1,6 +1,6 @@
 ## zh-CN
 
-使用 `optionRender` 对下拉菜单项进行自由扩展。
+使用 `optionRender` 对下拉菜单项进行自定义。
 
 ## en-US
 
