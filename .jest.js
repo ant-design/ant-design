@@ -19,7 +19,7 @@ const ignoreList = [];
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  `[/\\]node_modules[/\\](?!${ignoreList.join('|')})[^/\\]+?[/\\](?!(es)[/\\])`,
+  `[/\\\\]node_modules[/\\\\](?!${ignoreList.join('|')})[^/\\\\]+?[/\\\\](?!(es)[/\\\\])`,
 ];
 
 function getTestRegex(libDir) {
