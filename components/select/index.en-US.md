@@ -41,7 +41,7 @@ Select component to select value from options.
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/option-render.tsx">Customize the rendering dropdown options</code>
+<code src="./demo/option-render.tsx" version=">=5.11.0">Customize the rendering dropdown options</code>
 <code src="./demo/placement-debug.tsx" debug>Dynamic Height</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
