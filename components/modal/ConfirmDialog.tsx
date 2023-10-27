@@ -148,9 +148,9 @@ export function ConfirmContent(
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
               ? footer(footerOriginNode, {
-                  OkBtn,
-                  CancelBtn,
-                })
+                OkBtn,
+                CancelBtn,
+              })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
@@ -185,6 +185,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     modalRender,
     focusTriggerAfterClose,
     onConfirm,
+    styles
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -244,7 +245,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         mask={mask}
         maskClosable={maskClosable}
         style={style}
-        styles={{
+        styles={styles || {
           body: bodyStyle,
           mask: maskStyle,
         }}
