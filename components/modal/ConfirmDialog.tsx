@@ -185,7 +185,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     modalRender,
     focusTriggerAfterClose,
     onConfirm,
-    styles
+    styles,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
