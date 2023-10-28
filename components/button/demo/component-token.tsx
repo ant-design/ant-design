@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ConfigProvider, Space } from 'antd';
+import { Button, ConfigProvider, Flex } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider
@@ -10,7 +10,7 @@ const App: React.FC = () => (
           colorPrimary: '#1976d2',
           controlHeight: 36,
           primaryShadow:
-            '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
+            '0 3px 1px -2px rgba(0,0,0,0.2), 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12)',
           fontWeight: 500,
           defaultBorderColor: 'rgba(25, 118, 210, 0.5)',
           colorText: '#1976d2',
@@ -22,13 +22,13 @@ const App: React.FC = () => (
       },
     }}
   >
-    <Space direction="vertical">
-      <Space wrap>
+    <Flex gap="small" vertical>
+      <Flex wrap="wrap" gap="small">
         <Button type="text">TEXT</Button>
         <Button type="primary">CONTAINED</Button>
         <Button>OUTLINED</Button>
-      </Space>
-      <Space wrap>
+      </Flex>
+      <Flex wrap="wrap" gap="small">
         <Button type="text" disabled>
           TEXT
         </Button>
@@ -36,8 +36,8 @@ const App: React.FC = () => (
           CONTAINED
         </Button>
         <Button disabled>OUTLINED</Button>
-      </Space>
-    </Space>
+      </Flex>
+    </Flex>
   </ConfigProvider>
 );
 
