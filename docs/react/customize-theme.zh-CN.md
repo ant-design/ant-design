@@ -18,7 +18,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ## 配置主题
 
-在 5.0 版本中我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。在升级 v5 后，将默认使用 v5 的主题.
+在 5.0 版本中我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。在升级 v5 后，将默认使用 v5 的主题。
 
 <!-- prettier-ignore -->
 :::warning
@@ -30,7 +30,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ### 修改主题变量
 
-通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量成为 Seed Token。
+通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量称为 Seed Token。
 
 ```sandpack
 const sandpackConfig = {
@@ -377,7 +377,7 @@ createRoot(document.getElementById('#app')).render(
 
 我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
 
-你可以使用此工具自由地修改 Design Token，以达到您对主题的期望。
+你可以使用此工具自由地修改 Design Token，以达到你对主题的期望。
 
 ## 基本概念
 
