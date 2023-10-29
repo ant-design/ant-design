@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PoweroffOutlined } from '@ant-design/icons';
-import { Button, Space } from 'antd';
+import { Button, Flex } from 'antd';
 
 const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
@@ -22,8 +22,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
-      <Space wrap>
+    <Flex gap="small" vertical>
+      <Flex gap="small" align="center" wrap="wrap">
         <Button type="primary" loading>
           Loading
         </Button>
@@ -31,9 +31,8 @@ const App: React.FC = () => {
           Loading
         </Button>
         <Button type="primary" icon={<PoweroffOutlined />} loading />
-      </Space>
-
-      <Space wrap>
+      </Flex>
+      <Flex gap="small" wrap="wrap">
         <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
           Click me!
         </Button>
@@ -51,8 +50,8 @@ const App: React.FC = () => {
           loading={loadings[2]}
           onClick={() => enterLoading(2)}
         />
-      </Space>
-    </Space>
+      </Flex>
+    </Flex>
   );
 };
 

@@ -39,9 +39,9 @@ title: 表单页
   </div>
 </div>
 
-### Do&Don’t
+### Do & Don’t
 
-在表单页中组织呈现各表单项时要注意简洁表达，高效准确，避免增加用户录入信息的成本。
+在表单页中组织呈现各表单项时要注意简洁表达、高效准确，避免增加用户录入信息的成本。
 
 <ImagePreview>
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k9DyRYLzjcoAAAAAAAAAAABkARQnAQ" alt="错误示范" />

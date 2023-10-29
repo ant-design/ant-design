@@ -1,0 +1,22 @@
+name: 🐦 Release to Tweet
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  tweet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tweet
+        uses: nearform-actions/github-action-notify-twitter@v1
+        with:
+          message: |
+            Ant Design (antd@${{ github.event.release.tag_name }}) has been released ~ 🎊🎊🎊 Check out the release notes: ${{ github.event.release.html_url }}
+          twitter-app-key: ${{ secrets.TWITTER_API_KEY }}
+          twitter-app-secret: ${{ secrets.TWITTER_API_SECRET_KEY }}
+          twitter-access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter-access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
