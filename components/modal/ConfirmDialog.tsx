@@ -148,9 +148,9 @@ export function ConfirmContent(
           <div className={`${confirmPrefixCls}-btns`}>
             {typeof footer === 'function'
               ? footer(footerOriginNode, {
-                OkBtn,
-                CancelBtn,
-              })
+                  OkBtn,
+                  CancelBtn,
+                })
               : footerOriginNode}
           </div>
         </ModalContextProvider>
