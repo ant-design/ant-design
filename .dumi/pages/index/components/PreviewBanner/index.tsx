@@ -36,7 +36,8 @@ const useStyle = () => {
       position: absolute;
       inset: 0;
       backdrop-filter: blur(4px);
-      transition: all 1s ease;
+      opacity: 1;
+      transition: opacity 1s ease;
     `);
 
     return {
@@ -54,7 +55,7 @@ const useStyle = () => {
         row-gap: ${token.marginXL}px;
 
         &:hover .${mask} {
-          backdrop-filter: none;
+          opacity: 0;
         }
       `,
 

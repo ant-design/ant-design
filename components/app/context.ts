@@ -1,12 +1,13 @@
 import React from 'react';
-import type { MessageInstance, ConfigOptions as MessageConfig } from '../message/interface';
-import type { NotificationInstance, NotificationConfig } from '../notification/interface';
-import type { HookAPI as ModalHookAPI } from '../modal/useModal';
 
-export type AppConfig = {
+import type { ConfigOptions as MessageConfig, MessageInstance } from '../message/interface';
+import type { HookAPI as ModalHookAPI } from '../modal/useModal';
+import type { NotificationConfig, NotificationInstance } from '../notification/interface';
+
+export interface AppConfig {
   message?: MessageConfig;
   notification?: NotificationConfig;
-};
+}
 
 export const AppConfigContext = React.createContext<AppConfig>({});
 

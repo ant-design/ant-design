@@ -7,7 +7,7 @@ import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
 
 export interface FloatButtonRef {
-  nativeElement: HTMLAnchorElement & HTMLButtonElement;
+  nativeElement: (HTMLAnchorElement & HTMLButtonElement) | null;
 }
 
 export type FloatButtonType = 'default' | 'primary';

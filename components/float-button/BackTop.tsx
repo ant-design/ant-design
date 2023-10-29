@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
-import { composeRef } from 'rc-util/lib/ref';
 
 import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
@@ -14,7 +13,7 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { BackTopProps, FloatButtonProps, FloatButtonRef, FloatButtonShape } from './interface';
 import useStyle from './style';
 
-const BackTop = React.forwardRef<FloatButtonRef['nativeElement'], BackTopProps>((props, ref) => {
+const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -32,7 +31,9 @@ const BackTop = React.forwardRef<FloatButtonRef['nativeElement'], BackTopProps>(
 
   const internalRef = React.useRef<FloatButtonRef['nativeElement']>(null);
 
-  const mergedRef = composeRef<FloatButtonRef['nativeElement']>(ref, internalRef);
+  React.useImperativeHandle(ref, () => ({
+    nativeElement: internalRef.current,
+  }));
 
   const getDefaultTarget = (): HTMLElement | Document | Window =>
     internalRef.current && internalRef.current.ownerDocument
@@ -78,7 +79,7 @@ const BackTop = React.forwardRef<FloatButtonRef['nativeElement'], BackTopProps>(
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
       {({ className: motionClassName }) => (
         <FloatButton
-          ref={mergedRef}
+          ref={internalRef}
           {...contentProps}
           onClick={scrollToTop}
           className={classNames(className, motionClassName)}

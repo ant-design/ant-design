@@ -1,14 +1,13 @@
-// @ts-nocheck
-import { PoweroffOutlined } from '@ant-design/icons';
 import React from 'react';
-import { Button, Space } from 'antd';
+import { PoweroffOutlined } from '@ant-design/icons';
+import { Button, Flex } from 'antd';
 
 const Text1 = () => '部署';
 const Text2 = () => <span>部署</span>;
 const Text3 = () => 'Submit';
 
 const App: React.FC = () => (
-  <Space wrap>
+  <Flex wrap="wrap" gap="small">
     <Button>
       <span>
         <span>部署</span>
@@ -28,7 +27,7 @@ const App: React.FC = () => (
       <Text1 />
     </Button>
     <Button loading>按钮</Button>
-  </Space>
+  </Flex>
 );
 
 export default App;

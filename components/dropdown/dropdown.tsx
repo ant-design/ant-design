@@ -215,9 +215,12 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const onMenuClick = React.useCallback(() => {
+    if (menu?.selectable && menu?.multiple) {
+      return;
+    }
     onOpenChange?.(false, { source: 'menu' });
     setOpen(false);
-  }, []);
+  }, [menu?.selectable, menu?.multiple]);
 
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
