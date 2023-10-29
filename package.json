@@ -199,7 +199,7 @@
     "@types/prismjs": "^1.26.0",
     "@types/progress": "^2.0.5",
     "@types/qs": "^6.9.7",
-    "@types/react": "18.2.33",
+    "@types/react": "^18.2.33",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-highlight-words": "^0.16.4",
@@ -304,7 +304,7 @@
     "terser": "^5.16.1",
     "tsx": "^3.12.8",
     "typedoc": "^0.25.0",
-    "typescript": "~5.2.2",
+    "typescript": "^5.2.2",
     "vanilla-jsoneditor": "^0.18.0",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1"
