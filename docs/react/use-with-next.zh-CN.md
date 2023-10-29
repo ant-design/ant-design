@@ -33,9 +33,8 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```tsx
-'use client';
+'use client'; // 如果是在 Pages Router 中使用，则不需要添加 "use client"
 
-// 如果是在 Pages Router 中使用，则不需要加这行
 import React from 'react';
 import { Button } from 'antd';
 
