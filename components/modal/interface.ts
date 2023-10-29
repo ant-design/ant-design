@@ -8,7 +8,7 @@ export type ModalFooterRender = (
   originNode: React.ReactNode,
   extra: { OkBtn: FC; CancelBtn: FC },
 ) => React.ReactNode;
-interface ModalCommonProps{
+interface ModalCommonProps {
   styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
 }
 export interface ModalProps extends ModalCommonProps {
