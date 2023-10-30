@@ -27,7 +27,8 @@ tag: vVERSION
 - 🐞 修复 Dropdown 在点击子项后总是关闭的问题。[#45513](https://github.com/ant-design/ant-design/pull/45513) [@vyachsed](https://github.com/vyachsed)
 - 💄 修复 Notification 组件在 windows 系统下的样式问题。[#45500](https://github.com/ant-design/ant-design/pull/45500) [@MadCcc](https://github.com/MadCcc)
 - 💄 修复 Notification 组件 `style` 属性会重复添加到外层的问题。[#45487](https://github.com/ant-design/ant-design/pull/45487) [@MadCcc](https://github.com/MadCcc)
-- 🤖 修复 `App.useApp` 中 `modal` 类型定义。[#45462](https://github.com/ant-design/ant-design/pull/45462) [@mjss](https://github.com/mjss)
+- TypeScript
+  - 🤖 修复 `App.useApp` 中 `modal` 类型定义。[#45462](https://github.com/ant-design/ant-design/pull/45462) [@mjss](https://github.com/mjss)
 
 ## 5.10.2
 
