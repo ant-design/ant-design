@@ -1,4 +1,4 @@
-import AbstractCalculator from 'antd/es/theme/util/calc/calculator';
+import AbstractCalculator from './calculator';
 import { unit } from '@ant-design/cssinjs';
 
 export default class CSSCalculator extends AbstractCalculator<string> {
