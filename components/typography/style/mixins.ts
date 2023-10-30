@@ -253,6 +253,15 @@ export const getEllipsisStyles = (): CSSObject => ({
     'a&, span&': {
       verticalAlign: 'bottom',
     },
+
+    '> code': {
+      paddingBlock: 0,
+      maxWidth: 'calc(100% - 1.2em)',
+      display: 'inline-block',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      verticalAlign: 'bottom',
+    },
   },
 
   '&-ellipsis-multiple-line': {
