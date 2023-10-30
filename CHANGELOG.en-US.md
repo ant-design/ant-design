@@ -21,7 +21,7 @@ tag: vVERSION
 `2023-10-30`
 
 - 💄 Modify the time picker scroll bar style. [#45478](https://github.com/ant-design/ant-design/pull/45478) [@GeorgeHcc](https://github.com/GeorgeHcc)
-- 🆕 feat: BackTop ref support nativeElement. [#45547](https://github.com/ant-design/ant-design/pull/45547) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 BackTop ref support nativeElement. [#45547](https://github.com/ant-design/ant-design/pull/45547) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Watermark that `gap` should have default value when passing `undefined` in array. [#45537](https://github.com/ant-design/ant-design/pull/45537) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Fix Dropdown always closes after clicking on an item. [#45513](https://github.com/ant-design/ant-design/pull/45513) [@vyachsed](https://github.com/vyachsed)
 - 💄 Fix Notification style issue in windows system. [#45500](https://github.com/ant-design/ant-design/pull/45500) [@MadCcc](https://github.com/MadCcc)
