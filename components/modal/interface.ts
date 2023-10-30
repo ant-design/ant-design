@@ -117,6 +117,12 @@ export interface ModalFuncProps {
   footer?: ModalProps['footer'];
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
+  styles: {
+    header: React.CSSProperties;
+    body: React.CSSProperties;
+    footer: React.CSSProperties;
+    mask: React.CSSProperties;
+  }
 }
 
 export interface ModalLocale {
