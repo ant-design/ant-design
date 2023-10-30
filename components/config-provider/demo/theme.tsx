@@ -9,7 +9,6 @@ import {
   InputNumber,
   Space,
   Switch,
-  theme as antdTheme,
 } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 
@@ -36,42 +35,18 @@ export default () => {
   const [data, setData] = React.useState<ThemeData>(defaultData);
 
   return (
-    <div className="light">
+    <div>
       <ConfigProvider
         theme={{
-          cssVariables: true,
           token: {
             colorPrimary: data.colorPrimary,
-          },
-        }}
-      >
-        <Space>
-          <Input />
-          <Button type="primary">Button</Button>
-        </Space>
-      </ConfigProvider>
-      <Divider />
-      <ConfigProvider
-        theme={{
-          cssVariables: true,
-          token: {
-            colorPrimary: data.colorPrimary,
+            borderRadius: data.borderRadius,
           },
           components: {
             Button: {
-              colorPrimary: '#00B96B',
-              algorithm: true,
+              colorPrimary: data.Button?.colorPrimary,
+              algorithm: data.Button?.algorithm,
             },
-          },
-        }}
-        cssThemes={{
-          light: {
-            token: {
-              colorPrimary: '#00B96B',
-            },
-          },
-          dark: {
-            algorithm: antdTheme.darkAlgorithm,
           },
         }}
       >
