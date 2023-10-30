@@ -3,17 +3,30 @@ import isEqual from 'rc-util/lib/isEqual';
 import type { OverrideToken } from '../../theme/interface';
 import type { ThemeConfig } from '../context';
 import { defaultConfig } from '../../theme/internal';
-import { useId } from 'react';
+import useThemeKey from 'antd/es/config-provider/hooks/useThemeKey';
+import { devUseWarning } from '../../_util/warning';
 
 export default function useTheme(
   theme?: ThemeConfig,
   parentTheme?: ThemeConfig,
 ): ThemeConfig | undefined {
+  const warning = devUseWarning('ConfigProvider');
+
   const themeConfig = theme || {};
   const parentThemeConfig: ThemeConfig =
     themeConfig.inherit === false || !parentTheme ? defaultConfig : parentTheme;
 
-  const id = useId();
+  const id = useThemeKey();
+
+  if (process.env.NODE_ENV !== 'production') {
+    const cssVarEnabled = themeConfig.cssVar || parentThemeConfig.cssVar;
+    const validKey = !!(themeConfig.cssVar?.key || id);
+    warning(
+      !cssVarEnabled || validKey,
+      'breaking',
+      'Missing key in `cssVar` config. Please upgrade to React 18 or set `cssVar.key` manually in each ConfigProvider inside `cssVar` enabled ConfigProvider.',
+    );
+  }
 
   return useMemo<ThemeConfig | undefined>(
     () => {
@@ -33,7 +46,7 @@ export default function useTheme(
         } as any;
       });
 
-      const cssVarKey = `css-var-${id.replace(/:/g, 'c')}`;
+      const cssVarKey = `css-var-${id.replace(/:/g, '')}`;
       const mergedCssVar =
         (themeConfig.cssVar && {
           ...themeConfig.cssVar,
