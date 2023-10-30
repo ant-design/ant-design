@@ -366,15 +366,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
-        <ConfigProvider theme={{ cssVar: {} }}>
-          {!liveEnabled ? (
-            <ErrorBoundary>
-              <React.StrictMode>{liveDemo.current}</React.StrictMode>
-            </ErrorBoundary>
-          ) : (
-            <LiveDemo />
-          )}
-        </ConfigProvider>
+        {!liveEnabled ? (
+          <ErrorBoundary>
+            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          </ErrorBoundary>
+        ) : (
+          <LiveDemo />
+        )}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">

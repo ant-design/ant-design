@@ -152,7 +152,15 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       const defaultComponentToken = getDefaultComponentToken();
       const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
+      // Remove same value as global token to minimize size
+      Object.keys(mergedComponentToken).forEach((key) => {
+        if (mergedComponentToken[key] === realToken[key as keyof GlobalToken]) {
+          delete mergedComponentToken[key];
+        }
+      });
+
       if (prefix) {
+        // Prefix component token with component name
         Object.keys(defaultComponentToken).forEach((key) => {
           const newKey = `${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`;
           mergedComponentToken[newKey] = mergedComponentToken[key];
