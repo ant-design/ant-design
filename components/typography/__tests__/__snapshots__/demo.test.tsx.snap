@@ -507,7 +507,7 @@ Array [
   <span
     aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team."
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-    style="width:100px"
+    style="width:200px"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.
     <span
@@ -525,6 +525,33 @@ Array [
       >
         ...
       </span>
+    </span>
+  </span>,
+  <span
+    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team."
+    class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+    style="width:200px"
+  >
+    <code>
+      Ant Design, a design language for background applications, is refined by Ant UED Team.
+    </code>
+    <span
+      aria-hidden="true"
+      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
+    >
+      lg
+    </span>
+    <span
+      aria-hidden="true"
+      style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
+    >
+      <code>
+        <span
+          aria-hidden="true"
+        >
+          ...
+        </span>
+      </code>
     </span>
   </span>,
 ]
