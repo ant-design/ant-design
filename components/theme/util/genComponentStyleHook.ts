@@ -16,7 +16,7 @@ import useToken, { unitless, ignore } from '../useToken';
 import statisticToken, { merge as mergeToken } from './statistic';
 import useResetIconStyle from './useResetIconStyle';
 import calc from './calc';
-import type AbstractCalculator from './util/calc/calculator';
+import type AbstractCalculator from './calc/calculator';
 import classNames from 'classnames';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
