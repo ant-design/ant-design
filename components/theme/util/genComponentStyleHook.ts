@@ -91,7 +91,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string): UseComponentStyleResult => {
+  return (prefixCls: string, rootCls = prefixCls): UseComponentStyleResult => {
     const [theme, token, hashId, realToken, cssVarKey] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
@@ -168,11 +168,11 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       {
         path: [concatComponent, prefixCls, iconPrefixCls],
         prefix: `antd`,
-        key: cssVarKey,
+        key: cssVarKey!,
         unitless,
         ignore,
         token: realToken,
-        scope: prefixCls,
+        scope: rootCls,
       },
       cssVarKey
         ? () => {
