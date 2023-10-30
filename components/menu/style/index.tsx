@@ -96,7 +96,7 @@ export interface ComponentToken {
    * @desc 菜单项标题文字选中颜色
    * @descEN Color of selected menu item title text
    */
-  itemTitleSelectedColor: string;
+  subMenuItemSelectedColor: string;
 
   /** @deprecated Use `horizontalItemSelectedColor` instead */
   colorItemTextSelectedHorizontal: string;
@@ -945,7 +945,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         groupTitleColor: colorTextDescription,
         colorItemTextSelected: colorPrimary,
         itemSelectedColor: colorPrimary,
-        itemTitleSelectedColor: colorPrimary,
+        subMenuItemSelectedColor: colorPrimary,
         colorItemTextSelectedHorizontal: colorPrimary,
         horizontalItemSelectedColor: colorPrimary,
         colorItemBg: colorBgContainer,
