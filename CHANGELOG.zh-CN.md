@@ -28,7 +28,6 @@ tag: vVERSION
 - 💄 修复 Notification 组件在 windows 系统下的样式问题。[#45500](https://github.com/ant-design/ant-design/pull/45500) [@MadCcc](https://github.com/MadCcc)
 - 💄 修复 Notification 组件 `style` 属性会重复添加到外层的问题。[#45487](https://github.com/ant-design/ant-design/pull/45487) [@MadCcc](https://github.com/MadCcc)
 - 🤖 修复 `App.useApp` 中 `modal` 类型定义。[#45462](https://github.com/ant-design/ant-design/pull/45462) [@mjss](https://github.com/mjss)
-- 🛠 移除了Form中无用的`SizeContextProvider`。[#45295](https://github.com/ant-design/ant-design/pull/45295) [@AlanQtten](https://github.com/AlanQtten)
 
 ## 5.10.2
 

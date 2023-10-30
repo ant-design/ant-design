@@ -28,7 +28,6 @@ tag: vVERSION
 - 💄 Fix Notification style issue in windows system. [#45500](https://github.com/ant-design/ant-design/pull/45500) [@MadCcc](https://github.com/MadCcc)
 - 💄 Fix Notification duplicated `style` applied to wrapper. [#45487](https://github.com/ant-design/ant-design/pull/45487) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Fix `modal` return type in `useApp` hook. [#45462](https://github.com/ant-design/ant-design/pull/45462) [@mjss](https://github.com/mjss)
-- 🛠 Remove useless `SizeContextProvider` in Form. [#45295](https://github.com/ant-design/ant-design/pull/45295) [@AlanQtten](https://github.com/AlanQtten)
 
 ## 5.10.2
 
