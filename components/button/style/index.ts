@@ -599,7 +599,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
       [`${componentCls}${sizePrefixCls}`]: {
         fontSize,
         height: controlHeight,
-        padding: `${unit(buttonPaddingVertical)} ${unit(buttonPaddingHorizontal!)}`,
+        padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
 
         [`&${iconOnlyCls}`]: {
