@@ -20,6 +20,7 @@ tag: vVERSION
 
 `2023-10-30`
 
+- 💄 修复 Typography.Text 同时启用 `ellipsis` 和 `code` 时丢失右边框样式的问题。[#45575](https://github.com/ant-design/ant-design/pull/45575)
 - 💄 修改时间选择器滚动条样式。[#45478](https://github.com/ant-design/ant-design/pull/45478) [@GeorgeHcc](https://github.com/GeorgeHcc)
 - 🆕 BackTop 支持使用 nativeElement 获取 `ref` 。[#45547](https://github.com/ant-design/ant-design/pull/45547) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Watermark 组件 `gap` 在数组中含有 `undefined` 时没有默认值的问题。[#45537](https://github.com/ant-design/ant-design/pull/45537) [@MadCcc](https://github.com/MadCcc)
