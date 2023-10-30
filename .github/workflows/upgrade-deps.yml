@@ -5,6 +5,15 @@ on:
     - cron: "0 18 * * *" # every day at 18:00 UTC
     # - timezone: Asia/Shanghai # not supported yet https://github.com/orgs/community/discussions/13454
   workflow_dispatch:
+    inputs:
+      upgrade-strategy:
+        description: "Upgrade strategy. (default: semver)"
+        required: true
+        default: "semver"
+        type: choice
+        options:
+        - "semver"
+        - "latest"
 
 jobs:
   upgrade-deps:
@@ -33,7 +42,7 @@ jobs:
           if [ ! -d .tmp ] ; then
             mkdir .tmp
           fi
-          $(npx npm-check-updates -u > .tmp/upgrade-deps.txt) 2>&1 || true
+          $(npx npm-check-updates -u -t ${{ inputs.upgrade-strategy || 'semver' }} > .tmp/upgrade-deps.txt) 2>&1 || true
           if [ -s .tmp/upgrade-deps.txt ]; then
             cat .tmp/upgrade-deps.txt
             echo "upgrade-deps<<EOF" >> $GITHUB_OUTPUT
