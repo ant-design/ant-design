@@ -28,12 +28,18 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       ...resetComponent(token),
+      position: 'relative',
 
       [componentCls]: {
         outline: 0,
-        "input[type='file']": {
-          cursor: 'pointer',
-        },
+      },
+
+      [`${componentCls}-trigger`]: {
+        cursor: 'pointer',
+        position: 'absolute',
+        inset: 0,
+        width: 0,
+        height: 0,
       },
 
       [`${componentCls}-select`]: {

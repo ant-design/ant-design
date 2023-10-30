@@ -154,7 +154,7 @@
     "rc-tooltip": "~6.1.2",
     "rc-tree": "~5.7.12",
     "rc-tree-select": "~5.13.0",
-    "rc-upload": "~4.3.5",
+    "rc-upload": "~4.4.0",
     "rc-util": "^5.38.0",
     "scroll-into-view-if-needed": "^3.0.3",
     "throttle-debounce": "^5.0.0"

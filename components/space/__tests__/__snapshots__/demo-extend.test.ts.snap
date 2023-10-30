@@ -182,7 +182,8 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
         >
           <input
             accept=""
-            style="display: none;"
+            class="ant-upload-trigger"
+            style="display: unset; visibility: hidden;"
             type="file"
           />
           <button

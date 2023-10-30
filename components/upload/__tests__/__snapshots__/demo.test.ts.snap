@@ -15,7 +15,8 @@ Array [
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <div>
@@ -63,7 +64,8 @@ Array [
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <div>
@@ -115,7 +117,8 @@ exports[`renders components/upload/demo/basic.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -171,7 +174,8 @@ exports[`renders components/upload/demo/component-token.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -450,7 +454,8 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx correctly 1`]
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -506,7 +511,8 @@ exports[`renders components/upload/demo/defaultFileList.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -785,8 +791,9 @@ exports[`renders components/upload/demo/directory.tsx correctly 1`] = `
     >
       <input
         accept=""
+        class="ant-upload-trigger"
         directory="directory"
-        style="display:none"
+        style="display:unset;visibility:hidden"
         type="file"
         webkitdirectory="webkitdirectory"
       />
@@ -843,8 +850,9 @@ exports[`renders components/upload/demo/drag.tsx correctly 1`] = `
     >
       <input
         accept=""
+        class="ant-upload-trigger"
         multiple=""
-        style="display:none"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <div
@@ -906,7 +914,8 @@ exports[`renders components/upload/demo/drag-sorting.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -1949,7 +1958,8 @@ exports[`renders components/upload/demo/file-type.tsx correctly 1`] = `
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <div>
@@ -2001,8 +2011,9 @@ exports[`renders components/upload/demo/fileList.tsx correctly 1`] = `
     >
       <input
         accept=""
+        class="ant-upload-trigger"
         multiple=""
-        style="display:none"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -2140,7 +2151,8 @@ exports[`renders components/upload/demo/max-count.tsx correctly 1`] = `
         >
           <input
             accept=""
-            style="display:none"
+            class="ant-upload-trigger"
+            style="display:unset;visibility:hidden"
             type="file"
           />
           <button
@@ -2197,8 +2209,9 @@ exports[`renders components/upload/demo/max-count.tsx correctly 1`] = `
         >
           <input
             accept=""
+            class="ant-upload-trigger"
             multiple=""
-            style="display:none"
+            style="display:unset;visibility:hidden"
             type="file"
           />
           <button
@@ -2751,7 +2764,8 @@ exports[`renders components/upload/demo/picture-card.tsx correctly 1`] = `
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <div>
@@ -3031,7 +3045,8 @@ exports[`renders components/upload/demo/picture-circle.tsx correctly 1`] = `
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <div>
@@ -3084,7 +3099,8 @@ Array [
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <button
@@ -3362,7 +3378,8 @@ Array [
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <button
@@ -3642,7 +3659,8 @@ exports[`renders components/upload/demo/preview-file.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -3698,7 +3716,8 @@ exports[`renders components/upload/demo/transform-file.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -3754,7 +3773,8 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx correctly 
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -4052,7 +4072,8 @@ Array [
       >
         <input
           accept=""
-          style="display:none"
+          class="ant-upload-trigger"
+          style="display:unset;visibility:hidden"
           type="file"
         />
         <button
@@ -4119,7 +4140,8 @@ exports[`renders components/upload/demo/upload-png-only.tsx correctly 1`] = `
     >
       <input
         accept=""
-        style="display:none"
+        class="ant-upload-trigger"
+        style="display:unset;visibility:hidden"
         type="file"
       />
       <button
@@ -4204,7 +4226,8 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx correctly 1`]
                 >
                   <input
                     accept=""
-                    style="display:none"
+                    class="ant-upload-trigger"
+                    style="display:unset;visibility:hidden"
                     type="file"
                   />
                   <button

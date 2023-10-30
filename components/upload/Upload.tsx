@@ -350,6 +350,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
+    styles: {
+      input: { display: 'unset', visibility: 'hidden' },
+    },
+    classNames: {
+      input: `${prefixCls}-trigger`,
+    },
   } as RcUploadProps;
 
   delete rcUploadProps.className;
