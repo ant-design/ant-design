@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, ConfigProvider, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
@@ -364,7 +364,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
-          <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          <ConfigProvider theme={{ cssVar: {} }}>
+            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          </ConfigProvider>
         </ErrorBoundary>
       </section>
       <section className="code-box-meta markdown">

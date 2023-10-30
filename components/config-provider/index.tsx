@@ -19,7 +19,7 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
-import { defaultTheme, DesignTokenContext } from '../theme/context';
+import { defaultTheme, DesignTokenContext, DesignTokenProvider } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
@@ -149,7 +149,6 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
-  cssThemes?: Record<string, ThemeConfig>;
 
   warning?: WarningContextProps;
 
@@ -343,7 +342,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     flex,
     wave,
     warning: warningConfig,
-    cssThemes,
   } = props;
 
   // =================================== Context ===================================
@@ -568,9 +566,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }, [mergedTheme]);
 
   if (theme) {
-    childNode = (
-      <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
-    );
+    childNode = <DesignTokenProvider theme={memoTheme}>{childNode}</DesignTokenProvider>;
   }
 
   // ================================== Warning ===================================

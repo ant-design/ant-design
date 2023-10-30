@@ -3,6 +3,7 @@ import isEqual from 'rc-util/lib/isEqual';
 import type { OverrideToken } from '../../theme/interface';
 import type { ThemeConfig } from '../context';
 import { defaultConfig } from '../../theme/internal';
+import { useId } from 'react';
 
 export default function useTheme(
   theme?: ThemeConfig,
@@ -11,6 +12,8 @@ export default function useTheme(
   const themeConfig = theme || {};
   const parentThemeConfig: ThemeConfig =
     themeConfig.inherit === false || !parentTheme ? defaultConfig : parentTheme;
+
+  const id = useId().replace(/:/g, 'c');
 
   return useMemo<ThemeConfig | undefined>(
     () => {
@@ -30,6 +33,16 @@ export default function useTheme(
         } as any;
       });
 
+      const mergedCssVar =
+        (themeConfig.cssVar && {
+          ...themeConfig.cssVar,
+          key: themeConfig.cssVar.key ?? `css-var-${id}`,
+        }) ??
+        (parentThemeConfig.cssVar && {
+          ...parentThemeConfig.cssVar,
+          key: `css-var-${id}`,
+        });
+
       // Base token
       return {
         ...parentThemeConfig,
@@ -40,6 +53,7 @@ export default function useTheme(
           ...themeConfig.token,
         },
         components: mergedComponents,
+        cssVar: mergedCssVar,
       };
     },
     [themeConfig, parentThemeConfig],

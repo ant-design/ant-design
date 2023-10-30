@@ -1,7 +1,7 @@
 /* eslint-disable no-redeclare */
 import { useContext, type ComponentType } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { useStyleRegister } from '@ant-design/cssinjs';
+import { useStyleRegister, useCSSVarRegister, token2CSSVar } from '@ant-design/cssinjs';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
@@ -12,9 +12,12 @@ import type {
   OverrideToken,
   UseComponentStyleResult,
 } from '../interface';
-import useToken from '../useToken';
+import useToken, { unitless, ignore } from '../useToken';
 import statisticToken, { merge as mergeToken } from './statistic';
 import useResetIconStyle from './useResetIconStyle';
+import calc from './calc';
+import type AbstractCalculator from 'antd/es/theme/util/calc/calculator';
+import classNames from 'classnames';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -28,13 +31,16 @@ type ComponentToken<ComponentName extends OverrideComponent> = Exclude<
 type ComponentTokenKey<ComponentName extends OverrideComponent> =
   keyof ComponentToken<ComponentName>;
 
-export interface StyleInfo<ComponentName extends OverrideComponent> {
+export interface StyleInfo {
   hashId: string;
   prefixCls: string;
   rootPrefixCls: string;
   iconPrefixCls: string;
-  overrideComponentToken: ComponentTokenMap[ComponentName];
 }
+
+export type CSSUtil = {
+  calc: (number: any) => AbstractCalculator<any>;
+};
 
 export type TokenWithCommonCls<T> = T & {
   /** Wrap component class with `.` prefix */
@@ -45,14 +51,15 @@ export type TokenWithCommonCls<T> = T & {
   iconCls: string;
   /** Wrap ant prefixCls class with `.` prefix */
   antCls: string;
-};
+} & CSSUtil;
+
 export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommonCls<
   GlobalTokenWithComponent<ComponentName>
 >;
 
 export type GenStyleFn<ComponentName extends OverrideComponent> = (
   token: FullToken<ComponentName>,
-  info: StyleInfo<ComponentName>,
+  info: StyleInfo,
 ) => CSSInterpolation;
 
 export default function genComponentStyleHook<ComponentName extends OverrideComponent>(
@@ -85,9 +92,11 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
   const concatComponent = cells.join('-');
 
   return (prefixCls: string): UseComponentStyleResult => {
-    const [theme, token, hashId] = useToken();
+    const [theme, token, hashId, realToken, cssVarKey] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
+
+    const calculator = cssVarKey ? calc('css') : calc('js');
 
     // Shared config
     const sharedConfig: Omit<Parameters<typeof useStyleRegister>[0], 'path'> = {
@@ -115,68 +124,107 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     // Generate style for icons
     useResetIconStyle(iconPrefixCls, csp);
 
-    return [
-      useStyleRegister(
-        { ...sharedConfig, path: [concatComponent, prefixCls, iconPrefixCls] },
-        () => {
-          const { token: proxyToken, flush } = statisticToken(token);
+    const customComponentToken = { ...(realToken[component] as ComponentToken<ComponentName>) };
+    const getDefaultComponentToken = () =>
+      typeof getDefaultToken === 'function'
+        ? getDefaultToken(mergeToken<GlobalToken>(realToken, customComponentToken ?? {}))
+        : getDefaultToken ?? {};
 
-          const customComponentToken = { ...(token[component] as ComponentToken<ComponentName>) };
-          if (options.deprecatedTokens) {
-            const { deprecatedTokens } = options;
-            deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
-              if (process.env.NODE_ENV !== 'production') {
-                warning(
-                  !customComponentToken?.[oldTokenKey],
-                  `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
-                    newTokenKey,
-                  )}' instead.`,
-                );
-              }
-
-              // Should wrap with `if` clause, or there will be `undefined` in object.
-              if (customComponentToken?.[oldTokenKey] || customComponentToken?.[newTokenKey]) {
-                customComponentToken[newTokenKey] ??= customComponentToken?.[oldTokenKey];
-              }
-            });
+    const getComponentToken = (prefix = false) => {
+      if (options.deprecatedTokens) {
+        const { deprecatedTokens } = options;
+        deprecatedTokens.forEach(([oldTokenKey, newTokenKey]) => {
+          if (process.env.NODE_ENV !== 'production') {
+            warning(
+              !customComponentToken?.[oldTokenKey],
+              `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
+                newTokenKey,
+              )}' instead.`,
+            );
           }
-          const defaultComponentToken =
-            typeof getDefaultToken === 'function'
-              ? getDefaultToken(mergeToken(proxyToken, customComponentToken ?? {}))
-              : getDefaultToken;
 
-          const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
+          // Should wrap with `if` clause, or there will be `undefined` in object.
+          if (customComponentToken?.[oldTokenKey] || customComponentToken?.[newTokenKey]) {
+            customComponentToken[newTokenKey] ??= customComponentToken?.[oldTokenKey];
+          }
+        });
+      }
+      const defaultComponentToken = getDefaultComponentToken();
+      const mergedComponentToken = { ...defaultComponentToken, ...customComponentToken };
 
-          const componentCls = `.${prefixCls}`;
-          const mergedToken = mergeToken<
-            TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
-          >(
-            proxyToken,
-            {
-              componentCls,
-              prefixCls,
-              iconCls: `.${iconPrefixCls}`,
-              antCls: `.${rootPrefixCls}`,
-            },
-            mergedComponentToken,
-          );
+      if (prefix) {
+        Object.keys(defaultComponentToken).forEach((key) => {
+          const newKey = `${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`;
+          mergedComponentToken[newKey] = mergedComponentToken[key];
+          delete mergedComponentToken[key];
+        });
+      }
 
-          const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
-            hashId,
+      return mergedComponentToken;
+    };
+
+    // TODO: need optimization, should not call this hook if no `cssVar` config
+    useCSSVarRegister(
+      {
+        path: [concatComponent, prefixCls, iconPrefixCls],
+        prefix: `antd`,
+        key: cssVarKey,
+        unitless,
+        ignore,
+        token: realToken,
+        scope: prefixCls,
+      },
+      cssVarKey
+        ? () => {
+            if (component === 'Wave') {
+              return {};
+            }
+            return getComponentToken(true);
+          }
+        : () => ({}),
+    );
+
+    const wrapSSR = useStyleRegister(
+      { ...sharedConfig, path: [concatComponent, prefixCls, iconPrefixCls] },
+      () => {
+        const { token: proxyToken, flush } = statisticToken(token);
+
+        const defaultComponentToken = getDefaultComponentToken();
+        Object.keys(defaultComponentToken).forEach((key) => {
+          defaultComponentToken[key] = `var(${token2CSSVar(key, `antd-${component}`)})`;
+        });
+
+        const componentCls = `.${prefixCls}`;
+        const componentToken = getComponentToken();
+        const mergedToken = mergeToken<
+          TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
+        >(
+          proxyToken,
+          {
+            componentCls,
             prefixCls,
-            rootPrefixCls,
-            iconPrefixCls,
-            overrideComponentToken: customComponentToken as any,
-          });
-          flush(component, mergedComponentToken);
-          return [
-            options.resetStyle === false ? null : genCommonStyle(token, prefixCls),
-            styleInterpolation,
-          ];
-        },
-      ),
-      hashId,
-    ];
+            iconCls: `.${iconPrefixCls}`,
+            antCls: `.${rootPrefixCls}`,
+            calc: calculator,
+          },
+          cssVarKey ? defaultComponentToken : componentToken,
+        );
+
+        const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
+          hashId,
+          prefixCls,
+          rootPrefixCls,
+          iconPrefixCls,
+        });
+        flush(component, componentToken);
+        return [
+          options.resetStyle === false ? null : genCommonStyle(token, prefixCls),
+          styleInterpolation,
+        ];
+      },
+    );
+
+    return [wrapSSR, classNames(hashId, cssVarKey)];
   };
 }
 

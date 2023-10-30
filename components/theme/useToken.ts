@@ -9,7 +9,7 @@ import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 
-const unitless: {
+export const unitless: {
   [key in keyof AliasToken]?: boolean;
 } = {
   lineHeight: true,
@@ -26,7 +26,7 @@ const unitless: {
   zIndexBase: true,
 };
 
-const ignore: {
+export const ignore: {
   [key in keyof AliasToken]?: boolean;
 } = {
   size: true,
@@ -92,14 +92,22 @@ export default function useToken(): [
   theme: Theme<SeedToken, MapToken>,
   token: GlobalToken,
   hashId: string,
+  realToken: GlobalToken,
+  cssVarKey?: string,
 ] {
-  const { token: rootDesignToken, hashed, theme, override } = React.useContext(DesignTokenContext);
+  const {
+    token: rootDesignToken,
+    hashed,
+    theme,
+    override,
+    cssVar,
+  } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
 
-  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
+  const [token, hashId, realToken] = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
     [defaultSeedToken, rootDesignToken],
     {
@@ -109,13 +117,14 @@ export default function useToken(): [
       // formatToken will not be consumed after 1.15.0 with getComputedToken.
       // But token will break if @ant-design/cssinjs is under 1.15.0 without it
       formatToken,
-      cssVar: {
+      cssVar: cssVar && {
         prefix: 'antd',
         unitless,
         ignore,
+        key: cssVar.key,
       },
     },
   );
 
-  return [mergedTheme, token, hashed ? hashId : ''];
+  return [mergedTheme, token, hashed ? hashId : '', realToken, cssVar?.key];
 }

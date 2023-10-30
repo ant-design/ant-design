@@ -15,6 +15,7 @@ import genComponentStyleHook, { genSubStyleComponent } from './util/genComponent
 import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
+import calc from './util/calc';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {
@@ -24,6 +25,7 @@ export {
   genPresetColor,
   mergeToken,
   statisticToken,
+  calc,
   // hooks
   useResetIconStyle,
   useStyleRegister,
