@@ -41,7 +41,6 @@ Select component to select value from options.
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/placement.tsx">Placement</code>
-<code src="./demo/option-render.tsx" version=">=5.11.0">Customize the rendering dropdown options</code>
 <code src="./demo/placement-debug.tsx" debug>Dynamic Height</code>
 <code src="./demo/debug.tsx" debug>4.0 Debug</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -86,7 +85,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label` | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
-| optionRender | Customize the rendering dropdown options | (oriOption: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
+| optionRender | Customize the rendering dropdown options | (originalOption: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
 | placeholder | Placeholder of select | ReactNode | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |

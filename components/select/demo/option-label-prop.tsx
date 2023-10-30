@@ -42,12 +42,12 @@ const App: React.FC = () => (
     onChange={handleChange}
     optionLabelProp="label"
     options={options}
-    optionRender={(oriOption) => (
+    optionRender={(originalOption) => (
       <Space>
-        <span role="img" aria-label={oriOption.data.label}>
-          {oriOption.data.emoji}
+        <span role="img" aria-label={originalOption.data.label}>
+          {originalOption.data.emoji}
         </span>
-        {oriOption.data.desc}
+        {originalOption.data.desc}
       </Space>
     )}
   />
