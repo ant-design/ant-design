@@ -6,7 +6,6 @@ const text = <span>prompt text</span>;
 const buttonWidth = 80;
 
 const App: React.FC = () => {
-  const options = ['Show', 'Hide', 'Center'];
   const [arrow, setArrow] = useState('Show');
 
   const mergedArrow = useMemo(() => {
@@ -31,7 +30,7 @@ const App: React.FC = () => {
     >
       <Segmented
         value={arrow}
-        options={options}
+        options={['Show', 'Hide', 'Center']}
         onChange={(val: string) => {
           setArrow(val);
         }}
