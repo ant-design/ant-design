@@ -3,7 +3,7 @@ import isEqual from 'rc-util/lib/isEqual';
 import type { OverrideToken } from '../../theme/interface';
 import type { ThemeConfig } from '../context';
 import { defaultConfig } from '../../theme/internal';
-import useThemeKey from 'antd/es/config-provider/hooks/useThemeKey';
+import useThemeKey from './useThemeKey';
 import { devUseWarning } from '../../_util/warning';
 
 export default function useTheme(
