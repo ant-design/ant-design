@@ -16,11 +16,11 @@ export default function useTheme(
   const parentThemeConfig: ThemeConfig =
     themeConfig.inherit === false || !parentTheme ? defaultConfig : parentTheme;
 
-  const id = useThemeKey();
+  const themeKey = useThemeKey();
 
   if (process.env.NODE_ENV !== 'production') {
     const cssVarEnabled = themeConfig.cssVar || parentThemeConfig.cssVar;
-    const validKey = !!(themeConfig.cssVar?.key || id);
+    const validKey = !!(themeConfig.cssVar?.key || themeKey);
     warning(
       !cssVarEnabled || validKey,
       'breaking',
@@ -46,7 +46,7 @@ export default function useTheme(
         } as any;
       });
 
-      const cssVarKey = `css-var-${id.replace(/:/g, '')}`;
+      const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
       const mergedCssVar =
         (themeConfig.cssVar && {
           ...themeConfig.cssVar,
