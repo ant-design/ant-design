@@ -122,6 +122,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 class="ant-color-picker-trigger"
+                id="color"
               >
                 <div
                   class="ant-color-picker-color-block"
@@ -274,7 +275,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             </div>
                             <div
                               class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
-                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; width: 68px;"
+                              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120; width: 68px;"
                             >
                               <div>
                                 <div

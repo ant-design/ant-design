@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
-import { Button, Radio, Space, Divider } from 'antd';
+import { Button, Divider, Flex, Radio } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
-
   return (
     <>
       <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
@@ -16,8 +15,8 @@ const App: React.FC = () => {
       <Divider orientation="left" plain>
         Preview
       </Divider>
-      <Space direction="vertical">
-        <Space wrap>
+      <Flex gap="small" align="flex-start" vertical>
+        <Flex gap="small" wrap="wrap">
           <Button type="primary" size={size}>
             Primary
           </Button>
@@ -25,11 +24,11 @@ const App: React.FC = () => {
           <Button type="dashed" size={size}>
             Dashed
           </Button>
-        </Space>
+        </Flex>
         <Button type="link" size={size}>
           Link
         </Button>
-        <Space wrap>
+        <Flex gap="small" wrap="wrap">
           <Button type="primary" icon={<DownloadOutlined />} size={size} />
           <Button type="primary" shape="circle" icon={<DownloadOutlined />} size={size} />
           <Button type="primary" shape="round" icon={<DownloadOutlined />} size={size} />
@@ -39,8 +38,8 @@ const App: React.FC = () => {
           <Button type="primary" icon={<DownloadOutlined />} size={size}>
             Download
           </Button>
-        </Space>
-      </Space>
+        </Flex>
+      </Flex>
     </>
   );
 };

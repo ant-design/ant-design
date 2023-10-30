@@ -25,6 +25,7 @@ export interface SpinProps {
   wrapperClassName?: string;
   indicator?: SpinIndicator;
   children?: React.ReactNode;
+  fullscreen?: boolean;
 }
 
 export interface SpinClassProps extends SpinProps {
@@ -87,6 +88,7 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     style,
     children,
     hashId,
+    fullscreen,
     ...restProps
   } = props;
 
@@ -108,7 +110,10 @@ const Spin: React.FC<SpinClassProps> = (props) => {
     setSpinning(false);
   }, [delay, customSpinning]);
 
-  const isNestedPattern = React.useMemo<boolean>(() => typeof children !== 'undefined', [children]);
+  const isNestedPattern = React.useMemo<boolean>(
+    () => typeof children !== 'undefined' && !fullscreen,
+    [children, fullscreen],
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
@@ -126,6 +131,8 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-spinning`]: spinning,
       [`${prefixCls}-show-text`]: !!tip,
+      [`${prefixCls}-fullscreen`]: fullscreen,
+      [`${prefixCls}-fullscreen-show`]: fullscreen && spinning,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -151,7 +158,9 @@ const Spin: React.FC<SpinClassProps> = (props) => {
       aria-busy={spinning}
     >
       {renderIndicator(prefixCls, props)}
-      {tip && isNestedPattern ? <div className={`${prefixCls}-text`}>{tip}</div> : null}
+      {tip && (isNestedPattern || fullscreen) ? (
+        <div className={`${prefixCls}-text`}>{tip}</div>
+      ) : null}
     </div>
   );
 
