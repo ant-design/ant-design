@@ -1,5 +1,4 @@
-import type { FC, PropsWithChildren } from 'react';
-import React, { useId, useRef } from 'react';
+import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
 import { createTheme } from '@ant-design/cssinjs';
 
@@ -15,7 +14,6 @@ export const defaultConfig = {
   token: defaultSeedToken,
   override: { override: defaultSeedToken },
   hashed: true,
-  hashId: 'default-hash',
 };
 
 export type ComponentsToken = {
@@ -37,17 +35,3 @@ export interface DesignTokenProviderProps {
 }
 
 export const DesignTokenContext = React.createContext<DesignTokenProviderProps>(defaultConfig);
-
-type DesignTokenContextProviderProps = {
-  theme: Omit<DesignTokenProviderProps, 'hashId'>;
-};
-
-export const DesignTokenProvider: FC<PropsWithChildren<DesignTokenContextProviderProps>> = (
-  props,
-) => {
-  const { children, theme } = props;
-
-  return <DesignTokenContext.Provider value={theme}>{children}</DesignTokenContext.Provider>;
-};
-
-export default DesignTokenProvider;

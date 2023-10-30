@@ -19,7 +19,7 @@ import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
-import { defaultTheme, DesignTokenContext, DesignTokenProvider } from '../theme/context';
+import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
@@ -569,7 +569,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }, [mergedTheme]);
 
   if (theme) {
-    childNode = <DesignTokenProvider theme={memoTheme}>{childNode}</DesignTokenProvider>;
+    childNode = (
+      <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
+    );
   }
 
   // ================================== Warning ===================================
