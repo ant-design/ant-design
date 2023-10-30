@@ -16,6 +16,19 @@ tag: vVERSION
 
 ---
 
+## 5.10.3
+
+`2023-10-30`
+
+- 💄 修改时间选择器滚动条样式。[#45478](https://github.com/ant-design/ant-design/pull/45478) [@GeorgeHcc](https://github.com/GeorgeHcc)
+- 🆕 BackTop 支持使用 nativeElement 获取 `ref` 。[#45547](https://github.com/ant-design/ant-design/pull/45547) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Watermark 组件 `gap` 在数组中含有 `undefined` 时没有默认值的问题。[#45537](https://github.com/ant-design/ant-design/pull/45537) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Dropdown 在点击子项后总是关闭的问题。[#45513](https://github.com/ant-design/ant-design/pull/45513) [@vyachsed](https://github.com/vyachsed)
+- 💄 修复 Notification 组件在 windows 系统下的样式问题。[#45500](https://github.com/ant-design/ant-design/pull/45500) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Notification 组件 `style` 属性会重复添加到外层的问题。[#45487](https://github.com/ant-design/ant-design/pull/45487) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复`useApp`中`modal`的类型定义。[#45462](https://github.com/ant-design/ant-design/pull/45462) [@mjss](https://github.com/mjss)
+- 🛠 移除了Form中无用的`SizeContextProvider`。[#45295](https://github.com/ant-design/ant-design/pull/45295) [@AlanQtten](https://github.com/AlanQtten)
+
 ## 5.10.2
 
 `2023-10-21`
