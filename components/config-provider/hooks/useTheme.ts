@@ -13,7 +13,7 @@ export default function useTheme(
   const parentThemeConfig: ThemeConfig =
     themeConfig.inherit === false || !parentTheme ? defaultConfig : parentTheme;
 
-  const id = useId().replace(/:/g, 'c');
+  const id = useId();
 
   return useMemo<ThemeConfig | undefined>(
     () => {
@@ -33,14 +33,15 @@ export default function useTheme(
         } as any;
       });
 
+      const cssVarKey = `css-var-${id.replace(/:/g, 'c')}`;
       const mergedCssVar =
         (themeConfig.cssVar && {
           ...themeConfig.cssVar,
-          key: themeConfig.cssVar.key ?? `css-var-${id}`,
+          key: themeConfig.cssVar.key ?? cssVarKey,
         }) ??
         (parentThemeConfig.cssVar && {
           ...parentThemeConfig.cssVar,
-          key: `css-var-${id}`,
+          key: cssVarKey,
         });
 
       // Base token
