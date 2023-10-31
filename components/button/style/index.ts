@@ -3,7 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
-import type { FullToken, GenerateStyle, AliasToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genGroupStyle from './group';
@@ -696,7 +696,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => Butto
   return buttonToken;
 };
 
-export const prepareComponentToken = (token: AliasToken) => {
+export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentFontSize = token.fontSize;
   const contentFontSizeSM = token.fontSize;
   const contentFontSizeLG = token.fontSizeLG;

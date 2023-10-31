@@ -30,6 +30,7 @@ export interface DesignTokenProviderProps {
   override: { override: Partial<AliasToken> } & ComponentsToken;
   hashed?: string | boolean;
   cssVar?: {
+    prefix?: string;
     key?: string;
   };
 }

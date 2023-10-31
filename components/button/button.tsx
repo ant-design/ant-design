@@ -26,6 +26,7 @@ import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
+import CSSVarRegister from './style/cssVar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -285,6 +286,7 @@ const InternalButton: React.ForwardRefRenderFunction<
 
       {/* Styles: compact */}
       {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
+      <CSSVarRegister rootCls={prefixCls} />
     </button>
   );
 

@@ -47,15 +47,12 @@ export default function useTheme(
       });
 
       const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
-      const mergedCssVar =
-        (themeConfig.cssVar && {
-          ...themeConfig.cssVar,
-          key: themeConfig.cssVar.key ?? cssVarKey,
-        }) ??
-        (parentThemeConfig.cssVar && {
-          ...parentThemeConfig.cssVar,
-          key: cssVarKey,
-        });
+      const mergedCssVar = (themeConfig.cssVar || parentThemeConfig.cssVar) && {
+        prefix: 'antd', // Default to antd
+        ...parentThemeConfig.cssVar,
+        ...themeConfig.cssVar,
+        key: themeConfig.cssVar?.key || cssVarKey,
+      };
 
       // Base token
       return {

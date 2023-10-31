@@ -93,7 +93,7 @@ export default function useToken(): [
   token: GlobalToken,
   hashId: string,
   realToken: GlobalToken,
-  cssVarKey?: string,
+  cssVar?: DesignTokenProviderProps['cssVar'],
 ] {
   const {
     token: rootDesignToken,
@@ -118,13 +118,13 @@ export default function useToken(): [
       // But token will break if @ant-design/cssinjs is under 1.15.0 without it
       formatToken,
       cssVar: cssVar && {
-        prefix: 'antd',
+        prefix: cssVar.prefix,
+        key: cssVar.key,
         unitless,
         ignore,
-        key: cssVar.key,
       },
     },
   );
 
-  return [mergedTheme, token, hashed ? hashId : '', realToken, cssVar?.key];
+  return [mergedTheme, token, hashed ? hashId : '', realToken, cssVar];
 }
