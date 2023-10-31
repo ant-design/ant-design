@@ -1,19 +1,21 @@
 import React from 'react';
-import { Button, Modal, Typography } from 'antd';
+import { Button, Modal, Space, Typography } from 'antd';
 import type { ModalFuncProps } from 'antd/es/modal/interface';
 
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
 
 const customFooterFn: ModalFuncProps['footer'] = (originNode, { OkBtn, CancelBtn }) => (
-  <>
-    <Typography.Paragraph>{originNode}</Typography.Paragraph>
-    <Typography.Paragraph>
-      <Button>Custom</Button>
+  <Space direction="vertical">
+    <Space>{originNode}</Space>
+    <Space>
       <CancelBtn />
+      <Button danger type="primary">
+        Custom
+      </Button>
       <OkBtn />
-    </Typography.Paragraph>
-  </>
+    </Space>
+  </Space>
 );
 
 export default () => (
