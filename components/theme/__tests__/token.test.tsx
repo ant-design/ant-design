@@ -25,6 +25,7 @@ describe('Theme', () => {
     );
     delete token._hashId;
     delete token._tokenKey;
+    delete token._themeKey;
     return token;
   };
 
