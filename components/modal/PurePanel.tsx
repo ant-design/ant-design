@@ -28,7 +28,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     type,
     title,
     children,
-    footer /** omit */, // eslint-disable-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    footer /** omit */,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -61,7 +62,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     additionalProps = {
       closable: closable ?? true,
       title,
-      footer: <Footer {...props} />,
+      footer: footer !== null && <Footer {...props} />,
       children,
     };
   }
