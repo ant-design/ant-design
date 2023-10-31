@@ -42,11 +42,11 @@ jobs:
           if [ ! -d .tmp ] ; then
             mkdir .tmp
           fi
-          $(npx npm-check-updates -u -t ${{ inputs.upgrade-strategy || 'semver' }} > .tmp/upgrade-deps.txt) 2>&1 || true
-          if [ -s .tmp/upgrade-deps.txt ]; then
-            cat .tmp/upgrade-deps.txt
-            echo "upgrade-deps<<EOF" >> $GITHUB_OUTPUT
-            cat .tmp/upgrade-deps.txt >> $GITHUB_OUTPUT
+          $(npx npm-check-updates -u -t ${{ inputs.upgrade-strategy || 'semver' }} > .tmp/upgrade-deps-logs.txt) 2>&1 || true
+          if [ -s .tmp/upgrade-deps-logs.txt ]; then
+            cat .tmp/upgrade-deps-logs.txt
+            echo "logs<<EOF" >> $GITHUB_OUTPUT
+            cat .tmp/upgrade-deps-logs.txt >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
           fi
 
@@ -62,7 +62,7 @@ jobs:
             Upgrade dependencies
 
             ```
-            ${{ steps.upgrade.outputs.upgrade-deps }}
+            ${{ steps.upgrade.outputs.logs }}
             ```
           branch: auto-upgrade-deps
           delete-branch: true
