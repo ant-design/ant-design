@@ -16,7 +16,7 @@ import type {
 import useToken, { ignore, unitless } from '../useToken';
 import statisticToken, { merge as mergeToken } from './statistic';
 import useResetIconStyle from './useResetIconStyle';
-import calc from './calc';
+import genCalc from './calc';
 import type AbstractCalculator from './calc/calculator';
 import classNames from 'classnames';
 
@@ -155,7 +155,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
-    const calculator = cssVar ? calc('css') : calc('js');
+    const calculator = genCalc(cssVar ? 'css' : 'js');
 
     // Shared config
     const sharedConfig: Omit<Parameters<typeof useStyleRegister>[0], 'path'> = {

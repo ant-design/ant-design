@@ -1,5 +1,5 @@
 import getAlphaColor from '../util/getAlphaColor';
-import calc from 'antd/es/theme/util/calc';
+import genCalc from '../util/calc';
 
 describe('util', () => {
   describe('getAlphaColor', () => {
@@ -10,14 +10,20 @@ describe('util', () => {
 
   describe('calculator', () => {
     it('NumCalculator', () => {
-      const calculator = calc('js');
-      expect(calculator(1).add(1).equal()).toBe(2);
-      expect(calculator(1).add(1).mul(4).equal()).toBe(8);
+      const calc = genCalc('js');
+      expect(calc(1).add(1).equal()).toBe(2);
+      expect(calc(1).add(1).mul(4).equal()).toBe(5);
+      expect(calc(1).add(4).div(4).sub(2).equal()).toBe(0);
+      expect(calc(1).add(4).div(calc(3).sub(2)).sub(2).equal()).toBe(3);
     });
     it('CSSCalculator', () => {
-      const calculator = calc('css');
-      expect(calculator(1).add(1).equal()).toBe('calc(1px + 1px)');
-      expect(calculator(1).add(1).mul(4).equal()).toBe('calc(1px + 1px * 4)');
+      const calc = genCalc('css');
+      expect(calc(1).add(1).equal()).toBe('calc(1px + 1px)');
+      expect(calc(1).add(1).mul(4).equal()).toBe('calc(1px + 1px * 4)');
+      expect(calc(1).add(4).div(4).sub(2).equal()).toBe('calc(1px + 4px / 4 - 2px)');
+      expect(calc(1).add(4).div(calc(3).sub(2)).sub(2).equal()).toBe(
+        'calc(1px + 4px / (3px - 2px) - 2px)',
+      );
     });
   });
 });

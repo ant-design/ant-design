@@ -2,6 +2,8 @@ import AbstractCalculator from './calculator';
 import { unit } from '@ant-design/cssinjs';
 
 export default class CSSCalculator extends AbstractCalculator<string> {
+  result: string = '';
+
   constructor(num: string | number | CSSCalculator) {
     super();
 
@@ -12,37 +14,37 @@ export default class CSSCalculator extends AbstractCalculator<string> {
     }
   }
 
-  add(num: string | number | CSSCalculator): this {
+  add(num: string | number | AbstractCalculator<any>): this {
     if (num instanceof CSSCalculator) {
       this.result = `${this.result} + (${num.result})`;
-    } else {
+    } else if (typeof num === 'number' || typeof num === 'string') {
       this.result = `${this.result} + ${unit(num)}`;
     }
     return this;
   }
 
-  div(num: string | number | CSSCalculator): this {
+  div(num: string | number | AbstractCalculator<any>): this {
     if (num instanceof CSSCalculator) {
       this.result = `${this.result} / (${num.result})`;
-    } else {
+    } else if (typeof num === 'number' || typeof num === 'string') {
       this.result = `${this.result} / ${num}`;
     }
     return this;
   }
 
-  sub(num: string | number | CSSCalculator): this {
+  sub(num: string | number | AbstractCalculator<any>): this {
     if (num instanceof CSSCalculator) {
       this.result = `${this.result} - (${num.result})`;
-    } else {
+    } else if (typeof num === 'number' || typeof num === 'string') {
       this.result = `${this.result} - ${unit(num)}`;
     }
     return this;
   }
 
-  mul(num: string | number | CSSCalculator): this {
+  mul(num: string | number | AbstractCalculator<any>): this {
     if (num instanceof CSSCalculator) {
       this.result = `${this.result} * (${num.result})`;
-    } else {
+    } else if (typeof num === 'number' || typeof num === 'string') {
       this.result = `${this.result} * ${num}`;
     }
     return this;
