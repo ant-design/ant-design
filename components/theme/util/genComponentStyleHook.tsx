@@ -300,9 +300,6 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
         scope: rootCls,
       },
       () => {
-        if (component === 'Wave') {
-          return {};
-        }
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
         return getComponentToken(component, realToken, defaultToken, {
           prefix: true,

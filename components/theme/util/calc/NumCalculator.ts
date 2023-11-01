@@ -12,9 +12,13 @@ export default class NumCalculator extends AbstractCalculator<number> {
 
   operators: Operator[] = [];
 
-  constructor(num: number) {
+  constructor(num: number | AbstractCalculator<any>) {
     super();
-    this.expression.push(num);
+    if (num instanceof NumCalculator) {
+      this.expression.push(num.equal());
+    } else if (typeof num === 'number') {
+      this.expression.push(num);
+    }
   }
 
   add(num: number | AbstractCalculator<any>): this {
@@ -44,6 +48,9 @@ export default class NumCalculator extends AbstractCalculator<number> {
         break;
       }
     }
+    if (this.operators.length === 0) {
+      this.operators.push(Operator.DIV);
+    }
     this.expression.push(number);
     return this;
   }
@@ -58,6 +65,9 @@ export default class NumCalculator extends AbstractCalculator<number> {
         this.operators.push(operator, Operator.MUL);
         break;
       }
+    }
+    if (this.operators.length === 0) {
+      this.operators.push(Operator.MUL);
     }
     this.expression.push(number);
     return this;
