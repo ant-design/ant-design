@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Button, Segmented, Tooltip, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Segmented, Tooltip } from 'antd';
 
 const text = <span>prompt text</span>;
 
@@ -23,17 +23,11 @@ const App: React.FC = () => {
   }, [arrow]);
 
   return (
-    <ConfigProvider
-      button={{
-        style: { width: buttonWidth },
-      }}
-    >
+    <ConfigProvider button={{ style: { width: buttonWidth, margin: 4 } }}>
       <Segmented
         value={arrow}
         options={['Show', 'Hide', 'Center']}
-        onChange={(val: string) => {
-          setArrow(val);
-        }}
+        onChange={(val: string) => setArrow(val)}
         style={{ marginBottom: 24 }}
       />
       <div className="demo">

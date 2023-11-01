@@ -62,7 +62,7 @@ Array [
     >
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -92,7 +92,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -122,7 +122,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -156,7 +156,7 @@ Array [
     >
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -186,7 +186,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -216,7 +216,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -250,7 +250,7 @@ Array [
     >
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -280,7 +280,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -310,7 +310,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -344,7 +344,7 @@ Array [
     >
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -374,7 +374,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
@@ -404,7 +404,7 @@ Array [
       </div>
       <button
         class="ant-btn ant-btn-default"
-        style="width: 80px;"
+        style="width: 80px; margin: 4px;"
         type="button"
       >
         <span>
