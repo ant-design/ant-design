@@ -7,12 +7,12 @@ enum Operator {
   DIV = '/',
 }
 
-export default class NumCalculator extends AbstractCalculator<number> {
+export default class NumCalculator extends AbstractCalculator {
   expression: (number | Operator)[] = [];
 
   operators: Operator[] = [];
 
-  constructor(num: number | AbstractCalculator<any>) {
+  constructor(num: number | AbstractCalculator) {
     super();
     if (num instanceof NumCalculator) {
       this.expression.push(num.equal());
@@ -21,24 +21,24 @@ export default class NumCalculator extends AbstractCalculator<number> {
     }
   }
 
-  add(num: number | AbstractCalculator<any>): this {
-    const number = num instanceof AbstractCalculator ? num.equal() : num;
+  add(num: number | AbstractCalculator): this {
+    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
     this.expression.push(...this.operators.reverse());
     this.expression.push(number);
     this.operators = [Operator.ADD];
     return this;
   }
 
-  sub(num: number | AbstractCalculator<any>): this {
-    const number = num instanceof AbstractCalculator ? num.equal() : num;
+  sub(num: number | AbstractCalculator): this {
+    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
     this.expression.push(...this.operators.reverse());
     this.expression.push(number);
     this.operators = [Operator.SUB];
     return this;
   }
 
-  div(num: number | AbstractCalculator<any>): this {
-    const number = num instanceof AbstractCalculator ? num.equal() : num;
+  div(num: number | AbstractCalculator): this {
+    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
     while (this.operators.length) {
       const operator = this.operators.pop()!;
       if (operator === Operator.MUL || operator === Operator.DIV) {
@@ -55,8 +55,8 @@ export default class NumCalculator extends AbstractCalculator<number> {
     return this;
   }
 
-  mul(num: number | AbstractCalculator<any>): this {
-    const number = num instanceof AbstractCalculator ? num.equal() : num;
+  mul(num: number | AbstractCalculator): this {
+    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
     while (this.operators.length) {
       const operator = this.operators.pop()!;
       if (operator === Operator.MUL || operator === Operator.DIV) {

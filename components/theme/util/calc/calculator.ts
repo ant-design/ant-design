@@ -1,11 +1,11 @@
-export default abstract class AbstractCalculator<T> {
-  abstract add(num: T): this;
+export default abstract class AbstractCalculator {
+  abstract add(num: number | AbstractCalculator): this;
 
-  abstract sub(num: T): this;
+  abstract sub(num: number | AbstractCalculator): this;
 
-  abstract mul(num: T): this;
+  abstract mul(num: number | AbstractCalculator): this;
 
-  abstract div(num: T): this;
+  abstract div(num: number | AbstractCalculator): this;
 
-  abstract equal(): T;
+  abstract equal(): string | number;
 }
