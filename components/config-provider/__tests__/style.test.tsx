@@ -18,6 +18,7 @@ import DatePicker from '../../date-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
+import Dropdown from '../../dropdown';
 import Empty from '../../empty';
 import Flex from '../../flex';
 import Form from '../../form';
@@ -1306,5 +1307,16 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-flex');
     expect(element).toHaveClass('cp-flex');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Dropdown className & style works', () => {
+    const { container } = render(
+      <ConfigProvider dropdown={{ className: 'cp-dropdown', style: { backgroundColor: 'red' } }}>
+        <Dropdown open>test</Dropdown>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-dropdown');
+    expect(element).toHaveClass('cp-dropdown');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });
