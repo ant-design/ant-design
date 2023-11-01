@@ -245,9 +245,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         mask={mask}
         maskClosable={maskClosable}
         style={style}
-        styles={styles || {
+        styles={{
           body: bodyStyle,
           mask: maskStyle,
+          ...styles,
         }}
         width={width}
         zIndex={zIndex}
