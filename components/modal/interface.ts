@@ -122,7 +122,7 @@ export interface ModalFuncProps {
     body?: React.CSSProperties;
     footer?: React.CSSProperties;
     mask?: React.CSSProperties;
-  }
+  };
 }
 
 export interface ModalLocale {
