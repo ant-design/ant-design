@@ -312,12 +312,15 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
   const useCSSVar = (rootCls: string) => {
     const [, , , , cssVar] = useToken();
 
-    return (node: ReactElement): ReactElement => (
-      <>
-        {cssVar && <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />}
-        {node}
-      </>
-    );
+    return (node: ReactElement): ReactElement =>
+      cssVar ? (
+        <>
+          <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
+          {node}
+        </>
+      ) : (
+        node
+      );
   };
 
   return useCSSVar;
