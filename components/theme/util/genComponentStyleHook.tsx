@@ -36,7 +36,7 @@ export interface StyleInfo {
 }
 
 export type CSSUtil = {
-  calc: (number: any) => AbstractCalculator<any>;
+  calc: (number: any) => AbstractCalculator;
 };
 
 export type TokenWithCommonCls<T> = T & {
