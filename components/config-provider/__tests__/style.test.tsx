@@ -1312,7 +1312,9 @@ describe('ConfigProvider support style and className props', () => {
   it('Should Dropdown className & style works', () => {
     const { container } = render(
       <ConfigProvider dropdown={{ className: 'cp-dropdown', style: { backgroundColor: 'red' } }}>
-        <Dropdown open>test</Dropdown>
+        <Dropdown menu={{ items: [{ label: 'foo', key: '1' }] }} open>
+          <span>test</span>
+        </Dropdown>
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-dropdown');
