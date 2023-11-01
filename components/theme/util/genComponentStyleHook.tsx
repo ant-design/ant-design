@@ -1,5 +1,5 @@
 /* eslint-disable no-redeclare */
-import type { ComponentType, FC } from 'react';
+import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
@@ -309,11 +309,16 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
     return null;
   };
 
-  const MergedRegister: FC<Omit<CSSVarRegisterProps, 'cssVar' | 'component'>> = (props) => {
+  const useCSSVar = (rootCls: string) => {
     const [, , , , cssVar] = useToken();
 
-    return cssVar ? <CSSVarRegister {...props} cssVar={cssVar} component={component} /> : null;
+    return (node: ReactElement): ReactElement => (
+      <>
+        {cssVar && <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />}
+        {node}
+      </>
+    );
   };
 
-  return MergedRegister;
+  return useCSSVar;
 };

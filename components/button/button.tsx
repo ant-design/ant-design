@@ -26,7 +26,7 @@ import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
-import CSSVarRegister from './style/cssVar';
+import useCSSVar from './style/cssVar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -120,6 +120,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -286,7 +287,6 @@ const InternalButton: React.ForwardRefRenderFunction<
 
       {/* Styles: compact */}
       {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
-      <CSSVarRegister rootCls={prefixCls} />
     </button>
   );
 
@@ -298,7 +298,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  return buttonNode;
+  return wrapCSSVar(buttonNode);
 };
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
