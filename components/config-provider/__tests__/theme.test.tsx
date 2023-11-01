@@ -2,7 +2,7 @@ import { kebabCase } from 'lodash';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import React from 'react';
 import ConfigProvider from '..';
-import { InputNumber } from '../..';
+import { InputNumber, Button } from '../..';
 import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import theme from '../../theme';
@@ -195,5 +195,54 @@ describe('ConfigProvider.Theme', () => {
       </ConfigProvider>,
     );
     expect(tokenRef?.colorPrimaryText).toBe('#1677ff');
+  });
+
+  describe('cssVar', () => {
+    it('should work', () => {
+      const { container } = render(
+        <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+          <Button>Button</Button>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+
+      expect(button).toHaveClass('foo');
+      expect(button).toHaveStyle({
+        '--antd-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--antd-button-default-shadow)',
+        'line-height': 'var(--antd-line-height)',
+      });
+    });
+
+    it('prefix', () => {
+      const { container } = render(
+        <>
+          <ConfigProvider theme={{ cssVar: { key: 'foo' }, hashed: true }}>
+            <Button className="button-foo">Button</Button>
+          </ConfigProvider>
+          <ConfigProvider theme={{ cssVar: { key: 'bar', prefix: 'bar' }, hashed: true }}>
+            <Button className="button-bar">Button</Button>
+          </ConfigProvider>
+        </>,
+      );
+
+      const fooBtn = container.querySelector('.button-foo')!;
+      const barBtn = container.querySelector('.button-bar')!;
+
+      expect(fooBtn).toHaveClass('foo');
+      expect(fooBtn).toHaveStyle({
+        '--antd-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--antd-button-default-shadow)',
+        'line-height': 'var(--antd-line-height)',
+      });
+
+      expect(barBtn).toHaveClass('bar');
+      expect(barBtn).toHaveStyle({
+        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--bar-button-default-shadow)',
+        'line-height': 'var(--bar-line-height)',
+      });
+    });
   });
 });
