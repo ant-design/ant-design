@@ -92,6 +92,7 @@ const Dropdown: CompoundedComponent = (props) => {
     getPopupContainer,
     overlayClassName,
     rootClassName,
+    overlayStyle,
     open,
     onOpenChange,
     // Deprecated
@@ -108,6 +109,7 @@ const Dropdown: CompoundedComponent = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    dropdown,
   } = React.useContext(ConfigContext);
 
   // Warning for deprecated usage
@@ -202,9 +204,13 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const overlayClassNameCustomized = classNames(
+    overlayClassName,
+    rootClassName,
+    hashId,
+    dropdown?.className,
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+  );
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
@@ -267,7 +273,7 @@ const Dropdown: CompoundedComponent = (props) => {
   };
 
   // =========================== zIndex ============================
-  const [zIndex, contextZIndex] = useZIndex('Dropdown', props.overlayStyle?.zIndex as number);
+  const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
 
   // ============================ Render ============================
   return wrapSSR(
@@ -288,10 +294,7 @@ const Dropdown: CompoundedComponent = (props) => {
         overlay={renderOverlay}
         placement={memoPlacement}
         onVisibleChange={onInnerOpenChange}
-        overlayStyle={{
-          ...props.overlayStyle,
-          zIndex,
-        }}
+        overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
       >
         {dropdownTrigger}
       </RcDropdown>

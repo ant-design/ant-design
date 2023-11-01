@@ -172,6 +172,7 @@ export interface ConfigConsumerProps {
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
   rangePicker?: ComponentStyleConfig;
+  dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
   warning?: WarningContextProps;
