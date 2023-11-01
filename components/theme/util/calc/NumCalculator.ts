@@ -86,6 +86,7 @@ export default class NumCalculator extends AbstractCalculator {
         let tempResult = 0;
         const num1 = exp[i - 2] as number;
         const num2 = exp[i - 1] as number;
+        // eslint-disable-next-line default-case
         switch (exp[i]) {
           case Operator.ADD:
             tempResult = num1 + num2;
@@ -98,8 +99,6 @@ export default class NumCalculator extends AbstractCalculator {
             break;
           case Operator.DIV:
             tempResult = num1 / num2;
-            break;
-          default:
             break;
         }
         exp.splice(i - 2, 3, tempResult);

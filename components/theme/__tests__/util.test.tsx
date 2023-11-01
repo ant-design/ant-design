@@ -19,6 +19,8 @@ describe('util', () => {
       expect(calc(calc(1).add(2)).mul(3).equal()).toBe(9);
       expect(calc(1).add(calc(2).sub(1)).equal()).toBe(2);
       expect(calc(5).sub(calc(2).sub(1)).equal()).toBe(4);
+      expect(calc(2).mul(6).div(3).equal()).toBe(4);
+      expect(calc(6).div(3).mul(2).equal()).toBe(4);
     });
     it('CSSCalculator', () => {
       const calc = genCalc('css');
@@ -32,6 +34,9 @@ describe('util', () => {
       expect(calc(calc(1).add(2)).mul(3).equal()).toBe('calc((1px + 2px) * 3)');
       expect(calc(1).add(calc(2).sub(1)).equal()).toBe('calc(1px + (2px - 1px))');
       expect(calc(5).sub(calc(2).sub(1)).equal()).toBe('calc(5px - (2px - 1px))');
+      expect(calc(5).equal()).toBe('5px');
+      expect(calc(2).mul(6).div(3).equal()).toBe('calc(2px * 6 / 3)');
+      expect(calc(6).div(3).mul(2).equal()).toBe('calc(6px / 3 * 2)');
     });
   });
 });
