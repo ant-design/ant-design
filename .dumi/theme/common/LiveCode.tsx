@@ -16,11 +16,11 @@ const useStyle = createStyles(({ token, css }) => {
         outline: none;
 
         &:hover {
-          border: 1px solid ${colorPrimaryBorder} !important;
+          box-shadow: 0 0 0 1px ${colorPrimaryBorder} !important;
         }
 
         &:focus {
-          border: 1px solid ${colorPrimary} !important;
+          box-shadow: 0 0 0 1px ${colorPrimary} !important;
         }
       }
     `,
