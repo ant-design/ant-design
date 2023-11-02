@@ -103,6 +103,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+
   const element = (
     <RcInputNumber
       ref={inputRef}
@@ -114,7 +116,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       readOnly={readOnly}
       controls={controlsTemp}
       prefix={prefix}
-      suffix={hasFeedback && feedbackIcon}
+      suffix={suffixNode}
       addonAfter={
         addonAfter && (
           <NoCompactStyle>
