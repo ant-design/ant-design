@@ -33,8 +33,9 @@ Now we install `antd` from yarn or npm or pnpm.
 Modify `src/app/page.tsx`, import Button component from `antd`.
 
 ```tsx
-'use client'; // If used in Pages Router, is no need to add "use client"
+'use client';
 
+// If used in Pages Router, is no need to add "use client"
 import React from 'react';
 import { Button } from 'antd';
 
@@ -66,6 +67,8 @@ If you are using the App Router in Next.js and using antd as your component libr
 
 import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+// if you are using Next.js 14, use below import instead. More info: https://github.com/ant-design/ant-design/issues/45567
+// import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs/lib';
 import type Entity from '@ant-design/cssinjs/es/Cache';
 import { useServerInsertedHTML } from 'next/navigation';
 
