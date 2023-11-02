@@ -45,6 +45,7 @@ demo:
 | bordered | 是否有边框 | boolean | true | 4.12.0 |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | 小数点 | string | - | - |
+| placeholder | 占位符 | string | - |  |
 | defaultValue | 初始值 | number | - | - |
 | disabled | 禁用 | boolean | false | - |
 | formatter | 指定输入框展示值的格式 | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |

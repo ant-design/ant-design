@@ -44,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | bordered | Whether has border style | boolean | true | 4.12.0 |
 | controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
+| placeholder | placeholder | string | - |  |
 | defaultValue | The initial value | number | - | - |
 | disabled | If disable the input | boolean | false | - |
 | formatter | Specifies the format of the value presented | function(value: number \| string, info: { userTyping: boolean, input: string }): string | - | info: 4.17.0 |
