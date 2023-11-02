@@ -1558,20 +1558,21 @@ describe('Form', () => {
     const App2 = () => <Form disabled>{renderComps()}</Form>;
 
     const wrapper2 = render(<App2 />);
-    // 时间范围组件中会有两个 input 框，因此虽然上述只有 18 个组件，但，实际有 19 个 带有 disabled 属性的表单组件
-    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(19);
+    // 时间范围组件中会有两个 input 框，Upload 为叠加
+    // 因此虽然上述只有 18 个组件，但实际有 20 个 带有 disabled 属性的表单组件
+    expect(wrapper2.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App3 = () => <Form disabled>{renderComps(true)}</Form>;
 
     const wrapper3 = render(<App3 />);
 
-    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper3.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App4 = () => <Form>{renderComps(true)}</Form>;
 
     const wrapper4 = render(<App4 />);
 
-    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(19);
+    expect(wrapper4.container.querySelectorAll('[disabled]').length).toBe(20);
 
     const App5 = () => <Form>{renderComps()}</Form>;
 
