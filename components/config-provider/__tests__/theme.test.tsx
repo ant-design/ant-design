@@ -1,10 +1,11 @@
-import { kebabCase } from 'lodash';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import React from 'react';
+import kebabCase from 'lodash/kebabCase';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
+
 import ConfigProvider from '..';
 import { InputNumber } from '../..';
-import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { render } from '../../../tests/utils';
 import theme from '../../theme';
 import { useToken } from '../../theme/internal';
 
