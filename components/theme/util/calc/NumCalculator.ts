@@ -1,112 +1,54 @@
 import AbstractCalculator from './calculator';
 
-enum Operator {
-  ADD = '+',
-  SUB = '-',
-  MUL = '*',
-  DIV = '/',
-}
-
 export default class NumCalculator extends AbstractCalculator {
-  expression: (number | Operator)[] = [];
+  result: number = 0;
 
-  operators: Operator[] = [];
-
-  constructor(num: number | AbstractCalculator) {
+  constructor(num: number | string | AbstractCalculator) {
     super();
     if (num instanceof NumCalculator) {
-      this.expression.push(num.equal());
+      this.result = num.result;
     } else if (typeof num === 'number') {
-      this.expression.push(num);
+      this.result = num;
     }
   }
 
   add(num: number | AbstractCalculator): this {
-    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
-    this.expression.push(...this.operators.reverse());
-    this.expression.push(number);
-    this.operators = [Operator.ADD];
+    if (num instanceof NumCalculator) {
+      this.result += num.result;
+    } else if (typeof num === 'number') {
+      this.result += num;
+    }
     return this;
   }
 
   sub(num: number | AbstractCalculator): this {
-    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
-    this.expression.push(...this.operators.reverse());
-    this.expression.push(number);
-    this.operators = [Operator.SUB];
-    return this;
-  }
-
-  div(num: number | AbstractCalculator): this {
-    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
-    while (this.operators.length) {
-      const operator = this.operators.pop()!;
-      if (operator === Operator.MUL || operator === Operator.DIV) {
-        this.expression.push(operator);
-      } else {
-        this.operators.push(operator, Operator.DIV);
-        break;
-      }
+    if (num instanceof NumCalculator) {
+      this.result -= num.result;
+    } else if (typeof num === 'number') {
+      this.result -= num;
     }
-    if (this.operators.length === 0) {
-      this.operators.push(Operator.DIV);
-    }
-    this.expression.push(number);
     return this;
   }
 
   mul(num: number | AbstractCalculator): this {
-    const number = num instanceof AbstractCalculator ? (num.equal() as number) : num;
-    while (this.operators.length) {
-      const operator = this.operators.pop()!;
-      if (operator === Operator.MUL || operator === Operator.DIV) {
-        this.expression.push(operator);
-      } else {
-        this.operators.push(operator, Operator.MUL);
-        break;
-      }
+    if (num instanceof NumCalculator) {
+      this.result *= num.result;
+    } else if (typeof num === 'number') {
+      this.result *= num;
     }
-    if (this.operators.length === 0) {
-      this.operators.push(Operator.MUL);
+    return this;
+  }
+
+  div(num: number | AbstractCalculator): this {
+    if (num instanceof NumCalculator) {
+      this.result /= num.result;
+    } else if (typeof num === 'number') {
+      this.result /= num;
     }
-    this.expression.push(number);
     return this;
   }
 
   equal(): number {
-    const finalExp = [...this.expression];
-    finalExp.push(...this.operators.reverse());
-    this.calc(finalExp);
-    return finalExp[0] as number;
-  }
-
-  private calc(exp: (number | Operator)[]) {
-    for (let i = 0; i < exp.length; i++) {
-      if (typeof exp[i] === 'string') {
-        let tempResult = 0;
-        const num1 = exp[i - 2] as number;
-        const num2 = exp[i - 1] as number;
-        // eslint-disable-next-line default-case
-        switch (exp[i]) {
-          case Operator.ADD:
-            tempResult = num1 + num2;
-            break;
-          case Operator.SUB:
-            tempResult = num1 - num2;
-            break;
-          case Operator.MUL:
-            tempResult = num1 * num2;
-            break;
-          case Operator.DIV:
-            tempResult = num1 / num2;
-            break;
-        }
-        exp.splice(i - 2, 3, tempResult);
-        break;
-      }
-    }
-    if (exp.length > 2) {
-      this.calc(exp);
-    }
+    return this.result;
   }
 }

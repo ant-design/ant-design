@@ -1,5 +1,6 @@
 import getAlphaColor from '../util/getAlphaColor';
 import genCalc from '../util/calc';
+import type AbstractCalculator from 'antd/es/theme/util/calc/calculator';
 
 describe('util', () => {
   describe('getAlphaColor', () => {
@@ -9,34 +10,119 @@ describe('util', () => {
   });
 
   describe('calculator', () => {
-    it('NumCalculator', () => {
-      const calc = genCalc('js');
-      expect(calc(1).add(1).equal()).toBe(2);
-      expect(calc(1).add(1).mul(4).equal()).toBe(5);
-      expect(calc(1).add(4).div(4).sub(2).equal()).toBe(0);
-      expect(calc(1).add(4).div(calc(3).sub(2)).sub(2).equal()).toBe(3);
-      expect(calc(2).mul(calc(2).add(3)).equal()).toBe(10);
-      expect(calc(calc(1).add(2)).mul(3).equal()).toBe(9);
-      expect(calc(1).add(calc(2).sub(1)).equal()).toBe(2);
-      expect(calc(5).sub(calc(2).sub(1)).equal()).toBe(4);
-      expect(calc(2).mul(6).div(3).equal()).toBe(4);
-      expect(calc(6).div(3).mul(2).equal()).toBe(4);
-    });
-    it('CSSCalculator', () => {
-      const calc = genCalc('css');
-      expect(calc(1).add(1).equal()).toBe('calc(1px + 1px)');
-      expect(calc(1).add(1).mul(4).equal()).toBe('calc(1px + 1px * 4)');
-      expect(calc(1).add(4).div(4).sub(2).equal()).toBe('calc(1px + 4px / 4 - 2px)');
-      expect(calc(1).add(4).div(calc(3).sub(2)).sub(2).equal()).toBe(
-        'calc(1px + 4px / (3px - 2px) - 2px)',
-      );
-      expect(calc(2).mul(calc(2).add(3)).equal()).toBe('calc(2px * (2px + 3px))');
-      expect(calc(calc(1).add(2)).mul(3).equal()).toBe('calc((1px + 2px) * 3)');
-      expect(calc(1).add(calc(2).sub(1)).equal()).toBe('calc(1px + (2px - 1px))');
-      expect(calc(5).sub(calc(2).sub(1)).equal()).toBe('calc(5px - (2px - 1px))');
-      expect(calc(5).equal()).toBe('5px');
-      expect(calc(2).mul(6).div(3).equal()).toBe('calc(2px * 6 / 3)');
-      expect(calc(6).div(3).mul(2).equal()).toBe('calc(6px / 3 * 2)');
+    const cases: [
+      (calc: (num: number | AbstractCalculator) => AbstractCalculator) => string | number,
+      { js: number; css: string },
+    ][] = [
+      [
+        // 1 + 1
+        (calc) => calc(1).add(1).equal(),
+        {
+          js: 2,
+          css: 'calc(1px + 1px)',
+        },
+      ],
+      [
+        // (1 + 1) * 4
+        (calc) => calc(1).add(1).mul(4).equal(),
+        {
+          js: 8,
+          css: 'calc((1px + 1px) * 4)',
+        },
+      ],
+      [
+        // (2 + 4) / 2 - 2
+        (calc) => calc(2).add(4).div(2).sub(2).equal(),
+        {
+          js: 1,
+          css: 'calc((2px + 4px) / 2 - 2px)',
+        },
+      ],
+      [
+        // Bad case
+        // (2 + 4) / (3 - 2) - 2
+        (calc) => calc(2).add(4).div(calc(3).sub(2)).sub(2).equal(),
+        {
+          js: 4,
+          css: 'calc((2px + 4px) / (3px - 2px) - 2px)',
+        },
+      ],
+      [
+        // Bad case
+        // 2 * (2 + 3)
+        (calc) => calc(2).mul(calc(2).add(3)).equal(),
+        {
+          js: 10,
+          css: 'calc(2px * (2px + 3px))',
+        },
+      ],
+      [
+        // (1 + 2) * 3
+        (calc) => calc(calc(1).add(2)).mul(3).equal(),
+        {
+          js: 9,
+          css: 'calc((1px + 2px) * 3)',
+        },
+      ],
+      [
+        // 1 + (2 - 1)
+        (calc) => calc(1).add(calc(2).sub(1)).equal(),
+        {
+          js: 2,
+          css: 'calc(1px + (2px - 1px))',
+        },
+      ],
+      [
+        // 1 + 2 * 2
+        (calc) => calc(1).add(calc(2).mul(2)).equal(),
+        {
+          js: 5,
+          css: 'calc(1px + 2px * 2)',
+        },
+      ],
+      [
+        // 5 - (2 - 1)
+        (calc) => calc(5).sub(calc(2).sub(1)).equal(),
+        {
+          js: 4,
+          css: 'calc(5px - (2px - 1px))',
+        },
+      ],
+      [
+        // 2 * 6 / 3
+        (calc) => calc(2).mul(6).div(3).equal(),
+        {
+          js: 4,
+          css: 'calc(2px * 6 / 3)',
+        },
+      ],
+      [
+        // 6 / 3 * 2
+        (calc) => calc(6).div(3).mul(2).equal(),
+        {
+          js: 4,
+          css: 'calc(6px / 3 * 2)',
+        },
+      ],
+      [
+        // Bad case
+        // 6 / (3 * 2)
+        (calc) => calc(6).div(calc(3).mul(2)).equal(),
+        {
+          js: 1,
+          css: 'calc(6px / (3px * 2))',
+        },
+      ],
+    ];
+
+    cases.forEach(([exp, { js, css }], index) => {
+      it(`js calc ${index + 1}`, () => {
+        expect(exp(genCalc('js'))).toBe(js);
+      });
+
+      it(`css calc ${index + 1}`, () => {
+        expect(exp(genCalc('css'))).toBe(css);
+      });
     });
   });
 });

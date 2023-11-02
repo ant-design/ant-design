@@ -256,7 +256,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
-    return (
+    return wrapCSSVar(
       <a
         {...linkButtonRestProps}
         className={classNames(classes, {
@@ -268,7 +268,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       >
         {iconNode}
         {kids}
-      </a>
+      </a>,
     );
   }
 
