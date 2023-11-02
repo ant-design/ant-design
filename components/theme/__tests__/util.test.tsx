@@ -113,6 +113,14 @@ describe('util', () => {
           css: 'calc(6px / (3px * 2))',
         },
       ],
+      [
+        // 6
+        (calc) => calc(6).equal(),
+        {
+          js: 6,
+          css: '6px',
+        },
+      ],
     ];
 
     cases.forEach(([exp, { js, css }], index) => {
