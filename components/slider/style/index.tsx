@@ -110,8 +110,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
       },
 
       [`${componentCls}-track-draggable`]: {
-        // base on https://github.com/ant-design/ant-design/pull/42825/files#diff-9b9560a611e7ed0e6ef24ca9f1faff1e8c816d3f35ed6a1f73c36d2b42790aba
-        // zIndex: 1,
         boxSizing: 'content-box',
         backgroundClip: 'content-box',
         border: 'solid rgba(0,0,0,0)',
@@ -144,10 +142,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         width: token.handleSize,
         height: token.handleSize,
         outline: 'none',
-
-        [`${componentCls}-dragging`]: {
-          zIndex: 1,
-        },
 
         // 扩大选区
         '&::before': {
