@@ -28,8 +28,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     type,
     title,
     children,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    footer /** omit */,
+    footer,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
