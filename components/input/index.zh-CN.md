@@ -61,10 +61,10 @@ demo:
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
 | maxLength | 最大长度 | number | - |  |
+| prefix | 带有前缀图标的 input | ReactNode | - |  |
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | styles | 语义化结构 style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
-| prefix | 带有前缀图标的 input | ReactNode | - |  |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |

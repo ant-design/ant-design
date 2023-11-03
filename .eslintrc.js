@@ -25,7 +25,16 @@ module.exports = {
     },
   },
   parser: '@typescript-eslint/parser',
-  plugins: ['react', '@babel', 'jest', '@typescript-eslint', 'react-hooks', 'unicorn', 'markdown'],
+  plugins: [
+    'react',
+    '@babel',
+    'jest',
+    '@typescript-eslint',
+    'react-hooks',
+    'unicorn',
+    'markdown',
+    'lodash',
+  ],
   // https://github.com/typescript-eslint/typescript-eslint/issues/46#issuecomment-470486034
   overrides: [
     {
@@ -156,6 +165,7 @@ module.exports = {
     'react/no-unused-class-component-methods': 0,
     'import/extensions': 0,
     'import/no-cycle': 2,
+    'lodash/import-scope': 2,
     'import/no-extraneous-dependencies': [
       'error',
       {

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Alert, Space, Spin } from 'antd';
+import { Alert, Flex, Spin } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical" style={{ width: '100%' }}>
-    <Space>
+  <Flex gap="small" vertical>
+    <Flex gap="small">
       <Spin tip="Loading" size="small">
         <div className="content" />
       </Spin>
@@ -13,8 +13,7 @@ const App: React.FC = () => (
       <Spin tip="Loading" size="large">
         <div className="content" />
       </Spin>
-    </Space>
-
+    </Flex>
     <Spin tip="Loading...">
       <Alert
         message="Alert message title"
@@ -22,7 +21,7 @@ const App: React.FC = () => (
         type="info"
       />
     </Spin>
-  </Space>
+  </Flex>
 );
 
 export default App;
