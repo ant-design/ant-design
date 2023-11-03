@@ -20,12 +20,33 @@ tag: vVERSION
 
 `2023-11-03`
 
-- 🆕 Show Slider tooltip when focus handler. [#45653](https://github.com/ant-design/ant-design/pull/45653)
-- 🆕 Slider handler should be movable after click tracker. [#45651](https://github.com/ant-design/ant-design/pull/45651)
+- Slider
+  - 🆕 Show Slider tooltip when focus handler. [#45653](https://github.com/ant-design/ant-design/pull/45653)
+  - 💄 Slider handler should be movable after click tracker. [#45651](https://github.com/ant-design/ant-design/pull/45651)
+- InputNumber
+  - 🆕 InputNumber support `changeOnBlur` prop to disable trigger `onChange` event when blur. [#45395](https://github.com/ant-design/ant-design/pull/45395)
+  - 🐞 Fix InputNumber in Form with `hasFeedback` that will lose focus when feedback icon appear. [#45632](https://github.com/ant-design/ant-design/pull/45632) [@MadCcc](https://github.com/MadCcc)
+  - 🐞 Fix InputNumber dynamic modify `formatter` not working. [#45325](https://github.com/ant-design/ant-design/pull/45325)
+- Table
+  - 🆕 Table `columnTitle` support render function. [#41937](https://github.com/ant-design/ant-design/pull/41937) [@Zhou-Bill](https://github.com/Zhou-Bill)
+  - 🛠 🚨 Refactor Table `ref` to support `scrollTo` to scroll to target `key` or `index` or `top`. [#45245](https://github.com/ant-design/ant-design/pull/45245)
+- Tabs
+  - 🆕 Tabs `items` support tab pane level `destroyInactiveTabPane`. [#45359](https://github.com/ant-design/ant-design/pull/45359)
+  - 🐞 Fix Tabs overflow blinking when Tab bar has decimal width. [#45370](https://github.com/ant-design/ant-design/pull/45370)
+- ConfigProvider
+  - 🆕 ConfigProvider support RangePicker `className` and `style` properties. [#45479](https://github.com/ant-design/ant-design/pull/45479) [@chenzhuo198](https://github.com/chenzhuo198)
+  - 🆕 ConfigProvider support Dropdown `className` and `style` properties. [#45621](https://github.com/ant-design/ant-design/pull/45621) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 ColorPicker `preset` prop support `defaultOpen` to control whether preset colors is open by default. [#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Select support `optionRender` prop. [#45529](https://github.com/ant-design/ant-design/pull/45529) [@RedJue](https://github.com/RedJue)
 - 🆕 Pagination support combine `simple` and `showSizeChanger`. [#45538](https://github.com/ant-design/ant-design/pull/45538)
-- 🆕 Optimize z-index logic of popup components, and make them don't block each other by default. [#45512](https://github.com/ant-design/ant-design/pull/45512) [#45490](https://github.com/ant-design/ant-design/pull/45490) [@kiner-tang](https://github.com/kiner-tang)
+- 🆕 Spin support `fullscreen` to display as backdrop. [#44986](https://github.com/ant-design/ant-design/pull/44986) [@Rafael-Martins](https://github.com/Rafael-Martins) [#45436](https://github.com/ant-design/ant-design/pull/45436) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Form `validateFields` support `dirty` for validating touched and validated fields. [#45389](https://github.com/ant-design/ant-design/pull/45389)
+- 🆕 Watermark support `inherit` prop to disable watermark pass to Drawer &amp; Modal. [#45319](https://github.com/ant-design/ant-design/pull/45319)
+- 🆕 App support `component` for customization. [#45292](https://github.com/ant-design/ant-design/pull/45292)
+- 🆕 🔥 Input and Input.TextArea support `count` custom character count (for example, fix emoji character length to `1`); `count.max` supports out-of-range styles; restore emoji to native count to solve the problem of `maxLength` and `value` mismatch. [#45140](https://github.com/ant-design/ant-design/pull/45140)
+- 🐞 Fix Dropdown not trigger `onOpenChange` when click menu item to close the popup. [#45378](https://github.com/ant-design/ant-design/pull/45378)
+- 💄 Modal static function support `styles`. [#45558](https://github.com/ant-design/ant-design/pull/45558) [@KotoriK](https://github.com/KotoriK)
+- 💄 Optimize z-index logic of popup components, and make them don't block each other by default. [#45512](https://github.com/ant-design/ant-design/pull/45512) [#45490](https://github.com/ant-design/ant-design/pull/45490) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Menu. [#45498](https://github.com/ant-design/ant-design/pull/45498) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of DatePicker and TimePicker. [#45497](https://github.com/ant-design/ant-design/pull/45497) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Drawer. [#45496](https://github.com/ant-design/ant-design/pull/45496) [#45417](https://github.com/ant-design/ant-design/pull/45417) [@kiner-tang](https://github.com/kiner-tang)
@@ -36,22 +57,6 @@ tag: vVERSION
   - Optimize z-index logic of Popover. [#45420](https://github.com/ant-design/ant-design/pull/45420) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Popconfirm. [#45421](https://github.com/ant-design/ant-design/pull/45421) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Modal and Select. [#45346](https://github.com/ant-design/ant-design/pull/45346) [@kiner-tang](https://github.com/kiner-tang)
-- 🆕 Table `columnTitle` support render function. [#41937](https://github.com/ant-design/ant-design/pull/41937) [@Zhou-Bill](https://github.com/Zhou-Bill)
-- 🆕 ConfigProvider support RangePicker `className` and `style` properties. [#45479](https://github.com/ant-design/ant-design/pull/45479) [@chenzhuo198](https://github.com/chenzhuo198)
-- 🆕 ConfigProvider support Dropdown `className` and `style` properties. [#45621](https://github.com/ant-design/ant-design/pull/45621) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 Spin support `fullscreen` to display as backdrop. [#44986](https://github.com/ant-design/ant-design/pull/44986) [@Rafael-Martins](https://github.com/Rafael-Martins) [#45436](https://github.com/ant-design/ant-design/pull/45436) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🆕 InputNumber support `changeOnBlur` prop to disable trigger `onChange` event when blur. [#45395](https://github.com/ant-design/ant-design/pull/45395)
-- 🆕 Form `validateFields` support `dirty` for validating touched and validated fields. [#45389](https://github.com/ant-design/ant-design/pull/45389)
-- 🆕 Tabs `items` support tab pane level `destroyInactiveTabPane`. [#45359](https://github.com/ant-design/ant-design/pull/45359)
-- 🆕 Watermark support `inherit` prop to disable watermark pass to Drawer &amp; Modal. [#45319](https://github.com/ant-design/ant-design/pull/45319)
-- 🆕 App support `component` for customization. [#45292](https://github.com/ant-design/ant-design/pull/45292)
-- 🆕 🔥 Input and Input.TextArea support `count` custom character count (for example, fix emoji character length to `1`); `count.max` supports out-of-range styles; restore emoji to native count to solve the problem of `maxLength` and `value` mismatch. [#45140](https://github.com/ant-design/ant-design/pull/45140)
-- 🐞 Fix InputNumber in Form with `hasFeedback` that will lose focus when feedback icon appear. [#45632](https://github.com/ant-design/ant-design/pull/45632) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Fix Dropdown not trigger `onOpenChange` when click menu item to close the popup. [#45378](https://github.com/ant-design/ant-design/pull/45378)
-- 🐞 Fix Tabs overflow blinking when Tab bar has decimal width. [#45370](https://github.com/ant-design/ant-design/pull/45370)
-- 🐞 Fix InputNumber dynamic modify `formatter` not working. [#45325](https://github.com/ant-design/ant-design/pull/45325)
-- 💄 Modal static function support `styles`. [#45558](https://github.com/ant-design/ant-design/pull/45558) [@KotoriK](https://github.com/KotoriK)
-- 🛠 🚨 Refactor Table `ref` to support `scrollTo` to scroll to target `key` or `index` or `top`. [#45245](https://github.com/ant-design/ant-design/pull/45245)
 
 ## 5.10.3
 
