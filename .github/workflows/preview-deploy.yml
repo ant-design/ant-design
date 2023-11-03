@@ -74,6 +74,7 @@ jobs:
 
       # Download site artifact
       - name: download site artifact
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
@@ -81,7 +82,6 @@ jobs:
           name: site
 
       - name: upload surge service
-        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
         id: deploy
         continue-on-error: true
         run: |
