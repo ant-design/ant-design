@@ -163,7 +163,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -198,7 +198,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -233,7 +233,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -255,7 +255,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
         >
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -272,7 +272,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -289,7 +289,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx extend context c
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -471,7 +471,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -504,7 +504,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -526,7 +526,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
         >
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -543,7 +543,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx extend context corr
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -669,7 +669,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -704,7 +704,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -739,7 +739,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </li>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -761,7 +761,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
         >
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -778,7 +778,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"
@@ -795,7 +795,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx extend context correctly
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
           >
             <div
               class="ant-tooltip-arrow"

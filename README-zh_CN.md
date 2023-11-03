@@ -84,7 +84,7 @@ pnpm add antd
 
 ## 🔨 示例
 
-```jsx
+```tsx
 import React from 'react';
 import { Button, DatePicker } from 'antd';
 
@@ -94,6 +94,8 @@ const App = () => (
     <DatePicker />
   </>
 );
+
+export default App;
 ```
 
 ### 🌈 定制主题

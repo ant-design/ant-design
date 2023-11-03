@@ -142,6 +142,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | onRow | Set props on per row | function(record, index) | - |  |
 | virtual | Support virtual list | boolean | - | 5.9.0 |
 
+### Table ref
+
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey` | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
+
 #### onRow usage
 
 Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
@@ -252,7 +259,7 @@ Properties for row selection.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
-| columnTitle | Set the title of the selection column | ReactNode | - |  |
+| columnTitle | Set the title of the selection column | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | Set the width of the selection column | string \| number | `32px` |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |

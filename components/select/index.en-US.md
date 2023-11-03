@@ -85,6 +85,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label` | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
+| optionRender | Customize the rendering dropdown options | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
 | placeholder | Placeholder of select | ReactNode | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |

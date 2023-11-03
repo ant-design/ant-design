@@ -329,9 +329,9 @@ const globalToken = getDesignToken();
 `getDesignToken` 和 ConfigProvider 一样，支持传入 `theme` 属性，用于获取指定主题的 Design Token。
 
 ```tsx
-import { createRoot } from 'react-dom/client';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
+import { createRoot } from 'react-dom/client';
 
 const { getDesignToken, useToken } = theme;
 

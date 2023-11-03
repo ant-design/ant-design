@@ -7,6 +7,7 @@ import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
@@ -14,6 +15,7 @@ import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import { useZIndex } from '../_util/hooks/useZIndex';
 
 let mousePosition: MousePosition;
 
@@ -113,38 +115,44 @@ const Modal: React.FC<ModalProps> = (props) => {
   // Select `ant-modal-content` by `panelRef`
   const panelRef = usePanelRef(`.${prefixCls}-content`);
 
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
+
   // =========================== Render ===========================
   return wrapSSR(
     <NoCompactStyle>
       <NoFormStyle status override>
-        <Dialog
-          width={width}
-          {...restProps}
-          getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
-          prefixCls={prefixCls}
-          rootClassName={classNames(hashId, rootClassName)}
-          footer={dialogFooter}
-          visible={open ?? visible}
-          mousePosition={restProps.mousePosition ?? mousePosition}
-          onClose={handleCancel}
-          closable={mergedClosable}
-          closeIcon={mergedCloseIcon}
-          focusTriggerAfterClose={focusTriggerAfterClose}
-          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, modal?.className)}
-          style={{ ...modal?.style, ...style }}
-          classNames={{
-            wrapper: wrapClassNameExtended,
-            ...modal?.classNames,
-            ...modalClassNames,
-          }}
-          styles={{
-            ...modal?.styles,
-            ...modalStyles,
-          }}
-          panelRef={panelRef}
-        />
+        <zIndexContext.Provider value={contextZIndex}>
+          <Dialog
+            width={width}
+            {...restProps}
+            zIndex={zIndex}
+            getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+            prefixCls={prefixCls}
+            rootClassName={classNames(hashId, rootClassName)}
+            footer={dialogFooter}
+            visible={open ?? visible}
+            mousePosition={restProps.mousePosition ?? mousePosition}
+            onClose={handleCancel}
+            closable={mergedClosable}
+            closeIcon={mergedCloseIcon}
+            focusTriggerAfterClose={focusTriggerAfterClose}
+            transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+            maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+            className={classNames(hashId, className, modal?.className)}
+            style={{ ...modal?.style, ...style }}
+            classNames={{
+              wrapper: wrapClassNameExtended,
+              ...modal?.classNames,
+              ...modalClassNames,
+            }}
+            styles={{
+              ...modal?.styles,
+              ...modalStyles,
+            }}
+            panelRef={panelRef}
+          />
+        </zIndexContext.Provider>
       </NoFormStyle>
     </NoCompactStyle>,
   );

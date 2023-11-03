@@ -13,7 +13,7 @@ type ListItemProps<RecordType> = {
   disabled?: boolean;
   checked?: boolean;
   prefixCls: string;
-  onClick: (item: RecordType) => void;
+  onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
   showRemove?: boolean;
@@ -67,7 +67,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   }
 
   // Default click to select
-  liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
+  liProps.onClick = disabled || item.disabled ? undefined : (event) => onClick(item, event);
 
   return (
     <li {...liProps}>

@@ -31,6 +31,7 @@ export interface WatermarkProps {
   gap?: [number, number];
   offset?: [number, number];
   children?: React.ReactNode;
+  inherit?: boolean;
 }
 
 /**
@@ -63,6 +64,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     gap = [DEFAULT_GAP_X, DEFAULT_GAP_Y],
     offset,
     children,
+    inherit = true,
   } = props;
   const [, token] = useToken();
   const {
@@ -270,13 +272,19 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   );
 
   // ============================= Render =============================
+  const childNode = inherit ? (
+    <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+  ) : (
+    children
+  );
+
   return (
     <div
       ref={setContainer}
       className={classNames(className, rootClassName)}
       style={{ position: 'relative', ...style }}
     >
-      <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+      {childNode}
     </div>
   );
 };

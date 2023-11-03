@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
@@ -10,6 +10,7 @@ import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import useMultipleSelect from '../../_util/hooks/useMultipleSelect';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
@@ -108,6 +109,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   } = config;
 
   const warning = devUseWarning('Table');
+
+  // ========================= MultipleSelect =========================
+  const [multipleSelect, updatePrevSelectedIndex] = useMultipleSelect<React.Key, React.Key>(
+    (item) => item,
+  );
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
@@ -216,9 +222,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     () => (selectionType === 'radio' ? new Set() : new Set(derivedHalfSelectedKeys)),
     [derivedHalfSelectedKeys, selectionType],
   );
-
-  // Save last selected key to enable range selection
-  const [lastSelectedKey, setLastSelectedKey] = useState<Key | null>(null);
 
   // Reset if rowSelection reset
   React.useEffect(() => {
@@ -350,7 +353,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         ...selection,
         onSelect: (...rest) => {
           selection.onSelect?.(...rest);
-          setLastSelectedKey(null);
+          updatePrevSelectedIndex(null);
         },
       }));
   }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
@@ -406,12 +409,13 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         );
 
         setSelectedKeys(keys, 'all');
-        setLastSelectedKey(null);
+        updatePrevSelectedIndex(null);
       };
 
       // ===================== Render =====================
       // Title Cell
       let title: React.ReactNode;
+      let columnTitleCheckbox: React.ReactNode;
       if (selectionType !== 'radio') {
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
@@ -456,22 +460,26 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         const allDisabledSomeChecked =
           allDisabled && allDisabledData.some(({ checked }) => checked);
 
+        columnTitleCheckbox = (
+          <Checkbox
+            checked={
+              !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
+            }
+            indeterminate={
+              !allDisabled
+                ? !checkedCurrentAll && checkedCurrentSome
+                : !allDisabledAndChecked && allDisabledSomeChecked
+            }
+            onChange={onSelectAllChange}
+            disabled={flattedData.length === 0 || allDisabled}
+            aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+            skipGroup
+          />
+        );
+
         title = !hideSelectAll && (
           <div className={`${prefixCls}-selection`}>
-            <Checkbox
-              checked={
-                !allDisabled ? !!flattedData.length && checkedCurrentAll : allDisabledAndChecked
-              }
-              indeterminate={
-                !allDisabled
-                  ? !checkedCurrentAll && checkedCurrentSome
-                  : !allDisabledAndChecked && allDisabledSomeChecked
-              }
-              onChange={onSelectAllChange}
-              disabled={flattedData.length === 0 || allDisabled}
-              aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
-              skipGroup
-            />
+            {columnTitleCheckbox}
             {customizeSelections}
           </div>
         );
@@ -532,50 +540,13 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                 onClick={(e) => e.stopPropagation()}
                 onChange={({ nativeEvent }) => {
                   const { shiftKey } = nativeEvent;
+                  const currentSelectedIndex = recordKeys.findIndex((item) => item === key);
+                  const isMultiple = derivedSelectedKeys.some((item) => recordKeys.includes(item));
 
-                  let startIndex: number = -1;
-                  let endIndex: number = -1;
-
-                  // Get range of this
-                  if (shiftKey && checkStrictly) {
-                    const pointKeys = new Set([lastSelectedKey, key]);
-
-                    recordKeys.some((recordKey, recordIndex) => {
-                      if (pointKeys.has(recordKey)) {
-                        if (startIndex === -1) {
-                          startIndex = recordIndex;
-                        } else {
-                          endIndex = recordIndex;
-                          return true;
-                        }
-                      }
-
-                      return false;
-                    });
-                  }
-
-                  if (endIndex !== -1 && startIndex !== endIndex && checkStrictly) {
-                    // Batch update selections
-                    const rangeKeys = recordKeys.slice(startIndex, endIndex + 1);
-                    const changedKeys: Key[] = [];
-
-                    if (checked) {
-                      rangeKeys.forEach((recordKey) => {
-                        if (keySet.has(recordKey)) {
-                          changedKeys.push(recordKey);
-                          keySet.delete(recordKey);
-                        }
-                      });
-                    } else {
-                      rangeKeys.forEach((recordKey) => {
-                        if (!keySet.has(recordKey)) {
-                          changedKeys.push(recordKey);
-                          keySet.add(recordKey);
-                        }
-                      });
-                    }
-
+                  if (shiftKey && checkStrictly && isMultiple) {
+                    const changedKeys = multipleSelect(currentSelectedIndex, recordKeys, keySet);
                     const keys = Array.from(keySet);
+
                     onSelectMultiple?.(
                       !checked,
                       keys.map((recordKey) => getRecordByKey(recordKey)),
@@ -619,9 +590,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                   }
 
                   if (checked) {
-                    setLastSelectedKey(null);
+                    updatePrevSelectedIndex(null);
                   } else {
-                    setLastSelectedKey(key);
+                    updatePrevSelectedIndex(currentSelectedIndex);
                   }
                 }}
               />
@@ -699,6 +670,16 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         [`${prefixCls}-selection-col-with-dropdown`]: selections && selectionType === 'checkbox',
       });
 
+      const renderColumnTitle = () => {
+        if (!rowSelection?.columnTitle) {
+          return title;
+        }
+        if (typeof rowSelection.columnTitle === 'function') {
+          return rowSelection.columnTitle(columnTitleCheckbox);
+        }
+        return rowSelection.columnTitle;
+      };
+
       // Replace with real selection column
       const selectionColumn: ColumnsType<RecordType>[0] & {
         RC_TABLE_INTERNAL_COL_DEFINE: Record<string, any>;
@@ -706,7 +687,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         fixed: mergedFixed,
         width: selectionColWidth,
         className: `${prefixCls}-selection-column`,
-        title: rowSelection.columnTitle || title,
+        title: renderColumnTitle(),
         render: renderSelectionCell,
         onCell: rowSelection.onCell,
         [INTERNAL_COL_DEFINE]: { className: columnCls },
@@ -724,7 +705,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       selectionColWidth,
       mergedSelections,
       expandType,
-      lastSelectedKey,
       checkboxPropsMap,
       onSelectMultiple,
       triggerSingleSelection,

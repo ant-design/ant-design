@@ -47,12 +47,15 @@ export default App;
 
 ```jsx
 import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
 import { ConfigProvider, DatePicker, message } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
 import dayjs from 'dayjs';
+import { createRoot } from 'react-dom/client';
+
 import 'dayjs/locale/zh-cn';
+
 import zhCN from 'antd/locale/zh_CN';
+
 import './index.css';
 
 dayjs.locale('zh-cn');

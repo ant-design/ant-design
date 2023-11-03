@@ -185,6 +185,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     modalRender,
     focusTriggerAfterClose,
     onConfirm,
+    styles,
   } = props;
 
   if (process.env.NODE_ENV !== 'production') {
@@ -247,6 +248,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         styles={{
           body: bodyStyle,
           mask: maskStyle,
+          ...styles,
         }}
         width={width}
         zIndex={zIndex}
