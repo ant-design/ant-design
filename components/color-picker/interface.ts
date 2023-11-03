@@ -14,8 +14,9 @@ export interface PresetsItem {
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
+   * @default true
    */
-  defaultCollapsed?: boolean;
+  defaultOpen?: boolean;
 }
 export type TriggerType = 'click' | 'hover';
 
