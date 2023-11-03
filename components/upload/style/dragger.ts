@@ -33,7 +33,9 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
           verticalAlign: 'middle',
         },
 
-        [`&:not(${componentCls}-disabled):hover`]: {
+        [`&:not(${componentCls}-disabled):hover,
+        &-hover:not(${componentCls}-disabled)
+        `]: {
           borderColor: token.colorPrimaryHover,
         },
 
