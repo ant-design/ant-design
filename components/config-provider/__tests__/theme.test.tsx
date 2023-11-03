@@ -6,7 +6,6 @@ import ConfigProvider from '..';
 import { InputNumber, Button } from '../..';
 import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
-import { render } from '../../../tests/utils';
 import theme from '../../theme';
 import { useToken } from '../../theme/internal';
 
