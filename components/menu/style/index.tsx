@@ -94,7 +94,7 @@ export interface ComponentToken {
   itemSelectedColor: string;
   /**
    * @desc 菜单项标题文字选中颜色
-   * @descEN Color of selected menu item title text
+   * @descEN Color of selected sub menu item title text
    */
   subMenuItemSelectedColor: string;
 
