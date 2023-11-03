@@ -57,8 +57,6 @@ export interface SliderBaseProps {
 
   styles?: RcSliderProps['styles'];
   classNames?: RcSliderProps['classNames'];
-  onFocus?: React.FocusEventHandler<HTMLDivElement>;
-  onBlur?: React.FocusEventHandler<HTMLDivElement>;
 
   // Deprecated
   /** @deprecated `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead. */
@@ -221,26 +219,18 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     const open =
       tooltipOpen ?? legacyTooltipVisible ?? (tooltipOpen === undefined && isTipFormatter);
 
-    const passedProps = {
-      ...node.props,
-      onMouseEnter: () => toggleTooltipOpen(index, true),
-      onMouseLeave: () => toggleTooltipOpen(index, false),
-      onFocus: (e: React.FocusEvent<HTMLDivElement>) => {
-        toggleTooltipOpen(index, true);
-        restProps.onFocus?.(e);
-      },
-      onBlur: (e: React.FocusEvent<HTMLDivElement>) => {
-        toggleTooltipOpen(index, false);
-        restProps.onBlur?.(e);
-      },
+    const onOpenChange = (newOpen: boolean) => {
+      toggleTooltipOpen(index, newOpen);
     };
 
     return (
       <SliderTooltip
+        trigger={['hover', 'focus']}
         {...tooltipProps}
         prefixCls={getPrefixCls('tooltip', customizeTooltipPrefixCls ?? legacyTooltipPrefixCls)}
         title={mergedTipFormatter ? mergedTipFormatter(info.value) : ''}
         open={open}
+        onOpenChange={onOpenChange}
         placement={getTooltipPlacement(tooltipPlacement ?? legacyTooltipPlacement, vertical)}
         key={index}
         overlayClassName={`${prefixCls}-tooltip`}
@@ -248,7 +238,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
           getTooltipPopupContainer || legacyGetTooltipPopupContainer || getPopupContainer
         }
       >
-        {React.cloneElement(node, passedProps)}
+        {node}
       </SliderTooltip>
     );
   };
