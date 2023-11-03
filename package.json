@@ -1,9 +1,7 @@
 {
   "name": "antd",
-  "version": "5.10.2",
-  "packageManager": "npm@10.2.1",
+  "version": "5.10.3",
   "description": "An enterprise-class UI design language and React components implementation",
-  "title": "Ant Design",
   "keywords": [
     "ant",
     "component",
@@ -23,53 +21,52 @@
     "type": "git",
     "url": "https://github.com/ant-design/ant-design"
   },
-  "license": "MIT",
-  "contributors": [
-    "ant"
-  ],
   "funding": {
     "type": "opencollective",
     "url": "https://opencollective.com/ant-design"
   },
+  "license": "MIT",
+  "contributors": [
+    "ant"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "main": "lib/index.js",
+  "unpkg": "dist/antd.min.js",
+  "module": "es/index.js",
+  "typings": "es/index.d.ts",
   "files": [
     "dist",
     "es",
     "lib",
     "locale"
   ],
-  "sideEffects": [
-    "*.css"
-  ],
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "unpkg": "dist/antd.min.js",
-  "typings": "es/index.d.ts",
   "scripts": {
-    "prepare": "is-ci || husky install && dumi setup",
     "api-collection": "antd-tools run api-collection",
+    "argos": "tsx scripts/argos-upload.ts",
     "authors": "tsx scripts/generate-authors.ts",
+    "biome:format": "biome format --write .",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
-    "size-limit": "size-limit",
+    "changelog": "git fetch origin && tsx scripts/print-changelog.ts",
     "check-commit": "tsx scripts/check-commit.ts",
     "check-ts-demo": "tsx scripts/check-ts-demo.ts",
     "clean": "antd-tools run clean && rm -rf es lib coverage dist report.html",
     "clean-lockfiles": "rm -rf package-lock.json yarn.lock",
     "collect-token-statistic": "tsx scripts/collect-token-statistic.ts",
-    "token-meta": "tsx scripts/generate-token-meta.ts",
-    "component-changelog": "tsx scripts/generate-component-changelog.ts",
-    "prestart": "npm run version && npm run collect-token-statistic && npm run token-meta && npm run component-changelog",
     "precompile": "npm run prestart",
-    "pretest": "npm run version && npm run component-changelog",
-    "predist": "npm run version",
-    "presite": "npm run prestart",
     "compile": "npm run clean && antd-tools run compile",
-    "changelog": "git fetch origin && tsx scripts/print-changelog.ts",
+    "component-changelog": "tsx scripts/generate-component-changelog.ts",
     "predeploy": "antd-tools run clean && npm run site && cp CNAME _site && npm run site:test",
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
+    "predist": "npm run version",
     "dist": "antd-tools run dist",
     "dist:esbuild": "ESBUILD=true npm run dist",
     "dist:esbuild-no-dup-check": "ESBUILD=true NO_DUP_CHECK=true npm run dist",
+    "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
+    "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
+    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18",
     "lint": "npm run version && npm run tsc && npm run lint:script && npm run lint:demo && npm run lint:md && npm run lint:style",
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo",
     "lint-fix:demo": "npm run lint:demo -- --fix",
@@ -77,31 +74,36 @@
     "lint:demo": "eslint components/*/demo/*.md",
     "lint:deps": "antd-tools run deps-lint",
     "lint:md": "remark . -f -q",
-    "lint:style": "tsx scripts/check-cssinjs.ts",
     "lint:script": "npm run component-changelog && eslint . --ext .js,.jsx,.ts,.tsx --cache",
+    "lint:style": "tsx scripts/check-cssinjs.ts",
     "pre-publish": "npm run test-all -- --skip-build && tsx ./scripts/pre-publish-notice.ts",
+    "prepare": "is-ci || husky install && dumi setup",
+    "prepublishOnly": "antd-tools run guard",
     "prettier": "prettier -c --write **/* --cache",
     "pub": "npm run version && npm run collect-token-statistic && npm run token-meta && antd-tools run pub",
-    "biome:format": "biome format --write .",
-    "prepublishOnly": "antd-tools run guard",
     "postpublish": "tsx scripts/post-script.ts",
+    "presite": "npm run prestart",
     "site": "dumi build && cp .surgeignore _site",
-    "sort": "npx sort-package-json",
-    "sort-api": "antd-tools run sort-api-table",
-    "start": "cross-env PORT=8001 dumi dev",
-    "test": "jest --config .jest.js --no-cache",
-    "test:update": "jest --config .jest.js --no-cache -u",
-    "test-all": "sh -e ./scripts/test-all.sh",
-    "test-node": "npm run version && jest --config .jest.node.js --no-cache",
-    "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js",
     "site:test:update": "npm run site && npm run site:test -- -u",
+    "size-limit": "size-limit",
+    "sort": "npx sort-package-json",
+    "sort-api": "antd-tools run sort-api-table",
+    "prestart": "npm run version && npm run collect-token-statistic && npm run token-meta && npm run component-changelog",
+    "start": "cross-env PORT=8001 dumi dev",
+    "pretest": "npm run version && npm run component-changelog",
+    "test": "jest --config .jest.js --no-cache",
+    "test-all": "sh -e ./scripts/test-all.sh",
     "test-image": "jest --config .jest.image.js --no-cache -i -u",
-    "argos": "tsx scripts/argos-upload.ts",
-    "version": "tsx scripts/generate-version.ts",
-    "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
-    "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
-    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18"
+    "test-node": "npm run version && jest --config .jest.node.js --no-cache",
+    "test:update": "jest --config .jest.js --no-cache -u",
+    "token-meta": "tsx scripts/generate-token-meta.ts",
+    "tsc": "tsc --noEmit",
+    "version": "tsx scripts/generate-version.ts"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": "biome format --write",
+    "*.{json,less,md}": "prettier --ignore-unknown --write"
   },
   "browserslist": [
     "> 0.5%",
@@ -119,12 +121,12 @@
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.10.0",
-    "@rc-component/trigger": "^1.17.2",
+    "@rc-component/trigger": "^1.18.0",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.1",
     "qrcode.react": "^3.1.0",
-    "rc-cascader": "~3.19.1",
+    "rc-cascader": "~3.20.0",
     "rc-checkbox": "~3.1.0",
     "rc-collapse": "~3.7.1",
     "rc-dialog": "~9.3.4",
@@ -139,21 +141,21 @@
     "rc-motion": "^2.9.0",
     "rc-notification": "~5.3.0",
     "rc-pagination": "~3.7.0",
-    "rc-picker": "~3.14.5",
+    "rc-picker": "~3.14.6",
     "rc-progress": "~3.5.1",
     "rc-rate": "~2.12.0",
     "rc-resize-observer": "^1.4.0",
     "rc-segmented": "~2.2.2",
-    "rc-select": "~14.9.2",
+    "rc-select": "~14.10.0",
     "rc-slider": "~10.3.1",
     "rc-steps": "~6.0.1",
     "rc-switch": "~4.1.0",
     "rc-table": "~7.35.1",
     "rc-tabs": "~12.13.1",
     "rc-textarea": "~1.5.1",
-    "rc-tooltip": "~6.1.1",
+    "rc-tooltip": "~6.1.2",
     "rc-tree": "~5.8.0",
-    "rc-tree-select": "~5.14.0",
+    "rc-tree-select": "~5.15.0",
     "rc-upload": "~4.3.5",
     "rc-util": "^5.38.0",
     "scroll-into-view-if-needed": "^3.1.0",
@@ -199,7 +201,7 @@
     "@types/prismjs": "^1.26.0",
     "@types/progress": "^2.0.5",
     "@types/qs": "^6.9.7",
-    "@types/react": "18.2.33",
+    "@types/react": "^18.2.33",
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-highlight-words": "^0.16.4",
@@ -230,10 +232,11 @@
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jest": "^27.0.1",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-lodash": "^7.4.0",
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-unicorn": "^48.0.0",
+    "eslint-plugin-unicorn": "^49.0.0",
     "fast-glob": "^3.2.11",
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^11.0.0",
@@ -317,6 +320,12 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "overrides": {
+    "dumi-plugin-color-chunk": {
+      "dumi": "^2.3.0-alpha.4"
+    }
+  },
+  "packageManager": "npm@10.2.1",
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
@@ -327,19 +336,8 @@
       "limit": "465 KiB"
     }
   ],
+  "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": "biome format --write",
-    "*.{json,less,md}": "prettier --ignore-unknown --write"
-  },
-  "overrides": {
-    "dumi-plugin-color-chunk": {
-      "dumi": "^2.3.0-alpha.4"
-    },
-    "@ant-design/cssinjs": {
-      "dumi": "^2.3.0-alpha.4"
-    }
   }
 }

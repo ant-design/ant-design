@@ -199,6 +199,7 @@ export interface ConfigProviderProps {
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
   rangePicker?: ComponentStyleConfig;
+  dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
@@ -343,6 +344,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     rangePicker,
     flex,
     wave,
+    dropdown,
     warning: warningConfig,
   } = props;
 
@@ -435,6 +437,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     rangePicker,
     flex,
     wave,
+    dropdown,
     warning: warningConfig,
   };
 

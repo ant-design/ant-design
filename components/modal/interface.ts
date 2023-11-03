@@ -8,7 +8,10 @@ export type ModalFooterRender = (
   originNode: React.ReactNode,
   extra: { OkBtn: FC; CancelBtn: FC },
 ) => React.ReactNode;
-export interface ModalProps {
+interface ModalCommonProps {
+  styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
+}
+export interface ModalProps extends ModalCommonProps {
   /** Whether the modal dialog is visible or not */
   open?: boolean;
   /** Whether to apply loading visual effect for OK button or not */
@@ -50,7 +53,6 @@ export interface ModalProps {
   className?: string;
   rootClassName?: string;
   classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
-  styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   /** @deprecated Please use `styles.body` instead */
@@ -74,7 +76,7 @@ export interface ModalProps {
 
 type getContainerFunc = () => HTMLElement;
 
-export interface ModalFuncProps {
+export interface ModalFuncProps extends ModalCommonProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;

@@ -16,6 +16,20 @@ tag: vVERSION
 
 ---
 
+## 5.10.3
+
+`2023-10-30`
+
+- 💄 Fix Typography.Text lost right border when enable `ellipsis` and `code`. [#45575](https://github.com/ant-design/ant-design/pull/45575)
+- 💄 Modify the TimePicker scroll bar style. [#45478](https://github.com/ant-design/ant-design/pull/45478) [@GeorgeHcc](https://github.com/GeorgeHcc) [#45586](https://github.com/ant-design/ant-design/pull/45586)
+- 🆕 FloatButton.BackTop `ref` support `nativeElement`. [#45547](https://github.com/ant-design/ant-design/pull/45547) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Watermark that `gap` should have default value when passing `undefined` in array. [#45537](https://github.com/ant-design/ant-design/pull/45537) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Dropdown always closes after clicking on an item. [#45513](https://github.com/ant-design/ant-design/pull/45513) [@vyachsed](https://github.com/vyachsed)
+- 💄 Fix Notification style issue in windows system. [#45500](https://github.com/ant-design/ant-design/pull/45500) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Notification duplicated `style` applied to wrapper. [#45487](https://github.com/ant-design/ant-design/pull/45487) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🐞 Fix `modal` return type in `App.useApp` hook. [#45462](https://github.com/ant-design/ant-design/pull/45462) [@mjss](https://github.com/mjss)
+
 ## 5.10.2
 
 `2023-10-21`

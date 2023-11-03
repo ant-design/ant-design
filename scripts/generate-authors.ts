@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
-import _ from 'lodash';
+import remove from 'lodash/remove';
+import sortBy from 'lodash/sortBy';
+import unionBy from 'lodash/unionBy';
 import simpleGit from 'simple-git';
 
 const cwd = process.cwd();
@@ -18,7 +20,7 @@ const excludes = [
 
 async function execute() {
   let { all } = await git.log();
-  all = _.remove(all, ({ author_email: email }) => {
+  all = remove(all, ({ author_email: email }) => {
     for (let i = 0; i < excludes.length; i++) {
       const item = excludes[i];
       if (email.includes(item)) {
@@ -28,7 +30,7 @@ async function execute() {
     return true;
   });
 
-  all = _.sortBy(_.unionBy(all, 'author_email'), 'author_name');
+  all = sortBy(unionBy(all, 'author_email'), 'author_name');
 
   fs.writeFileSync(
     path.join(cwd, 'contributors.json'),
