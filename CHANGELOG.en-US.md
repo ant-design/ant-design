@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2023-11-03`
 
-- 🆕 ColorPikcer `preset` prop support `defaultCollapsed` to control default open. [#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 ColorPicker `preset` prop support `defaultCollapsed` to control default open. [#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Select support `optionRender` prop. [#45529](https://github.com/ant-design/ant-design/pull/45529) [@RedJue](https://github.com/RedJue)
 - 🆕 Pagination support combine `simple` and `showSizeChanger`. [#45538](https://github.com/ant-design/ant-design/pull/45538)
 - 🆕 Optimize z-index logic of popup components, and make them don't block each other by default. [#45512](https://github.com/ant-design/ant-design/pull/45512) [#45490](https://github.com/ant-design/ant-design/pull/45490) [@kiner-tang](https://github.com/kiner-tang)
@@ -32,7 +32,7 @@ tag: vVERSION
   - Optimize z-index logic of Tour. [#45425](https://github.com/ant-design/ant-design/pull/45425) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Tooltip. [#45422](https://github.com/ant-design/ant-design/pull/45422) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Popover. [#45420](https://github.com/ant-design/ant-design/pull/45420) [@kiner-tang](https://github.com/kiner-tang)
-  - Optimize z-index logic of . [#45421](https://github.com/ant-design/ant-design/pull/45421) [@kiner-tang](https://github.com/kiner-tang)
+  - Optimize z-index logic of Popconfirm. [#45421](https://github.com/ant-design/ant-design/pull/45421) [@kiner-tang](https://github.com/kiner-tang)
   - Optimize z-index logic of Modal and Select. [#45346](https://github.com/ant-design/ant-design/pull/45346) [@kiner-tang](https://github.com/kiner-tang)
 - 🆕 Table `columnTitle` support render function. [#41937](https://github.com/ant-design/ant-design/pull/41937) [@Zhou-Bill](https://github.com/Zhou-Bill)
 - 🆕 ConfigProvider support RangePicker `className` and `style` properties. [#45479](https://github.com/ant-design/ant-design/pull/45479) [@chenzhuo198](https://github.com/chenzhuo198)
