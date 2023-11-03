@@ -145,7 +145,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         height: token.handleSize,
         outline: 'none',
 
-        '&-dragging': {
+        [`${componentCls}-dragging`]: {
           zIndex: 1,
         },
 
