@@ -20,7 +20,9 @@ tag: vVERSION
 
 `2023-11-03`
 
-- 🆕 ColorPicker `preset` prop support `defaultCollapsed` to control default open. [#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 Show Slider tooltip when focus handler. [#45653](https://github.com/ant-design/ant-design/pull/45653)
+- 🆕 Slider handler should be movable after click tracker. [#45651](https://github.com/ant-design/ant-design/pull/45651)
+- 🆕 ColorPicker `preset` prop support `defaultOpen` to control whether preset colors is open by default. [#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Select support `optionRender` prop. [#45529](https://github.com/ant-design/ant-design/pull/45529) [@RedJue](https://github.com/RedJue)
 - 🆕 Pagination support combine `simple` and `showSizeChanger`. [#45538](https://github.com/ant-design/ant-design/pull/45538)
 - 🆕 Optimize z-index logic of popup components, and make them don't block each other by default. [#45512](https://github.com/ant-design/ant-design/pull/45512) [#45490](https://github.com/ant-design/ant-design/pull/45490) [@kiner-tang](https://github.com/kiner-tang)

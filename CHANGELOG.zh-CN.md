@@ -20,7 +20,9 @@ tag: vVERSION
 
 `2023-11-03`
 
-- 🆕 ColorPicker 组件 `preset` 新增 `defaultCollapsed` 属性，可控制预设颜色默认是否展开。[#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 Slider 聚焦滑块时现在会显示 Tooltip。[#45653](https://github.com/ant-design/ant-design/pull/45653)
+- 🆕 优化 Slider 交互体验，点击轨道后可直接拖拽滑块。[#45651](https://github.com/ant-design/ant-design/pull/45651)
+- 🆕 ColorPicker 组件 `preset` 新增 `defaultOpen` 属性，可控制预设颜色默认是否展开。[#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Select 组件支持 `optionRender` 方法。[#45529](https://github.com/ant-design/ant-design/pull/45529) [@RedJue](https://github.com/RedJue)
 - 🆕 Pagination 组件支持组合 `simple` 和 `showSizeChanger` 使用。[#45538](https://github.com/ant-design/ant-design/pull/45538)
 - 🆕 优化弹层组件的 `z-index` 逻辑，使其在默认情况下不会互相遮挡。[#45512](https://github.com/ant-design/ant-design/pull/45512) [#45490](https://github.com/ant-design/ant-design/pull/45490) [@kiner-tang](https://github.com/kiner-tang)
