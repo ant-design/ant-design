@@ -66,7 +66,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
 
   // ============================ Render ============================
   const Component = component === false ? React.Fragment : component;
-  const rootProps = {
+  const rootProps: AppProps = {
     className: customClassName,
     style,
   };
