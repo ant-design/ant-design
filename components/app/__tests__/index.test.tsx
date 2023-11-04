@@ -228,7 +228,7 @@ describe('App', () => {
           <p />
         </App>,
       );
-      expect(warnSpy).not.toBeCalled();
+      expect(warnSpy).not.toHaveBeenCalled();
       expect(container.querySelector('.ant-app')).toBeFalsy();
       warnSpy.mockRestore();
     });
