@@ -143,6 +143,13 @@ const columns = [
 | onRow | 设置行属性 | function(record, index) | - |  |
 | virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 
+### Table ref
+
+| 参数 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| nativeElement | 最外层 div 元素 | HTMLDivElement | 5.11.0 |
+| scrollTo | 滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`） | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
+
 #### onRow 用法
 
 适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
@@ -170,7 +177,6 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
-<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
@@ -205,7 +211,7 @@ const columns = [
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |  |
+| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
 | onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
 
 ### ColumnGroup
@@ -254,7 +260,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
-| columnTitle | 自定义列表选择框标题 | ReactNode | - |  |
+| columnTitle | 自定义列表选择框标题 | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |

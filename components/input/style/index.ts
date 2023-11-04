@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
@@ -1017,6 +1018,20 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   };
 };
 
+// ============================== Range ===============================
+const genRangeStyle: GenerateStyle<InputToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-out-of-range`]: {
+      [`&, & input, & textarea, ${componentCls}-show-count-suffix, ${componentCls}-data-count`]: {
+        color: token.colorError,
+      },
+    },
+  };
+};
+
+// ============================== Tokens ==============================
 export function initInputToken(token: GlobalToken): SharedInputToken {
   return mergeToken<InputToken>(token, {
     inputAffixPadding: token.paddingXXS,
@@ -1082,6 +1097,7 @@ export default genComponentStyleHook(
       genAffixStyle(inputToken),
       genGroupStyle(inputToken),
       genSearchInputStyle(inputToken),
+      genRangeStyle(inputToken),
       // =====================================================
       // ==             Space Compact                       ==
       // =====================================================

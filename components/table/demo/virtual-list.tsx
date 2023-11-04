@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segmented, Space, Switch, Table, Typography } from 'antd';
+import { Button, Segmented, Space, Switch, Table, Typography } from 'antd';
 import type { TableProps } from 'antd';
 
 interface RecordType {
@@ -114,6 +114,7 @@ const App = () => {
   const [empty, setEmpty] = React.useState(false);
   const [count, setCount] = React.useState(10000);
 
+  const tblRef: Parameters<typeof Table>[0]['ref'] = React.useRef(null);
   const data = React.useMemo(() => getData(count), [count]);
 
   const mergedColumns = React.useMemo<typeof fixedColumns>(() => {
@@ -186,6 +187,16 @@ const App = () => {
               },
             ]}
           />
+
+          {data.length >= 999 && (
+            <Button
+              onClick={() => {
+                tblRef.current?.scrollTo({ index: 999 });
+              }}
+            >
+              Scroll To index 999
+            </Button>
+          )}
         </Space>
 
         <Table
@@ -196,6 +207,7 @@ const App = () => {
           rowKey="id"
           dataSource={empty ? [] : data}
           pagination={false}
+          ref={tblRef}
           rowSelection={
             expanded
               ? undefined

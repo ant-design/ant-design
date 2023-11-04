@@ -921,28 +921,19 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           overflowX: 'hidden',
 
           '&::-webkit-scrollbar': {
-            width: '7px',
-            backgroundColor: ' #f1f1f1',
+            width: 8,
+            backgroundColor: 'transparent',
           },
 
           '&::-webkit-scrollbar-thumb': {
-            backgroundColor: '#b6b2b2',
-            borderRadius: '5px',
+            backgroundColor: token.colorTextTertiary,
+            borderRadius: 4,
           },
 
-          '&::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#7a7a7a',
-          },
-          // 兼容firefox
+          // For Firefox
           '&': {
             scrollbarWidth: 'thin',
-            scrollbarColor: `#b6b2b2 #f1f1f1`,
-          },
-          '&::-moz-scrollbar-thumb': {
-            backgroundColor: '#b6b2b2',
-          },
-          '&::-moz-scrollbar-track': {
-            backgroundColor: ' #f1f1f1',
+            scrollbarColor: `${token.colorTextTertiary} transparent`,
           },
 
           '&::after': {

@@ -40,6 +40,9 @@ const GlobalDemoStyles: React.FC = () => {
           .code-box-demo {
             background-color: ${token.colorBgContainer};
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
+            > .demo {
+              overflow: auto;
+            }
           }
 
           .markdown {

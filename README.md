@@ -84,7 +84,7 @@ pnpm add antd
 
 ## 🔨 Usage
 
-```jsx
+```tsx
 import React from 'react';
 import { Button, DatePicker } from 'antd';
 
@@ -94,6 +94,8 @@ const App = () => (
     <DatePicker placeholder="select date" />
   </>
 );
+
+export default App;
 ```
 
 ### TypeScript

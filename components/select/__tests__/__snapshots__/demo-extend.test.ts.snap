@@ -7380,6 +7380,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
+          aria-label="China"
           aria-selected="true"
           id="rc_select_TEST_OR_SSR_list_0"
           role="option"
@@ -7387,6 +7388,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
           china
         </div>
         <div
+          aria-label="USA"
           aria-selected="false"
           id="rc_select_TEST_OR_SSR_list_1"
           role="option"
@@ -7410,7 +7412,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
               <div
                 aria-selected="true"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                label="China"
+                title="China"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -7465,7 +7467,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                label="USA"
+                title="USA"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -7494,7 +7496,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                label="Japan"
+                title="Japan"
               >
                 <div
                   class="ant-select-item-option-content"
@@ -7523,7 +7525,7 @@ exports[`renders components/select/demo/option-label-prop.tsx extend context cor
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                label="Korea"
+                title="Korea"
               >
                 <div
                   class="ant-select-item-option-content"

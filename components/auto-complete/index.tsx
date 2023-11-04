@@ -18,6 +18,7 @@ import type {
   SelectProps,
 } from '../select';
 import Select from '../select';
+import { useZIndex } from '../_util/hooks/useZIndex';
 
 const { Option } = Select;
 
@@ -128,6 +129,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
 
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+
   return (
     <Select
       ref={ref}
@@ -135,6 +139,10 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       {...omit(props, ['dataSource', 'dropdownClassName'])}
       prefixCls={prefixCls}
       popupClassName={popupClassName || dropdownClassName}
+      dropdownStyle={{
+        ...props.dropdownStyle,
+        zIndex,
+      }}
       className={classNames(`${prefixCls}-auto-complete`, className)}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       {...{

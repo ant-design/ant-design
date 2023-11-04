@@ -1,7 +1,9 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -65,6 +67,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     [context],
   );
 
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('Menu');
+
   return (
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
@@ -75,6 +80,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
           popupClassName,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
+        popupStyle={{
+          zIndex,
+        }}
       />
     </MenuContext.Provider>
   );

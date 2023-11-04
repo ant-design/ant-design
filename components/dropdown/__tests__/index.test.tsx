@@ -265,24 +265,41 @@ describe('Dropdown', () => {
     expect(divRef.current).toBeTruthy();
   });
 
+  it('should trigger open event when click on item', () => {
+    const onOpenChange = jest.fn();
+    render(
+      <Dropdown
+        onOpenChange={onOpenChange}
+        open
+        menu={{
+          items: [
+            {
+              label: <div className="bamboo" />,
+              key: 1,
+            },
+          ],
+        }}
+      >
+        <a />
+      </Dropdown>,
+    );
+
+    fireEvent.click(document.body.querySelector('.bamboo')!);
+    expect(onOpenChange).toHaveBeenCalledWith(false, { source: 'menu' });
+  });
+
   it('is still open after selection in multiple mode', () => {
     jest.useFakeTimers();
     const { container } = render(
       <Dropdown
         trigger={['click']}
         menu={{
-          items: [
-            {
-              label: '1',
-              key: 1,
-            },
-            {
-              label: '2',
-              key: 2,
-            },
-          ],
           selectable: true,
           multiple: true,
+          items: [
+            { label: '1', key: 1 },
+            { label: '2', key: 2 },
+          ],
         }}
       >
         <a />
@@ -304,9 +321,7 @@ describe('Dropdown', () => {
         jest.runAllTimers();
       });
     }
-
     expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
-
     jest.useRealTimers();
   });
 });
