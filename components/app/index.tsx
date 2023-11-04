@@ -74,7 +74,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   return wrapSSR(
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <Component {...rootProps}>
+        <Component {...(component === false ? undefined : rootProps)}>
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
