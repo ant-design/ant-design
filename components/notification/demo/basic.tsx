@@ -9,7 +9,6 @@ const openNotification = () => {
     onClick: () => {
       console.log('Notification Clicked!');
     },
-    style: { width: 600 },
   });
 };
 const App: React.FC = () => (
