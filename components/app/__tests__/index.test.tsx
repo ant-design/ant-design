@@ -222,13 +222,15 @@ describe('App', () => {
     });
 
     it('to false', () => {
+      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(
         <App component={false}>
           <p />
         </App>,
       );
-
+      expect(warnSpy).not.toHaveBeenCalled();
       expect(container.querySelector('.ant-app')).toBeFalsy();
+      warnSpy.mockRestore();
     });
   });
 });
