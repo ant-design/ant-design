@@ -26,6 +26,7 @@ import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
+import useCSSVar from './style/cssVar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -118,7 +119,8 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -254,7 +256,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
-    return wrapSSR(
+    return wrapCSSVar(
       <a
         {...linkButtonRestProps}
         className={classNames(classes, {
@@ -296,7 +298,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  return wrapSSR(buttonNode);
+  return wrapCSSVar(buttonNode);
 };
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(

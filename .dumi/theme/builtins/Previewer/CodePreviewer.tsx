@@ -5,7 +5,7 @@ import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData, LiveContext } from 'dumi';
+import { FormattedMessage, LiveContext, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
 import type { AntdPreviewerProps } from './Previewer';

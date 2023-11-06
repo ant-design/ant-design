@@ -9,6 +9,41 @@ import type { AliasToken, GlobalToken, MapToken, SeedToken } from './interface';
 import defaultSeedToken from './themes/seed';
 import formatToken from './util/alias';
 
+export const unitless: {
+  [key in keyof AliasToken]?: boolean;
+} = {
+  lineHeight: true,
+  lineHeightSM: true,
+  lineHeightLG: true,
+  lineHeightHeading1: true,
+  lineHeightHeading2: true,
+  lineHeightHeading3: true,
+  lineHeightHeading4: true,
+  lineHeightHeading5: true,
+  opacityLoading: true,
+  fontWeightStrong: true,
+  zIndexPopupBase: true,
+  zIndexBase: true,
+};
+
+export const ignore: {
+  [key in keyof AliasToken]?: boolean;
+} = {
+  size: true,
+  sizeSM: true,
+  sizeLG: true,
+  sizeMD: true,
+  sizeXS: true,
+  sizeXXS: true,
+  sizeMS: true,
+  sizeXL: true,
+  sizeXXL: true,
+  sizeUnit: true,
+  sizeStep: true,
+  motionBase: true,
+  motionUnit: true,
+};
+
 export const getComputedToken = (
   originToken: SeedToken,
   overrideToken: DesignTokenProviderProps['components'] & {
@@ -57,14 +92,22 @@ export default function useToken(): [
   theme: Theme<SeedToken, MapToken>,
   token: GlobalToken,
   hashId: string,
+  realToken: GlobalToken,
+  cssVar?: DesignTokenProviderProps['cssVar'],
 ] {
-  const { token: rootDesignToken, hashed, theme, override } = React.useContext(DesignTokenContext);
+  const {
+    token: rootDesignToken,
+    hashed,
+    theme,
+    override,
+    cssVar,
+  } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
   const mergedTheme = theme || defaultTheme;
 
-  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
+  const [token, hashId, realToken] = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
     [defaultSeedToken, rootDesignToken],
     {
@@ -74,8 +117,14 @@ export default function useToken(): [
       // formatToken will not be consumed after 1.15.0 with getComputedToken.
       // But token will break if @ant-design/cssinjs is under 1.15.0 without it
       formatToken,
+      cssVar: cssVar && {
+        prefix: cssVar.prefix,
+        key: cssVar.key,
+        unitless,
+        ignore,
+      },
     },
   );
 
-  return [mergedTheme, token, hashed ? hashId : ''];
+  return [mergedTheme, token, hashed ? hashId : '', realToken, cssVar];
 }
