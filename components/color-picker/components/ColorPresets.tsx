@@ -48,9 +48,8 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   const activeKeys = useMemo(
     () =>
       presetsValue.reduce<string[]>((acc, preset) => {
-        if (!preset.defaultCollapsed) {
-          acc.push(genCollapsePanelKey(preset));
-        }
+        const { defaultOpen = true } = preset;
+        if (defaultOpen) acc.push(genCollapsePanelKey(preset));
         return acc;
       }, []),
     [presetsValue],

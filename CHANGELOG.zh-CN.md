@@ -16,6 +16,48 @@ tag: vVERSION
 
 ---
 
+## 5.11.0
+
+`2023-11-03`
+
+- Slider
+  - 🆕 Slider 聚焦滑块时现在会显示 Tooltip。[#45653](https://github.com/ant-design/ant-design/pull/45653)
+  - 💄 优化 Slider 交互体验，点击轨道后可直接拖拽滑块。[#45651](https://github.com/ant-design/ant-design/pull/45651)
+- InputNumber
+  - 🆕 InputNumber 添加 `changeOnBlur` 属性以支持在失去焦点时不触发 `onChange` 事件。[#45395](https://github.com/ant-design/ant-design/pull/45395)
+  - 🐞 修复 InputNumber 组件在 Form 组件中使用并且启用 `hasFeedback` 时，反馈图标出现会使 InputNumber 失去焦点的问题。[#45632](https://github.com/ant-design/ant-design/pull/45632) [@MadCcc](https://github.com/MadCcc)
+  - 🐞 修复 InputNumber 动态改变 `formatter` 不生效的问题。[#45325](https://github.com/ant-design/ant-design/pull/45325)
+- Table
+  - 🆕 Table 组件 `columnTitle` 支持传入 render 方法。[#41937](https://github.com/ant-design/ant-design/pull/41937) [@Zhou-Bill](https://github.com/Zhou-Bill)
+  - 🛠 重构 Table `ref` 支持 `scrollTo` 以滚动到目标 `key` 或 `index` 或 `top`。[#45245](https://github.com/ant-design/ant-design/pull/45245)
+- Tabs
+  - 🆕 Tabs `items` 支持单个标签页设置 `destroyInactiveTabPane`。[#45359](https://github.com/ant-design/ant-design/pull/45359)
+  - 🐞 修复 Tabs 的标签宽度存在小数时，滚动会出现抖动的问题。[#45370](https://github.com/ant-design/ant-design/pull/45370)
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 RangePicker 组件的 `className` 和 `style` 属性。[#45479](https://github.com/ant-design/ant-design/pull/45479) [@chenzhuo198](https://github.com/chenzhuo198)
+  - 🆕 ConfigProvider 支持 Dropdown 组件的 `className` 和 `style` 属性。[#45621](https://github.com/ant-design/ant-design/pull/45621) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 ColorPicker 组件 `preset` 新增 `defaultOpen` 属性，可控制预设颜色默认是否展开。[#45607](https://github.com/ant-design/ant-design/pull/45607) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 Select 组件支持 `optionRender` 方法。[#45529](https://github.com/ant-design/ant-design/pull/45529) [@RedJue](https://github.com/RedJue)
+- 🆕 Pagination 组件支持组合 `simple` 和 `showSizeChanger` 使用。[#45538](https://github.com/ant-design/ant-design/pull/45538)
+- 🆕 Spin 组件新增 `fullscreen` 属性，支持全屏展示。[#44986](https://github.com/ant-design/ant-design/pull/44986) [@Rafael-Martins](https://github.com/Rafael-Martins) [#45436](https://github.com/ant-design/ant-design/pull/45436) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Form `validateFields` 支持 `dirty` 参数以校验被修改过和校验过的字段。[#45389](https://github.com/ant-design/ant-design/pull/45389)
+- 🆕 Watermark 支持 `inherit` 配置，关闭水印传导至弹出 Drawer 与 Modal。[#45319](https://github.com/ant-design/ant-design/pull/45319)
+- 🆕 App 支持 `component` 以自定义渲染元素。[#45292](https://github.com/ant-design/ant-design/pull/45292)
+- 🆕 Input 与 Input.TextArea 支持 `count` 自定义字符计数（例如固定 emoji 字符长度为 `1`）；`count.max` 支持超出范围样式；将 emoji 计数还原为原生计数以解决 `maxLength` 与 `value` 不匹配的问题。[#45140](https://github.com/ant-design/ant-design/pull/45140)
+- 🐞 修复 Dropdown 在点击菜单项关闭弹出框时不会触发 `onOpenChange` 的问题。[#45378](https://github.com/ant-design/ant-design/pull/45378)
+- 💄 Modal 静态方法支持 `styles` 属性。[#45558](https://github.com/ant-design/ant-design/pull/45558) [@KotoriK](https://github.com/KotoriK)
+- 💄 优化弹层组件的 `z-index` 逻辑，使其在默认情况下不会互相遮挡。[#45512](https://github.com/ant-design/ant-design/pull/45512) [#45490](https://github.com/ant-design/ant-design/pull/45490) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Menu 组件 `z-index` 逻辑。[#45498](https://github.com/ant-design/ant-design/pull/45498) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 DatePicker、TimePicker 组件 `z-index` 逻辑。[#45497](https://github.com/ant-design/ant-design/pull/45497) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Drawer 组件 `z-index` 逻辑。[#45496](https://github.com/ant-design/ant-design/pull/45496) [#45417](https://github.com/ant-design/ant-design/pull/45417) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Cascader、TreeSelect、AutoComplete 组件 `z-index` 逻辑。[#45494](https://github.com/ant-design/ant-design/pull/45494) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Dropdown 组件 `z-index` 逻辑。[#45486](https://github.com/ant-design/ant-design/pull/45486) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Tour 组件 `z-index` 逻辑。[#45425](https://github.com/ant-design/ant-design/pull/45425) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Tooltip 组件 `z-index` 逻辑。[#45422](https://github.com/ant-design/ant-design/pull/45422) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Popover 组件 `z-index` 逻辑。[#45420](https://github.com/ant-design/ant-design/pull/45420) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Popconfirm 组件 `z-index` 逻辑。[#45421](https://github.com/ant-design/ant-design/pull/45421) [@kiner-tang](https://github.com/kiner-tang)
+  - 优化 Modal、Select 组件 `z-index` 逻辑。[#45346](https://github.com/ant-design/ant-design/pull/45346) [@kiner-tang](https://github.com/kiner-tang)
+
 ## 5.10.3
 
 `2023-10-30`

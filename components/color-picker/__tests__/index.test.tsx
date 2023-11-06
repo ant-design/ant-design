@@ -248,7 +248,7 @@ describe('ColorPicker', () => {
             {
               label: 'Recent',
               colors: ['#f00d', '#0f0d', '#00fd'],
-              defaultCollapsed: true,
+              defaultOpen: false,
             },
           ]}
         />,

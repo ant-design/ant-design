@@ -313,6 +313,7 @@ describe('notification', () => {
 
     expect(document.querySelectorAll('[role="status"]').length).toBe(1);
   });
+
   it('should hide close btn when closeIcon setting to null or false', async () => {
     notification.config({
       closeIcon: undefined,
@@ -347,5 +348,23 @@ describe('notification', () => {
     expect(document.querySelectorAll('.custom .custom-close-icon').length).toBe(1);
     expect(document.querySelectorAll('.with-null .ant-notification-notice-close').length).toBe(0);
     expect(document.querySelectorAll('.with-false .ant-notification-notice-close').length).toBe(0);
+  });
+
+  it('style.width could be overrided', async () => {
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        style: {
+          width: 600,
+        },
+        className: 'with-style',
+      });
+    });
+    await awaitPromise();
+    expect(document.querySelector('.with-style')).toHaveStyle({ width: '600px' });
+    expect(
+      document.querySelector('.ant-notification-notice-wrapper:has(.width-style)'),
+    ).toHaveStyle({ width: '' });
   });
 });
