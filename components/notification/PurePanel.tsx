@@ -11,6 +11,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { IconType } from './interface';
 import useStyle from './style';
+import PurePanelStyle from './style/pure-panel';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -99,6 +100,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   return (
     <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className)}>
+      <PurePanelStyle prefixCls={prefixCls} />
       <Notice
         {...restProps}
         prefixCls={prefixCls}
