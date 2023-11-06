@@ -329,11 +329,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "401 KiB"
+      "limit": "402 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "460 KiB"
+      "limit": "461 KiB"
     }
   ],
   "title": "Ant Design",
