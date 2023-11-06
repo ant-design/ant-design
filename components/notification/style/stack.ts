@@ -88,7 +88,6 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
       [`& > ${componentCls}-notice-wrapper`]: {
         '&:not(:nth-last-child(-n + 1))': {
           opacity: 1,
-          width: token.width,
           overflow: 'unset',
           color: 'inherit',
           pointerEvents: 'auto',
