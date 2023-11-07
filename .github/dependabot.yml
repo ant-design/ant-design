@@ -16,6 +16,8 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    labels:
+      - "dependencies"
     groups:
       production-dependencies:
         dependency-type: "production"
