@@ -126,5 +126,5 @@ export default function useToken(): [
     },
   );
 
-  return [mergedTheme, token, hashed ? hashId : '', realToken, cssVar];
+  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar];
 }

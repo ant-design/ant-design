@@ -179,7 +179,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
           ref={ref}
-          rootClassName={classNames(rootClassName, hashId)}
+          rootClassName={classNames(rootClassName, hashId, overrideObj.rootClassName)}
         >
           {mergedChildren}
         </RcMenu>

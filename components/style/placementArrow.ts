@@ -1,7 +1,8 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken } from '../theme/internal';
 import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
-import { roundedArrow } from './roundedArrow';
+import type { ArrowToken } from './roundedArrow';
+import { genRoundedArrow } from './roundedArrow';
 
 export const MAX_VERTICAL_CONTENT_RADIUS = 8;
 
@@ -9,13 +10,29 @@ export function getArrowOffset(options: {
   contentRadius: number;
   limitVerticalRadius?: boolean;
 }) {
-  const maxVerticalContentRadius = MAX_VERTICAL_CONTENT_RADIUS;
   const { contentRadius, limitVerticalRadius } = options;
   const dropdownArrowOffset = contentRadius > 12 ? contentRadius + 2 : 12;
   const dropdownArrowOffsetVertical = limitVerticalRadius
-    ? maxVerticalContentRadius
+    ? MAX_VERTICAL_CONTENT_RADIUS
     : dropdownArrowOffset;
   return { dropdownArrowOffset, dropdownArrowOffsetVertical };
+}
+
+export interface ArrowOffsetToken {
+  /** @internal */
+  arrowOffsetHorizontal: number;
+  /** @internal */
+  arrowOffsetVertical: number;
+}
+
+export function getArrowOffsetToken(options: {
+  contentRadius: number;
+  limitVerticalRadius?: boolean;
+}): ArrowOffsetToken {
+  const { contentRadius, limitVerticalRadius } = options;
+  const arrowOffset = contentRadius > 12 ? contentRadius + 2 : 12;
+  const arrowOffsetVertical = limitVerticalRadius ? MAX_VERTICAL_CONTENT_RADIUS : arrowOffset;
+  return { arrowOffsetHorizontal: arrowOffset, arrowOffsetVertical };
 }
 
 function isInject(valid: boolean, code: CSSObject): CSSObject {
@@ -23,13 +40,12 @@ function isInject(valid: boolean, code: CSSObject): CSSObject {
   return code;
 }
 
-export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToken>>(
+export default function getArrowStyle<
+  Token extends TokenWithCommonCls<AliasToken> & ArrowOffsetToken & ArrowToken,
+>(
   token: Token,
-  options: {
-    colorBg: string;
-    showArrowCls?: string;
-    contentRadius?: number;
-    limitVerticalRadius?: boolean;
+  colorBg: string,
+  options?: {
     arrowDistance?: number;
     arrowPlacement?: {
       left?: boolean;
@@ -39,13 +55,9 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     };
   },
 ): CSSInterpolation {
-  const { componentCls, sizePopupArrow, borderRadiusXS, borderRadiusOuter, boxShadowPopoverArrow } =
-    token;
+  const { componentCls, boxShadowPopoverArrow, arrowOffsetVertical, arrowOffsetHorizontal } = token;
 
   const {
-    colorBg,
-    contentRadius = token.borderRadiusLG,
-    limitVerticalRadius,
     arrowDistance = 0,
     arrowPlacement = {
       left: true,
@@ -53,12 +65,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       top: true,
       bottom: true,
     },
-  } = options;
-
-  const { dropdownArrowOffsetVertical, dropdownArrowOffset } = getArrowOffset({
-    contentRadius,
-    limitVerticalRadius,
-  });
+  } = options || {};
 
   return {
     [componentCls]: {
@@ -69,13 +76,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
           display: 'block',
 
-          ...roundedArrow(
-            sizePopupArrow,
-            borderRadiusXS,
-            borderRadiusOuter,
-            colorBg,
-            boxShadowPopoverArrow,
-          ),
+          ...genRoundedArrow(token, colorBg, boxShadowPopoverArrow),
 
           '&:before': {
             background: colorBg,
@@ -107,14 +108,14 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-topLeft ${componentCls}-arrow`]: {
           left: {
             _skip_check_: true,
-            value: dropdownArrowOffset,
+            value: arrowOffsetHorizontal,
           },
         },
 
         [`&-placement-topRight ${componentCls}-arrow`]: {
           right: {
             _skip_check_: true,
-            value: dropdownArrowOffset,
+            value: arrowOffsetHorizontal,
           },
         },
       }),
@@ -141,14 +142,14 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         [`&-placement-bottomLeft ${componentCls}-arrow`]: {
           left: {
             _skip_check_: true,
-            value: dropdownArrowOffset,
+            value: arrowOffsetHorizontal,
           },
         },
 
         [`&-placement-bottomRight ${componentCls}-arrow`]: {
           right: {
             _skip_check_: true,
-            value: dropdownArrowOffset,
+            value: arrowOffsetHorizontal,
           },
         },
       }),
@@ -176,11 +177,11 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         },
 
         [`&-placement-leftTop ${componentCls}-arrow`]: {
-          top: dropdownArrowOffsetVertical,
+          top: arrowOffsetVertical,
         },
 
         [`&-placement-leftBottom ${componentCls}-arrow`]: {
-          bottom: dropdownArrowOffsetVertical,
+          bottom: arrowOffsetVertical,
         },
       }),
 
@@ -207,11 +208,11 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         },
 
         [`&-placement-rightTop ${componentCls}-arrow`]: {
-          top: dropdownArrowOffsetVertical,
+          top: arrowOffsetVertical,
         },
 
         [`&-placement-rightBottom ${componentCls}-arrow`]: {
-          bottom: dropdownArrowOffsetVertical,
+          bottom: arrowOffsetVertical,
         },
       }),
     },

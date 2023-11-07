@@ -6,6 +6,7 @@ import { ConfigContext } from '../config-provider';
 
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export const getOverlay = (
   prefixCls: string,
@@ -65,9 +66,10 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
-  return wrapSSR(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
+  return wrapCSSVar(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
 };
 
 export default PurePanel;
