@@ -6,7 +6,6 @@ import type { GlobalToken } from '../../theme';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
-import { TinyColor } from '@ctrl/tinycolor';
 
 export interface ComponentToken {
   /**
