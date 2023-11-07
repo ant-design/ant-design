@@ -25,3 +25,4 @@ updates:
         - "rc-*"
         - "@rc-component/*"
         update-types: "patch"
+        versioning-strategy: increase
