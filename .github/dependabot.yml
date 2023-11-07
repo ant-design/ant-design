@@ -18,6 +18,7 @@ updates:
       interval: "daily"
     labels:
       - "dependencies"
+    versioning-strategy: increase
     groups:
       production-dependencies:
         dependency-type: "production"
@@ -25,4 +26,3 @@ updates:
         - "rc-*"
         - "@rc-component/*"
         update-types: ["patch"]
-        versioning-strategy: increase
