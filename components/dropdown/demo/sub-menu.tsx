@@ -51,24 +51,14 @@ const items: MenuProps['items'] = [
 ];
 
 const App: React.FC = () => (
-  <>
-    <Dropdown menu={{ items }}>
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Cascading menu
-          <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
-    <Dropdown overlay={<Menu items={items} />}>
-      <a onClick={(e) => e.preventDefault()}>
-        <Space>
-          Cascading menu
-          <DownOutlined />
-        </Space>
-      </a>
-    </Dropdown>
-  </>
+  <Dropdown menu={{ items }}>
+    <a onClick={(e) => e.preventDefault()}>
+      <Space>
+        Cascading menu
+        <DownOutlined />
+      </Space>
+    </a>
+  </Dropdown>
 );
 
 export default App;
