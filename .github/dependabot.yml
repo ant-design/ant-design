@@ -46,3 +46,11 @@ updates:
       - dependency-name: "@rc-component/color-picker"
       - dependency-name: "rc-upload"
       - dependency-name: "rc-util"
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+        update-types: "patch"
