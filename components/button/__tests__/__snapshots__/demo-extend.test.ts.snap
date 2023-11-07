@@ -2175,7 +2175,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
         data-menu-list="true"
         role="menu"
         tabindex="0"
