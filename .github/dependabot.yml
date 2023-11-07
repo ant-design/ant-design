@@ -24,5 +24,5 @@ updates:
         patterns:
         - "rc-*"
         - "@rc-component/*"
-        update-types: "patch"
+        update-types: ["patch"]
         versioning-strategy: increase
