@@ -143,7 +143,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
 };
 
 export const prepareCommonToken: (token: GlobalToken) => ComponentToken = (token) => ({
-  defaultBg: token.colorFillQuaternary,
+  defaultBg: token.colorBgContainer,
   defaultColor: token.colorText,
 });
 
