@@ -9,8 +9,6 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    labels:
-      - "dependencies"
     versioning-strategy: increase
     groups:
       rc-component-patch-update:
@@ -20,6 +18,7 @@ updates:
         - "@rc-component/*"
         update-types: ["patch"]
       other-dependencies:
+        patterns: ["*"]
         exclude-patterns:
         - "rc-*"
         - "@rc-component/*"
