@@ -5,13 +5,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "daily"
-    ignore:
-      - dependency-name: "rc-*"
-      - dependency-name: "@rc-component/*"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -20,9 +13,13 @@ updates:
       - "dependencies"
     versioning-strategy: increase
     groups:
-      production-dependencies:
+      rc-component-patch-update:
         dependency-type: "production"
         patterns:
         - "rc-*"
         - "@rc-component/*"
         update-types: ["patch"]
+      other-dependencies:
+        exclude-patterns:
+        - "rc-*"
+        - "@rc-component/*"
