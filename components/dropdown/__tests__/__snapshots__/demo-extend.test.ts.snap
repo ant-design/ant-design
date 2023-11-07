@@ -18,7 +18,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -202,7 +202,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -386,7 +386,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -571,7 +571,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -755,7 +755,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -939,7 +939,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1130,7 +1130,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1314,7 +1314,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1498,7 +1498,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1683,7 +1683,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -1867,7 +1867,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -2051,7 +2051,7 @@ Array [
       class="ant-dropdown-arrow"
     />
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -2267,7 +2267,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -2518,7 +2518,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -2721,7 +2721,7 @@ Array [
       0 9px 28px 8px rgba(0, 0, 0, 0.05);"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
         data-menu-list="true"
         role="menu"
         style="box-shadow: none;"
@@ -2970,7 +2970,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -3291,7 +3291,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -3614,7 +3614,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -3954,7 +3954,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -4273,7 +4273,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <ul
-        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -4593,7 +4593,7 @@ exports[`renders components/dropdown/demo/dropdown-button.tsx extend context cor
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -4915,7 +4915,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -5121,7 +5121,7 @@ exports[`renders components/dropdown/demo/icon-debug.tsx extend context correctl
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -5181,7 +5181,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -5427,7 +5427,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -5558,7 +5558,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -5665,7 +5665,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -5772,7 +5772,7 @@ exports[`renders components/dropdown/demo/loading.tsx extend context correctly 1
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
       >
         <ul
-          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+          class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -5880,7 +5880,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -6022,7 +6022,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
+          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 100;"
         >
           <ul
@@ -6246,7 +6246,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
+          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 100;"
         >
           <ul
@@ -6356,7 +6356,7 @@ Array [
                 </span>
               </div>
               <div
-                class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
+                class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
                 style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 100;"
               >
                 <ul
@@ -6491,7 +6491,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
+          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 100;"
         >
           <ul
@@ -6912,7 +6912,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -7094,7 +7094,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -7279,7 +7279,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -7464,7 +7464,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -7658,7 +7658,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -7843,7 +7843,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -8028,7 +8028,7 @@ exports[`renders components/dropdown/demo/placement.tsx extend context correctly
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -8216,7 +8216,7 @@ exports[`renders components/dropdown/demo/render-panel.tsx extend context correc
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -8501,7 +8501,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -8699,7 +8699,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"
@@ -8822,7 +8822,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
+          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 100;"
         >
           <ul
@@ -8935,7 +8935,7 @@ Array [
           </span>
         </div>
         <div
-          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
+          class="ant-dropdown-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-root ant-dropdown-menu-submenu-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 100;"
         >
           <ul
@@ -9162,7 +9162,7 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <ul
-      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root ant-dropdown-root"
+      class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
       data-menu-list="true"
       role="menu"
       tabindex="0"

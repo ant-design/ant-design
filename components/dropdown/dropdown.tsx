@@ -238,7 +238,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
     let overlayNode: React.ReactNode;
     if (menu?.items) {
-      overlayNode = <Menu {...menu} rootClassName={classNames(rootCls, menu?.rootClassName)} />;
+      overlayNode = <Menu {...menu} />;
     } else if (typeof overlay === 'function') {
       overlayNode = overlay();
     } else {
