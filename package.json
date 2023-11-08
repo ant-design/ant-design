@@ -188,7 +188,7 @@
     "@types/gtag.js": "^0.0.17",
     "@types/http-server": "^0.12.1",
     "@types/inquirer": "^9.0.3",
-    "@types/isomorphic-fetch": "^0.0.38",
+    "@types/isomorphic-fetch": "^0.0.39",
     "@types/jest": "^29.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
