@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { act } from 'react-dom/test-utils';
 import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import message from '..';
@@ -270,5 +270,33 @@ describe('message.hooks', () => {
 
     const styleText = extractStyle(cache, true);
     expect(styleText).not.toContain('.ant-message');
+  });
+
+  it('component fontSize should work', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({
+          content: <div />,
+          className: 'fontSize',
+        });
+      }, []);
+
+      return (
+        <ConfigProvider theme={{ components: { Message: { fontSize: 20 } } }}>
+          {holder}
+        </ConfigProvider>
+      );
+    };
+
+    render(<Demo />);
+
+    const msg = document.querySelector('.fontSize');
+
+    expect(msg).toBeTruthy();
+    expect(msg).toHaveStyle({
+      fontSize: '20px',
+    });
   });
 });
