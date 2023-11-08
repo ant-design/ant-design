@@ -7,7 +7,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import type {
@@ -431,22 +431,20 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     });
 
     return wrapSSR(
-      <DisabledContextProvider disabled={mergedDisabled}>
-        <span className={wrapperCls}>
-          <div
-            className={dragCls}
-            style={mergedStyle}
-            onDrop={onFileDrop}
-            onDragOver={onFileDrop}
-            onDragLeave={onFileDrop}
-          >
-            <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
-              <div className={`${prefixCls}-drag-container`}>{children}</div>
-            </RcUpload>
-          </div>
-          {renderUploadList()}
-        </span>
-      </DisabledContextProvider>,
+      <span className={wrapperCls}>
+        <div
+          className={dragCls}
+          style={mergedStyle}
+          onDrop={onFileDrop}
+          onDragOver={onFileDrop}
+          onDragLeave={onFileDrop}
+        >
+          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+            <div className={`${prefixCls}-drag-container`}>{children}</div>
+          </RcUpload>
+        </div>
+        {renderUploadList()}
+      </span>,
     );
   }
 
@@ -464,19 +462,15 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapSSR(
-      <DisabledContextProvider disabled={mergedDisabled}>
-        <span className={wrapperCls}>{renderUploadList(uploadButton, !!children)}</span>
-      </DisabledContextProvider>,
+      <span className={wrapperCls}>{renderUploadList(uploadButton, !!children)}</span>,
     );
   }
 
   return wrapSSR(
-    <DisabledContextProvider disabled={mergedDisabled}>
-      <span className={wrapperCls}>
-        {uploadButton}
-        {renderUploadList()}
-      </span>
-    </DisabledContextProvider>,
+    <span className={wrapperCls}>
+      {uploadButton}
+      {renderUploadList()}
+    </span>,
   );
 };
 
