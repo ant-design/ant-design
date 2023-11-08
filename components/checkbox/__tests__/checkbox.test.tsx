@@ -36,4 +36,8 @@ describe('Checkbox', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('have static property for type detecting', () => {
+    expect(Checkbox.__ANT_CHECKBOX).toBeTruthy();
+  });
 });

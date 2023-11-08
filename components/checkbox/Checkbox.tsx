@@ -52,6 +52,11 @@ export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent
   indeterminate?: boolean;
 }
 
+type CompoundedComponent = React.ForwardRefExoticComponent<CheckboxProps> & {
+  /** @internal */
+  __ANT_CHECKBOX: boolean;
+};
+
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (
   props,
   ref,
@@ -163,10 +168,14 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   );
 };
 
-const Checkbox = React.forwardRef<CheckboxRef, CheckboxProps>(InternalCheckbox);
+const Checkbox = React.forwardRef<CheckboxRef, CheckboxProps>(
+  InternalCheckbox,
+) as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   Checkbox.displayName = 'Checkbox';
 }
+
+Checkbox.__ANT_CHECKBOX = true;
 
 export default Checkbox;
