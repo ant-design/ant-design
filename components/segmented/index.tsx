@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type { SegmentedValue } from 'rc-segmented';
 
@@ -57,7 +58,8 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
@@ -97,7 +99,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
 
   const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSegmented
       {...restProps}
       className={cls}
