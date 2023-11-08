@@ -128,6 +128,38 @@ describe('Popconfirm', () => {
     jest.useRealTimers();
   });
 
+  it('should be controlled by visible', () => {
+    jest.useFakeTimers();
+    const popconfirm = render(
+      <Popconfirm title="code">
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    expect(popconfirm.container.querySelector('.ant-popover')).toBe(null);
+    popconfirm.rerender(
+      <Popconfirm title="code" visible>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
+    expect(popconfirm.container.querySelector('.ant-popover')?.className).not.toContain(
+      'ant-popover-hidden',
+    );
+
+    popconfirm.rerender(
+      <Popconfirm title="code" visible={false}>
+        <span>show me your code</span>
+      </Popconfirm>,
+    );
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(popconfirm.container.querySelector('.ant-popover')).not.toBe(null);
+    jest.useRealTimers();
+  });
+
   it('should trigger onConfirm and onCancel', async () => {
     const confirm = jest.fn();
     const cancel = jest.fn();
