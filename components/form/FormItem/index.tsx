@@ -268,6 +268,24 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     variables = { ...variables, ...messageVariables };
   }
 
+  /**
+   * For historical reasons, some components (<Switch />, <Checkbox />) within a Form required developers to explicitly specify controlled props.
+   * We have decided to take care of this by default, improving DX.
+   * https://github.com/ant-design/ant-design/issues/20803#issuecomment-601626759
+   */
+  let mergedValuePropName = 'value';
+  const _anyMergedChildren: any = mergedChildren;
+  if (
+    !Array.isArray(_anyMergedChildren) && // not list
+    _anyMergedChildren?.type &&
+    (_anyMergedChildren.type.__ANT_SWITCH || _anyMergedChildren.type.__ANT_CHECKBOX)
+  ) {
+    mergedValuePropName = 'checked';
+  }
+
+  // allow developer overwrite
+  mergedValuePropName = props.valuePropName ?? mergedValuePropName;
+
   // >>>>> With Field
   return wrapSSR(
     <Field
@@ -276,6 +294,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       trigger={trigger}
       validateTrigger={mergedValidateTrigger}
       onMetaChange={onMetaChange}
+      valuePropName={mergedValuePropName}
     >
       {(control, renderMeta, context: FormInstance<Values>) => {
         const mergedName = toArray(name).length && renderMeta ? renderMeta.name : [];
@@ -391,7 +410,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           childNode = (
             <MemoInput
-              value={mergedControl[props.valuePropName || 'value']}
+              value={mergedControl[mergedValuePropName]}
               update={mergedChildren}
               childProps={watchingChildProps}
             >
