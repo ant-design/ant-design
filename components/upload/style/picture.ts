@@ -106,6 +106,10 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
       display: 'inline-block',
       width: '100%',
 
+      [`&:not(${componentCls}-disabled) ${componentCls}-select:hover`]: {
+        borderColor: token.colorPrimary,
+      },
+
       [`${componentCls}-select`]: {
         width: uploadPictureCardSize,
         height: uploadPictureCardSize,
@@ -125,10 +129,6 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           justifyContent: 'center',
           height: '100%',
           textAlign: 'center',
-        },
-
-        [`&:not(${componentCls}-disabled):hover`]: {
-          borderColor: token.colorPrimary,
         },
       },
 

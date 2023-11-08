@@ -40,7 +40,8 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
         display: 'inline-block',
       },
 
-      [`${componentCls}-disabled`]: {
+      // set disabled style for both antd Upload and rc-upload
+      [`&${componentCls}-disabled, ${componentCls}-disabled`]: {
         color: colorTextDisabled,
         cursor: 'not-allowed',
       },
