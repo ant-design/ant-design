@@ -3,7 +3,12 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSProperties } from 'react';
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
+import type {
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  UseComponentStyleResult,
+} from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
@@ -795,6 +800,125 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
   ];
 };
 
+export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
+  const {
+    colorPrimary,
+    colorError,
+    colorTextDisabled,
+    colorErrorBg,
+    colorText,
+    colorTextDescription,
+    colorBgContainer,
+    colorFillAlter,
+    colorFillContent,
+    lineWidth,
+    lineWidthBold,
+    controlItemBgActive,
+    colorBgTextHover,
+    controlHeightLG,
+    lineHeight,
+    colorBgElevated,
+    marginXXS,
+    padding,
+    fontSize,
+    controlHeightSM,
+    fontSizeLG,
+    colorTextLightSolid,
+    colorErrorHover,
+  } = token;
+
+  const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
+
+  return {
+    dropdownWidth: 160,
+    zIndexPopup: token.zIndexPopupBase + 50,
+    radiusItem: token.borderRadiusLG,
+    itemBorderRadius: token.borderRadiusLG,
+    radiusSubMenuItem: token.borderRadiusSM,
+    subMenuItemBorderRadius: token.borderRadiusSM,
+    colorItemText: colorText,
+    itemColor: colorText,
+    colorItemTextHover: colorText,
+    itemHoverColor: colorText,
+    colorItemTextHoverHorizontal: colorPrimary,
+    horizontalItemHoverColor: colorPrimary,
+    colorGroupTitle: colorTextDescription,
+    groupTitleColor: colorTextDescription,
+    colorItemTextSelected: colorPrimary,
+    itemSelectedColor: colorPrimary,
+    colorItemTextSelectedHorizontal: colorPrimary,
+    horizontalItemSelectedColor: colorPrimary,
+    colorItemBg: colorBgContainer,
+    itemBg: colorBgContainer,
+    colorItemBgHover: colorBgTextHover,
+    itemHoverBg: colorBgTextHover,
+    colorItemBgActive: colorFillContent,
+    itemActiveBg: controlItemBgActive,
+    colorSubItemBg: colorFillAlter,
+    subMenuItemBg: colorFillAlter,
+    colorItemBgSelected: controlItemBgActive,
+    itemSelectedBg: controlItemBgActive,
+    colorItemBgSelectedHorizontal: 'transparent',
+    horizontalItemSelectedBg: 'transparent',
+    colorActiveBarWidth: 0,
+    activeBarWidth: 0,
+    colorActiveBarHeight: lineWidthBold,
+    activeBarHeight: lineWidthBold,
+    colorActiveBarBorderSize: lineWidth,
+    activeBarBorderWidth: lineWidth,
+
+    // Disabled
+    colorItemTextDisabled: colorTextDisabled,
+    itemDisabledColor: colorTextDisabled,
+
+    // Danger
+    colorDangerItemText: colorError,
+    dangerItemColor: colorError,
+    colorDangerItemTextHover: colorError,
+    dangerItemHoverColor: colorError,
+    colorDangerItemTextSelected: colorError,
+    dangerItemSelectedColor: colorError,
+    colorDangerItemBgActive: colorErrorBg,
+    dangerItemActiveBg: colorErrorBg,
+    colorDangerItemBgSelected: colorErrorBg,
+    dangerItemSelectedBg: colorErrorBg,
+
+    itemMarginInline: token.marginXXS,
+
+    horizontalItemBorderRadius: 0,
+    horizontalItemHoverBg: 'transparent',
+    itemHeight: controlHeightLG,
+    groupTitleLineHeight: lineHeight,
+    collapsedWidth: controlHeightLG * 2,
+    popupBg: colorBgElevated,
+    itemMarginBlock: marginXXS,
+    itemPaddingInline: padding,
+    horizontalLineHeight: `${controlHeightLG * 1.15}px`,
+    iconSize: fontSize,
+    iconMarginInlineEnd: controlHeightSM - fontSize,
+    collapsedIconSize: fontSizeLG,
+    groupTitleFontSize: fontSize,
+
+    // Disabled
+    darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+
+    // Dark
+    darkItemColor: colorTextDark,
+    darkDangerItemColor: colorError,
+    darkItemBg: '#001529',
+    darkSubMenuItemBg: '#000c17',
+    darkItemSelectedColor: colorTextLightSolid,
+    darkItemSelectedBg: colorPrimary,
+    darkDangerItemSelectedBg: colorError,
+    darkItemHoverBg: 'transparent',
+    darkGroupTitleColor: colorTextDark,
+    darkItemHoverColor: colorTextLightSolid,
+    darkDangerItemHoverColor: colorErrorHover,
+    darkDangerItemSelectedColor: colorTextLightSolid,
+    darkDangerItemActiveBg: colorError,
+  };
+};
+
 // ============================== Export ==============================
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
   const useOriginHook = genComponentStyleHook(
@@ -894,124 +1018,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         initZoomMotion(menuToken, 'zoom-big'),
       ];
     },
-    (token) => {
-      const {
-        colorPrimary,
-        colorError,
-        colorTextDisabled,
-        colorErrorBg,
-        colorText,
-        colorTextDescription,
-        colorBgContainer,
-        colorFillAlter,
-        colorFillContent,
-        lineWidth,
-        lineWidthBold,
-        controlItemBgActive,
-        colorBgTextHover,
-        controlHeightLG,
-        lineHeight,
-        colorBgElevated,
-        marginXXS,
-        padding,
-        fontSize,
-        controlHeightSM,
-        fontSizeLG,
-        colorTextLightSolid,
-        colorErrorHover,
-      } = token;
-
-      const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
-
-      return {
-        dropdownWidth: 160,
-        zIndexPopup: token.zIndexPopupBase + 50,
-        radiusItem: token.borderRadiusLG,
-        itemBorderRadius: token.borderRadiusLG,
-        radiusSubMenuItem: token.borderRadiusSM,
-        subMenuItemBorderRadius: token.borderRadiusSM,
-        colorItemText: colorText,
-        itemColor: colorText,
-        colorItemTextHover: colorText,
-        itemHoverColor: colorText,
-        colorItemTextHoverHorizontal: colorPrimary,
-        horizontalItemHoverColor: colorPrimary,
-        colorGroupTitle: colorTextDescription,
-        groupTitleColor: colorTextDescription,
-        colorItemTextSelected: colorPrimary,
-        itemSelectedColor: colorPrimary,
-        colorItemTextSelectedHorizontal: colorPrimary,
-        horizontalItemSelectedColor: colorPrimary,
-        colorItemBg: colorBgContainer,
-        itemBg: colorBgContainer,
-        colorItemBgHover: colorBgTextHover,
-        itemHoverBg: colorBgTextHover,
-        colorItemBgActive: colorFillContent,
-        itemActiveBg: controlItemBgActive,
-        colorSubItemBg: colorFillAlter,
-        subMenuItemBg: colorFillAlter,
-        colorItemBgSelected: controlItemBgActive,
-        itemSelectedBg: controlItemBgActive,
-        colorItemBgSelectedHorizontal: 'transparent',
-        horizontalItemSelectedBg: 'transparent',
-        colorActiveBarWidth: 0,
-        activeBarWidth: 0,
-        colorActiveBarHeight: lineWidthBold,
-        activeBarHeight: lineWidthBold,
-        colorActiveBarBorderSize: lineWidth,
-        activeBarBorderWidth: lineWidth,
-
-        // Disabled
-        colorItemTextDisabled: colorTextDisabled,
-        itemDisabledColor: colorTextDisabled,
-
-        // Danger
-        colorDangerItemText: colorError,
-        dangerItemColor: colorError,
-        colorDangerItemTextHover: colorError,
-        dangerItemHoverColor: colorError,
-        colorDangerItemTextSelected: colorError,
-        dangerItemSelectedColor: colorError,
-        colorDangerItemBgActive: colorErrorBg,
-        dangerItemActiveBg: colorErrorBg,
-        colorDangerItemBgSelected: colorErrorBg,
-        dangerItemSelectedBg: colorErrorBg,
-
-        itemMarginInline: token.marginXXS,
-
-        horizontalItemBorderRadius: 0,
-        horizontalItemHoverBg: 'transparent',
-        itemHeight: controlHeightLG,
-        groupTitleLineHeight: lineHeight,
-        collapsedWidth: controlHeightLG * 2,
-        popupBg: colorBgElevated,
-        itemMarginBlock: marginXXS,
-        itemPaddingInline: padding,
-        horizontalLineHeight: `${controlHeightLG * 1.15}px`,
-        iconSize: fontSize,
-        iconMarginInlineEnd: controlHeightSM - fontSize,
-        collapsedIconSize: fontSizeLG,
-        groupTitleFontSize: fontSize,
-
-        // Disabled
-        darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
-
-        // Dark
-        darkItemColor: colorTextDark,
-        darkDangerItemColor: colorError,
-        darkItemBg: '#001529',
-        darkSubMenuItemBg: '#000c17',
-        darkItemSelectedColor: colorTextLightSolid,
-        darkItemSelectedBg: colorPrimary,
-        darkDangerItemSelectedBg: colorError,
-        darkItemHoverBg: 'transparent',
-        darkGroupTitleColor: colorTextDark,
-        darkItemHoverColor: colorTextLightSolid,
-        darkDangerItemHoverColor: colorErrorHover,
-        darkDangerItemSelectedColor: colorTextLightSolid,
-        darkDangerItemActiveBg: colorError,
-      };
-    },
+    prepareComponentToken,
     {
       deprecatedTokens: [
         ['colorGroupTitle', 'groupTitleColor'],
