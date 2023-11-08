@@ -26,7 +26,6 @@ import useCSSVar from './style/cssVar';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
-import { useToken } from '../theme/internal';
 
 type RawValue = string | number;
 
