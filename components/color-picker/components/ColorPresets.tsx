@@ -1,12 +1,13 @@
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
 import { ColorBlock, Color as RcColor } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FC } from 'react';
-import React, { useMemo } from 'react';
+
 import type { CollapseProps } from '../../collapse';
 import Collapse from '../../collapse';
 import { useLocale } from '../../locale';
-import theme from '../../theme';
+import { useToken } from '../../theme/internal';
 import type { Color } from '../color';
 import type { ColorPickerBaseProps, PresetsItem } from '../interface';
 import { generateColor } from '../util';
@@ -33,19 +34,24 @@ const isBright = (value: Color, bgColorToken: string) => {
   return r * 0.299 + g * 0.587 + b * 0.114 > 192;
 };
 
+const genCollapsePanelKey = ({ label }: PresetsItem) => `panel-${label}`;
+
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
-  const {
-    token: { colorBgElevated },
-  } = theme.useToken();
+  const [, token] = useToken();
   const [presetsValue] = useMergedState(genPresetColor(presets), {
     value: genPresetColor(presets),
     postState: genPresetColor,
   });
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
-  const activeKeys = useMemo<string[]>(
-    () => presetsValue.map((preset) => `panel-${preset.label}`),
+  const activeKeys = useMemo(
+    () =>
+      presetsValue.reduce<string[]>((acc, preset) => {
+        const { defaultOpen = true } = preset;
+        if (defaultOpen) acc.push(genCollapsePanelKey(preset));
+        return acc;
+      }, []),
     [presetsValue],
   );
 
@@ -54,20 +60,24 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   };
 
   const items: CollapseProps['items'] = presetsValue.map((preset) => ({
-    key: `panel-${preset.label}`,
+    key: genCollapsePanelKey(preset),
     label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>
         {Array.isArray(preset?.colors) && preset.colors?.length > 0 ? (
-          preset.colors.map((presetColor: Color) => (
+          preset.colors.map((presetColor: Color, index: number) => (
             <ColorBlock
-              key={`preset-${presetColor.toHexString()}`}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`preset-${index}-${presetColor.toHexString()}`}
               color={generateColor(presetColor).toRgbString()}
               prefixCls={prefixCls}
               className={classNames(`${colorPresetsPrefixCls}-color`, {
                 [`${colorPresetsPrefixCls}-color-checked`]:
                   presetColor.toHexString() === color?.toHexString(),
-                [`${colorPresetsPrefixCls}-color-bright`]: isBright(presetColor, colorBgElevated),
+                [`${colorPresetsPrefixCls}-color-bright`]: isBright(
+                  presetColor,
+                  token.colorBgElevated,
+                ),
               })}
               onClick={() => handleClick(presetColor)}
             />

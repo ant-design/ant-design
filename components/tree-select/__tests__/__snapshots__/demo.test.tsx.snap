@@ -16,7 +16,6 @@ exports[`renders components/tree-select/demo/async.tsx correctly 1`] = `
         aria-controls="undefined_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -79,7 +78,6 @@ exports[`renders components/tree-select/demo/basic.tsx correctly 1`] = `
         aria-controls="undefined_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -189,7 +187,6 @@ exports[`renders components/tree-select/demo/checkable.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -262,7 +259,6 @@ exports[`renders components/tree-select/demo/multiple.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -415,7 +411,6 @@ Array [
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -479,7 +474,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
           aria-controls="undefined_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -530,12 +524,11 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
   style="width:100%"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
@@ -552,7 +545,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -624,7 +616,6 @@ exports[`renders components/tree-select/demo/status.tsx correctly 1`] = `
                 aria-controls="undefined_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-label="Search"
                 aria-owns="undefined_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -696,7 +687,6 @@ exports[`renders components/tree-select/demo/suffix.tsx correctly 1`] = `
         aria-controls="undefined_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -756,7 +746,6 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
         aria-controls="undefined_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -805,11 +794,10 @@ exports[`renders components/tree-select/demo/treeData.tsx correctly 1`] = `
 
 exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       aria-checked="false"
@@ -838,7 +826,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       aria-checked="true"
@@ -867,7 +854,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       aria-checked="false"
@@ -912,7 +898,6 @@ exports[`renders components/tree-select/demo/treeLine.tsx correctly 1`] = `
             aria-controls="undefined_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"

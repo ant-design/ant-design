@@ -3,8 +3,39 @@ import { Keyframes } from '@ant-design/cssinjs';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { DerivativeToken } from '../../theme/internal';
+import type { AliasToken, DerivativeToken, FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+
+export interface TreeSharedToken {
+  /**
+   * @desc 节点标题高度
+   * @descEN Node title height
+   */
+  titleHeight: number;
+  /**
+   * @desc 节点悬浮态背景色
+   * @descEN Background color of hovered node
+   */
+  nodeHoverBg: string;
+  /**
+   * @desc 节点选中态背景色
+   * @descEN Background color of selected node
+   */
+  nodeSelectedBg: string;
+}
+
+export interface ComponentToken extends TreeSharedToken {
+  /**
+   * @desc 目录树节点选中文字颜色
+   * @descEN Text color of selected directory node
+   */
+  directoryNodeSelectedColor: string;
+  /**
+   * @desc 目录树节点选中背景色
+   * @descEN Background color of selected directory node
+   */
+  directoryNodeSelectedBg: string;
+}
 
 // ============================ Keyframes =============================
 const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
@@ -55,15 +86,14 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
 });
 
 // =============================== Base ===============================
-type TreeToken = DerivativeToken & {
+type TreeToken = FullToken<'Tree'> & {
   treeCls: string;
   treeNodeCls: string;
   treeNodePadding: number;
-  treeTitleHeight: number;
 };
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding, treeTitleHeight } = token;
+  const { treeCls, treeNodeCls, treeNodePadding, titleHeight, nodeSelectedBg, nodeHoverBg } = token;
   const treeCheckBoxMarginHorizontal = token.paddingXS;
 
   return {
@@ -163,8 +193,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           [`${treeCls}-draggable-icon`]: {
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
-            width: treeTitleHeight,
-            lineHeight: `${treeTitleHeight}px`,
+            width: titleHeight,
+            lineHeight: `${titleHeight}px`,
             textAlign: 'center',
             visibility: 'visible',
             opacity: 0.2,
@@ -190,7 +220,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
-          width: treeTitleHeight,
+          width: titleHeight,
         },
       },
 
@@ -205,9 +235,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         position: 'relative',
         flex: 'none',
         alignSelf: 'stretch',
-        width: treeTitleHeight,
+        width: titleHeight,
         margin: 0,
-        lineHeight: `${treeTitleHeight}px`,
+        lineHeight: `${titleHeight}px`,
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
@@ -239,7 +269,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           '&:before': {
             position: 'absolute',
             top: 0,
-            insetInlineEnd: treeTitleHeight / 2,
+            insetInlineEnd: titleHeight / 2,
             bottom: -treeNodePadding,
             marginInlineStart: -1,
             borderInlineEnd: `1px solid ${token.colorBorder}`,
@@ -248,8 +278,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
           '&:after': {
             position: 'absolute',
-            width: (treeTitleHeight / 2) * 0.8,
-            height: treeTitleHeight / 2,
+            width: (titleHeight / 2) * 0.8,
+            height: titleHeight / 2,
             borderBottom: `1px solid ${token.colorBorder}`,
             content: '""',
           },
@@ -260,6 +290,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [`${treeCls}-checkbox`]: {
         top: 'initial',
         marginInlineEnd: treeCheckBoxMarginHorizontal,
+        alignSelf: 'flex-start',
+        marginTop: token.marginXXS,
       },
 
       // >>> Title
@@ -267,30 +299,30 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       [`${treeCls}-node-content-wrapper, ${treeCls}-checkbox + span`]: {
         position: 'relative',
         zIndex: 'auto',
-        minHeight: treeTitleHeight,
+        minHeight: titleHeight,
         margin: 0,
         padding: `0 ${token.paddingXS / 2}px`,
         color: 'inherit',
-        lineHeight: `${treeTitleHeight}px`,
+        lineHeight: `${titleHeight}px`,
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}, border 0s, line-height 0s, box-shadow 0s`,
 
         '&:hover': {
-          backgroundColor: token.controlItemBgHover,
+          backgroundColor: nodeHoverBg,
         },
 
         [`&${treeCls}-node-selected`]: {
-          backgroundColor: token.controlItemBgActive,
+          backgroundColor: nodeSelectedBg,
         },
 
         // Icon
         [`${treeCls}-iconEle`]: {
           display: 'inline-block',
-          width: treeTitleHeight,
-          height: treeTitleHeight,
-          lineHeight: `${treeTitleHeight}px`,
+          width: titleHeight,
+          height: titleHeight,
+          lineHeight: `${titleHeight}px`,
           textAlign: 'center',
           verticalAlign: 'top',
 
@@ -307,7 +339,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // ==================== Draggable =====================
       [`${treeCls}-node-content-wrapper`]: {
-        lineHeight: `${treeTitleHeight}px`,
+        lineHeight: `${titleHeight}px`,
         userSelect: 'none',
 
         ...getDropIndicatorStyle(prefixCls, token),
@@ -330,7 +362,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             '&:before': {
               position: 'absolute',
               top: 0,
-              insetInlineEnd: treeTitleHeight / 2,
+              insetInlineEnd: titleHeight / 2,
               bottom: -treeNodePadding,
               borderInlineEnd: `1px solid ${token.colorBorder}`,
               content: '""',
@@ -361,7 +393,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
             '&:before': {
               top: 'auto !important',
               bottom: 'auto !important',
-              height: `${treeTitleHeight / 2}px !important`,
+              height: `${titleHeight / 2}px !important`,
             },
           },
         },
@@ -372,7 +404,13 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
 // ============================ Directory =============================
 export const genDirectoryStyle = (token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding } = token;
+  const {
+    treeCls,
+    treeNodeCls,
+    treeNodePadding,
+    directoryNodeSelectedBg,
+    directoryNodeSelectedColor,
+  } = token;
 
   return {
     [`${treeCls}${treeCls}-directory`]: {
@@ -418,7 +456,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
           },
 
           [`&${treeCls}-node-selected`]: {
-            color: token.colorTextLightSolid,
+            color: directoryNodeSelectedColor,
             background: 'transparent',
           },
         },
@@ -429,17 +467,17 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
             &:hover::before,
             &::before
           `]: {
-            background: token.colorPrimary,
+            background: directoryNodeSelectedBg,
           },
 
           // >>> Switcher
           [`${treeCls}-switcher`]: {
-            color: token.colorTextLightSolid,
+            color: directoryNodeSelectedColor,
           },
 
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
-            color: token.colorTextLightSolid,
+            color: directoryNodeSelectedColor,
             background: 'transparent',
           },
         },
@@ -449,18 +487,19 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 };
 
 // ============================== Merged ==============================
-export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => {
+export const genTreeStyle = (
+  prefixCls: string,
+  token: AliasToken & TreeSharedToken,
+): CSSInterpolation => {
   const treeCls = `.${prefixCls}`;
   const treeNodeCls = `${treeCls}-treenode`;
 
   const treeNodePadding = token.paddingXS / 2;
-  const treeTitleHeight = token.controlHeightSM;
 
   const treeToken = mergeToken<TreeToken>(token, {
     treeCls,
     treeNodeCls,
     treeNodePadding,
-    treeTitleHeight,
   });
 
   return [
@@ -471,11 +510,32 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
   ];
 };
 
-// ============================== Export ==============================
-export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
-  {
-    [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
+export const initComponentToken = (token: AliasToken): TreeSharedToken => {
+  const { controlHeightSM } = token;
+
+  return {
+    titleHeight: controlHeightSM,
+    nodeHoverBg: token.controlItemBgHover,
+    nodeSelectedBg: token.controlItemBgActive,
+  };
+};
+
+export default genComponentStyleHook(
+  'Tree',
+  (token, { prefixCls }) => [
+    {
+      [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
+    },
+    genTreeStyle(prefixCls, token),
+    genCollapseMotion(token),
+  ],
+  (token) => {
+    const { colorTextLightSolid, colorPrimary } = token;
+
+    return {
+      ...initComponentToken(token),
+      directoryNodeSelectedColor: colorTextLightSolid,
+      directoryNodeSelectedBg: colorPrimary,
+    };
   },
-  genTreeStyle(prefixCls, token),
-  genCollapseMotion(token),
-]);
+);

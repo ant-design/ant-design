@@ -1,3 +1,5 @@
+import * as React from 'react';
+import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -5,11 +7,10 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import * as React from 'react';
-import { forwardRef, useContext, useImperativeHandle } from 'react';
+
 import type { RangePickerProps } from '.';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import warning from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
@@ -26,6 +27,7 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
+import { useZIndex } from '../../_util/hooks/useZIndex';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -36,6 +38,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
      */
     dropdownClassName?: string;
     popupClassName?: string;
+    rootClassName?: string;
   };
 
   const RangePicker = forwardRef<
@@ -46,6 +49,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       prefixCls: customizePrefixCls,
       getPopupContainer: customGetPopupContainer,
       className,
+      style,
       placement,
       size: customizeSize,
       disabled: customDisabled,
@@ -56,11 +60,12 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       status: customStatus,
       clearIcon,
       allowClear,
+      rootClassName,
       ...restProps
     } = props;
 
     const innerRef = React.useRef<RCRangePicker<DateType>>(null);
-    const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
+    const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { format, showTime, picker } = props as any;
@@ -75,11 +80,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
-      warning(
-        !dropdownClassName,
-        'DatePicker.RangePicker',
-        '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-      );
+      const warning = devUseWarning('DatePicker.RangePicker');
+
+      warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
     }
 
     // ===================== Size =====================
@@ -109,6 +112,9 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const locale = { ...contextLocale, ...props.locale! };
 
+    // ============================ zIndex ============================
+    const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
+
     return wrapSSR(
       <RCRangePicker<DateType>
         separator={
@@ -137,14 +143,21 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           hashId,
           compactItemClassnames,
           className,
+          rangePicker?.className,
+          rootClassName,
         )}
+        style={{ ...rangePicker?.style, ...style }}
         locale={locale.lang}
         prefixCls={prefixCls}
         getPopupContainer={customGetPopupContainer || getPopupContainer}
         generateConfig={generateConfig}
         components={Components}
         direction={direction}
-        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName)}
+        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName, rootClassName)}
+        popupStyle={{
+          ...props.popupStyle,
+          zIndex,
+        }}
         allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );

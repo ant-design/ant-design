@@ -365,7 +365,6 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -397,7 +396,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -430,7 +428,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -462,7 +459,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -494,7 +490,6 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -526,7 +521,6 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -558,7 +552,6 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="prefix-AutoComplete-selection-search-input"
@@ -599,7 +592,7 @@ exports[`ConfigProvider components Avatar configProvider componentDisabled 1`] =
 
 exports[`ConfigProvider components Avatar configProvider componentSize large 1`] = `
 <span
-  class="config-avatar config-avatar-circle"
+  class="config-avatar config-avatar-lg config-avatar-circle"
 >
   <span
     class="config-avatar-string"
@@ -621,7 +614,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Avatar configProvider componentSize small 1`] = `
 <span
-  class="config-avatar config-avatar-circle"
+  class="config-avatar config-avatar-sm config-avatar-circle"
 >
   <span
     class="config-avatar-string"
@@ -1608,7 +1601,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -1669,7 +1661,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -2551,7 +2542,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -2899,7 +2889,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -2961,7 +2950,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -3846,7 +3834,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -4197,7 +4184,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -4258,7 +4244,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -5140,7 +5125,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -5488,7 +5472,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -5549,7 +5532,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -6431,7 +6413,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -6779,7 +6760,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -6840,7 +6820,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -7722,7 +7701,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="config-select-selection-search-input"
@@ -8070,7 +8048,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -8131,7 +8108,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -9013,7 +8989,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -9361,7 +9336,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -9422,7 +9396,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -10304,7 +10277,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -11681,7 +11653,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -11739,7 +11710,6 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -11798,7 +11768,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -11856,7 +11825,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -11914,7 +11882,6 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -11972,7 +11939,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -12030,7 +11996,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="prefix-Cascader-selection-search-input"
@@ -17486,7 +17451,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components List configProvider componentSize large 1`] = `
 <div
-  class="config-list config-list-split"
+  class="config-list config-list-lg config-list-split"
 >
   <div
     class="config-spin-nested-loading"
@@ -17507,7 +17472,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
               class="config-list-item-meta-avatar"
             >
               <span
-                class="config-avatar config-avatar-circle config-avatar-image"
+                class="config-avatar config-avatar-lg config-avatar-circle config-avatar-image"
               >
                 <img
                   src="https://xsgames.co/randomusers/avatar.php?g=pixel"
@@ -17590,7 +17555,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components List configProvider componentSize small 1`] = `
 <div
-  class="config-list config-list-split"
+  class="config-list config-list-sm config-list-split"
 >
   <div
     class="config-spin-nested-loading"
@@ -17611,7 +17576,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
               class="config-list-item-meta-avatar"
             >
               <span
-                class="config-avatar config-avatar-circle config-avatar-image"
+                class="config-avatar config-avatar-sm config-avatar-circle config-avatar-image"
               >
                 <img
                   src="https://xsgames.co/randomusers/avatar.php?g=pixel"
@@ -24418,7 +24383,6 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -24437,7 +24401,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div
@@ -24545,7 +24509,6 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -24608,7 +24571,6 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -24627,7 +24589,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div
@@ -24736,7 +24698,6 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -24755,7 +24716,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div
@@ -24864,7 +24825,6 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -24883,7 +24843,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div
@@ -24992,7 +24952,6 @@ exports[`ConfigProvider components Select normal 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -25011,7 +24970,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div
@@ -25120,7 +25079,6 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="prefix-Select-selection-search-input"
@@ -25139,7 +25097,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   </div>
   <div
     class="prefix-Select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-Select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div
@@ -25444,6 +25402,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25490,6 +25449,7 @@ exports[`ConfigProvider components Slider configProvider componentDisabled 1`] =
   />
   <div
     aria-disabled="true"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25535,6 +25495,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25581,6 +25542,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25627,6 +25589,7 @@ exports[`ConfigProvider components Slider configProvider componentSize small 1`]
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25673,6 +25636,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -25719,6 +25683,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     aria-disabled="false"
+    aria-orientation="horizontal"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="0"
@@ -41335,7 +41300,6 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -41354,7 +41318,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -41471,7 +41435,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -41533,7 +41496,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -41552,7 +41514,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -41669,7 +41631,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -41688,7 +41649,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -41805,7 +41766,6 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="config-select-selection-search-input"
@@ -41824,7 +41784,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
   </div>
   <div
     class="config-select-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-tree-select-dropdown config-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -41941,7 +41901,6 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -41960,7 +41919,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   </div>
   <div
     class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -42077,7 +42036,6 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="true"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="prefix-TreeSelect-selection-search-input"
@@ -42096,7 +42054,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   </div>
   <div
     class="prefix-TreeSelect-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown-placement-bottomLeft"
-    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; min-width: 0; width: 0px;"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
   >
     <div>
       <div>
@@ -42309,6 +42267,7 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
     >
       <input
         accept=""
+        disabled=""
         style="display: none;"
         type="file"
       />

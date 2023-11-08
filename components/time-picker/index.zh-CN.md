@@ -55,8 +55,6 @@ dayjs.extend(customParseFormat)
 | cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | changeOnBlur | 失去焦点时触发 `change` 事件，例如 datetime 下不再需要点击确认按钮 | boolean | false | 5.5.0 |
 | className | 选择器类名 | string | - |  |
-| clearIcon | 自定义的清除图标 | ReactNode | - |  |
-| clearText | 清除按钮的提示文案 | string | clear |  |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
 | disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 |
@@ -121,7 +119,7 @@ type RangeDisabledTime = (
 };
 ```
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>
 

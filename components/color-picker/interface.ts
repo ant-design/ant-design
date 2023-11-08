@@ -11,6 +11,12 @@ export enum ColorFormat {
 export interface PresetsItem {
   label: ReactNode;
   colors: (string | Color)[];
+  /**
+   * Whether the initial state is collapsed
+   * @since 5.11.0
+   * @default true
+   */
+  defaultOpen?: boolean;
 }
 export type TriggerType = 'click' | 'hover';
 

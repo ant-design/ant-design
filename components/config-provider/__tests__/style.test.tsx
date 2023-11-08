@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ConfigProvider from '..';
 import { fireEvent, render } from '../../../tests/utils';
 import Alert from '../../alert';
@@ -17,7 +18,9 @@ import DatePicker from '../../date-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
+import Dropdown from '../../dropdown';
 import Empty from '../../empty';
+import Flex from '../../flex';
 import Form from '../../form';
 import Image from '../../image';
 import Input from '../../input';
@@ -104,9 +107,7 @@ describe('ConfigProvider support style and className props', () => {
         </Space>
       </ConfigProvider>,
     );
-    expect(container.querySelector('.ant-space-item')).toHaveStyle(
-      'margin-right: 8px; color: red;',
-    );
+    expect(container.querySelector('.ant-space-item')).toHaveStyle('color: red;');
   });
 
   it('Should Space style works', () => {
@@ -942,11 +943,16 @@ describe('ConfigProvider support style and className props', () => {
     const { container } = render(
       <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
         <Tag>Test</Tag>
+        <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-tag');
     expect(element).toHaveClass('cp-tag');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+
+    const checkableElement = container.querySelector<HTMLSpanElement>('.ant-tag-checkable');
+    expect(checkableElement).toHaveClass('cp-tag');
+    expect(checkableElement).toHaveStyle({ backgroundColor: 'blue' });
   });
 
   it('Should Table className & style works', () => {
@@ -1037,6 +1043,34 @@ describe('ConfigProvider support style and className props', () => {
       </ConfigProvider>,
     );
 
+    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
+  it('Should RangePicker className works', () => {
+    const { RangePicker } = TimePicker;
+    const { container } = render(
+      <ConfigProvider
+        rangePicker={{
+          className: 'test-class',
+        }}
+      >
+        <RangePicker />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker')).toHaveClass('test-class');
+  });
+
+  it('Should RangePicker style works', () => {
+    const { RangePicker } = TimePicker;
+    const { container } = render(
+      <ConfigProvider
+        rangePicker={{
+          style: { color: 'red' },
+        }}
+      >
+        <RangePicker style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
     expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
   });
 
@@ -1262,5 +1296,29 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
+  it('Should Flex className & style works', () => {
+    const { container } = render(
+      <ConfigProvider flex={{ className: 'cp-flex', style: { backgroundColor: 'blue' } }}>
+        <Flex>test</Flex>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-flex');
+    expect(element).toHaveClass('cp-flex');
+    expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Dropdown className & style works', () => {
+    const { container } = render(
+      <ConfigProvider dropdown={{ className: 'cp-dropdown', style: { backgroundColor: 'red' } }}>
+        <Dropdown menu={{ items: [{ label: 'foo', key: '1' }] }} open>
+          <span>test</span>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-dropdown');
+    expect(element).toHaveClass('cp-dropdown');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

@@ -33,7 +33,10 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
           verticalAlign: 'middle',
         },
 
-        [`&:not(${componentCls}-disabled):hover`]: {
+        [`
+          &:not(${componentCls}-disabled):hover,
+          &-hover:not(${componentCls}-disabled)
+        `]: {
           borderColor: token.colorPrimaryHover,
         },
 
@@ -59,8 +62,6 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
 
         // ===================== Disabled =====================
         [`&${componentCls}-disabled`]: {
-          cursor: 'not-allowed',
-
           [`p${componentCls}-drag-icon ${iconCls},
             p${componentCls}-text,
             p${componentCls}-hint

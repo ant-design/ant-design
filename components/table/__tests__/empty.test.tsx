@@ -1,8 +1,9 @@
 import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+
 import type { ColumnsType } from '..';
 import Table from '..';
-import { render, triggerResize, waitFor } from '../../../tests/utils';
+import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 
 const columns: ColumnsType<any> = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
@@ -66,6 +67,14 @@ describe('Table', () => {
       domSpy.mockRestore();
     });
 
+    beforeEach(() => {
+      jest.useFakeTimers();
+    });
+
+    afterEach(() => {
+      jest.useRealTimers();
+    });
+
     it('should work', async () => {
       const { container, asFragment } = render(
         <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
@@ -73,9 +82,8 @@ describe('Table', () => {
 
       triggerResize(container.querySelector('.ant-table')!);
 
-      await waitFor(() => {
-        expect(container.querySelector('.ant-empty')).toBeTruthy();
-      });
+      await waitFakeTimer();
+      expect(container.querySelector('.ant-empty')).toBeTruthy();
 
       expect(asFragment().firstChild).toMatchSnapshot();
     });

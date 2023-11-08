@@ -1,12 +1,13 @@
 import React from 'react';
-import { InputNumber, Space, Slider } from 'antd';
+import { InputNumber, Slider, Space } from 'antd';
 
 export interface RadiusPickerProps {
+  id?: string;
   value?: number;
   onChange?: (value: number | null) => void;
 }
 
-export default function RadiusPicker({ value, onChange }: RadiusPickerProps) {
+export default function RadiusPicker({ value, onChange, id }: RadiusPickerProps) {
   return (
     <Space size="large">
       <InputNumber
@@ -16,6 +17,7 @@ export default function RadiusPicker({ value, onChange }: RadiusPickerProps) {
         min={0}
         formatter={(val) => `${val}px`}
         parser={(str) => (str ? parseFloat(str) : (str as any))}
+        id={id}
       />
 
       <Slider

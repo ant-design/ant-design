@@ -3,8 +3,10 @@ import path from 'path';
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
+import * as fs from 'fs-extra';
 
 export default defineConfig({
+  plugins: ['dumi-plugin-color-chunk'],
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
     exclude: [new RegExp('index/components/')],
@@ -12,6 +14,7 @@ export default defineConfig({
   ssr: process.env.NODE_ENV === 'production' ? {} : false,
   hash: true,
   mfsu: false,
+  live: true,
   crossorigin: {},
   outputPath: '_site',
   favicons: ['https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png'],
@@ -44,42 +47,42 @@ export default defineConfig({
   },
   links: [
     {
-      rel: 'preload',
+      rel: 'prefetch',
       as: 'font',
       href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff2',
       type: 'font/woff2',
       crossorigin: true,
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       as: 'font',
       href: '//at.alicdn.com/t/webfont_6e11e43nfj.woff',
       type: 'font/woff',
       crossorigin: true,
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       as: 'font',
       href: '//at.alicdn.com/t/webfont_6e11e43nfj.ttf',
       type: 'font/ttf',
       crossorigin: true,
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       as: 'font',
       href: '//at.alicdn.com/t/webfont_exesdog9toj.woff2',
       type: 'font/woff2',
       crossorigin: true,
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       as: 'font',
       href: '//at.alicdn.com/t/webfont_exesdog9toj.woff',
       type: 'font/woff',
       crossorigin: true,
     },
     {
-      rel: 'preload',
+      rel: 'prefetch',
       as: 'font',
       href: '//at.alicdn.com/t/webfont_exesdog9toj.ttf',
       type: 'font/ttf',
@@ -157,5 +160,11 @@ export default defineConfig({
       document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
     })();
     `,
+  ],
+  scripts: [
+    {
+      async: true,
+      content: fs.readFileSync(path.join(__dirname, '.dumi', 'mirror-modal.js')).toString(),
+    },
   ],
 });

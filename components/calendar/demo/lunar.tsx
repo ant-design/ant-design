@@ -1,13 +1,11 @@
-import dayjs, { type Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
-import lunisolar from 'lunisolar';
-import zhCn from 'lunisolar/locale/zh-cn';
+import { Lunar, HolidayUtil } from 'lunar-typescript';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { Calendar, Col, Radio, Row, Select } from 'antd';
 import type { CalendarProps } from 'antd';
-
-lunisolar.locale(zhCn);
 
 const useStyle = createStyles(({ token, css, cx }) => {
   const lunar = css`
@@ -16,7 +14,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
   `;
   return {
     wrapper: css`
-      width: 400px;
+      width: 450px;
       border: 1px solid ${token.colorBorderSecondary};
       border-radius: ${token.borderRadiusOuter};
       padding: 5px;
@@ -94,17 +92,20 @@ const App: React.FC = () => {
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
-    setSelectDate(value);
   };
 
-  const onDateChange = (value: Dayjs) => {
-    setSelectDate(value);
+  const onDateChange: CalendarProps<Dayjs>['onSelect'] = (value, selectInfo) => {
+    if (selectInfo.source === 'date') {
+      setSelectDate(value);
+    }
   };
 
   const cellRender: CalendarProps<Dayjs>['fullCellRender'] = (date, info) => {
-    const d = lunisolar(date.toDate());
-    const lunar = d.lunar.getDayName();
-    const solarTerm = d.solarTerm?.name;
+    const d = Lunar.fromDate(date.toDate());
+    const lunar = d.getDayInChinese();
+    const solarTerm = d.getJieQi();
+    const h = HolidayUtil.getHoliday(date.get('year'), date.get('month') + 1, date.get('date'));
+    const displayHoliday = h?.getTarget() === h?.getDay() ? h?.getName() : undefined;
     if (info.type === 'date') {
       return React.cloneElement(info.originNode, {
         ...info.originNode.props,
@@ -115,7 +116,9 @@ const App: React.FC = () => {
         children: (
           <div className={styles.text}>
             {date.get('date')}
-            {info.type === 'date' && <div className={styles.lunar}>{solarTerm || lunar}</div>}
+            {info.type === 'date' && (
+              <div className={styles.lunar}>{displayHoliday || solarTerm || lunar}</div>
+            )}
           </div>
         ),
       });
@@ -124,29 +127,29 @@ const App: React.FC = () => {
     if (info.type === 'month') {
       // Due to the fact that a solar month is part of the lunar month X and part of the lunar month X+1,
       // when rendering a month, always take X as the lunar month of the month
-      const d2 = lunisolar(new Date(date.get('year'), date.get('month')));
-      const month = d2.lunar.getMonthName();
+      const d2 = Lunar.fromDate(new Date(date.get('year'), date.get('month')));
+      const month = d2.getMonthInChinese();
       return (
         <div
           className={classNames(styles.monthCell, {
             [styles.monthCellCurrent]: selectDate.isSame(date, 'month'),
           })}
         >
-          {date.get('month') + 1}月（{month}）
+          {date.get('month') + 1}月（{month}月）
         </div>
       );
     }
   };
 
   const getYearLabel = (year: number) => {
-    const d = lunisolar(new Date(year + 1, 0));
-    return `${year}年（${d.format('cYcZ年')}）`;
+    const d = Lunar.fromDate(new Date(year + 1, 0));
+    return `${d.getYearInChinese()}年（${d.getYearInGanZhi()}${d.getYearShengXiao()}年）`;
   };
 
   const getMonthLabel = (month: number, value: Dayjs) => {
-    const d = lunisolar(new Date(value.year(), month));
-    const lunar = d.lunar.getMonthName();
-    return `${month + 1}月（${lunar}）`;
+    const d = Lunar.fromDate(new Date(value.year(), month));
+    const lunar = d.getMonthInChinese();
+    return `${month + 1}月（${lunar}月）`;
   };
 
   return (
@@ -155,7 +158,7 @@ const App: React.FC = () => {
         fullCellRender={cellRender}
         fullscreen={false}
         onPanelChange={onPanelChange}
-        onChange={onDateChange}
+        onSelect={onDateChange}
         headerRender={({ value, type, onChange, onTypeChange }) => {
           const start = 0;
           const end = 12;

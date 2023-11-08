@@ -211,7 +211,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             <Anchor
               className={styles.toc}
               affix={false}
-              targetOffset={token.marginXXL}
+              targetOffset={token.anchorTop}
               showInkInFixed
               items={anchorItems.map((item) => ({
                 href: `#${item.id}`,

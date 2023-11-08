@@ -1,5 +1,3 @@
-'use client';
-
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
@@ -101,23 +99,25 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
-    compactItemClassnames,
     hashId,
   );
   const wrapperClassName = `${prefixCls}-group`;
+
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const element = (
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={classNames(className, rootClassName)}
+      className={classNames(className, rootClassName, compactItemClassnames)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
       controls={controlsTemp}
       prefix={prefix}
-      suffix={hasFeedback && feedbackIcon}
+      suffix={suffixNode}
       addonAfter={
         addonAfter && (
           <NoCompactStyle>

@@ -1,6 +1,7 @@
+import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type * as React from 'react';
+
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -98,11 +99,20 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         transition: `background-color ${token.motionDurationMid}`,
       },
 
-      [`${componentCls}-track`]: {
+      [`${componentCls}-track,${componentCls}-tracks`]: {
         position: 'absolute',
+        transition: `background-color ${token.motionDurationMid}`,
+      },
+
+      [`${componentCls}-track`]: {
         backgroundColor: token.trackBg,
         borderRadius: token.borderRadiusXS,
-        transition: `background-color ${token.motionDurationMid}`,
+      },
+
+      [`${componentCls}-track-draggable`]: {
+        boxSizing: 'content-box',
+        backgroundClip: 'content-box',
+        border: 'solid rgba(0,0,0,0)',
       },
 
       '&:hover': {
@@ -132,10 +142,6 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
         width: token.handleSize,
         height: token.handleSize,
         outline: 'none',
-
-        [`${componentCls}-dragging`]: {
-          zIndex: 1,
-        },
 
         // 扩大选区
         '&::before': {
@@ -290,6 +296,19 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
   const handlePos: keyof React.CSSProperties = horizontal ? 'insetBlockStart' : 'insetInlineStart';
   const markInset: keyof React.CSSProperties = horizontal ? 'top' : 'insetInlineStart';
 
+  const handlePosSize = (railSize * 3 - handleSize) / 2;
+  const draggableBorderSize = (handleSize - railSize) / 2;
+
+  const draggableBorder: React.CSSProperties = horizontal
+    ? {
+        borderWidth: `${draggableBorderSize}px 0`,
+        transform: `translateY(-${draggableBorderSize}px)`,
+      }
+    : {
+        borderWidth: `0 ${draggableBorderSize}px`,
+        transform: `translateX(-${draggableBorderSize}px)`,
+      };
+
   return {
     [railPadding]: railSize,
     [part]: railSize * 3,
@@ -299,12 +318,16 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       [part]: railSize,
     },
 
-    [`${componentCls}-track`]: {
+    [`${componentCls}-track,${componentCls}-tracks`]: {
       [part]: railSize,
     },
 
+    [`${componentCls}-track-draggable`]: {
+      ...draggableBorder,
+    },
+
     [`${componentCls}-handle`]: {
-      [handlePos]: (railSize * 3 - handleSize) / 2,
+      [handlePos]: handlePosSize,
     },
 
     [`${componentCls}-mark`]: {

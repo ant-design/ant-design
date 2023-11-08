@@ -1,6 +1,6 @@
+import React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
 import { css, Global } from '@emotion/react';
-import React from 'react';
 import { useTheme } from 'antd-style';
 
 const GlobalStyle: React.FC = () => {
@@ -28,11 +28,16 @@ const GlobalStyle: React.FC = () => {
           max-height: 100%;
         }
 
+        .markdown > a > img,
+        .markdown > img {
+          display: block;
+          margin: 0 auto;
+        }
+
         .markdown p > img {
           margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
           max-width: 1024px;
-          width: 100%;
           display: block;
         }
 
@@ -364,13 +369,12 @@ const GlobalStyle: React.FC = () => {
               &:first-child {
                 width: 18%;
                 min-width: 58px;
-                color: #595959;
+                color: ${token.colorText};
                 font-weight: 600;
                 white-space: nowrap;
               }
 
               &:nth-child(2) {
-                width: 55%;
                 min-width: 160px;
               }
 

@@ -1,3 +1,5 @@
+import type * as React from 'react';
+import type { Reference } from 'rc-table';
 import type {
   FixedType,
   GetComponentProps,
@@ -5,28 +7,30 @@ import type {
   RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
 import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
-import type * as React from 'react';
+
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { AnyObject } from '../_util/type';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
 import type { TooltipProps } from '../tooltip';
-import type { InternalTableProps, TableProps } from './InternalTable';
 import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import type { InternalTableProps, TableProps } from './InternalTable';
 
 export type RefTable = <RecordType extends AnyObject = AnyObject>(
-  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
+  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<Reference> },
 ) => React.ReactElement;
 
 export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
   props: React.PropsWithChildren<InternalTableProps<RecordType>> & {
-    ref?: React.Ref<HTMLDivElement>;
+    ref?: React.Ref<Reference>;
   },
 ) => React.ReactElement;
 
 export { ExpandableConfig, GetRowKey };
 
 export type Key = React.Key;
+
+export type SafeKey = Exclude<Key, bigint>;
 
 export type RowSelectionType = 'checkbox' | 'radio';
 
@@ -57,13 +61,13 @@ export interface TableLocale {
 export type SortOrder = 'descend' | 'ascend' | null;
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = (typeof TableActions)[number];
+export type TableAction = typeof TableActions[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
-  value: string | number | boolean;
+  value: React.Key | boolean;
   children?: ColumnFilterItem[];
 }
 
@@ -82,7 +86,7 @@ export type ColumnTitle<RecordType> =
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
 export type FilterValue = (Key | boolean)[];
-export type FilterKey = Key[] | null;
+export type FilterKey = (string | number)[] | null;
 export type FilterSearchType<RecordType = AnyObject> =
   | boolean
   | ((input: string, record: RecordType) => boolean);
@@ -133,7 +137,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem>;
-  onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
+  onFilter?: (value: React.Key | boolean, record: RecordType) => boolean;
   filterDropdownOpen?: boolean;
   onFilterDropdownOpenChange?: (visible: boolean) => void;
   filterResetToDefaultFilteredValue?: boolean;
@@ -193,7 +197,7 @@ export interface TableRowSelection<T> {
   hideSelectAll?: boolean;
   fixed?: FixedType;
   columnWidth?: string | number;
-  columnTitle?: string | React.ReactNode;
+  columnTitle?: React.ReactNode | ((checkboxNode: React.ReactNode) => React.ReactNode);
   checkStrictly?: boolean;
   renderCell?: (
     value: boolean,
@@ -228,7 +232,8 @@ type TablePaginationPosition =
   | 'topRight'
   | 'bottomLeft'
   | 'bottomCenter'
-  | 'bottomRight';
+  | 'bottomRight'
+  | 'none';
 
 export interface TablePaginationConfig extends PaginationProps {
   position?: TablePaginationPosition[];

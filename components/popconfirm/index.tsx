@@ -1,11 +1,10 @@
-'use client';
-
+import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
-import KeyCode from 'rc-util/lib/KeyCode';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import KeyCode from 'rc-util/lib/KeyCode';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
@@ -58,8 +57,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     value: props.open ?? props.visible,
     defaultValue: props.defaultOpen ?? props.defaultVisible,
   });
-
-  // const isDestroyed = useDestroyed();
 
   const settingOpen = (
     value: boolean,

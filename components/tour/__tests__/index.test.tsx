@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { useEffect, useRef } from 'react';
+
 import Tour from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -425,5 +426,142 @@ describe('Tour', () => {
     expect(getByText('Primary description.')).toBeTruthy();
     expect(container.querySelector('.ant-tour-primary .ant-tour-content')).toBeTruthy();
     expect(baseElement).toMatchSnapshot();
+  });
+
+  it('support closeIcon', () => {
+    const Demo = ({ closeIcon = false }: { closeIcon?: React.ReactNode }) => {
+      const createBtnRef = useRef<HTMLButtonElement>(null);
+      const updateBtnRef = useRef<HTMLButtonElement>(null);
+      const deleteBtnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <div style={{ margin: 20 }}>
+          <div>
+            <button type="button" ref={createBtnRef}>
+              Create
+            </button>
+            <div style={{ height: 200 }} />
+            <button type="button" ref={updateBtnRef}>
+              Update
+            </button>
+            <button type="button" ref={deleteBtnRef}>
+              Delete
+            </button>
+          </div>
+          <div style={{ height: 200 }} />
+
+          <Tour
+            closeIcon={closeIcon}
+            steps={[
+              {
+                title: '创建',
+                description: '创建一条数据',
+                target: () => createBtnRef.current!,
+                mask: true,
+              },
+              {
+                title: '更新',
+                closeIcon: !closeIcon,
+                description: (
+                  <div>
+                    <span>更新一条数据</span>
+                    <button type="button">帮助文档</button>
+                  </div>
+                ),
+                target: () => updateBtnRef.current!,
+              },
+              {
+                title: '删除',
+                closeIcon: <span className="custom-del-close-icon">Close</span>,
+                description: (
+                  <div>
+                    <span>危险操作:删除一条数据</span>
+                    <button type="button">帮助文档</button>
+                  </div>
+                ),
+                target: () => deleteBtnRef.current!,
+              },
+            ]}
+          />
+        </div>
+      );
+    };
+
+    const { baseElement, rerender } = render(<Demo />);
+    const resetIndex = () => {
+      // reset
+      fireEvent.click(baseElement.querySelector('.ant-tour-prev-btn')!);
+      fireEvent.click(baseElement.querySelector('.ant-tour-prev-btn')!);
+    };
+    expect(baseElement.querySelector('.ant-tour-close')).toBeFalsy();
+    fireEvent.click(baseElement.querySelector('.ant-tour-next-btn')!);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('.ant-tour-next-btn')!);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeFalsy();
+    expect(baseElement.querySelector('.custom-del-close-icon')).toBeTruthy();
+
+    resetIndex();
+
+    rerender(<Demo closeIcon />);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('.ant-tour-next-btn')!);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeFalsy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeFalsy();
+    fireEvent.click(baseElement.querySelector('.ant-tour-next-btn')!);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeFalsy();
+    expect(baseElement.querySelector('.custom-del-close-icon')).toBeTruthy();
+
+    resetIndex();
+
+    rerender(<Demo closeIcon={<span className="custom-global-close-icon">X</span>} />);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeTruthy();
+    expect(baseElement.querySelector('.custom-global-close-icon')).toBeTruthy();
+    fireEvent.click(baseElement.querySelector('.ant-tour-next-btn')!);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeFalsy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeFalsy();
+    expect(baseElement.querySelector('.custom-global-close-icon')).toBeFalsy();
+    fireEvent.click(baseElement.querySelector('.ant-tour-next-btn')!);
+    expect(baseElement.querySelector('.ant-tour-close')).toBeTruthy();
+    expect(baseElement.querySelector('.ant-tour-close-icon')).toBeFalsy();
+    expect(baseElement.querySelector('.custom-del-close-icon')).toBeTruthy();
+
+    resetIndex();
+  });
+
+  it('first step should be primary', () => {
+    const App: React.FC = () => {
+      const coverBtnRef = useRef<HTMLButtonElement>(null);
+      return (
+        <>
+          <button ref={coverBtnRef} type="button">
+            target
+          </button>
+
+          <Tour
+            steps={[
+              {
+                title: '',
+                description: '',
+                target: () => coverBtnRef.current!,
+                type: 'primary',
+                className: 'should-be-primary',
+              },
+              {
+                title: '',
+                target: () => coverBtnRef.current!,
+              },
+            ]}
+          />
+        </>
+      );
+    };
+
+    render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: 'target' }));
+    expect(document.querySelector('.should-be-primary')).toBeTruthy();
+    expect(document.querySelector('.should-be-primary')).toHaveClass('ant-tour-primary');
   });
 });

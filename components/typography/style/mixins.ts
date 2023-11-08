@@ -10,7 +10,6 @@
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
-import { initInputToken } from '../../input/style';
 import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -187,10 +186,9 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 });
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, paddingSM } = token;
 
-  const inputToken = initInputToken(token);
-  const inputShift = inputToken.inputPaddingVertical + 1;
+  const inputShift = paddingSM;
   return {
     '&-edit-content': {
       position: 'relative',
@@ -253,6 +251,15 @@ export const getEllipsisStyles = (): CSSObject => ({
 
     // https://blog.csdn.net/iefreer/article/details/50421025
     'a&, span&': {
+      verticalAlign: 'bottom',
+    },
+
+    '> code': {
+      paddingBlock: 0,
+      maxWidth: 'calc(100% - 1.2em)',
+      display: 'inline-block',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
       verticalAlign: 'bottom',
     },
   },

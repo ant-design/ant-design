@@ -3,10 +3,10 @@
 exports[`renders components/avatar/demo/badge.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="column-gap: 24px; row-gap: 24px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 24px;"
   >
     <span
       class="ant-badge"
@@ -97,18 +97,17 @@ exports[`renders components/avatar/demo/badge.tsx extend context correctly 2`] =
 exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="column-gap: 16px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -16px;"
+      style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -137,7 +136,6 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
@@ -165,7 +163,6 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -193,7 +190,6 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-icon"
@@ -226,11 +222,10 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -16px;"
+      style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -259,7 +254,6 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-lg ant-avatar-square ant-avatar-icon"
@@ -287,7 +281,6 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="margin-right: 16px; padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
@@ -315,7 +308,6 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       </div>
       <div
         class="ant-space-item"
-        style="padding-bottom: 16px;"
       >
         <span
           class="ant-avatar ant-avatar-sm ant-avatar-square ant-avatar-icon"
@@ -351,7 +343,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 2`] =
 exports[`renders components/avatar/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
@@ -366,7 +358,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
@@ -447,7 +439,7 @@ Array [
                 </span>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2140;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -496,11 +488,10 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
     >
       <span
         class="ant-badge"
@@ -627,11 +618,10 @@ exports[`renders components/avatar/demo/dynamic.tsx extend context correctly 2`]
 
 exports[`renders components/avatar/demo/fallback.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 8px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -832,7 +822,7 @@ Array [
             </span>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2140;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -958,7 +948,7 @@ Array [
             </span>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2140;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1084,7 +1074,7 @@ Array [
             </span>
             <div
               class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
-              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 2140;"
             >
               <div
                 class="ant-tooltip-arrow"
@@ -1245,12 +1235,11 @@ exports[`renders components/avatar/demo/responsive.tsx extend context correctly 
 exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    style="flex-wrap: wrap;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1263,7 +1252,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1276,7 +1264,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -1342,11 +1329,10 @@ exports[`renders components/avatar/demo/toggle-debug.tsx extend context correctl
 exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap: wrap; margin-bottom: -16px;"
+  style="flex-wrap: wrap; column-gap: 16px; row-gap: 16px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"
@@ -1374,7 +1360,6 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1389,7 +1374,6 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1405,7 +1389,6 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1417,7 +1400,6 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-image"
@@ -1430,7 +1412,6 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right: 16px; padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle"
@@ -1446,7 +1427,6 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   </div>
   <div
     class="ant-space-item"
-    style="padding-bottom: 16px;"
   >
     <span
       class="ant-avatar ant-avatar-circle ant-avatar-icon"

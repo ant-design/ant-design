@@ -48,12 +48,13 @@ group:
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | 颜色选择器的触发器 | React.ReactNode | - | |
 | defaultValue | 颜色默认的值 | string \| `Color` | - | |
+| defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | - | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
 | destroyTooltipOnHide | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | `hex` | |
 | open | 是否显示弹出窗口 | boolean | - | |
-| presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color> }[]` | - | |
+| presets | 预设的颜色 | `{ label: ReactNode, colors: Array<string \| Color>, defaultOpen?: boolean }[]` | - | `defaultOpen: 5.11.0` |
 | placement | 弹出窗口的位置 | `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | `bottomLeft` | |
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |

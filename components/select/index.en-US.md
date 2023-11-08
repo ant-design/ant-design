@@ -14,6 +14,7 @@ Select component to select value from options.
 
 - A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
+- You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
 
 ## Examples
 
@@ -45,6 +46,7 @@ Select component to select value from options.
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/option-label-center.tsx" debug>Options label Centered</code>
 <code src="./demo/debug-flip-shift.tsx" iframe="200" debug>Flip + Shift</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
@@ -54,11 +56,10 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean | false |  |
+| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
 | autoFocus | Get focus by default | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
-| clearIcon | The custom clear icon | ReactNode | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -84,6 +85,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If `options` is set, it should be set to `label` | string | `value` |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `children` |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
+| optionRender | Customize the rendering dropdown options | (option: FlattenOptionData\<BaseOptionType\> , info: { index: number }) => React.ReactNode | - | 5.11.0 |
 | placeholder | Placeholder of select | ReactNode | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |

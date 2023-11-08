@@ -29,6 +29,11 @@ export interface ComponentToken {
    * @descEN Background color of item when selected
    */
   itemSelectedBg: string;
+  /**
+   * @desc 选项选中时文字颜色
+   * @descEN Text color of item when selected
+   */
+  itemSelectedColor: string;
 }
 
 interface SegmentedToken extends FullToken<'Segmented'> {
@@ -106,10 +111,13 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         cursor: 'pointer',
         transition: `color ${token.motionDurationMid} ${token.motionEaseInOut}`,
         borderRadius: token.borderRadiusSM,
+        // Fix Safari render bug
+        // https://github.com/ant-design/ant-design/issues/45250
+        transform: 'translateZ(0)',
 
         '&-selected': {
           ...getItemSelectedStyle(token),
-          color: token.itemHoverColor,
+          color: token.itemSelectedColor,
         },
 
         '&::after': {
@@ -241,6 +249,7 @@ export default genComponentStyleHook(
       itemHoverBg: colorFillSecondary,
       itemSelectedBg: colorBgElevated,
       itemActiveBg: colorFill,
+      itemSelectedColor: colorText,
     };
   },
 );

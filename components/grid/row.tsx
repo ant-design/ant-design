@@ -1,10 +1,11 @@
-import classNames from 'classnames';
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import classNames from 'classnames';
+
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObserver';
+import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
+import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
@@ -48,7 +49,9 @@ function useMergePropByScreen(oriProp: RowProps['align'] | RowProps['justify'], 
     for (let i = 0; i < responsiveArray.length; i++) {
       const breakpoint: Breakpoint = responsiveArray[i];
       // if do not match, do nothing
-      if (!screen[breakpoint]) continue;
+      if (!screen[breakpoint]) {
+        continue;
+      }
       const curVal = oriProp[breakpoint];
       if (curVal !== undefined) {
         setProp(curVal);
@@ -101,8 +104,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const mergeAlign = useMergePropByScreen(align, curScreens);
 
   const mergeJustify = useMergePropByScreen(justify, curScreens);
-
-  const supportFlexGap = useFlexGapSupport();
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
@@ -162,27 +163,21 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   // Add gutter related style
   const rowStyle: React.CSSProperties = {};
   const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
-  const verticalGutter = gutters[1] != null && gutters[1] > 0 ? gutters[1] / -2 : undefined;
 
   if (horizontalGutter) {
     rowStyle.marginLeft = horizontalGutter;
     rowStyle.marginRight = horizontalGutter;
   }
 
-  if (supportFlexGap) {
-    // Set gap direct if flex gap support
-    [, rowStyle.rowGap] = gutters;
-  } else if (verticalGutter) {
-    rowStyle.marginTop = verticalGutter;
-    rowStyle.marginBottom = verticalGutter;
-  }
+  [, rowStyle.rowGap] = gutters;
 
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.
   const [gutterH, gutterV] = gutters;
-  const rowContext = React.useMemo(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
-    [gutterH, gutterV, wrap, supportFlexGap],
+
+  const rowContext = React.useMemo<RowContextState>(
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),
+    [gutterH, gutterV, wrap],
   );
 
   return wrapSSR(

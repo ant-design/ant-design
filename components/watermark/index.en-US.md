@@ -22,6 +22,7 @@ Add specific text or patterns to the page.
 <code src="./demo/multi-line.tsx">Multi-line watermark</code>
 <code src="./demo/image.tsx">Image watermark</code>
 <code src="./demo/custom.tsx">Custom configuration</code>
+<code src="./demo/portal.tsx">Modal or Drawer</code>
 
 ## API
 
@@ -33,6 +34,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | width | The width of the watermark, the default value of `content` is its own width | number | 120 |  |
 | height | The height of the watermark, the default value of `content` is its own height | number | 64 |  |
+| inherit | Pass the watermark to the pop-up component such as Modal, Drawer | boolean | true | 5.11.0 |
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
 | zIndex | The z-index of the appended watermark element | number | 9 |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority (support base64 format) | string | - |  |
@@ -46,11 +48,12 @@ Common props ref：[Common props](/docs/react/common-props)
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| color | font color | string | rgba(0,0,0,.15) |  |
+| color | font color | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) |  |
 | fontSize | font size | number | 16 |  |
 | fontWeight | font weight | `normal` \| `light` \| `weight` \| number | normal |  |
 | fontFamily | font family | string | sans-serif |  |
 | fontStyle | font style  | `none` \| `normal` \| `italic` \| `oblique` | normal |  |
+| textAlign | specify the text alignment direction  | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | 5.10.0 |
 
 ## Design Token
 

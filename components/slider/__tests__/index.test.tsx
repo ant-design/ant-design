@@ -3,7 +3,7 @@ import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 import type { TooltipProps, TooltipRef } from '../../tooltip';
@@ -37,14 +37,15 @@ describe('Slider', () => {
     jest.useRealTimers();
   });
 
-  it('should show tooltip when hovering slider handler', () => {
+  it('should show tooltip when hovering slider handler', async () => {
     const { container } = render(<Slider defaultValue={30} />);
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
 
     fireEvent.mouseLeave(container.querySelector('.ant-slider-handle')!);
-
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
   });
 
@@ -171,27 +172,27 @@ describe('Slider', () => {
 
     const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated, please use `tooltip.prefixCls` instead.',
+      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead.',
     );
 
     rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated, please use `tooltip.getPopupContainer` instead.',
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer` instead.',
     );
 
     rerender(<TSSlider tipFormatter={(v: any) => v} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is deprecated, please use `tooltip.formatter` instead.',
+      'Warning: [antd: Slider] `tipFormatter` is deprecated. Please use `tooltip.formatter` instead.',
     );
 
     rerender(<TSSlider tooltipVisible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is deprecated, please use `tooltip.open` instead.',
+      'Warning: [antd: Slider] `tooltipVisible` is deprecated. Please use `tooltip.open` instead.',
     );
 
     rerender(<TSSlider tooltipPlacement="left" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is deprecated, please use `tooltip.placement` instead.',
+      'Warning: [antd: Slider] `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead.',
     );
 
     // All should work

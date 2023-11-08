@@ -2,11 +2,10 @@
 
 exports[`renders components/menu/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <ul
       class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light"
@@ -955,6 +954,7 @@ Array [
     </li>
     <li
       class="ant-menu-item-divider"
+      role="separator"
     />
     <li
       class="ant-menu-submenu ant-menu-submenu-inline"
@@ -1466,7 +1466,28 @@ Array [
           <span
             class="ant-menu-title-content"
           >
-            Option 3
+            <span
+              aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team"
+              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+            >
+              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                aria-hidden="true"
+                style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;word-break:keep-all;white-space:nowrap"
+              >
+                lg
+              </span>
+              <span
+                aria-hidden="true"
+                style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;font-size:0;width:0;white-space:normal;margin:0;padding:0"
+              >
+                <span
+                  aria-hidden="true"
+                >
+                  ...
+                </span>
+              </span>
+            </span>
           </span>
         </li>
         <li

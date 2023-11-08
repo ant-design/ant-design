@@ -4,6 +4,7 @@ import type { ComponentToken as AnchorComponentToken } from '../../anchor/style'
 import type { ComponentToken as AppComponentToken } from '../../app/style';
 import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as BadgeComponentToken } from '../../badge/style';
 import type { ComponentToken as BreadcrumbComponentToken } from '../../breadcrumb/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
@@ -19,9 +20,11 @@ import type { ComponentToken as DividerComponentToken } from '../../divider/styl
 import type { ComponentToken as DrawerComponentToken } from '../../drawer/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
+import type { ComponentToken as FlexComponentToken } from '../../flex/style';
 import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as InputComponentToken } from '../../input/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
 import type { ComponentToken as ListComponentToken } from '../../list/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
@@ -45,6 +48,7 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
+import type { ComponentToken as SwitchComponentToken } from '../../switch/style';
 import type { ComponentToken as TableComponentToken } from '../../table/style';
 import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
 import type { ComponentToken as TagComponentToken } from '../../tag/style';
@@ -52,8 +56,11 @@ import type { ComponentToken as TimelineComponentToken } from '../../timeline/st
 import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
 import type { ComponentToken as TourComponentToken } from '../../tour/style';
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
+import type { ComponentToken as TreeSelectComponentToken } from '../../tree-select/style';
+import type { ComponentToken as TreeComponentToken } from '../../tree/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as FormComponentToken } from '../../form/style';
 
 export interface ComponentTokenMap {
   Affix?: {};
@@ -61,7 +68,7 @@ export interface ComponentTokenMap {
   Anchor?: AnchorComponentToken;
   Avatar?: AvatarComponentToken;
   BackTop?: BackTopComponentToken;
-  Badge?: {};
+  Badge?: BadgeComponentToken;
   Button?: ButtonComponentToken;
   Breadcrumb?: BreadcrumbComponentToken;
   Card?: CardComponentToken;
@@ -76,11 +83,12 @@ export interface ComponentTokenMap {
   Drawer?: DrawerComponentToken;
   Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
+  Flex?: FlexComponentToken;
   FloatButton?: FloatButtonComponentToken;
-  Form?: {};
+  Form?: FormComponentToken;
   Grid?: {};
   Image?: ImageComponentToken;
-  Input?: {};
+  Input?: InputComponentToken;
   InputNumber?: InputNumberComponentToken;
   Layout?: LayoutComponentToken;
   List?: ListComponentToken;
@@ -98,10 +106,10 @@ export interface ComponentTokenMap {
   Slider?: SliderComponentToken;
   Spin?: SpinComponentToken;
   Statistic?: StatisticComponentToken;
-  Switch?: {};
+  Switch?: SwitchComponentToken;
   Tag?: TagComponentToken;
-  Tree?: {};
-  TreeSelect?: {};
+  Tree?: TreeComponentToken;
+  TreeSelect?: TreeSelectComponentToken;
   Typography?: TypographyComponentToken;
   Timeline?: TimelineComponentToken;
   Transfer?: TransferComponentToken;

@@ -1,21 +1,14 @@
-import {
-  CheckOutlined,
-  LinkOutlined,
-  SnippetsOutlined,
-  ThunderboltOutlined,
-} from '@ant-design/icons';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import classNames from 'classnames';
-import { FormattedMessage, useSiteData } from 'dumi';
-import toReactElement from 'jsonml-to-react-element';
-import JsonML from 'jsonml.js/lib/utils';
-import LZString from 'lz-string';
-import Prism from 'prismjs';
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import { Alert, Badge, Space, Tooltip } from 'antd';
-import type { AntdPreviewerProps } from '.';
+import { createStyles, css } from 'antd-style';
+import classNames from 'classnames';
+import { FormattedMessage, useSiteData, LiveContext } from 'dumi';
+import LZString from 'lz-string';
+
+import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -28,30 +21,9 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
+import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
 
 const { ErrorBoundary } = Alert;
-
-function toReactComponent(jsonML: any) {
-  return toReactElement(jsonML, [
-    [
-      (node: any) => JsonML.isElement(node) && JsonML.getTagName(node) === 'pre',
-      (node: any, index: any) => {
-        // ref: https://github.com/benjycui/bisheng/blob/master/packages/bisheng/src/bisheng-plugin-highlight/lib/browser.js#L7
-        const attr = JsonML.getAttributes(node);
-        return React.createElement(
-          'pre',
-          {
-            key: index,
-            className: `language-${attr.lang}`,
-          },
-          React.createElement('code', {
-            dangerouslySetInnerHTML: { __html: attr.highlighted },
-          }),
-        );
-      },
-    ],
-  ]);
-}
 
 function compress(string: string): string {
   return LZString.compressToBase64(string)
@@ -88,6 +60,31 @@ function useShowRiddleButton() {
   return showRiddleButton;
 }
 
+const useStyle = createStyles(({ token }) => {
+  const { borderRadius } = token;
+  return {
+    codeHideBtn: css`
+      width: 100%;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0 0 ${borderRadius}px ${borderRadius}px;
+      border-top: 1px solid ${token.colorSplit};
+      color: ${token.colorTextSecondary};
+      transition: all 0.2s ease-in-out;
+      background-color: ${token.colorBgElevated};
+      cursor: pointer;
+      &:hover {
+        color: ${token.colorPrimary};
+      }
+      span {
+        margin-right: ${token.marginXXS}px;
+      }
+    `,
+  };
+});
+
 const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     asset,
@@ -111,6 +108,10 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
   const location = useLocation();
 
+  const { enabled: liveEnabled } = useContext(LiveContext);
+
+  const { styles } = useStyle();
+
   const entryCode = asset.dependencies['index.tsx'].value;
   const showRiddleButton = useShowRiddleButton();
 
@@ -120,8 +121,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const riddleIconRef = useRef<HTMLFormElement>(null);
   const codepenIconRef = useRef<HTMLFormElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
-  const [copyTooltipOpen, setCopyTooltipOpen] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false);
   const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
@@ -129,13 +128,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
-
-  const highlightedCodes = {
-    jsx: Prism.highlight(jsx, Prism.languages.javascript, 'jsx'),
-    tsx: Prism.highlight(entryCode, Prism.languages.javascript, 'jsx'),
-  };
-
-  const highlightedStyle = style ? Prism.highlight(style, Prism.languages.css, 'css') : '';
 
   useEffect(() => {
     const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
@@ -147,18 +139,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const handleCodeExpand = (demo: string) => {
     setCodeExpand((prev) => !prev);
     track({ type: 'expand', demo });
-  };
-
-  const handleCodeCopied = (demo: string) => {
-    setCopied(true);
-    track({ type: 'copy', demo });
-  };
-
-  const onCopyTooltipOpenChange = (open: boolean) => {
-    setCopyTooltipOpen(open);
-    if (open) {
-      setCopied(false);
-    }
   };
 
   useEffect(() => {
@@ -194,7 +174,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   });
 
   const localizedTitle = title;
-  const introChildren = <div dangerouslySetInnerHTML={{ __html: description }} />;
   const highlightClass = classNames('highlight-wrapper', {
     'highlight-wrapper-expand': codeExpand,
   });
@@ -228,15 +207,13 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const suffix = codeType === 'tsx' ? 'tsx' : 'js';
 
-  const dependencies: Record<PropertyKey, string> = jsx.split('\n').reduce(
+  const dependencies = (jsx as string).split('\n').reduce<Record<PropertyKey, string>>(
     (acc, line) => {
       const matches = line.match(/import .+? from '(.+)';$/);
-      if (matches && matches[1] && !line.includes('antd')) {
+      if (matches?.[1]) {
         const paths = matches[1].split('/');
-        if (paths.length) {
-          const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
-          acc[dep] = 'latest';
-        }
+        const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
+        acc[dep] ??= pkgDependencyList[dep] ?? 'latest';
       }
       return acc;
     },
@@ -389,9 +366,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section className="code-box-demo" style={codeBoxDemoStyle}>
-        <ErrorBoundary>
-          <React.StrictMode>{liveDemo.current}</React.StrictMode>
-        </ErrorBoundary>
+        {!liveEnabled ? (
+          <ErrorBoundary>
+            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+          </ErrorBoundary>
+        ) : (
+          <LiveDemo />
+        )}
       </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
@@ -402,7 +383,9 @@ createRoot(document.getElementById('container')).render(<Demo />);
           </Tooltip>
           <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
-        <div className="code-box-description">{introChildren}</div>
+        {description && (
+          <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
+        )}
         <Space wrap size="middle" className="code-box-actions">
           {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
@@ -485,17 +468,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
               <ThunderboltOutlined className="code-box-stackblitz" />
             </span>
           </Tooltip>
-          <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
-            <Tooltip
-              open={copyTooltipOpen as boolean}
-              onOpenChange={onCopyTooltipOpenChange}
-              title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
-            >
-              {React.createElement(copied && copyTooltipOpen ? CheckOutlined : SnippetsOutlined, {
-                className: 'code-box-code-copy code-box-code-action',
-              })}
-            </Tooltip>
-          </CopyToClipboard>
           <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
             <a
               className="code-box-code-action"
@@ -538,17 +510,20 @@ createRoot(document.getElementById('container')).render(<Demo />);
       {codeExpand && (
         <section className={highlightClass} key="code">
           <CodePreview
-            codes={highlightedCodes}
-            toReactComponent={toReactComponent}
-            onCodeTypeChange={(type) => setCodeType(type)}
+            sourceCode={entryCode}
+            jsxCode={jsx}
+            styleCode={style}
+            onCodeTypeChange={setCodeType}
           />
-          {highlightedStyle ? (
-            <div key="style" className="highlight">
-              <pre>
-                <code className="css" dangerouslySetInnerHTML={{ __html: highlightedStyle }} />
-              </pre>
-            </div>
-          ) : null}
+          <div
+            tabIndex={0}
+            role="button"
+            className={styles.codeHideBtn}
+            onClick={() => setCodeExpand(false)}
+          >
+            <UpOutlined />
+            <FormattedMessage id="app.demo.code.hide.simplify" />
+          </div>
         </section>
       )}
     </section>
@@ -560,11 +535,13 @@ createRoot(document.getElementById('container')).render(<Demo />);
     // resulting in some response delays like following issue:
     // https://github.com/ant-design/ant-design/issues/39995
     // So we insert style tag into head tag.
-    if (!style) return;
-    const styleTag = document.createElement('style');
+    if (!style) {
+      return;
+    }
+    const styleTag = document.createElement('style') as HTMLStyleElement;
     styleTag.type = 'text/css';
     styleTag.innerHTML = style;
-    styleTag['data-demo-url'] = demoUrl;
+    (styleTag as any)['data-demo-url'] = demoUrl;
     document.head.appendChild(styleTag);
     return () => {
       document.head.removeChild(styleTag);
@@ -573,7 +550,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   if (version) {
     return (
-      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : null}>
+      <Badge.Ribbon text={version} color={version.includes('<') ? 'red' : undefined}>
         {codeBox}
       </Badge.Ribbon>
     );

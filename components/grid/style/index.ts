@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
@@ -114,11 +115,21 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         order: 0,
       };
     } else {
-      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
-        display: 'block',
-        flex: `0 0 ${(i / gridColumns) * 100}%`,
-        maxWidth: `${(i / gridColumns) * 100}%`,
-      };
+      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = [
+        // https://github.com/ant-design/ant-design/issues/44456
+        // Form set `display: flex` on Col which will override `display: block`.
+        // Let's get it from css variable to support override.
+        {
+          ['--ant-display' as any]: 'block',
+          // Fallback to display if variable not support
+          display: 'block',
+        },
+        {
+          display: 'var(--ant-display)',
+          flex: `0 0 ${(i / gridColumns) * 100}%`,
+          maxWidth: `${(i / gridColumns) * 100}%`,
+        },
+      ];
       gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
         insetInlineStart: `${(i / gridColumns) * 100}%`,
       };

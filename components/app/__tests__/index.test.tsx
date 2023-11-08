@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 import type { NotificationConfig } from 'antd/es/notification/interface';
+
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -180,5 +182,55 @@ describe('App', () => {
       </App>,
     );
     expect(container.querySelector<HTMLDivElement>('.ant-app')).toHaveStyle('color: blue;');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/41197#issuecomment-1465803061
+  describe('restIcon style', () => {
+    beforeEach(() => {
+      Array.from(document.querySelectorAll('style')).forEach((style) => {
+        style.parentNode?.removeChild(style);
+      });
+    });
+
+    it('should work by default', () => {
+      const { container } = render(
+        <App>
+          <SmileOutlined />
+        </App>,
+      );
+
+      expect(container.querySelector('.anticon')).toBeTruthy();
+      const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
+      expect(
+        dynamicStyles.some((style) => {
+          const { innerHTML } = style;
+          return innerHTML.startsWith('.anticon');
+        }),
+      ).toBeTruthy();
+    });
+  });
+
+  describe('component', () => {
+    it('replace', () => {
+      const { container } = render(
+        <App component="section">
+          <p />
+        </App>,
+      );
+
+      expect(container.querySelector('section.ant-app')).toBeTruthy();
+    });
+
+    it('to false', () => {
+      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <App component={false}>
+          <p />
+        </App>,
+      );
+      expect(warnSpy).not.toHaveBeenCalled();
+      expect(container.querySelector('.ant-app')).toBeFalsy();
+      warnSpy.mockRestore();
+    });
   });
 });

@@ -70,6 +70,7 @@ const items: CollapseProps['items'] = [
 <code src="./demo/extra.tsx">额外节点</code>
 <code src="./demo/ghost.tsx">幽灵折叠面板</code>
 <code src="./demo/collapsible.tsx">可折叠触发区域</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -105,6 +106,6 @@ const items: CollapseProps['items'] = [
 | key | 对应 activeKey | string \| number | - |  |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能置为 icon） | boolean | true |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Collapse"></ComponentTokenTable>

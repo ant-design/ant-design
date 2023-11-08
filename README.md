@@ -47,7 +47,7 @@ An enterprise-class UI design language and React UI library.
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
 
-English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | [العربية](./README-ar_EG.md)
+English | [中文](./README-zh_CN.md)
 
 ## ✨ Features
 
@@ -78,9 +78,13 @@ npm install antd
 yarn add antd
 ```
 
+```bash
+pnpm add antd
+```
+
 ## 🔨 Usage
 
-```jsx
+```tsx
 import React from 'react';
 import { Button, DatePicker } from 'antd';
 
@@ -90,11 +94,13 @@ const App = () => (
     <DatePicker placeholder="select date" />
   </>
 );
+
+export default App;
 ```
 
 ### TypeScript
 
-`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to get started.
+`antd` is written in TypeScript with complete definitions, check [Usage with create-react-app](https://ant.design/docs/react/use-with-create-react-app) to get started.
 
 ## 🌍 Internationalization
 
@@ -142,13 +148,13 @@ Open your browser and visit http://127.0.0.1:8001 , see more at [Development](ht
 
 ## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Read our [contributing guide](https://ant.design/docs/react/contributing) and let's build a better antd together.
+Let's build a better antd together.
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
+We welcome all contributions. Please read our [Contributing Guide](https://ant.design/docs/react/contributing) first. You can submit any ideas as [Pull Requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub Issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
 
-If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request with [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+If you are a collaborator, please follow our [Pull Request Principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request with our [Pull Request Template](https://github.com/ant-design/ant-design/wiki/PR-principle#pull-request-template).
 
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
+[![Let's fund issues in this repository](https://raw.githubusercontent.com/BoostIO/issuehunt-materials/master/v1/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
 ## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 

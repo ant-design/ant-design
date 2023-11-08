@@ -1,16 +1,18 @@
+import React, { useMemo, useState } from 'react';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import React, { useMemo, useState } from 'react';
+
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
+import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
+import type { Color } from '../color';
 import type { ColorPickerProps } from '../ColorPicker';
 import ColorPicker from '../ColorPicker';
-import type { Color } from '../color';
 
 function doMouseMove(
   container: HTMLElement,
@@ -221,6 +223,39 @@ describe('ColorPicker', () => {
     );
 
     expect(handleColorChange).toHaveBeenCalledTimes(2);
+  });
+
+  describe('preset collapsed', () => {
+    const recommendedPreset = {
+      label: 'Recommended',
+      colors: ['#f00', '#0f0', '#00f'],
+    };
+
+    const selector = '.ant-color-picker-presets .ant-collapse-item.ant-collapse-item-active';
+
+    it('Should default collapsed work', async () => {
+      const { container } = render(<ColorPicker open presets={[recommendedPreset]} />);
+
+      expect(container.querySelectorAll(selector)).toHaveLength(1);
+    });
+
+    it('Should collapsed work', async () => {
+      const { container } = render(
+        <ColorPicker
+          open
+          presets={[
+            recommendedPreset,
+            {
+              label: 'Recent',
+              colors: ['#f00d', '#0f0d', '#00fd'],
+              defaultOpen: false,
+            },
+          ]}
+        />,
+      );
+
+      expect(container.querySelectorAll(selector)).toHaveLength(1);
+    });
   });
 
   it('Should format change work', async () => {
@@ -517,5 +552,47 @@ describe('ColorPicker', () => {
   it('Should warning work when set disabledAlpha true and color is alpha color', () => {
     render(<ColorPicker disabledAlpha value="#1677ff" />);
     expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('Should not show popup when disabled', async () => {
+    const Demo = () => {
+      const [disabled, setDisabled] = useState(false);
+      return (
+        <div className="App">
+          <ColorPicker disabled={disabled} />
+          <div className="buttons">
+            <Button
+              className="disabled-btn"
+              disabled={disabled}
+              onClick={() => {
+                setDisabled(true);
+              }}
+            >
+              禁用
+            </Button>
+            <Button
+              className="active-btn"
+              disabled={!disabled}
+              onClick={() => {
+                setDisabled(false);
+              }}
+            >
+              启用
+            </Button>
+          </div>
+        </div>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('.disabled-btn')!);
+    fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.active-btn')!);
+    expect(document.body.querySelector('.ant-popover')).toBeFalsy();
+  });
+
+  it('Should defaultFormat work', () => {
+    const { container } = render(<ColorPicker open defaultFormat="hsb" />);
+    expect(container.querySelector('.ant-color-picker-hsb-input')).toBeTruthy();
   });
 });

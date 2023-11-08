@@ -52,7 +52,7 @@ demo:
 
 更多属性请参考 [Tooltip](/components/tooltip-cn/#api)。
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 

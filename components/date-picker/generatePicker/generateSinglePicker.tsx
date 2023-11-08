@@ -1,3 +1,5 @@
+import * as React from 'react';
+import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -5,12 +7,11 @@ import classNames from 'classnames';
 import RCPicker from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
-import * as React from 'react';
-import { forwardRef, useContext, useImperativeHandle } from 'react';
+
 import type { PickerProps, PickerTimeProps } from '.';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import warning from '../../_util/warning';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
@@ -27,6 +28,7 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
+import { useZIndex } from '../../_util/hooks/useZIndex';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
@@ -105,17 +107,15 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         // =================== Warning =====================
         if (process.env.NODE_ENV !== 'production') {
+          const warning = devUseWarning(displayName! || 'DatePicker');
+
           warning(
             picker !== 'quarter',
-            displayName!,
+            'deprecated',
             `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
           );
 
-          warning(
-            !dropdownClassName,
-            displayName || 'DatePicker',
-            '`dropdownClassName` is deprecated. Please use `popupClassName` instead.',
-          );
+          warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
         }
 
         // ===================== Size =====================
@@ -139,6 +139,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const [contextLocale] = useLocale('DatePicker', enUS);
 
         const locale = { ...contextLocale, ...props.locale! };
+        // ============================ zIndex ============================
+        const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
         return wrapSSR(
           <RCPicker<DateType>
@@ -183,6 +185,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               rootClassName,
               popupClassName || dropdownClassName,
             )}
+            popupStyle={{
+              ...props.popupStyle,
+              zIndex,
+            }}
             allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
           />,
         );

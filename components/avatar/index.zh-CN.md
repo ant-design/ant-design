@@ -62,6 +62,6 @@ group:
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
 | shape | 设置头像的形状 | `circle` \| `square` | `circle` | 5.8.0 |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Avatar"></ComponentTokenTable>

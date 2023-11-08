@@ -84,6 +84,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | subTitle | 子标题 | ReactNode | - |  |
 | title | 标题 | ReactNode | - |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Steps"></ComponentTokenTable>

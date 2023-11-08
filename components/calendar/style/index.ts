@@ -1,8 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { PickerPanelToken } from '../../date-picker/style';
-import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
-import type { InputToken } from '../../input/style';
-import { initInputToken } from '../../input/style';
+import type { PanelComponentToken, PickerPanelToken } from '../../date-picker/style';
+import {
+  genPanelStyle,
+  initPanelComponentToken,
+  initPickerPanelToken,
+} from '../../date-picker/style';
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -40,7 +42,7 @@ export interface ComponentToken {
   itemActiveBg: string;
 }
 
-interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
+interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelComponentToken {
   calendarCls: string;
   dateValueHeight: number;
   weekHeight: number;
@@ -216,8 +218,9 @@ export default genComponentStyleHook(
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
     const calendarToken = mergeToken<CalendarToken>(
-      initInputToken<FullToken<'Calendar'>>(token),
+      token,
       initPickerPanelToken(token),
+      initPanelComponentToken(token),
       {
         calendarCls,
         pickerCellInnerCls: `${token.componentCls}-cell-inner`,

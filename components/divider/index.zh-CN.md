@@ -26,6 +26,7 @@ group:
 <code src="./demo/plain.tsx">分割文字使用正文样式</code>
 <code src="./demo/vertical.tsx">垂直分割线</code>
 <code src="./demo/customize-style.tsx" debug>样式自定义</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -42,6 +43,6 @@ group:
 | style | 分割线样式对象 | CSSProperties | - |  |
 | type | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` |  |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="Divider"></ComponentTokenTable>

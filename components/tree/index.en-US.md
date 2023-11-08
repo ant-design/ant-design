@@ -30,6 +30,8 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/drag-debug.tsx" debug>Drag Debug</code>
 <code src="./demo/big-data.tsx" debug>Big data</code>
 <code src="./demo/block-node.tsx">Block Node</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
 
 ## API
 
@@ -126,7 +128,7 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ## Design Token
 
-<ComponentTokenTable component="Transfer"></ComponentTokenTable>
+<ComponentTokenTable component="Tree"></ComponentTokenTable>
 
 ## FAQ
 

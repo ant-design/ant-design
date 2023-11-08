@@ -1004,7 +1004,7 @@ exports[`renders components/descriptions/demo/responsive.tsx correctly 1`] = `
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="1"
           >
             <span>
               Data disk type: MongoDB
@@ -1012,13 +1012,28 @@ exports[`renders components/descriptions/demo/responsive.tsx correctly 1`] = `
               Database version: 3.4
               <br />
               Package: dds.mongo.mid
+            </span>
+          </td>
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Hardware Info
+            </span>
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="3"
+          >
+            <span>
+              CPU: 6 Core 3.5 GHz
               <br />
               Storage space: 10 GB
               <br />
               Replication factor: 3
               <br />
               Region: East China 1
-              <br />
             </span>
           </td>
         </tr>

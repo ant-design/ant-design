@@ -28,6 +28,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 
@@ -110,7 +111,7 @@ demo:
 | title           | 树节点显示的内容                                   | ReactNode | `---`  |      |
 | value           | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | string    | -      |      |
 
-## Design Token
+## 主题变量（Design Token）
 
 <ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
 

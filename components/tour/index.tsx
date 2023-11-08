@@ -1,25 +1,23 @@
-'use client';
-
+import React, { useContext, useMemo } from 'react';
 import RCTour from '@rc-component/tour';
 import classNames from 'classnames';
-import React, { useContext } from 'react';
+
+import { useZIndex } from '../_util/hooks/useZIndex';
 import getPlacements from '../_util/placements';
+import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import theme from '../theme';
-import PurePanel from './PurePanel';
+import { useToken } from '../theme/internal';
 import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
+import PurePanel from './PurePanel';
 import useStyle from './style';
-import useMergedType from './useMergedType';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    current,
-    defaultCurrent,
     type,
     rootClassName,
     indicatorsRender,
@@ -29,14 +27,18 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  const { token } = theme.useToken();
+  const [, token] = useToken();
 
-  const { currentMergedType, updateInnerCurrent } = useMergedType({
-    defaultType: type,
-    steps,
-    current,
-    defaultCurrent,
-  });
+  const mergedSteps = useMemo(
+    () =>
+      steps?.map((step) => ({
+        ...step,
+        className: classNames(step.className, {
+          [`${prefixCls}-primary`]: (step.type ?? type) === 'primary',
+        }),
+      })),
+    [steps, type],
+  );
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: true,
@@ -48,7 +50,6 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
 
   const customClassName = classNames(
     {
-      [`${prefixCls}-primary`]: currentMergedType === 'primary',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
@@ -64,24 +65,22 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     />
   );
 
-  const onStepChange = (stepCurrent: number) => {
-    updateInnerCurrent(stepCurrent);
-    props.onChange?.(stepCurrent);
-  };
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
   return wrapSSR(
-    <RCTour
-      {...restProps}
-      rootClassName={customClassName}
-      prefixCls={prefixCls}
-      current={current}
-      defaultCurrent={defaultCurrent}
-      animated
-      renderPanel={mergedRenderPanel}
-      builtinPlacements={builtinPlacements}
-      onChange={onStepChange}
-      steps={steps}
-    />,
+    <zIndexContext.Provider value={contextZIndex}>
+      <RCTour
+        {...restProps}
+        zIndex={zIndex}
+        rootClassName={customClassName}
+        prefixCls={prefixCls}
+        animated
+        renderPanel={mergedRenderPanel}
+        builtinPlacements={builtinPlacements}
+        steps={mergedSteps}
+      />
+    </zIndexContext.Provider>,
   );
 };
 

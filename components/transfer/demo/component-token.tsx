@@ -1,8 +1,8 @@
-import difference from 'lodash/difference';
 import React, { useState } from 'react';
 import { ConfigProvider, Space, Switch, Table, Tag, Transfer } from 'antd';
 import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
 import type { TransferDirection, TransferItem, TransferProps } from 'antd/es/transfer';
+import difference from 'lodash/difference';
 
 interface RecordType {
   key: string;

@@ -18,6 +18,10 @@ On longer web pages, it's helpful to stick component into the viewport. This is 
 
 Please note that Affix should not cover other content on the page, especially when the size of the viewport is small.
 
+> Notes for developers
+>
+> After version `5.10.0`, we rewrite Affix use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
+
 ## Examples
 
 <!-- prettier-ignore -->

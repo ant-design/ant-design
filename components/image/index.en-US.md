@@ -51,7 +51,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 
 ### PreviewType
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | visible | Whether the preview dialog is visible or not | boolean | - | - |
 | src | Custom preview src | string | - | 4.10.0 |
@@ -65,14 +65,14 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | maxScale | Max scale | number | 50 | 5.7.0 |
 | closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactNode, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactNode, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: Omit<[ToolbarRenderInfoType](#toolbarrenderinfotype), 'current' \| 'total'>) => React.ReactNode | - | 5.7.0 |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype) }) => React.ReactNode | - | 5.7.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean) => void | - | - |
 
 ## PreviewGroup
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | preview | Preview config, `disabled` when false | boolean \| [PreviewGroupType](#previewgrouptype) | true | 4.6.0 [PreviewGroupType](#previewgrouptype):4.7.0 |
 | items | Preview items | string[] \| { src: string, crossOrigin: string, ... }[] | - | 5.7.0 |
@@ -80,7 +80,7 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 
 ### PreviewGroupType
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | visible | Whether the preview dialog is visible or not | boolean | - | - |
 | getContainer | The mounted node for preview dialog but still display at fullScreen | string \| HTMLElement \| (() => HTMLElement) \| false | - | 4.8.0 |
@@ -95,11 +95,11 @@ Other attributes [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/El
 | closeIcon | Custom close icon | React.ReactNode | - | 5.7.0 |
 | forceRender | Force render preview dialog | boolean | - | - |
 | countRender | Custom preview count content | (current: number, total: number) => React.ReactNode | - | 4.20.0 |
-| toolbarRender | Custom toolbar render | (originalNode: React.ReactNode, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
-| imageRender | Custom preview content | (originalNode: React.ReactNode, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
+| toolbarRender | Custom toolbar render | (originalNode: React.ReactElement, info: [ToolbarRenderInfoType](#toolbarrenderinfotype)) => React.ReactNode | - | 5.7.0 |
+| imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), current: number }) => React.ReactNode | - | 5.7.0 |
 | onTransform | Callback when the transform of image changed | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | 5.7.0 |
 | onChange | Callback when switch preview image | (current: number, prevCurrent: number) => void | - | 5.3.0 |
-| onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean, current: number) => void | - | current 参数 5.3.0 |
+| onVisibleChange | Callback when `visible` changed | (visible: boolean, prevVisible: boolean, current: number) => void | - | current Property 5.3.0 |
 
 ## Interface
 
