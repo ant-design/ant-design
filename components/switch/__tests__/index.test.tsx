@@ -44,4 +44,8 @@ describe('Switch', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('have static property for type detecting', () => {
+    expect(Switch.__ANT_SWITCH).toBeTruthy();
+  });
 });
