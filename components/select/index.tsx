@@ -26,6 +26,7 @@ import useCSSVar from './style/cssVar';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 type RawValue = string | number;
 
@@ -118,12 +119,12 @@ const InternalSelect = <
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const rootCls = `${prefixCls}-root`;
   const direction = propDirection ?? contextDirection;
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(rootPrefixCls);
   const wrapCSSVar = useCSSVar(rootCls);
 
   const mode = React.useMemo(() => {
