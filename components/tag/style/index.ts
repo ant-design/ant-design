@@ -6,6 +6,7 @@ import type { GlobalToken } from '../../theme';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
+import { TinyColor } from '@ctrl/tinycolor';
 
 export interface ComponentToken {
   /**
@@ -143,7 +144,9 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
 };
 
 export const prepareCommonToken: (token: GlobalToken) => ComponentToken = (token) => ({
-  defaultBg: token.colorBgContainer,
+  defaultBg: new TinyColor(token.colorFillQuaternary)
+    .onBackground(token.colorBgContainer)
+    .toHexString(),
   defaultColor: token.colorText,
 });
 
