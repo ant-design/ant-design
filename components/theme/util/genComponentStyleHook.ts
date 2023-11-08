@@ -170,7 +170,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           });
           flush(component, mergedComponentToken);
           return [
-            options.resetStyle === false ? null : genCommonStyle(token, prefixCls),
+            options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls),
             styleInterpolation,
           ];
         },
