@@ -6,18 +6,15 @@ import { unit } from '@ant-design/cssinjs';
 
 const FIXED_ITEM_MARGIN = 2;
 
-const getSelectItemStyle = (token: SelectToken): readonly [number | string, number | string] => {
+const getSelectItemStyle = (token: SelectToken): number | string => {
   const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
-  // const selectItemDist = (selectHeight - multipleSelectItemHeight) / 2 - borderWidth;
-  // const selectItemMargin = Math.ceil(selectItemDist / 2);
   const selectItemDist = token
     .calc(selectHeight)
     .sub(multipleSelectItemHeight)
     .div(2)
     .sub(lineWidth)
     .equal();
-  const selectItemMargin = token.calc(selectItemDist).div(2).equal();
-  return [selectItemDist, selectItemMargin] as const;
+  return selectItemDist;
 };
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
@@ -26,7 +23,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
   const selectItemHeight = token.multipleSelectItemHeight;
-  const [selectItemDist] = getSelectItemStyle(token);
+  const selectItemDist = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
@@ -228,8 +225,6 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
     borderRadiusSM: token.borderRadius,
   });
 
-  const [, smSelectItemMargin] = getSelectItemStyle(token);
-
   return [
     genSizeStyle(token),
     // ======================== Small ========================
@@ -244,7 +239,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
 
         // https://github.com/ant-design/ant-design/issues/29559
         [`${componentCls}-selection-search`]: {
-          marginInlineStart: smSelectItemMargin,
+          marginInlineStart: 2, // Magic Number
         },
       },
     },
