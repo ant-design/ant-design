@@ -24,7 +24,7 @@ import Modal from '../../modal';
 import Radio from '../../radio';
 import Select from '../../select';
 import Slider from '../../slider';
-import Switch from '../../switch';
+import Switch, { type SwitchProps } from '../../switch';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -2145,5 +2145,35 @@ describe('Form', () => {
       foo: true,
       boo: true,
     });
+  });
+
+  it('even though, but should work', async () => {
+    const OverwriteSwitch = Object.assign(
+      (props: SwitchProps & { myChecked?: boolean }) => {
+        // eslint-disable-next-line
+        const { checked: _, /** omit */ myChecked, ...rest } = props;
+        return <Switch checked={myChecked} {...rest} />;
+      },
+      {
+        // There are always people with ulterior motives!
+        __ANT_SWITCH: true,
+      },
+    );
+
+    const Demo = ({ valuePropName }: any) => (
+      <Form initialValues={{ foo: true }}>
+        <Form.Item label="Switch" name="foo" valuePropName={valuePropName}>
+          <OverwriteSwitch />
+        </Form.Item>
+      </Form>
+    );
+
+    const { container, rerender } = render(<Demo />);
+
+    expect(container.querySelectorAll('.ant-switch.ant-switch-checked').length).toBeFalsy();
+
+    rerender(<Demo valuePropName="myChecked" />);
+
+    expect(container.querySelectorAll('.ant-switch.ant-switch-checked').length).toBeTruthy();
   });
 });
