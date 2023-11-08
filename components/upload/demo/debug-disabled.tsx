@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React from 'react';
 import { InboxOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import { Button, Space, Upload } from 'antd';
+=======
+import React, { useState } from 'react';
+import { InboxOutlined, PlusOutlined } from '@ant-design/icons';
+import { Upload } from 'antd';
+>>>>>>> 1ef3d7e218 (doc: add debug disabled demo)
 import type { UploadFile } from 'antd/es/upload/interface';
 
 const { Dragger } = Upload;
@@ -33,6 +39,11 @@ const fileList: UploadFile[] = [
 ];
 
 const App: React.FC = () => {
+<<<<<<< HEAD
+=======
+  const [imageUrl, setImageUrl] = useState<string>();
+
+>>>>>>> 1ef3d7e218 (doc: add debug disabled demo)
   const uploadButton = (
     <div>
       <PlusOutlined />
@@ -41,11 +52,16 @@ const App: React.FC = () => {
   );
 
   return (
+<<<<<<< HEAD
     <Space direction="vertical">
       <Upload disabled>Click Text to Upload</Upload>
       <Upload disabled>
         <Button icon={<UploadOutlined />}>Click to Upload</Button>
       </Upload>
+=======
+    <>
+      <Upload disabled>Click to Upload</Upload>
+>>>>>>> 1ef3d7e218 (doc: add debug disabled demo)
       <Upload name="avatar" listType="picture-card" fileList={fileList} disabled>
         {uploadButton}
       </Upload>
@@ -62,7 +78,11 @@ const App: React.FC = () => {
           other banned files.
         </p>
       </Dragger>
+<<<<<<< HEAD
     </Space>
+=======
+    </>
+>>>>>>> 1ef3d7e218 (doc: add debug disabled demo)
   );
 };
 
