@@ -4,6 +4,7 @@ import * as React from 'react';
 import type { TooltipProps } from '.';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import { parseColor } from './util';
 
 export interface PurePanelProps extends Omit<TooltipProps, 'children'> {}
@@ -21,7 +22,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, true);
+  const [, hashId] = useStyle(prefixCls, true);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -42,7 +44,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     colorInfo.className,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={cls} style={arrowContentStyle}>
       <div className={`${prefixCls}-arrow`} />
       <Popup
