@@ -100,7 +100,7 @@ export default App;
 
 ### TypeScript
 
-`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to get started.
+`antd` is written in TypeScript with complete definitions, check [Usage with create-react-app](https://ant.design/docs/react/use-with-create-react-app) to get started.
 
 ## 🌍 Internationalization
 
