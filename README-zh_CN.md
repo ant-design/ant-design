@@ -104,7 +104,7 @@ export default App;
 
 ### 🛡 TypeScript
 
-参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)。
+`antd` 使用 TypeScript 编写，具有完整的类型定义，参考 [在 create-react-app 中使用](https://ant.design/docs/react/use-with-create-react-app-cn)。
 
 ## 🌍 国际化
 
