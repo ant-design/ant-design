@@ -105,6 +105,10 @@ export interface ComponentToken {
    * @descEN Border color of multiple tag when disabled
    */
   multipleItemBorderColorDisabled: string;
+  /**
+   * @internal
+   */
+  showArrowPaddingInlineEnd: number;
 }
 
 export interface SelectToken extends FullToken<'Select'> {
@@ -481,6 +485,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     multipleSelectorBgDisabled: colorBgContainerDisabled,
     multipleItemColorDisabled: colorTextDisabled,
     multipleItemBorderColorDisabled: 'transparent',
+    showArrowPaddingInlineEnd: Math.ceil(token.fontSize * 1.25),
   };
 };
 

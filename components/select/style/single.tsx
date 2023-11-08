@@ -12,9 +12,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
     .sub(token.calc(token.lineWidth).mul(2))
     .equal();
 
-  // const selectionItemPadding = Math.ceil(token.fontSize * 1.25);
-  const selectionItemPadding = token.calc(token.fontSize).mul(1.25).equal();
-
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   return {
@@ -75,7 +72,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${componentCls}-show-arrow ${componentCls}-selection-item,
         &${componentCls}-show-arrow ${componentCls}-selection-placeholder
       `]: {
-        paddingInlineEnd: selectionItemPadding,
+        paddingInlineEnd: token.showArrowPaddingInlineEnd,
       },
 
       // Opacity selection if open
