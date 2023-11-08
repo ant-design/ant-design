@@ -473,6 +473,28 @@ describe('Form', () => {
     expect(onFinishFailed).toHaveBeenCalled();
   });
 
+  it('focusFirstErrorField', async () => {
+    const onFinishFailed = jest.fn();
+
+    const { container } = render(
+      <Form focusFirstErrorField onFinishFailed={onFinishFailed}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+        <Form.Item>
+          <Button htmlType="submit">Submit</Button>
+        </Form.Item>
+      </Form>,
+    );
+
+    fireEvent.submit(container.querySelector('form')!);
+    await waitFakeTimer();
+
+    const inputNode = document.getElementById('test');
+    expect(inputNode).toHaveFocus();
+    expect(onFinishFailed).toHaveBeenCalled();
+  });
+
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
     const { container } = render(
       <Form>

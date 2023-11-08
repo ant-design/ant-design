@@ -40,6 +40,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   size?: SizeType;
   disabled?: boolean;
   scrollToFirstError?: Options | boolean;
+  focusFirstErrorField?: boolean;
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
@@ -64,6 +65,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     wrapperCol,
     hideRequiredMark,
     layout = 'horizontal',
+    focusFirstErrorField,
     scrollToFirstError,
     requiredMark,
     onFinishFailed,
@@ -168,11 +170,12 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       const fieldName = errorInfo.errorFields[0].name;
       if (scrollToFirstError !== undefined) {
         scrollToField(scrollToFirstError, fieldName);
-        return;
+      } else if (contextForm && contextForm.scrollToFirstError !== undefined) {
+        scrollToField(contextForm.scrollToFirstError, fieldName);
       }
 
-      if (contextForm && contextForm.scrollToFirstError !== undefined) {
-        scrollToField(contextForm.scrollToFirstError, fieldName);
+      if (focusFirstErrorField) {
+        wrapForm.focusField(fieldName);
       }
     }
   };
