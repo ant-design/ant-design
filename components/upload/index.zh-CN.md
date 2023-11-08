@@ -43,6 +43,7 @@ demo:
 <code src="./demo/crop-image.tsx">上传前裁切图片</code>
 <code src="./demo/customize-progress-bar.tsx">自定义进度条样式</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/debug-disabled.tsx" debug>Debug Disabled Styles</code>
 
 ## API
 
