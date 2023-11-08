@@ -88,7 +88,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           `&-placement-rightBottom`,
         ].join(',')]: {
           [`${componentCls}-inner`]: {
-            borderRadius: `min(${unit(tooltipBorderRadius)},${unit(MAX_VERTICAL_CONTENT_RADIUS)})`,
+            borderRadius: token.min(tooltipBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
           },
         },
 

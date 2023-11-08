@@ -19,6 +19,7 @@ import useResetIconStyle from './useResetIconStyle';
 import genCalc from './calc';
 import type AbstractCalculator from './calc/calculator';
 import classNames from 'classnames';
+import genMaxMin from './maxmin';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -37,6 +38,8 @@ export interface StyleInfo {
 
 export type CSSUtil = {
   calc: (number: any) => AbstractCalculator;
+  max: (...values: (number | string)[]) => number | string;
+  min: (...values: (number | string)[]) => number | string;
 };
 
 export type TokenWithCommonCls<T> = T & {
@@ -154,7 +157,9 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
-    const calculator = genCalc(cssVar ? 'css' : 'js');
+    const type = cssVar ? 'css' : 'js';
+    const calc = genCalc(type);
+    const { max, min } = genMaxMin(type);
 
     // Shared config
     const sharedConfig: Omit<Parameters<typeof useStyleRegister>[0], 'path'> = {
@@ -215,7 +220,9 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
             prefixCls,
             iconCls: `.${iconPrefixCls}`,
             antCls: `.${rootPrefixCls}`,
-            calc: calculator,
+            calc,
+            max,
+            min,
           },
           cssVar ? defaultComponentToken : componentToken,
         );
