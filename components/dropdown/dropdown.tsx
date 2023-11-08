@@ -20,6 +20,7 @@ import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 const Placements = [
   'topLeft',
@@ -169,7 +170,9 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = `${prefixCls}-root`;
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const [, token] = useToken();
 
@@ -208,6 +211,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayClassName,
     rootClassName,
     hashId,
+    rootCls,
     dropdown?.className,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
@@ -250,6 +254,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
+        rootClassName={rootCls}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
@@ -276,7 +281,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
 
   // ============================ Render ============================
-  return wrapSSR(
+  return wrapCSSVar(
     <zIndexContext.Provider value={contextZIndex}>
       <RcDropdown
         alignPoint={alignPoint!}

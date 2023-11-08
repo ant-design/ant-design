@@ -62,7 +62,7 @@ const validateBreakpoints = (token: GlobalToken) => {
 };
 
 export default function useResponsiveObserver() {
-  const [, , , token] = useToken();
+  const [, token] = useToken();
   const responsiveMap: BreakpointMap = getResponsiveMap(validateBreakpoints(token));
 
   // To avoid repeat create instance, we add `useMemo` here.

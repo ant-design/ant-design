@@ -1,10 +1,18 @@
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
-import getArrowStyle from '../../style/placementArrow';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
+import type { ArrowOffsetToken } from '../../style/placementArrow';
+import getArrowStyle, { getArrowOffsetToken } from '../../style/placementArrow';
+import type {
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  PresetColorType,
+} from '../../theme/internal';
 import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { getArrowToken } from '../../style/roundedArrow';
 
-export interface ComponentToken {
+export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   /**
    * @deprecated Please use `titleMinWidth` instead
    * @desc 气泡卡片宽度
@@ -105,9 +113,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, {
-      colorBg: 'var(--antd-arrow-background-color)',
-    }),
+    getArrowStyle(token, 'var(--antd-arrow-background-color)'),
 
     // Pure Render
     {
@@ -183,6 +189,18 @@ const genWireframeStyle: GenerateStyle<PopoverToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Popover'> = (token) => ({
+  width: 177,
+  minWidth: 177,
+  titleMinWidth: 177,
+  zIndexPopup: token.zIndexPopupBase + 30,
+  ...getArrowToken(token),
+  ...getArrowOffsetToken({
+    contentRadius: token.borderRadiusLG,
+    limitVerticalRadius: true,
+  }),
+});
+
 export default genComponentStyleHook(
   'Popover',
   (token) => {
@@ -201,12 +219,7 @@ export default genComponentStyleHook(
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
-  (token) => ({
-    width: 177,
-    minWidth: 177,
-    titleMinWidth: 177,
-    zIndexPopup: token.zIndexPopupBase + 30,
-  }),
+  prepareComponentToken,
   {
     resetStyle: false,
     deprecatedTokens: [

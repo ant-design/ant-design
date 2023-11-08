@@ -24,6 +24,7 @@ import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
@@ -274,7 +275,8 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
+  const [, hashId] = useStyle(prefixCls, !injectFromPopover);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -327,7 +329,9 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     </RcTooltip>
   );
 
-  return wrapSSR(<zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>);
+  return wrapCSSVar(
+    <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
+  );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
 > & {
