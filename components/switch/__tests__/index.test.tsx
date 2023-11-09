@@ -4,7 +4,6 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 
 jest.mock('rc-util/lib/Dom/isVisible', () => {
   const mockFn = () => true;
@@ -31,18 +30,6 @@ describe('Switch', () => {
     expect(document.querySelector('.ant-wave')).toBeTruthy();
     jest.clearAllTimers();
     jest.useRealTimers();
-  });
-
-  it.skip('warning if set `value`', () => {
-    resetWarned();
-
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    const props = { value: true } as any;
-    render(<Switch {...props} />);
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Switch] `value` is not a valid prop, do you mean `checked`?',
-    );
-    errorSpy.mockRestore();
   });
 
   it('should be controlled by value', () => {
