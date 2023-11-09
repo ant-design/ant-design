@@ -497,7 +497,7 @@ Array [
   </label>,
   <br />,
   <label
-    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
   >
     <span
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
