@@ -1,7 +1,13 @@
+import type { CssUtil } from 'antd-style';
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
-const getRTLStyle: GenerateStyle<MenuToken> = ({ componentCls, menuArrowOffset }) => ({
+const getRTLStyle: GenerateStyle<MenuToken & CssUtil> = ({
+  componentCls,
+  menuArrowOffset,
+  calc,
+}) => ({
   [`${componentCls}-rtl`]: {
     direction: 'rtl',
   },
@@ -15,11 +21,11 @@ const getRTLStyle: GenerateStyle<MenuToken> = ({ componentCls, menuArrowOffset }
     ${componentCls}-submenu-rtl ${componentCls}-vertical`]: {
     [`${componentCls}-submenu-arrow`]: {
       '&::before': {
-        transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
+        transform: `rotate(-45deg) translateY(${unit(calc(menuArrowOffset).mul(-1).equal())})`,
       },
 
       '&::after': {
-        transform: `rotate(45deg) translateY(${menuArrowOffset})`,
+        transform: `rotate(45deg) translateY(${unit(menuArrowOffset)})`,
       },
     },
   },

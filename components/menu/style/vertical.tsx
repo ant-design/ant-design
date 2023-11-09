@@ -30,7 +30,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
       textOverflow: 'ellipsis',
       marginInline: itemMarginInline,
       marginBlock: itemMarginBlock,
-      width: `calc(100% - ${unit(token.calc(itemMarginInline).mul(2).equal())})`,
+      width: token.subMenuTitleWidth,
     },
 
     [`> ${componentCls}-item,

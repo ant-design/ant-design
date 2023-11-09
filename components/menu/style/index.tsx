@@ -14,6 +14,7 @@ import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
+import type { CssUtil } from 'antd-style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -362,12 +363,14 @@ export interface ComponentToken {
    * @descEN Background of active danger menu item in dark mode
    */
   darkDangerItemActiveBg: string;
+  /** @internal */
+  subMenuTitleWidth: number | string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
   menuHorizontalHeight: number | string;
   menuArrowSize: number | string;
-  menuArrowOffset: string;
+  menuArrowOffset: number | string;
   menuPanelMaskInset: number;
   menuSubMenuBg: string;
 }
@@ -466,7 +469,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         position: 'absolute',
         top: '50%',
         insetInlineEnd: token.margin,
-        width: unit(menuArrowSize),
+        width: menuArrowSize,
         color: 'currentcolor',
         transform: 'translateY(-50%)',
         transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
@@ -476,8 +479,8 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         // →
         '&::before, &::after': {
           position: 'absolute',
-          width: unit(token.calc(menuArrowSize).mul(0.6).equal()),
-          height: unit(token.calc(menuArrowSize).mul(0.15).equal()),
+          width: token.calc(menuArrowSize).mul(0.6).equal(),
+          height: token.calc(menuArrowSize).mul(0.15).equal(),
           backgroundColor: 'currentcolor',
           borderRadius,
           transition: [
@@ -496,7 +499,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         },
 
         '&::after': {
-          transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
+          transform: `rotate(-45deg) translateY(${unit(menuArrowOffset)})`,
         },
       },
     },
@@ -767,7 +770,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         &-inline ${componentCls}-submenu-arrow`]: {
           // ↓
           '&::before': {
-            transform: `rotate(-45deg) translateX(${menuArrowOffset})`,
+            transform: `rotate(-45deg) translateX(${unit(menuArrowOffset)})`,
           },
 
           '&::after': {
@@ -922,6 +925,8 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemHoverColor: colorErrorHover,
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
+
+    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}`,
   };
 };
 
@@ -960,12 +965,13 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       const menuArrowSize = token.calc(fontSize).div(7).mul(5).equal();
 
       // Menu Token
-      const menuToken = mergeToken<MenuToken>(token, {
+      const menuToken = mergeToken<MenuToken & CssUtil>(token, {
         menuArrowSize,
         menuHorizontalHeight: token.calc(controlHeightLG).mul(1.15).equal(),
-        menuArrowOffset: unit(token.calc(menuArrowSize).mul(0.25).equal()),
+        menuArrowOffset: token.calc(menuArrowSize).mul(0.25).equal(),
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
+        calc: token.calc,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {

@@ -48,11 +48,12 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
-  return wrapSSR(
+  return wrapCSSVar(
     <TagName
       className={classNames(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
       ref={ref}
@@ -84,8 +85,8 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
 
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(rootClassName ?? prefixCls);
   const classString = classNames(
     prefixCls,
     {

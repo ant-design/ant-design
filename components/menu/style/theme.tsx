@@ -1,4 +1,5 @@
 import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
+
 import type { MenuToken } from '.';
 import { genFocusOutline } from '../../style';
 
@@ -222,12 +223,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
 
         // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]:
-          activeBarBorderWidth && activeBarWidth
-            ? {
-                width: `calc(100% + ${unit(activeBarBorderWidth)})`,
-              }
-            : {},
+        [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+          width: token.subMenuTitleWidth,
+        },
 
         [`${componentCls}-item`]: {
           position: 'relative',
