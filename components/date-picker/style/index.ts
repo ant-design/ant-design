@@ -131,10 +131,9 @@ type SharedPickerToken = TokenWithCommonCls<GlobalToken> & PickerPanelToken & Pa
 const genPikerPadding = (
   token: PickerToken,
   inputHeight: number,
+  fontHeight: number,
   paddingHorizontal: number,
 ): CSSObject => {
-  const { fontHeight } = token;
-
   const height = token.calc(fontHeight).add(2).equal();
   const paddingTop = token.max(token.calc(inputHeight).sub(height).div(2).equal(), 0);
   const paddingBottom = token.max(token.calc(inputHeight).sub(height).sub(paddingTop).equal(), 0);
@@ -1129,13 +1128,15 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     boxShadowPopoverArrow,
     colorTextQuaternary,
     fontHeight,
+    fontHeightLG,
+    lineHeightLG,
   } = token;
 
   return [
     {
       [componentCls]: {
         ...resetComponent(token),
-        ...genPikerPadding(token, controlHeight, paddingInline),
+        ...genPikerPadding(token, controlHeight, fontHeight, paddingInline),
         position: 'relative',
         display: 'inline-flex',
         alignItems: 'center',
@@ -1214,15 +1215,16 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
         // Size
         '&-large': {
-          ...genPikerPadding(token, controlHeightLG, paddingInline),
+          ...genPikerPadding(token, controlHeightLG, fontHeightLG, paddingInline),
 
           [`${componentCls}-input > input`]: {
             fontSize: fontSizeLG,
+            lineHeight: lineHeightLG,
           },
         },
 
         '&-small': {
-          ...genPikerPadding(token, controlHeightSM, paddingInlineSM),
+          ...genPikerPadding(token, controlHeightSM, fontHeight, paddingInlineSM),
         },
 
         [`${componentCls}-suffix`]: {
