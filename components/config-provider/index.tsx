@@ -558,13 +558,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       ...token,
     };
 
-    let mergedCssVar: Exclude<ThemeConfig['cssVar'], boolean>;
-    if (cssVar === true) {
-      mergedCssVar = {};
-    } else if (typeof cssVar === 'object' && mergedCssVar) {
-      mergedCssVar = cssVar;
-    }
-
     return {
       ...rest,
       theme: themeObj,
@@ -575,7 +568,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         override: mergedToken,
         ...parsedComponents,
       },
-      cssVar: mergedCssVar,
+      cssVar: cssVar as Exclude<ThemeConfig['cssVar'], boolean>,
     };
   }, [mergedTheme]);
 
