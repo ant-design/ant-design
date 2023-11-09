@@ -58,7 +58,6 @@ title: 社区精选组件
 | Sketch 插件  | [Kitchen](https://kitchen.alipay.com)                                 |
 | 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | 图片压缩     | [tinypng](https://tinypng.com/)                                       |
-| 图表分类查询 | [图之典](https://plothis.gitee.io/gradict-charts-doc)                                       |
 
 <style>
 .markdown table td:first-child {
