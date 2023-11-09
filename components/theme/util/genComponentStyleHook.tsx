@@ -292,6 +292,11 @@ export type CSSVarRegisterProps = {
 export const genCSSVarRegister = <C extends OverrideComponent>(
   component: C,
   getDefaultToken: GetDefaultToken<C>,
+  options?: {
+    unitless?: {
+      [key in ComponentTokenKey<C>]: boolean;
+    };
+  },
 ) => {
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
     const [, realToken] = useToken();
@@ -302,6 +307,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
         key: cssVar?.key!,
         unitless: {
           ...unitless,
+          ...options?.unitless,
           zIndexPopup: true,
         },
         ignore,
