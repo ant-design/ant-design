@@ -366,7 +366,7 @@ const Header: React.FC = () => {
         </Popover>
       )}
       {isZhCN && bannerVisible && (
-        <ConfigProvider theme={{ token: { colorInfoBg: '#daf5eb', colorTextBase: '#000' } }}>
+        <ConfigProvider theme={{ token: { colorInfoBg: '#ceebf9', colorTextBase: '#000' } }}>
           <Alert
             className={styles.banner}
             message={
