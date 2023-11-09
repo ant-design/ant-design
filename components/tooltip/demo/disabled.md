@@ -4,4 +4,4 @@
 
 ## en-US
 
-The Tooltip can be disabled by setting title="".
+The Tooltip can be disabled by setting `title=""`.
