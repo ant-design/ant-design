@@ -19,6 +19,7 @@ import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
 import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -122,7 +123,8 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const [, hashId] = useStyle(prefixCls, !override);
-  const wrapCSSVar = useCSSVar(rootPrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
@@ -181,7 +183,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
           ref={ref}
-          rootClassName={classNames(rootClassName, hashId, overrideObj.rootClassName)}
+          rootClassName={classNames(rootClassName, hashId, overrideObj.rootClassName, rootCls)}
         >
           {mergedChildren}
         </RcMenu>
