@@ -925,10 +925,10 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-upload-wrapper"
+              class="ant-upload-wrapper ant-upload-disabled"
             >
               <div
-                class="ant-upload-select ant-upload-disabled"
+                class="ant-upload-select"
                 style="display: none;"
               >
                 <span

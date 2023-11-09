@@ -527,10 +527,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper"
+      class="ant-upload-wrapper ant-upload-disabled"
     >
       <div
-        class="ant-upload ant-upload-select ant-upload-disabled"
+        class="ant-upload-select"
       >
         <span
           class="ant-upload ant-upload-disabled"
@@ -554,10 +554,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper"
+      class="ant-upload-wrapper ant-upload-disabled"
     >
       <div
-        class="ant-upload ant-upload-select ant-upload-disabled"
+        class="ant-upload-select"
       >
         <span
           class="ant-upload ant-upload-disabled"
@@ -611,7 +611,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper ant-upload-picture-card-wrapper"
+      class="ant-upload-wrapper ant-upload-disabled ant-upload-picture-card-wrapper"
     >
       <div
         class="ant-upload-list ant-upload-list-picture-card"
@@ -860,7 +860,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           </div>
         </div>
         <div
-          class="ant-upload ant-upload-select ant-upload-disabled"
+          class="ant-upload-select"
         >
           <span
             class="ant-upload ant-upload-disabled"
@@ -910,7 +910,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper ant-upload-picture-circle-wrapper"
+      class="ant-upload-wrapper ant-upload-disabled ant-upload-picture-circle-wrapper"
     >
       <div
         class="ant-upload-list ant-upload-list-picture-circle"
@@ -1159,7 +1159,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
           </div>
         </div>
         <div
-          class="ant-upload ant-upload-select ant-upload-disabled"
+          class="ant-upload-select"
         >
           <span
             class="ant-upload ant-upload-disabled"
@@ -1209,10 +1209,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
     class="ant-space-item"
   >
     <span
-      class="ant-upload-wrapper"
+      class="ant-upload-wrapper ant-upload-disabled"
     >
       <div
-        class="ant-upload ant-upload-drag ant-upload-disabled"
+        class="ant-upload ant-upload-drag"
       >
         <span
           class="ant-upload ant-upload-disabled ant-upload-btn"

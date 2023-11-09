@@ -42256,10 +42256,10 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 
 exports[`ConfigProvider components Upload configProvider componentDisabled 1`] = `
 <span
-  class="config-upload-wrapper"
+  class="config-upload-wrapper config-upload-disabled"
 >
   <div
-    class="config-upload-select config-upload-disabled"
+    class="config-upload-select"
   >
     <span
       class="config-upload config-upload-disabled"

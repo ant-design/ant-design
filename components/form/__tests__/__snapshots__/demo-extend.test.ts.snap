@@ -5440,13 +5440,13 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-upload-wrapper ant-upload-picture-card-wrapper"
+                class="ant-upload-wrapper ant-upload-disabled ant-upload-picture-card-wrapper"
               >
                 <div
                   class="ant-upload-list ant-upload-list-picture-card"
                 >
                   <div
-                    class="ant-upload-select ant-upload-disabled"
+                    class="ant-upload-select"
                   >
                     <span
                       class="ant-upload ant-upload-disabled"
