@@ -21,7 +21,7 @@ import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
 import useCSSVar from './style/cssVar';
-import useCSSVarCls from 'antd/es/config-provider/hooks/useCSSVarCls';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const Placements = [
   'topLeft',
