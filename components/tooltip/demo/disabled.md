@@ -1,7 +1,7 @@
 ## zh-CN
 
-Disabled 子元素。
+禁用 Tooltip
 
 ## en-US
 
-Disabled wrapper.
+Disabled Tooltip.
