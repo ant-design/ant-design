@@ -371,11 +371,6 @@ const Header: React.FC = () => {
             className={styles.banner}
             message={
               <>
-                {/* <img
-                  className={styles.icon}
-                  src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
-                  alt="yuque"
-                /> */}
                 <span>{isMobile ? locale.shortMessage : locale.message}</span>
                 <a
                   className={styles.link}
