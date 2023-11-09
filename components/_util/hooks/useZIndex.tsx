@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useToken from '../../theme/useToken';
 import zIndexContext from '../zindexContext';
 
@@ -37,7 +38,7 @@ export function useZIndex(
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
   } else {
-    zIndex += consumerBaseZIndexOffset[componentType];
+    zIndex += token.zIndexPopupBase + consumerBaseZIndexOffset[componentType];
   }
   return [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
 }
