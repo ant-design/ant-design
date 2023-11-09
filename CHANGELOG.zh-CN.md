@@ -30,7 +30,6 @@ tag: vVERSION
   - 🐞 修改 Tag 的默认背景色 `token` 为 `colorBgContainer`。[#45700](https://github.com/ant-design/ant-design/pull/45700) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 修复 Notification 组件设置 `style.width` 无效的问题。[#45681](https://github.com/ant-design/ant-design/pull/45681) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复 App 设置 `component=false` 时，会报非预期的属性警告的问题。[#45671](https://github.com/ant-design/ant-design/pull/45671) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🐞 fix(Image): using chinese language in image components API's table。[#45673](https://github.com/ant-design/ant-design/pull/45673) [@ParsaArvanehPA](https://github.com/ParsaArvanehPA)
 - TypeScript
   - 🤖 App 支持泛型定义。[#45669](https://github.com/ant-design/ant-design/pull/45669) [@JexLau](https://github.com/JexLau)
 

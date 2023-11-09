@@ -30,7 +30,6 @@ tag: vVERSION
   - 🐞 Adjust Tag default background token to `colorBgContainer`. [#45700](https://github.com/ant-design/ant-design/pull/45700) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 Fix Notification that `style.width` not work. [#45681](https://github.com/ant-design/ant-design/pull/45681) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Fix App console unexpected attr warning when set `component=false`. [#45671](https://github.com/ant-design/ant-design/pull/45671) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🐞 fix(Image): using chinese language in image components API's table. [#45673](https://github.com/ant-design/ant-design/pull/45673) [@ParsaArvanehPA](https://github.com/ParsaArvanehPA)
 - TypeScript
   - 🤖 App support generic type definition. [#45669](https://github.com/ant-design/ant-design/pull/45669) [@JexLau](https://github.com/JexLau)
 
