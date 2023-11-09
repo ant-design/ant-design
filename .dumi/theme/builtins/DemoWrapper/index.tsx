@@ -1,15 +1,36 @@
 import React, { useContext } from 'react';
 import { DumiDemoGrid, FormattedMessage } from 'dumi';
-import { BugFilled, BugOutlined, CodeFilled, CodeOutlined } from '@ant-design/icons';
+import {
+  BugFilled,
+  BugOutlined,
+  CodeFilled,
+  CodeOutlined,
+  ExperimentFilled,
+  ExperimentOutlined,
+} from '@ant-design/icons';
 import classNames from 'classnames';
-import { Tooltip } from 'antd';
+import { ConfigProvider, Tooltip } from 'antd';
 import DemoContext from '../../slots/DemoContext';
 import useLayoutState from '../../../hooks/useLayoutState';
+import useLocale from '../../../hooks/useLocale';
+
+const locales = {
+  cn: {
+    enableCssVar: '启用 CSS 变量',
+    disableCssVar: '禁用 CSS 变量',
+  },
+  en: {
+    enableCssVar: 'Enable CSS Var',
+    disableCssVar: 'Disable CSS Var',
+  },
+};
 
 const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
   const { showDebug, setShowDebug } = useContext(DemoContext);
+  const [locale] = useLocale(locales);
 
   const [expandAll, setExpandAll] = useLayoutState(false);
+  const [enableCssVar, setEnableCssVar] = useLayoutState(true);
 
   const expandTriggerClass = classNames('code-box-expand-trigger', {
     'code-box-expand-trigger-active': expandAll,
@@ -21,6 +42,10 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
 
   const handleExpandToggle = () => {
     setExpandAll(!expandAll);
+  };
+
+  const handleCssVarToggle = () => {
+    setEnableCssVar((v) => !v);
   };
 
   const demos = React.useMemo(
@@ -74,8 +99,17 @@ const DemoWrapper: typeof DumiDemoGrid = ({ items }) => {
             <BugOutlined className={expandTriggerClass} onClick={handleVisibleToggle} />
           )}
         </Tooltip>
+        <Tooltip title={enableCssVar ? locale.disableCssVar : locale.enableCssVar}>
+          {enableCssVar ? (
+            <ExperimentFilled className={expandTriggerClass} onClick={handleCssVarToggle} />
+          ) : (
+            <ExperimentOutlined className={expandTriggerClass} onClick={handleCssVarToggle} />
+          )}
+        </Tooltip>
       </span>
-      <DumiDemoGrid items={demos} />
+      <ConfigProvider theme={{ cssVar: enableCssVar }}>
+        <DumiDemoGrid items={demos} />
+      </ConfigProvider>
     </div>
   );
 };
