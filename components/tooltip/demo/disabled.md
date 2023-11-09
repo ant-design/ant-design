@@ -1,7 +1,7 @@
 ## zh-CN
 
-禁用 Tooltip
+通过设置 `title=""` 可以禁用 Tooltip。
 
 ## en-US
 
-Disabled Tooltip.
+The Tooltip can be disabled by setting title="".
