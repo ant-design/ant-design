@@ -24,7 +24,7 @@ tag: vVERSION
 - 🐞 修复 Upload 显式指定 `showRemoveIcon: true` 时删除图标未显示的问题。[#45752](https://github.com/ant-design/ant-design/pull/45752)
 - 🐞 修复 Descriptions 使用 `children` 结构语法糖时，会丢失 Descriptions.Item 的 `key` 的问题。[#45757](https://github.com/ant-design/ant-design/pull/45757)
 - 🐞 修复 Message 组件在组件范围设置全局 `token` 无效的问题。[#45721](https://github.com/ant-design/ant-design/pull/45721) [@MadCcc](https://github.com/MadCcc)
-- 🐞 修复 PopConfirm 不兼容 `visible` 的问题。[#45702](https://github.com/ant-design/ant-design/pull/45702) [@linhf123](https://github.com/linhf123)
+- 🐞 修复 Popconfirm 不兼容 `visible` 的问题。[#45702](https://github.com/ant-design/ant-design/pull/45702) [@linhf123](https://github.com/linhf123)
 - Tag
   - 🐞 修复默认 Tag 的背景颜色不正确的问题。[#45711](https://github.com/ant-design/ant-design/pull/45711) [@kiner-tang](https://github.com/kiner-tang)
   - 🐞 修改 Tag 的默认背景色 `token` 为 `colorBgContainer`。[#45700](https://github.com/ant-design/ant-design/pull/45700) [@kiner-tang](https://github.com/kiner-tang)
