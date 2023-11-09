@@ -14,6 +14,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
 import useStyle from './style';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export interface AbstractCheckboxProps extends Pick<RcCheckboxProps, 'onChange'> {
   prefixCls?: string;
@@ -21,6 +22,11 @@ export interface AbstractCheckboxProps extends Pick<RcCheckboxProps, 'onChange'>
   rootClassName?: string;
   defaultChecked?: boolean;
   checked?: boolean;
+  /**
+   * Alias for `defaultChecked`.
+   * @since 5.12.0
+   */
+  defaultValue?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
   title?: string;
@@ -29,7 +35,7 @@ export interface AbstractCheckboxProps extends Pick<RcCheckboxProps, 'onChange'>
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
   onKeyPress?: React.KeyboardEventHandler<HTMLElement>;
   onKeyDown?: React.KeyboardEventHandler<HTMLElement>;
-  value?: any;
+  value?: any; // (native input value) | boolean
   tabIndex?: number;
   name?: string;
   children?: React.ReactNode;
@@ -64,6 +70,10 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     onMouseLeave,
     skipGroup = false,
     disabled,
+    checked: checkedProp,
+    defaultChecked: defaultCheckedProp,
+    value,
+    defaultValue,
     ...restProps
   } = props;
   const { getPrefixCls, direction, checkbox } = React.useContext(ConfigContext);
@@ -72,35 +82,58 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const contextDisabled = React.useContext(DisabledContext);
   const mergedDisabled = (checkboxGroup?.disabled || disabled) ?? contextDisabled;
 
-  const prevValue = React.useRef(restProps.value);
+  const [checked, setChecked] = useMergedState<boolean>(false, {
+    value:
+      checkedProp ??
+      /**
+       * The native html input element does not allow passing a value of bool.
+       * ooh, this is a bad hack, but it works.
+       */
+      (checkboxGroup || typeof value !== 'boolean' ? undefined : value),
+    defaultValue: defaultCheckedProp ?? defaultValue,
+  });
+
+  const prevValue = React.useRef(value);
 
   React.useEffect(() => {
-    checkboxGroup?.registerValue(restProps.value);
+    checkboxGroup?.registerValue(value);
   }, []);
 
   React.useEffect(() => {
     if (skipGroup) {
       return;
     }
-    if (restProps.value !== prevValue.current) {
+    if (value !== prevValue.current) {
       checkboxGroup?.cancelValue(prevValue.current);
-      checkboxGroup?.registerValue(restProps.value);
-      prevValue.current = restProps.value;
+      checkboxGroup?.registerValue(value);
+      prevValue.current = value;
     }
-    return () => checkboxGroup?.cancelValue(restProps.value);
-  }, [restProps.value]);
+    return () => checkboxGroup?.cancelValue(value);
+  }, [value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const checkboxProps: CheckboxProps = { ...restProps };
+  const changeHandler = (event: CheckboxChangeEvent) => {
+    restProps.onChange?.(event);
+    setChecked(event.target.checked);
+  };
+
+  const checkboxProps: Omit<CheckboxProps, 'defaultValue'> = {
+    ...restProps,
+    checked,
+    onChange: changeHandler,
+    // bad hack :(, because rc-checkbox passes directly to the html input tag.
+    ...(value ? { value } : {}),
+  };
+
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
       restProps.onChange?.(...args);
-      checkboxGroup.toggleOption?.({ label: children, value: restProps.value });
+      checkboxGroup.toggleOption?.({ label: children, value });
     };
     checkboxProps.name = checkboxGroup.name;
-    checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
+    checkboxProps.checked = checkboxGroup.value.includes(value);
   }
 
   const classString = classNames(
