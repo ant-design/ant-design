@@ -25,8 +25,8 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message: '第十八届D2终端技术大会火热来袭，以技术会友、一起分享技术的乐趣。',
-    shortMessage: '第十八届D2终端技术大会火热来袭！',
+    message: '第十八届 D2 终端技术大会火热来袭，以技术会友，一起分享技术的乐趣。',
+    shortMessage: '第十八届 D2 终端技术大会火热来袭！',
     more: '点击报名',
     link: 'https://d2.alibabatech.com/',
   },
