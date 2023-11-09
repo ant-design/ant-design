@@ -528,7 +528,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { algorithm, token, components, ...rest } = mergedTheme || {};
+    const { algorithm, token, components, cssVar, ...rest } = mergedTheme || {};
     const themeObj =
       algorithm && (!Array.isArray(algorithm) || algorithm.length > 0)
         ? createTheme(algorithm)
@@ -558,6 +558,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       ...token,
     };
 
+    let mergedCssVar: Exclude<ThemeConfig['cssVar'], boolean>;
+    if (cssVar === true) {
+      mergedCssVar = {};
+    } else if (typeof cssVar === 'object' && mergedCssVar) {
+      mergedCssVar = cssVar;
+    }
+
     return {
       ...rest,
       theme: themeObj,
@@ -568,6 +575,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
         override: mergedToken,
         ...parsedComponents,
       },
+      cssVar: mergedCssVar,
     };
   }, [mergedTheme]);
 
