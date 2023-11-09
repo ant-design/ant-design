@@ -42,6 +42,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 <code src="./demo/crop-image.tsx">Crop image before uploading</code>
 <code src="./demo/customize-progress-bar.tsx">Customize Progress Bar</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/debug-disabled.tsx" debug>Debug Disabled Styles</code>
 
 ## API
 
@@ -56,7 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - |  |
 | defaultFileList | Default list of files that have been uploaded | object\[] | - |  |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
-| disabled | Disable upload button | boolean | false |  |
+| disabled | Disable upload button | boolean | false | When customizing Upload children, please pass the disabled attribute to the child node at the same time to ensure the disabled rendering effect is consistent. |
 | fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | [UploadFile](#uploadfile)\[] | - |  |
 | headers | Set request headers, valid above IE10 | object | - |  |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => ReactNode | - |  |
