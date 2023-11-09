@@ -122,7 +122,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const [, hashId] = useStyle(prefixCls, !override);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const wrapCSSVar = useCSSVar(rootPrefixCls);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================

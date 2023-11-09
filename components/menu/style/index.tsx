@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSProperties } from 'react';
 import { clearFix, resetComponent, resetIcon } from '../../style';
@@ -40,7 +40,7 @@ export interface ComponentToken {
    * @desc 分组标题文字高度
    * @descEN line-height of group title
    */
-  groupTitleLineHeight: CSSProperties['lineHeight'];
+  groupTitleLineHeight: string | number;
   /**
    * @desc 分组标题文字大小
    * @descEN font-size of group title
@@ -365,8 +365,8 @@ export interface ComponentToken {
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
-  menuHorizontalHeight: number;
-  menuArrowSize: number;
+  menuHorizontalHeight: number | string;
+  menuArrowSize: number | string;
   menuArrowOffset: string;
   menuPanelMaskInset: number;
   menuSubMenuBg: string;
@@ -466,7 +466,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         position: 'absolute',
         top: '50%',
         insetInlineEnd: token.margin,
-        width: menuArrowSize,
+        width: unit(menuArrowSize),
         color: 'currentcolor',
         transform: 'translateY(-50%)',
         transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
@@ -476,8 +476,8 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         // →
         '&::before, &::after': {
           position: 'absolute',
-          width: menuArrowSize * 0.6,
-          height: menuArrowSize * 0.15,
+          width: unit(token.calc(menuArrowSize).mul(0.6).equal()),
+          height: unit(token.calc(menuArrowSize).mul(0.15).equal()),
           backgroundColor: 'currentcolor',
           borderRadius,
           transition: [
@@ -490,7 +490,9 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         },
 
         '&::before': {
-          transform: `rotate(45deg) translateY(-${menuArrowOffset})`,
+          transform: `rotate(45deg) translateY(${unit(
+            token.calc(menuArrowOffset).mul(-1).equal(),
+          )})`,
         },
 
         '&::after': {
@@ -575,7 +577,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`${componentCls}-item-group-title`]: {
-          padding: `${paddingXS}px ${padding}px`,
+          padding: `${unit(paddingXS)} ${unit(padding)}`,
           fontSize: groupTitleFontSize,
           lineHeight: groupTitleLineHeight,
           transition: `all ${motionDurationSlow}`,
@@ -651,7 +653,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             padding: 0,
 
             [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-              paddingInline: `${fontSize * 2}px ${padding}px`,
+              paddingInline: `${unit(token.calc(fontSize).mul(2).equal())} ${unit(padding)}`,
             },
           },
         },
@@ -672,7 +674,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             // https://github.com/ant-design/ant-design/issues/13955
             '&::before': {
               position: 'absolute',
-              inset: `${menuPanelMaskInset}px 0 0`,
+              inset: `${unit(menuPanelMaskInset)} 0 0`,
               zIndex: -1,
               width: '100%',
               height: '100%',
@@ -769,21 +771,25 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           },
 
           '&::after': {
-            transform: `rotate(45deg) translateX(-${menuArrowOffset})`,
+            transform: `rotate(45deg) translateX(${unit(
+              token.calc(menuArrowOffset).mul(-1).equal(),
+            )})`,
           },
         },
 
         [`${componentCls}-submenu-open${componentCls}-submenu-inline > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow`]:
           {
             // ↑
-            transform: `translateY(-${menuArrowSize * 0.2}px)`,
+            transform: `translateY(${unit(token.calc(menuArrowSize).mul(0.2).mul(-1).equal())})`,
 
             '&::after': {
-              transform: `rotate(-45deg) translateX(-${menuArrowOffset})`,
+              transform: `rotate(-45deg) translateX(${unit(
+                token.calc(menuArrowOffset).mul(-1).equal(),
+              )})`,
             },
 
             '&::before': {
-              transform: `rotate(45deg) translateX(${menuArrowOffset})`,
+              transform: `rotate(45deg) translateX(${unit(menuArrowOffset)})`,
             },
           },
       },
@@ -951,13 +957,13 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkDangerItemActiveBg,
       } = token;
 
-      const menuArrowSize = (fontSize / 7) * 5;
+      const menuArrowSize = token.calc(fontSize).div(7).mul(5).equal();
 
       // Menu Token
       const menuToken = mergeToken<MenuToken>(token, {
         menuArrowSize,
-        menuHorizontalHeight: controlHeightLG * 1.15,
-        menuArrowOffset: `${menuArrowSize * 0.25}px`,
+        menuHorizontalHeight: token.calc(controlHeightLG).mul(1.15).equal(),
+        menuArrowOffset: unit(token.calc(menuArrowSize).mul(0.25).equal()),
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
       });

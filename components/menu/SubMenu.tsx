@@ -7,6 +7,7 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
+import useCSSVar from './style/cssVar';
 
 interface TitleEventEntity {
   key: string;
@@ -34,6 +35,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   const context = React.useContext(MenuContext);
   const { prefixCls, inlineCollapsed, theme: contextTheme } = context;
 
+  const wrapCSSVar = useCSSVar(prefixCls);
   const parentPath = useFullPath();
 
   let titleNode: React.ReactNode;
@@ -70,7 +72,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('Menu');
 
-  return (
+  return wrapCSSVar(
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
         {...omit(props, ['icon'])}
@@ -84,7 +86,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
           zIndex,
         }}
       />
-    </MenuContext.Provider>
+    </MenuContext.Provider>,
   );
 };
 

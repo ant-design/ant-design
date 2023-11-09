@@ -1,4 +1,8 @@
 import { genCSSVarRegister } from '../../theme/internal';
 import { prepareComponentToken } from '.';
 
-export default genCSSVarRegister('Button', prepareComponentToken);
+export default genCSSVarRegister('Menu', prepareComponentToken, {
+  unitless: {
+    groupTitleLineHeight: true,
+  },
+});

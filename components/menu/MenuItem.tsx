@@ -11,6 +11,7 @@ import Tooltip from '../tooltip';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
+import useCSSVar from './style/cssVar';
 
 export interface MenuItemProps extends Omit<RcMenuItemProps, 'title'> {
   icon?: React.ReactNode;
@@ -55,6 +56,8 @@ const MenuItem: GenericComponent = (props) => {
     }
     return wrapNode;
   };
+
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const { siderCollapsed } = React.useContext<SiderContextProps>(SiderContext);
 
@@ -110,7 +113,7 @@ const MenuItem: GenericComponent = (props) => {
       </Tooltip>
     );
   }
-  return returnNode;
+  return wrapCSSVar(returnNode);
 };
 
 export default MenuItem;
