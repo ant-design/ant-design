@@ -16,6 +16,24 @@ tag: vVERSION
 
 ---
 
+## 5.11.1
+
+`2023-11-09`
+
+- 🐞 Fix Dropdown use wrong `zIndex` when nest items. [#45761](https://github.com/ant-design/ant-design/pull/45761)
+- 🐞 Fix Upload should show remove icon when `showRemoveIcon` is specified to true explicitly. [#45752](https://github.com/ant-design/ant-design/pull/45752)
+- 🐞 Fix Descriptions use `children` structure missing the Descriptions.Item `key` prop. [#45757](https://github.com/ant-design/ant-design/pull/45757)
+- 🐞 Fix Message that token specified in component scope not work. [#45721](https://github.com/ant-design/ant-design/pull/45721) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix PopConfirm not compatible with `visible` prop. [#45702](https://github.com/ant-design/ant-design/pull/45702) [@linhf123](https://github.com/linhf123)
+- Tag
+  - 🐞 Fix Tag default background color not correct. [#45711](https://github.com/ant-design/ant-design/pull/45711) [@kiner-tang](https://github.com/kiner-tang)
+  - 🐞 Adjust Tag default background token to `colorBgContainer`. [#45700](https://github.com/ant-design/ant-design/pull/45700) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix Notification that `style.width` not work. [#45681](https://github.com/ant-design/ant-design/pull/45681) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix App console unexpected attr warning when set `component=false`. [#45671](https://github.com/ant-design/ant-design/pull/45671) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 fix(Image): using chinese language in image components API's table. [#45673](https://github.com/ant-design/ant-design/pull/45673) [@ParsaArvanehPA](https://github.com/ParsaArvanehPA)
+- TypeScript
+  - 🤖 App support generic type definition. [#45669](https://github.com/ant-design/ant-design/pull/45669) [@JexLau](https://github.com/JexLau)
+
 ## 5.11.0
 
 `2023-11-03`
