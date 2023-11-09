@@ -6,7 +6,6 @@ import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface GeneratorProps {
   suffixCls?: string;
@@ -48,12 +47,11 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
-  return wrapCSSVar(
+  return wrapSSR(
     <TagName
       className={classNames(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
       ref={ref}
@@ -85,8 +83,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
 
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(rootClassName ?? prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {
@@ -113,7 +110,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
     [],
   );
 
-  return wrapCSSVar(
+  return wrapSSR(
     <LayoutContext.Provider value={contextValue}>
       <Tag
         ref={ref}

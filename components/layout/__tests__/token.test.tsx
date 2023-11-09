@@ -39,10 +39,10 @@ describe('Layout.Token', () => {
     );
 
     expect(container.querySelector('.ant-layout-header')).toHaveStyle({
-      'background-color': '#FF0000',
+      backgroundColor: '#FF0000',
     });
     expect(container.querySelector('.ant-menu')).toHaveStyle({
-      'background-color': '#00FF00',
+      backgroundColor: '#00FF00',
     });
   });
   it('theme should work', () => {
@@ -76,11 +76,10 @@ describe('Layout.Token', () => {
     );
 
     expect(container.querySelector('.ant-layout-header')).toHaveStyle({
-      'background-color': '#FF0000',
+      backgroundColor: '#FF0000',
     });
-    console.log(getComputedStyle(container.querySelector('.ant-menu') as HTMLDivElement));
     expect(container.querySelector('.ant-menu')).toHaveStyle({
-      'background-color': '#00FF00',
+      backgroundColor: '#00FF00',
     });
   });
 });

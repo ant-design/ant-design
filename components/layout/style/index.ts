@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 import genLayoutLightStyle from './light';
 
@@ -277,50 +277,48 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'Layout'> = (token) => {
-  const {
-    colorBgLayout,
-    controlHeight,
-    controlHeightLG,
-    colorText,
-    controlHeightSM,
-    marginXXS,
-    colorTextLightSolid,
-    colorBgContainer,
-  } = token;
-
-  const paddingInline = controlHeightLG * 1.25;
-
-  return {
-    // Deprecated
-    colorBgHeader: '#001529',
-    colorBgBody: colorBgLayout,
-    colorBgTrigger: '#002140',
-
-    bodyBg: colorBgLayout,
-    headerBg: '#001529',
-    headerHeight: controlHeight * 2,
-    headerPadding: `0 ${paddingInline}px`,
-    headerColor: colorText,
-    footerPadding: `${controlHeightSM}px ${paddingInline}px`,
-    footerBg: colorBgLayout,
-    siderBg: '#001529',
-    triggerHeight: controlHeightLG + marginXXS * 2,
-    triggerBg: '#002140',
-    triggerColor: colorTextLightSolid,
-    zeroTriggerWidth: controlHeightLG,
-    zeroTriggerHeight: controlHeightLG,
-    lightSiderBg: colorBgContainer,
-    lightTriggerBg: colorBgContainer,
-    lightTriggerColor: colorText,
-  };
-};
-
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Layout',
   (token) => [genLayoutStyle(token)],
-  prepareComponentToken,
+  (token) => {
+    const {
+      colorBgLayout,
+      controlHeight,
+      controlHeightLG,
+      colorText,
+      controlHeightSM,
+      marginXXS,
+      colorTextLightSolid,
+      colorBgContainer,
+    } = token;
+
+    const paddingInline = controlHeightLG * 1.25;
+
+    return {
+      // Deprecated
+      colorBgHeader: '#001529',
+      colorBgBody: colorBgLayout,
+      colorBgTrigger: '#002140',
+
+      bodyBg: colorBgLayout,
+      headerBg: '#001529',
+      headerHeight: controlHeight * 2,
+      headerPadding: `0 ${paddingInline}px`,
+      headerColor: colorText,
+      footerPadding: `${controlHeightSM}px ${paddingInline}px`,
+      footerBg: colorBgLayout,
+      siderBg: '#001529',
+      triggerHeight: controlHeightLG + marginXXS * 2,
+      triggerBg: '#002140',
+      triggerColor: colorTextLightSolid,
+      zeroTriggerWidth: controlHeightLG,
+      zeroTriggerHeight: controlHeightLG,
+      lightSiderBg: colorBgContainer,
+      lightTriggerBg: colorBgContainer,
+      lightTriggerColor: colorText,
+    };
+  },
   {
     deprecatedTokens: [
       ['colorBgBody', 'bodyBg'],

@@ -146,9 +146,9 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
   };
 
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
 
   const renderSider = () => {
+    const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
     const divProps = omit(otherProps, ['collapsed']);
     const rawWidth = collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
