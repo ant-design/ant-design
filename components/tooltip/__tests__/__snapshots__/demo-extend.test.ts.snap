@@ -1292,6 +1292,51 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
   >
     <button
       class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Enable
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      Tooltip will show on mouse enter.
+    </span>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/tooltip/demo/disabled-children.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-default"
       disabled=""
       type="button"
     >
@@ -1627,7 +1672,7 @@ exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders components/tooltip/demo/disabled.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/tooltip/demo/disabled-children.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/placement.tsx extend context correctly 1`] = `
 <div

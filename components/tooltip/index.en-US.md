@@ -27,7 +27,8 @@ A simple text popup tip.
 <code src="./demo/colorful.tsx">Colorful Tooltip</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
-<code src="./demo/disabled.tsx" debug>Disabled</code>
+<code src="./demo/disabled.tsx">Disabled</code>
+<code src="./demo/disabled-children.tsx" debug>Disabled children</code>
 
 ## API
 
