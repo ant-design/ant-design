@@ -2,11 +2,12 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
+import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken {
   /**
@@ -104,11 +105,15 @@ export interface ComponentToken {
    * @descEN Border color of multiple tag when disabled
    */
   multipleItemBorderColorDisabled: string;
+  /**
+   * @internal
+   */
+  showArrowPaddingInlineEnd: number;
 }
 
 export interface SelectToken extends FullToken<'Select'> {
   rootPrefixCls: string;
-  inputPaddingHorizontalBase: number;
+  inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
 }
@@ -120,7 +125,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   return {
     position: 'relative',
     backgroundColor: selectorBg,
-    border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+    border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
     transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
     input: {
@@ -192,7 +197,7 @@ const genStatusStyle = (
 
           [`${componentCls}-focused& ${componentCls}-selector`]: {
             borderColor: borderActiveColor,
-            boxShadow: `0 0 0 ${controlOutlineWidth}px ${outlineColor}`,
+            boxShadow: `0 0 0 ${unit(controlOutlineWidth)} ${outlineColor}`,
             outline: 0,
           },
         },
@@ -273,7 +278,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
         height: token.fontSizeIcon,
-        marginTop: -token.fontSizeIcon / 2,
+        marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
         color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         lineHeight: 1,
@@ -314,7 +319,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         display: 'inline-block',
         width: token.fontSizeIcon,
         height: token.fontSizeIcon,
-        marginTop: -token.fontSizeIcon / 2,
+        marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
         color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         fontStyle: 'normal',
@@ -346,7 +351,11 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
     // ========================= Feedback ==========================
     [`${componentCls}-has-feedback`]: {
       [`${componentCls}-clear`]: {
-        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXS,
+        insetInlineEnd: token
+          .calc(inputPaddingHorizontalBase)
+          .add(token.fontSize)
+          .add(token.paddingXS)
+          .equal(),
       },
     },
   };
@@ -437,59 +446,60 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
+  const {
+    fontSize,
+    lineHeight,
+    controlHeight,
+    controlPaddingHorizontal,
+    zIndexPopupBase,
+    colorText,
+    fontWeightStrong,
+    controlItemBgActive,
+    controlItemBgHover,
+    colorBgContainer,
+    colorFillSecondary,
+    controlHeightLG,
+    controlHeightSM,
+    colorBgContainerDisabled,
+    colorTextDisabled,
+  } = token;
+
+  return {
+    zIndexPopup: zIndexPopupBase + 50,
+    optionSelectedColor: colorText,
+    optionSelectedFontWeight: fontWeightStrong,
+    optionSelectedBg: controlItemBgActive,
+    optionActiveBg: controlItemBgHover,
+    optionPadding: `${(controlHeight - fontSize * lineHeight) / 2}px ${controlPaddingHorizontal}px`,
+    optionFontSize: fontSize,
+    optionLineHeight: lineHeight,
+    optionHeight: controlHeight,
+    selectorBg: colorBgContainer,
+    clearBg: colorBgContainer,
+    singleItemHeightLG: controlHeightLG,
+    multipleItemBg: colorFillSecondary,
+    multipleItemBorderColor: 'transparent',
+    multipleItemHeight: controlHeightSM,
+    multipleItemHeightLG: controlHeight,
+    multipleSelectorBgDisabled: colorBgContainerDisabled,
+    multipleItemColorDisabled: colorTextDisabled,
+    multipleItemBorderColorDisabled: 'transparent',
+    showArrowPaddingInlineEnd: Math.ceil(token.fontSize * 1.25),
+  };
+};
+
 export default genComponentStyleHook(
   'Select',
   (token, { rootPrefixCls }) => {
     const selectToken: SelectToken = mergeToken<SelectToken>(token, {
       rootPrefixCls,
-      inputPaddingHorizontalBase: token.paddingSM - 1,
+      inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(1).equal(),
       multipleSelectItemHeight: token.multipleItemHeight,
       selectHeight: token.controlHeight,
     });
 
     return [genSelectStyle(selectToken)];
   },
-  (token) => {
-    const {
-      fontSize,
-      lineHeight,
-      controlHeight,
-      controlPaddingHorizontal,
-      zIndexPopupBase,
-      colorText,
-      fontWeightStrong,
-      controlItemBgActive,
-      controlItemBgHover,
-      colorBgContainer,
-      colorFillSecondary,
-      controlHeightLG,
-      controlHeightSM,
-      colorBgContainerDisabled,
-      colorTextDisabled,
-    } = token;
-
-    return {
-      zIndexPopup: zIndexPopupBase + 50,
-      optionSelectedColor: colorText,
-      optionSelectedFontWeight: fontWeightStrong,
-      optionSelectedBg: controlItemBgActive,
-      optionActiveBg: controlItemBgHover,
-      optionPadding: `${
-        (controlHeight - fontSize * lineHeight) / 2
-      }px ${controlPaddingHorizontal}px`,
-      optionFontSize: fontSize,
-      optionLineHeight: lineHeight,
-      optionHeight: controlHeight,
-      selectorBg: colorBgContainer,
-      clearBg: colorBgContainer,
-      singleItemHeightLG: controlHeightLG,
-      multipleItemBg: colorFillSecondary,
-      multipleItemBorderColor: 'transparent',
-      multipleItemHeight: controlHeightSM,
-      multipleItemHeightLG: controlHeight,
-      multipleSelectorBgDisabled: colorBgContainerDisabled,
-      multipleItemColorDisabled: colorTextDisabled,
-      multipleItemBorderColorDisabled: 'transparent',
-    };
-  },
+  prepareComponentToken,
 );
