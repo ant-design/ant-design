@@ -38,7 +38,7 @@ export function useZIndex(
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
   } else {
-    zIndex += token.zIndexPopupBase + consumerBaseZIndexOffset[componentType];
+    zIndex += consumerBaseZIndexOffset[componentType];
   }
   return [parentZIndex === undefined ? customZIndex : zIndex, zIndex];
 }
