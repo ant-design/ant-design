@@ -1,6 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type { CheckboxRef } from 'rc-checkbox';
+import type {
+  CheckboxRef,
+  CheckboxProps as RcCheckboxProps,
+  CheckboxChangeEvent,
+} from 'rc-checkbox';
 import RcCheckbox from 'rc-checkbox';
 
 import Wave from '../_util/wave';
@@ -11,7 +15,7 @@ import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
 import useStyle from './style';
 
-export interface AbstractCheckboxProps<T> {
+export interface AbstractCheckboxProps extends Pick<RcCheckboxProps, 'onChange'> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -20,7 +24,6 @@ export interface AbstractCheckboxProps<T> {
   style?: React.CSSProperties;
   disabled?: boolean;
   title?: string;
-  onChange?: (e: T) => void;
   onClick?: React.MouseEventHandler<HTMLElement>;
   onMouseEnter?: React.MouseEventHandler<HTMLElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLElement>;
@@ -40,14 +43,9 @@ export interface CheckboxChangeEventTarget extends CheckboxProps {
   checked: boolean;
 }
 
-export interface CheckboxChangeEvent {
-  target: CheckboxChangeEventTarget;
-  stopPropagation: () => void;
-  preventDefault: () => void;
-  nativeEvent: MouseEvent;
-}
+export type { CheckboxChangeEvent };
 
-export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
+export interface CheckboxProps extends AbstractCheckboxProps {
   indeterminate?: boolean;
 }
 
@@ -98,16 +96,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
-      if (restProps.onChange) {
-        restProps.onChange(...args);
-      }
-      if (checkboxGroup.toggleOption) {
-        checkboxGroup.toggleOption({ label: children, value: restProps.value });
-      }
+      restProps.onChange?.(...args);
+      checkboxGroup.toggleOption?.({ label: children, value: restProps.value });
     };
     checkboxProps.name = checkboxGroup.name;
     checkboxProps.checked = checkboxGroup.value.includes(restProps.value);
   }
+
   const classString = classNames(
     `${prefixCls}-wrapper`,
     {
