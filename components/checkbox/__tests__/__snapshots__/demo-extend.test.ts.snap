@@ -457,11 +457,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
 </div>
 `;
 
-exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Checkbox] \`value\` is not a valid prop, do you mean \`checked\`?",
-]
-`;
+exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 Array [
