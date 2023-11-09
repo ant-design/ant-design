@@ -2110,30 +2110,27 @@ describe('Form', () => {
       <Form
         initialValues={{
           foo: true,
-          boo: false,
         }}
         onFinish={submit}
       >
         <Form.Item label="Switch" name="foo">
           <Switch />
         </Form.Item>
-        <Form.Item label="Checkbox" name="boo">
-          <Checkbox />
-        </Form.Item>
         <button type="submit">Submit</button>
       </Form>
     );
 
-    const { container, getByRole } = render(<Demo />);
+    const { getByRole } = render(<Demo />);
 
     await waitFakeTimer();
 
-    expect(container.querySelectorAll('.ant-switch.ant-switch-checked').length).toBeTruthy();
-    expect(getByRole('checkbox')).not.toBeChecked();
+    const switchNode = getByRole('switch');
 
-    fireEvent.click(getByRole('checkbox'));
+    expect(switchNode).toBeTruthy();
+    expect(switchNode).toBeChecked();
 
-    expect(getByRole('checkbox')).toBeChecked();
+    fireEvent.click(switchNode);
+    expect(switchNode).not.toBeChecked();
 
     const submitButton = getByRole('button');
     expect(submitButton).toBeTruthy();
@@ -2142,8 +2139,7 @@ describe('Form', () => {
     await waitFakeTimer();
 
     expect(submit).toHaveBeenCalledWith({
-      foo: true,
-      boo: true,
+      foo: false,
     });
   });
 });
