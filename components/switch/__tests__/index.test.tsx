@@ -33,7 +33,7 @@ describe('Switch', () => {
     jest.useRealTimers();
   });
 
-  it('warning if set `value`', () => {
+  it.skip('warning if set `value`', () => {
     resetWarned();
 
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -43,5 +43,37 @@ describe('Switch', () => {
       'Warning: [antd: Switch] `value` is not a valid prop, do you mean `checked`?',
     );
     errorSpy.mockRestore();
+  });
+
+  it('should be controlled by value', () => {
+    const mockChangeHandler = jest.fn();
+
+    const { getByRole } = render(<Switch value onChange={mockChangeHandler} />);
+
+    const switchNode = getByRole('switch');
+    expect(switchNode).toBeTruthy();
+    expect(getByRole('switch')).toBeChecked();
+
+    fireEvent.click(switchNode);
+
+    expect(mockChangeHandler).toHaveBeenCalledWith(false, expect.anything());
+    // controlled component, so still true after click
+    expect(getByRole('switch')).toBeChecked();
+  });
+
+  it('should be uncontrolled by defaultValue', () => {
+    const mockChangeHandler = jest.fn();
+
+    const { getByRole } = render(<Switch defaultValue onChange={mockChangeHandler} />);
+
+    const switchNode = getByRole('switch');
+    expect(switchNode).toBeTruthy();
+    expect(getByRole('switch')).toBeChecked();
+
+    fireEvent.click(switchNode);
+
+    expect(mockChangeHandler).toHaveBeenCalledWith(false, expect.anything());
+    // uncontrolled component, so false after click
+    expect(getByRole('switch')).not.toBeChecked();
   });
 });
