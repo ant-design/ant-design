@@ -1,4 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import type { SharedComponentToken, SharedInputToken } from '../../input/style';
@@ -9,7 +10,7 @@ import {
   initComponentToken,
   initInputToken,
 } from '../../input/style';
-import { resetComponent, roundedArrow, textEllipsis } from '../../style';
+import { resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import {
   initMoveMotion,
@@ -23,7 +24,8 @@ import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
-import { unit } from '@ant-design/cssinjs';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { genRoundedArrow, getArrowToken } from '../../style/roundedArrow';
 
 export interface PanelComponentToken {
   /**
@@ -90,7 +92,8 @@ export interface PanelComponentToken {
 
 export interface ComponentToken
   extends Exclude<SharedComponentToken, 'addonBg'>,
-    PanelComponentToken {
+    PanelComponentToken,
+    ArrowToken {
   /**
    * @desc 预设区域宽度
    * @descEN Width of preset area
@@ -130,14 +133,11 @@ const genPikerPadding = (
   inputHeight: number,
   paddingHorizontal: number,
 ): CSSObject => {
-  const { textHeight } = token;
+  const { fontHeight } = token;
 
-  const fontHeight = token.calc(textHeight).add(2).equal();
-  const paddingTop = token.max(token.calc(inputHeight).sub(fontHeight).div(2).equal(), 0);
-  const paddingBottom = token.max(
-    token.calc(inputHeight).sub(fontHeight).sub(paddingTop).equal(),
-    0,
-  );
+  const height = token.calc(fontHeight).add(2).equal();
+  const paddingTop = token.max(token.calc(inputHeight).sub(height).div(2).equal(), 0);
+  const paddingBottom = token.max(token.calc(inputHeight).sub(height).sub(paddingTop).equal(), 0);
 
   return {
     padding: `${unit(paddingTop)} ${unit(paddingHorizontal)} ${unit(paddingBottom)}`,
@@ -1118,8 +1118,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     cellActiveWithRangeBg,
     colorPrimaryBorder,
     sizePopupArrow,
-    borderRadiusXS,
-    borderRadiusOuter,
     colorBgElevated,
     borderRadiusLG,
     boxShadowSecondary,
@@ -1130,6 +1128,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     presetsMaxWidth,
     boxShadowPopoverArrow,
     colorTextQuaternary,
+    fontHeight,
   } = token;
 
   return [
@@ -1448,13 +1447,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             display: 'none',
             marginInlineStart: token.calc(paddingInline).mul(1.5).equal(),
             transition: `left ${motionDurationSlow} ease-out`,
-            ...roundedArrow(
-              sizePopupArrow,
-              borderRadiusXS,
-              borderRadiusOuter,
-              colorBgElevated,
-              boxShadowPopoverArrow,
-            ),
+            ...genRoundedArrow(token, colorBgElevated, boxShadowPopoverArrow),
           },
 
           [`${componentCls}-panel-container`]: {
@@ -1492,7 +1485,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
                   ...textEllipsis,
                   borderRadius: borderRadiusSM,
                   paddingInline: paddingXS,
-                  paddingBlock: token.calc(controlHeightSM).sub(textHeight).div(2).equal(),
+                  paddingBlock: token.calc(controlHeightSM).sub(fontHeight).div(2).equal(),
                   cursor: 'pointer',
                   transition: `all ${motionDurationSlow}`,
 
@@ -1612,6 +1605,7 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
 export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => ({
   ...initComponentToken(token),
   ...initPanelComponentToken(token),
+  ...getArrowToken(token),
   presetsWidth: 120,
   presetsMaxWidth: 200,
   zIndexPopup: token.zIndexPopupBase + 50,

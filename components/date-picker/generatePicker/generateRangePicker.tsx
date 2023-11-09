@@ -75,7 +75,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const [, hashId] = useStyle(prefixCls);
     const cssVarCls = useCSSVarCls(prefixCls);
-    const wrapCSSVar = useCSSVar(prefixCls);
+    const wrapCSSVar = useCSSVar(cssVarCls);
 
     const additionalOverrideProps: any = {
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),

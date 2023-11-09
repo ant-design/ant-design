@@ -29,9 +29,9 @@ const genFontMapToken = (fontSize: number): FontMapToken => {
     lineHeightLG,
     lineHeightSM,
 
-    textHeight: Math.round(lineHeight * fontSizeMD),
-    textHeightLG: Math.round(lineHeightLG * fontSizeLG),
-    textHeightSM: Math.round(lineHeightSM * fontSizeSM),
+    fontHeight: Math.round(lineHeight * fontSizeMD),
+    fontHeightLG: Math.round(lineHeightLG * fontSizeLG),
+    fontHeightSM: Math.round(lineHeightSM * fontSizeSM),
 
     lineHeightHeading1: lineHeights[6],
     lineHeightHeading2: lineHeights[5],

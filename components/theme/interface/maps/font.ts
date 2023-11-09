@@ -84,17 +84,17 @@ export interface FontMapToken {
    * Round of fontSize * lineHeight
    * @internal
    */
-  textHeight: number;
+  fontHeight: number;
   /**
    * Round of fontSizeSM * lineHeightSM
    * @internal
    */
-  textHeightSM: number;
+  fontHeightSM: number;
   /**
    * Round of fontSizeLG * lineHeightLG
    * @internal
    */
-  textHeightLG: number;
+  fontHeightLG: number;
 
   /**
    * @nameZH 一级标题行高
