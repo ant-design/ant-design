@@ -276,30 +276,36 @@ const Dropdown: CompoundedComponent = (props) => {
   const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
 
   // ============================ Render ============================
-  return wrapSSR(
-    <zIndexContext.Provider value={contextZIndex}>
-      <RcDropdown
-        alignPoint={alignPoint!}
-        {...omit(props, ['rootClassName'])}
-        mouseEnterDelay={mouseEnterDelay}
-        mouseLeaveDelay={mouseLeaveDelay}
-        visible={mergedOpen}
-        builtinPlacements={builtinPlacements}
-        arrow={!!arrow}
-        overlayClassName={overlayClassNameCustomized}
-        prefixCls={prefixCls}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        transitionName={memoTransitionName}
-        trigger={triggerActions}
-        overlay={renderOverlay}
-        placement={memoPlacement}
-        onVisibleChange={onInnerOpenChange}
-        overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
-      >
-        {dropdownTrigger}
-      </RcDropdown>
-    </zIndexContext.Provider>,
+  let renderNode = (
+    <RcDropdown
+      alignPoint={alignPoint!}
+      {...omit(props, ['rootClassName'])}
+      mouseEnterDelay={mouseEnterDelay}
+      mouseLeaveDelay={mouseLeaveDelay}
+      visible={mergedOpen}
+      builtinPlacements={builtinPlacements}
+      arrow={!!arrow}
+      overlayClassName={overlayClassNameCustomized}
+      prefixCls={prefixCls}
+      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      transitionName={memoTransitionName}
+      trigger={triggerActions}
+      overlay={renderOverlay}
+      placement={memoPlacement}
+      onVisibleChange={onInnerOpenChange}
+      overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
+    >
+      {dropdownTrigger}
+    </RcDropdown>
   );
+
+  if (zIndex) {
+    renderNode = (
+      <zIndexContext.Provider value={contextZIndex}>{renderNode}</zIndexContext.Provider>
+    );
+  }
+
+  return wrapSSR(renderNode);
 };
 
 function postPureProps(props: DropdownProps) {
