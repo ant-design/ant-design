@@ -25,10 +25,10 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message:
-      '语雀公益计划：大学生认证教育邮箱，即可免费获得语雀会员。语雀，支付宝匠心打造的在线文档平台。',
-    shortMessage: '支付宝语雀 · 大学生公益计划火热进行中！',
-    more: '了解更多',
+    message: '第十八届D2终端技术大会火热来袭，以技术会友、一起分享技术的乐趣。',
+    shortMessage: '第十八届D2终端技术大会火热来袭！',
+    more: '点击报名',
+    link: 'https://d2.alibabatech.com/',
   },
   en: {
     message: '',
@@ -371,21 +371,21 @@ const Header: React.FC = () => {
             className={styles.banner}
             message={
               <>
-                <img
+                {/* <img
                   className={styles.icon}
                   src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
                   alt="yuque"
-                />
+                /> */}
                 <span>{isMobile ? locale.shortMessage : locale.message}</span>
                 <a
                   className={styles.link}
-                  href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
+                  href={locale.link}
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => {
                     window.gtag?.('event', '点击', {
                       event_category: 'top_banner',
-                      event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                      event_label: locale.link,
                     });
                   }}
                 >
