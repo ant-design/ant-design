@@ -306,7 +306,7 @@
     "stylelint-prettier": "^4.0.0",
     "sylvanas": "^0.6.1",
     "terser": "^5.16.1",
-    "tsx": "^3.12.8",
+    "tsx": "^4.1.0",
     "typedoc": "^0.25.0",
     "typescript": "~5.2.2",
     "vanilla-jsoneditor": "^0.18.0",
