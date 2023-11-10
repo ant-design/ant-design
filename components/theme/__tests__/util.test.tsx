@@ -122,6 +122,14 @@ describe('util', () => {
           css: '6px',
         },
       ],
+      [
+        // 1000 + 100 without unit
+        (calc) => calc(1000).add(100).equal({ unit: false }),
+        {
+          js: 1100,
+          css: 'calc(1000 + 100)',
+        },
+      ],
     ];
 
     cases.forEach(([exp, { js, css }], index) => {
@@ -132,6 +140,13 @@ describe('util', () => {
       it(`css calc ${index + 1}`, () => {
         expect(exp(genCalc('css'))).toBe(css);
       });
+    });
+
+    it('css calc should work with string', () => {
+      const calc = genCalc('css');
+      expect(calc('var(--var1)').add('var(--var2)').equal()).toBe(
+        'calc(var(--var1) + var(--var2))',
+      );
     });
   });
 

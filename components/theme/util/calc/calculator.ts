@@ -7,5 +7,5 @@ export default abstract class AbstractCalculator {
 
   abstract div(num: number | string | AbstractCalculator): this;
 
-  abstract equal(): string | number;
+  abstract equal(options?: { unit?: boolean }): string | number;
 }
