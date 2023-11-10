@@ -926,7 +926,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
 
-    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2})`,
+    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}px)`,
   };
 };
 
