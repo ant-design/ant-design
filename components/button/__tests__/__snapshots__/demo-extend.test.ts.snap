@@ -2194,7 +2194,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         </li>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -2223,7 +2223,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         </li>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -2252,7 +2252,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         </li>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -2274,7 +2274,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
       >
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -2291,7 +2291,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         </div>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"
@@ -2308,7 +2308,7 @@ exports[`renders components/button/demo/multiple.tsx extend context correctly 1`
         </div>
         <div
           class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
         >
           <div
             class="ant-tooltip-arrow"

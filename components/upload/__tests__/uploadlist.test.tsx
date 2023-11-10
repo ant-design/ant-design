@@ -579,6 +579,34 @@ describe('Upload List', () => {
     unmount();
   });
 
+  // https://github.com/ant-design/ant-design/issues/27519
+  // https://github.com/ant-design/ant-design/issues/45735
+  it('should show remove icon when showRemoveIcon is true', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.querySelector('.anticon-delete')).toBeTruthy();
+    unmount();
+  });
+
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
