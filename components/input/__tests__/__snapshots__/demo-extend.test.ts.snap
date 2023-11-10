@@ -10442,6 +10442,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 1
   >
     <textarea
       class="ant-input"
+      maxlength="100"
       placeholder="can resize"
     />
     <span
@@ -10461,6 +10462,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 1
   >
     <textarea
       class="ant-input"
+      maxlength="100"
       placeholder="disable resize"
       style="resize: none;"
     />
@@ -10709,6 +10711,7 @@ Array [
   <br />,
   <textarea
     class="ant-input"
+    maxlength="6"
     placeholder="maxLength is 6"
     rows="4"
   />,

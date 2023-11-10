@@ -6,7 +6,7 @@ import { matchScreen, type ScreenMap } from '../../_util/responsiveObserver';
 
 // Convert children into items
 const transChildren2Items = (childNodes?: React.ReactNode) =>
-  toArray(childNodes).map((node) => ({ ...node?.props }));
+  toArray(childNodes).map((node) => ({ ...node?.props, key: node.key }));
 
 export default function useItems(
   screens: ScreenMap,
