@@ -376,6 +376,10 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     downloadIcon,
   } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
 
+  // use showRemoveIcon if it is specified explicitly
+  const realShowRemoveIcon =
+    typeof showRemoveIcon === 'undefined' ? !mergedDisabled : !!showRemoveIcon;
+
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
     if (!showUploadList) {
       return button;
@@ -389,7 +393,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         onPreview={onPreview}
         onDownload={onDownload}
         onRemove={handleRemove}
-        showRemoveIcon={!mergedDisabled && showRemoveIcon}
+        showRemoveIcon={realShowRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         showDownloadIcon={showDownloadIcon}
         removeIcon={removeIcon}
