@@ -926,7 +926,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
 
-    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}px)`,
+    subMenuTitleWidth: `100%`,
   };
 };
 
@@ -972,6 +972,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
         calc: token.calc,
+        subMenuTitleWidth:
+          token.activeBarWidth && token.activeBarBorderWidth
+            ? `calc(100% - ${token.marginXXS * 2}px)`
+            : '100%',
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {
