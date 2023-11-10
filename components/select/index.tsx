@@ -124,7 +124,7 @@ const InternalSelect = <
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
   const [, hashId] = useStyle(prefixCls);
-  const rootCls = useCSSVarCls(rootPrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
   const wrapCSSVar = useCSSVar(rootCls);
 
   const mode = React.useMemo(() => {

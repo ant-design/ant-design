@@ -56,7 +56,6 @@ There are some products to recommend for developer/designer/product manager.
 | Sketch plugin     | [Kitchen](https://kitchen.alipay.com)                                 |
 | Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | Image Compressor  | [tinypng](https://tinypng.com/)                                       |
-| Charts Dictionary | [图之典](http://tuzhidian.com/)                                       |
 
 <style>
 .markdown table td:first-child {

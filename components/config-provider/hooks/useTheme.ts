@@ -20,7 +20,10 @@ export default function useTheme(
 
   if (process.env.NODE_ENV !== 'production') {
     const cssVarEnabled = themeConfig.cssVar || parentThemeConfig.cssVar;
-    const validKey = !!(themeConfig.cssVar?.key || themeKey);
+    const validKey = !!(
+      (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) ||
+      themeKey
+    );
     warning(
       !cssVarEnabled || validKey,
       'breaking',
@@ -49,9 +52,9 @@ export default function useTheme(
       const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
       const mergedCssVar = (themeConfig.cssVar || parentThemeConfig.cssVar) && {
         prefix: 'antd', // Default to antd
-        ...parentThemeConfig.cssVar,
-        ...themeConfig.cssVar,
-        key: themeConfig.cssVar?.key || cssVarKey,
+        ...(typeof parentThemeConfig.cssVar === 'object' ? parentThemeConfig.cssVar : {}),
+        ...(typeof themeConfig.cssVar === 'object' ? themeConfig.cssVar : {}),
+        key: (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) || cssVarKey,
       };
 
       // Base token
