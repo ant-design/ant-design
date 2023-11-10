@@ -6,7 +6,7 @@ import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Anchor, Avatar, Col, ConfigProvider, Skeleton, Space, Tooltip, Typography } from 'antd';
+import { Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';
@@ -275,9 +275,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             </Typography.Paragraph>
           ) : null}
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
-          <ConfigProvider theme={{ cssVar: {} }}>
-            <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
-          </ConfigProvider>
+          <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
           {(meta.frontmatter?.zhihu_url ||
             meta.frontmatter?.yuque_url ||
             meta.frontmatter?.juejin_url) && (
