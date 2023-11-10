@@ -12,7 +12,7 @@ export default class NumCalculator extends AbstractCalculator {
     }
   }
 
-  add(num: number | AbstractCalculator): this {
+  add(num: number | string | AbstractCalculator): this {
     if (num instanceof NumCalculator) {
       this.result += num.result;
     } else if (typeof num === 'number') {
@@ -21,7 +21,7 @@ export default class NumCalculator extends AbstractCalculator {
     return this;
   }
 
-  sub(num: number | AbstractCalculator): this {
+  sub(num: number | string | AbstractCalculator): this {
     if (num instanceof NumCalculator) {
       this.result -= num.result;
     } else if (typeof num === 'number') {
@@ -30,7 +30,7 @@ export default class NumCalculator extends AbstractCalculator {
     return this;
   }
 
-  mul(num: number | AbstractCalculator): this {
+  mul(num: number | string | AbstractCalculator): this {
     if (num instanceof NumCalculator) {
       this.result *= num.result;
     } else if (typeof num === 'number') {
@@ -39,7 +39,7 @@ export default class NumCalculator extends AbstractCalculator {
     return this;
   }
 
-  div(num: number | AbstractCalculator): this {
+  div(num: number | string | AbstractCalculator): this {
     if (num instanceof NumCalculator) {
       this.result /= num.result;
     } else if (typeof num === 'number') {
