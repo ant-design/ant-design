@@ -926,7 +926,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
 
-    subMenuTitleWidth: `100%`,
+    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}px)`,
   };
 };
 
@@ -974,8 +974,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         calc: token.calc,
         subMenuTitleWidth:
           token.activeBarWidth && token.activeBarBorderWidth
-            ? `calc(100% - ${token.marginXXS * 2}px)`
-            : '100%',
+            ? `calc(100% + ${token.activeBarBorderWidth}px)`
+            : `calc(100% - ${token.marginXXS * 2}px)`,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {
