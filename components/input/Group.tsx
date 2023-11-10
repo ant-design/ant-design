@@ -7,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface GroupProps {
   className?: string;
@@ -26,7 +27,8 @@ const Group: React.FC<GroupProps> = (props) => {
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapSSR, hashId] = useStyle(inputPrefixCls);
+  const [, hashId] = useStyle(inputPrefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -55,7 +57,7 @@ const Group: React.FC<GroupProps> = (props) => {
     warning.deprecated(false, 'Input.Group', 'Space.Compact');
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <span
       className={cls}
       style={props.style}
