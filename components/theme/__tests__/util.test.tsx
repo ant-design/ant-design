@@ -144,7 +144,9 @@ describe('util', () => {
 
     it('css calc should work with string', () => {
       const calc = genCalc('css');
-      expect(calc('var(--var1)').add(2).equal()).toBe('calc(var(--var1) + 2px)');
+      expect(calc('var(--var1)').add('var(--var2)').equal()).toBe(
+        'calc(var(--var1) + var(--var2))',
+      );
     });
   });
 
