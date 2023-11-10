@@ -141,6 +141,11 @@ describe('util', () => {
         expect(exp(genCalc('css'))).toBe(css);
       });
     });
+
+    it('css calc should work with string', () => {
+      const calc = genCalc('css');
+      expect(calc('var(--var1)').add(2).equal()).toBe('calc(var(--var1) + 2px)');
+    });
   });
 
   describe('maxmin', () => {
