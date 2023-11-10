@@ -3,7 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
@@ -1045,7 +1045,7 @@ export function initInputToken(token: GlobalToken): SharedInputToken {
   });
 }
 
-export const initComponentToken: GetDefaultToken<'Input'> = (token) => {
+export const initComponentToken = (token: GlobalToken): SharedComponentToken => {
   const {
     controlHeight,
     fontSize,
