@@ -122,6 +122,14 @@ describe('util', () => {
           css: '6px',
         },
       ],
+      [
+        // 1000 + 100 without unit
+        (calc) => calc(1000).add(100).equal({ unit: false }),
+        {
+          js: 1100,
+          css: 'calc(1000 + 100)',
+        },
+      ],
     ];
 
     cases.forEach(([exp, { js, css }], index) => {
