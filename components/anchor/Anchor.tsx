@@ -13,6 +13,7 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -365,9 +366,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(anchorPrefixCls);
+  const [, hashId] = useStyle(anchorPrefixCls);
+  const wrapCSSVar = useCSSVar(anchorPrefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <AnchorContent
       {...props}
       rootClassName={classNames(hashId, rootClassName)}
