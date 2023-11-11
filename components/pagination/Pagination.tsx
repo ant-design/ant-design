@@ -13,6 +13,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -54,7 +55,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
@@ -120,7 +122,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcPagination
       {...iconsProps}
       {...restProps}

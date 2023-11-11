@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import {
   genBasicInputStyle,
   genInputSmallStyle,
@@ -7,7 +7,7 @@ import {
 } from '../../input/style';
 import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -170,14 +170,14 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     [`&${componentCls}-mini ${componentCls}-total-text, &${componentCls}-mini ${componentCls}-simple-pager`]:
       {
         height: token.itemSizeSM,
-        lineHeight: `${token.itemSizeSM}px`,
+        lineHeight: `${unit(token.itemSizeSM)}`,
       },
 
     [`&${componentCls}-mini ${componentCls}-item`]: {
       minWidth: token.itemSizeSM,
       height: token.itemSizeSM,
       margin: 0,
-      lineHeight: `${token.itemSizeSM - 2}px`,
+      lineHeight: `${unit(token.calc(token.itemSizeSM).sub(2).equal())}`,
     },
 
     [`&${componentCls}-mini:not(${componentCls}-disabled) ${componentCls}-item:not(${componentCls}-item-active)`]:
@@ -196,7 +196,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       minWidth: token.itemSizeSM,
       height: token.itemSizeSM,
       margin: 0,
-      lineHeight: `${token.itemSizeSM}px`,
+      lineHeight: `${unit(token.itemSizeSM)}`,
     },
 
     [`&${componentCls}-mini:not(${componentCls}-disabled)`]: {
@@ -222,7 +222,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       '&::after': {
         height: token.itemSizeSM,
-        lineHeight: `${token.itemSizeSM}px`,
+        lineHeight: `${unit(token.itemSizeSM)}`,
       },
     },
 
@@ -230,7 +230,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       {
         height: token.itemSizeSM,
         marginInlineEnd: 0,
-        lineHeight: `${token.itemSizeSM}px`,
+        lineHeight: `${unit(token.itemSizeSM)}`,
       },
 
     [`&${componentCls}-mini ${componentCls}-options`]: {
@@ -242,7 +242,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       [`&-quick-jumper`]: {
         height: token.itemSizeSM,
-        lineHeight: `${token.itemSizeSM}px`,
+        lineHeight: `${unit(token.itemSizeSM)}`,
 
         input: {
           ...genInputSmallStyle(token),
@@ -278,7 +278,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         },
         '&::after': {
           height: token.itemSizeSM,
-          lineHeight: `${token.itemSizeSM}px`,
+          lineHeight: `${unit(token.itemSizeSM)}`,
         },
       },
     },
@@ -292,10 +292,10 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         boxSizing: 'border-box',
         height: '100%',
         marginInlineEnd: token.marginXS,
-        padding: `0 ${token.paginationItemPaddingInline}px`,
+        padding: `0 ${unit(token.paginationItemPaddingInline)}`,
         textAlign: 'center',
         backgroundColor: token.itemInputBg,
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         outline: 'none',
         transition: `border-color ${token.motionDurationMid}`,
@@ -307,7 +307,9 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 
         '&:focus': {
           borderColor: token.colorPrimaryHover,
-          boxShadow: `${token.inputOutlineOffset}px 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
+          boxShadow: `${unit(token.inputOutlineOffset)} 0 ${unit(token.controlOutlineWidth)} ${
+            token.controlOutline
+          }`,
         },
 
         '&[disabled]': {
@@ -393,7 +395,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       height: token.itemSize,
       color: token.colorText,
       fontFamily: token.fontFamily,
-      lineHeight: `${token.itemSize}px`,
+      lineHeight: `${unit(token.itemSize)}`,
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
@@ -420,7 +422,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         fontSize: token.fontSizeSM,
         textAlign: 'center',
         backgroundColor: 'transparent',
-        border: `${token.lineWidth}px ${token.lineType} transparent`,
+        border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
         borderRadius: token.borderRadius,
         outline: 'none',
         transition: `all ${token.motionDurationMid}`,
@@ -460,13 +462,13 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         display: 'inline-block',
         height: token.controlHeight,
         marginInlineStart: token.marginXS,
-        lineHeight: `${token.controlHeight}px`,
+        lineHeight: `${unit(token.controlHeight)}`,
         verticalAlign: 'top',
 
         input: {
           ...genBasicInputStyle(token),
 
-          width: token.controlHeightLG * 1.25,
+          width: token.calc(token.controlHeightLG).mul(1.25).equal(),
           height: token.controlHeight,
           boxSizing: 'border-box',
           margin: 0,
@@ -488,12 +490,12 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       height: token.itemSize,
       marginInlineEnd: token.marginXS,
       fontFamily: token.fontFamily,
-      lineHeight: `${token.itemSize - 2}px`,
+      lineHeight: `${unit(token.calc(token.itemSize).sub(2).equal())}`,
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
       backgroundColor: 'transparent',
-      border: `${token.lineWidth}px ${token.lineType} transparent`,
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
       borderRadius: token.borderRadius,
       outline: 0,
       cursor: 'pointer',
@@ -501,7 +503,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       a: {
         display: 'block',
-        padding: `0 ${token.paginationItemPaddingInline}px`,
+        padding: `0 ${unit(token.paginationItemPaddingInline)}`,
         color: token.colorText,
 
         '&:hover': {
@@ -567,7 +569,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
         display: 'inline-block',
         height: token.itemSize,
         marginInlineEnd: token.marginXS,
-        lineHeight: `${token.itemSize - 2}px`,
+        lineHeight: unit(token.calc(token.itemSize).sub(2).equal()),
         verticalAlign: 'middle',
       },
 
@@ -735,6 +737,18 @@ const genPaginationFocusStyle: GenerateStyle<PaginationToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Pagination'> = (token) => ({
+  itemBg: token.colorBgContainer,
+  itemSize: token.controlHeight,
+  itemSizeSM: token.controlHeightSM,
+  itemActiveBg: token.colorBgContainer,
+  itemLinkBg: token.colorBgContainer,
+  itemActiveColorDisabled: token.colorTextDisabled,
+  itemActiveBgDisabled: token.controlItemBgActiveDisabled,
+  itemInputBg: token.colorBgContainer,
+  miniOptionsSizeChangerTop: 0,
+});
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Pagination',
@@ -760,15 +774,5 @@ export default genComponentStyleHook(
       token.wireframe && genBorderedStyle(paginationToken),
     ];
   },
-  (token) => ({
-    itemBg: token.colorBgContainer,
-    itemSize: token.controlHeight,
-    itemSizeSM: token.controlHeightSM,
-    itemActiveBg: token.colorBgContainer,
-    itemLinkBg: token.colorBgContainer,
-    itemActiveColorDisabled: token.colorTextDisabled,
-    itemActiveBgDisabled: token.controlItemBgActiveDisabled,
-    itemInputBg: token.colorBgContainer,
-    miniOptionsSizeChangerTop: 0,
-  }),
+  prepareComponentToken,
 );
