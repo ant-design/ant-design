@@ -71,17 +71,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
-| onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
+| onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
 | onDragLeave | Callback function for when the onDragLeave event occurs | function({event, node}) | - |  |
 | onDragOver | Callback function for when the onDragOver event occurs | function({event, node}) | - |  |
 | onDragStart | Callback function for when the onDragStart event occurs | function({event, node}) | - |  |
 | onDrop | Callback function for when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |  |
-| onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: bool, node}) | - |  |
+| onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: boolean, node}) | - |  |
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - |  |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
-| onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
+| onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: boolean, selectedNodes, node, event}) | - |  |
 
 ### TreeNode props
 

@@ -6504,6 +6504,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 aria-required="true"
                 class="ant-input"
                 id="register_intro"
+                maxlength="100"
               />
               <span
                 class="ant-input-suffix"

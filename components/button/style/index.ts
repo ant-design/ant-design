@@ -224,44 +224,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&-icon-only${componentCls}-compact-item`]: {
         flex: 'none',
       },
-      // Special styles for Primary Button
-      [`&-compact-item${componentCls}-primary`]: {
-        [`&:not([disabled]) + ${componentCls}-compact-item${componentCls}-primary:not([disabled])`]:
-          {
-            position: 'relative',
-
-            '&:before': {
-              position: 'absolute',
-              top: -token.lineWidth,
-              insetInlineStart: -token.lineWidth,
-              display: 'inline-block',
-              width: token.lineWidth,
-              height: `calc(100% + ${unit(token.lineWidth)} * 2)`,
-              backgroundColor: token.colorPrimaryHover,
-              content: '""',
-            },
-          },
-      },
-      // Special styles for Primary Button
-      '&-compact-vertical-item': {
-        [`&${componentCls}-primary`]: {
-          [`&:not([disabled]) + ${componentCls}-compact-vertical-item${componentCls}-primary:not([disabled])`]:
-            {
-              position: 'relative',
-
-              '&:before': {
-                position: 'absolute',
-                top: -token.lineWidth,
-                insetInlineStart: -token.lineWidth,
-                display: 'inline-block',
-                width: `calc(100% + ${unit(token.lineWidth)} * 2)`,
-                height: token.lineWidth,
-                backgroundColor: token.colorPrimaryHover,
-                content: '""',
-              },
-            },
-        },
-      },
     },
   };
 };

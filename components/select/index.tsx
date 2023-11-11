@@ -22,9 +22,11 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 type RawValue = string | number;
 
@@ -121,7 +123,9 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -181,12 +185,13 @@ const InternalSelect = <
     'itemIcon',
   ]);
 
-  const rcSelectRtlDropdownClassName = classNames(
+  const mergedPopupClassName = classNames(
     popupClassName || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    rootCls,
     hashId,
   );
 
@@ -209,6 +214,7 @@ const InternalSelect = <
     select?.className,
     className,
     rootClassName,
+    rootCls,
     hashId,
   );
 
@@ -245,7 +251,7 @@ const InternalSelect = <
   const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
 
   // ====================== Render =======================
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
@@ -268,7 +274,7 @@ const InternalSelect = <
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={rcSelectRtlDropdownClassName}
+      dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       dropdownStyle={{
         ...props?.dropdownStyle,

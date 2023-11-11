@@ -1,6 +1,7 @@
 import getAlphaColor from '../util/getAlphaColor';
 import genCalc from '../util/calc';
-import type AbstractCalculator from 'antd/es/theme/util/calc/calculator';
+import type AbstractCalculator from '../util/calc/calculator';
+import genMaxMin from '../util/maxmin';
 
 describe('util', () => {
   describe('getAlphaColor', () => {
@@ -121,6 +122,14 @@ describe('util', () => {
           css: '6px',
         },
       ],
+      [
+        // 1000 + 100 without unit
+        (calc) => calc(1000).add(100).equal({ unit: false }),
+        {
+          js: 1100,
+          css: 'calc(1000 + 100)',
+        },
+      ],
     ];
 
     cases.forEach(([exp, { js, css }], index) => {
@@ -130,6 +139,43 @@ describe('util', () => {
 
       it(`css calc ${index + 1}`, () => {
         expect(exp(genCalc('css'))).toBe(css);
+      });
+    });
+
+    it('css calc should work with string', () => {
+      const calc = genCalc('css');
+      expect(calc('var(--var1)').add('var(--var2)').equal()).toBe(
+        'calc(var(--var1) + var(--var2))',
+      );
+    });
+  });
+
+  describe('maxmin', () => {
+    const cases = [
+      {
+        values: [1, 2, 3],
+        js: {
+          max: 3,
+          min: 1,
+        },
+        css: {
+          max: 'max(1px,2px,3px)',
+          min: 'min(1px,2px,3px)',
+        },
+      },
+    ];
+
+    cases.forEach(({ values, js, css }, index) => {
+      it(`js maxmin ${index + 1}`, () => {
+        const { max, min } = genMaxMin('js');
+        expect(max(...values)).toEqual(js.max);
+        expect(min(...values)).toEqual(js.min);
+      });
+
+      it(`css maxmin ${index + 1}`, () => {
+        const { max, min } = genMaxMin('css');
+        expect(max(...values)).toEqual(css.max);
+        expect(min(...values)).toEqual(css.min);
       });
     });
   });
