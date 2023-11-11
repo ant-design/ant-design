@@ -23,4 +23,4 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'App'> = () => ({});
 
 // ============================== Export ==============================
-export default genComponentStyleHook('App', (token) => [genBaseStyle(token)]);
+export default genComponentStyleHook('App', genBaseStyle, prepareComponentToken);
