@@ -1,6 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { alignItemsValues, flexWrapValues, justifyContentValues } from '../utils';
 
@@ -16,21 +17,21 @@ export interface FlexToken extends FullToken<'Flex'> {
    * @desc 控制元素的小间隙。
    * @descEN Control the small gap of the element.
    */
-  flexGapSM: number;
+  flexGapSM: number | string;
   /**
    * @nameZH 间隙
    * @nameEN Gap
    * @desc 控制元素的间隙。
    * @descEN Control the gap of the element.
    */
-  flexGap: number;
+  flexGap: number | string;
   /**
    * @nameZH 大间隙
    * @nameEN Large Gap
    * @desc 控制元素的大间隙。
    * @descEN Control the large gap of the element.
    */
-  flexGapLG: number;
+  flexGapLG: number | string;
 }
 
 const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
@@ -56,13 +57,13 @@ const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       '&-gap-small': {
-        gap: token.flexGapSM,
+        gap: unit(token.flexGapSM),
       },
       '&-gap-middle': {
-        gap: token.flexGap,
+        gap: unit(token.flexGap),
       },
       '&-gap-large': {
-        gap: token.flexGapLG,
+        gap: unit(token.flexGapLG),
       },
     },
   };
@@ -95,11 +96,21 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   return justifyStyle;
 };
 
+export const prepareComponentToken: GetDefaultToken<'Flex'> = (token) => {
+  const { paddingXS, padding, paddingLG } = token;
+  return {
+    flexGapSM: unit(paddingXS),
+    flexGap: unit(padding),
+    flexGapLG: unit(paddingLG),
+  };
+};
+
 export default genComponentStyleHook<'Flex'>('Flex', (token) => {
+  const { paddingXS, padding, paddingLG } = token;
   const flexToken = mergeToken<FlexToken>(token, {
-    flexGapSM: token.paddingXS,
-    flexGap: token.padding,
-    flexGapLG: token.paddingLG,
+    flexGapSM: unit(paddingXS),
+    flexGap: unit(padding),
+    flexGapLG: unit(paddingLG),
   });
   return [
     genFlexStyle(flexToken),
