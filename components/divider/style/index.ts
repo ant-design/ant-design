@@ -184,11 +184,15 @@ export const prepareComponentToken: GetDefaultToken<'Divider'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Divider', (token) => {
-  const dividerToken = mergeToken<DividerToken>(token, {
-    dividerHorizontalWithTextGutterMargin: unit(token.margin),
-    dividerHorizontalGutterMargin: unit(token.marginLG),
-    sizePaddingEdgeHorizontal: 0,
-  });
-  return [genSharedDividerStyle(dividerToken)];
-});
+export default genComponentStyleHook(
+  'Divider',
+  (token) => {
+    const dividerToken = mergeToken<DividerToken>(token, {
+      dividerHorizontalWithTextGutterMargin: unit(token.margin),
+      dividerHorizontalGutterMargin: unit(token.marginLG),
+      sizePaddingEdgeHorizontal: 0,
+    });
+    return [genSharedDividerStyle(dividerToken)];
+  },
+  prepareComponentToken,
+);
