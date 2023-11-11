@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { GetDefaultToken, genComponentStyleHook } from '../../theme/internal';
@@ -181,7 +181,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           zIndex: 1,
           height: triggerHeight,
           color: triggerColor,
-          lineHeight: `${triggerHeight}px`,
+          lineHeight: unit(triggerHeight),
           textAlign: 'center',
           background: triggerBg,
           cursor: 'pointer',
@@ -249,7 +249,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       height: headerHeight,
       padding: headerPadding,
       color: headerColor,
-      lineHeight: `${headerHeight}px`,
+      lineHeight: unit(headerHeight),
       background: headerBg,
 
       // Other components/menu/style/index.less line:686
