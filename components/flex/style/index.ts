@@ -57,13 +57,13 @@ const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       '&-gap-small': {
-        gap: unit(token.flexGapSM),
+        gap: token.flexGapSM,
       },
       '&-gap-middle': {
-        gap: unit(token.flexGap),
+        gap: token.flexGap,
       },
       '&-gap-large': {
-        gap: unit(token.flexGapLG),
+        gap: token.flexGapLG,
       },
     },
   };
@@ -96,27 +96,24 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
   return justifyStyle;
 };
 
-export const prepareComponentToken: GetDefaultToken<'Flex'> = (token) => {
-  const { paddingXS, padding, paddingLG } = token;
-  return {
-    flexGapSM: unit(paddingXS),
-    flexGap: unit(padding),
-    flexGapLG: unit(paddingLG),
-  };
-};
+export const prepareComponentToken: GetDefaultToken<'Flex'> = () => ({});
 
-export default genComponentStyleHook<'Flex'>('Flex', (token) => {
-  const { paddingXS, padding, paddingLG } = token;
-  const flexToken = mergeToken<FlexToken>(token, {
-    flexGapSM: unit(paddingXS),
-    flexGap: unit(padding),
-    flexGapLG: unit(paddingLG),
-  });
-  return [
-    genFlexStyle(flexToken),
-    genFlexGapStyle(flexToken),
-    genFlexWrapStyle(flexToken),
-    genAlignItemsStyle(flexToken),
-    genJustifyContentStyle(flexToken),
-  ];
-});
+export default genComponentStyleHook<'Flex'>(
+  'Flex',
+  (token) => {
+    const { paddingXS, padding, paddingLG } = token;
+    const flexToken = mergeToken<FlexToken>(token, {
+      flexGapSM: unit(paddingXS),
+      flexGap: unit(padding),
+      flexGapLG: unit(paddingLG),
+    });
+    return [
+      genFlexStyle(flexToken),
+      genFlexGapStyle(flexToken),
+      genFlexWrapStyle(flexToken),
+      genAlignItemsStyle(flexToken),
+      genJustifyContentStyle(flexToken),
+    ];
+  },
+  prepareComponentToken,
+);
