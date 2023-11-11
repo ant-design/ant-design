@@ -65,6 +65,7 @@ export interface ComponentToken {
 interface ListToken extends FullToken<'List'> {
   listBorderedCls: string;
   minHeight: number;
+  itemActionSplitHeight: number | string;
 }
 
 const genBorderedStyle = (token: ListToken): CSSObject => {
@@ -179,6 +180,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     avatarMarginRight,
     titleMarginBottom,
     descriptionFontSize,
+    itemActionSplitHeight,
   } = token;
 
   const alignCls: any = {};
@@ -299,11 +301,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             insetBlockStart: '50%',
             insetInlineEnd: 0,
             width: lineWidth,
-            // todo Math.ceil(token.fontSize * token.lineHeight) - token.marginXXS * 2
-            height: token
-              .calc(token.fontSize)
-              .mul(token.lineHeight)
-              .sub(token.calc(token.marginXXS).mul(2)),
+            height: itemActionSplitHeight,
             transform: 'translateY(-50%)',
             backgroundColor: token.colorSplit,
           },
@@ -426,6 +424,7 @@ export const prepareComponentToken: GetDefaultToken<'List'> = (token) => ({
   avatarMarginRight: token.padding,
   titleMarginBottom: token.paddingSM,
   descriptionFontSize: token.fontSize,
+  itemActionSplitHeight: Math.ceil(token.fontSize * token.lineHeight) - token.marginXXS * 2,
 });
 
 // ============================== Export ==============================
