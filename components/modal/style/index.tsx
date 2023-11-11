@@ -6,6 +6,7 @@ import type { GlobalToken } from '../../theme';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { GenStyleFn, TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import { unit } from '@ant-design/cssinjs';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -44,7 +45,7 @@ export interface ComponentToken {
 
 export interface ModalToken extends FullToken<'Modal'> {
   // Custom token here
-  modalHeaderHeight: number;
+  modalHeaderHeight: number | string;
   modalBodyPadding: number;
   modalHeaderPadding: string;
   modalHeaderBorderWidth: number;
@@ -57,8 +58,20 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalFooterBorderWidth: number;
   modalIconHoverColor: string;
   modalCloseIconColor: string;
-  modalCloseBtnSize: number;
-  modalConfirmIconSize: number;
+  modalCloseBtnSize: number | string;
+  modalConfirmIconSize: number | string;
+  modalTitleHeight: number | string;
+  modalContentHeight: number | string;
+  /**
+   * @desc 标题高度
+   * @descEN Height of title
+   */
+  titleHeight: number;
+  /**
+   * @desc 内容区域高度
+   * @descEN Height of content
+   */
+  contentHeight: number;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -153,7 +166,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         [`@media (max-width: ${token.screenSMMax})`]: {
           [componentCls]: {
             maxWidth: 'calc(100vw - 16px)',
-            margin: `${token.marginXS} auto`,
+            margin: `${unit(token.marginXS)} auto`,
           },
           [`${componentCls}-centered`]: {
             [componentCls]: {
@@ -172,7 +185,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         position: 'relative',
         top: 100,
         width: 'auto',
-        maxWidth: `calc(100vw - ${token.margin * 2}px)`,
+        maxWidth: `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
         margin: '0 auto',
         paddingBottom: token.paddingLG,
 
@@ -193,14 +206,18 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           borderRadius: token.borderRadiusLG,
           boxShadow: token.boxShadow,
           pointerEvents: 'auto',
-          padding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+          padding: `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
         },
 
         [`${componentCls}-close`]: {
           position: 'absolute',
-          top: (token.modalHeaderHeight - token.modalCloseBtnSize) / 2,
-          insetInlineEnd: (token.modalHeaderHeight - token.modalCloseBtnSize) / 2,
-          zIndex: token.zIndexPopupBase + 10,
+          top: token.calc(token.modalHeaderHeight).sub(token.modalCloseBtnSize).div(2).equal(),
+          insetInlineEnd: token
+            .calc(token.modalHeaderHeight)
+            .sub(token.modalCloseBtnSize)
+            .div(2)
+            .equal(),
+          zIndex: token.calc(token.zIndexPopupBase).add(10).equal(),
           padding: 0,
           color: token.modalCloseIconColor,
           fontWeight: token.fontWeightStrong,
@@ -219,7 +236,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
             display: 'flex',
             fontSize: token.fontSizeLG,
             fontStyle: 'normal',
-            lineHeight: `${token.modalCloseBtnSize}px`,
+            lineHeight: `${unit(token.modalCloseBtnSize)}`,
             justifyContent: 'center',
             textTransform: 'none',
             textRendering: 'auto',
@@ -241,7 +258,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         [`${componentCls}-header`]: {
           color: token.colorText,
           background: token.headerBg,
-          borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+          borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
           marginBottom: token.marginXS,
         },
 
@@ -304,7 +321,9 @@ const genWireframeStyle: GenerateStyle<ModalToken> = (token) => {
 
       [`${componentCls}-header`]: {
         padding: token.modalHeaderPadding,
-        borderBottom: `${token.modalHeaderBorderWidth}px ${token.modalHeaderBorderStyle} ${token.modalHeaderBorderColorSplit}`,
+        borderBottom: `${unit(token.modalHeaderBorderWidth)} ${token.modalHeaderBorderStyle} ${
+          token.modalHeaderBorderColorSplit
+        }`,
         marginBottom: 0,
       },
 
@@ -313,16 +332,22 @@ const genWireframeStyle: GenerateStyle<ModalToken> = (token) => {
       },
 
       [`${componentCls}-footer`]: {
-        padding: `${token.modalFooterPaddingVertical}px ${token.modalFooterPaddingHorizontal}px`,
-        borderTop: `${token.modalFooterBorderWidth}px ${token.modalFooterBorderStyle} ${token.modalFooterBorderColorSplit}`,
-        borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px`,
+        padding: `${unit(token.modalFooterPaddingVertical)} ${unit(
+          token.modalFooterPaddingHorizontal,
+        )}`,
+        borderTop: `${unit(token.modalFooterBorderWidth)} ${token.modalFooterBorderStyle} ${
+          token.modalFooterBorderColorSplit
+        }`,
+        borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
         marginTop: 0,
       },
     },
 
     [confirmComponentCls]: {
       [`${antCls}-modal-body`]: {
-        padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
+        padding: `${unit(token.calc(token.padding).mul(2).equal())} ${unit(
+          token.calc(token.padding).mul(2).equal(),
+        )} ${unit(token.paddingLG)}`,
       },
       [`${confirmComponentCls}-body > ${token.iconCls}`]: {
         marginInlineEnd: token.margin,
@@ -357,11 +382,15 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
 
   const modalToken = mergeToken<ModalToken>(token, {
     modalBodyPadding: token.paddingLG,
-    modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
+    modalHeaderPadding: `${unit(headerPaddingVertical)} ${unit(token.paddingLG)}`,
     modalHeaderBorderWidth: token.lineWidth,
     modalHeaderBorderStyle: token.lineType,
     modalHeaderBorderColorSplit: token.colorSplit,
-    modalHeaderHeight: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
+    modalHeaderHeight: token
+      .calc(headerLineHeight)
+      .mul(headerFontSize)
+      .add(token.calc(headerPaddingVertical).mul(2))
+      .equal(),
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.lineType,
     modalFooterPaddingVertical: token.paddingXS,
@@ -369,8 +398,8 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalFooterBorderWidth: token.lineWidth,
     modalIconHoverColor: token.colorIconHover,
     modalCloseIconColor: token.colorIcon,
-    modalCloseBtnSize: token.fontSize * token.lineHeight,
-    modalConfirmIconSize: token.fontSize * token.lineHeight,
+    modalCloseBtnSize: token.calc(token.fontSize).mul(token.lineHeight).equal(),
+    modalConfirmIconSize: token.calc(token.fontSize).mul(token.lineHeight).equal(),
   });
 
   return modalToken;
@@ -383,6 +412,8 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   titleFontSize: token.fontSizeHeading5,
   contentBg: token.colorBgElevated,
   titleColor: token.colorTextHeading,
+  titleHeight: Math.round(token.fontSizeHeading5 * token.lineHeightHeading5),
+  contentHeight: Math.round(token.fontSize * token.lineHeight),
 });
 
 export default genComponentStyleHook(
