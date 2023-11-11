@@ -1,4 +1,6 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
+
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export type ComponentToken = {};
@@ -11,12 +13,14 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
   return {
     [componentCls]: {
       color: colorText,
-      fontSize,
-      lineHeight,
+      fontSize: unit(fontSize),
+      lineHeight: unit(lineHeight),
       fontFamily,
     },
   };
 };
+
+export const prepareComponentToken: GetDefaultToken<'App'> = () => ({});
 
 // ============================== Export ==============================
 export default genComponentStyleHook('App', (token) => [genBaseStyle(token)]);
