@@ -41,10 +41,16 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
           flex: 'none',
           fontSize: modalConfirmIconSize,
           marginInlineEnd: token.marginSM,
-          marginTop: token.calc(contentHeight).sub(token.modalConfirmIconSize).div(2).equal(),
+          marginTop: token
+            .calc(token.calc(contentHeight).sub(modalConfirmIconSize).equal())
+            .div(2)
+            .equal(),
         },
         [`&-has-title > ${token.iconCls}`]: {
-          marginTop: token.calc(titleHeight).sub(token.modalConfirmIconSize).div(2).equal(),
+          marginTop: token
+            .calc(token.calc(titleHeight).sub(modalConfirmIconSize).equal())
+            .div(2)
+            .equal(),
         },
       },
 

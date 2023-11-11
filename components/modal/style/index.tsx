@@ -66,12 +66,12 @@ export interface ModalToken extends FullToken<'Modal'> {
    * @desc 标题高度
    * @descEN Height of title
    */
-  titleHeight: number;
+  titleHeight: number | string;
   /**
    * @desc 内容区域高度
    * @descEN Height of content
    */
-  contentHeight: number;
+  contentHeight: number | string;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -387,9 +387,8 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalHeaderBorderStyle: token.lineType,
     modalHeaderBorderColorSplit: token.colorSplit,
     modalHeaderHeight: token
-      .calc(headerLineHeight)
-      .mul(headerFontSize)
-      .add(token.calc(headerPaddingVertical).mul(2))
+      .calc(token.calc(headerLineHeight).mul(headerFontSize).equal())
+      .add(token.calc(headerPaddingVertical).mul(2).equal())
       .equal(),
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.lineType,
@@ -400,6 +399,8 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalCloseIconColor: token.colorIcon,
     modalCloseBtnSize: token.calc(token.fontSize).mul(token.lineHeight).equal(),
     modalConfirmIconSize: token.calc(token.fontSize).mul(token.lineHeight).equal(),
+    titleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
+    contentHeight: token.calc(token.fontSize).mul(token.lineHeight).equal(),
   });
 
   return modalToken;
@@ -412,8 +413,6 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   titleFontSize: token.fontSizeHeading5,
   contentBg: token.colorBgElevated,
   titleColor: token.colorTextHeading,
-  titleHeight: Math.round(token.fontSizeHeading5 * token.lineHeightHeading5),
-  contentHeight: Math.round(token.fontSize * token.lineHeight),
 });
 
 export default genComponentStyleHook(

@@ -12,6 +12,7 @@ import type { ModalFuncProps } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface PurePanelProps
   extends Omit<PanelProps, 'prefixCls' | 'footer'>,
@@ -36,7 +37,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
-  const wrapCSSVar = useCSSVar(rootPrefixCls);
+  const rootCls = useCSSVarCls(rootPrefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const [, hashId] = useStyle(prefixCls);
 
@@ -77,6 +79,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         type && confirmPrefixCls,
         type && `${confirmPrefixCls}-${type}`,
         className,
+        rootCls,
       )}
       {...restProps}
       closeIcon={renderCloseIcon(prefixCls, closeIcon)}
