@@ -1,7 +1,9 @@
-import type { CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -24,9 +26,9 @@ export interface ComponentToken {
 }
 
 interface DividerToken extends FullToken<'Divider'> {
-  sizePaddingEdgeHorizontal: number;
-  dividerHorizontalWithTextGutterMargin: number;
-  dividerHorizontalGutterMargin: number;
+  sizePaddingEdgeHorizontal: number | string;
+  dividerHorizontalWithTextGutterMargin: number | string;
+  dividerHorizontalGutterMargin: number | string;
 }
 
 // ============================== Shared ==============================
@@ -44,7 +46,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
   return {
     [componentCls]: {
       ...resetComponent(token),
-      borderBlockStart: `${lineWidth}px solid ${colorSplit}`,
+      borderBlockStart: `${unit(lineWidth)} solid ${colorSplit}`,
 
       // vertical
       '&-vertical': {
@@ -52,11 +54,11 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         top: '-0.06em',
         display: 'inline-block',
         height: '0.9em',
-        marginInline: verticalMarginInline,
+        marginInline: unit(verticalMarginInline ?? 0),
         marginBlock: 0,
         verticalAlign: 'middle',
         borderTop: 0,
-        borderInlineStart: `${lineWidth}px solid ${colorSplit}`,
+        borderInlineStart: `${unit(lineWidth)} solid ${colorSplit}`,
       },
 
       '&-horizontal': {
@@ -64,16 +66,16 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         clear: 'both',
         width: '100%',
         minWidth: '100%', // Fix https://github.com/ant-design/ant-design/issues/10914
-        margin: `${token.dividerHorizontalGutterMargin}px 0`,
+        margin: `${unit(token.dividerHorizontalGutterMargin)} 0`,
       },
 
       [`&-horizontal${componentCls}-with-text`]: {
         display: 'flex',
         alignItems: 'center',
-        margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
+        margin: `${unit(token.dividerHorizontalWithTextGutterMargin)} 0`,
         color: token.colorTextHeading,
         fontWeight: 500,
-        fontSize: token.fontSizeLG,
+        fontSize: unit(token.fontSizeLG),
         whiteSpace: 'nowrap',
         textAlign: 'center',
         borderBlockStart: `0 ${colorSplit}`,
@@ -81,7 +83,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         '&::before, &::after': {
           position: 'relative',
           width: '50%',
-          borderBlockStart: `${lineWidth}px solid transparent`,
+          borderBlockStart: `${unit(lineWidth)} solid transparent`,
           // Chrome not accept `inherit` in `border-top`
           borderBlockStartColor: 'inherit',
           borderBlockEnd: 0,
@@ -113,14 +115,14 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       [`${componentCls}-inner-text`]: {
         display: 'inline-block',
         paddingBlock: 0,
-        paddingInline: textPaddingInline,
+        paddingInline: unit(textPaddingInline ?? 0),
       },
 
       '&-dashed': {
         background: 'none',
         borderColor: colorSplit,
         borderStyle: 'dashed',
-        borderWidth: `${lineWidth}px 0 0`,
+        borderWidth: `${unit(lineWidth)} 0 0`,
       },
 
       [`&-horizontal${componentCls}-with-text${componentCls}-dashed`]: {
@@ -130,7 +132,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       [`&-vertical${componentCls}-dashed`]: {
-        borderInlineStartWidth: lineWidth,
+        borderInlineStartWidth: unit(lineWidth),
         borderInlineEnd: 0,
         borderBlockStart: 0,
         borderBlockEnd: 0,
@@ -139,7 +141,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       [`&-plain${componentCls}-with-text`]: {
         color: token.colorText,
         fontWeight: 'normal',
-        fontSize: token.fontSize,
+        fontSize: unit(token.fontSize),
       },
 
       [`&-horizontal${componentCls}-with-text-left${componentCls}-no-default-orientation-margin-left`]:
@@ -153,7 +155,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           },
 
           [`${componentCls}-inner-text`]: {
-            paddingInlineStart: sizePaddingEdgeHorizontal,
+            paddingInlineStart: unit(sizePaddingEdgeHorizontal),
           },
         },
 
@@ -168,27 +170,25 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           },
 
           [`${componentCls}-inner-text`]: {
-            paddingInlineEnd: sizePaddingEdgeHorizontal,
+            paddingInlineEnd: unit(sizePaddingEdgeHorizontal),
           },
         },
     },
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Divider'> = (token) => ({
+  textPaddingInline: '1em',
+  orientationMargin: 0.05,
+  verticalMarginInline: unit(token.marginXS),
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Divider',
-  (token) => {
-    const dividerToken = mergeToken<DividerToken>(token, {
-      dividerHorizontalWithTextGutterMargin: token.margin,
-      dividerHorizontalGutterMargin: token.marginLG,
-      sizePaddingEdgeHorizontal: 0,
-    });
-    return [genSharedDividerStyle(dividerToken)];
-  },
-  (token) => ({
-    textPaddingInline: '1em',
-    orientationMargin: 0.05,
-    verticalMarginInline: token.marginXS,
-  }),
-);
+export default genComponentStyleHook('Divider', (token) => {
+  const dividerToken = mergeToken<DividerToken>(token, {
+    dividerHorizontalWithTextGutterMargin: unit(token.margin),
+    dividerHorizontalGutterMargin: unit(token.marginLG),
+    sizePaddingEdgeHorizontal: 0,
+  });
+  return [genSharedDividerStyle(dividerToken)];
+});
