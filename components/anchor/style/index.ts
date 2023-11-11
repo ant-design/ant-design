@@ -165,13 +165,17 @@ export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Anchor', (token) => {
-  const { fontSize, fontSizeLG, paddingXXS } = token;
-  const anchorToken = mergeToken<AnchorToken>(token, {
-    holderOffsetBlock: unit(paddingXXS),
-    anchorPaddingBlockSecondary: token.calc(paddingXXS).div(2).equal(),
-    anchorTitleBlock: token.calc(fontSize).div(14).mul(3).equal(),
-    anchorBallSize: token.calc(fontSizeLG).div(2).equal(),
-  });
-  return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
-});
+export default genComponentStyleHook(
+  'Anchor',
+  (token) => {
+    const { fontSize, fontSizeLG, paddingXXS } = token;
+    const anchorToken = mergeToken<AnchorToken>(token, {
+      holderOffsetBlock: unit(paddingXXS),
+      anchorPaddingBlockSecondary: token.calc(paddingXXS).div(2).equal(),
+      anchorTitleBlock: token.calc(fontSize).div(14).mul(3).equal(),
+      anchorBallSize: token.calc(fontSizeLG).div(2).equal(),
+    });
+    return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
+  },
+  prepareComponentToken,
+);
