@@ -76,13 +76,14 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     borderRadiusSM,
     lineWidth,
     lineType,
+    calc,
   } = token;
 
   // Avatar size style
   const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
     width: unit(size),
     height: unit(size),
-    lineHeight: unit(token.calc(size).sub(token.calc(lineWidth).mul(2)).equal()),
+    lineHeight: calc(size).sub(calc(lineWidth).mul(2)).equal(),
     borderRadius: '50%',
 
     [`&${componentCls}-square`]: {
