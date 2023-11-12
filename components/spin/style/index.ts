@@ -258,8 +258,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       [`&-lg ${componentCls}-dot`]: {
         fontSize: unit(token.dotSizeLG),
         i: {
-          width: token.calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
-          height: token.calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
+          width: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
+          height: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
         },
       },
 
