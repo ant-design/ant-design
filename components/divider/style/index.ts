@@ -94,21 +94,19 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       [`&-horizontal${componentCls}-with-text-left`]: {
         '&::before': {
-          width: `${orientationMargin * 100}%`,
+          width: `calc(${orientationMargin * 100}%)`,
         },
-
         '&::after': {
-          width: `${100 - orientationMargin * 100}%`,
+          width: `calc(${100 - orientationMargin * 100}%)`,
         },
       },
 
       [`&-horizontal${componentCls}-with-text-right`]: {
         '&::before': {
-          width: `${100 - orientationMargin * 100}%`,
+          width: `calc(${100 - orientationMargin * 100}%)`,
         },
-
         '&::after': {
-          width: `${orientationMargin * 100}%`,
+          width: `calc(${orientationMargin * 100}%)`,
         },
       },
 
@@ -180,7 +178,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 export const prepareComponentToken: GetDefaultToken<'Divider'> = (token) => ({
   textPaddingInline: '1em',
   orientationMargin: 0.05,
-  verticalMarginInline: unit(token.marginXS),
+  verticalMarginInline: token.marginXS,
 });
 
 // ============================== Export ==============================
@@ -188,8 +186,8 @@ export default genComponentStyleHook(
   'Divider',
   (token) => {
     const dividerToken = mergeToken<DividerToken>(token, {
-      dividerHorizontalWithTextGutterMargin: unit(token.margin),
-      dividerHorizontalGutterMargin: unit(token.marginLG),
+      dividerHorizontalWithTextGutterMargin: token.margin,
+      dividerHorizontalGutterMargin: token.marginLG,
       sizePaddingEdgeHorizontal: 0,
     });
     return [genSharedDividerStyle(dividerToken)];
