@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | value | scanned text | string | - |
 | type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |
-| size | QRCode size | number | 128 |
+| size | QRCode size | number | 134 |
 | iconSize | include image size | number | 32 |
 | color | QRCode Color | string | `#000` |
 | bgColor | QRCode Background Color | string | `transparent` | 5.5.0 |

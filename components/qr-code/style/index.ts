@@ -14,7 +14,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      display: 'flex',
+      display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
       padding: token.paddingSM,
@@ -22,8 +22,6 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       borderRadius: token.borderRadiusLG,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       position: 'relative',
-      width: '100%',
-      height: '100%',
       overflow: 'hidden',
       [`& > ${componentCls}-mask`]: {
         position: 'absolute',

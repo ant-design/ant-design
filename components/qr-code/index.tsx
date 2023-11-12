@@ -19,7 +19,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     value,
     type = 'canvas',
     icon = '',
-    size = 160,
+    size = 134,
     iconSize = 40,
     color = token.colorText,
     errorLevel = 'M',
@@ -45,21 +45,9 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     excavate: true,
   };
 
-  const getQrCodePadding = (): number => {
-    const defaultPadding = (token.paddingSM + token.lineWidth) * 2;
-    if (typeof style?.padding === 'number') {
-      return style?.padding;
-    }
-    if (typeof style?.padding === 'string') {
-      const paddingInNumber = parseInt(style?.padding || '', 10);
-      return typeof paddingInNumber === 'number' ? paddingInNumber : defaultPadding;
-    }
-    return defaultPadding;
-  };
-
   const qrCodeProps = {
     value,
-    size: size - getQrCodePadding(),
+    size,
     level: errorLevel,
     bgColor,
     fgColor: color,
@@ -89,7 +77,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
+    <div style={{ ...style, backgroundColor: bgColor }} className={cls}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}
