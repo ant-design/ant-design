@@ -1,6 +1,6 @@
 import { resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
@@ -14,12 +14,18 @@ export interface ComponentToken {
    * @descEN Action button color
    */
   actionsColor: string;
+  /**
+   * @desc 列表项高度
+   * @descEN List item height
+   * @internal
+   */
+  listItemHeightSM: number;
 }
 
 export interface UploadToken extends FullToken<'Upload'> {
-  uploadThumbnailSize: number;
-  uploadProgressOffset: number;
-  uploadPicCardSize: number;
+  uploadThumbnailSize: number | string;
+  uploadProgressOffset: number | string;
+  uploadPicCardSize: number | string;
 }
 
 const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
@@ -48,17 +54,21 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
+  actionsColor: token.colorTextDescription,
+  listItemHeightSM: Math.round(token.fontSize * token.lineHeight),
+});
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Upload',
   (token) => {
-    const { fontSizeHeading3, fontSize, lineHeight, lineWidth, controlHeightLG } = token;
-    const listItemHeightSM = Math.round(fontSize * lineHeight);
+    const { fontSizeHeading3, listItemHeightSM, lineWidth, controlHeightLG, calc } = token;
 
     const uploadToken = mergeToken<UploadToken>(token, {
-      uploadThumbnailSize: fontSizeHeading3 * 2,
-      uploadProgressOffset: listItemHeightSM / 2 + lineWidth,
-      uploadPicCardSize: controlHeightLG * 2.55,
+      uploadThumbnailSize: calc(fontSizeHeading3).mul(2).equal(),
+      uploadProgressOffset: calc(calc(listItemHeightSM).div(2).equal()).add(lineWidth).equal(),
+      uploadPicCardSize: calc(controlHeightLG).mul(2.55).equal(),
     });
 
     return [
@@ -72,7 +82,5 @@ export default genComponentStyleHook(
       genCollapseMotion(uploadToken),
     ];
   },
-  (token) => ({
-    actionsColor: token.colorTextDescription,
-  }),
+  prepareComponentToken,
 );
