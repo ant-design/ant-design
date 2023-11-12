@@ -57,13 +57,13 @@ const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       '&-gap-small': {
-        gap: token.flexGapSM,
+        gap: unit(token.flexGapSM),
       },
       '&-gap-middle': {
-        gap: token.flexGap,
+        gap: unit(token.flexGap),
       },
       '&-gap-large': {
-        gap: token.flexGapLG,
+        gap: unit(token.flexGapLG),
       },
     },
   };
@@ -103,9 +103,9 @@ export default genComponentStyleHook<'Flex'>(
   (token) => {
     const { paddingXS, padding, paddingLG } = token;
     const flexToken = mergeToken<FlexToken>(token, {
-      flexGapSM: unit(paddingXS),
-      flexGap: unit(padding),
-      flexGapLG: unit(paddingLG),
+      flexGapSM: paddingXS,
+      flexGap: padding,
+      flexGapLG: paddingLG,
     });
     return [
       genFlexStyle(flexToken),
