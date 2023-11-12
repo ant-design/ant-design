@@ -117,7 +117,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
       textAlign: 'center',
       verticalAlign: 'middle',
       background: avatarBg,
-      border: `${unit(lineWidth)} ${unit(lineType)} transparent`,
+      border: `${unit(lineWidth)} ${lineType} transparent`,
 
       [`&-image`]: {
         background: 'transparent',
@@ -196,7 +196,7 @@ export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genComponentStyleHook<'Avatar'>(
   'Avatar',
   (token) => {
     const { colorTextLightSolid, colorTextPlaceholder } = token;
