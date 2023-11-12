@@ -45,9 +45,21 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     excavate: true,
   };
 
+  const getQrCodePadding = (): number => {
+    const defaultPadding = (token.paddingSM + token.lineWidth) * 2;
+    if (typeof style?.padding === 'number') {
+      return style?.padding;
+    }
+    if (typeof style?.padding === 'string') {
+      const paddingInNumber = parseInt(style?.padding || '', 10);
+      return typeof paddingInNumber === 'number' ? paddingInNumber : defaultPadding;
+    }
+    return defaultPadding;
+  };
+
   const qrCodeProps = {
     value,
-    size: size - (token.paddingSM + token.lineWidth) * 2,
+    size: size - getQrCodePadding(),
     level: errorLevel,
     bgColor,
     fgColor: color,

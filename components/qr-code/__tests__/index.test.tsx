@@ -88,4 +88,21 @@ describe('QRCode test', () => {
     );
     errSpy.mockRestore();
   });
+
+  it('style.padding should works', () => {
+    const { container: container1 } = render(<QRCode value="test" size={200} />);
+    expect(container1.querySelector('canvas')).toHaveStyle('width: 174px; height: 174px');
+    const { container: container2 } = render(
+      <QRCode value="test" size={200} style={{ padding: 0 }} />,
+    );
+    expect(container2.querySelector('canvas')).toHaveStyle('width: 200px; height: 200px');
+    const { container: container3 } = render(
+      <QRCode value="test" size={200} style={{ padding: '2px' }} />,
+    );
+    expect(container3.querySelector('canvas')).toHaveStyle('width: 198px; height: 198px');
+    const { container: container4 } = render(
+      <QRCode value="test" size={200} style={{ padding: '2px 2px' }} />,
+    );
+    expect(container4.querySelector('canvas')).toHaveStyle('width: 198px; height: 198px');
+  });
 });
