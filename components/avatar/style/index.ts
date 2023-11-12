@@ -1,6 +1,7 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -79,13 +80,13 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 
   // Avatar size style
   const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
-    width: size,
-    height: size,
-    lineHeight: `${size - lineWidth * 2}px`,
+    width: unit(size),
+    height: unit(size),
+    lineHeight: unit(token.calc(size).sub(token.calc(lineWidth).mul(2)).equal()),
     borderRadius: '50%',
 
     [`&${componentCls}-square`]: {
-      borderRadius: radius,
+      borderRadius: unit(radius),
     },
 
     [`${componentCls}-string`]: {
@@ -98,7 +99,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     },
 
     [`&${componentCls}-icon`]: {
-      fontSize,
+      fontSize: unit(fontSize),
       [`> ${iconCls}`]: {
         margin: 0,
       },
@@ -116,7 +117,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
       textAlign: 'center',
       verticalAlign: 'middle',
       background: avatarBg,
-      border: `${lineWidth}px ${lineType} transparent`,
+      border: `${unit(lineWidth)} ${unit(lineType)} transparent`,
 
       [`&-image`]: {
         background: 'transparent',
@@ -158,14 +159,40 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
       },
 
       [`> *:not(:first-child)`]: {
-        marginInlineStart: groupOverlapping,
+        marginInlineStart: unit(groupOverlapping),
       },
     },
     [`${componentCls}-group-popover`]: {
       [`${componentCls} + ${componentCls}`]: {
-        marginInlineStart: groupSpace,
+        marginInlineStart: unit(groupSpace),
       },
     },
+  };
+};
+
+export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
+  const {
+    controlHeight,
+    controlHeightLG,
+    controlHeightSM,
+    fontSize,
+    fontSizeLG,
+    fontSizeXL,
+    fontSizeHeading3,
+    marginXS,
+    marginXXS,
+    colorBorderBg,
+  } = token;
+  return {
+    containerSize: controlHeight,
+    containerSizeLG: controlHeightLG,
+    containerSizeSM: controlHeightSM,
+    textFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
+    textFontSizeLG: fontSizeHeading3,
+    textFontSizeSM: fontSize,
+    groupSpace: marginXXS,
+    groupOverlapping: -marginXS,
+    groupBorderColor: colorBorderBg,
   };
 };
 
@@ -179,33 +206,5 @@ export default genComponentStyleHook(
     });
     return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
   },
-  (token) => {
-    const {
-      controlHeight,
-      controlHeightLG,
-      controlHeightSM,
-
-      fontSize,
-      fontSizeLG,
-      fontSizeXL,
-      fontSizeHeading3,
-
-      marginXS,
-      marginXXS,
-      colorBorderBg,
-    } = token;
-    return {
-      containerSize: controlHeight,
-      containerSizeLG: controlHeightLG,
-      containerSizeSM: controlHeightSM,
-
-      textFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-      textFontSizeLG: fontSizeHeading3,
-      textFontSizeSM: fontSize,
-
-      groupSpace: marginXXS,
-      groupOverlapping: -marginXS,
-      groupBorderColor: colorBorderBg,
-    };
-  },
+  prepareComponentToken,
 );
