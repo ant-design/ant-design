@@ -33,9 +33,8 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```tsx
-'use client';
+'use client'; // 如果是在 Pages Router 中使用，则不需要添加 "use client"
 
-// 如果是在 Pages Router 中使用，则不需要添加 "use client"
 import React from 'react';
 import { Button } from 'antd';
 
@@ -67,16 +66,20 @@ export default Home;
 
 import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-// 如果您使用的是 Next.js 14，请改用下面的导入。更多信息： https://github.com/ant-design/ant-design/issues/45567
-// import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs/lib';
 import type Entity from '@ant-design/cssinjs/es/Cache';
 import { useServerInsertedHTML } from 'next/navigation';
 
 const StyledComponentsRegistry = ({ children }: React.PropsWithChildren) => {
   const cache = React.useMemo<Entity>(() => createCache(), []);
-  useServerInsertedHTML(() => (
-    <style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(cache, true) }} />
-  ));
+  const isServerInserted = React.useRef<boolean>(false);
+  useServerInsertedHTML(() => {
+    // 避免 css 重复插入
+    if (isServerInserted.current) {
+      return;
+    }
+    isServerInserted.current = true;
+    return <style id="antd" dangerouslySetInnerHTML={{ __html: extractStyle(cache, true) }} />;
+  });
   return <StyleProvider cache={cache}>{children}</StyleProvider>;
 };
 
