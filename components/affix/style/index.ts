@@ -19,9 +19,10 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
   };
 };
 
-export const prepareComponentToken: GetDefaultToken<'Affix'> = (token) => ({
-  zIndexPopup: token.zIndexBase + 10,
-});
+export const prepareComponentToken: GetDefaultToken<'Affix'> = (token) => {
+  const { zIndexBase } = token;
+  return { zIndexPopup: zIndexBase + 10 };
+};
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Affix', genSharedAffixStyle, prepareComponentToken);
