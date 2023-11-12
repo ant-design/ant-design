@@ -4,6 +4,7 @@ import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../.
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import type { TreeSharedToken } from '../../tree/style';
 import { genTreeStyle, initComponentToken } from '../../tree/style';
+import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken extends TreeSharedToken {}
 
@@ -29,7 +30,9 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
         // ====================== Tree ======================
         genTreeStyle(
           treePrefixCls,
-          mergeToken<AliasToken & TreeSharedToken>(token, { colorBgContainer: colorBgElevated }),
+          mergeToken<AliasToken & TreeSharedToken & CSSUtil>(token, {
+            colorBgContainer: colorBgElevated,
+          }),
         ),
         {
           [treeCls]: {
