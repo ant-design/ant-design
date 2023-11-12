@@ -1,7 +1,9 @@
-import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -35,7 +37,7 @@ const genAlertTypeStyle = (
   alertCls: string,
 ): CSSObject => ({
   backgroundColor: bgColor,
-  border: `${token.lineWidth}px ${token.lineType} ${borderColor}`,
+  border: `${unit(token.lineWidth)} ${token.lineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
   },
@@ -65,9 +67,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: defaultPadding,
+      padding: unit(defaultPadding ?? 0),
       wordWrap: 'break-word',
-      borderRadius,
+      borderRadius: unit(borderRadius),
 
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
@@ -79,13 +81,13 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       },
 
       [`${componentCls}-icon`]: {
-        marginInlineEnd: marginXS,
+        marginInlineEnd: unit(marginXS),
         lineHeight: 0,
       },
 
       [`&-description`]: {
         display: 'none',
-        fontSize,
+        fontSize: unit(fontSize),
         lineHeight,
       },
 
@@ -112,19 +114,18 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      padding: withDescriptionPadding,
-
+      padding: unit(withDescriptionPadding ?? 0),
       [`${componentCls}-icon`]: {
-        marginInlineEnd: marginSM,
-        fontSize: withDescriptionIconSize,
+        marginInlineEnd: unit(marginSM),
+        fontSize: unit(withDescriptionIconSize),
         lineHeight: 0,
       },
 
       [`${componentCls}-message`]: {
         display: 'block',
-        marginBottom: marginXS,
+        marginBottom: unit(marginXS),
         color: colorTextHeading,
-        fontSize: fontSizeLG,
+        fontSize: unit(fontSizeLG),
       },
 
       [`${componentCls}-description`]: {
@@ -204,15 +205,15 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   return {
     [componentCls]: {
       [`&-action`]: {
-        marginInlineStart: marginXS,
+        marginInlineStart: unit(marginXS),
       },
 
       [`${componentCls}-close-icon`]: {
-        marginInlineStart: marginXS,
+        marginInlineStart: unit(marginXS),
         padding: 0,
         overflow: 'hidden',
-        fontSize: fontSizeIcon,
-        lineHeight: `${fontSizeIcon}px`,
+        fontSize: unit(fontSizeIcon),
+        lineHeight: unit(fontSizeIcon),
         backgroundColor: 'transparent',
         border: 'none',
         outline: 'none',
@@ -238,22 +239,17 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   };
 };
 
-export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSInterpolation => [
-  genBaseStyle(token),
-  genTypeStyle(token),
-  genActionStyle(token),
-];
+export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
+  const paddingHorizontal = 12; // Fixed value here.
+  return {
+    withDescriptionIconSize: token.fontSizeHeading3,
+    defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
+    withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+  };
+};
 
-export default genComponentStyleHook(
+export default genComponentStyleHook<'Alert'>(
   'Alert',
-  (token) => [genAlertStyle(token)],
-  (token) => {
-    const paddingHorizontal = 12; // Fixed value here.
-
-    return {
-      withDescriptionIconSize: token.fontSizeHeading3,
-      defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
-      withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
-    };
-  },
+  (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
+  prepareComponentToken,
 );
