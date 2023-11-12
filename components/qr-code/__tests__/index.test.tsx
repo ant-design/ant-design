@@ -39,9 +39,7 @@ describe('QRCode test', () => {
 
   it('support custom size', () => {
     const { container } = render(<QRCode value="test" size={100} />);
-    const wrapper = container.querySelector<HTMLDivElement>('.ant-qrcode');
-    expect(wrapper?.style?.width).toBe('100px');
-    expect(wrapper?.style?.height).toBe('100px');
+    expect(container.querySelector('canvas')).toHaveStyle('width: 100px; height: 100px');
   });
 
   it('support refresh', () => {
@@ -90,19 +88,8 @@ describe('QRCode test', () => {
   });
 
   it('style.padding should works', () => {
-    const { container: container1 } = render(<QRCode value="test" size={200} />);
-    expect(container1.querySelector('canvas')).toHaveStyle('width: 174px; height: 174px');
-    const { container: container2 } = render(
-      <QRCode value="test" size={200} style={{ padding: 0 }} />,
-    );
-    expect(container2.querySelector('canvas')).toHaveStyle('width: 200px; height: 200px');
-    const { container: container3 } = render(
-      <QRCode value="test" size={200} style={{ padding: '2px' }} />,
-    );
-    expect(container3.querySelector('canvas')).toHaveStyle('width: 198px; height: 198px');
-    const { container: container4 } = render(
-      <QRCode value="test" size={200} style={{ padding: '2px 2px' }} />,
-    );
-    expect(container4.querySelector('canvas')).toHaveStyle('width: 198px; height: 198px');
+    const { container } = render(<QRCode value="test" size={200} style={{ padding: '2px' }} />);
+    expect(container.querySelector('.ant-qrcode')).toHaveStyle('padding: 2px');
+    expect(container.querySelector('canvas')).toHaveStyle('width: 200px; height: 200px');
   });
 });
