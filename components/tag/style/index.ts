@@ -1,12 +1,11 @@
 import type React from 'react';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
-import type { GlobalToken } from '../../theme';
 import type { FullToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
-import { TinyColor } from '@ctrl/tinycolor';
+import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   /**
@@ -42,14 +41,14 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
-      marginInlineEnd: token.marginXS,
-      paddingInline,
-      fontSize: token.tagFontSize,
+      marginInlineEnd: unit(token.marginXS),
+      paddingInline: unit(paddingInline),
+      fontSize: unit(token.tagFontSize),
       lineHeight: token.tagLineHeight,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
-      border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
-      borderRadius: token.borderRadiusSM,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+      borderRadius: unit(token.borderRadiusSM),
       opacity: 1,
       transition: `all ${token.motionDurationMid}`,
       textAlign: 'start',
@@ -65,9 +64,9 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       },
 
       [`${componentCls}-close-icon`]: {
-        marginInlineStart: iconMarginInline,
+        marginInlineStart: unit(iconMarginInline),
+        fontSize: unit(token.tagIconSize),
         color: token.colorTextDescription,
-        fontSize: token.tagIconSize,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
 
@@ -116,7 +115,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       // To ensure that a space will be placed between character and `Icon`.
       [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
-        marginInlineStart: paddingInline,
+        marginInlineStart: unit(paddingInline),
       },
     },
     [`${componentCls}-borderless`]: {
@@ -143,19 +142,18 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
   return tagToken;
 };
 
-export const prepareCommonToken: (token: GlobalToken) => ComponentToken = (token) => ({
+export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
   defaultBg: new TinyColor(token.colorFillQuaternary)
     .onBackground(token.colorBgContainer)
     .toHexString(),
   defaultColor: token.colorText,
 });
 
-export default genComponentStyleHook(
+export default genComponentStyleHook<'Tag'>(
   'Tag',
   (token) => {
     const tagToken = prepareToken(token);
-
     return genBaseStyle(tagToken);
   },
-  prepareCommonToken,
+  prepareComponentToken,
 );
