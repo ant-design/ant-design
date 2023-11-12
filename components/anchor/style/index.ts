@@ -10,19 +10,19 @@ export interface ComponentToken {
    * @desc 链接纵向内间距
    * @descEN Vertical padding of link
    */
-  linkPaddingBlock: number | string;
+  linkPaddingBlock: number;
   /**
    * @desc 链接横向内间距
    * @descEN Horizontal padding of link
    */
-  linkPaddingInlineStart: number | string;
+  linkPaddingInlineStart: number;
 }
 
 interface AnchorToken extends FullToken<'Anchor'> {
-  holderOffsetBlock: number | string;
-  anchorPaddingBlockSecondary: number | string;
-  anchorBallSize: number | string;
-  anchorTitleBlock: number | string;
+  holderOffsetBlock: number;
+  anchorPaddingBlockSecondary: number;
+  anchorBallSize: number;
+  anchorTitleBlock: number;
 }
 
 // ============================== Shared ==============================
@@ -35,11 +35,12 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
     colorPrimary,
     lineType,
     colorSplit,
+    calc,
   } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
-      marginBlockStart: token.calc(holderOffsetBlock).mul(-1).equal(),
+      marginBlockStart: calc(holderOffsetBlock).mul(-1).equal(),
       paddingBlockStart: unit(holderOffsetBlock),
 
       // delete overflow: auto
@@ -129,7 +130,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
           value: 0,
         },
         bottom: 0,
-        borderBottom: `1px ${token.lineType} ${token.colorSplit}`,
+        borderBottom: `${unit(1)} ${token.lineType} ${token.colorSplit}`,
         content: '" "',
       },
 
@@ -160,8 +161,8 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
 };
 
 export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
-  linkPaddingBlock: unit(token.paddingXXS),
-  linkPaddingInlineStart: unit(token.padding),
+  linkPaddingBlock: token.paddingXXS,
+  linkPaddingInlineStart: token.padding,
 });
 
 // ============================== Export ==============================
@@ -170,10 +171,10 @@ export default genComponentStyleHook(
   (token) => {
     const { fontSize, fontSizeLG, paddingXXS } = token;
     const anchorToken = mergeToken<AnchorToken>(token, {
-      holderOffsetBlock: unit(paddingXXS),
-      anchorPaddingBlockSecondary: token.calc(paddingXXS).div(2).equal(),
-      anchorTitleBlock: token.calc(fontSize).div(14).mul(3).equal(),
-      anchorBallSize: token.calc(fontSizeLG).div(2).equal(),
+      holderOffsetBlock: paddingXXS,
+      anchorPaddingBlockSecondary: paddingXXS / 2,
+      anchorTitleBlock: (fontSize / 14) * 3,
+      anchorBallSize: fontSizeLG / 2,
     });
     return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
   },
