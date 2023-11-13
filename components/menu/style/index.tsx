@@ -1,14 +1,20 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSProperties } from 'react';
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme/internal';
+import type {
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  UseComponentStyleResult,
+} from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
+import type { CssUtil } from 'antd-style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -35,7 +41,7 @@ export interface ComponentToken {
    * @desc 分组标题文字高度
    * @descEN line-height of group title
    */
-  groupTitleLineHeight: CSSProperties['lineHeight'];
+  groupTitleLineHeight: string | number;
   /**
    * @desc 分组标题文字大小
    * @descEN font-size of group title
@@ -357,12 +363,14 @@ export interface ComponentToken {
    * @descEN Background of active danger menu item in dark mode
    */
   darkDangerItemActiveBg: string;
+  /** @internal */
+  subMenuTitleWidth: number | string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
-  menuHorizontalHeight: number;
-  menuArrowSize: number;
-  menuArrowOffset: string;
+  menuHorizontalHeight: number | string;
+  menuArrowSize: number | string;
+  menuArrowOffset: number | string;
   menuPanelMaskInset: number;
   menuSubMenuBg: string;
 }
@@ -471,8 +479,8 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         // →
         '&::before, &::after': {
           position: 'absolute',
-          width: menuArrowSize * 0.6,
-          height: menuArrowSize * 0.15,
+          width: token.calc(menuArrowSize).mul(0.6).equal(),
+          height: token.calc(menuArrowSize).mul(0.15).equal(),
           backgroundColor: 'currentcolor',
           borderRadius,
           transition: [
@@ -485,11 +493,13 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         },
 
         '&::before': {
-          transform: `rotate(45deg) translateY(-${menuArrowOffset})`,
+          transform: `rotate(45deg) translateY(${unit(
+            token.calc(menuArrowOffset).mul(-1).equal(),
+          )})`,
         },
 
         '&::after': {
-          transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
+          transform: `rotate(-45deg) translateY(${unit(menuArrowOffset)})`,
         },
       },
     },
@@ -570,7 +580,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`${componentCls}-item-group-title`]: {
-          padding: `${paddingXS}px ${padding}px`,
+          padding: `${unit(paddingXS)} ${unit(padding)}`,
           fontSize: groupTitleFontSize,
           lineHeight: groupTitleLineHeight,
           transition: `all ${motionDurationSlow}`,
@@ -646,7 +656,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             padding: 0,
 
             [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-              paddingInline: `${fontSize * 2}px ${padding}px`,
+              paddingInline: `${unit(token.calc(fontSize).mul(2).equal())} ${unit(padding)}`,
             },
           },
         },
@@ -667,7 +677,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             // https://github.com/ant-design/ant-design/issues/13955
             '&::before': {
               position: 'absolute',
-              inset: `${menuPanelMaskInset}px 0 0`,
+              inset: `${unit(menuPanelMaskInset)} 0 0`,
               zIndex: -1,
               width: '100%',
               height: '100%',
@@ -760,25 +770,29 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         &-inline ${componentCls}-submenu-arrow`]: {
           // ↓
           '&::before': {
-            transform: `rotate(-45deg) translateX(${menuArrowOffset})`,
+            transform: `rotate(-45deg) translateX(${unit(menuArrowOffset)})`,
           },
 
           '&::after': {
-            transform: `rotate(45deg) translateX(-${menuArrowOffset})`,
+            transform: `rotate(45deg) translateX(${unit(
+              token.calc(menuArrowOffset).mul(-1).equal(),
+            )})`,
           },
         },
 
         [`${componentCls}-submenu-open${componentCls}-submenu-inline > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow`]:
           {
             // ↑
-            transform: `translateY(-${menuArrowSize * 0.2}px)`,
+            transform: `translateY(${unit(token.calc(menuArrowSize).mul(0.2).mul(-1).equal())})`,
 
             '&::after': {
-              transform: `rotate(-45deg) translateX(-${menuArrowOffset})`,
+              transform: `rotate(-45deg) translateX(${unit(
+                token.calc(menuArrowOffset).mul(-1).equal(),
+              )})`,
             },
 
             '&::before': {
-              transform: `rotate(45deg) translateX(${menuArrowOffset})`,
+              transform: `rotate(45deg) translateX(${unit(menuArrowOffset)})`,
             },
           },
       },
@@ -793,6 +807,127 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
       },
     },
   ];
+};
+
+export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
+  const {
+    colorPrimary,
+    colorError,
+    colorTextDisabled,
+    colorErrorBg,
+    colorText,
+    colorTextDescription,
+    colorBgContainer,
+    colorFillAlter,
+    colorFillContent,
+    lineWidth,
+    lineWidthBold,
+    controlItemBgActive,
+    colorBgTextHover,
+    controlHeightLG,
+    lineHeight,
+    colorBgElevated,
+    marginXXS,
+    padding,
+    fontSize,
+    controlHeightSM,
+    fontSizeLG,
+    colorTextLightSolid,
+    colorErrorHover,
+  } = token;
+
+  const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
+
+  return {
+    dropdownWidth: 160,
+    zIndexPopup: token.zIndexPopupBase + 50,
+    radiusItem: token.borderRadiusLG,
+    itemBorderRadius: token.borderRadiusLG,
+    radiusSubMenuItem: token.borderRadiusSM,
+    subMenuItemBorderRadius: token.borderRadiusSM,
+    colorItemText: colorText,
+    itemColor: colorText,
+    colorItemTextHover: colorText,
+    itemHoverColor: colorText,
+    colorItemTextHoverHorizontal: colorPrimary,
+    horizontalItemHoverColor: colorPrimary,
+    colorGroupTitle: colorTextDescription,
+    groupTitleColor: colorTextDescription,
+    colorItemTextSelected: colorPrimary,
+    itemSelectedColor: colorPrimary,
+    colorItemTextSelectedHorizontal: colorPrimary,
+    horizontalItemSelectedColor: colorPrimary,
+    colorItemBg: colorBgContainer,
+    itemBg: colorBgContainer,
+    colorItemBgHover: colorBgTextHover,
+    itemHoverBg: colorBgTextHover,
+    colorItemBgActive: colorFillContent,
+    itemActiveBg: controlItemBgActive,
+    colorSubItemBg: colorFillAlter,
+    subMenuItemBg: colorFillAlter,
+    colorItemBgSelected: controlItemBgActive,
+    itemSelectedBg: controlItemBgActive,
+    colorItemBgSelectedHorizontal: 'transparent',
+    horizontalItemSelectedBg: 'transparent',
+    colorActiveBarWidth: 0,
+    activeBarWidth: 0,
+    colorActiveBarHeight: lineWidthBold,
+    activeBarHeight: lineWidthBold,
+    colorActiveBarBorderSize: lineWidth,
+    activeBarBorderWidth: lineWidth,
+
+    // Disabled
+    colorItemTextDisabled: colorTextDisabled,
+    itemDisabledColor: colorTextDisabled,
+
+    // Danger
+    colorDangerItemText: colorError,
+    dangerItemColor: colorError,
+    colorDangerItemTextHover: colorError,
+    dangerItemHoverColor: colorError,
+    colorDangerItemTextSelected: colorError,
+    dangerItemSelectedColor: colorError,
+    colorDangerItemBgActive: colorErrorBg,
+    dangerItemActiveBg: colorErrorBg,
+    colorDangerItemBgSelected: colorErrorBg,
+    dangerItemSelectedBg: colorErrorBg,
+
+    itemMarginInline: token.marginXXS,
+
+    horizontalItemBorderRadius: 0,
+    horizontalItemHoverBg: 'transparent',
+    itemHeight: controlHeightLG,
+    groupTitleLineHeight: lineHeight,
+    collapsedWidth: controlHeightLG * 2,
+    popupBg: colorBgElevated,
+    itemMarginBlock: marginXXS,
+    itemPaddingInline: padding,
+    horizontalLineHeight: `${controlHeightLG * 1.15}px`,
+    iconSize: fontSize,
+    iconMarginInlineEnd: controlHeightSM - fontSize,
+    collapsedIconSize: fontSizeLG,
+    groupTitleFontSize: fontSize,
+
+    // Disabled
+    darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+
+    // Dark
+    darkItemColor: colorTextDark,
+    darkDangerItemColor: colorError,
+    darkItemBg: '#001529',
+    darkSubMenuItemBg: '#000c17',
+    darkItemSelectedColor: colorTextLightSolid,
+    darkItemSelectedBg: colorPrimary,
+    darkDangerItemSelectedBg: colorError,
+    darkItemHoverBg: 'transparent',
+    darkGroupTitleColor: colorTextDark,
+    darkItemHoverColor: colorTextLightSolid,
+    darkDangerItemHoverColor: colorErrorHover,
+    darkDangerItemSelectedColor: colorTextLightSolid,
+    darkDangerItemActiveBg: colorError,
+
+    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}px)`,
+  };
 };
 
 // ============================== Export ==============================
@@ -827,15 +962,20 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkDangerItemActiveBg,
       } = token;
 
-      const menuArrowSize = (fontSize / 7) * 5;
+      const menuArrowSize = token.calc(fontSize).div(7).mul(5).equal();
 
       // Menu Token
-      const menuToken = mergeToken<MenuToken>(token, {
+      const menuToken = mergeToken<MenuToken & CssUtil>(token, {
         menuArrowSize,
-        menuHorizontalHeight: controlHeightLG * 1.15,
-        menuArrowOffset: `${menuArrowSize * 0.25}px`,
+        menuHorizontalHeight: token.calc(controlHeightLG).mul(1.15).equal(),
+        menuArrowOffset: token.calc(menuArrowSize).mul(0.25).equal(),
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
+        calc: token.calc,
+        subMenuTitleWidth:
+          token.activeBarWidth && token.activeBarBorderWidth
+            ? `calc(100% + ${token.activeBarBorderWidth}px)`
+            : `calc(100% - ${token.marginXXS * 2}px)`,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {
@@ -894,124 +1034,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         initZoomMotion(menuToken, 'zoom-big'),
       ];
     },
-    (token) => {
-      const {
-        colorPrimary,
-        colorError,
-        colorTextDisabled,
-        colorErrorBg,
-        colorText,
-        colorTextDescription,
-        colorBgContainer,
-        colorFillAlter,
-        colorFillContent,
-        lineWidth,
-        lineWidthBold,
-        controlItemBgActive,
-        colorBgTextHover,
-        controlHeightLG,
-        lineHeight,
-        colorBgElevated,
-        marginXXS,
-        padding,
-        fontSize,
-        controlHeightSM,
-        fontSizeLG,
-        colorTextLightSolid,
-        colorErrorHover,
-      } = token;
-
-      const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
-
-      return {
-        dropdownWidth: 160,
-        zIndexPopup: token.zIndexPopupBase + 50,
-        radiusItem: token.borderRadiusLG,
-        itemBorderRadius: token.borderRadiusLG,
-        radiusSubMenuItem: token.borderRadiusSM,
-        subMenuItemBorderRadius: token.borderRadiusSM,
-        colorItemText: colorText,
-        itemColor: colorText,
-        colorItemTextHover: colorText,
-        itemHoverColor: colorText,
-        colorItemTextHoverHorizontal: colorPrimary,
-        horizontalItemHoverColor: colorPrimary,
-        colorGroupTitle: colorTextDescription,
-        groupTitleColor: colorTextDescription,
-        colorItemTextSelected: colorPrimary,
-        itemSelectedColor: colorPrimary,
-        colorItemTextSelectedHorizontal: colorPrimary,
-        horizontalItemSelectedColor: colorPrimary,
-        colorItemBg: colorBgContainer,
-        itemBg: colorBgContainer,
-        colorItemBgHover: colorBgTextHover,
-        itemHoverBg: colorBgTextHover,
-        colorItemBgActive: colorFillContent,
-        itemActiveBg: controlItemBgActive,
-        colorSubItemBg: colorFillAlter,
-        subMenuItemBg: colorFillAlter,
-        colorItemBgSelected: controlItemBgActive,
-        itemSelectedBg: controlItemBgActive,
-        colorItemBgSelectedHorizontal: 'transparent',
-        horizontalItemSelectedBg: 'transparent',
-        colorActiveBarWidth: 0,
-        activeBarWidth: 0,
-        colorActiveBarHeight: lineWidthBold,
-        activeBarHeight: lineWidthBold,
-        colorActiveBarBorderSize: lineWidth,
-        activeBarBorderWidth: lineWidth,
-
-        // Disabled
-        colorItemTextDisabled: colorTextDisabled,
-        itemDisabledColor: colorTextDisabled,
-
-        // Danger
-        colorDangerItemText: colorError,
-        dangerItemColor: colorError,
-        colorDangerItemTextHover: colorError,
-        dangerItemHoverColor: colorError,
-        colorDangerItemTextSelected: colorError,
-        dangerItemSelectedColor: colorError,
-        colorDangerItemBgActive: colorErrorBg,
-        dangerItemActiveBg: colorErrorBg,
-        colorDangerItemBgSelected: colorErrorBg,
-        dangerItemSelectedBg: colorErrorBg,
-
-        itemMarginInline: token.marginXXS,
-
-        horizontalItemBorderRadius: 0,
-        horizontalItemHoverBg: 'transparent',
-        itemHeight: controlHeightLG,
-        groupTitleLineHeight: lineHeight,
-        collapsedWidth: controlHeightLG * 2,
-        popupBg: colorBgElevated,
-        itemMarginBlock: marginXXS,
-        itemPaddingInline: padding,
-        horizontalLineHeight: `${controlHeightLG * 1.15}px`,
-        iconSize: fontSize,
-        iconMarginInlineEnd: controlHeightSM - fontSize,
-        collapsedIconSize: fontSizeLG,
-        groupTitleFontSize: fontSize,
-
-        // Disabled
-        darkItemDisabledColor: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
-
-        // Dark
-        darkItemColor: colorTextDark,
-        darkDangerItemColor: colorError,
-        darkItemBg: '#001529',
-        darkSubMenuItemBg: '#000c17',
-        darkItemSelectedColor: colorTextLightSolid,
-        darkItemSelectedBg: colorPrimary,
-        darkDangerItemSelectedBg: colorError,
-        darkItemHoverBg: 'transparent',
-        darkGroupTitleColor: colorTextDark,
-        darkItemHoverColor: colorTextLightSolid,
-        darkDangerItemHoverColor: colorErrorHover,
-        darkDangerItemSelectedColor: colorTextLightSolid,
-        darkDangerItemActiveBg: colorError,
-      };
-    },
+    prepareComponentToken,
     {
       deprecatedTokens: [
         ['colorGroupTitle', 'groupTitleColor'],
