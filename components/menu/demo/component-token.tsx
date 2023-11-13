@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -6,7 +7,6 @@ import {
   PieChartOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
 import { ConfigProvider, Menu, Space } from 'antd';
 
@@ -120,6 +120,7 @@ const App: React.FC = () => {
           components: {
             Menu: {
               horizontalItemBorderRadius: 6,
+              popupBg: 'red',
               horizontalItemHoverBg: '#f5f5f5',
             },
           },
@@ -136,6 +137,7 @@ const App: React.FC = () => {
               darkSubMenuItemBg: '#faad14',
               darkItemSelectedColor: '#ffccc7',
               darkItemSelectedBg: '#52c41a',
+              darkPopupBg: 'red',
             },
           },
         }}
@@ -149,6 +151,24 @@ const App: React.FC = () => {
           style={{
             width: 256,
           }}
+        />
+      </ConfigProvider>
+      <ConfigProvider
+        theme={{
+          components: {
+            Menu: {
+              darkPopupBg: 'red',
+            },
+          },
+        }}
+      >
+        <Menu
+          inlineCollapsed
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          theme="dark"
+          items={items2}
         />
       </ConfigProvider>
     </Space>
