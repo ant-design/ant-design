@@ -8,6 +8,7 @@ import type { DirectionType } from '../config-provider';
 import type { TextAreaRef } from '../input/TextArea';
 import TextArea from '../input/TextArea';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 interface EditableProps {
   prefixCls: string;
@@ -115,7 +116,8 @@ const Editable: React.FC<EditableProps> = (props) => {
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const textAreaClassName = classNames(
     prefixCls,
@@ -128,7 +130,7 @@ const Editable: React.FC<EditableProps> = (props) => {
     hashId,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={textAreaClassName} style={style}>
       <TextArea
         ref={ref}
