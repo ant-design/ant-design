@@ -62,16 +62,6 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalConfirmIconSize: number | string;
   modalTitleHeight: number | string;
   modalContentHeight: number | string;
-  /**
-   * @desc 标题高度
-   * @descEN Height of title
-   */
-  titleHeight: number | string;
-  /**
-   * @desc 内容区域高度
-   * @descEN Height of content
-   */
-  contentHeight: number | string;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -397,10 +387,10 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalFooterBorderWidth: token.lineWidth,
     modalIconHoverColor: token.colorIconHover,
     modalCloseIconColor: token.colorIcon,
-    modalCloseBtnSize: token.calc(token.fontSize).mul(token.lineHeight).equal(),
-    modalConfirmIconSize: token.calc(token.fontSize).mul(token.lineHeight).equal(),
-    titleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
-    contentHeight: token.calc(token.fontSize).mul(token.lineHeight).equal(),
+    modalCloseBtnSize: token.fontHeight,
+    modalConfirmIconSize: token.fontHeight,
+    modalTitleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
+    modalContentHeight: token.calc(token.fontSize).mul(token.lineHeight).equal(),
   });
 
   return modalToken;

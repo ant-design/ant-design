@@ -14,8 +14,8 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
     modalConfirmIconSize,
     fontSize,
     lineHeight,
-    titleHeight,
-    contentHeight,
+    modalTitleHeight,
+    modalContentHeight,
   } = token;
   const confirmComponentCls = `${componentCls}-confirm`;
 
@@ -42,13 +42,13 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
           fontSize: modalConfirmIconSize,
           marginInlineEnd: token.marginSM,
           marginTop: token
-            .calc(token.calc(contentHeight).sub(modalConfirmIconSize).equal())
+            .calc(token.calc(modalContentHeight).sub(modalConfirmIconSize).equal())
             .div(2)
             .equal(),
         },
         [`&-has-title > ${token.iconCls}`]: {
           marginTop: token
-            .calc(token.calc(titleHeight).sub(modalConfirmIconSize).equal())
+            .calc(token.calc(modalTitleHeight).sub(modalConfirmIconSize).equal())
             .div(2)
             .equal(),
         },
