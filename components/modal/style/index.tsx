@@ -61,7 +61,6 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalCloseBtnSize: number | string;
   modalConfirmIconSize: number | string;
   modalTitleHeight: number | string;
-  modalContentHeight: number | string;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -390,7 +389,6 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalCloseBtnSize: token.fontHeight,
     modalConfirmIconSize: token.fontHeight,
     modalTitleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
-    modalContentHeight: token.calc(token.fontSize).mul(token.lineHeight).equal(),
   });
 
   return modalToken;
