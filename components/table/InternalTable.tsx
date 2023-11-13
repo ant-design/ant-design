@@ -56,6 +56,7 @@ import type {
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -537,9 +538,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
   const [, token] = useToken();
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const wrapperClassNames = classNames(
     `${prefixCls}-wrapper`,
@@ -584,7 +585,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
