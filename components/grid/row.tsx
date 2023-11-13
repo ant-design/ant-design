@@ -7,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
+import { useRowCssVar } from './style/cssVar';
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
 const RowJustify = [
@@ -146,7 +147,10 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
-  const [wrapSSR, hashId] = useRowStyle(prefixCls);
+
+  const [, hashId] = useRowStyle(prefixCls);
+  const wrapCSSVar = useRowCssVar(prefixCls);
+
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,
@@ -180,7 +184,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     [gutterH, gutterV, wrap],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RowContext.Provider value={rowContext}>
       <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
