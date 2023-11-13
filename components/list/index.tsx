@@ -7,6 +7,7 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';
+import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
@@ -28,7 +29,7 @@ export type ColumnCount = number;
 export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface ListGridType {
-  gutter?: number;
+  gutter?: RowProps['gutter'];
   column?: ColumnCount;
   xs?: ColumnCount;
   sm?: ColumnCount;

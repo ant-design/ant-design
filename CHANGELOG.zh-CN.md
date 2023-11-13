@@ -25,9 +25,7 @@ tag: vVERSION
 - 🐞 修复 Descriptions 使用 `children` 结构语法糖时，会丢失 Descriptions.Item 的 `key` 的问题。[#45757](https://github.com/ant-design/ant-design/pull/45757)
 - 🐞 修复 Message 组件在组件范围设置全局 `token` 无效的问题。[#45721](https://github.com/ant-design/ant-design/pull/45721) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复 Popconfirm 不兼容 `visible` 的问题。[#45702](https://github.com/ant-design/ant-design/pull/45702) [@linhf123](https://github.com/linhf123)
-- Tag
-  - 🐞 修复默认 Tag 的背景颜色不正确的问题。[#45711](https://github.com/ant-design/ant-design/pull/45711) [@kiner-tang](https://github.com/kiner-tang)
-  - 🐞 修改 Tag 的默认背景色 `token` 为 `colorBgContainer`。[#45700](https://github.com/ant-design/ant-design/pull/45700) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复默认 Tag 的背景颜色不正确的问题。[#45711](https://github.com/ant-design/ant-design/pull/45711) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 修复 Notification 组件设置 `style.width` 无效的问题。[#45681](https://github.com/ant-design/ant-design/pull/45681) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复 App 设置 `component=false` 时，会报非预期的属性警告的问题。[#45671](https://github.com/ant-design/ant-design/pull/45671) [@li-jia-nan](https://github.com/li-jia-nan)
 - TypeScript
