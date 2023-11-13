@@ -70,7 +70,6 @@ async function checkCSSVar() {
     'result',
     'segmented',
     'select',
-    'skeleton',
     'slider',
     'space',
     'spin',
