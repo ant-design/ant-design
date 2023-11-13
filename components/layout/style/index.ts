@@ -196,7 +196,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
           '&-trigger': {
             position: 'absolute',
             top: headerHeight,
-            insetInlineEnd: -zeroTriggerWidth,
+            insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
             zIndex: 1,
             width: zeroTriggerWidth,
             height: zeroTriggerHeight,
@@ -227,7 +227,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
             },
 
             '&-right': {
-              insetInlineStart: -zeroTriggerWidth,
+              insetInlineStart: token.calc(zeroTriggerWidth).mul(-1).equal(),
               borderStartStartRadius: borderRadius,
               borderStartEndRadius: 0,
               borderEndEndRadius: 0,
