@@ -115,7 +115,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         closable={closable}
         className={classNames({
           notificationClassName,
-          rootCls,
         })}
         closeIcon={getCloseIcon(prefixCls, closeIcon)}
         content={
