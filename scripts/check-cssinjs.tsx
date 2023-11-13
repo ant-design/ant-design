@@ -74,7 +74,6 @@ async function checkCSSVar() {
     'slider',
     'space',
     'spin',
-    'statistic',
     'steps',
     'switch',
     'table',
