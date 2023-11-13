@@ -32,7 +32,7 @@ interface CarouselToken extends FullToken<'Carousel'> {
 
 const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls, carouselArrowSize, carouselDotOffset, marginXXS } = token;
-  const arrowOffset = token.calc(carouselArrowSize).mul(-1).mul(1.25).equal();
+  const arrowOffset = token.calc(carouselArrowSize).mul(-1.25).equal();
 
   const carouselDotMargin = marginXXS;
 
