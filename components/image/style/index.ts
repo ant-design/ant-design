@@ -194,7 +194,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
       justifyContent: 'center',
       width: token.imagePreviewSwitchSize,
       height: token.imagePreviewSwitchSize,
-      marginTop: token.calc(-token.imagePreviewSwitchSize).div(2).equal(),
+      marginTop: token.calc(token.imagePreviewSwitchSize).mul(-1).div(2).equal(),
       color: token.previewOperationColor,
       background: operationBg.toRgbString(),
       borderRadius: '50%',
