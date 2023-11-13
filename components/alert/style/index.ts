@@ -67,9 +67,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: unit(defaultPadding ?? 0),
+      padding: defaultPadding,
       wordWrap: 'break-word',
-      borderRadius: unit(borderRadius),
+      borderRadius,
 
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
@@ -81,13 +81,13 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       },
 
       [`${componentCls}-icon`]: {
-        marginInlineEnd: unit(marginXS),
+        marginInlineEnd: marginXS,
         lineHeight: 0,
       },
 
       [`&-description`]: {
         display: 'none',
-        fontSize: unit(fontSize),
+        fontSize,
         lineHeight,
       },
 
@@ -114,18 +114,18 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      padding: unit(withDescriptionPadding ?? 0),
+      padding: withDescriptionPadding,
       [`${componentCls}-icon`]: {
-        marginInlineEnd: unit(marginSM),
-        fontSize: unit(withDescriptionIconSize),
+        marginInlineEnd: marginSM,
+        fontSize: withDescriptionIconSize,
         lineHeight: 0,
       },
 
       [`${componentCls}-message`]: {
         display: 'block',
-        marginBottom: unit(marginXS),
+        marginBottom: marginXS,
         color: colorTextHeading,
-        fontSize: unit(fontSizeLG),
+        fontSize: fontSizeLG,
       },
 
       [`${componentCls}-description`]: {
@@ -205,14 +205,14 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   return {
     [componentCls]: {
       [`&-action`]: {
-        marginInlineStart: unit(marginXS),
+        marginInlineStart: marginXS,
       },
 
       [`${componentCls}-close-icon`]: {
-        marginInlineStart: unit(marginXS),
+        marginInlineStart: marginXS,
         padding: 0,
         overflow: 'hidden',
-        fontSize: unit(fontSizeIcon),
+        fontSize: fontSizeIcon,
         lineHeight: unit(fontSizeIcon),
         backgroundColor: 'transparent',
         border: 'none',
@@ -248,7 +248,7 @@ export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   };
 };
 
-export default genComponentStyleHook<'Alert'>(
+export default genComponentStyleHook(
   'Alert',
   (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
   prepareComponentToken,
