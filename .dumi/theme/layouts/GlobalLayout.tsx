@@ -4,7 +4,7 @@ import {
   createCache,
   extractStyle,
   legacyNotSelectorLinter,
-  logicalPropertiesLinter,
+  NaNLinter,
   parentSelectorLinter,
   StyleProvider,
 } from '@ant-design/cssinjs';
@@ -168,7 +168,7 @@ const GlobalLayout: React.FC = () => {
     <DarkContext.Provider value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
-        linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+        linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
         <SiteContext.Provider value={siteContextValue}>
           <SiteThemeProvider
