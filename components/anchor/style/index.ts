@@ -41,7 +41,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
   return {
     [`${componentCls}-wrapper`]: {
       marginBlockStart: calc(holderOffsetBlock).mul(-1).equal(),
-      paddingBlockStart: unit(holderOffsetBlock),
+      paddingBlockStart: holderOffsetBlock,
 
       // delete overflow: auto
       // overflow: 'auto',
@@ -49,17 +49,17 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
-        paddingInlineStart: unit(lineWidthBold),
+        paddingInlineStart: lineWidthBold,
 
         [`${componentCls}-link`]: {
-          paddingBlock: unit(token.linkPaddingBlock),
+          paddingBlock: token.linkPaddingBlock,
           paddingInline: `${unit(token.linkPaddingInlineStart)} 0`,
 
           '&-title': {
             ...textEllipsis,
             position: 'relative',
             display: 'block',
-            marginBlockEnd: unit(token.anchorTitleBlock),
+            marginBlockEnd: token.anchorTitleBlock,
             color: token.colorText,
             transition: `all ${token.motionDurationSlow}`,
 
@@ -74,7 +74,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
           // link link
           [`${componentCls}-link`]: {
-            paddingBlock: unit(token.anchorPaddingBlockSecondary),
+            paddingBlock: token.anchorPaddingBlockSecondary,
           },
         },
       },

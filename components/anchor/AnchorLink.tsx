@@ -91,8 +91,4 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   );
 };
 
-if (process.env.NODE_ENV !== 'production') {
-  AnchorLink.displayName = 'AnchorLink';
-}
-
 export default AnchorLink;
