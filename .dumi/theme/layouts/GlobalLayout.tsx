@@ -4,7 +4,6 @@ import {
   createCache,
   extractStyle,
   legacyNotSelectorLinter,
-  logicalPropertiesLinter,
   parentSelectorLinter,
   StyleProvider,
 } from '@ant-design/cssinjs';
