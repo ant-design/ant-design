@@ -12,6 +12,7 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
+import usePopconfirmStyle from './style';
 import useCSSVar from './style/cssVar';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
@@ -95,6 +96,7 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
   const overlayClassNames = classNames(prefixCls, overlayClassName);
 
+  usePopconfirmStyle(prefixCls);
   const wrapCSSVar = useCSSVar(prefixCls);
 
   return wrapCSSVar(
