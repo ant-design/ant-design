@@ -139,7 +139,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       [`&-plain${componentCls}-with-text`]: {
         color: token.colorText,
         fontWeight: 'normal',
-        fontSize: unit(token.fontSize),
+        fontSize: token.fontSize,
       },
 
       [`&-horizontal${componentCls}-with-text-left${componentCls}-no-default-orientation-margin-left`]:
