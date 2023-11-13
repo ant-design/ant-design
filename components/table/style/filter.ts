@@ -51,7 +51,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          marginBlock: -paddingXXS,
+          marginBlock: calc(paddingXXS).mul(-1).equal(),
           marginInline: `${unit(paddingXXS)} ${unit(
             calc(tablePaddingHorizontal).div(2).mul(-1).equal(),
           )}`,
