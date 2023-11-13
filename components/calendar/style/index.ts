@@ -238,10 +238,9 @@ export default genComponentStyleHook(
         dateValueHeight: token.controlHeightSM,
         weekHeight: token.calc(token.controlHeightSM).mul(0.75).equal() as number,
         dateContentHeight: token
-          .calc(token.calc(token.fontHeightSM).add(token.marginXS).equal())
+          .calc(token.calc(token.fontHeightSM).add(token.marginXS))
           .mul(3)
-          .add(token.lineWidth)
-          .mul(2)
+          .add(token.calc(token.lineWidth).mul(2))
           .equal() as number,
       },
     );
