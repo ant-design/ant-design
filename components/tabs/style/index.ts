@@ -126,11 +126,6 @@ export interface ComponentToken {
    * @descEN Gutter of card tab
    */
   cardGutter: number;
-  /**
-   * @desc 卡片标签的行高
-   * @descEN height of card tab
-   */
-  tabsCardLineHeight: number | string;
 }
 
 export interface TabsToken extends FullToken<'Tabs'> {
@@ -1043,7 +1038,6 @@ export const prepareComponentToken: GetDefaultToken<'Tabs'> = (token) => {
     itemHoverColor: token.colorPrimaryHover,
     itemActiveColor: token.colorPrimaryActive,
     cardGutter: token.marginXXS / 2,
-    tabsCardLineHeight: Math.round(token.fontSize * token.lineHeight),
   };
 };
 
