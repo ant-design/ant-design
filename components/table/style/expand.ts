@@ -1,7 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
+import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
-import { operationUnit } from '../../style';
 
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
@@ -23,12 +24,15 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tablePaddingHorizontal,
     tableExpandedRowBg,
     paddingXXS,
+    calc,
   } = token;
-  const halfInnerSize = checkboxSize / 2 - lineWidth;
+  const halfInnerSize = calc(checkboxSize).div(2).sub(lineWidth).equal();
   // must be odd number, unless it cannot align center
-  const expandIconSize = halfInnerSize * 2 + lineWidth * 3;
-  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
-  const expandIconLineOffset = paddingXXS - lineWidth;
+  const expandIconSize = calc(calc(halfInnerSize).mul(2))
+    .add(calc(calc(lineWidth).mul(3)))
+    .equal();
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
+  const expandIconLineOffset = calc(paddingXXS).sub(lineWidth).equal();
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -60,11 +64,11 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         height: expandIconSize,
         padding: 0,
         color: 'inherit',
-        lineHeight: `${expandIconSize}px`,
+        lineHeight: unit(expandIconSize),
         background: tableExpandIconBg,
         border: tableBorder,
         borderRadius,
-        transform: `scale(${checkboxSize / expandIconSize})`,
+        transform: `scale(${calc(checkboxSize).div(expandIconSize).equal()})`,
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
@@ -115,9 +119,11 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginTop:
-          (fontSize * lineHeight - lineWidth * 3) / 2 -
-          Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
+        marginTop: calc(
+          calc(calc(calc(fontSize).mul(lineHeight)).sub(calc(lineWidth).mul(3))).div(2),
+        )
+          .sub(calc(calc(fontSizeSM).mul(1.4).sub(calc(lineWidth).mul(3))).div(2))
+          .equal(),
         marginInlineEnd: paddingXS,
       },
 
@@ -142,8 +148,10 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       // With fixed
       [`${componentCls}-expanded-row-fixed`]: {
         position: 'relative',
-        margin: `-${tablePaddingVertical}px -${tablePaddingHorizontal}px`,
-        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
+        margin: `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
+          calc(tablePaddingHorizontal).mul(-1).equal(),
+        )}`,
+        padding: `${unit(tablePaddingVertical)} ${unit(tablePaddingHorizontal)}`,
       },
     },
   };

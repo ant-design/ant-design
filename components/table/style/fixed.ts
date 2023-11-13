@@ -1,4 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -11,6 +12,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     zIndexTableFixed,
     tableBg,
     zIndexTableSticky,
+    calc,
   } = token;
 
   const shadowColor = colorSplit;
@@ -37,7 +39,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           _skip_check_: true,
           value: 0,
         },
-        bottom: -lineWidth,
+        bottom: calc(lineWidth).mul(-1).equal(),
         width: 30,
         transform: 'translateX(100%)',
         transition: `box-shadow ${motionDurationSlow}`,
@@ -55,7 +57,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       `]: {
         position: 'absolute',
         top: 0,
-        bottom: -lineWidth,
+        bottom: calc(lineWidth).mul(-1).equal(),
         left: {
           _skip_check_: true,
           value: 0,
@@ -72,7 +74,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'absolute',
           top: 0,
           bottom: 0,
-          zIndex: zIndexTableSticky + 1,
+          zIndex: calc(zIndexTableSticky).add(1).equal(),
           width: 30,
           transition: `box-shadow ${motionDurationSlow}`,
           content: '""',
@@ -93,7 +95,9 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'relative',
 
           '&::before': {
-            boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
+            boxShadow: `inset ${unit(10)} 0 ${unit(8)} ${unit(
+              calc(8).mul(-1).equal(),
+            )} ${shadowColor}`,
           },
         },
 
@@ -101,7 +105,9 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           ${componentCls}-cell-fix-left-first::after,
           ${componentCls}-cell-fix-left-last::after
         `]: {
-          boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
+          boxShadow: `inset ${unit(10)} 0 ${unit(8)} ${unit(
+            calc(8).mul(-1).equal(),
+          )} ${shadowColor}`,
         },
 
         [`${componentCls}-cell-fix-left-last::before`]: {
@@ -114,7 +120,9 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'relative',
 
           '&::after': {
-            boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
+            boxShadow: `inset ${unit(calc(10).mul(-1).equal())} 0 ${unit(8)} ${unit(
+              calc(8).mul(-1).equal(),
+            )} ${shadowColor}`,
           },
         },
 
@@ -122,7 +130,9 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           ${componentCls}-cell-fix-right-first::after,
           ${componentCls}-cell-fix-right-last::after
         `]: {
-          boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
+          boxShadow: `inset ${unit(calc(10).mul(-1).equal())} 0 ${unit(8)} ${unit(
+            calc(8).mul(-1).equal(),
+          )} ${shadowColor}`,
         },
       },
     },

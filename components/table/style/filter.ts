@@ -1,3 +1,5 @@
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
@@ -30,11 +32,12 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
     controlItemBgActive,
     boxShadowSecondary,
     filterDropdownMenuBg,
+    calc,
   } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
   const treePrefixCls = `${antCls}-tree`;
-  const tableBorder = `${lineWidth}px ${lineType} ${tableBorderColor}`;
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
 
   return [
     {
@@ -49,8 +52,10 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           display: 'flex',
           alignItems: 'center',
           marginBlock: -paddingXXS,
-          marginInline: `${paddingXXS}px ${-tablePaddingHorizontal / 2}px`,
-          padding: `0 ${paddingXXS}px`,
+          marginInline: `${unit(paddingXXS)} ${unit(
+            calc(tablePaddingHorizontal).div(2).mul(-1).equal(),
+          )}`,
+          padding: `0 ${unit(paddingXXS)}`,
           color: tableHeaderIconColor,
           fontSize: fontSizeSM,
           borderRadius,
@@ -93,7 +98,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
 
             '&:empty::after': {
               display: 'block',
-              padding: `${paddingXS}px 0`,
+              padding: `${unit(paddingXS)} 0`,
               color: colorTextDisabled,
               fontSize: fontSizeSM,
               textAlign: 'center',
@@ -102,7 +107,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           },
 
           [`${tableFilterDropdownPrefixCls}-tree`]: {
-            paddingBlock: `${paddingXS}px 0`,
+            paddingBlock: `${unit(paddingXS)} 0`,
             paddingInline: paddingXS,
 
             [treePrefixCls]: {
@@ -144,7 +149,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           [`${tableFilterDropdownPrefixCls}-btns`]: {
             display: 'flex',
             justifyContent: 'space-between',
-            padding: `${paddingXS - lineWidth}px ${paddingXS}px`,
+            padding: `${unit(calc(paddingXS).sub(lineWidth).equal())} ${unit(paddingXS)}`,
             overflow: 'hidden',
             borderTop: tableBorder,
           },

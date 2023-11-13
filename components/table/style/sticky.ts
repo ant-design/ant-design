@@ -1,4 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
@@ -12,8 +13,11 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableScrollBg,
     zIndexTableSticky,
     stickyScrollBarBorderRadius,
+    lineWidth,
+    lineType,
+    tableBorderColor,
   } = token;
-  const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-sticky`]: {
@@ -26,7 +30,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&-scroll': {
           position: 'sticky',
           bottom: 0,
-          height: `${tableScrollThumbSize}px !important`,
+          height: `${unit(tableScrollThumbSize)} !important`,
           zIndex: zIndexTableSticky,
           display: 'flex',
           alignItems: 'center',

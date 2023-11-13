@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
@@ -17,6 +17,8 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableSelectedRowBg,
     tableSelectedRowHoverBg,
     tableRowHoverBg,
+    tablePaddingHorizontal,
+    calc,
   } = token;
 
   return {
@@ -25,14 +27,21 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-selection-col`]: {
         width: tableSelectionColumnWidth,
         [`&${componentCls}-selection-col-with-dropdown`]: {
-          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4,
+          width: calc(tableSelectionColumnWidth)
+            .add(fontSizeIcon)
+            .add(calc(padding).div(4))
+            .equal(),
         },
       },
 
       [`${componentCls}-bordered ${componentCls}-selection-col`]: {
-        width: tableSelectionColumnWidth + paddingXS * 2,
+        width: calc(tableSelectionColumnWidth).add(calc(paddingXS).mul(2)).equal(),
         [`&${componentCls}-selection-col-with-dropdown`]: {
-          width: tableSelectionColumnWidth + fontSizeIcon + padding / 4 + paddingXS * 2,
+          width: calc(tableSelectionColumnWidth)
+            .add(fontSizeIcon)
+            .add(calc(padding).div(4))
+            .add(calc(paddingXS).mul(2))
+            .equal(),
         },
       },
 
@@ -71,7 +80,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         cursor: 'pointer',
         transition: `all ${token.motionDurationSlow}`,
         marginInlineStart: '100%',
-        paddingInlineStart: `${token.tablePaddingHorizontal / 4}px`,
+        paddingInlineStart: unit(calc(tablePaddingHorizontal).div(4).equal()),
 
         [iconCls]: {
           color: tableHeaderIconColor,
