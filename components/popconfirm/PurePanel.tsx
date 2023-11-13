@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import PopoverPurePanel from '../popover/PurePanel';
+import useStyle from './style';
 import useCSSVar from './style/cssVar';
 
 export interface PopconfirmLocale {
