@@ -22,7 +22,6 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
     >
       <canvas
         height="160"
-        style="height:160px;width:160px"
         width="160"
       />
     </div>
@@ -54,7 +53,6 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
     >
       <canvas
         height="160"
-        style="height:160px;width:160px"
         width="160"
       />
     </div>
@@ -68,7 +66,6 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
     >
       <canvas
         height="160"
-        style="height:160px;width:160px"
         width="160"
       />
     </div>
@@ -154,7 +151,6 @@ Array [
   >
     <canvas
       height="160"
-      style="height:160px;width:160px"
       width="160"
     />
     <img
@@ -175,7 +171,6 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
   >
     <canvas
       height="160"
-      style="height:160px;width:160px"
       width="160"
     />
   </div>
@@ -198,7 +193,6 @@ Array [
   >
     <canvas
       height="160"
-      style="height:160px;width:160px"
       width="160"
     />
   </div>,
@@ -277,7 +271,6 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
 >
   <canvas
     height="160"
-    style="height:160px;width:160px"
     width="160"
   />
   <img
@@ -327,7 +320,6 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
       </div>
       <canvas
         height="160"
-        style="height:160px;width:160px"
         width="160"
       />
     </div>
@@ -381,7 +373,6 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
       </div>
       <canvas
         height="160"
-        style="height:160px;width:160px"
         width="160"
       />
     </div>
@@ -402,7 +393,6 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
     >
       <canvas
         height="160"
-        style="height:160px;width:160px"
         width="160"
       />
     </div>

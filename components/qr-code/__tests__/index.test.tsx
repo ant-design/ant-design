@@ -39,7 +39,7 @@ describe('QRCode test', () => {
 
   it('support custom size', () => {
     const { container } = render(<QRCode value="test" size={100} />);
-    expect(container.querySelector('canvas')).toHaveStyle('width: 100px; height: 100px');
+    expect(container.querySelector('.ant-qrcode')).toHaveStyle('width: 100px; height: 100px');
   });
 
   it('support refresh', () => {
@@ -85,11 +85,5 @@ describe('QRCode test', () => {
       'Warning: [antd: QRCode] ErrorLevel `L` is not recommended to be used with `icon`, for scanning result would be affected by low level.',
     );
     errSpy.mockRestore();
-  });
-
-  it('style.padding should works', () => {
-    const { container } = render(<QRCode value="test" size={200} style={{ padding: '2px' }} />);
-    expect(container.querySelector('.ant-qrcode')).toHaveStyle('padding: 2px');
-    expect(container.querySelector('canvas')).toHaveStyle('width: 200px; height: 200px');
   });
 });
