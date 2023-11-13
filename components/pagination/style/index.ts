@@ -60,10 +60,10 @@ export interface ComponentToken {
 
 interface PaginationToken extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
   inputOutlineOffset: number;
-  paginationMiniOptionsMarginInlineStart: number;
-  paginationMiniQuickJumperInputWidth: number;
-  paginationItemPaddingInline: number;
-  paginationEllipsisLetterSpacing: number;
+  paginationMiniOptionsMarginInlineStart: number | string;
+  paginationMiniQuickJumperInputWidth: number | string;
+  paginationItemPaddingInline: number | string;
+  paginationEllipsisLetterSpacing: number | string;
   paginationEllipsisTextIndent: string;
   paginationSlashMarginInlineStart: number;
   paginationSlashMarginInlineEnd: number;
@@ -757,10 +757,10 @@ export default genComponentStyleHook(
       token,
       {
         inputOutlineOffset: 0,
-        paginationMiniOptionsMarginInlineStart: token.marginXXS / 2,
-        paginationMiniQuickJumperInputWidth: token.controlHeightLG * 1.1,
-        paginationItemPaddingInline: token.marginXXS * 1.5,
-        paginationEllipsisLetterSpacing: token.marginXXS / 2,
+        paginationMiniOptionsMarginInlineStart: token.calc(token.marginXXS).div(2).equal(),
+        paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
+        paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
+        paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
         paginationSlashMarginInlineStart: token.marginXXS,
         paginationSlashMarginInlineEnd: token.marginSM,
         paginationEllipsisTextIndent: '0.13em', // magic for ui experience
