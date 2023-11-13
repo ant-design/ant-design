@@ -436,7 +436,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     [`${componentCls}-bottom`]: {
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         order: 1,
-        marginTop: `${unit(margin)}`,
+        marginTop: margin,
         marginBottom: 0,
 
         '&::before': {
