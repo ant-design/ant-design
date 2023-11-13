@@ -65,7 +65,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       [`${componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
-        fontSize: unit(token.tagIconSize),
+        fontSize: token.tagIconSize,
         color: token.colorTextDescription,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
