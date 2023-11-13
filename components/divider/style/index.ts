@@ -94,7 +94,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       [`&-horizontal${componentCls}-with-text-left`]: {
         '&::before': {
-          width: `calc(${orientationMargin * 100}%)`,
+          width: `calc(${orientationMargin} * 100%)`,
         },
         '&::after': {
           width: `calc(${100 - orientationMargin * 100}%)`,
