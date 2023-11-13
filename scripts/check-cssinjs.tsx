@@ -67,7 +67,6 @@ async function checkCSSVar() {
     'progress',
     'qr-code',
     'radio',
-    'rate',
     'result',
     'segmented',
     'select',
