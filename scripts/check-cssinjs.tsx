@@ -6,6 +6,7 @@ import {
   parentSelectorLinter,
   createCache,
   extractStyle,
+  NaNLinter,
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
 import React from 'react';
@@ -20,15 +21,13 @@ const originError = console.error;
 console.error = (msg: any) => {
   if (msg.includes('Warning: [Ant Design CSS-in-JS]')) {
     errorCount += 1;
-    console.log(chalk.red(`❌ `), msg.replace(/\s+/g, ' '));
+    console.log(chalk.red(`❌ `), msg.slice('Error in').replace(/\s+/g, ' '));
   } else {
     originError(msg);
   }
 };
 
 async function checkCSSVar() {
-  const cache = createCache();
-
   const ignore = [
     'affix',
     'alert',
@@ -98,7 +97,7 @@ async function checkCSSVar() {
     ignore,
     render(Component: any) {
       ReactDOMServer.renderToString(
-        <StyleProvider cache={cache}>
+        <StyleProvider linters={[NaNLinter]}>
           <ConfigProvider theme={{ cssVar: true, hashed: false }}>
             <Component />
           </ConfigProvider>
@@ -106,14 +105,6 @@ async function checkCSSVar() {
       );
     },
   });
-
-  const style = extractStyle(cache);
-  const NaNList = style.match(/[\S\s]{0,100}NaN[\S\s]{0,100}/g);
-  if (NaNList) {
-    NaNList.forEach((s) => {
-      console.error(`Warning: [Ant Design CSS-in-JS]: Unexpected 'NaN' in style. Context: ${s}`);
-    });
-  }
 }
 
 (async () => {
