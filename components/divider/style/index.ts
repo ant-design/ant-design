@@ -113,7 +113,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       [`${componentCls}-inner-text`]: {
         display: 'inline-block',
         paddingBlock: 0,
-        paddingInline: unit(textPaddingInline ?? 0),
+        paddingInline: textPaddingInline,
       },
 
       '&-dashed': {
