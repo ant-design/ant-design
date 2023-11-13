@@ -6,6 +6,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   extends React.HTMLAttributes<HTMLElement> {
@@ -64,7 +65,8 @@ const Typography = React.forwardRef<
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const componentClassName = classNames(
     prefixCls,
@@ -79,7 +81,7 @@ const Typography = React.forwardRef<
 
   const mergedStyle: React.CSSProperties = { ...typography?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     // @ts-expect-error: Expression produces a union type that is too complex to represent.
     <Component className={componentClassName} style={mergedStyle} ref={mergedRef} {...restProps}>
       {children}
