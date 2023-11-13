@@ -1,5 +1,4 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
