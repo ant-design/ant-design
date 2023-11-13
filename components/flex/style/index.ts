@@ -17,21 +17,21 @@ export interface FlexToken extends FullToken<'Flex'> {
    * @desc 控制元素的小间隙。
    * @descEN Control the small gap of the element.
    */
-  flexGapSM: number | string;
+  flexGapSM: number;
   /**
    * @nameZH 间隙
    * @nameEN Gap
    * @desc 控制元素的间隙。
    * @descEN Control the gap of the element.
    */
-  flexGap: number | string;
+  flexGap: number;
   /**
    * @nameZH 大间隙
    * @nameEN Large Gap
    * @desc 控制元素的大间隙。
    * @descEN Control the large gap of the element.
    */
-  flexGapLG: number | string;
+  flexGapLG: number;
 }
 
 const genFlexStyle: GenerateStyle<FlexToken> = (token) => {
