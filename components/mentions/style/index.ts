@@ -8,8 +8,9 @@ import {
   initInputToken,
 } from '../../input/style';
 import { resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -29,7 +30,10 @@ export interface ComponentToken extends SharedComponentToken {
   controlItemWidth: number;
 }
 
-type MentionsToken = FullToken<'Mentions'> & SharedInputToken;
+type MentionsToken = FullToken<'Mentions'> &
+  SharedInputToken & {
+    itemPaddingVertical: string | number;
+  };
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   const {
@@ -49,11 +53,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
+    itemPaddingVertical,
   } = token;
-
-  const itemPaddingVertical = Math.round(
-    (token.controlHeight - token.fontSize * token.lineHeight) / 2,
-  );
 
   return {
     [componentCls]: {
@@ -92,9 +93,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       [`> textarea, ${componentCls}-measure`]: {
         color: colorText,
         boxSizing: 'border-box',
-        minHeight: controlHeight - 2,
+        minHeight: token.calc(controlHeight).sub(2),
         margin: 0,
-        padding: `${paddingBlock}px ${paddingInline}px`,
+        padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
         overflow: 'inherit',
         overflowX: 'hidden',
         overflowY: 'auto',
@@ -176,7 +177,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             position: 'relative',
             display: 'block',
             minWidth: token.controlItemWidth,
-            padding: `${itemPaddingVertical}px ${controlPaddingHorizontal}px`,
+            padding: `${unit(itemPaddingVertical)} ${unit(controlPaddingHorizontal)}`,
             color: colorText,
             borderRadius,
             fontWeight: 'normal',
@@ -215,6 +216,14 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Mentions'> = (token) => ({
+  ...initComponentToken(token),
+  dropdownHeight: 250,
+  controlItemWidth: 100,
+  zIndexPopup: token.zIndexPopupBase + 50,
+  itemPaddingVertical: token.controlHeight - token.fontHeight,
+});
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Mentions',
@@ -222,10 +231,5 @@ export default genComponentStyleHook(
     const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));
     return [genMentionsStyle(mentionsToken)];
   },
-  (token) => ({
-    ...initComponentToken(token),
-    dropdownHeight: 250,
-    controlItemWidth: 100,
-    zIndexPopup: token.zIndexPopupBase + 50,
-  }),
+  prepareComponentToken,
 );
