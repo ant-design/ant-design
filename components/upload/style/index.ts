@@ -67,7 +67,7 @@ export default genComponentStyleHook(
 
     const uploadToken = mergeToken<UploadToken>(token, {
       uploadThumbnailSize: calc(fontSizeHeading3).mul(2).equal(),
-      uploadProgressOffset: calc(calc(listItemHeightSM).div(2).equal()).add(lineWidth).equal(),
+      uploadProgressOffset: calc(calc(listItemHeightSM).div(2)).add(lineWidth).equal(),
       uploadPicCardSize: calc(controlHeightLG).mul(2.55).equal(),
     });
 
