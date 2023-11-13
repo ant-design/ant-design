@@ -299,7 +299,10 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             insetBlockStart: '50%',
             insetInlineEnd: 0,
             width: lineWidth,
-            height: token.calc(token.fontHeight).sub(token.calc(token.marginXXS).mul(2)).equal(),
+            height: token
+              .calc(token.fontHeight)
+              .sub(token.calc(token.marginXXS).mul(2).equal())
+              .equal(),
             transform: 'translateY(-50%)',
             backgroundColor: token.colorSplit,
           },
