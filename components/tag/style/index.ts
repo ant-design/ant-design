@@ -23,7 +23,7 @@ export interface ComponentToken {
 export interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
   tagLineHeight: React.CSSProperties['lineHeight'];
-  tagIconSize: number;
+  tagIconSize: number | string;
   tagPaddingHorizontal: number;
   tagBorderlessBg: string;
 }
@@ -127,15 +127,12 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
-  const { lineWidth, fontSizeIcon } = token;
-
+  const { lineWidth, fontSizeIcon, calc } = token;
   const tagFontSize = token.fontSizeSM;
-  const tagLineHeight = `${token.lineHeightSM * tagFontSize}px`;
-
   const tagToken = mergeToken<TagToken>(token, {
     tagFontSize,
-    tagLineHeight,
-    tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much smaller
+    tagLineHeight: calc(token.lineHeightSM).mul(tagFontSize).equal(),
+    tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
     tagPaddingHorizontal: 8, // Fixed padding.
     tagBorderlessBg: token.colorFillTertiary,
   });

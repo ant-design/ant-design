@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import React from 'react';
 import {
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
@@ -7,10 +8,10 @@ import {
   StyleProvider,
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { generateCssinjs } from './generate-cssinjs';
+
 import { ConfigProvider } from '../components';
+import { generateCssinjs } from './generate-cssinjs';
 
 console.log(chalk.green(`🔥 Checking CSS-in-JS...`));
 
@@ -67,7 +68,6 @@ async function checkCSSVar() {
     'switch',
     'table',
     'tabs',
-    'tag',
     'timeline',
     'tree',
     'tree-select',
