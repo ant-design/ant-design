@@ -18,6 +18,7 @@ import type {
   UploadProps,
 } from './interface';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
@@ -363,7 +364,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     delete rcUploadProps.id;
   }
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const [contextLocale] = useLocale('Upload', defaultLocale.Upload);
 
@@ -434,7 +436,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
-    return wrapSSR(
+    return wrapCSSVar(
       <span className={wrapperCls}>
         <div
           className={dragCls}
@@ -465,12 +467,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
-    return wrapSSR(
+    return wrapCSSVar(
       <span className={wrapperCls}>{renderUploadList(uploadButton, !!children)}</span>,
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <span className={wrapperCls}>
       {uploadButton}
       {renderUploadList()}

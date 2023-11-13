@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -94,7 +95,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     typeof dots === 'boolean' ? false : dots?.className,
   );
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const className = classNames(
     prefixCls,
@@ -106,7 +108,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={className} id={id}>
       <SlickCarousel
         ref={slickRef}

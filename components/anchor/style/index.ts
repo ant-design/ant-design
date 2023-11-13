@@ -130,7 +130,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token): CSSO
           value: 0,
         },
         bottom: 0,
-        borderBottom: `${unit(1)} ${token.lineType} ${token.colorSplit}`,
+        borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         content: '" "',
       },
 

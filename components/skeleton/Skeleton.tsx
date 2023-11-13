@@ -14,6 +14,7 @@ import type { SkeletonTitleProps } from './Title';
 import Title from './Title';
 
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
@@ -103,7 +104,8 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
 
   const { getPrefixCls, direction, skeleton } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -174,7 +176,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       hashId,
     );
 
-    return wrapSSR(
+    return wrapCSSVar(
       <div className={cls} style={{ ...skeleton?.style, ...style }}>
         {avatarNode}
         {contentNode}

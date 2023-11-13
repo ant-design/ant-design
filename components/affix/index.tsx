@@ -7,6 +7,7 @@ import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
 const TRIGGER_EVENTS = [
@@ -243,7 +244,8 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
 
-  const [wrapSSR, hashId] = useStyle(affixPrefixCls);
+  const [, hashId] = useStyle(affixPrefixCls);
+  const wrapCSSVar = useCSSVar(affixPrefixCls);
 
   const rootCls = classNames(rootClassName, hashId, affixPrefixCls);
 
@@ -262,7 +264,7 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     otherProps = omit(otherProps, ['onTestUpdatePosition' as any]);
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <ResizeObserver onResize={updatePosition}>
       <div style={style} className={className} ref={placeholderNodeRef} {...otherProps}>
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
