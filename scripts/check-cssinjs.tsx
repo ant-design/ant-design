@@ -53,7 +53,6 @@ async function checkCSSVar() {
     'image',
     'layout',
     'message',
-    'notification',
     'pagination',
     'popconfirm',
     'progress',
