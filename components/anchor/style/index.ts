@@ -96,7 +96,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             display: 'none',
             transform: 'translateY(-50%)',
             transition: `top ${motionDurationSlow} ease-in-out`,
-            width: unit(lineWidthBold),
+            width: lineWidthBold,
             backgroundColor: colorPrimary,
             [`&${componentCls}-ink-visible`]: {
               display: 'inline-block',
