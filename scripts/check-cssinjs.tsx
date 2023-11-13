@@ -1,12 +1,10 @@
 /* eslint-disable no-console */
 import {
-  StyleProvider,
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
-  parentSelectorLinter,
-  createCache,
-  extractStyle,
   NaNLinter,
+  parentSelectorLinter,
+  StyleProvider,
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
 import React from 'react';
