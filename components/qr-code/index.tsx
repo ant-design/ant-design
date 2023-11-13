@@ -51,6 +51,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     level: errorLevel,
     bgColor,
     fgColor: color,
+    style: { width: undefined, height: undefined },
     imageSettings: icon ? imageSettings : undefined,
   };
 

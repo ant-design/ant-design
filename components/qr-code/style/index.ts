@@ -47,8 +47,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       '> canvas': {
         alignSelf: 'stretch',
         flex: 'auto',
-        width: 'auto !important',
-        height: 'auto !important',
+        minWidth: 0,
       },
 
       '&-icon': {
