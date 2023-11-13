@@ -20,9 +20,9 @@ export interface ComponentToken {
 
 interface AnchorToken extends FullToken<'Anchor'> {
   holderOffsetBlock: number;
-  anchorPaddingBlockSecondary: number;
-  anchorBallSize: number;
-  anchorTitleBlock: number;
+  anchorPaddingBlockSecondary: number | string;
+  anchorBallSize: number | string;
+  anchorTitleBlock: number | string;
 }
 
 // ============================== Shared ==============================
@@ -169,12 +169,12 @@ export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
 export default genComponentStyleHook(
   'Anchor',
   (token) => {
-    const { fontSize, fontSizeLG, paddingXXS } = token;
+    const { fontSize, fontSizeLG, paddingXXS, calc } = token;
     const anchorToken = mergeToken<AnchorToken>(token, {
       holderOffsetBlock: paddingXXS,
-      anchorPaddingBlockSecondary: paddingXXS / 2,
-      anchorTitleBlock: (fontSize / 14) * 3,
-      anchorBallSize: fontSizeLG / 2,
+      anchorPaddingBlockSecondary: calc(paddingXXS).div(2).equal(),
+      anchorTitleBlock: calc(fontSize).div(14).mul(3).equal(),
+      anchorBallSize: calc(fontSizeLG).div(2).equal(),
     });
     return [genSharedAnchorStyle(anchorToken), genSharedAnchorHorizontalStyle(anchorToken)];
   },
