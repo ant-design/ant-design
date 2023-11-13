@@ -75,7 +75,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         margin: `${unit(token.dividerHorizontalWithTextGutterMargin)} 0`,
         color: token.colorTextHeading,
         fontWeight: 500,
-        fontSize: unit(token.fontSizeLG),
+        fontSize: token.fontSizeLG,
         whiteSpace: 'nowrap',
         textAlign: 'center',
         borderBlockStart: `0 ${colorSplit}`,
