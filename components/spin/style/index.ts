@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes, unit } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -61,7 +61,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       },
 
       [`${componentCls}-text`]: {
-        fontSize: unit(token.fontSize),
+        fontSize: token.fontSize,
         paddingTop: calc(calc(token.dotSize).sub(token.fontSize)).div(2).add(2).equal(),
       },
       '&-fullscreen': {
@@ -101,7 +101,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           display: 'block',
           width: '100%',
           height: '100%',
-          maxHeight: unit(token.contentHeight),
+          maxHeight: token.contentHeight,
           [`${componentCls}-dot`]: {
             position: 'absolute',
             top: '50%',
@@ -112,7 +112,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
             position: 'absolute',
             top: '50%',
             width: '100%',
-            textShadow: `0 ${unit(1)} ${unit(2)} ${token.colorBgContainer}`, // FIXME: shadow
+            textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
           },
 
           [`&${componentCls}-show-text ${componentCls}-dot`]: {
@@ -189,7 +189,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       [`${componentCls}-dot`]: {
         position: 'relative',
         display: 'inline-block',
-        fontSize: unit(token.dotSize),
+        fontSize: token.dotSize,
         width: '1em',
         height: '1em',
 
@@ -244,7 +244,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       },
       // small
       [`&-sm ${componentCls}-dot`]: {
-        fontSize: unit(token.dotSizeSM),
+        fontSize: token.dotSizeSM,
         i: {
           width: calc(calc(token.dotSizeSM).sub(calc(token.marginXXS).div(2)))
             .div(2)
@@ -256,7 +256,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       },
       // large
       [`&-lg ${componentCls}-dot`]: {
-        fontSize: unit(token.dotSizeLG),
+        fontSize: token.dotSizeLG,
         i: {
           width: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
           height: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
