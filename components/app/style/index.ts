@@ -1,4 +1,3 @@
-import { unit } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
@@ -13,7 +12,7 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
   return {
     [componentCls]: {
       color: colorText,
-      fontSize: unit(fontSize),
+      fontSize,
       lineHeight,
       fontFamily,
     },
