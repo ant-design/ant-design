@@ -1,6 +1,9 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSProperties } from 'react';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { CssUtil } from 'antd-style';
+
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type {
@@ -14,7 +17,6 @@ import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
-import type { CssUtil } from 'antd-style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -293,6 +295,12 @@ export interface ComponentToken {
   collapsedIconSize: number;
 
   // Dark
+  /**
+   * @desc 暗色模式下的浮层菜单的背景颜色
+   * @descEN The background color of the overlay menu in dark mode.
+   */
+  darkPopupBg: string;
+
   /**
    * @desc 暗色模式下的菜单项文字颜色
    * @descEN Color of menu item text in dark mode
@@ -915,6 +923,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkItemColor: colorTextDark,
     darkDangerItemColor: colorError,
     darkItemBg: '#001529',
+    darkPopupBg: '#001529',
     darkSubMenuItemBg: '#000c17',
     darkItemSelectedColor: colorTextLightSolid,
     darkItemSelectedBg: colorPrimary,
@@ -949,6 +958,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkItemColor,
         darkDangerItemColor,
         darkItemBg,
+        darkPopupBg,
         darkSubMenuItemBg,
         darkItemSelectedColor,
         darkItemSelectedBg,
@@ -984,7 +994,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         groupTitleColor: darkGroupTitleColor,
         itemSelectedColor: darkItemSelectedColor,
         itemBg: darkItemBg,
-        popupBg: darkItemBg,
+        popupBg: darkPopupBg || darkItemBg,
         subMenuItemBg: darkSubMenuItemBg,
         itemActiveBg: 'transparent',
         itemSelectedBg: darkItemSelectedBg,

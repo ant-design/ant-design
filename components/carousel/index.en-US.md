@@ -32,13 +32,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoplay | Whether to scroll automatically | boolean | false |  |
+| autoplaySpeed | Delay between each auto scroll (in milliseconds) | number | 3000 |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | `bottom` |  |
 | dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` and any others | boolean \| { className?: string } | true |  |
-| waitForAnimate | Whether to wait for the animation when switching | boolean | false |  |
+| fade | Whether to use fade transition | boolean | false |  |
+| infinite | Infinitely wrap around contents | boolean | true |  |
+| speed | Animation speed in milliseconds | number | 500 |  |
 | easing | Transition interpolation function name | string | `linear` |  |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |  |
 | afterChange | Callback function called after the current index changes | (current: number) => void | - |  |
 | beforeChange | Callback function called before the current index changes | (current: number, next: number) => void | - |  |
+| waitForAnimate | Whether to wait for the animation when switching | boolean | false |  |
 
 ## Methods
 
