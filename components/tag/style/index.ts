@@ -115,7 +115,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       // To ensure that a space will be placed between character and `Icon`.
       [`> ${token.iconCls} + span, > span + ${token.iconCls}`]: {
-        marginInlineStart: unit(paddingInline),
+        marginInlineStart: paddingInline,
       },
     },
     [`${componentCls}-borderless`]: {
