@@ -14,12 +14,6 @@ export interface ComponentToken {
    * @descEN Action button color
    */
   actionsColor: string;
-  /**
-   * @desc 列表项高度
-   * @descEN List item height
-   * @internal
-   */
-  listItemHeightSM: number;
 }
 
 export interface UploadToken extends FullToken<'Upload'> {
@@ -56,18 +50,17 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
   actionsColor: token.colorTextDescription,
-  listItemHeightSM: Math.round(token.fontSize * token.lineHeight),
 });
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Upload',
   (token) => {
-    const { fontSizeHeading3, listItemHeightSM, lineWidth, controlHeightLG, calc } = token;
+    const { fontSizeHeading3, fontHeight, lineWidth, controlHeightLG, calc } = token;
 
     const uploadToken = mergeToken<UploadToken>(token, {
       uploadThumbnailSize: calc(fontSizeHeading3).mul(2).equal(),
-      uploadProgressOffset: calc(calc(listItemHeightSM).div(2)).add(lineWidth).equal(),
+      uploadProgressOffset: calc(calc(fontHeight).div(2)).add(lineWidth).equal(),
       uploadPicCardSize: calc(controlHeightLG).mul(2.55).equal(),
     });
 

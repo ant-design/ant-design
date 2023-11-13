@@ -37,7 +37,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
             ...textEllipsis,
             width: uploadThumbnailSize,
             height: uploadThumbnailSize,
-            lineHeight: `${calc(uploadThumbnailSize).add(token.paddingSM).equal()}`,
+            lineHeight: unit(calc(uploadThumbnailSize).add(token.paddingSM).equal()),
             textAlign: 'center',
             flex: 'none',
 
