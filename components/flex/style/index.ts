@@ -57,13 +57,13 @@ const genFlexGapStyle: GenerateStyle<FlexToken> = (token) => {
   return {
     [componentCls]: {
       '&-gap-small': {
-        gap: unit(token.flexGapSM),
+        gap: token.flexGapSM,
       },
       '&-gap-middle': {
-        gap: unit(token.flexGap),
+        gap: token.flexGap,
       },
       '&-gap-large': {
-        gap: unit(token.flexGapLG),
+        gap: token.flexGapLG,
       },
     },
   };
