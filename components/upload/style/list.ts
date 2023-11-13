@@ -8,7 +8,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
-  const listItemHeightSM = Math.round(fontSize * lineHeight);
+  const listItemHeightSM = token.fontHeightSM;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -76,7 +76,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
-            bottom: -token.uploadProgressOffset,
+            bottom: token.calc(token.uploadProgressOffset).mul(-1).equal(),
             width: '100%',
             paddingInlineStart: calc(fontSize).add(token.paddingXS).equal(),
             fontSize,
