@@ -29,12 +29,12 @@ Array [
         >
           <div
             class="ant-qrcode ant-qrcode-borderless"
-            style="background-color: transparent;"
+            style="width: 160px; height: 160px; background-color: transparent;"
           >
             <canvas
-              height="134"
-              style="height: 134px; width: 134px;"
-              width="134"
+              height="160"
+              style="height: 160px; width: 160px;"
+              width="160"
             />
           </div>
         </div>
@@ -55,12 +55,12 @@ exports[`renders components/qr-code/demo/base.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="background-color: transparent;"
+      style="width: 160px; height: 160px; background-color: transparent;"
     >
       <canvas
-        height="134"
-        style="height: 134px; width: 134px;"
-        width="134"
+        height="160"
+        style="height: 160px; width: 160px;"
+        width="160"
       />
     </div>
   </div>
@@ -89,12 +89,12 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
   >
     <div
       class="ant-qrcode"
-      style="background-color: transparent;"
+      style="width: 160px; height: 160px; background-color: transparent;"
     >
       <canvas
-        height="134"
-        style="height: 134px; width: 134px;"
-        width="134"
+        height="160"
+        style="height: 160px; width: 160px;"
+        width="160"
       />
     </div>
   </div>
@@ -103,12 +103,12 @@ exports[`renders components/qr-code/demo/customColor.tsx extend context correctl
   >
     <div
       class="ant-qrcode"
-      style="background-color: rgb(245, 245, 245);"
+      style="width: 160px; height: 160px; background-color: rgb(245, 245, 245);"
     >
       <canvas
-        height="134"
-        style="height: 134px; width: 134px;"
-        width="134"
+        height="160"
+        style="height: 160px; width: 160px;"
+        width="160"
       />
     </div>
   </div>
@@ -191,7 +191,7 @@ Array [
   </div>,
   <div
     class="ant-qrcode"
-    style="background-color: transparent;"
+    style="width: 160px; height: 160px; background-color: transparent;"
   >
     <canvas
       height="160"
@@ -214,12 +214,12 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
 >
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; background-color: rgb(255, 255, 255);"
+    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: rgb(255, 255, 255);"
   >
     <canvas
-      height="134"
-      style="height: 134px; width: 134px;"
-      width="134"
+      height="160"
+      style="height: 160px; width: 160px;"
+      width="160"
     />
   </div>
   <button
@@ -239,12 +239,12 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 Array [
   <div
     class="ant-qrcode"
-    style="margin-bottom: 16px; background-color: transparent;"
+    style="margin-bottom: 16px; width: 160px; height: 160px; background-color: transparent;"
   >
     <canvas
-      height="134"
-      style="height: 134px; width: 134px;"
-      width="134"
+      height="160"
+      style="height: 160px; width: 160px;"
+      width="160"
     />
   </div>,
   <div
@@ -320,12 +320,12 @@ exports[`renders components/qr-code/demo/errorlevel.tsx extend context correctly
 exports[`renders components/qr-code/demo/icon.tsx extend context correctly 1`] = `
 <div
   class="ant-qrcode"
-  style="background-color: transparent;"
+  style="width: 160px; height: 160px; background-color: transparent;"
 >
   <canvas
-    height="134"
-    style="height: 134px; width: 134px;"
-    width="134"
+    height="160"
+    style="height: 160px; width: 160px;"
+    width="160"
   />
   <img
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -346,7 +346,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
   >
     <div
       class="ant-qrcode"
-      style="background-color: transparent;"
+      style="width: 160px; height: 160px; background-color: transparent;"
     >
       <div
         class="ant-qrcode-mask"
@@ -375,9 +375,9 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
         </div>
       </div>
       <canvas
-        height="134"
-        style="height: 134px; width: 134px;"
-        width="134"
+        height="160"
+        style="height: 160px; width: 160px;"
+        width="160"
       />
     </div>
   </div>
@@ -386,7 +386,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
   >
     <div
       class="ant-qrcode"
-      style="background-color: transparent;"
+      style="width: 160px; height: 160px; background-color: transparent;"
     >
       <div
         class="ant-qrcode-mask"
@@ -429,9 +429,9 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`]
         </button>
       </div>
       <canvas
-        height="134"
-        style="height: 134px; width: 134px;"
-        width="134"
+        height="160"
+        style="height: 160px; width: 160px;"
+        width="160"
       />
     </div>
   </div>
@@ -449,12 +449,12 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="background-color: transparent;"
+      style="width: 160px; height: 160px; background-color: transparent;"
     >
       <canvas
-        height="134"
-        style="height: 134px; width: 134px;"
-        width="134"
+        height="160"
+        style="height: 160px; width: 160px;"
+        width="160"
       />
     </div>
   </div>
@@ -463,12 +463,12 @@ exports[`renders components/qr-code/demo/type.tsx extend context correctly 1`] =
   >
     <div
       class="ant-qrcode"
-      style="background-color: transparent;"
+      style="width: 160px; height: 160px; background-color: transparent;"
     >
       <svg
-        height="134"
+        height="160"
         viewBox="0 0 25 25"
-        width="134"
+        width="160"
       >
         <path
           d="M0,0 h25v25H0z"

@@ -19,7 +19,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     value,
     type = 'canvas',
     icon = '',
-    size = 134,
+    size = 160,
     iconSize = 40,
     color = token.colorText,
     errorLevel = 'M',
@@ -77,7 +77,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   });
 
   return wrapSSR(
-    <div style={{ ...style, backgroundColor: bgColor }} className={cls}>
+    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}

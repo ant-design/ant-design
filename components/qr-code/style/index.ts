@@ -14,7 +14,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      display: 'inline-flex',
+      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       padding: token.paddingSM,
@@ -23,6 +23,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       position: 'relative',
       overflow: 'hidden',
+
       [`& > ${componentCls}-mask`]: {
         position: 'absolute',
         insetBlockStart: 0,
@@ -42,6 +43,14 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
           color: token.QRCodeExpiredTextColor,
         },
       },
+
+      '> canvas': {
+        alignSelf: 'stretch',
+        flex: 'auto',
+        width: 'auto !important',
+        height: 'auto !important',
+      },
+
       '&-icon': {
         marginBlockEnd: token.marginXS,
         fontSize: token.controlHeight,
