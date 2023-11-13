@@ -12,6 +12,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -144,7 +145,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -234,7 +236,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   delete others.onError;
   delete others.gap;
 
-  return wrapSSR(
+  return wrapCSSVar(
     <span
       {...others}
       style={{ ...sizeStyle, ...responsiveSizeStyle, ...avatar?.style, ...others.style }}

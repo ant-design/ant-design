@@ -13,6 +13,7 @@ import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import Item from './Item';
+import useCSSVar from './style/cssVar';
 
 // CSSINJS
 import { ListContext } from './context';
@@ -143,7 +144,8 @@ function List<T>({
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
@@ -284,7 +286,7 @@ function List<T>({
     [JSON.stringify(grid), itemLayout],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <ListContext.Provider value={contextValue}>
       <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
