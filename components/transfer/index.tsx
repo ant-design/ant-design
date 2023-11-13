@@ -23,6 +23,7 @@ import List from './list';
 import Operation from './operation';
 import Search from './search';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type { TransferListProps } from './list';
 export type { TransferOperationProps } from './operation';
@@ -151,7 +152,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -419,7 +421,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}

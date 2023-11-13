@@ -6,6 +6,7 @@ import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -45,7 +46,8 @@ const Empty: CompoundedComponent = ({
   const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const [locale] = useLocale('Empty');
 
@@ -60,7 +62,7 @@ const Empty: CompoundedComponent = ({
     imageNode = image;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={classNames(
         hashId,

@@ -14,6 +14,8 @@ import type { SizeType } from '../config-provider/SizeContext';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import TabPane, { type TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
@@ -53,7 +55,10 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
   const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+
+  const wrapCSSVar = useCSSVar(rootCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -86,7 +91,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcTabs
       direction={direction}
       getPopupContainer={getPopupContainer}
@@ -104,8 +109,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         className,
         rootClassName,
         hashId,
+        rootCls,
       )}
-      popupClassName={classNames(popupClassName, hashId)}
+      popupClassName={classNames(popupClassName, hashId, rootCls)}
       style={mergedStyle}
       editable={editable}
       moreIcon={moreIcon}
