@@ -221,7 +221,7 @@ export const prepareComponentToken: GetDefaultToken<'Mentions'> = (token) => ({
   dropdownHeight: 250,
   controlItemWidth: 100,
   zIndexPopup: token.zIndexPopupBase + 50,
-  itemPaddingVertical: Math.round((token.controlHeight - token.fontSize * token.lineHeight) / 2),
+  itemPaddingVertical: token.controlHeight - token.fontHeight,
 });
 
 // ============================== Export ==============================
