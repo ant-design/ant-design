@@ -230,7 +230,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
             fontSize: 0,
             background: token.colorBgContainer,
             border: 0,
-            borderRadius: 1,
+            borderRadius: token.dotHeight,
             outline: 'none',
             cursor: 'pointer',
             opacity: 0.3,
