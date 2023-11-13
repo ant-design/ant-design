@@ -97,7 +97,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           width: `calc(${orientationMargin} * 100%)`,
         },
         '&::after': {
-          width: `calc(${100 - orientationMargin * 100}%)`,
+          width: `calc(100% - ${orientationMargin} * 100%)`,
         },
       },
 
