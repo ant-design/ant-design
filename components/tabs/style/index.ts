@@ -565,7 +565,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         order: 0,
         marginRight: {
           _skip_check_: true,
-          value: -token.lineWidth,
+          value: token.calc(token.lineWidth).mul(-1).equal(),
         },
         borderRight: {
           _skip_check_: true,
@@ -700,7 +700,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         flex: 'none',
         marginRight: {
           _skip_check_: true,
-          value: -token.marginXXS,
+          value: token.calc(token.marginXXS).mul(-1).equal(),
         },
         marginLeft: {
           _skip_check_: true,
