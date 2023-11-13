@@ -21,7 +21,7 @@ const originError = console.error;
 console.error = (msg: any) => {
   if (msg.includes('Warning: [Ant Design CSS-in-JS]')) {
     errorCount += 1;
-    console.log(chalk.red(`❌ `), msg.slice('Error in').replace(/\s+/g, ' '));
+    console.log(chalk.red(`❌ `), msg.slice(msg.indexOf('Error in')).replace(/\s+/g, ' '));
   } else {
     originError(msg);
   }
