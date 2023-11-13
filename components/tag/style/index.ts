@@ -130,7 +130,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
   const tagFontSize = token.fontSizeSM;
   const tagToken = mergeToken<TagToken>(token, {
     tagFontSize,
-    tagLineHeight: calc(token.lineHeightSM).mul(tagFontSize).equal(),
+    tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
     tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
     tagPaddingHorizontal: 8, // Fixed padding.
     tagBorderlessBg: token.colorFillTertiary,
