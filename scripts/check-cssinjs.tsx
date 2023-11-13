@@ -47,7 +47,6 @@ async function checkCSSVar() {
     'drawer',
     'dropdown',
     'float-button',
-    'form',
     'grid',
     'icon',
     'image',
