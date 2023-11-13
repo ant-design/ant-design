@@ -54,7 +54,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         top: '-0.06em',
         display: 'inline-block',
         height: '0.9em',
-        marginInline: unit(verticalMarginInline ?? 0),
+        marginInline: verticalMarginInline,
         marginBlock: 0,
         verticalAlign: 'middle',
         borderTop: 0,
