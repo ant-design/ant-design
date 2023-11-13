@@ -81,13 +81,13 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
 
   // Avatar size style
   const avatarSizeStyle = (size: number, fontSize: number, radius: number): CSSObject => ({
-    width: unit(size),
-    height: unit(size),
-    lineHeight: calc(size).sub(calc(lineWidth).mul(2)).equal(),
+    width: size,
+    height: size,
+    lineHeight: unit(calc(size).sub(calc(lineWidth).mul(2)).equal()),
     borderRadius: '50%',
 
     [`&${componentCls}-square`]: {
-      borderRadius: unit(radius),
+      borderRadius: radius,
     },
 
     [`${componentCls}-string`]: {
@@ -100,7 +100,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     },
 
     [`&${componentCls}-icon`]: {
-      fontSize: unit(fontSize),
+      fontSize,
       [`> ${iconCls}`]: {
         margin: 0,
       },
@@ -160,12 +160,12 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
       },
 
       [`> *:not(:first-child)`]: {
-        marginInlineStart: unit(groupOverlapping),
+        marginInlineStart: groupOverlapping,
       },
     },
     [`${componentCls}-group-popover`]: {
       [`${componentCls} + ${componentCls}`]: {
-        marginInlineStart: unit(groupSpace),
+        marginInlineStart: groupSpace,
       },
     },
   };
