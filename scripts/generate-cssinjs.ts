@@ -9,6 +9,7 @@ interface GenCssinjsOptions {
   key: string;
   render: (component: React.FC) => void;
   beforeRender?: (componentName: string) => void;
+  ignore?: string[];
 }
 
 export const styleFiles = globSync(
@@ -21,13 +22,14 @@ export const styleFiles = globSync(
     .join('/'),
 );
 
-export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions) =>
+export const generateCssinjs = ({ key, beforeRender, render, ignore }: GenCssinjsOptions) =>
   Promise.all(
     styleFiles.map(async (file) => {
       const absPath = url.pathToFileURL(file).href;
       const pathArr = file.split('/');
       const styleIndex = pathArr.lastIndexOf('style');
       const componentName = pathArr[styleIndex - 1];
+      if (ignore?.includes(componentName)) return;
       let useStyle: StyleFn = () => {};
       if (file.includes('grid')) {
         const { useColStyle, useRowStyle } = await import(absPath);
