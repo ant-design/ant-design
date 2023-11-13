@@ -11,6 +11,7 @@ import useNotification from '../notification/useNotification';
 import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;
@@ -36,7 +37,8 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
   const customClassName = classNames(hashId, prefixCls, className, rootClassName);
 
   const appConfig = useContext<AppConfig>(AppConfigContext);
@@ -71,7 +73,7 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
     style,
   };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
         <Component {...(component === false ? undefined : rootProps)}>
