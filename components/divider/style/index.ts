@@ -168,7 +168,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           },
 
           [`${componentCls}-inner-text`]: {
-            paddingInlineEnd: unit(sizePaddingEdgeHorizontal),
+            paddingInlineEnd: sizePaddingEdgeHorizontal,
           },
         },
     },
