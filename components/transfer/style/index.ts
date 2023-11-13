@@ -38,7 +38,6 @@ export interface ComponentToken {
 
 interface TransferToken extends FullToken<'Transfer'> {
   transferHeaderVerticalPadding: number;
-  emptyImageLineHeight: number;
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
@@ -324,7 +323,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     marginXXS,
     fontSizeIcon,
     colorBgContainerDisabled,
-    emptyImageLineHeight,
+    fontHeight,
   } = token;
 
   return {
@@ -368,7 +367,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         // headerHeight / 2 - Math.round(fontSize * lineHeight)
         maxHeight: token
           .calc(token.calc(headerHeight).div(2).equal())
-          .sub(emptyImageLineHeight)
+          .sub(fontHeight)
           .equal(),
       },
     },
@@ -395,7 +394,6 @@ export const prepareComponentToken: GetDefaultToken<'Transfer'> = (token) => {
     itemHeight: controlHeight,
     itemPaddingBlock: (controlHeight - fontHeight) / 2,
     transferHeaderVerticalPadding: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
-    emptyImageLineHeight: Math.round(fontSize * lineHeight),
   };
 };
 
