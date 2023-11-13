@@ -31,10 +31,9 @@ export interface TagToken extends FullToken<'Tag'> {
 // ============================== Styles ==============================
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
-  const paddingInline = tagPaddingHorizontal - lineWidth;
-  const iconMarginInline = paddingXXS - lineWidth;
-
+  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
+  const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
+  const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
   return {
     // Result
     [componentCls]: {
