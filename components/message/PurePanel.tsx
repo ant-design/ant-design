@@ -10,6 +10,8 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { NoticeType } from './interface';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -47,12 +49,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
-  return (
+  return wrapCSSVar(
     <Notice
       {...restProps}
       prefixCls={prefixCls}
-      className={classNames(className, hashId, `${prefixCls}-notice-pure-panel`)}
+      className={classNames(className, hashId, `${prefixCls}-notice-pure-panel`, rootCls)}
       eventKey="pure"
       duration={null}
       content={
@@ -60,7 +64,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           {content}
         </PureContent>
       }
-    />
+    />,
   );
 };
 

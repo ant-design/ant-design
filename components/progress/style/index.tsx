@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -30,11 +30,16 @@ export interface ComponentToken {
    * @descEN Text size of circular progress bar
    */
   circleTextFontSize: string;
+  /**
+   * @desc 圆形进度条图标大小
+   * @descEN Icon size of circular progress bar
+   */
+  circleIconFontSize: string;
 }
 
 interface ProgressToken extends FullToken<'Progress'> {
-  progressStepMinWidth: number;
-  progressStepMarginInlineEnd: number;
+  progressStepMinWidth: number | string;
+  progressStepMarginInlineEnd: number | string;
   progressActiveMotionDuration: string;
 }
 
@@ -84,8 +89,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
 
       [`&${progressCls}-show-info`]: {
         [`${progressCls}-outer`]: {
-          marginInlineEnd: `calc(-2em - ${token.marginXS}px)`,
-          paddingInlineEnd: `calc(2em + ${token.paddingXS}px)`,
+          marginInlineEnd: `calc(-2em - ${unit(token.marginXS)})`,
+          paddingInlineEnd: `calc(2em + ${unit(token.paddingXS)})`,
         },
       },
 
@@ -219,7 +224,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
         transform: 'translateY(-50%)',
 
         [iconPrefixCls]: {
-          fontSize: `${token.fontSize / token.fontSizeSM}em`,
+          fontSize: token.circleIconFontSize,
         },
       },
 
@@ -285,10 +290,19 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Progress'> = (token) => ({
+  circleTextColor: token.colorText,
+  defaultColor: token.colorInfo,
+  remainingColor: token.colorFillSecondary,
+  lineBorderRadius: 100, // magic for capsule shape, should be a very large number
+  circleTextFontSize: '1em',
+  circleIconFontSize: `${token.fontSize / token.fontSizeSM}em`,
+});
+
 export default genComponentStyleHook(
   'Progress',
   (token) => {
-    const progressStepMarginInlineEnd = token.marginXXS / 2;
+    const progressStepMarginInlineEnd = token.calc(token.marginXXS).div(2).equal();
 
     const progressToken = mergeToken<ProgressToken>(token, {
       progressStepMarginInlineEnd,
@@ -303,11 +317,5 @@ export default genComponentStyleHook(
       genSmallLine(progressToken),
     ];
   },
-  (token) => ({
-    circleTextColor: token.colorText,
-    defaultColor: token.colorInfo,
-    remainingColor: token.colorFillSecondary,
-    lineBorderRadius: 100, // magic for capsule shape, should be a very large number
-    circleTextFontSize: '1em',
-  }),
+  prepareComponentToken,
 );
