@@ -1,4 +1,3 @@
-
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
