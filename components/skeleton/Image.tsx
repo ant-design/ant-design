@@ -3,6 +3,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface SkeletonImageProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {}
 
@@ -13,7 +14,8 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
   const { prefixCls: customizePrefixCls, className, rootClassName, style, active } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
   const cls = classNames(
     prefixCls,
     `${prefixCls}-element`,
@@ -25,7 +27,7 @@ const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
     hashId,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={cls}>
       <div className={classNames(`${prefixCls}-image`, className)} style={style}>
         <svg

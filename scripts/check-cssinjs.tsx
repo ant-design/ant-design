@@ -60,7 +60,6 @@ async function checkCSSVar() {
     'qr-code',
     'radio',
     'select',
-    'skeleton',
     'slider',
     'space',
     'statistic',
