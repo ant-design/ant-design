@@ -62,7 +62,6 @@ async function checkCSSVar() {
     'modal',
     'notification',
     'pagination',
-    'popconfirm',
     'popover',
     'progress',
     'qr-code',

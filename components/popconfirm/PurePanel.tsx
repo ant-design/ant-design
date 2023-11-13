@@ -10,7 +10,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import PopoverPurePanel from '../popover/PurePanel';
-import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface PopconfirmLocale {
   okText: string;
@@ -108,9 +108,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const [wrapSSR] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <PopoverPurePanel
       placement={placement}
       className={classNames(prefixCls, className)}
