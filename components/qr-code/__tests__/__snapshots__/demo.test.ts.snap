@@ -21,9 +21,8 @@ exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `
       style="width:160px;height:160px;background-color:transparent"
     >
       <canvas
-        height="134"
-        style="height:134px;width:134px"
-        width="134"
+        height="160"
+        width="160"
       />
     </div>
   </div>
@@ -53,9 +52,8 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
       style="width:160px;height:160px;background-color:transparent"
     >
       <canvas
-        height="134"
-        style="height:134px;width:134px"
-        width="134"
+        height="160"
+        width="160"
       />
     </div>
   </div>
@@ -67,9 +65,8 @@ exports[`renders components/qr-code/demo/customColor.tsx correctly 1`] = `
       style="width:160px;height:160px;background-color:#f5f5f5"
     >
       <canvas
-        height="134"
-        style="height:134px;width:134px"
-        width="134"
+        height="160"
+        width="160"
       />
     </div>
   </div>
@@ -153,9 +150,8 @@ Array [
     style="width:160px;height:160px;background-color:transparent"
   >
     <canvas
-      height="134"
-      style="height:134px;width:134px"
-      width="134"
+      height="160"
+      width="160"
     />
     <img
       src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -174,9 +170,8 @@ exports[`renders components/qr-code/demo/download.tsx correctly 1`] = `
     style="margin-bottom:16px;width:160px;height:160px;background-color:#fff"
   >
     <canvas
-      height="134"
-      style="height:134px;width:134px"
-      width="134"
+      height="160"
+      width="160"
     />
   </div>
   <button
@@ -197,9 +192,8 @@ Array [
     style="margin-bottom:16px;width:160px;height:160px;background-color:transparent"
   >
     <canvas
-      height="134"
-      style="height:134px;width:134px"
-      width="134"
+      height="160"
+      width="160"
     />
   </div>,
   <div
@@ -276,9 +270,8 @@ exports[`renders components/qr-code/demo/icon.tsx correctly 1`] = `
   style="width:160px;height:160px;background-color:transparent"
 >
   <canvas
-    height="134"
-    style="height:134px;width:134px"
-    width="134"
+    height="160"
+    width="160"
   />
   <img
     src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
@@ -326,9 +319,8 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
         </div>
       </div>
       <canvas
-        height="134"
-        style="height:134px;width:134px"
-        width="134"
+        height="160"
+        width="160"
       />
     </div>
   </div>
@@ -380,9 +372,8 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
         </button>
       </div>
       <canvas
-        height="134"
-        style="height:134px;width:134px"
-        width="134"
+        height="160"
+        width="160"
       />
     </div>
   </div>
@@ -401,9 +392,8 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
       style="width:160px;height:160px;background-color:transparent"
     >
       <canvas
-        height="134"
-        style="height:134px;width:134px"
-        width="134"
+        height="160"
+        width="160"
       />
     </div>
   </div>
@@ -415,9 +405,9 @@ exports[`renders components/qr-code/demo/type.tsx correctly 1`] = `
       style="width:160px;height:160px;background-color:transparent"
     >
       <svg
-        height="134"
+        height="160"
         viewBox="0 0 25 25"
-        width="134"
+        width="160"
       >
         <path
           d="M0,0 h25v25H0z"
