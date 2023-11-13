@@ -21,8 +21,9 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
       `]: {
         [itemCls]: {
           position: 'relative',
-          height: calc(calc(calc(uploadThumbnailSize).add(token.lineWidth).equal()).mul(2).equal())
-            .add(calc(token.paddingXS).mul(2).equal())
+          height: calc(uploadThumbnailSize)
+            .add(calc(token.lineWidth).mul(2))
+            .add(calc(token.paddingXS).mul(2))
             .equal(),
           padding: token.paddingXS,
           border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
