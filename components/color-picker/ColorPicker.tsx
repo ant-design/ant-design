@@ -7,6 +7,7 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -30,6 +31,7 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
+import useCSSVar from './style/cssVar';
 import useStyle from './style/index';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
@@ -133,7 +135,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rtlCls);
   const mergeCls = classNames(
@@ -232,7 +235,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ============================ zIndex ============================
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Popover
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
