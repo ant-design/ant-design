@@ -11,6 +11,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -104,7 +105,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
@@ -140,7 +142,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     hashId,
   );
   const ariaChecked = indeterminate ? 'mixed' : undefined;
-  return wrapSSR(
+  return wrapCSSVar(
     <Wave component="Checkbox" disabled={mergedDisabled}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label

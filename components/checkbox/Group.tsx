@@ -7,6 +7,7 @@ import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
 import GroupContext from './GroupContext';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type CheckboxValueType = string | number | boolean;
 
@@ -109,7 +110,8 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const domProps = omit(restProps, ['value', 'disabled']);
 
@@ -151,7 +153,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
     rootClassName,
     hashId,
   );
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={classString} style={style} {...domProps} ref={ref}>
       <GroupContext.Provider value={context}>{childrenNode}</GroupContext.Provider>
     </div>,
