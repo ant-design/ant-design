@@ -257,6 +257,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const injectFromPopover = (props as any)['data-popover-inject'];
+  const customZIndexInject = (props as any)['data-custom-z-index-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title
@@ -300,7 +301,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const content = (
     <RcTooltip
       {...otherProps}
-      zIndex={injectFromPopover ? otherProps.zIndex : zIndex}
+      zIndex={customZIndexInject ? otherProps.zIndex : zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}

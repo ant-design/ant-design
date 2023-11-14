@@ -51,6 +51,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const overlayCls = classNames(overlayClassName, hashId);
 
   // ============================ zIndex ============================
+  const customZIndexInject = (props as any)['data-custom-z-index-inject'];
 
   return wrapSSR(
     <Tooltip
@@ -67,7 +68,9 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
         title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
       }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+      zIndex={customZIndexInject ? otherProps.zIndex : undefined}
       data-popover-inject
+      data-custom-z-index-inject={customZIndexInject}
     />,
   );
 }) as React.ForwardRefExoticComponent<
