@@ -97,8 +97,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
 
   const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
-  // ============================ zIndex ============================
-
   return wrapSSR(
     <Popover
       {...omit(restProps, ['title'])}
