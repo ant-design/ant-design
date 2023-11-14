@@ -12,6 +12,7 @@ import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -25,6 +26,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
+import useSelectCSSVar from '../select/style/cssVar';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
@@ -33,8 +35,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
-import useStyle from './style';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import useCSSVar from './style/cssVar';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -211,8 +212,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
-  const [wrapCascaderSSR] = useStyle(cascaderPrefixCls);
+  const [, hashId] = useSelectStyle(prefixCls);
+  const wrapSelectCSSVar = useSelectCSSVar(prefixCls);
+  const wrapCascaderCSSVar = useCSSVar(cascaderPrefixCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
@@ -339,7 +341,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     />
   );
 
-  return wrapCascaderSSR(wrapSelectSSR(renderNode));
+  return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));
 }) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {
