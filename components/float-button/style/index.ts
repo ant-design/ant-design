@@ -15,13 +15,13 @@ export interface ComponentToken {
    */
   zIndexPopup: number;
   /**
-   * @desc 圆形按钮中徽章点的偏移量
-   * @descEN Offset of the badge dot in a circular button
+   * Offset of the badge dot in a circular button
+   * @internal
    */
   dotOffsetInCircle: number;
   /**
-   * @desc 方形按钮中徽章点的偏移量
-   * @descEN Offset of the badge dot in a square button
+   * Offset of the badge dot in a square button
+   * @internal
    */
   dotOffsetInSquare: number;
 }
