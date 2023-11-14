@@ -64,6 +64,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     fontSizeIcon,
     contentPadding,
     fontHeight,
+    fontHeightLG,
   } = token;
 
   const borderBase = `${unit(lineWidth)} ${lineType} ${colorBorder}`;
