@@ -54,7 +54,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     colorText,
     colorTextHeading,
     colorTextDisabled,
-    fontSize,
     fontSizeLG,
     lineHeight,
     marginSM,
