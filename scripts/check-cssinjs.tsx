@@ -55,7 +55,6 @@ async function checkCSSVar() {
     'message',
     'notification',
     'pagination',
-    'popconfirm',
     'progress',
     'qr-code',
     'radio',
