@@ -32,7 +32,6 @@ import type {
 } from './interface';
 import useStyle from './style/index';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
-import { useZIndex } from '../_util/hooks/useZIndex';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -232,8 +231,6 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
 
   // ============================ zIndex ============================
-  // Use Popover's z-index rule
-  const [zIndex] = useZIndex('Popover');
 
   return wrapSSR(
     <Popover
@@ -255,8 +252,6 @@ const ColorPicker: CompoundedComponent = (props) => {
         </NoFormStyle>
       }
       overlayClassName={mergePopupCls}
-      zIndex={zIndex}
-      data-custom-z-index-inject
       {...popoverProps}
     >
       {children || (

@@ -13,7 +13,6 @@ import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
 import usePopconfirmStyle from './style';
-import { useZIndex } from '../_util/hooks/useZIndex';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -99,7 +98,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
   const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('Popconfirm', restProps.zIndex);
 
   return wrapSSR(
     <Popover
@@ -110,7 +108,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
       open={open}
       ref={ref}
       overlayClassName={overlayClassNames}
-      zIndex={zIndex}
       content={
         <Overlay
           okType={okType}
@@ -123,7 +120,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
         />
       }
       data-popover-inject
-      data-custom-z-index-inject
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
