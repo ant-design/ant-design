@@ -8,6 +8,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType;
@@ -80,7 +81,8 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
   const clx = classNames(
     prefixCls,
     hashId,
@@ -122,7 +124,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     return null;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={clx} {...restProps}>
       {nodes}
     </div>,
