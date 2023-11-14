@@ -315,6 +315,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         cascader?.className,
         className,
         rootClassName,
+        rootCls,
         hashId,
       )}
       disabled={mergedDisabled}
