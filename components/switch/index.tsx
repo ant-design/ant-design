@@ -8,6 +8,7 @@ import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export type SwitchSize = 'small' | 'default';
@@ -91,7 +92,8 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
   );
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const mergedSize = useSize(customizeSize);
 
@@ -114,7 +116,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
     onChange?.(...args);
   };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Wave component="Switch">
       <RcSwitch
         {...restProps}
