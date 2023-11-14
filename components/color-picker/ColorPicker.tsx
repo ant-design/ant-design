@@ -232,7 +232,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('ColorPicker');
+  // Use Popover's z-index rule
+  const [zIndex] = useZIndex('Popover');
 
   return wrapSSR(
     <Popover

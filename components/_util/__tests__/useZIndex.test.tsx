@@ -214,7 +214,8 @@ describe('Test useZIndex hooks', () => {
         it('Test hooks', () => {
           const fn = jest.fn();
           const Child = () => {
-            const [zIndex] = useZIndex(key as ZIndexConsumer);
+            const curKey = key as ZIndexConsumer;
+            const [zIndex] = useZIndex(curKey === 'ColorPicker' ? 'Popover' : curKey);
             useEffect(() => {
               fn(zIndex);
             }, [zIndex]);
@@ -231,18 +232,11 @@ describe('Test useZIndex hooks', () => {
             </WrapWithProvider>
           );
           render(<App />);
-
-          // Since ColorPicker is a higher-level encapsulation based on the container component Popover,
-          // and the Popover component is a container component, it needs to add an extra 1000 to the base offset
-          // to serve as the actual offset for the ColorPicker
-          const consumerOffset =
-            key === 'ColorPicker'
-              ? 1000 + consumerBaseZIndexOffset[key as ZIndexConsumer]
-              : consumerBaseZIndexOffset[key as ZIndexConsumer];
-
           expect(fn).toHaveBeenLastCalledWith(
             (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-              consumerOffset,
+              (key === 'ColorPicker'
+                ? 1000 + containerBaseZIndexOffset.Popover
+                : consumerBaseZIndexOffset[key as ZIndexConsumer]),
           );
         });
 
@@ -305,24 +299,23 @@ describe('Test useZIndex hooks', () => {
                 (document.querySelector(selector1) as HTMLDivElement).style.zIndex,
               ).toBeFalsy();
             }
-            // Since ColorPicker is a higher-level encapsulation based on the container component Popover,
-            // and the Popover component is a container component, it needs to add an extra 1000 to the base offset
-            // to serve as the actual offset for the ColorPicker
-            const consumerOffset =
-              key === 'ColorPicker'
-                ? 1000 + consumerBaseZIndexOffset[key as ZIndexConsumer]
-                : consumerBaseZIndexOffset[key as ZIndexConsumer];
 
             expect((document.querySelector(selector2) as HTMLDivElement).style.zIndex).toBe(
               String(
-                1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer] + consumerOffset,
+                1000 +
+                  containerBaseZIndexOffset[containerKey as ZIndexContainer] +
+                  (key === 'ColorPicker'
+                    ? 1000 + containerBaseZIndexOffset.Popover
+                    : consumerBaseZIndexOffset[key as ZIndexConsumer]),
               ),
             );
 
             expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
               String(
                 (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                  consumerOffset,
+                  (key === 'ColorPicker'
+                    ? 1000 + containerBaseZIndexOffset.Popover
+                    : consumerBaseZIndexOffset[key as ZIndexConsumer]),
               ),
             );
           }

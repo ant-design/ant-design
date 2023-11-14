@@ -18,7 +18,7 @@ export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   SelectLike: 50,
   Dropdown: 50,
-  ColorPicker: 30,
+  ColorPicker: 70,
   DatePicker: 50,
   Menu: 50,
 };
@@ -37,11 +37,6 @@ export function useZIndex(
   let zIndex = parentZIndex ?? 0;
   if (isContainer) {
     zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
-  } else if (componentType === 'ColorPicker') {
-    // Since ColorPicker is a higher-level encapsulation based on the container component Popover,
-    // and the Popover component is a container component, it needs to add an extra 1000 to the base offset
-    // to serve as the actual offset for the ColorPicker
-    zIndex += token.zIndexPopupBase + consumerBaseZIndexOffset[componentType];
   } else {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
