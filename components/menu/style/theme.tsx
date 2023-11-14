@@ -1,4 +1,6 @@
+import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+
 import type { MenuToken } from '.';
 import { genFocusOutline } from '../../style';
 
@@ -158,6 +160,10 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         backgroundColor: menuSubMenuBg,
       },
 
+      [`&${componentCls}-submenu-popup > ${componentCls}`]: {
+        backgroundColor: popupBg,
+      },
+
       [`&${componentCls}-popup > ${componentCls}`]: {
         backgroundColor: popupBg,
       },
@@ -172,7 +178,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
         [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
           top: activeBarBorderWidth,
-          marginTop: -activeBarBorderWidth,
+          marginTop: token.calc(activeBarBorderWidth).mul(-1).equal(),
           marginBottom: 0,
           borderRadius: horizontalItemBorderRadius,
 
@@ -180,7 +186,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             position: 'absolute',
             insetInline: itemPaddingInline,
             bottom: 0,
-            borderBottom: `${activeBarHeight}px solid transparent`,
+            borderBottom: `${unit(activeBarHeight)} solid transparent`,
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
             content: '""',
           },
@@ -210,7 +216,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
       //
       [`&${componentCls}-root`]: {
         [`&${componentCls}-inline, &${componentCls}-vertical`]: {
-          borderInlineEnd: `${activeBarBorderWidth}px ${lineType} ${colorSplit}`,
+          borderInlineEnd: `${unit(activeBarBorderWidth)} ${lineType} ${colorSplit}`,
         },
       },
 
@@ -222,12 +228,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
 
         // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]:
-          activeBarBorderWidth && activeBarWidth
-            ? {
-                width: `calc(100% + ${activeBarBorderWidth}px)`,
-              }
-            : {},
+        [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+          width: token.subMenuTitleWidth,
+        },
 
         [`${componentCls}-item`]: {
           position: 'relative',
@@ -236,7 +239,7 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             position: 'absolute',
             insetBlock: 0,
             insetInlineEnd: 0,
-            borderInlineEnd: `${activeBarWidth}px solid ${itemSelectedColor}`,
+            borderInlineEnd: `${unit(activeBarWidth)} solid ${itemSelectedColor}`,
             transform: 'scaleY(0.0001)',
             opacity: 0,
             transition: [

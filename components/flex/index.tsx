@@ -7,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import createFlexClassNames from './utils';
 
 const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
@@ -31,7 +32,8 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('flex', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const mergedVertical = vertical ?? ctxFlex?.vertical;
 
@@ -59,7 +61,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     mergedStyle.gap = gap;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Component
       ref={ref}
       className={mergedCls}

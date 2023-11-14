@@ -75,7 +75,7 @@
     "lint:deps": "antd-tools run deps-lint",
     "lint:md": "remark . -f -q",
     "lint:script": "npm run component-changelog && eslint . --ext .js,.jsx,.ts,.tsx --cache",
-    "lint:style": "tsx scripts/check-cssinjs.ts",
+    "lint:style": "tsx scripts/check-cssinjs.tsx",
     "pre-publish": "npm run test-all -- --skip-build && tsx ./scripts/pre-publish-notice.ts",
     "prepare": "is-ci || husky install && dumi setup",
     "prepublishOnly": "antd-tools run guard",
@@ -113,7 +113,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^2.0.0-alpha.1",
+    "@ant-design/cssinjs": "^1.18.0-alpha.0",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.18.3",
@@ -121,7 +121,7 @@
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.11.0",
-    "@rc-component/trigger": "^1.18.1",
+    "@rc-component/trigger": "^1.18.2",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.1",
@@ -224,7 +224,7 @@
     "dumi-plugin-color-chunk": "^1.0.2",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^4.0.0",
-    "eslint": "^8.40.0",
+    "eslint": "^8.53.0",
     "eslint-config-airbnb": "^19.0.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.5.2",
@@ -269,9 +269,9 @@
     "node-notifier": "^10.0.1",
     "nprogress": "^0.2.0",
     "open": "^9.0.0",
-    "prettier": "^3.0.0",
-    "prettier-plugin-jsdoc": "^1.0.1",
-    "pretty-format": "^29.0.0",
+    "prettier": "^3.1.0",
+    "prettier-plugin-jsdoc": "^1.1.1",
+    "pretty-format": "^29.7.0",
     "prismjs": "^1.29.0",
     "progress": "^2.0.3",
     "puppeteer": "^21.1.1",
@@ -306,7 +306,7 @@
     "stylelint-prettier": "^4.0.0",
     "sylvanas": "^0.6.1",
     "terser": "^5.16.1",
-    "tsx": "^3.12.8",
+    "tsx": "^4.1.0",
     "typedoc": "^0.25.0",
     "typescript": "~5.2.2",
     "vanilla-jsoneditor": "^0.18.0",
@@ -329,11 +329,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "405 KiB"
+      "limit": "410 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "465 KiB"
+      "limit": "470 KiB"
     }
   ],
   "title": "Ant Design",

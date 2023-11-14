@@ -63,4 +63,8 @@ describe('Switch', () => {
     // uncontrolled component, so false after click
     expect(getByRole('switch')).not.toBeChecked();
   });
+
+  it('have static property for type detecting', () => {
+    expect(Switch.__ANT_SWITCH).toBeTruthy();
+  });
 });

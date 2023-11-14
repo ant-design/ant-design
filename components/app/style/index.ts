@@ -1,4 +1,4 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export type ComponentToken = {};
@@ -18,5 +18,7 @@ const genBaseStyle: GenerateStyle<AppToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'App'> = () => ({});
+
 // ============================== Export ==============================
-export default genComponentStyleHook('App', (token) => [genBaseStyle(token)]);
+export default genComponentStyleHook<'App'>('App', genBaseStyle, prepareComponentToken);
