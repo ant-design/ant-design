@@ -50,8 +50,6 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId);
 
-  // ============================ zIndex ============================
-
   return wrapSSR(
     <Tooltip
       placement={placement}
