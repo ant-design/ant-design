@@ -45,7 +45,6 @@ async function checkCSSVar() {
     'pagination',
     'radio',
     'space',
-    'steps',
     'switch',
     'table',
   ];
