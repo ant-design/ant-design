@@ -48,8 +48,6 @@ async function checkCSSVar() {
     'steps',
     'switch',
     'table',
-    'tree',
-    'tree-select',
   ];
 
   await generateCssinjs({
