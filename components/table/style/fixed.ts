@@ -74,7 +74,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'absolute',
           top: 0,
           bottom: 0,
-          zIndex: calc(zIndexTableSticky).add(1).equal(),
+          zIndex: calc(zIndexTableSticky).add(1).equal({unit: false}),
           width: 30,
           transition: `box-shadow ${motionDurationSlow}`,
           content: '""',
