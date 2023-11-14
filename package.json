@@ -299,7 +299,7 @@
     "runes2": "^1.1.2",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
-    "size-limit": "^10.0.0",
+    "size-limit": "^11.0.0",
     "stylelint": "^15.1.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^34.0.0",
