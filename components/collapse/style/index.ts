@@ -55,6 +55,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
     colorTextHeading,
     colorTextDisabled,
     fontSizeLG,
+    lineHeight,
     lineHeightLG,
     marginSM,
     paddingSM,
@@ -100,7 +101,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
           alignItems: 'flex-start',
           padding: headerPadding,
           color: colorTextHeading,
-          lineHeight: lineHeightLG,
+          lineHeight,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}, visibility 0s`,
 
@@ -194,6 +195,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
 
             [`> ${componentCls}-expand-icon`]: {
               height: fontHeightLG,
+              lineHeight: lineHeightLG,
               // Arrow offset
               marginInlineStart: token.calc(paddingLG).sub(padding).equal(),
             },
