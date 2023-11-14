@@ -132,18 +132,18 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         },
         {
           display: 'var(--ant-display)',
-          flex: `0 0 calc(${(i / gridColumns) * 100}%)`,
-          maxWidth: `calc(${(i / gridColumns) * 100}%)`,
+          flex: `0 0 ${(i / gridColumns) * 100}%`,
+          maxWidth: `${(i / gridColumns) * 100}%`,
         },
       ];
       gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
-        insetInlineStart: `calc(${(i / gridColumns) * 100}%)`,
+        insetInlineStart: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-pull-${i}`] = {
-        insetInlineEnd: `calc(${(i / gridColumns) * 100}%)`,
+        insetInlineEnd: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
-        marginInlineStart: `calc(${(i / gridColumns) * 100}%)`,
+        marginInlineStart: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: i,

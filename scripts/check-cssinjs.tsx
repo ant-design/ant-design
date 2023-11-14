@@ -40,7 +40,6 @@ async function checkCSSVar() {
     'divider',
     'drawer',
     'float-button',
-    'grid',
     'icon',
     'pagination',
     'radio',
