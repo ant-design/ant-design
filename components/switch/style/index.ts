@@ -114,7 +114,7 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           },
 
           [`${switchInnerCls}-unchecked`]: {
-            marginTop: -trackHeightSM,
+            marginTop: calc(trackHeightSM).mul(-1).equal(),
             marginInlineStart: 0,
             marginInlineEnd: 0,
           },
@@ -303,13 +303,13 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         [`&:not(${componentCls}-checked) ${switchInnerCls}`]: {
           [`${switchInnerCls}-unchecked`]: {
             marginInlineStart: calc(trackPadding).mul(2).equal(),
-            marginInlineEnd: calc(-trackPadding).mul(-1).mul(2).equal(),
+            marginInlineEnd: calc(trackPadding).mul(-1).mul(2).equal(),
           },
         },
 
         [`&${componentCls}-checked ${switchInnerCls}`]: {
           [`${switchInnerCls}-checked`]: {
-            marginInlineStart: calc(-trackPadding).mul(-1).mul(2).equal(),
+            marginInlineStart: calc(trackPadding).mul(-1).mul(2).equal(),
             marginInlineEnd: calc(trackPadding).mul(2).equal(),
           },
         },
