@@ -47,12 +47,6 @@ async function checkCSSVar() {
     'space',
     'steps',
     'switch',
-    'tabs',
-    'tag',
-    'timeline',
-    'tree',
-    'tree-select',
-    'upload',
   ];
 
   await generateCssinjs({
