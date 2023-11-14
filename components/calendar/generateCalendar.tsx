@@ -121,7 +121,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
     const [, hashId] = useStyle(prefixCls);
-    const wrapCSSVar = useCSSVar(prefixCls);
+    const wrapCSSVar = useCSSVar(calendarPrefixCls);
 
     const today = generateConfig.getNow();
 
