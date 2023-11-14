@@ -245,5 +245,27 @@ describe('ConfigProvider.Theme', () => {
         'line-height': 'var(--bar-line-height)',
       });
     });
+
+    it('component token should work', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            cssVar: { key: 'foo' },
+            hashed: true,
+            components: { Button: { colorPrimary: '#1890ff', defaultBg: '#000' } },
+          }}
+        >
+          <Button className="button-foo" type="primary">
+            Button
+          </Button>
+        </ConfigProvider>,
+      );
+
+      const btn = container.querySelector('.button-foo')!;
+      expect(btn).toHaveStyle({
+        '--antd-color-primary': '#1890ff',
+        '--antd-button-default-bg': '#000',
+      });
+    });
   });
 });

@@ -28,6 +28,8 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useZIndex } from '../_util/hooks/useZIndex';
 
 type RawValue = string | number;
@@ -151,8 +153,12 @@ const InternalTreeSelect = <
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
-  const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
+  const [, hashId] = useSelectStyle(prefixCls);
+  useStyle(treeSelectPrefixCls, treePrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
+  const treeSelectWrapCSSVar = useCSSVar(treeSelectRootCls);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -161,6 +167,8 @@ const InternalTreeSelect = <
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
+    rootCls,
+    treeSelectRootCls,
     hashId,
   );
 
@@ -238,6 +246,8 @@ const InternalTreeSelect = <
     compactItemClassnames,
     className,
     rootClassName,
+    rootCls,
+    treeSelectRootCls,
     hashId,
   );
 
@@ -290,7 +300,7 @@ const InternalTreeSelect = <
     />
   );
 
-  return wrapSelectSSR(wrapTreeSelectSSR(returnNode));
+  return wrapCSSVar(treeSelectWrapCSSVar(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <

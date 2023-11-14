@@ -1,4 +1,5 @@
-import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { MenuToken } from '.';
 import { genFocusOutline } from '../../style';
@@ -157,6 +158,10 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
 
       [`&${componentCls}-submenu > ${componentCls}`]: {
         backgroundColor: menuSubMenuBg,
+      },
+
+      [`&${componentCls}-submenu-popup > ${componentCls}`]: {
+        backgroundColor: popupBg,
       },
 
       [`&${componentCls}-popup > ${componentCls}`]: {
