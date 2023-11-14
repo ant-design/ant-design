@@ -75,7 +75,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       backgroundColor: headerBg,
       border: borderBase,
       borderBottom: 0,
-      borderRadius: `${unit(collapsePanelBorderRadius)}`,
+      borderRadius: collapsePanelBorderRadius,
 
       [`&-rtl`]: {
         direction: 'rtl',
