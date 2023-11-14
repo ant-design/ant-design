@@ -10,11 +10,6 @@ import getOffset from '../util';
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   /**
-   * @desc 按钮 z-index
-   * @descEN z-index of button
-   */
-  zIndexPopup: number;
-  /**
    * Offset of the badge dot in a circular button
    * @internal
    */
@@ -111,7 +106,7 @@ const floatButtonGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
-      zIndex: token.zIndexPopup,
+      zIndex: 99,
       display: 'block',
       border: 'none',
       position: 'fixed',
@@ -233,7 +228,7 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
       border: 'none',
       position: 'fixed',
       cursor: 'pointer',
-      zIndex: token.zIndexPopup,
+      zIndex: 99,
       // Do not remove the 'display: block' here.
       // Deleting it will cause marginBottom to become ineffective.
       // Ref: https://github.com/ant-design/ant-design/issues/44700
@@ -371,7 +366,6 @@ const sharedFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (toke
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'FloatButton'> = (token) => ({
-  zIndexPopup: token.zIndexPopupBase,
   dotOffsetInCircle: getOffset(token.controlHeightLG / 2),
   dotOffsetInSquare: getOffset(token.borderRadiusLG),
 });
