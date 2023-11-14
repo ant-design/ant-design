@@ -134,6 +134,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checkbox?.className,
     className,
     rootClassName,
+    rootCls,
     hashId,
   );
   const checkboxClass = classNames(

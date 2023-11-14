@@ -153,6 +153,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
     },
     className,
     rootClassName,
+    rootCls,
     hashId,
   );
   return wrapCSSVar(
