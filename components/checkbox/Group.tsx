@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
 import GroupContext from './GroupContext';
@@ -111,7 +112,8 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
   const groupPrefixCls = `${prefixCls}-group`;
 
   const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const domProps = omit(restProps, ['value', 'disabled']);
 
