@@ -1,4 +1,4 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -76,16 +76,18 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
+  const { zIndexPopupBase } = token;
+
+  return {
+    zIndexPopup: zIndexPopupBase + 60,
+  };
+};
+
 export default genComponentStyleHook(
   'Popconfirm',
   (token) => genBaseStyle(token),
-  (token) => {
-    const { zIndexPopupBase } = token;
-
-    return {
-      zIndexPopup: zIndexPopupBase + 60,
-    };
-  },
+  prepareComponentToken,
   {
     resetStyle: false,
   },

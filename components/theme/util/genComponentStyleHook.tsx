@@ -303,7 +303,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
     useCSSVarRegister(
       {
         path: [component],
-        prefix: getCompVarPrefix(component, cssVar.prefix),
+        prefix: cssVar.prefix,
         key: cssVar?.key!,
         unitless: {
           ...unitless,
@@ -316,7 +316,13 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
       },
       () => {
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
-        return getComponentToken(component, realToken, defaultToken);
+        const componentToken = getComponentToken(component, realToken, defaultToken);
+        Object.keys(defaultToken).forEach((key) => {
+          componentToken[`${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`] =
+            componentToken[key];
+          delete componentToken[key];
+        });
+        return componentToken;
       },
     );
     return null;

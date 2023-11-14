@@ -10,6 +10,7 @@ import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export { SpaceContext } from './context';
 
@@ -63,7 +64,8 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -128,7 +130,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     gapStyle.rowGap = verticalSize;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       ref={ref}
       className={cls}

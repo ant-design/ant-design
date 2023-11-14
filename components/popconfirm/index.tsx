@@ -13,6 +13,7 @@ import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import PurePanel, { Overlay } from './PurePanel';
 import usePopconfirmStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -95,9 +96,10 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
   const overlayClassNames = classNames(prefixCls, overlayClassName);
 
-  const [wrapSSR] = usePopconfirmStyle(prefixCls);
+  usePopconfirmStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Popover
       {...omit(restProps, ['title'])}
       trigger={trigger}
