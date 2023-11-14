@@ -16,6 +16,7 @@ import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -119,7 +120,8 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
-    const [wrapSSR, hashId] = useStyle(prefixCls);
+    const [, hashId] = useStyle(prefixCls);
+    const wrapCSSVar = useCSSVar(calendarPrefixCls);
 
     const today = generateConfig.getNow();
 
@@ -281,7 +283,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       }
     };
 
-    return wrapSSR(
+    return wrapCSSVar(
       <div
         className={classNames(
           calendarPrefixCls,

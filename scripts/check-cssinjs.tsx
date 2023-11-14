@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+import React from 'react';
 import {
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
@@ -7,10 +8,10 @@ import {
   StyleProvider,
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { generateCssinjs } from './generate-cssinjs';
+
 import { ConfigProvider } from '../components';
+import { generateCssinjs } from './generate-cssinjs';
 
 console.log(chalk.green(`🔥 Checking CSS-in-JS...`));
 
@@ -27,51 +28,26 @@ console.error = (msg: any) => {
 
 async function checkCSSVar() {
   const ignore = [
-    'affix',
-    'alert',
     'anchor',
-    'auto-complete',
-    'avatar',
-    'back-top',
     'badge',
     'breadcrumb',
     'calendar',
-    'carousel',
     'cascader',
     'checkbox',
     'collapse',
     'color-picker',
-    'date-picker',
     'descriptions',
     'divider',
     'drawer',
-    'dropdown',
     'float-button',
-    'form',
     'grid',
     'icon',
-    'image',
-    'layout',
-    'message',
-    'notification',
     'pagination',
-    'popconfirm',
-    'progress',
-    'qr-code',
     'radio',
-    'select',
-    'slider',
     'space',
-    'statistic',
     'steps',
     'switch',
     'table',
-    'tabs',
-    'tag',
-    'timeline',
-    'tree',
-    'tree-select',
-    'upload',
   ];
 
   await generateCssinjs({

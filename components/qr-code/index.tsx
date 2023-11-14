@@ -11,6 +11,7 @@ import { useLocale } from '../locale';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
+import useCSSVar from './style/cssVar';
 import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
@@ -34,7 +35,9 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const imageSettings: QRProps['imageSettings'] = {
     src: icon,
@@ -73,12 +76,15 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     return null;
   }
 
-  const cls = classNames(prefixCls, className, rootClassName, hashId, {
+  const mergedCls = classNames(prefixCls, className, rootClassName, hashId, {
     [`${prefixCls}-borderless`]: !bordered,
   });
 
-  return wrapSSR(
-    <div style={{ ...style, width: size, height: size, backgroundColor: bgColor }} className={cls}>
+  return wrapCSSVar(
+    <div
+      className={mergedCls}
+      style={{ ...style, width: size, height: size, backgroundColor: bgColor }}
+    >
       {status !== 'active' && (
         <div className={`${prefixCls}-mask`}>
           {status === 'loading' && <Spin />}
