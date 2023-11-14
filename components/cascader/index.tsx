@@ -22,6 +22,7 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
@@ -213,8 +214,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const rootPrefixCls = getPrefixCls();
 
   const [, hashId] = useSelectStyle(prefixCls);
-  const wrapSelectCSSVar = useSelectCSSVar(prefixCls);
-  const wrapCascaderCSSVar = useCSSVar(cascaderPrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapSelectCSSVar = useSelectCSSVar(rootCls);
+  const wrapCascaderCSSVar = useCSSVar(rootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
@@ -231,6 +233,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
     },
     rootClassName,
+    rootCls,
     hashId,
   );
 
