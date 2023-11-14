@@ -62,7 +62,6 @@ async function checkCSSVar() {
     'select',
     'slider',
     'space',
-    'statistic',
     'steps',
     'switch',
     'table',
