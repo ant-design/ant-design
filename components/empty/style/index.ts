@@ -7,8 +7,8 @@ export interface ComponentToken {}
 
 interface EmptyToken extends FullToken<'Empty'> {
   emptyImgCls: string;
-  emptyImgHeight: number;
-  emptyImgHeightSM: number;
+  emptyImgHeight: number | string;
+  emptyImgHeightSM: number | string;
   emptyImgHeightMD: number;
 }
 
@@ -76,13 +76,13 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Empty', (token) => {
-  const { componentCls, controlHeightLG } = token;
+  const { componentCls, controlHeightLG, calc } = token;
 
   const emptyToken: EmptyToken = mergeToken<EmptyToken>(token, {
     emptyImgCls: `${componentCls}-img`,
-    emptyImgHeight: controlHeightLG * 2.5,
+    emptyImgHeight: calc(controlHeightLG).mul(2.5).equal(),
     emptyImgHeightMD: controlHeightLG,
-    emptyImgHeightSM: controlHeightLG * 0.875,
+    emptyImgHeightSM: calc(controlHeightLG).mul(0.875).equal(),
   });
 
   return [genSharedEmptyStyle(emptyToken)];
