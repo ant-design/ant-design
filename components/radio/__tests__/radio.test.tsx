@@ -54,4 +54,8 @@ describe('Radio', () => {
     );
     expect(getByRole('radio')).not.toBeDisabled();
   });
+
+  it('have static property for type detecting', () => {
+    expect(Radio.__ANT_RADIO).toBeTruthy();
+  });
 });

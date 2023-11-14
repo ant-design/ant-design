@@ -39,9 +39,7 @@ describe('QRCode test', () => {
 
   it('support custom size', () => {
     const { container } = render(<QRCode value="test" size={100} />);
-    const wrapper = container.querySelector<HTMLDivElement>('.ant-qrcode');
-    expect(wrapper?.style?.width).toBe('100px');
-    expect(wrapper?.style?.height).toBe('100px');
+    expect(container.querySelector('.ant-qrcode')).toHaveStyle('width: 100px; height: 100px');
   });
 
   it('support refresh', () => {

@@ -22,9 +22,8 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       borderRadius: token.borderRadiusLG,
       border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       position: 'relative',
-      width: '100%',
-      height: '100%',
       overflow: 'hidden',
+
       [`& > ${componentCls}-mask`]: {
         position: 'absolute',
         insetBlockStart: 0,
@@ -44,6 +43,13 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
           color: token.QRCodeExpiredTextColor,
         },
       },
+
+      '> canvas': {
+        alignSelf: 'stretch',
+        flex: 'auto',
+        minWidth: 0,
+      },
+
       '&-icon': {
         marginBlockEnd: token.marginXS,
         fontSize: token.controlHeight,
