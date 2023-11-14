@@ -77,7 +77,7 @@ interface SwitchToken extends FullToken<'Switch'> {
   switchDuration: string;
   switchColor: string;
   switchDisabledOpacity: number;
-  switchLoadingIconSize: number;
+  switchLoadingIconSize: number | string;
   switchLoadingIconColor: string;
   switchHandleActiveInset: string;
 }
@@ -126,7 +126,7 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         },
 
         [`${componentCls}-loading-icon`]: {
-          top: calc(handleSizeSM).sub(calc(token.switchLoadingIconSize).div(2)).equal(),
+          top: calc(calc(handleSizeSM).sub(token.switchLoadingIconSize)).div(2).equal(),
           fontSize: token.switchLoadingIconSize,
         },
 
@@ -177,7 +177,6 @@ const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => 
     [componentCls]: {
       [`${componentCls}-loading-icon${token.iconCls}`]: {
         position: 'relative',
-        // top: (handleSize - token.fontSize) / 2,
         top: calc(calc(handleSize).sub(token.fontSize)).div(2).equal(),
         color: token.switchLoadingIconColor,
         verticalAlign: 'top',
@@ -406,7 +405,7 @@ export default genComponentStyleHook(
       switchDuration: token.motionDurationMid,
       switchColor: token.colorPrimary,
       switchDisabledOpacity: token.opacityLoading,
-      switchLoadingIconSize: token.fontSizeIcon * 0.75,
+      switchLoadingIconSize: token.calc(token.fontSizeIcon).mul(0.75).equal(),
       switchLoadingIconColor: `rgba(0, 0, 0, ${token.opacityLoading})`,
       switchHandleActiveInset: '-30%',
     });
