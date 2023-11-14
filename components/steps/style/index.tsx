@@ -79,6 +79,11 @@ export interface ComponentToken {
    * @descEN Line height of title
    */
   titleLineHeight: number;
+  /**
+   * Round of (token.dotSize - token.lineWidth * 3) / 2
+   * @internal
+   */
+  tailTop: number;
 }
 
 export interface StepsToken extends FullToken<'Steps'> {
@@ -397,6 +402,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   navArrowColor: token.colorTextDisabled,
   navContentMaxWidth: 'auto',
   descriptionMaxWidth: 140,
+  tailTop: Math.floor((token.controlHeight / 4 - token.lineWidth * 3) / 2), // (dotSize - lineWidth * 3) / 2
 });
 
 export default genComponentStyleHook(

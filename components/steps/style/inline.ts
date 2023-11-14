@@ -36,8 +36,7 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '&-icon': {
           width: inlineDotSize,
           height: inlineDotSize,
-          // TODO:----------------
-          marginInlineStart: `calc(50% - ${inlineDotSize / 2}px)`,
+          marginInlineStart: `calc(50% - ${unit(token.calc(inlineDotSize).div(2).equal())})`,
           [`> ${componentCls}-icon`]: {
             top: 0,
           },

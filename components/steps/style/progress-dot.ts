@@ -20,8 +20,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) =
         },
 
         '&-tail': {
-          // TODO:----------------
-          top: Math.floor((token.dotSize - token.lineWidth * 3) / 2),
+          top: token.tailTop,
           width: '100%',
           marginTop: 0,
           marginBottom: 0,

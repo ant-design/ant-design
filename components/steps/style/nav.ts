@@ -19,7 +19,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`&${componentCls}-small`]: {
         [`${componentCls}-item`]: {
           '&-container': {
-            marginInlineStart: -token.marginSM,
+            marginInlineStart: token.calc(token.marginSM).mul(-1).equal(),
           },
         },
       },
@@ -31,7 +31,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         '&-container': {
           display: 'inline-block',
           height: '100%',
-          marginInlineStart: -token.margin,
+          marginInlineStart: token.calc(token.margin).mul(-1).equal(),
           paddingBottom: token.paddingSM,
           textAlign: 'start',
           transition: `opacity ${motionDurationSlow}`,
@@ -124,8 +124,8 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           position: 'relative',
           insetInlineStart: '50%',
           display: 'block',
-          width: token.controlHeight * 0.25,
-          height: token.controlHeight * 0.25,
+          width: token.calc(token.controlHeight).mul(0.25).equal(),
+          height: token.calc(token.controlHeight).mul(0.25).equal(),
           marginBottom: token.marginXS,
           textAlign: 'center',
           transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
