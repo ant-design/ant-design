@@ -5,7 +5,7 @@ import zIndexContext from '../zindexContext';
 
 export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
 
-export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'ColorPicker' | 'DatePicker' | 'Menu';
+export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu';
 
 export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
   Modal: 0,
@@ -18,7 +18,6 @@ export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   SelectLike: 50,
   Dropdown: 50,
-  ColorPicker: 70,
   DatePicker: 50,
   Menu: 50,
 };

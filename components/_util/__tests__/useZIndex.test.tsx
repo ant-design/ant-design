@@ -150,6 +150,7 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
         options={options}
         open
       />
+      <ColorPicker {...props} open rootClassName={`${rootClassName} comp-item comp-ColorPicker`} />
     </>
   ),
   Dropdown: (props) => (
@@ -166,7 +167,6 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
       <button type="button">test</button>
     </Dropdown>
   ),
-  ColorPicker: (props) => <ColorPicker {...props} open />,
   DatePicker: ({ rootClassName, ...props }) => (
     <>
       <DatePicker {...props} rootClassName={`${rootClassName} comp-item comp-DatePicker`} open />
@@ -183,8 +183,12 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
 function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
   let selector = baseSelector;
   if (consumer === 'SelectLike') {
-    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete']
-      .map((item) => `${baseSelector}.comp-${item}.ant-slide-up`)
+    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete', 'ColorPicker']
+      .map((item) =>
+        item === 'ColorPicker'
+          ? `${baseSelector}.ant-popover-placement-bottomLeft`
+          : `${baseSelector}.comp-${item}.ant-slide-up`,
+      )
       .join(',');
   } else if (consumer === 'DatePicker') {
     selector = ['DatePicker', 'TimePicker']
@@ -192,8 +196,6 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
       .join(',');
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
-  } else if (consumer === 'ColorPicker') {
-    selector = `${baseSelector}.ant-popover-placement-bottomLeft`;
   }
   return selector;
 }
@@ -214,8 +216,7 @@ describe('Test useZIndex hooks', () => {
         it('Test hooks', () => {
           const fn = jest.fn();
           const Child = () => {
-            const curKey = key as ZIndexConsumer;
-            const [zIndex] = useZIndex(curKey === 'ColorPicker' ? 'Popover' : curKey);
+            const [zIndex] = useZIndex(key as ZIndexConsumer);
             useEffect(() => {
               fn(zIndex);
             }, [zIndex]);
@@ -234,9 +235,7 @@ describe('Test useZIndex hooks', () => {
           render(<App />);
           expect(fn).toHaveBeenLastCalledWith(
             (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
-              (key === 'ColorPicker'
-                ? 1000 + containerBaseZIndexOffset.Popover
-                : consumerBaseZIndexOffset[key as ZIndexConsumer]),
+              consumerBaseZIndexOffset[key as ZIndexConsumer],
           );
         });
 
@@ -271,21 +270,29 @@ describe('Test useZIndex hooks', () => {
             });
             comps = document.querySelectorAll(selector2);
             comps.forEach((comp) => {
+              const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
+              const consumerOffset = isColorPicker
+                ? 1000 + containerBaseZIndexOffset.Popover
+                : consumerBaseZIndexOffset[key as ZIndexConsumer];
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                    consumerBaseZIndexOffset[key as ZIndexConsumer],
+                    consumerOffset,
                 ),
               );
             });
 
             comps = document.querySelectorAll(selector3);
             comps.forEach((comp) => {
+              const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
+              const consumerOffset = isColorPicker
+                ? 1000 + containerBaseZIndexOffset.Popover
+                : consumerBaseZIndexOffset[key as ZIndexConsumer];
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                    consumerBaseZIndexOffset[key as ZIndexConsumer],
+                    consumerOffset,
                 ),
               );
             });
@@ -304,18 +311,14 @@ describe('Test useZIndex hooks', () => {
               String(
                 1000 +
                   containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                  (key === 'ColorPicker'
-                    ? 1000 + containerBaseZIndexOffset.Popover
-                    : consumerBaseZIndexOffset[key as ZIndexConsumer]),
+                  consumerBaseZIndexOffset[key as ZIndexConsumer],
               ),
             );
 
             expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
               String(
                 (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                  (key === 'ColorPicker'
-                    ? 1000 + containerBaseZIndexOffset.Popover
-                    : consumerBaseZIndexOffset[key as ZIndexConsumer]),
+                  consumerBaseZIndexOffset[key as ZIndexConsumer],
               ),
             );
           }
