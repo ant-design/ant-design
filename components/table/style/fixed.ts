@@ -74,7 +74,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'absolute',
           top: 0,
           bottom: 0,
-          zIndex: calc(zIndexTableSticky).add(1).equal({unit: false}),
+          zIndex: calc(zIndexTableSticky).add(1).equal({ unit: false }),
           width: 30,
           transition: `box-shadow ${motionDurationSlow}`,
           content: '""',
@@ -95,9 +95,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'relative',
 
           '&::before': {
-            boxShadow: `inset ${unit(10)} 0 ${unit(8)} ${unit(
-              calc(8).mul(-1).equal(),
-            )} ${shadowColor}`,
+            boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
           },
         },
 
@@ -105,9 +103,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           ${componentCls}-cell-fix-left-first::after,
           ${componentCls}-cell-fix-left-last::after
         `]: {
-          boxShadow: `inset ${unit(10)} 0 ${unit(8)} ${unit(
-            calc(8).mul(-1).equal(),
-          )} ${shadowColor}`,
+          boxShadow: `inset 10px 0 8px -8px ${shadowColor}`,
         },
 
         [`${componentCls}-cell-fix-left-last::before`]: {

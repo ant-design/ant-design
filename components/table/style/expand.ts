@@ -17,13 +17,11 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableExpandIconBg,
     tableExpandColumnWidth,
     borderRadius,
-    fontSize,
-    fontSizeSM,
-    lineHeight,
     tablePaddingVertical,
     tablePaddingHorizontal,
     tableExpandedRowBg,
     paddingXXS,
+    tableExpandMarginTop,
     calc,
   } = token;
   const halfInnerSize = calc(checkboxSize).div(2).sub(lineWidth).equal();
@@ -119,11 +117,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginTop: calc(
-          calc(calc(calc(fontSize).mul(lineHeight)).sub(calc(lineWidth).mul(3))).div(2),
-        )
-          .sub(calc(calc(fontSizeSM).mul(1.4).sub(calc(lineWidth).mul(3))).div(2))
-          .equal(),
+        marginTop: tableExpandMarginTop,
         marginInlineEnd: paddingXS,
       },
 

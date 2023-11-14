@@ -225,6 +225,8 @@ export interface TableToken extends FullToken<'Table'> {
   tableScrollThumbBg: string;
   tableScrollThumbBgHover: string;
   tableScrollBg: string;
+
+  tableExpandMarginTop: number;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
@@ -480,6 +482,10 @@ export default genComponentStyleHook(
       expandIconBg,
       selectionColumnWidth,
       stickyScrollBarBg,
+      fontSize,
+      fontSizeSM,
+      lineHeight,
+      lineWidth,
       calc,
     } = token;
 
@@ -541,6 +547,10 @@ export default genComponentStyleHook(
       tableScrollThumbBg: stickyScrollBarBg,
       tableScrollThumbBgHover: colorTextHeading,
       tableScrollBg: colorSplit,
+
+      tableExpandMarginTop:
+        (fontSize * lineHeight - lineWidth * 3) / 2 -
+        Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
     });
 
     return [
