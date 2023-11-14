@@ -176,6 +176,8 @@ export interface ComponentToken {
    * @descEN Border radius of sticky scrollbar
    */
   stickyScrollBarBorderRadius: number;
+
+  tableExpandMargin: number;
 }
 
 export interface TableToken extends FullToken<'Table'> {
@@ -225,8 +227,6 @@ export interface TableToken extends FullToken<'Table'> {
   tableScrollThumbBg: string;
   tableScrollThumbBgHover: string;
   tableScrollBg: string;
-
-  tableExpandMarginTop: number;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
@@ -391,9 +391,12 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     paddingXS,
     colorBorderSecondary,
     borderRadiusLG,
-    fontSize,
     controlHeight,
     colorTextPlaceholder,
+    fontSize,
+    fontSizeSM,
+    lineHeight,
+    lineWidth,
   } = token;
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
@@ -438,6 +441,9 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     selectionColumnWidth: controlHeight,
     stickyScrollBarBg: colorTextPlaceholder,
     stickyScrollBarBorderRadius: 100,
+    tableExpandMargin:
+      (fontSize * lineHeight - lineWidth * 3) / 2 -
+      Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
   };
 };
 
@@ -482,10 +488,6 @@ export default genComponentStyleHook(
       expandIconBg,
       selectionColumnWidth,
       stickyScrollBarBg,
-      fontSize,
-      fontSizeSM,
-      lineHeight,
-      lineWidth,
       calc,
     } = token;
 
@@ -547,10 +549,6 @@ export default genComponentStyleHook(
       tableScrollThumbBg: stickyScrollBarBg,
       tableScrollThumbBgHover: colorTextHeading,
       tableScrollBg: colorSplit,
-
-      tableExpandMarginTop:
-        (fontSize * lineHeight - lineWidth * 3) / 2 -
-        Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
     });
 
     return [
