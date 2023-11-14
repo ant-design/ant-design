@@ -224,7 +224,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 
         '&-wrap': {
           overflow: 'unset',
-          lineHeight: `calc(${unit(token.fontHeight)} - 0.25em)`,
+          lineHeight: token.lineHeight,
           whiteSpace: 'unset',
         },
 
