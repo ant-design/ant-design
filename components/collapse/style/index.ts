@@ -192,7 +192,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
             paddingInlineStart: padding,
 
             [`> ${componentCls}-expand-icon`]: {
-              height: fontHeight,
+              height: fontHeightLG,
               // Arrow offset
               marginInlineStart: token.calc(paddingLG).sub(padding).equal(),
             },
