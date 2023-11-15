@@ -36,6 +36,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
+import useStyle from './style';
 import useCSSVar from './style/cssVar';
 
 // Align the design since we use `rc-select` in root. This help:
@@ -214,9 +215,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const rootPrefixCls = getPrefixCls();
 
   const [, hashId] = useSelectStyle(prefixCls);
+  useStyle(cascaderPrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
+  const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
   const wrapSelectCSSVar = useSelectCSSVar(rootCls);
-  const wrapCascaderCSSVar = useCSSVar(rootCls);
+  const wrapCascaderCSSVar = useCSSVar(cascaderRootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
@@ -234,6 +237,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     },
     rootClassName,
     rootCls,
+    cascaderRootCls,
     hashId,
   );
 
@@ -316,6 +320,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         className,
         rootClassName,
         rootCls,
+        cascaderRootCls,
         hashId,
       )}
       disabled={mergedDisabled}
