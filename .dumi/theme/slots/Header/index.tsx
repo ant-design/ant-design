@@ -44,7 +44,7 @@ const useStyle = createStyles(({ token, css }) => {
     header: css`
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 2000;
       max-width: 100%;
       background: ${token.colorBgContainer};
       box-shadow: ${token.boxShadowTertiary};
