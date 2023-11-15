@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { prepareComponentToken, prepareToken, type BadgeToken } from '.';
 import { resetComponent } from '../../style';
@@ -6,8 +6,8 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, genPresetColor } from '../../theme/internal';
 
 // ============================== Ribbon ==============================
-const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject => {
-  const { antCls, badgeFontHeight, marginXS, badgeRibbonOffset } = token;
+const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
+  const { antCls, badgeFontHeight, marginXS, badgeRibbonOffset, calc } = token;
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
@@ -24,9 +24,9 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject
       ...resetComponent(token),
       position: 'absolute',
       top: marginXS,
-      padding: `0 ${token.paddingXS}px`,
+      padding: `0 ${unit(token.paddingXS)}`,
       color: token.colorPrimary,
-      lineHeight: `${badgeFontHeight}px`,
+      lineHeight: unit(badgeFontHeight),
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
@@ -37,7 +37,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject
         width: badgeRibbonOffset,
         height: badgeRibbonOffset,
         color: 'currentcolor',
-        border: `${badgeRibbonOffset / 2}px solid`,
+        border: `${unit(calc(badgeRibbonOffset).div(2).equal())} solid`,
         transform: token.badgeRibbonCornerTransform,
         transformOrigin: 'top',
         filter: token.badgeRibbonCornerFilter,
@@ -75,8 +75,7 @@ export default genComponentStyleHook(
   ['Badge', 'Ribbon'],
   (token) => {
     const badgeToken = prepareToken(token);
-
-    return [genRibbonStyle(badgeToken)];
+    return genRibbonStyle(badgeToken);
   },
   prepareComponentToken,
 );
