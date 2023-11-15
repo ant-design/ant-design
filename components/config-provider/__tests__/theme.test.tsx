@@ -262,8 +262,8 @@ describe('ConfigProvider.Theme', () => {
       const select = container.querySelector('.select-foo')!;
       expect(select).toHaveStyle({
         '--antd-color-primary': '#1890ff',
-        '--antd-option-selected-color': '#000',
-        '--antd-option-selected-font-weight': '600',
+        '--antd-select-option-selected-color': '#000',
+        '--antd-select-option-selected-font-weight': '600',
       });
     });
   });

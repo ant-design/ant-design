@@ -205,7 +205,10 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
 
         if (cssVar) {
           Object.keys(defaultComponentToken).forEach((key) => {
-            defaultComponentToken[key] = `var(${token2CSSVar(key, cssVar.prefix)})`;
+            defaultComponentToken[key] = `var(${token2CSSVar(
+              key,
+              getCompVarPrefix(component, cssVar.prefix),
+            )})`;
           });
         }
         const mergedToken = mergeToken<
@@ -295,6 +298,16 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
     };
   },
 ) => {
+  function prefixToken(key: string) {
+    return `${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`;
+  }
+
+  const { unitless: originUnitless = {} } = options ?? {};
+  const compUnitless: any = {};
+  Object.keys(originUnitless).forEach((key: keyof ComponentTokenKey<C>) => {
+    compUnitless[prefixToken(key)] = originUnitless[key];
+  });
+
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
     const [, realToken] = useToken();
     useCSSVarRegister(
@@ -304,7 +317,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
         key: cssVar?.key!,
         unitless: {
           ...unitless,
-          ...options?.unitless,
+          ...compUnitless,
           zIndexPopup: true,
         },
         ignore,
@@ -313,7 +326,12 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
       },
       () => {
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
-        return getComponentToken(component, realToken, defaultToken);
+        const componentToken = getComponentToken(component, realToken, defaultToken);
+        Object.keys(defaultToken).forEach((key) => {
+          componentToken[prefixToken(key)] = componentToken[key];
+          delete componentToken[key];
+        });
+        return componentToken;
       },
     );
     return null;
