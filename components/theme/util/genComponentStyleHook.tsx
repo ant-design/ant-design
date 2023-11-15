@@ -303,7 +303,9 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
   }
 
   const { unitless: originUnitless = {} } = options ?? {};
-  const compUnitless: any = {};
+  const compUnitless: any = {
+    [prefixToken('zIndexPopup')]: true,
+  };
   Object.keys(originUnitless).forEach((key: keyof ComponentTokenKey<C>) => {
     compUnitless[prefixToken(key)] = originUnitless[key];
   });
@@ -318,7 +320,6 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
         unitless: {
           ...unitless,
           ...compUnitless,
-          zIndexPopup: true,
         },
         ignore,
         token: realToken,
