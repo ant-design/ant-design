@@ -30,7 +30,6 @@ async function checkCSSVar() {
   const ignore = [
     'anchor',
     'badge',
-    'breadcrumb',
     'calendar',
     'cascader',
     'checkbox',
