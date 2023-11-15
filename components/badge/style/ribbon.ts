@@ -19,7 +19,9 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
   }));
 
   return {
-    [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
+    [`${ribbonWrapperPrefixCls}`]: {
+      position: 'relative',
+    },
     [`${ribbonPrefixCls}`]: {
       ...resetComponent(token),
       position: 'absolute',
@@ -30,7 +32,9 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
+      [`${ribbonPrefixCls}-text`]: {
+        color: token.colorTextLightSolid,
+      },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
@@ -44,7 +48,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbonOffset,
+        insetInlineEnd: -calc(badgeRibbonOffset).mul(-1).equal(),
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
@@ -53,7 +57,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
         },
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbonOffset,
+        insetInlineStart: calc(badgeRibbonOffset).mul(-1).equal(),
         borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
