@@ -264,6 +264,7 @@ describe('ConfigProvider.Theme', () => {
         '--antd-color-primary': '#1890ff',
         '--antd-select-option-selected-color': '#000',
         '--antd-select-option-selected-font-weight': '600',
+        '--antd-select-z-index-popup': '1050',
       });
     });
   });
