@@ -64,7 +64,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           insetInlineStart: token.calc(iconSizeSM).div(2).sub(token.lineWidth).equal(),
           padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSizeSM).equal())} 0 ${unit(
             token.calc(token.marginXXS).mul(1.5).equal(),
-          )}}`,
+          )}`,
         },
         [`${componentCls}-item-title`]: {
           lineHeight: `${unit(iconSizeSM)}`,
