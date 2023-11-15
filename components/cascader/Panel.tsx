@@ -5,6 +5,7 @@ import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
@@ -32,6 +33,8 @@ export default function CascaderPanel(props: CascaderPanelProps) {
   );
 
   const [, hashId] = useStyle(cascaderPrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -54,7 +57,7 @@ export default function CascaderPanel(props: CascaderPanelProps) {
       {...props}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
-      className={classNames(className, hashId, rootClassName)}
+      className={classNames(className, hashId, rootClassName, rootCls, cascaderRootCls)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
