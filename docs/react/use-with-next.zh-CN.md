@@ -33,8 +33,9 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```tsx
-'use client'; // 如果是在 Pages Router 中使用，则不需要添加 "use client"
+'use client';
 
+// 如果是在 Pages Router 中使用，则不需要添加 "use client"
 import React from 'react';
 import { Button } from 'antd';
 
@@ -56,6 +57,10 @@ export default Home;
 如果你在 Next.js 当中使用了 App Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
 1. 安装 `@ant-design/cssinjs`
+
+> 开发者注意事项：
+>
+> 请注意，安装 `@ant-design/cssinjs` 时必须确保版本号跟 `antd` 的 `node_modules` 中的 `@ant-design/cssinjs` 版本保持一致，否则会出现多个 React 实例，导致无法正确的读取 ctx。
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
@@ -158,6 +163,10 @@ export default HomePage;
 如果你在 Next.js 当中使用了 Pages Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
 1. 安装 `@ant-design/cssinjs`
+
+> 开发者注意事项：
+>
+> 请注意，安装 `@ant-design/cssinjs` 时必须确保版本号跟 `antd` 的 `node_modules` 中的 `@ant-design/cssinjs` 版本保持一致，否则会出现多个 React 实例，导致无法正确的读取 ctx。
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 

@@ -33,8 +33,9 @@ Now we install `antd` from yarn or npm or pnpm.
 Modify `src/app/page.tsx`, import Button component from `antd`.
 
 ```tsx
-'use client'; // If used in Pages Router, is no need to add "use client"
+'use client';
 
+// If used in Pages Router, is no need to add "use client"
 import React from 'react';
 import { Button } from 'antd';
 
@@ -56,6 +57,10 @@ We are successfully running antd components now, go build your own application!
 If you are using the App Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
 1. Install `@ant-design/cssinjs`
+
+> Notes for developers
+>
+> Please note that when you install `@ant-design/cssinjs`, you must ensure that the version is consistent with the version of `@ant-design/cssinjs` in `node_modules` of `antd`, otherwise, multiple React instances will appear, resulting in ctx being unable to be read correctly.
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
@@ -158,6 +163,10 @@ For more detailed information, please refer to [with-nextjs-app-router-inline-st
 If you are using the Pages Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
 1. Install `@ant-design/cssinjs`
+
+> Notes for developers
+>
+> Please note that when you install `@ant-design/cssinjs`, you must ensure that the version is consistent with the version of `@ant-design/cssinjs` in `node_modules` of `antd`, otherwise, multiple React instances will appear, resulting in ctx being unable to be read correctly.
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
