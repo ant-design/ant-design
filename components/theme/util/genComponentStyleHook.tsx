@@ -205,10 +205,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
 
         if (cssVar) {
           Object.keys(defaultComponentToken).forEach((key) => {
-            defaultComponentToken[key] = `var(${token2CSSVar(
-              key,
-              getCompVarPrefix(component, cssVar.prefix),
-            )})`;
+            defaultComponentToken[key] = `var(${token2CSSVar(key, cssVar.prefix)})`;
           });
         }
         const mergedToken = mergeToken<
@@ -316,13 +313,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
       },
       () => {
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
-        const componentToken = getComponentToken(component, realToken, defaultToken);
-        Object.keys(defaultToken).forEach((key) => {
-          componentToken[`${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`] =
-            componentToken[key];
-          delete componentToken[key];
-        });
-        return componentToken;
+        return getComponentToken(component, realToken, defaultToken);
       },
     );
     return null;
