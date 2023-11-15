@@ -152,7 +152,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergePopupCls = classNames(prefixCls, rtlCls);
+  const mergePopupCls = classNames(prefixCls, mergeRootCls);
 
   const popupAllowCloseRef = useRef(true);
 
