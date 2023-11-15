@@ -48,7 +48,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -calc(badgeRibbonOffset).mul(-1).equal(),
+        insetInlineEnd: calc(badgeRibbonOffset).mul(-1).equal(),
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
