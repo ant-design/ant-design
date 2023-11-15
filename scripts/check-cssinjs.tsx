@@ -37,7 +37,6 @@ async function checkCSSVar() {
     'collapse',
     'color-picker',
     'descriptions',
-    'drawer',
     'float-button',
     'grid',
     'icon',
