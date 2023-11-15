@@ -344,7 +344,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 marginBlock: unit(calc(tablePaddingVertical).mul(-1).equal()),
                 marginInline: `${unit(
                   calc(tableExpandColumnWidth).sub(tablePaddingHorizontal).equal(),
-                )} -${unit(calc(tablePaddingHorizontal).mul(-1).equal())}`,
+                )}
+                ${unit(calc(tablePaddingHorizontal).mul(-1).equal())}`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {
