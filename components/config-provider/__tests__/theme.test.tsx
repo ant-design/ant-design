@@ -3,7 +3,7 @@ import kebabCase from 'lodash/kebabCase';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 
 import ConfigProvider from '..';
-import { InputNumber, Button } from '../..';
+import { InputNumber, Button, Select } from '../..';
 import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import theme from '../../theme';
@@ -252,19 +252,18 @@ describe('ConfigProvider.Theme', () => {
           theme={{
             cssVar: { key: 'foo' },
             hashed: true,
-            components: { Button: { colorPrimary: '#1890ff', defaultBg: '#000' } },
+            components: { Select: { colorPrimary: '#1890ff', optionSelectedColor: '#000' } },
           }}
         >
-          <Button className="button-foo" type="primary">
-            Button
-          </Button>
+          <Select className="select-foo" />
         </ConfigProvider>,
       );
 
-      const btn = container.querySelector('.button-foo')!;
-      expect(btn).toHaveStyle({
+      const select = container.querySelector('.select-foo')!;
+      expect(select).toHaveStyle({
         '--antd-color-primary': '#1890ff',
-        '--antd-button-default-bg': '#000',
+        '--antd-select-option-selected-color': '#000',
+        '--antd-select-option-selected-font-weight': '600',
       });
     });
   });
