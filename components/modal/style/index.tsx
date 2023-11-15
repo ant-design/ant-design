@@ -41,20 +41,42 @@ export interface ComponentToken {
    * @descEN Background color of footer
    */
   footerBg: string;
+
+  /** @internal */
+  closeBtnHoverBg: string;
+  /** @internal */
+  closeBtnActiveBg: string;
+  /** @internal */
+  contentPadding: number | string;
+  /** @internal */
+  headerPadding: string | number;
+  /** @internal */
+  headerBorderBottom: string;
+  /** @internal */
+  headerMarginBottom: number;
+  /** @internal */
+  bodyPadding: number;
+  /** @internal */
+  footerPadding: string | number;
+  /** @internal */
+  footerBorderTop: string;
+  /** @internal */
+  footerBorderRadius: string | number;
+  /** @internal */
+  footerMarginTop: string | number;
+  /** @internal */
+  confirmBodyPadding: string | number;
+  /** @internal */
+  confirmIconMarginInlineEnd: string | number;
+  /** @internal */
+  confirmBtnsMarginTop: string | number;
 }
 
 export interface ModalToken extends FullToken<'Modal'> {
   // Custom token here
   modalHeaderHeight: number | string;
-  modalBodyPadding: number;
-  modalHeaderPadding: string;
-  modalHeaderBorderWidth: number;
-  modalHeaderBorderStyle: string;
-  modalHeaderBorderColorSplit: string;
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
-  modalFooterPaddingVertical: number;
-  modalFooterPaddingHorizontal: number;
   modalFooterBorderWidth: number;
   modalIconHoverColor: string;
   modalCloseIconColor: string;
@@ -195,7 +217,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           borderRadius: token.borderRadiusLG,
           boxShadow: token.boxShadow,
           pointerEvents: 'auto',
-          padding: `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
+          padding: token.contentPadding,
         },
 
         [`${componentCls}-close`]: {
@@ -233,12 +255,12 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
 
           '&:hover': {
             color: token.modalIconHoverColor,
-            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+            backgroundColor: token.closeBtnHoverBg,
             textDecoration: 'none',
           },
 
           '&:active': {
-            backgroundColor: token.wireframe ? 'transparent' : token.colorFillContentHover,
+            backgroundColor: token.closeBtnActiveBg,
           },
 
           ...genFocusStyle(token),
@@ -248,19 +270,25 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           color: token.colorText,
           background: token.headerBg,
           borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
-          marginBottom: token.marginXS,
+          marginBottom: token.headerMarginBottom,
+          padding: token.headerPadding,
+          borderBottom: token.headerBorderBottom,
         },
 
         [`${componentCls}-body`]: {
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           wordWrap: 'break-word',
+          padding: token.bodyPadding,
         },
 
         [`${componentCls}-footer`]: {
           textAlign: 'end',
           background: token.footerBg,
-          marginTop: token.marginSM,
+          marginTop: token.footerMarginTop,
+          padding: token.footerPadding,
+          borderTop: token.footerBorderTop,
+          borderRadius: token.footerBorderRadius,
 
           [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
             marginBottom: 0,
@@ -298,56 +326,6 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
   ];
 };
 
-const genWireframeStyle: GenerateStyle<ModalToken> = (token) => {
-  const { componentCls, antCls } = token;
-  const confirmComponentCls = `${componentCls}-confirm`;
-
-  return {
-    [componentCls]: {
-      [`${componentCls}-content`]: {
-        padding: 0,
-      },
-
-      [`${componentCls}-header`]: {
-        padding: token.modalHeaderPadding,
-        borderBottom: `${unit(token.modalHeaderBorderWidth)} ${token.modalHeaderBorderStyle} ${
-          token.modalHeaderBorderColorSplit
-        }`,
-        marginBottom: 0,
-      },
-
-      [`${componentCls}-body`]: {
-        padding: token.modalBodyPadding,
-      },
-
-      [`${componentCls}-footer`]: {
-        padding: `${unit(token.modalFooterPaddingVertical)} ${unit(
-          token.modalFooterPaddingHorizontal,
-        )}`,
-        borderTop: `${unit(token.modalFooterBorderWidth)} ${token.modalFooterBorderStyle} ${
-          token.modalFooterBorderColorSplit
-        }`,
-        borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
-        marginTop: 0,
-      },
-    },
-
-    [confirmComponentCls]: {
-      [`${antCls}-modal-body`]: {
-        padding: `${unit(token.calc(token.padding).mul(2).equal())} ${unit(
-          token.calc(token.padding).mul(2).equal(),
-        )} ${unit(token.paddingLG)}`,
-      },
-      [`${confirmComponentCls}-body > ${token.iconCls}`]: {
-        marginInlineEnd: token.margin,
-      },
-      [`${confirmComponentCls}-btns`]: {
-        marginTop: token.marginLG,
-      },
-    },
-  };
-};
-
 const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   const { componentCls } = token;
   return {
@@ -370,19 +348,12 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
   const headerLineHeight = token.lineHeightHeading5;
 
   const modalToken = mergeToken<ModalToken>(token, {
-    modalBodyPadding: token.paddingLG,
-    modalHeaderPadding: `${unit(headerPaddingVertical)} ${unit(token.paddingLG)}`,
-    modalHeaderBorderWidth: token.lineWidth,
-    modalHeaderBorderStyle: token.lineType,
-    modalHeaderBorderColorSplit: token.colorSplit,
     modalHeaderHeight: token
       .calc(token.calc(headerLineHeight).mul(headerFontSize).equal())
       .add(token.calc(headerPaddingVertical).mul(2).equal())
       .equal(),
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.lineType,
-    modalFooterPaddingVertical: token.paddingXS,
-    modalFooterPaddingHorizontal: token.padding,
     modalFooterBorderWidth: token.lineWidth,
     modalIconHoverColor: token.colorIconHover,
     modalCloseIconColor: token.colorIcon,
@@ -401,6 +372,32 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   titleFontSize: token.fontSizeHeading5,
   contentBg: token.colorBgElevated,
   titleColor: token.colorTextHeading,
+
+  // internal
+  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
+  closeBtnActiveBg: token.wireframe ? 'transparent' : token.colorFillContentHover,
+  contentPadding: token.wireframe
+    ? 0
+    : `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
+  headerPadding: token.wireframe ? `${unit(token.padding)} ${unit(token.paddingLG)}` : 0,
+  headerBorderBottom: token.wireframe
+    ? `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`
+    : 'none',
+  headerMarginBottom: token.wireframe ? 0 : token.marginXS,
+  bodyPadding: token.wireframe ? token.paddingLG : 0,
+  footerPadding: token.wireframe ? `${unit(token.paddingXS)} ${unit(token.padding)}` : 0,
+  footerBorderTop: token.wireframe
+    ? `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`
+    : 'none',
+  footerBorderRadius: token.wireframe
+    ? `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`
+    : 0,
+  footerMarginTop: token.wireframe ? 0 : token.marginSM,
+  confirmBodyPadding: token.wireframe
+    ? `${unit(token.padding * 2)} ${unit(token.padding * 2)} ${unit(token.paddingLG)}`
+    : 0,
+  confirmIconMarginInlineEnd: token.wireframe ? token.margin : token.marginSM,
+  confirmBtnsMarginTop: token.wireframe ? token.marginLG : token.marginSM,
 });
 
 export default genComponentStyleHook(
@@ -412,7 +409,6 @@ export default genComponentStyleHook(
       genModalStyle(modalToken),
       genRTLStyle(modalToken),
       genModalMaskStyle(modalToken),
-      token.wireframe && genWireframeStyle(modalToken),
       initZoomMotion(modalToken, 'zoom'),
     ];
   },
