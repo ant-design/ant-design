@@ -12,6 +12,8 @@ import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const {
@@ -32,10 +34,12 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const groupCls = classNames(groupPrefixCls, hashId, className, {
+  const groupCls = classNames(groupPrefixCls, hashId, rootCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
     [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
@@ -104,7 +108,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <FloatButtonGroupProvider value={shape}>
       <div ref={floatButtonGroupRef} className={groupCls} style={style} {...hoverAction}>
         {trigger && ['click', 'hover'].includes(trigger) ? (

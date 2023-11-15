@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface DividerProps {
   prefixCls?: string;
@@ -35,7 +36,9 @@ const Divider: React.FC<DividerProps> = (props) => {
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
   const hasChildren = !!children;
@@ -85,7 +88,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={classString}
       style={{ ...divider?.style, ...style }}

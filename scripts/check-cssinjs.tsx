@@ -37,7 +37,6 @@ async function checkCSSVar() {
     'collapse',
     'color-picker',
     'descriptions',
-    'divider',
     'drawer',
     'float-button',
     'grid',
@@ -48,8 +47,6 @@ async function checkCSSVar() {
     'steps',
     'switch',
     'table',
-    'tree',
-    'tree-select',
   ];
 
   await generateCssinjs({

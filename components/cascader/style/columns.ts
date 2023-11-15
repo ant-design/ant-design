@@ -1,4 +1,4 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { CascaderToken } from '.';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
@@ -59,7 +59,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
           '-ms-overflow-style': '-ms-autohiding-scrollbar', // https://github.com/ant-design/ant-design/issues/11857
 
           '&:not(:last-child)': {
-            borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           },
 
           '&-item': {
