@@ -388,22 +388,26 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
-  titleLineHeight: token.controlHeight,
-  customIconSize: token.controlHeight,
-  customIconTop: 0,
-  customIconFontSize: token.controlHeightSM,
-  iconSize: token.controlHeight,
-  iconTop: -0.5, // magic for ui experience
-  iconFontSize: token.fontSize,
-  iconSizeSM: token.fontSizeHeading3,
-  dotSize: token.controlHeight / 4,
-  dotCurrentSize: token.controlHeightLG / 4,
-  navArrowColor: token.colorTextDisabled,
-  navContentMaxWidth: 'auto',
-  descriptionMaxWidth: 140,
-  tailTop: Math.floor((token.controlHeight / 4 - token.lineWidth * 3) / 2), // (dotSize - lineWidth * 3) / 2
-});
+export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => {
+  const dotSize = token.Steps?.dotSize ?? token.controlHeight / 4;
+
+  return {
+    titleLineHeight: token.controlHeight,
+    customIconSize: token.controlHeight,
+    customIconTop: 0,
+    customIconFontSize: token.controlHeightSM,
+    iconSize: token.controlHeight,
+    iconTop: -0.5, // magic for ui experience
+    iconFontSize: token.fontSize,
+    iconSizeSM: token.fontSizeHeading3,
+    dotSize: token.controlHeight / 4,
+    dotCurrentSize: token.controlHeightLG / 4,
+    navArrowColor: token.colorTextDisabled,
+    navContentMaxWidth: 'auto',
+    descriptionMaxWidth: 140,
+    tailTop: Math.floor((dotSize - token.lineWidth * 3) / 2), // (dotSize - lineWidth * 3) / 2
+  };
+};
 
 export default genComponentStyleHook(
   'Steps',
@@ -425,7 +429,6 @@ export default genComponentStyleHook(
       colorBorderSecondary,
       colorSplit,
     } = token;
-
     const stepsToken = mergeToken<StepsToken>(token, {
       // Steps component less variable
       processIconColor: colorTextLightSolid,
@@ -463,7 +466,6 @@ export default genComponentStyleHook(
       inlineTitleColor: colorTextQuaternary,
       inlineTailColor: colorBorderSecondary,
     });
-
     return [genStepsStyle(stepsToken)];
   },
   prepareComponentToken,
