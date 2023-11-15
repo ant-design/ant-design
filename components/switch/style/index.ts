@@ -190,7 +190,7 @@ const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => 
 };
 
 const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
-  const { componentCls, motion, trackPadding, handleBg, handleShadow, handleSize, calc } = token;
+  const { componentCls, trackPadding, handleBg, handleShadow, handleSize, calc } = token;
   const switchHandleCls = `${componentCls}-handle`;
 
   return {
@@ -221,20 +221,17 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         insetInlineStart: `calc(100% - ${unit(calc(handleSize).add(trackPadding).equal())})`,
       },
 
-      [`&:not(${componentCls}-disabled):active`]: motion
-        ? {
-            [`${switchHandleCls}::before`]: {
-              insetInlineEnd: token.switchHandleActiveInset,
-              insetInlineStart: 0,
-            },
+      [`&:not(${componentCls}-disabled):active`]: {
+        [`${switchHandleCls}::before`]: {
+          insetInlineEnd: token.switchHandleActiveInset,
+          insetInlineStart: 0,
+        },
 
-            [`&${componentCls}-checked ${switchHandleCls}::before`]: {
-              insetInlineEnd: 0,
-              insetInlineStart: token.switchHandleActiveInset,
-            },
-          }
-        : /* istanbul ignore next */
-          {},
+        [`&${componentCls}-checked ${switchHandleCls}::before`]: {
+          insetInlineEnd: 0,
+          insetInlineStart: token.switchHandleActiveInset,
+        },
+      },
     },
   };
 };
