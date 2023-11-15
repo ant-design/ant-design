@@ -16,6 +16,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -540,9 +541,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const [, token] = useToken();
   const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const wrapperClassNames = classNames(
+    rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
     {
