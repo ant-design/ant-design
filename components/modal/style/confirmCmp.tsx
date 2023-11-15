@@ -16,6 +16,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
     lineHeight,
     modalTitleHeight,
     fontHeight,
+    confirmBodyPadding,
   } = token;
   const confirmComponentCls = `${componentCls}-confirm`;
 
@@ -30,6 +31,9 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
       [`${confirmComponentCls}-body-wrapper`]: {
         ...clearFix(),
       },
+      [`&${componentCls} ${componentCls}-body`]: {
+        padding: confirmBodyPadding,
+      },
 
       // ====================== Body ======================
       [`${confirmComponentCls}-body`]: {
@@ -40,7 +44,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         [`> ${token.iconCls}`]: {
           flex: 'none',
           fontSize: modalConfirmIconSize,
-          marginInlineEnd: token.marginSM,
+          marginInlineEnd: token.confirmIconMarginInlineEnd,
           marginTop: token
             .calc(token.calc(fontHeight).sub(modalConfirmIconSize).equal())
             .div(2)
@@ -80,7 +84,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
       // ===================== Footer =====================
       [`${confirmComponentCls}-btns`]: {
         textAlign: 'end',
-        marginTop: token.marginSM,
+        marginTop: token.confirmBtnsMarginTop,
 
         [`${token.antCls}-btn + ${token.antCls}-btn`]: {
           marginBottom: 0,
