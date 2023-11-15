@@ -429,6 +429,7 @@ export default genComponentStyleHook(
       colorBorderSecondary,
       colorSplit,
     } = token;
+
     const stepsToken = mergeToken<StepsToken>(token, {
       // Steps component less variable
       processIconColor: colorTextLightSolid,
@@ -466,6 +467,7 @@ export default genComponentStyleHook(
       inlineTitleColor: colorTextQuaternary,
       inlineTailColor: colorBorderSecondary,
     });
+
     return [genStepsStyle(stepsToken)];
   },
   prepareComponentToken,
