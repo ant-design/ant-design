@@ -1,4 +1,4 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 
 import { prepareComponentToken, type CascaderToken } from '.';
 import { genComponentStyleHook, type GenerateStyle } from '../../theme/internal';
@@ -13,7 +13,7 @@ const genPanelStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CSSO
       getColumnsStyle(token),
       {
         display: 'inline-flex',
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         borderRadius: token.borderRadiusLG,
         overflowX: 'auto',
         maxWidth: '100%',
