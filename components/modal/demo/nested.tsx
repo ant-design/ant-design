@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, message, Modal, Select, Switch } from 'antd';
+import { Button, message, Modal, notification, Select, Space, Switch } from 'antd';
 
 const options = [
   {
@@ -13,13 +13,15 @@ const options = [
 ];
 
 const Demo: React.FC = () => {
-  const [instance, holder] = message.useMessage();
+  const [messageInstance, messageHolder] = message.useMessage();
+  const [notificationInstance, notificationHolder] = notification.useNotification();
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
       <Switch
-        style={{ position: 'relative', zIndex: 4000 }}
+        style={{ position: 'relative', zIndex: isModalOpen ? 4000 : 0 }}
         checkedChildren="Open"
         unCheckedChildren="Close"
         onChange={(open) => setIsModalOpen(open)}
@@ -79,19 +81,48 @@ const Demo: React.FC = () => {
               },
             }}
           >
-            <Select open value="1" options={options} />
+            <Space wrap>
+              <Button
+                onClick={() => {
+                  Modal.confirm({
+                    title: 'Are you OK?',
+                    content: 'I am OK',
+                  });
+                }}
+              >
+                Static Confirm
+              </Button>
 
-            <Button
-              onClick={() => {
-                instance.success('Hello World');
-              }}
-            >
-              Show Message
-            </Button>
+              <Button
+                onClick={() => {
+                  message.success('Hello World');
+                  notification.success({
+                    message: 'Hello World',
+                  });
+                }}
+              >
+                Static Message, Notification
+              </Button>
+
+              <Button
+                onClick={() => {
+                  messageInstance.success('Hello World');
+                  notificationInstance.success({
+                    message: 'Hello World',
+                  });
+                }}
+              >
+                Hook Message, Notification
+              </Button>
+
+              <Select open value="1" options={options} />
+            </Space>
           </Modal>
         </Modal>
       </Modal>
-      {holder}
+
+      {messageHolder}
+      {notificationHolder}
     </>
   );
 };

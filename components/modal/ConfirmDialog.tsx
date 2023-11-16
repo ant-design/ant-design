@@ -5,11 +5,13 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
+import { CONTAINER_MAX_OFFSET } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
 import ConfigProvider from '../config-provider';
 import { useLocale } from '../locale';
+import useToken from '../theme/useToken';
 import CancelBtn from './components/ConfirmCancelBtn';
 import OkBtn from './components/ConfirmOkBtn';
 import type { ModalContextProps } from './context';
@@ -31,6 +33,10 @@ export interface ConfirmDialogProps extends ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls?: string;
   iconPrefixCls?: string;
+
+  /**
+   * Only passed by static method
+   */
   theme?: ThemeConfig;
 
   /** @private Internal Usage. Do not override this */
@@ -177,7 +183,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     prefixCls,
     wrapClassName,
     rootPrefixCls,
-    iconPrefixCls,
     theme,
     bodyStyle,
     closable = false,
@@ -215,6 +220,63 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     props.className,
   );
 
+  // ========================= zIndex =========================
+  const [, token] = useToken();
+
+  const mergedZIndex = React.useMemo(() => {
+    if (!theme || zIndex !== undefined) {
+      return zIndex;
+    }
+
+    // Static always use max zIndex
+    return token.zIndexPopupBase + CONTAINER_MAX_OFFSET;
+  }, [zIndex, token]);
+
+  // ========================= Render =========================
+  return (
+    <Dialog
+      prefixCls={prefixCls}
+      className={classString}
+      wrapClassName={classNames(
+        { [`${confirmPrefixCls}-centered`]: !!props.centered },
+        wrapClassName,
+      )}
+      onCancel={() => {
+        close?.({ triggerCancel: true });
+        onConfirm?.(false);
+      }}
+      open={open}
+      title=""
+      footer={null}
+      transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
+      maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
+      mask={mask}
+      maskClosable={maskClosable}
+      style={style}
+      styles={{
+        body: bodyStyle,
+        mask: maskStyle,
+        ...styles,
+      }}
+      width={width}
+      zIndex={mergedZIndex}
+      afterClose={afterClose}
+      keyboard={keyboard}
+      centered={centered}
+      getContainer={getContainer}
+      closable={closable}
+      closeIcon={closeIcon}
+      modalRender={modalRender}
+      focusTriggerAfterClose={focusTriggerAfterClose}
+    >
+      <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
+    </Dialog>
+  );
+};
+
+const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
+  const { rootPrefixCls, iconPrefixCls, direction, theme } = props;
+
   return (
     <ConfigProvider
       prefixCls={rootPrefixCls}
@@ -222,53 +284,14 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       direction={direction}
       theme={theme}
     >
-      <Dialog
-        prefixCls={prefixCls}
-        className={classString}
-        wrapClassName={classNames(
-          { [`${confirmPrefixCls}-centered`]: !!props.centered },
-          wrapClassName,
-        )}
-        onCancel={() => {
-          close?.({ triggerCancel: true });
-          onConfirm?.(false);
-        }}
-        open={open}
-        title=""
-        footer={null}
-        transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
-        maskTransitionName={getTransitionName(
-          rootPrefixCls || '',
-          'fade',
-          props.maskTransitionName,
-        )}
-        mask={mask}
-        maskClosable={maskClosable}
-        style={style}
-        styles={{
-          body: bodyStyle,
-          mask: maskStyle,
-          ...styles,
-        }}
-        width={width}
-        zIndex={zIndex}
-        afterClose={afterClose}
-        keyboard={keyboard}
-        centered={centered}
-        getContainer={getContainer}
-        closable={closable}
-        closeIcon={closeIcon}
-        modalRender={modalRender}
-        focusTriggerAfterClose={focusTriggerAfterClose}
-      >
-        <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
-      </Dialog>
+      <ConfirmDialog {...props} />
     </ConfigProvider>
   );
 };
 
 if (process.env.NODE_ENV !== 'production') {
   ConfirmDialog.displayName = 'ConfirmDialog';
+  ConfirmDialogWrapper.displayName = 'ConfirmDialogWrapper';
 }
 
-export default ConfirmDialog;
+export default ConfirmDialogWrapper;
