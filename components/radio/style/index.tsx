@@ -88,6 +88,11 @@ export interface ComponentToken {
    * @descEN Margin right of Radio button
    */
   wrapperMarginInlineEnd: number;
+
+  /** @internal */
+  radioColor: string;
+  /** @internal */
+  radioBgColor: string;
 }
 
 interface RadioToken extends FullToken<'Radio'> {
@@ -143,8 +148,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     paddingXS,
     dotColorDisabled,
     lineType,
-    wireframe,
-    colorWhite,
+    radioColor,
+    radioBgColor,
     calc,
   } = token;
   const radioInnerPrefixCls = `${componentCls}-inner`;
@@ -222,7 +227,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           height: radioSize,
           marginBlockStart: calc(radioSize).div(-2).equal(),
           marginInlineStart: calc(radioSize).div(-2).equal(),
-          backgroundColor: wireframe ? colorPrimary : colorWhite, // TODO
+          backgroundColor: radioColor,
           borderBlockStart: 0,
           borderInlineStart: 0,
           borderRadius: radioSize,
@@ -259,7 +264,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       [`${componentCls}-checked`]: {
         [radioInnerPrefixCls]: {
           borderColor: colorPrimary,
-          backgroundColor: wireframe ? colorBgContainer : colorPrimary, // TODO
+          backgroundColor: radioBgColor,
 
           '&::after': {
             transform: `scale(${dotCheckedScale})`,
@@ -557,6 +562,7 @@ export const prepareComponentToken: GetDefaultToken<'Radio'> = (token) => {
     colorPrimary,
     colorPrimaryHover,
     colorPrimaryActive,
+    colorWhite,
   } = token;
 
   const dotPadding = 4; // Fixed value
@@ -584,6 +590,10 @@ export const prepareComponentToken: GetDefaultToken<'Radio'> = (token) => {
     buttonCheckedColorDisabled: colorTextDisabled,
     buttonPaddingInline: padding - lineWidth,
     wrapperMarginInlineEnd: marginXS,
+
+    // internal
+    radioColor: wireframe ? colorPrimary : colorWhite,
+    radioBgColor: wireframe ? colorBgContainer : colorPrimary,
   };
 };
 
