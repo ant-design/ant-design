@@ -7,7 +7,6 @@ import type {
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
