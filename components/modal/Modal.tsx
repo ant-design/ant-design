@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
 import useClosable from '../_util/hooks/useClosable';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
@@ -15,7 +16,6 @@ import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import { useZIndex } from '../_util/hooks/useZIndex';
 
 let mousePosition: MousePosition;
 

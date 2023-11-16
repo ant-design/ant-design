@@ -1,10 +1,12 @@
 import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import classNames from 'classnames';
 
+import useClosable from '../_util/hooks/useClosable';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -16,6 +18,7 @@ import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
 import Dialog from './Modal';
+import { renderCloseIcon } from './shared';
 import ConfirmCmp from './style/confirmCmp';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
@@ -180,7 +183,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     iconPrefixCls,
     theme,
     bodyStyle,
-    closable = false,
+    closable,
     closeIcon,
     modalRender,
     focusTriggerAfterClose,
@@ -213,6 +216,14 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     `${confirmPrefixCls}-${props.type}`,
     { [`${confirmPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
+  );
+
+  const [mergedClosable, mergedCloseIcon] = useClosable(
+    closable,
+    closeIcon,
+    (icon) => renderCloseIcon(prefixCls, icon),
+    <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    true,
   );
 
   return (
@@ -256,8 +267,8 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
         keyboard={keyboard}
         centered={centered}
         getContainer={getContainer}
-        closable={closable}
-        closeIcon={closeIcon}
+        closable={mergedClosable}
+        closeIcon={mergedCloseIcon}
         modalRender={modalRender}
         focusTriggerAfterClose={focusTriggerAfterClose}
       >

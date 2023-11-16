@@ -1,6 +1,6 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { ReactNode } from 'react';
 import React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 function useInnerClosable(
   closable?: boolean,
