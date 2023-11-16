@@ -183,7 +183,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     prefixCls,
     wrapClassName,
     rootPrefixCls,
-    theme,
     bodyStyle,
     closable = false,
     closeIcon,
@@ -224,7 +223,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   const [, token] = useToken();
 
   const mergedZIndex = React.useMemo(() => {
-    if (!theme || zIndex !== undefined) {
+    if (zIndex !== undefined) {
       return zIndex;
     }
 

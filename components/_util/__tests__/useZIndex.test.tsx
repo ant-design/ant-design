@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
-import { render } from '@testing-library/react';
+import { act, render } from '@testing-library/react';
 import type { MenuProps } from 'antd';
 import {
   AutoComplete,
@@ -330,5 +330,29 @@ describe('Test useZIndex hooks', () => {
         }, 15000);
       });
     });
+  });
+
+  it('Modal static func should always use max zIndex', async () => {
+    jest.useFakeTimers();
+
+    const instance = Modal.confirm({
+      title: 'bamboo',
+      content: 'little',
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
+      zIndex: '2000',
+    });
+
+    instance.destroy();
+
+    await waitFakeTimer();
+
+    // Clean up for static method
+    document.body.innerHTML = '';
+
+    jest.useRealTimers();
   });
 });
