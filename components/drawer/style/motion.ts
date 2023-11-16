@@ -1,7 +1,7 @@
 import type { DrawerToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genMotionStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
+const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
   const { componentCls, motionDurationSlow } = token;
 
   const sharedPanelMotion = {

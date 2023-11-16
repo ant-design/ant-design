@@ -1,7 +1,8 @@
-import classnames from 'classnames';
-import CSSMotion from 'rc-motion';
 import * as React from 'react';
 import { useMemo, useRef } from 'react';
+import classnames from 'classnames';
+import CSSMotion from 'rc-motion';
+
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { cloneElement } from '../_util/reactNode';
@@ -11,6 +12,7 @@ import type { PresetColorKey } from '../theme/internal';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
@@ -75,8 +77,8 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const { getPrefixCls, direction, badge } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (
@@ -188,7 +190,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   // <Badge status="success" />
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
-    return wrapSSR(
+    return wrapCSSVar(
       <span
         {...restProps}
         className={badgeClassName}
@@ -207,7 +209,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <span
       ref={ref}
       {...restProps}
