@@ -11,7 +11,8 @@ type CompoundedComponent = InternalLayoutType & {
   Footer: typeof Footer;
   Content: typeof Content;
   Sider: typeof Sider;
-  SiderContext: typeof SiderContext;
+  /** @private Internal Context. Do not use in your production. */
+  _InternalSiderContext: typeof SiderContext;
 };
 
 const Layout = InternalLayout as CompoundedComponent;
@@ -20,6 +21,6 @@ Layout.Header = Header;
 Layout.Footer = Footer;
 Layout.Content = Content;
 Layout.Sider = Sider;
-Layout.SiderContext = SiderContext;
+Layout._InternalSiderContext = SiderContext;
 
 export default Layout;
