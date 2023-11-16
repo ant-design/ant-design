@@ -102,7 +102,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
 
       [`${componentCls}-overlay-link`]: {
         borderRadius: token.borderRadiusSM,
-        height: calc(token.lineHeight).mul(token.fontSize).equal(),
+        height: fontHeight,
         display: 'inline-block',
         padding: `0 ${unit(token.paddingXXS)}`,
         marginInline: calc(token.marginXXS).mul(-1).equal(),
