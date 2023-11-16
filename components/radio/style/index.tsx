@@ -415,7 +415,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       [`${componentCls}-group-large &`]: {
         height: controlHeightLG,
         fontSize: fontSizeLG,
-        lineHeight: calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal(),
+        lineHeight: unit(calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal()),
 
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
@@ -432,7 +432,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         height: controlHeightSM,
         paddingInline: calc(paddingXS).sub(lineWidth).equal(),
         paddingBlock: 0,
-        lineHeight: calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal(),
+        lineHeight: unit(calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal()),
 
         '&:first-child': {
           borderStartStartRadius: borderRadiusSM,
