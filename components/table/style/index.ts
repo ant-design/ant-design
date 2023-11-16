@@ -178,6 +178,8 @@ export interface ComponentToken {
   stickyScrollBarBorderRadius: number;
 
   tableExpandMargin: number;
+  tableHeaderIconColor: string;
+  tableHeaderIconColorHover: string;
 }
 
 export interface TableToken extends FullToken<'Table'> {
@@ -398,6 +400,9 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     fontSizeSM,
     lineHeight,
     lineWidth,
+    colorIcon,
+    colorIconHover,
+    opacityLoading,
   } = token;
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
@@ -409,6 +414,9 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
   const colorFillAlterSolid = new TinyColor(colorFillAlter)
     .onBackground(colorBgContainer)
     .toHexShortString();
+
+  const baseColorAction = new TinyColor(colorIcon);
+  const baseColorActionHover = new TinyColor(colorIconHover);
 
   return {
     headerBg: colorFillAlterSolid,
@@ -445,6 +453,14 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     tableExpandMargin:
       (fontSize * lineHeight - lineWidth * 3) / 2 -
       Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
+    tableHeaderIconColor: baseColorAction
+      .clone()
+      .setAlpha(baseColorAction.getAlpha() * opacityLoading)
+      .toRgbString(),
+    tableHeaderIconColorHover: baseColorActionHover
+      .clone()
+      .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
+      .toRgbString(),
   };
 };
 
@@ -455,9 +471,6 @@ export default genComponentStyleHook(
     const {
       colorTextHeading,
       colorSplit,
-      colorIcon,
-      colorIconHover,
-      opacityLoading,
       colorBgContainer,
       controlInteractiveSize: checkboxSize,
       headerBg,
@@ -492,9 +505,6 @@ export default genComponentStyleHook(
       calc,
     } = token;
 
-    const baseColorAction = new TinyColor(colorIcon);
-    const baseColorActionHover = new TinyColor(colorIconHover);
-
     const zIndexTableFixed: number = 2;
 
     const tableToken = mergeToken<TableToken>(token, {
@@ -516,14 +526,6 @@ export default genComponentStyleHook(
       tableHeaderCellSplitColor: headerSplitColor,
       tableHeaderSortBg: headerSortActiveBg,
       tableHeaderSortHoverBg: headerSortHoverBg,
-      tableHeaderIconColor: baseColorAction
-        .clone()
-        .setAlpha(calc(baseColorAction.getAlpha()).mul(opacityLoading).equal())
-        .toRgbString(),
-      tableHeaderIconColorHover: baseColorActionHover
-        .clone()
-        .setAlpha(calc(baseColorActionHover.getAlpha()).mul(opacityLoading).equal())
-        .toRgbString(),
       tableBodySortBg: bodySortBg,
       tableFixedHeaderSortActiveBg: fixedHeaderSortActiveBg,
       tableHeaderFilterActiveBg: headerFilterHoverBg,
@@ -532,7 +534,7 @@ export default genComponentStyleHook(
       tableSelectedRowBg: rowSelectedBg,
       tableSelectedRowHoverBg: rowSelectedHoverBg,
       zIndexTableFixed,
-      zIndexTableSticky: calc(zIndexTableFixed).add(1).equal(),
+      zIndexTableSticky: zIndexTableFixed + 1,
       tableFontSizeMiddle: cellFontSizeMD,
       tableFontSizeSmall: cellFontSizeSM,
       tableSelectionColumnWidth: selectionColumnWidth,

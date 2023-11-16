@@ -1,4 +1,4 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
@@ -116,9 +116,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           position: 'relative',
 
           '&::after': {
-            boxShadow: `inset ${unit(calc(10).mul(-1).equal())} 0 ${unit(8)} ${unit(
-              calc(8).mul(-1).equal(),
-            )} ${shadowColor}`,
+            boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
           },
         },
 
@@ -126,9 +124,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           ${componentCls}-cell-fix-right-first::after,
           ${componentCls}-cell-fix-right-last::after
         `]: {
-          boxShadow: `inset ${unit(calc(10).mul(-1).equal())} 0 ${unit(8)} ${unit(
-            calc(8).mul(-1).equal(),
-          )} ${shadowColor}`,
+          boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
         },
       },
     },
