@@ -26,12 +26,10 @@ console.error = (msg: any) => {
   }
 };
 
-const ignoreList = ['grid', 'pagination', 'steps'];
-
 async function checkCSSVar() {
   await generateCssinjs({
     key: 'check',
-    ignore: ignoreList,
+    ignore: ['grid', 'pagination', 'steps'],
     render(Component: any) {
       ReactDOMServer.renderToString(
         <StyleProvider linters={[NaNLinter]}>
