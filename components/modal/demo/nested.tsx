@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Select, Switch } from 'antd';
+import { Button, message, Modal, Select, Switch } from 'antd';
 
 const options = [
   {
@@ -12,7 +12,8 @@ const options = [
   },
 ];
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
+  const [instance, holder] = message.useMessage();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
@@ -79,11 +80,20 @@ const App: React.FC = () => {
             }}
           >
             <Select open value="1" options={options} />
+
+            <Button
+              onClick={() => {
+                instance.success('Hello World');
+              }}
+            >
+              Show Message
+            </Button>
           </Modal>
         </Modal>
       </Modal>
+      {holder}
     </>
   );
 };
 
-export default App;
+export default Demo;
