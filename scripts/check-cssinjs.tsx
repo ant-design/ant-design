@@ -35,7 +35,6 @@ async function checkCSSVar() {
     'checkbox',
     'collapse',
     'color-picker',
-    'drawer',
     'float-button',
     'grid',
     'icon',
