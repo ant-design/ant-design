@@ -352,7 +352,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       paddingBlock: 0,
       color: buttonColor,
       fontSize,
-      lineHeight: calc(controlHeight).sub(calc(lineWidth).mul(2)).equal(),
+      lineHeight: unit(calc(controlHeight).sub(calc(lineWidth).mul(2)).equal()),
       background: buttonBg,
       border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
       // strange align fix for chrome but works
