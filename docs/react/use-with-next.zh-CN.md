@@ -33,8 +33,9 @@ $ npm run dev
 修改 `src/app/page.tsx`，引入 antd 的按钮组件。
 
 ```tsx
-'use client'; // 如果是在 Pages Router 中使用，则不需要添加 "use client"
+'use client';
 
+// 如果是在 Pages Router 中使用，则不需要添加 "use client"
 import React from 'react';
 import { Button } from 'antd';
 
@@ -60,6 +61,8 @@ export default Home;
 > 开发者注意事项：
 >
 > 请注意，安装 `@ant-design/cssinjs` 时必须确保版本号跟 `antd` 本地的 `node_modules` 中的 `@ant-design/cssinjs` 版本保持一致，否则会出现多个 React 实例，导致无法正确的读取 ctx。（Tips: 你可以通过 `npm ls @ant-design/cssinjs` 命令查看本地版本）
+>
+> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
@@ -166,6 +169,8 @@ export default HomePage;
 > 开发者注意事项：
 >
 > 请注意，安装 `@ant-design/cssinjs` 时必须确保版本号跟 `antd` 本地的 `node_modules` 中的 `@ant-design/cssinjs` 版本保持一致，否则会出现多个 React 实例，导致无法正确的读取 ctx。（Tips: 你可以通过 `npm ls @ant-design/cssinjs` 命令查看本地版本）
+>
+> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
