@@ -19,6 +19,8 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number;
+  /** @internal */
+  closeBtnHoverBg: string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -147,7 +149,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
 
       '&:hover': {
         color: token.colorIconHover,
-        backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+        backgroundColor: token.closeBtnHoverBg,
       },
     },
 
@@ -258,6 +260,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + 50,
   width: 384,
+  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
 });
 
 export const prepareNotificationToken: (
