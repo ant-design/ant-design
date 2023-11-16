@@ -1,5 +1,5 @@
 import InternalLayout, { Content, Footer, Header } from './layout';
-import Sider from './Sider';
+import Sider, { SiderContext } from './Sider';
 
 export type { BasicProps as LayoutProps } from './layout';
 export type { SiderProps } from './Sider';
@@ -11,6 +11,7 @@ type CompoundedComponent = InternalLayoutType & {
   Footer: typeof Footer;
   Content: typeof Content;
   Sider: typeof Sider;
+  SiderContext: typeof SiderContext;
 };
 
 const Layout = InternalLayout as CompoundedComponent;
@@ -19,5 +20,6 @@ Layout.Header = Header;
 Layout.Footer = Footer;
 Layout.Content = Content;
 Layout.Sider = Sider;
+Layout.SiderContext = SiderContext;
 
 export default Layout;
