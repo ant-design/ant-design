@@ -8,7 +8,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
-    controlInteractiveSize: checkboxSize,
+    controlInteractiveSize,
     motionDurationSlow,
     lineWidth,
     paddingXS,
@@ -24,7 +24,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableExpandMargin,
     calc,
   } = token;
-  const halfInnerSize = calc(checkboxSize).div(2).sub(lineWidth).equal();
+  const halfInnerSize = calc(controlInteractiveSize).div(2).sub(lineWidth).equal();
   // must be odd number, unless it cannot align center
   const expandIconSize = calc(calc(halfInnerSize).mul(2))
     .add(calc(calc(lineWidth).mul(3)))
@@ -66,7 +66,9 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         background: tableExpandIconBg,
         border: tableBorder,
         borderRadius,
-        transform: `scale(${calc(checkboxSize).div(expandIconSize).equal({ unit: false })})`,
+        transform: `scale(${calc(controlInteractiveSize)
+          .div(expandIconSize)
+          .equal({ unit: false })})`,
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
