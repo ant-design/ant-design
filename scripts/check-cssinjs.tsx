@@ -28,14 +28,12 @@ console.error = (msg: any) => {
 
 async function checkCSSVar() {
   const ignore = [
-    'anchor',
     'badge',
     'calendar',
     'cascader',
     'checkbox',
     'collapse',
     'color-picker',
-    'descriptions',
     'drawer',
     'float-button',
     'grid',
