@@ -21,16 +21,6 @@ export interface ComponentToken {
    * @descEN Color of disabled Radio dot
    */
   dotColorDisabled: string;
-  /**
-   * @desc 单选框圆点选中时的缩放比例
-   * @descEN Scale of the Radio dot when checked
-   */
-  dotCheckedScale: number;
-  /**
-   * @desc 单选框圆点选中并禁用时的缩放比例
-   * @descEN Scale of the Radio dot when checked and disabled
-   */
-  dotCheckedScaleDisabled: number;
 
   // Radio buttons
   /**
@@ -141,8 +131,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     colorBgContainer,
     colorBorder,
     lineWidth,
-    dotCheckedScale,
-    dotCheckedScaleDisabled,
     colorBgContainerDisabled,
     colorTextDisabled,
     paddingXS,
@@ -153,6 +141,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     calc,
   } = token;
   const radioInnerPrefixCls = `${componentCls}-inner`;
+
+  const dotPadding = 4;
+  const radioDotDisabledSize = calc(radioSize).sub(calc(dotPadding).mul(2));
+  const radioSizeCalc = calc(1).mul(radioSize).equal();
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -223,14 +215,14 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           insetBlockStart: '50%',
           insetInlineStart: '50%',
           display: 'block',
-          width: radioSize,
-          height: radioSize,
-          marginBlockStart: calc(radioSize).div(-2).equal(),
-          marginInlineStart: calc(radioSize).div(-2).equal(),
+          width: radioSizeCalc,
+          height: radioSizeCalc,
+          marginBlockStart: calc(1).mul(radioSize).div(-2).equal(),
+          marginInlineStart: calc(1).mul(radioSize).div(-2).equal(),
           backgroundColor: radioColor,
           borderBlockStart: 0,
           borderInlineStart: 0,
-          borderRadius: radioSize,
+          borderRadius: radioSizeCalc,
           transform: 'scale(0)',
           opacity: 0,
           transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
@@ -242,8 +234,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         insetBlockStart: 0,
         insetInlineStart: 0,
         display: 'block',
-        width: radioSize,
-        height: radioSize,
+        width: radioSizeCalc,
+        height: radioSizeCalc,
         backgroundColor: colorBgContainer,
         borderColor: colorBorder,
         borderStyle: 'solid',
@@ -267,7 +259,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
           backgroundColor: radioBgColor,
 
           '&::after': {
-            transform: `scale(${dotCheckedScale})`,
+            transform: `scale(${token.calc(token.dotSize).div(radioSize).equal()})`,
             opacity: 1,
             transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
           },
@@ -299,7 +291,9 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         [`&${componentCls}-checked`]: {
           [radioInnerPrefixCls]: {
             '&::after': {
-              transform: `scale(${dotCheckedScaleDisabled})`,
+              transform: `scale(${calc(radioDotDisabledSize)
+                .div(radioSize)
+                .equal({ unit: false })})`,
             },
           },
         },
@@ -541,11 +535,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
   };
 };
 
-const getDotSize = (radioSize: number): number => {
-  const dotPadding = 4; // Fixed Value
-  return radioSize - dotPadding * 2;
-};
-
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Radio'> = (token) => {
   const {
@@ -567,16 +556,15 @@ export const prepareComponentToken: GetDefaultToken<'Radio'> = (token) => {
 
   const dotPadding = 4; // Fixed value
   const radioSize = fontSizeLG;
-  const radioDotSize = wireframe ? getDotSize(radioSize) : radioSize - (dotPadding + lineWidth) * 2;
-  const radioDotDisabledSize = getDotSize(radioSize);
+  const radioDotSize = wireframe
+    ? radioSize - dotPadding * 2
+    : radioSize - (dotPadding + lineWidth) * 2;
 
   return {
     // Radio
     radioSize,
     dotSize: radioDotSize,
     dotColorDisabled: colorTextDisabled,
-    dotCheckedScale: radioDotSize / radioSize,
-    dotCheckedScaleDisabled: radioDotDisabledSize / radioSize,
 
     // Radio buttons
     buttonSolidCheckedColor: colorTextLightSolid,

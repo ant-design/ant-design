@@ -3,7 +3,7 @@ import { prepareComponentToken } from '.';
 
 export default genCSSVarRegister('Radio', prepareComponentToken, {
   unitless: {
-    dotCheckedScale: true,
-    dotCheckedScaleDisabled: true,
+    radioSize: true,
+    dotSize: true,
   },
 });
