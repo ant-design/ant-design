@@ -70,7 +70,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = (token) =>
         transition: `color ${token.motionDurationMid}`,
         padding: `0 ${unit(token.paddingXXS)}`,
         borderRadius: token.borderRadiusSM,
-        height: calc(token.lineHeight).mul(token.fontSize).equal(),
+        height: fontHeight,
         display: 'inline-block',
         marginInline: calc(token.marginXXS).mul(-1).equal(),
 
