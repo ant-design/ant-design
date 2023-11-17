@@ -120,15 +120,6 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   boxShadow: 'none',
   cursor: 'not-allowed',
   opacity: 1,
-
-  '&:hover:not([disabled])': {
-    ...genHoverStyle(
-      mergeToken<InputToken>(token, {
-        hoverBorderColor: token.colorBorder,
-        hoverBg: token.colorBgContainerDisabled,
-      }),
-    ),
-  },
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
@@ -219,7 +210,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-  '&:hover': {
+  '&:hover:not(&-disabled)': {
     ...genHoverStyle(token),
   },
 
