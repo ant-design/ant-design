@@ -29,7 +29,7 @@ console.error = (msg: any) => {
 async function checkCSSVar() {
   await generateCssinjs({
     key: 'check',
-    ignore: ['pagination', 'steps', 'calendar'],
+    ignore: ['pagination', 'calendar'],
     render(Component: any) {
       ReactDOMServer.renderToString(
         <StyleProvider linters={[NaNLinter]}>
