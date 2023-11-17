@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
-import { act, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import type { MenuProps } from 'antd';
 import {
   AutoComplete,
