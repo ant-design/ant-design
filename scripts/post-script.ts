@@ -49,6 +49,7 @@ const DEPRECIATED_VERSION = {
   '5.9.1': ['https://github.com/ant-design/ant-design/issues/44907'],
   '5.10.0': ['https://github.com/ant-design/ant-design/issues/45289'],
   '5.11.0': ['https://github.com/ant-design/ant-design/issues/45742'],
+  '5.11.1': ['https://github.com/ant-design/ant-design/issues/45883'],
 } as const;
 
 function matchDeprecated(v: string) {

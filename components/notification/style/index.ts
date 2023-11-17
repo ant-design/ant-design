@@ -1,7 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
+
+import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, AliasToken } from '../../theme/internal';
+import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
@@ -258,7 +260,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
 // ============================== Export ==============================
 export const prepareComponentToken = (token: AliasToken) => ({
-  zIndexPopup: token.zIndexPopupBase + 50,
+  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
   closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
 });

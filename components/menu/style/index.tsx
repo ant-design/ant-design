@@ -296,12 +296,6 @@ export interface ComponentToken {
 
   // Dark
   /**
-   * @desc 暗色模式下的浮层菜单的背景颜色
-   * @descEN The background color of the overlay menu in dark mode.
-   */
-  darkPopupBg: string;
-
-  /**
    * @desc 暗色模式下的菜单项文字颜色
    * @descEN Color of menu item text in dark mode
    */
@@ -958,7 +952,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkItemColor,
         darkDangerItemColor,
         darkItemBg,
-        darkPopupBg,
         darkSubMenuItemBg,
         darkItemSelectedColor,
         darkItemSelectedBg,
@@ -994,7 +987,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         groupTitleColor: darkGroupTitleColor,
         itemSelectedColor: darkItemSelectedColor,
         itemBg: darkItemBg,
-        popupBg: darkPopupBg || darkItemBg,
+        popupBg: darkItemBg,
         subMenuItemBg: darkSubMenuItemBg,
         itemActiveBg: 'transparent',
         itemSelectedBg: darkItemSelectedBg,
