@@ -21,9 +21,8 @@ tag: vVERSION
 `2023-11-17`
 
 - 🆕 Table with `virtual` can now customize `components` except the `components.body`. [#45857](https://github.com/ant-design/ant-design/pull/45857)
-- 🆕 Add Menu properties `popupBg` and `darkPopupBg` to customize popup background. [#45826](https://github.com/ant-design/ant-design/pull/45826)
 - 🐞 Fix Button with href and disabled that could be focused. [#45910](https://github.com/ant-design/ant-design/pull/45910) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Fix `zIndex` logic problem that message and notification are covered when multiple Modal are opened. [#45911](https://github.com/ant-design/ant-design/pull/45911) [#45864](https://github.com/ant-design/ant-design/pull/45864) [@kiner-tang ](https://github.com/kiner-tang)
+- 🐞 Fix `zIndex` logic problem that message and notification are covered when multiple Modal are opened. [#45911](https://github.com/ant-design/ant-design/pull/45911) [#45864](https://github.com/ant-design/ant-design/pull/45864) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 Fix QRCode `style.padding` is not working. [#45815](https://github.com/ant-design/ant-design/pull/45815)
 - 💄 Optimize Carousel dots border radius style. [#45817](https://github.com/ant-design/ant-design/pull/45817)
 - TypeScript

@@ -21,9 +21,8 @@ tag: vVERSION
 `2023-11-17`
 
 - 🆕 放开 Table `virtual` 下 `components` 的限制，现在除了 `components.body` 都可以自定义。[#45857](https://github.com/ant-design/ant-design/pull/45857)
-- 🆕 新增 Menu 属性 `popupBg` 及 `darkPopupBg` 以自定义浮层背景色。[#45826](https://github.com/ant-design/ant-design/pull/45826)
 - 🐞 修复 Button 带有链接且禁用时可以被聚焦到的问题。[#45910](https://github.com/ant-design/ant-design/pull/45910) [@MadCcc](https://github.com/MadCcc)
-- 🐞 修复 `zIndex` 逻辑，解决多层 Modal 打开时，message 与 notification 被遮盖的问题。[#45911](https://github.com/ant-design/ant-design/pull/45911) [#45864](https://github.com/ant-design/ant-design/pull/45864) [@kiner-tang ](https://github.com/kiner-tang)
+- 🐞 修复 `zIndex` 逻辑，解决多层 Modal 打开时，message 与 notification 被遮盖的问题。[#45911](https://github.com/ant-design/ant-design/pull/45911) [#45864](https://github.com/ant-design/ant-design/pull/45864) [@kiner-tang](https://github.com/kiner-tang)
 - 💄 修复 QRCode 设置 `style.padding` 时无效的问题。[#45815](https://github.com/ant-design/ant-design/pull/45815)
 - 💄 优化 Carousel 切换条圆角样式。[#45817](https://github.com/ant-design/ant-design/pull/45817)
 - TypeScript
