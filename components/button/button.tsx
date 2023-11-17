@@ -265,6 +265,7 @@ const InternalButton: React.ForwardRefRenderFunction<
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
         {kids}

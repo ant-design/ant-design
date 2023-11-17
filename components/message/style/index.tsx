@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 
+import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -186,7 +187,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
 };
 
 export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
-  zIndexPopup: token.zIndexPopupBase + 10,
+  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 10,
   contentBg: token.colorBgElevated,
   contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
     token.paddingSM
