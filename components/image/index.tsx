@@ -10,6 +10,8 @@ import defaultLocale from '../locale/en_US';
 // CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -36,9 +38,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const imageLocale = contextLocale.Image || defaultLocale.Image;
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
-  const mergedRootClassName = classNames(rootClassName, hashId);
+  const mergedRootClassName = classNames(rootClassName, hashId, rootCls);
 
   const mergedClassName = classNames(className, hashId, image?.className);
 
@@ -65,7 +69,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreview}

@@ -14,6 +14,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import Progress from '../progress';
 import Tooltip from '../tooltip';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import useLegacyItems from './useLegacyItems';
 
 export interface StepProps {
@@ -79,7 +80,8 @@ const Steps: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const isInline = props.type === 'inline';
   const iconPrefix = getPrefixCls('', props.iconPrefix);
@@ -127,7 +129,7 @@ const Steps: CompoundedComponent = (props) => {
   const itemRender = (item: StepProps, stepItem: React.ReactNode) =>
     item.description ? <Tooltip title={item.description}>{stepItem}</Tooltip> : stepItem;
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSteps
       icons={icons}
       {...restProps}

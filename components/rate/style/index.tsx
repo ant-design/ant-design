@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
 export type ComponentToken = {
   /**
@@ -54,7 +55,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         },
 
         '&:focus-visible': {
-          outline: `${token.lineWidth}px dashed ${token.starColor}`,
+          outline: `${unit(token.lineWidth)} dashed ${token.starColor}`,
           transform: token.starHoverScale,
         },
       },
@@ -134,16 +135,18 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
+  starColor: token.yellow6,
+  starSize: token.controlHeightLG * 0.5,
+  starHoverScale: 'scale(1.1)',
+  starBg: token.colorFillContent,
+});
+
 export default genComponentStyleHook(
   'Rate',
   (token) => {
     const rateToken = mergeToken<RateToken>(token, {});
     return [genRateStyle(rateToken)];
   },
-  (token) => ({
-    starColor: token.yellow6,
-    starSize: token.controlHeightLG * 0.5,
-    starHoverScale: 'scale(1.1)',
-    starBg: token.colorFillContent,
-  }),
+  prepareComponentToken,
 );

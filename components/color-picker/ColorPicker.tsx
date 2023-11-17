@@ -12,6 +12,7 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
@@ -30,9 +31,9 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
+import useCSSVar from './style/cssVar';
 import useStyle from './style/index';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
-import { useZIndex } from '../_util/hooks/useZIndex';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -134,9 +135,11 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, rtlCls);
+  const mergeRootCls = classNames(rootClassName, rootCls, rtlCls);
   const mergeCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {
@@ -148,7 +151,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergePopupCls = classNames(prefixCls, rtlCls);
+  const mergePopupCls = classNames(prefixCls, mergeRootCls);
 
   const popupAllowCloseRef = useRef(true);
 
@@ -232,9 +235,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('ColorPicker');
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Popover
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
@@ -254,7 +256,6 @@ const ColorPicker: CompoundedComponent = (props) => {
         </NoFormStyle>
       }
       overlayClassName={mergePopupCls}
-      zIndex={zIndex}
       {...popoverProps}
     >
       {children || (

@@ -898,6 +898,7 @@ Array [
       <a
         class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only"
         href="https://www.google.com"
+        tabindex="0"
       >
         <span
           class="ant-btn-icon"
@@ -1072,6 +1073,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     <a
       class="ant-btn ant-btn-primary"
       href="https://ant.design/index-cn"
+      tabindex="0"
     >
       <span>
         Href Primary
@@ -1080,6 +1082,7 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     <a
       class="ant-btn ant-btn-primary ant-btn-disabled"
       href="https://ant.design/index-cn"
+      tabindex="-1"
     >
       <span>
         Href Primary(disabled)
@@ -1550,6 +1553,7 @@ exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = 
     <a
       class="ant-btn ant-btn-default ant-btn-icon-only"
       href="https://www.google.com"
+      tabindex="0"
     >
       <span
         class="ant-btn-icon"

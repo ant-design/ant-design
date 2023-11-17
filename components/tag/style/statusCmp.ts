@@ -1,7 +1,7 @@
 // Style as status component
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
-import { prepareCommonToken, prepareToken, type TagToken } from '.';
+import { prepareComponentToken, prepareToken, type TagToken } from '.';
 import capitalize from '../../_util/capitalize';
 import { genSubStyleComponent } from '../../theme/internal';
 
@@ -27,11 +27,10 @@ const genTagStatusStyle = (
 };
 
 // ============================== Export ==============================
-export default genSubStyleComponent(
+export default genSubStyleComponent<'Tag'>(
   ['Tag', 'status'],
   (token) => {
     const tagToken = prepareToken(token);
-
     return [
       genTagStatusStyle(tagToken, 'success', 'Success'),
       genTagStatusStyle(tagToken, 'processing', 'Info'),
@@ -39,5 +38,5 @@ export default genSubStyleComponent(
       genTagStatusStyle(tagToken, 'warning', 'Warning'),
     ];
   },
-  prepareCommonToken,
+  prepareComponentToken,
 );

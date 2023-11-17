@@ -15,6 +15,8 @@ import { getTransitionName } from '../_util/motion';
 
 // CSSINJS
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
@@ -38,14 +40,16 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const mergedRootClassName = classNames(hashId, _preview.rootClassName ?? '');
+    const mergedRootClassName = classNames(hashId, rootCls, _preview.rootClassName ?? '');
 
     return {
       ..._preview,
@@ -55,7 +59,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
     };
   }, [preview]);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcImage.PreviewGroup
       preview={mergedPreview}
       previewPrefixCls={previewPrefixCls}

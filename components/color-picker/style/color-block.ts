@@ -1,4 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import type { ColorPickerToken } from './index';
 
 /**
@@ -23,7 +24,7 @@ const genColorBlockStyle = (token: ColorPickerToken, size: number): CSSObject =>
       [`${componentCls}-color-block-inner`]: {
         width: '100%',
         height: '100%',
-        border: `${lineWidth}px solid ${colorFillSecondary}`,
+        border: `${unit(lineWidth)} solid ${colorFillSecondary}`,
         borderRadius: 'inherit',
       },
     },

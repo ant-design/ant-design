@@ -12,8 +12,8 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-// CSSINJS
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -127,7 +127,9 @@ const Alert: React.FC<AlertProps> = (props) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -174,7 +176,7 @@ const Alert: React.FC<AlertProps> = (props) => {
 
   const restProps = pickAttrs(otherProps, { aria: true, data: true });
 
-  return wrapSSR(
+  return wrapCSSVar(
     <CSSMotion
       visible={!closed}
       motionName={`${prefixCls}-motion`}

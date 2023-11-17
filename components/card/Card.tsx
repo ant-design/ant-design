@@ -1,7 +1,8 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
@@ -9,6 +10,7 @@ import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
@@ -98,7 +100,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -171,7 +174,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
       {head}
       {coverDom}

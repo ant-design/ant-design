@@ -17,6 +17,7 @@ import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 import ValidateMessagesContext from './validateMessagesContext';
 import type { FeedbackIcons } from './FormItem';
 
@@ -103,7 +104,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const formClassName = classNames(
     prefixCls,
@@ -177,7 +179,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     }
   };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <DisabledContextProvider disabled={disabled}>
       <SizeContext.Provider value={mergedSize}>
         <FormProvider

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Select, Switch } from 'antd';
+import { Button, message, Modal, notification, Select, Space, Switch } from 'antd';
 
 const options = [
   {
@@ -12,13 +12,16 @@ const options = [
   },
 ];
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
+  const [messageInstance, messageHolder] = message.useMessage();
+  const [notificationInstance, notificationHolder] = notification.useNotification();
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <>
       <Switch
-        style={{ position: 'relative', zIndex: 4000 }}
+        style={{ position: 'relative', zIndex: isModalOpen ? 4000 : 0 }}
         checkedChildren="Open"
         unCheckedChildren="Close"
         onChange={(open) => setIsModalOpen(open)}
@@ -78,12 +81,50 @@ const App: React.FC = () => {
               },
             }}
           >
-            <Select open value="1" options={options} />
+            <Space wrap>
+              <Button
+                onClick={() => {
+                  Modal.confirm({
+                    title: 'Are you OK?',
+                    content: 'I am OK',
+                  });
+                }}
+              >
+                Static Confirm
+              </Button>
+
+              <Button
+                onClick={() => {
+                  message.success('Hello World');
+                  notification.success({
+                    message: 'Hello World',
+                  });
+                }}
+              >
+                Static Message, Notification
+              </Button>
+
+              <Button
+                onClick={() => {
+                  messageInstance.success('Hello World');
+                  notificationInstance.success({
+                    message: 'Hello World',
+                  });
+                }}
+              >
+                Hook Message, Notification
+              </Button>
+
+              <Select open value="1" options={options} />
+            </Space>
           </Modal>
         </Modal>
       </Modal>
+
+      {messageHolder}
+      {notificationHolder}
     </>
   );
 };
 
-export default App;
+export default Demo;

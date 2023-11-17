@@ -1,13 +1,16 @@
 /* eslint-disable no-console */
+import React from 'react';
 import {
-  StyleProvider,
   legacyNotSelectorLinter,
   logicalPropertiesLinter,
+  NaNLinter,
   parentSelectorLinter,
+  StyleProvider,
 } from '@ant-design/cssinjs';
 import chalk from 'chalk';
-import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+
+import { ConfigProvider } from '../components';
 import { generateCssinjs } from './generate-cssinjs';
 
 console.log(chalk.green(`🔥 Checking CSS-in-JS...`));
@@ -23,19 +26,37 @@ console.error = (msg: any) => {
   }
 };
 
+async function checkCSSVar() {
+  await generateCssinjs({
+    key: 'check',
+    ignore: ['pagination', 'calendar'],
+    render(Component: any) {
+      ReactDOMServer.renderToString(
+        <StyleProvider linters={[NaNLinter]}>
+          <ConfigProvider theme={{ cssVar: true, hashed: false }}>
+            <Component />
+          </ConfigProvider>
+        </StyleProvider>,
+      );
+    },
+  });
+}
+
 (async () => {
   await generateCssinjs({
     key: 'check',
     render(Component: any) {
       ReactDOMServer.renderToString(
-        React.createElement(
-          StyleProvider,
-          { linters: [logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter] },
-          React.createElement(Component),
-        ),
+        <StyleProvider
+          linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+        >
+          <Component />
+        </StyleProvider>,
       );
     },
   });
+
+  await checkCSSVar();
 
   if (errorCount > 0) {
     console.log(chalk.red(`❌  CSS-in-JS check failed with ${errorCount} errors.`));

@@ -298,17 +298,28 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
     };
   },
 ) => {
+  function prefixToken(key: string) {
+    return `${component}${key.slice(0, 1).toUpperCase()}${key.slice(1)}`;
+  }
+
+  const { unitless: originUnitless = {} } = options ?? {};
+  const compUnitless: any = {
+    [prefixToken('zIndexPopup')]: true,
+  };
+  Object.keys(originUnitless).forEach((key: keyof ComponentTokenKey<C>) => {
+    compUnitless[prefixToken(key)] = originUnitless[key];
+  });
+
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
     const [, realToken] = useToken();
     useCSSVarRegister(
       {
         path: [component],
-        prefix: getCompVarPrefix(component, cssVar.prefix),
+        prefix: cssVar.prefix,
         key: cssVar?.key!,
         unitless: {
           ...unitless,
-          ...options?.unitless,
-          zIndexPopup: true,
+          ...compUnitless,
         },
         ignore,
         token: realToken,
@@ -316,7 +327,12 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
       },
       () => {
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
-        return getComponentToken(component, realToken, defaultToken);
+        const componentToken = getComponentToken(component, realToken, defaultToken);
+        Object.keys(defaultToken).forEach((key) => {
+          componentToken[prefixToken(key)] = componentToken[key];
+          delete componentToken[key];
+        });
+        return componentToken;
       },
     );
     return null;
