@@ -1,7 +1,7 @@
 import url from 'node:url';
 import path from 'path';
-import { globSync } from 'glob';
 import React from 'react';
+import { globSync } from 'glob';
 
 type StyleFn = (prefix?: string) => void;
 
@@ -29,7 +29,9 @@ export const generateCssinjs = ({ key, beforeRender, render, ignore }: GenCssinj
       const pathArr = file.split('/');
       const styleIndex = pathArr.lastIndexOf('style');
       const componentName = pathArr[styleIndex - 1];
-      if (ignore?.includes(componentName)) return;
+      if (ignore?.includes(componentName)) {
+        return;
+      }
       let useStyle: StyleFn = () => {};
       if (file.includes('grid')) {
         const { useColStyle, useRowStyle } = await import(absPath);

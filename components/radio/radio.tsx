@@ -12,6 +12,8 @@ import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -47,7 +49,9 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const prefixCls = isButtonType ? `${radioPrefixCls}-button` : radioPrefixCls;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(radioPrefixCls);
+  const [, hashId] = useStyle(radioPrefixCls);
+  const rootCls = useCSSVarCls(radioPrefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const radioProps: RadioProps = { ...restProps };
 
@@ -74,9 +78,10 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     className,
     rootClassName,
     hashId,
+    rootCls,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Wave component="Radio" disabled={radioProps.disabled}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label
