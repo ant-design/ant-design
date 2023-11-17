@@ -103,7 +103,8 @@ The items listed above are all functions, expecting a settings object as paramet
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
-| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
+| closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
 | footer | Footer content, set as `footer: null` when you don't need default buttons | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
