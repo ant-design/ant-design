@@ -3,6 +3,6 @@ import { genCSSVarRegister } from '../../theme/internal';
 
 export default genCSSVarRegister<'Table'>('Table', prepareComponentToken, {
   unitless: {
-    controlInteractiveSize: true,
+    expandIconScale: true,
   },
 });

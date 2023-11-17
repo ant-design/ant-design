@@ -8,7 +8,6 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
-    controlInteractiveSize,
     motionDurationSlow,
     lineWidth,
     paddingXS,
@@ -21,14 +20,12 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tablePaddingHorizontal,
     tableExpandedRowBg,
     paddingXXS,
-    tableExpandMargin,
+    expandIconMarginTop,
+    expandIconSize,
+    expandIconHalfInner,
+    expandIconScale,
     calc,
   } = token;
-  const halfInnerSize = calc(controlInteractiveSize).div(2).sub(lineWidth).equal();
-  // must be odd number, unless it cannot align center
-  const expandIconSize = calc(calc(halfInnerSize).mul(2))
-    .add(calc(calc(lineWidth).mul(3)))
-    .equal();
   const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
   const expandIconLineOffset = calc(paddingXXS).sub(lineWidth).equal();
 
@@ -66,9 +63,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         background: tableExpandIconBg,
         border: tableBorder,
         borderRadius,
-        transform: `scale(${calc(controlInteractiveSize)
-          .div(expandIconSize)
-          .equal({ unit: false })})`,
+        transform: `scale(${expandIconScale})`,
         transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
@@ -84,7 +79,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&::before': {
-          top: halfInnerSize,
+          top: expandIconHalfInner,
           insetInlineEnd: expandIconLineOffset,
           insetInlineStart: expandIconLineOffset,
           height: lineWidth,
@@ -93,7 +88,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         '&::after': {
           top: expandIconLineOffset,
           bottom: expandIconLineOffset,
-          insetInlineStart: halfInnerSize,
+          insetInlineStart: expandIconHalfInner,
           width: lineWidth,
           transform: 'rotate(90deg)',
         },
@@ -119,7 +114,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginTop: tableExpandMargin,
+        marginTop: expandIconMarginTop,
         marginInlineEnd: paddingXS,
       },
 

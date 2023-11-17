@@ -177,9 +177,18 @@ export interface ComponentToken {
    */
   stickyScrollBarBorderRadius: number;
 
-  tableExpandMargin: number;
-  tableHeaderIconColor: string;
-  tableHeaderIconColorHover: string;
+  /** @internal */
+  expandIconMarginTop: number;
+  /** @internal */
+  expandIconHalfInner: number;
+  /** @internal */
+  expandIconSize: number;
+  /** @internal */
+  expandIconScale: number;
+  /** @internal */
+  headerIconColor: string;
+  /** @internal */
+  headerIconHoverColor: string;
 }
 
 export interface TableToken extends FullToken<'Table'> {
@@ -200,8 +209,6 @@ export interface TableToken extends FullToken<'Table'> {
   tableHeaderCellSplitColor: string;
   tableHeaderSortBg: string;
   tableHeaderSortHoverBg: string;
-  tableHeaderIconColor: string;
-  tableHeaderIconColorHover: string;
   tableBodySortBg: string;
   tableFixedHeaderSortActiveBg: string;
   tableHeaderFilterActiveBg: string;
@@ -403,6 +410,7 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     colorIcon,
     colorIconHover,
     opacityLoading,
+    controlInteractiveSize,
   } = token;
 
   const colorFillSecondarySolid = new TinyColor(colorFillSecondary)
@@ -417,6 +425,9 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
 
   const baseColorAction = new TinyColor(colorIcon);
   const baseColorActionHover = new TinyColor(colorIconHover);
+
+  const expandIconHalfInner = controlInteractiveSize / 2 - lineWidth;
+  const expandIconSize = expandIconHalfInner * 2 + lineWidth * 3;
 
   return {
     headerBg: colorFillAlterSolid,
@@ -450,17 +461,20 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
     selectionColumnWidth: controlHeight,
     stickyScrollBarBg: colorTextPlaceholder,
     stickyScrollBarBorderRadius: 100,
-    tableExpandMargin:
+    expandIconMarginTop:
       (fontSize * lineHeight - lineWidth * 3) / 2 -
       Math.ceil((fontSizeSM * 1.4 - lineWidth * 3) / 2),
-    tableHeaderIconColor: baseColorAction
+    headerIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
       .toRgbString(),
-    tableHeaderIconColorHover: baseColorActionHover
+    headerIconHoverColor: baseColorActionHover
       .clone()
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
+    expandIconHalfInner,
+    expandIconSize,
+    expandIconScale: controlInteractiveSize / expandIconSize,
   };
 };
 
