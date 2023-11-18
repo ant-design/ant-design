@@ -383,6 +383,7 @@ exports[`Button should support link button 1`] = `
 <a
   class="ant-btn ant-btn-default"
   href="https://ant.design"
+  tabindex="0"
   target="_blank"
 >
   <span>

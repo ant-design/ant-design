@@ -234,7 +234,8 @@ describe('Test useZIndex hooks', () => {
           );
           render(<App />);
           expect(fn).toHaveBeenLastCalledWith(
-            (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+            1000 +
+              containerBaseZIndexOffset[containerKey as ZIndexContainer] * 3 +
               consumerBaseZIndexOffset[key as ZIndexConsumer],
           );
         });
@@ -272,7 +273,7 @@ describe('Test useZIndex hooks', () => {
             comps.forEach((comp) => {
               const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
-                ? 1000 + containerBaseZIndexOffset.Popover
+                ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
@@ -287,11 +288,12 @@ describe('Test useZIndex hooks', () => {
             comps.forEach((comp) => {
               const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
               const consumerOffset = isColorPicker
-                ? 1000 + containerBaseZIndexOffset.Popover
+                ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
-                  (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
+                  1000 +
+                    containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
                     consumerOffset,
                 ),
               );
@@ -317,7 +319,8 @@ describe('Test useZIndex hooks', () => {
 
             expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
               String(
-                (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
+                1000 +
+                  containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
                   consumerBaseZIndexOffset[key as ZIndexConsumer],
               ),
             );
@@ -327,5 +330,29 @@ describe('Test useZIndex hooks', () => {
         }, 15000);
       });
     });
+  });
+
+  it('Modal static func should always use max zIndex', async () => {
+    jest.useFakeTimers();
+
+    const instance = Modal.confirm({
+      title: 'bamboo',
+      content: 'little',
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
+      zIndex: '2000',
+    });
+
+    instance.destroy();
+
+    await waitFakeTimer();
+
+    // Clean up for static method
+    document.body.innerHTML = '';
+
+    jest.useRealTimers();
   });
 });

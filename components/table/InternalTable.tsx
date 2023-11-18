@@ -16,6 +16,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -56,6 +57,7 @@ import type {
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -537,11 +539,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
   const [, token] = useToken();
+  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(rootCls);
 
   const wrapperClassNames = classNames(
+    rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
     {
@@ -584,7 +588,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}

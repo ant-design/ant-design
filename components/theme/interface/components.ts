@@ -24,6 +24,7 @@ import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as FlexComponentToken } from '../../flex/style';
 import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 import type { ComponentToken as FormComponentToken } from '../../form/style';
+import type { ComponentToken as GridComponentToken } from '../../grid/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as InputComponentToken } from '../../input/style';
@@ -87,7 +88,7 @@ export interface ComponentTokenMap {
   Flex?: FlexComponentToken;
   FloatButton?: FloatButtonComponentToken;
   Form?: FormComponentToken;
-  Grid?: {};
+  Grid?: GridComponentToken;
   Image?: ImageComponentToken;
   Input?: InputComponentToken;
   InputNumber?: InputNumberComponentToken;
