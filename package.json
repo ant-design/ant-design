@@ -325,7 +325,7 @@
       "dumi": "^2.3.0-alpha.4"
     }
   },
-  "packageManager": "npm@10.2.3",
+  "packageManager": "npm@10.2.4",
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
