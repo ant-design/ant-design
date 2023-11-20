@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.11.1",
+  "version": "5.11.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -325,7 +325,7 @@
       "dumi": "^2.3.0-alpha.4"
     }
   },
-  "packageManager": "npm@10.2.3",
+  "packageManager": "npm@10.2.4",
   "size-limit": [
     {
       "path": "./dist/antd.min.js",

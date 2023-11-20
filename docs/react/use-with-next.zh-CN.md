@@ -57,6 +57,12 @@ export default Home;
 
 1. 安装 `@ant-design/cssinjs`
 
+> 开发者注意事项：
+>
+> 请注意，安装 `@ant-design/cssinjs` 时必须确保版本号跟 `antd` 本地的 `node_modules` 中的 `@ant-design/cssinjs` 版本保持一致，否则会出现多个 React 实例，导致无法正确的读取 ctx。（Tips: 你可以通过 `npm ls @ant-design/cssinjs` 命令查看本地版本）
+>
+> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
+
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
 2. 创建 `lib/AntdRegistry.tsx`
@@ -158,6 +164,12 @@ export default HomePage;
 如果你在 Next.js 当中使用了 Pages Router, 并使用 antd 作为页面组件库，为了让 antd 组件库在你的 Next.js 应用中能够更好的工作，提供更好的用户体验，你可以尝试使用下面的方式将 antd 首屏样式按需抽离并植入到 HTML 中，以避免页面闪动的情况。
 
 1. 安装 `@ant-design/cssinjs`
+
+> 开发者注意事项：
+>
+> 请注意，安装 `@ant-design/cssinjs` 时必须确保版本号跟 `antd` 本地的 `node_modules` 中的 `@ant-design/cssinjs` 版本保持一致，否则会出现多个 React 实例，导致无法正确的读取 ctx。（Tips: 你可以通过 `npm ls @ant-design/cssinjs` 命令查看本地版本）
+>
+> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 

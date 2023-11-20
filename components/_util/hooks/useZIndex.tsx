@@ -7,13 +7,23 @@ export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'T
 
 export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu';
 
+// Z-Index control range
+// Container: 1000 + offset 100 (max base + 10 * offset = 2000)
+// Popover: offset 50
+// Notification: Container Max zIndex + componentOffset
+
+const CONTAINER_OFFSET = 100;
+const CONTAINER_OFFSET_MAX_COUNT = 10;
+
+export const CONTAINER_MAX_OFFSET = CONTAINER_OFFSET * CONTAINER_OFFSET_MAX_COUNT;
+
 export const containerBaseZIndexOffset: Record<ZIndexContainer, number> = {
-  Modal: 0,
-  Drawer: 0,
-  Popover: 70,
-  Popconfirm: 70,
-  Tooltip: 70,
-  Tour: 70,
+  Modal: CONTAINER_OFFSET,
+  Drawer: CONTAINER_OFFSET,
+  Popover: CONTAINER_OFFSET,
+  Popconfirm: CONTAINER_OFFSET,
+  Tooltip: CONTAINER_OFFSET,
+  Tour: CONTAINER_OFFSET,
 };
 export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   SelectLike: 50,
@@ -35,7 +45,13 @@ export function useZIndex(
   const isContainer = isContainerType(componentType);
   let zIndex = parentZIndex ?? 0;
   if (isContainer) {
-    zIndex += token.zIndexPopupBase + containerBaseZIndexOffset[componentType];
+    zIndex +=
+      // Use preset token zIndex by default but not stack when has parent container
+      (parentZIndex ? 0 : token.zIndexPopupBase) +
+      // Container offset
+      containerBaseZIndexOffset[componentType];
+
+    zIndex = Math.min(zIndex, token.zIndexPopupBase + CONTAINER_MAX_OFFSET);
   } else {
     zIndex += consumerBaseZIndexOffset[componentType];
   }
