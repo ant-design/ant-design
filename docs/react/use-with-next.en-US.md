@@ -60,6 +60,8 @@ If you are using the App Router in Next.js and using antd as your component libr
 > Notes for developers
 >
 > Please note that when you install `@ant-design/cssinjs`, you must ensure that the version is consistent with the version of `@ant-design/cssinjs` in local `node_modules` of `antd`, otherwise, multiple React instances will appear, resulting in ctx being unable to be read correctly. (Tips: you can use `npm ls @ant-design/cssinjs` command to view the local version)
+>
+> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 
@@ -166,6 +168,8 @@ If you are using the Pages Router in Next.js and using antd as your component li
 > Notes for developers
 >
 > Please note that when you install `@ant-design/cssinjs`, you must ensure that the version is consistent with the version of `@ant-design/cssinjs` in local `node_modules` of `antd`, otherwise, multiple React instances will appear, resulting in ctx being unable to be read correctly. (Tips: you can use `npm ls @ant-design/cssinjs` command to view the local version)
+>
+> <img width="514" alt="image" src="https://github.com/ant-design/ant-design/assets/49217418/aad6e9e2-62cc-4c89-a0b6-38c592e3c648">
 
 <InstallDependencies npm='$ npm install @ant-design/cssinjs --save' yarn='$ yarn add @ant-design/cssinjs' pnpm='$ pnpm install @ant-design/cssinjs --save'></InstallDependencies>
 

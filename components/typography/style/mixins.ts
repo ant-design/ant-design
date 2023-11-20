@@ -261,6 +261,8 @@ export const getEllipsisStyles = (): CSSObject => ({
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       verticalAlign: 'bottom',
+      // https://github.com/ant-design/ant-design/issues/45953
+      boxSizing: 'content-box',
     },
   },
 
