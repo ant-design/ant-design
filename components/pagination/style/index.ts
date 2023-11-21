@@ -1,14 +1,15 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
   genBasicInputStyle,
   genInputSmallStyle,
   initComponentToken,
   initInputToken,
 } from '../../input/style';
-import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   /**
@@ -58,7 +59,10 @@ export interface ComponentToken {
   miniOptionsSizeChangerTop: number;
 }
 
-interface PaginationToken extends FullToken<'Pagination'>, SharedComponentToken, SharedInputToken {
+export interface PaginationToken
+  extends FullToken<'Pagination'>,
+    SharedComponentToken,
+    SharedInputToken {
   inputOutlineOffset: number;
   paginationMiniOptionsMarginInlineStart: number | string;
   paginationMiniQuickJumperInputWidth: number | string;
@@ -264,7 +268,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
     &${componentCls}-simple ${componentCls}-next
     `]: {
       height: token.itemSizeSM,
-      lineHeight: `${token.itemSizeSM}px`,
+      lineHeight: unit(token.itemSizeSM),
       verticalAlign: 'top',
       [`${componentCls}-item-link`]: {
         height: token.itemSizeSM,
@@ -611,102 +615,6 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
   };
 };
 
-const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [`${componentCls}${componentCls}-disabled:not(${componentCls}-mini)`]: {
-      '&, &:hover': {
-        [`${componentCls}-item-link`]: {
-          borderColor: token.colorBorder,
-        },
-      },
-
-      '&:focus-visible': {
-        [`${componentCls}-item-link`]: {
-          borderColor: token.colorBorder,
-        },
-      },
-
-      [`${componentCls}-item, ${componentCls}-item-link`]: {
-        backgroundColor: token.colorBgContainerDisabled,
-        borderColor: token.colorBorder,
-
-        [`&:hover:not(${componentCls}-item-active)`]: {
-          backgroundColor: token.colorBgContainerDisabled,
-          borderColor: token.colorBorder,
-
-          a: {
-            color: token.colorTextDisabled,
-          },
-        },
-
-        [`&${componentCls}-item-active`]: {
-          backgroundColor: token.itemActiveBgDisabled,
-        },
-      },
-
-      [`${componentCls}-prev, ${componentCls}-next`]: {
-        '&:hover button': {
-          backgroundColor: token.colorBgContainerDisabled,
-          borderColor: token.colorBorder,
-          color: token.colorTextDisabled,
-        },
-
-        [`${componentCls}-item-link`]: {
-          backgroundColor: token.colorBgContainerDisabled,
-          borderColor: token.colorBorder,
-        },
-      },
-    },
-
-    [`${componentCls}:not(${componentCls}-mini)`]: {
-      [`${componentCls}-prev, ${componentCls}-next`]: {
-        '&:hover button': {
-          borderColor: token.colorPrimaryHover,
-          backgroundColor: token.itemBg,
-        },
-
-        [`${componentCls}-item-link`]: {
-          backgroundColor: token.itemLinkBg,
-          borderColor: token.colorBorder,
-        },
-
-        [`&:hover ${componentCls}-item-link`]: {
-          borderColor: token.colorPrimary,
-          backgroundColor: token.itemBg,
-          color: token.colorPrimary,
-        },
-
-        [`&${componentCls}-disabled`]: {
-          [`${componentCls}-item-link`]: {
-            borderColor: token.colorBorder,
-            color: token.colorTextDisabled,
-          },
-        },
-      },
-
-      [`${componentCls}-item`]: {
-        backgroundColor: token.itemBg,
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
-
-        [`&:hover:not(${componentCls}-item-active)`]: {
-          borderColor: token.colorPrimary,
-          backgroundColor: token.itemBg,
-
-          a: {
-            color: token.colorPrimary,
-          },
-        },
-
-        '&-active': {
-          borderColor: token.colorPrimary,
-        },
-      },
-    },
-  };
-};
-
 const genPaginationFocusStyle: GenerateStyle<PaginationToken> = (token) => {
   const { componentCls } = token;
 
@@ -747,32 +655,31 @@ export const prepareComponentToken: GetDefaultToken<'Pagination'> = (token) => (
   itemActiveBgDisabled: token.controlItemBgActiveDisabled,
   itemInputBg: token.colorBgContainer,
   miniOptionsSizeChangerTop: 0,
+  ...initComponentToken(token),
 });
+
+export const prepareToken = (token: Parameters<GenStyleFn<'Pagination'>>[0]) =>
+  mergeToken<PaginationToken>(
+    token,
+    {
+      inputOutlineOffset: 0,
+      paginationMiniOptionsMarginInlineStart: token.calc(token.marginXXS).div(2).equal(),
+      paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
+      paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
+      paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
+      paginationSlashMarginInlineStart: token.marginXXS,
+      paginationSlashMarginInlineEnd: token.marginSM,
+      paginationEllipsisTextIndent: '0.13em', // magic for ui experience
+    },
+    initInputToken(token),
+  );
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Pagination',
   (token) => {
-    const paginationToken = mergeToken<PaginationToken>(
-      token,
-      {
-        inputOutlineOffset: 0,
-        paginationMiniOptionsMarginInlineStart: token.calc(token.marginXXS).div(2).equal(),
-        paginationMiniQuickJumperInputWidth: token.calc(token.controlHeightLG).mul(1.1).equal(),
-        paginationItemPaddingInline: token.calc(token.marginXXS).mul(1.5).equal(),
-        paginationEllipsisLetterSpacing: token.calc(token.marginXXS).div(2).equal(),
-        paginationSlashMarginInlineStart: token.marginXXS,
-        paginationSlashMarginInlineEnd: token.marginSM,
-        paginationEllipsisTextIndent: '0.13em', // magic for ui experience
-      },
-      initInputToken(token),
-      initComponentToken(token),
-    );
-    return [
-      genPaginationStyle(paginationToken),
-      genPaginationFocusStyle(paginationToken),
-      token.wireframe && genBorderedStyle(paginationToken),
-    ];
+    const paginationToken = prepareToken(token);
+    return [genPaginationStyle(paginationToken), genPaginationFocusStyle(paginationToken)];
   },
   prepareComponentToken,
 );
