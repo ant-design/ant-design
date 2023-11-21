@@ -174,14 +174,14 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     [`&${componentCls}-mini ${componentCls}-total-text, &${componentCls}-mini ${componentCls}-simple-pager`]:
       {
         height: token.itemSizeSM,
-        lineHeight: `${unit(token.itemSizeSM)}`,
+        lineHeight: unit(token.itemSizeSM),
       },
 
     [`&${componentCls}-mini ${componentCls}-item`]: {
       minWidth: token.itemSizeSM,
       height: token.itemSizeSM,
       margin: 0,
-      lineHeight: `${unit(token.calc(token.itemSizeSM).sub(2).equal())}`,
+      lineHeight: unit(token.calc(token.itemSizeSM).sub(2).equal()),
     },
 
     [`&${componentCls}-mini:not(${componentCls}-disabled) ${componentCls}-item:not(${componentCls}-item-active)`]:
@@ -200,7 +200,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       minWidth: token.itemSizeSM,
       height: token.itemSizeSM,
       margin: 0,
-      lineHeight: `${unit(token.itemSizeSM)}`,
+      lineHeight: unit(token.itemSizeSM),
     },
 
     [`&${componentCls}-mini:not(${componentCls}-disabled)`]: {
@@ -226,7 +226,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       '&::after': {
         height: token.itemSizeSM,
-        lineHeight: `${unit(token.itemSizeSM)}`,
+        lineHeight: unit(token.itemSizeSM),
       },
     },
 
@@ -234,7 +234,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       {
         height: token.itemSizeSM,
         marginInlineEnd: 0,
-        lineHeight: `${unit(token.itemSizeSM)}`,
+        lineHeight: unit(token.itemSizeSM),
       },
 
     [`&${componentCls}-mini ${componentCls}-options`]: {
@@ -246,7 +246,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       [`&-quick-jumper`]: {
         height: token.itemSizeSM,
-        lineHeight: `${unit(token.itemSizeSM)}`,
+        lineHeight: unit(token.itemSizeSM),
 
         input: {
           ...genInputSmallStyle(token),
@@ -282,7 +282,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         },
         '&::after': {
           height: token.itemSizeSM,
-          lineHeight: `${unit(token.itemSizeSM)}`,
+          lineHeight: unit(token.itemSizeSM),
         },
       },
     },
@@ -466,7 +466,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         display: 'inline-block',
         height: token.controlHeight,
         marginInlineStart: token.marginXS,
-        lineHeight: `${unit(token.controlHeight)}`,
+        lineHeight: unit(token.controlHeight),
         verticalAlign: 'top',
 
         input: {
@@ -494,7 +494,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       height: token.itemSize,
       marginInlineEnd: token.marginXS,
       fontFamily: token.fontFamily,
-      lineHeight: `${unit(token.calc(token.itemSize).sub(2).equal())}`,
+      lineHeight: unit(token.calc(token.itemSize).sub(2).equal()),
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
