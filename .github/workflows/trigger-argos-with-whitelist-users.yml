@@ -40,9 +40,8 @@ jobs:
             echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi 
 
-      - name: install dependencies
-        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
-        run: yarn
+      - name: install
+        run: npm ci
 
       - name: Build dist file
         id: build
