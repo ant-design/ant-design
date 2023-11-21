@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.15
+
+`2023-11-21`
+
+- 🐞 修复 Radio 的 `disabled` 状态被 Form 的 `disabled` 覆盖的问题。[#44837](https://github.com/ant-design/ant-design/pull/44837) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 修复 DatePicker 的 `disabled` 样式在 Form hover 场景下被覆盖的问题。[#44779](https://github.com/ant-design/ant-design/pull/44779) [@crazyair](https://github.com/crazyair)
+
 ## 4.24.14
 
 `2023-09-06`

@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 4.24.15
+
+`2023-11-21`
+
+- 🐞 Fix Radio has wrong `disabled` state problem that affected by Form. [#44837](https://github.com/ant-design/ant-design/pull/44837) [@Yuiai01](https://github.com/Yuiai01)
+- 💄 Fix DatePicker disabled styles when hovered in Form. [#44779](https://github.com/ant-design/ant-design/pull/44779) [@crazyair](https://github.com/crazyair)
+
 ## 4.24.14
 
 `2023-09-06`
