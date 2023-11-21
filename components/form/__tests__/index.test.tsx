@@ -1,9 +1,9 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
+import { AlertFilled } from '@ant-design/icons';
 import type { ColProps } from 'antd/es/grid';
 import classNames from 'classnames';
 import scrollIntoView from 'scroll-into-view-if-needed';
-import { AlertFilled } from '@ant-design/icons';
 
 import type { FormInstance } from '..';
 import Form from '..';
@@ -14,6 +14,7 @@ import { act, fireEvent, pureRender, render, screen, waitFakeTimer } from '../..
 import Button from '../../button';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
+import ColorPicker from '../../color-picker';
 import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
@@ -1166,6 +1167,9 @@ describe('Form', () => {
         <Form.Item label="Slider">
           <Slider />
         </Form.Item>
+        <Form.Item label="ColorPicker">
+          <ColorPicker />
+        </Form.Item>
       </Form>
     );
     const { container } = render(<App />);
@@ -1692,6 +1696,7 @@ describe('Form', () => {
           { label: 'female', value: 1 },
         ]}
       />,
+      <ColorPicker key="ColorPicker" disabled={disabled} />,
       <InputNumber key="InputNumber" disabled={disabled} />,
       <Input key="Input" disabled={disabled} />,
       <Select key="Select" disabled={disabled} />,
