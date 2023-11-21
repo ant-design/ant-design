@@ -50,8 +50,8 @@ export default function useTheme(
       });
 
       const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
-      const mergedCssVar = (themeConfig.cssVar || parentThemeConfig.cssVar) && {
-        prefix: 'antd', // Default to antd
+      const mergedCssVar = (themeConfig.cssVar ?? parentThemeConfig.cssVar) && {
+        prefix: 'ant', // Default to ant
         ...(typeof parentThemeConfig.cssVar === 'object' ? parentThemeConfig.cssVar : {}),
         ...(typeof themeConfig.cssVar === 'object' ? themeConfig.cssVar : {}),
         key: (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) || cssVarKey,
