@@ -174,7 +174,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           },
         },
 
-        [`@media (max-width: ${token.screenSMMax})`]: {
+        [`@media (max-width: ${token.screenSMMax}px)`]: {
           [componentCls]: {
             maxWidth: 'calc(100vw - 16px)',
             margin: `${unit(token.marginXS)} auto`,
