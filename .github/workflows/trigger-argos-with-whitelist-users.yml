@@ -63,7 +63,6 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Build dist file
