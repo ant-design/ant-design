@@ -107,9 +107,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
 
-  const [, token] = useToken();
-
-  const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
+  const [colorValue, setColorValue] = useColorState('', {
     value,
     defaultValue,
   });
@@ -124,7 +122,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange: onFormatChange,
   });
 
-  const [colorCleared, setColorCleared] = useState(false);
+  const [colorCleared, setColorCleared] = useState(!value && !defaultValue);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 

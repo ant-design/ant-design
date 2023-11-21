@@ -21149,13 +21149,8 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               id="validate_other_color-picker"
             >
               <div
-                class="ant-color-picker-color-block"
-              >
-                <div
-                  class="ant-color-picker-color-block-inner"
-                  style="background: rgba(0, 0, 0, 0);"
-                />
-              </div>
+                class="ant-color-picker-clear"
+              />
             </div>
             <div
               class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"

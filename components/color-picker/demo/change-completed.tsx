@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { App, ColorPicker } from 'antd';
+import { App, ColorPicker, theme } from 'antd';
 import type { ColorPickerProps } from 'antd/es/color-picker';
 
 const Demo = () => {
   const { message } = App.useApp();
-  const [value, setValue] = useState<ColorPickerProps['value']>('#1677ff');
+  const {
+    token: { colorPrimary },
+  } = theme.useToken();
+  const [value, setValue] = useState<ColorPickerProps['value']>(colorPrimary);
   return (
     <App>
       <ColorPicker
