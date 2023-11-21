@@ -83,6 +83,12 @@ module.exports = {
         'react/no-unstable-nested-components': 0,
       },
     },
+    {
+      files: ['components/pagination/Pagination.tsx'],
+      rules: {
+        'jsx-a11y/control-has-associated-label': 0,
+      },
+    },
   ],
   rules: {
     'react/jsx-one-expression-per-line': 0,
