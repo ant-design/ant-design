@@ -87,7 +87,7 @@ module.exports = {
       files: ['components/pagination/Pagination.tsx'],
       rules: {
         'jsx-a11y/control-has-associated-label': 0,
-      }
+      },
     },
   ],
   rules: {
