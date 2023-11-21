@@ -106,7 +106,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
 const genResponsiveStyle = (token: ListToken): CSSObject => {
   const { componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
   return {
-    [`@media screen and (max-width:${screenMD})`]: {
+    [`@media screen and (max-width:${screenMD}px)`]: {
       [`${componentCls}`]: {
         [`${componentCls}-item`]: {
           [`${componentCls}-item-action`]: {
@@ -124,7 +124,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
       },
     },
 
-    [`@media screen and (max-width: ${screenSM})`]: {
+    [`@media screen and (max-width: ${screenSM}px)`]: {
       [`${componentCls}`]: {
         [`${componentCls}-item`]: {
           flexWrap: 'wrap',
@@ -299,10 +299,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             insetBlockStart: '50%',
             insetInlineEnd: 0,
             width: lineWidth,
-            height: token
-              .calc(token.fontHeight)
-              .sub(token.calc(token.marginXXS).mul(2))
-              .equal(),
+            height: token.calc(token.fontHeight).sub(token.calc(token.marginXXS).mul(2)).equal(),
             transform: 'translateY(-50%)',
             backgroundColor: token.colorSplit,
           },
