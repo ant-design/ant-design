@@ -120,13 +120,6 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       // star styles
       ...genRateStarStyle(token),
 
-      // text styles
-      [`+ ${componentCls}-text`]: {
-        display: 'inline-block',
-        marginInlineStart: token.marginXS,
-        fontSize: token.fontSize,
-      },
-
       // rtl styles
       ...genRateRtlStyle(token),
     },

@@ -1,13 +1,17 @@
 import React from 'react';
-import { Rate } from 'antd';
+import { Space, Rate } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Rate defaultValue={3} />
-    <span className="ant-rate-text">allowClear: true</span>
+    <Space>
+      <Rate defaultValue={3} />
+      <span>allowClear: true</span>
+    </Space>
     <br />
-    <Rate allowClear={false} defaultValue={3} />
-    <span className="ant-rate-text">allowClear: false</span>
+    <Space>
+      <Rate allowClear={false} defaultValue={3} />
+      <span>allowClear: false</span>
+    </Space>
   </>
 );
 
