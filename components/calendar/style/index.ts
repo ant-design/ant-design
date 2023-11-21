@@ -222,28 +222,24 @@ export const prepareComponentToken: GetDefaultToken<'Calendar'> = (token) => ({
   yearControlWidth: 80,
   monthControlWidth: 70,
   miniContentHeight: 256,
+  ...initPanelComponentToken(token),
 });
 
 export default genComponentStyleHook(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(
-      token,
-      initPickerPanelToken(token),
-      initPanelComponentToken(token),
-      {
-        calendarCls,
-        pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-        dateValueHeight: token.controlHeightSM,
-        weekHeight: token.calc(token.controlHeightSM).mul(0.75).equal() as number,
-        dateContentHeight: token
-          .calc(token.calc(token.fontHeightSM).add(token.marginXS))
-          .mul(3)
-          .add(token.calc(token.lineWidth).mul(2))
-          .equal() as number,
-      },
-    );
+    const calendarToken = mergeToken<CalendarToken>(token, initPickerPanelToken(token), {
+      calendarCls,
+      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+      dateValueHeight: token.controlHeightSM,
+      weekHeight: token.calc(token.controlHeightSM).mul(0.75).equal() as number,
+      dateContentHeight: token
+        .calc(token.calc(token.fontHeightSM).add(token.marginXS))
+        .mul(3)
+        .add(token.calc(token.lineWidth).mul(2))
+        .equal() as number,
+    });
 
     return [genCalendarStyles(calendarToken)];
   },
