@@ -111,7 +111,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     {
       [componentCls]: {
         ...resetComponent(token),
-        ...genBasicInputStyle(token, componentCls),
+        ...genBasicInputStyle(token),
         ...genStatusStyle(token, componentCls),
 
         display: 'inline-block',
@@ -367,7 +367,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
   return {
     [`${componentCls}-affix-wrapper`]: {
-      ...genBasicInputStyle(token, `${componentCls}-affix-wrapper`),
+      ...genBasicInputStyle({ ...token, componentCls: `${componentCls}-affix-wrapper` }),
       ...genStatusStyle(token, `${componentCls}-affix-wrapper`),
       // or number handler will cover form status
       position: 'relative',

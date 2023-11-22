@@ -465,7 +465,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         verticalAlign: 'top',
 
         input: {
-          ...genBasicInputStyle(token, `${componentCls}-quick-jumper input`),
+          ...genBasicInputStyle({ ...token, componentCls: `${componentCls}-quick-jumper input` }),
 
           width: token.controlHeightLG * 1.25,
           height: token.controlHeight,
