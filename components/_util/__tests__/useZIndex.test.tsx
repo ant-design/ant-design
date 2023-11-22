@@ -349,13 +349,17 @@ describe('Test useZIndex hooks', () => {
 
     const instance = Modal.confirm({
       title: 'bamboo',
-      content: 'little',
+      content: <Select open />,
     });
 
     await waitFakeTimer();
 
     expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
       zIndex: '2000',
+    });
+
+    expect(document.querySelector('.ant-select-dropdown')).toHaveStyle({
+      zIndex: '2050',
     });
 
     instance.destroy();

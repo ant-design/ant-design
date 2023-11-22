@@ -1,7 +1,8 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
@@ -47,12 +48,18 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
 }
 
 function getAction(actions: React.ReactNode[]): React.ReactNode[] {
-  return actions.map<React.ReactNode>((action, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-      <span>{action}</span>
-    </li>
-  ));
+  return actions.map<React.ReactNode>((action, index) => {
+    // Move this out since eslint not allow index key
+    // And eslint-disable makes conflict with rollup
+    // ref https://github.com/ant-design/ant-design/issues/46022
+    const key = `action-${index}`;
+
+    return (
+      <li style={{ width: `${100 / actions.length}%` }} key={key}>
+        <span>{action}</span>
+      </li>
+    );
+  });
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
