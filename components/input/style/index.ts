@@ -193,7 +193,7 @@ export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject 
   };
 };
 
-export const genBasicInputStyle = (token: InputToken): CSSObject => ({
+export const genBasicInputStyle = (token: InputToken, componentCls: string): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
   width: '100%',
@@ -210,7 +210,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-  '&:hover:not(&-disabled)': {
+  [`&:hover:not(${componentCls}-disabled)`]: {
     ...genHoverStyle(token),
   },
 
@@ -570,7 +570,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      ...genBasicInputStyle(token),
+      ...genBasicInputStyle(token, componentCls),
       ...genStatusStyle(token, componentCls),
 
       '&[type="color"]': {
@@ -640,7 +640,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
   return {
     [`${componentCls}-affix-wrapper`]: {
-      ...genBasicInputStyle(token),
+      ...genBasicInputStyle(token, `${componentCls}-affix-wrapper`),
       display: 'inline-flex',
 
       [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
