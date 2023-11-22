@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import type { MenuProps } from 'antd';
+import type { ImageProps, MenuProps } from 'antd';
 import {
   AutoComplete,
   Cascader,
@@ -9,6 +9,7 @@ import {
   DatePicker,
   Drawer,
   Dropdown,
+  Image,
   Menu,
   Modal,
   Popconfirm,
@@ -178,6 +179,15 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
     </>
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
+  ImagePreview: ({ rootClassName }: ImageProps) => (
+    <Image
+      src="xxx"
+      preview={{
+        visible: true,
+        rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+      }}
+    />
+  ),
 };
 
 function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
@@ -196,6 +206,8 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
       .join(',');
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
+  } else if (consumer === 'ImagePreview') {
+    selector = `${baseSelector}.comp-ImagePreview`;
   }
   return selector;
 }
@@ -337,13 +349,17 @@ describe('Test useZIndex hooks', () => {
 
     const instance = Modal.confirm({
       title: 'bamboo',
-      content: 'little',
+      content: <Select open />,
     });
 
     await waitFakeTimer();
 
     expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
       zIndex: '2000',
+    });
+
+    expect(document.querySelector('.ant-select-dropdown')).toHaveStyle({
+      zIndex: '2050',
     });
 
     instance.destroy();

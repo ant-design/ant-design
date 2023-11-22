@@ -35,6 +35,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
           '&-input': {
             width: '100%',
+            WebkitAppearance: 'textfield',
           },
         },
 

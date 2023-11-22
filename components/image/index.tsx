@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import RcImage from 'rc-image';
 import type { ImageProps } from 'rc-image';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
@@ -46,6 +47,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const mergedClassName = classNames(className, hashId, image?.className);
 
+  const [zIndex] = useZIndex(
+    'ImagePreview',
+    typeof preview === 'object' ? preview.zIndex : undefined,
+  );
+
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
       return preview;
@@ -64,6 +70,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       getContainer: getContainer || getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
+      zIndex,
     };
   }, [preview, imageLocale]);
 

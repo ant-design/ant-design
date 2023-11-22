@@ -34,6 +34,7 @@ const locales = {
     message: '',
     shortMessage: '',
     more: '',
+    link: '',
   },
 };
 
