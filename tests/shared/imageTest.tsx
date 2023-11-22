@@ -95,11 +95,29 @@ export default function imageTest(component: React.ReactElement, options: ImageT
           <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
         </div>,
       );
+      test(
+        `[CSS Var] component image screenshot should correct ${key}`,
+        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+          <div>CSS Var</div>
+          <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
+        </div>,
+      );
     });
   } else {
     test(
       `component image screenshot should correct`,
       <>
+        {Object.entries(themes).map(([key, algorithm]) => (
+          <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+            <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+          </div>
+        ))}
+      </>,
+    );
+    test(
+      `[CSS Var] component image screenshot should correct`,
+      <>
+        <div>CSS Var</div>
         {Object.entries(themes).map(([key, algorithm]) => (
           <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
             <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
