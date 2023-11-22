@@ -9,7 +9,7 @@ const App: React.FC = () => {
   return (
     <span>
       <Rate tooltips={desc} onChange={setValue} value={value} />
-      {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
+      {value ? <span style={{ fontSize: 14, marginLeft: 8 }}>{desc[value - 1]}</span> : ''}
     </span>
   );
 };

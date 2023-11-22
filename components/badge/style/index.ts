@@ -327,9 +327,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
-  const { fontSize, lineHeight, lineWidth, marginXS, colorBorderBg } = token;
+  const { fontHeight, lineWidth, marginXS, colorBorderBg } = token;
 
-  const badgeFontHeight = Math.round(fontSize * lineHeight);
+  const badgeFontHeight = fontHeight;
   const badgeShadowSize = lineWidth;
   const badgeTextColor = token.colorBgContainer;
   const badgeColor = token.colorError;

@@ -222,11 +222,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           background: subMenuItemBg,
         },
 
-        // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-          width: token.subMenuTitleWidth,
-        },
-
         [`${componentCls}-item`]: {
           position: 'relative',
 

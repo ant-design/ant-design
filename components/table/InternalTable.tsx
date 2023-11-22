@@ -600,12 +600,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames({
-            [`${prefixCls}-middle`]: mergedSize === 'middle',
-            [`${prefixCls}-small`]: mergedSize === 'small',
-            [`${prefixCls}-bordered`]: bordered,
-            [`${prefixCls}-empty`]: rawData.length === 0,
-          })}
+          className={classNames(
+            {
+              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-small`]: mergedSize === 'small',
+              [`${prefixCls}-bordered`]: bordered,
+              [`${prefixCls}-empty`]: rawData.length === 0,
+            },
+            rootCls,
+            hashId,
+          )}
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
