@@ -8,6 +8,8 @@ import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useCSSVar from './style/cssVar';
 
 interface ContextProps {
   children?: React.ReactNode;
@@ -60,13 +62,16 @@ const Group: React.FC<GroupProps> = (props) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(cssVarCls);
 
   const cls = classNames(
     groupPrefixCls,
     {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
+    cssVarCls,
     className,
     rootClassName,
     hashId,
@@ -91,7 +96,7 @@ const Group: React.FC<GroupProps> = (props) => {
         <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
     );
-    return wrapSSR(
+    return wrapCSSVar(
       <AvatarContextProvider shape={shape} size={size}>
         <div className={cls} style={style}>
           {childrenShow}
@@ -100,7 +105,7 @@ const Group: React.FC<GroupProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <AvatarContextProvider shape={shape} size={size}>
       <div className={cls} style={style}>
         {childrenWithProps}
