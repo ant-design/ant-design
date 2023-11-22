@@ -3,6 +3,7 @@ import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
+import classNames from 'classnames';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
@@ -14,12 +15,11 @@ import type {
   UseComponentStyleResult,
 } from '../interface';
 import useToken, { ignore, unitless } from '../useToken';
-import statisticToken, { merge as mergeToken } from './statistic';
-import useResetIconStyle from './useResetIconStyle';
 import genCalc from './calc';
 import type AbstractCalculator from './calc/calculator';
-import classNames from 'classnames';
 import genMaxMin from './maxmin';
+import statisticToken, { merge as mergeToken } from './statistic';
+import useResetIconStyle from './useResetIconStyle';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -343,7 +343,6 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
         const componentToken = getComponentToken(component, realToken, defaultToken, {
           format: options?.format,
         });
-        console.log(componentToken);
         Object.keys(defaultToken).forEach((key) => {
           componentToken[prefixToken(key)] = componentToken[key];
           delete componentToken[key];
