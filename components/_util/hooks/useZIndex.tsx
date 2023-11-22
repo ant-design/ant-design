@@ -44,7 +44,7 @@ export function useZIndex(
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
-  let zIndex = parentZIndex ?? customZIndex ?? 0;
+  let zIndex = customZIndex ?? parentZIndex ?? 0;
   if (isContainer) {
     zIndex +=
       // Use preset token zIndex by default but not stack when has parent container
