@@ -365,7 +365,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   }
 
   const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const wrapCSSVar = useCSSVar(`${prefixCls}-wrapper`);
 
   const [contextLocale] = useLocale('Upload', defaultLocale.Upload);
 
