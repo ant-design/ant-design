@@ -13,6 +13,7 @@ import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
+import type { FormatComponentToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -56,6 +57,10 @@ export interface ComponentToken extends SharedComponentToken {
    * @descEN Border color of handle
    */
   handleBorderColor: string;
+  /**
+   * @internal
+   */
+  handleOpacity: number;
 }
 
 type InputNumberToken = FullToken<'InputNumber'> & SharedInputToken;
@@ -104,7 +109,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     borderRadiusSM,
     borderRadiusLG,
     controlWidth,
-    handleVisible,
+    handleOpacity,
     handleBorderColor,
     calc,
   } = token;
@@ -242,7 +247,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderStartEndRadius: borderRadius,
           borderEndEndRadius: borderRadius,
           borderEndStartRadius: 0,
-          opacity: handleVisible === true ? 1 : 0,
+          opacity: handleOpacity,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'stretch',
@@ -460,6 +465,12 @@ export const prepareComponentToken: GetDefaultToken<'InputNumber'> = (token) => 
   handleBg: token.colorBgContainer,
   handleHoverColor: token.colorPrimary,
   handleBorderColor: token.colorBorder,
+  handleOpacity: 0,
+});
+
+export const formatComponentToken: FormatComponentToken<'InputNumber'> = (token) => ({
+  ...token,
+  handleOpacity: token.handleVisible === true ? 1 : 0,
 });
 
 export default genComponentStyleHook(
@@ -476,4 +487,7 @@ export default genComponentStyleHook(
     ];
   },
   prepareComponentToken,
+  {
+    format: formatComponentToken,
+  },
 );
