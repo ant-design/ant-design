@@ -25,7 +25,7 @@ const Demo: React.FC = () => {
   };
 
   return (
-    <>
+    <Space>
       <Switch
         style={{ position: 'relative', zIndex: isModalOpen ? 4000 : 0 }}
         checkedChildren="Open"
@@ -130,7 +130,7 @@ const Demo: React.FC = () => {
 
       {messageHolder}
       {notificationHolder}
-    </>
+    </Space>
   );
 };
 
