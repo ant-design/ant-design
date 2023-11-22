@@ -222,13 +222,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           background: subMenuItemBg,
         },
 
-        // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: activeBarWidth
-          ? {
-              width: `calc(100% + ${unit(activeBarBorderWidth)})`,
-            }
-          : {},
-
         [`${componentCls}-item`]: {
           position: 'relative',
 

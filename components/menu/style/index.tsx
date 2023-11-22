@@ -17,6 +17,7 @@ import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
+import type { FormatComponentToken } from 'antd/es/theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -365,6 +366,8 @@ export interface ComponentToken {
    * @descEN Background of active danger menu item in dark mode
    */
   darkDangerItemActiveBg: string;
+  /** @internal */
+  itemWidth: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -926,8 +929,18 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemHoverColor: colorErrorHover,
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
+
+    // internal
+    itemWidth: '',
   };
 };
+
+export const formatComponentToken: FormatComponentToken<'Menu'> = (token) => ({
+  ...token,
+  itemWidth: token.activeBarWidth
+    ? `calc(100% + ${token.activeBarBorderWidth}px)`
+    : `calc(100% - ${token.itemMarginInline * 2}px)`,
+});
 
 // ============================== Export ==============================
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
@@ -1056,6 +1069,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         ['colorActiveBarBorderSize', 'activeBarBorderWidth'],
         ['colorItemBgSelected', 'itemSelectedBg'],
       ],
+      format: formatComponentToken,
     },
   );
 

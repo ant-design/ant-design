@@ -12,7 +12,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     menuArrowSize,
     marginXS,
     itemMarginBlock,
-    calc,
+    itemWidth,
   } = token;
 
   const paddingWithArrow = token.calc(menuArrowSize).add(padding).add(marginXS).equal();
@@ -31,7 +31,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
       textOverflow: 'ellipsis',
       marginInline: itemMarginInline,
       marginBlock: itemMarginBlock,
-      width: `calc(100% - ${unit(calc(itemMarginInline).mul(2).equal())})`,
+      width: itemWidth,
     },
 
     [`> ${componentCls}-item,
