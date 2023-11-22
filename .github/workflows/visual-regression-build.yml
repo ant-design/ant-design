@@ -1,0 +1,106 @@
+# Each PR will build preview site that help to check code is work as expect.
+
+name: Visual Regression Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Prepare node modules. Reuse cache if available
+  setup:
+    name: prepare node_modules
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: cache package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: hack for single file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+  test-image:
+    name: test image
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: generate image snapshots
+        id: site
+        run: npm run test-image
+        env:
+          SITE_ENV: development
+          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+
+      # upload master `imageSnapshots`
+      - name: upload report artifact
+        if: github.event.push.head.ref == 'master'
+        uses: actions/upload-artifact@v3
+        with:
+          name: visual-regression
+          path: imageSnapshots/
+
+
+
+      # diff image with master and generate report to dir imageSnapshots/report
+      # download latest master diff image repo files
+      # 逐个文件进行 diff image 生成
+      # 都存在的文件直接 diff
+      # 新增的文件标记
+      # 删除的文件标记
+
+      # 执行 visual regression diff 任务
+      - name: visual regression build
+        if: github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master'
+        run: npm run visual-diff
+
+      - name: upload report artifact
+        if: github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master'
+        uses: actions/upload-artifact@v3
+        with:
+          name: visual-regression-report
+          path: imageSnapshots/report/
