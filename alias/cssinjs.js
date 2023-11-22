@@ -12,6 +12,7 @@ if (typeof window !== 'undefined' && window.antdCssinjs) {
   cssinjs = global.antdCssinjs;
 } else {
   // Use local version.
+  // Use relative path since webpack will also replace module here.
   cssinjs = require('../node_modules/@ant-design/cssinjs');
 }
 
