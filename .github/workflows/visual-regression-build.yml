@@ -3,6 +3,9 @@
 name: Visual Regression Build
 
 on:
+  push:
+    branches:
+      - master
   pull_request:
     types: [opened, synchronize, reopened]
 
@@ -84,7 +87,17 @@ jobs:
           name: visual-regression
           path: imageSnapshots/
 
+      # Upload PR id for next workflow use
+      - name: Save persist index
+        if: ${{ always() }}
+        run: echo ${{ github.event.number }} > ./persist-index.txt
 
+      - name: Upload persist index
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: visual-regression-persist
+          path: ./persist-index.txt
 
       # diff image with master and generate report to dir imageSnapshots/report
       # download latest master diff image repo files
