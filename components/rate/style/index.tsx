@@ -122,6 +122,7 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       ...genRateStarStyle(token),
 
       // text styles
+      // TODO: Remove in v6
       [`+ ${componentCls}-text`]: {
         display: 'inline-block',
         marginInlineStart: token.marginXS,

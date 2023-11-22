@@ -1558,7 +1558,7 @@ Array [
     </li>
   </ul>,
   <span
-    class="ant-rate-text"
+    style="font-size: 14px; margin-left: 8px;"
   >
     allowClear: true
   </span>,
@@ -1860,7 +1860,7 @@ Array [
     </li>
   </ul>,
   <span
-    class="ant-rate-text"
+    style="font-size: 14px; margin-left: 8px;"
   >
     allowClear: false
   </span>,
@@ -3166,7 +3166,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
     </div>
   </ul>
   <span
-    class="ant-rate-text"
+    style="font-size: 14px; margin-left: 8px;"
   >
     normal
   </span>

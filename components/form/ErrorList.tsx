@@ -10,6 +10,7 @@ import useDebounce from './hooks/useDebounce';
 
 import useStyle from './style';
 import useCSSVar from './style/cssVar';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -56,7 +57,8 @@ const ErrorList: React.FC<ErrorListProps> = ({
   const baseClassName = `${prefixCls}-item-explain`;
 
   const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const wrapCSSVar = useCSSVar(cssVarCls);
 
   const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 
@@ -97,7 +99,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
+            className={classNames(baseClassName, holderClassName, cssVarCls, rootClassName, hashId)}
             style={holderStyle}
             role="alert"
           >

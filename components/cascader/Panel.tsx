@@ -11,6 +11,7 @@ import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
+import useCSSVar from './style/cssVar';
 
 export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
 
@@ -35,6 +36,7 @@ export default function CascaderPanel(props: CascaderPanelProps) {
   const [, hashId] = useStyle(cascaderPrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
+  const wrapCSSVar = useCSSVar(cascaderRootCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -52,7 +54,7 @@ export default function CascaderPanel(props: CascaderPanelProps) {
 
   // ==================== Render =====================
 
-  return (
+  return wrapCSSVar(
     <Panel
       {...props}
       checkable={checkable}
@@ -62,6 +64,6 @@ export default function CascaderPanel(props: CascaderPanelProps) {
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
-    />
+    />,
   );
 }

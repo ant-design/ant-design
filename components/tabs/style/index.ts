@@ -350,6 +350,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     horizontalMargin,
     verticalItemPadding,
     verticalItemMargin,
+    calc,
   } = token;
   return {
     // ========================== Top & Bottom ==========================
@@ -452,7 +453,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     [`${componentCls}-left, ${componentCls}-right`]: {
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         flexDirection: 'column',
-        minWidth: token.calc(token.controlHeight).mul(1.25).equal(),
+        minWidth: calc(token.controlHeight).mul(1.25).equal(),
 
         // >>>>>>>>>>> Tab
         [`${componentCls}-tab`]: {
@@ -528,7 +529,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
       [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
         marginLeft: {
           _skip_check_: true,
-          value: `-${unit(token.lineWidth)}`,
+          value: unit(calc(token.lineWidth).mul(-1).equal()),
         },
         borderLeft: {
           _skip_check_: true,
@@ -560,7 +561,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         order: 0,
         marginRight: {
           _skip_check_: true,
-          value: token.calc(token.lineWidth).mul(-1).equal(),
+          value: calc(token.lineWidth).mul(-1).equal(),
         },
         borderRight: {
           _skip_check_: true,
@@ -751,7 +752,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 };
 
 const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
-  const { componentCls, tabsHorizontalItemMarginRTL, iconCls, cardGutter } = token;
+  const { componentCls, tabsHorizontalItemMarginRTL, iconCls, cardGutter, calc } = token;
   const rtlCls = `${componentCls}-rtl`;
   return {
     [rtlCls]: {
@@ -789,7 +790,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
             },
             marginLeft: {
               _skip_check_: true,
-              value: `-${unit(token.marginXXS)}`,
+              value: unit(calc(token.marginXXS).mul(-1).equal()),
             },
 
             [iconCls]: {

@@ -1,4 +1,4 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genComponentStyleHook, mergeToken } from '../../theme/internal';
@@ -318,12 +318,10 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    headerHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
     colorBgContainerDisabled,
-    fontHeight,
   } = token;
 
   return {
@@ -361,14 +359,6 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
             fontSize: fontSizeIcon,
           },
         },
-      },
-
-      [`${antCls}-empty-image`]: {
-        // headerHeight / 2 - Math.round(fontSize * lineHeight)
-        maxHeight: token
-          .calc(token.calc(headerHeight).div(2).equal())
-          .sub(fontHeight)
-          .equal(),
       },
     },
   };

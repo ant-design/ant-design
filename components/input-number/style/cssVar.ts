@@ -1,4 +1,9 @@
 import { genCSSVarRegister } from '../../theme/internal';
-import { prepareComponentToken } from '.';
+import { formatComponentToken, prepareComponentToken } from '.';
 
-export default genCSSVarRegister('InputNumber', prepareComponentToken);
+export default genCSSVarRegister('InputNumber', prepareComponentToken, {
+  format: formatComponentToken,
+  unitless: {
+    handleOpacity: true,
+  },
+});

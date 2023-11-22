@@ -67,6 +67,10 @@ export type GetDefaultToken<C extends OverrideComponent> =
   | OverrideTokenWithoutDerivative[C]
   | ((token: GlobalToken) => OverrideTokenWithoutDerivative[C]);
 
+export type FormatComponentToken<C extends OverrideComponent> = (
+  token: NonNullable<OverrideTokenWithoutDerivative[C]>,
+) => NonNullable<OverrideTokenWithoutDerivative[C]>;
+
 const getDefaultComponentToken = <C extends OverrideComponent>(
   component: C,
   token: GlobalToken,
@@ -82,7 +86,10 @@ const getComponentToken = <C extends OverrideComponent>(
   component: C,
   token: GlobalToken,
   defaultToken: OverrideTokenWithoutDerivative[C],
-  options?: { deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][] },
+  options?: {
+    deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
+    format?: FormatComponentToken<C>;
+  },
 ) => {
   const customToken = { ...(token[component] as ComponentToken<C>) };
   if (options?.deprecatedTokens) {
@@ -103,7 +110,10 @@ const getComponentToken = <C extends OverrideComponent>(
       }
     });
   }
-  const mergedToken: any = { ...defaultToken, ...customToken };
+  let mergedToken: any = { ...defaultToken, ...customToken };
+  if (options?.format) {
+    mergedToken = options.format(mergedToken);
+  }
 
   // Remove same value as global token to minimize size
   Object.keys(mergedToken).forEach((key) => {
@@ -142,6 +152,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
      * Set order of component style. Default is -999.
      */
     order?: number;
+    format?: FormatComponentToken<C>;
   } = {},
 ) {
   const cells = (Array.isArray(componentName) ? componentName : [componentName, componentName]) as [
@@ -201,6 +212,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
         const componentCls = `.${prefixCls}`;
         const componentToken = getComponentToken(component, realToken, defaultComponentToken, {
           deprecatedTokens: options.deprecatedTokens,
+          format: options.format,
         });
 
         if (cssVar) {
@@ -296,6 +308,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
     unitless?: {
       [key in ComponentTokenKey<C>]: boolean;
     };
+    format?: FormatComponentToken<C>;
   },
 ) => {
   function prefixToken(key: string) {
@@ -327,7 +340,10 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
       },
       () => {
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
-        const componentToken = getComponentToken(component, realToken, defaultToken);
+        const componentToken = getComponentToken(component, realToken, defaultToken, {
+          format: options?.format,
+        });
+        console.log(componentToken);
         Object.keys(defaultToken).forEach((key) => {
           componentToken[prefixToken(key)] = componentToken[key];
           delete componentToken[key];
