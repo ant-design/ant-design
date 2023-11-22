@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
 import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
@@ -17,7 +16,6 @@ import useChildren from '../hooks/useChildren';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
-import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
@@ -95,7 +93,6 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const {
     name,
     noStyle,
-    className,
     dependencies,
     prefixCls: customizePrefixCls,
     shouldUpdate,
@@ -124,9 +121,6 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const hasName = !(name === undefined || name === null);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
-
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');
@@ -219,7 +213,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     baseChildren: React.ReactNode,
     fieldId?: string,
     isRequired?: boolean,
-  ): React.ReactNode {
+  ): React.ReactElement {
     if (noStyle && !hidden) {
       return (
         <StatusProvider
@@ -240,7 +234,6 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -255,7 +248,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapSSR(renderLayout(mergedChildren) as JSX.Element);
+    return renderLayout(mergedChildren);
   }
 
   let variables: Record<string, string> = {};
@@ -269,7 +262,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // >>>>> With Field
-  return wrapSSR(
+  return (
     <Field
       {...props}
       messageVariables={variables}
@@ -411,7 +404,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>,
+    </Field>
   );
 }
 
