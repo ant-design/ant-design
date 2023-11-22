@@ -1,9 +1,10 @@
-import { PlusOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 import {
   Button,
   Cascader,
   Checkbox,
+  ColorPicker,
   DatePicker,
   Form,
   Input,
@@ -112,6 +113,9 @@ const FormDisabledDemo: React.FC = () => {
         </Form.Item>
         <Form.Item label="Slider">
           <Slider />
+        </Form.Item>
+        <Form.Item label="ColorPicker">
+          <ColorPicker />
         </Form.Item>
       </Form>
     </>

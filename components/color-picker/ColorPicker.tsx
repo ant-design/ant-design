@@ -13,6 +13,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
@@ -106,7 +107,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   } = props;
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
-
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
   const [, token] = useToken();
 
   const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
@@ -115,7 +117,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   });
   const [popupOpen, setPopupOpen] = useMergedState(false, {
     value: open,
-    postState: (openData) => !disabled && openData,
+    postState: (openData) => !mergedDisabled && openData,
     onChange: onOpenChange,
   });
   const [formatValue, setFormatValue] = useMergedState(format, {
@@ -223,7 +225,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     color: colorValue,
     allowClear,
     colorCleared,
-    disabled,
+    disabled: mergedDisabled,
     disabledAlpha,
     presets,
     panelRender,
@@ -241,7 +243,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        if (popupAllowCloseRef.current && !disabled) {
+        if (popupAllowCloseRef.current && !mergedDisabled) {
           setPopupOpen(visible);
         }
       }}
@@ -265,7 +267,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           style={mergedStyle}
           color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}
-          disabled={disabled}
+          disabled={mergedDisabled}
           colorCleared={colorCleared}
           showText={showText}
           format={formatValue}

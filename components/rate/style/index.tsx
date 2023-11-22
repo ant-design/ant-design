@@ -121,14 +121,6 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       // star styles
       ...genRateStarStyle(token),
 
-      // text styles
-      // TODO: Remove in v6
-      [`+ ${componentCls}-text`]: {
-        display: 'inline-block',
-        marginInlineStart: token.marginXS,
-        fontSize: token.fontSize,
-      },
-
       // rtl styles
       ...genRateRtlStyle(token),
     },
