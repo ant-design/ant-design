@@ -58,7 +58,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      ...genBasicInputStyle(token),
+      ...genBasicInputStyle(token, componentCls),
 
       position: 'relative',
       display: 'inline-block',

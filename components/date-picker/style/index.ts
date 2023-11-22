@@ -1159,7 +1159,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           width: '100%',
 
           '> input': {
-            ...genBasicInputStyle(token),
+            ...genBasicInputStyle(token, `${componentCls}-input`),
             flex: 'auto',
 
             // Fix Firefox flex not correct:
