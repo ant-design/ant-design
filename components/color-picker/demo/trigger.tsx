@@ -1,10 +1,9 @@
 import React, { useMemo, useState } from 'react';
-import { Button, ColorPicker, theme } from 'antd';
+import { Button, ColorPicker } from 'antd';
 import type { Color } from 'antd/es/color-picker';
 
 const Demo: React.FC = () => {
-  const { token } = theme.useToken();
-  const [color, setColor] = useState<Color | string>(token.colorPrimary);
+  const [color, setColor] = useState<Color | string>('#1677ff');
 
   const bgColor = useMemo<string>(
     () => (typeof color === 'string' ? color : color.toHexString()),

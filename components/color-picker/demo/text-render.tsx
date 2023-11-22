@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { ColorPicker, Space, theme } from 'antd';
+import { ColorPicker, Space } from 'antd';
 
 const Demo = () => {
   const [open, setOpen] = useState(false);
-  const {
-    token: { colorPrimary },
-  } = theme.useToken();
   return (
     <Space direction="vertical">
-      <ColorPicker defaultValue={colorPrimary} showText />
+      <ColorPicker defaultValue="#1677ff" showText />
       <ColorPicker
-        defaultValue={colorPrimary}
+        defaultValue="#1677ff"
         showText={(color) => <span>Custom Text ({color.toHexString()})</span>}
       />
       <ColorPicker
-        defaultValue={colorPrimary}
+        defaultValue="#1677ff"
         open={open}
         onOpenChange={setOpen}
         showText={() => (

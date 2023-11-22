@@ -1,11 +1,6 @@
 import React from 'react';
-import { ColorPicker, theme } from 'antd';
+import { ColorPicker } from 'antd';
 
-const Demo = () => {
-  const {
-    token: { colorPrimary },
-  } = theme.useToken();
-  return <ColorPicker defaultValue={colorPrimary} trigger="hover" />;
-};
+const Demo = () => <ColorPicker defaultValue="#1677ff" trigger="hover" />;
 
 export default Demo;

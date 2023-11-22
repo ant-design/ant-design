@@ -1,24 +1,19 @@
 import React from 'react';
-import { ColorPicker, Space, theme } from 'antd';
+import { ColorPicker, Space } from 'antd';
 
-const Demo = () => {
-  const {
-    token: { colorPrimary },
-  } = theme.useToken();
-  return (
-    <Space>
-      <Space direction="vertical">
-        <ColorPicker defaultValue={colorPrimary} size="small" />
-        <ColorPicker defaultValue={colorPrimary} />
-        <ColorPicker defaultValue={colorPrimary} size="large" />
-      </Space>
-      <Space direction="vertical">
-        <ColorPicker defaultValue={colorPrimary} size="small" showText />
-        <ColorPicker defaultValue={colorPrimary} showText />
-        <ColorPicker defaultValue={colorPrimary} size="large" showText />
-      </Space>
+const Demo = () => (
+  <Space>
+    <Space direction="vertical">
+      <ColorPicker defaultValue="#1677ff" size="small" />
+      <ColorPicker defaultValue="#1677ff" />
+      <ColorPicker defaultValue="#1677ff" size="large" />
     </Space>
-  );
-};
+    <Space direction="vertical">
+      <ColorPicker defaultValue="#1677ff" size="small" showText />
+      <ColorPicker defaultValue="#1677ff" showText />
+      <ColorPicker defaultValue="#1677ff" size="large" showText />
+    </Space>
+  </Space>
+);
 
 export default Demo;
