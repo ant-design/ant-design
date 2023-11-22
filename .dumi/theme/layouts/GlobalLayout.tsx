@@ -177,6 +177,7 @@ const GlobalLayout: React.FC = () => {
               token: {
                 motion: !theme.includes('motion-off'),
               },
+              cssVar: true,
             }}
           >
             <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>

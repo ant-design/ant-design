@@ -29,7 +29,6 @@ console.error = (msg: any) => {
 async function checkCSSVar() {
   await generateCssinjs({
     key: 'check',
-    ignore: ['pagination'],
     render(Component: any) {
       ReactDOMServer.renderToString(
         <StyleProvider linters={[NaNLinter]}>

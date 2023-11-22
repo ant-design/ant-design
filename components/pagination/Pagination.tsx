@@ -13,6 +13,9 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
+import useCSSVar from './style/cssVar';
+import { useToken } from '../theme/internal';
+import BorderedStyle from './style/bordered';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -49,12 +52,14 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
+  const [, token] = useToken();
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [, hashId] = useStyle(prefixCls);
+  const wrapCSSVar = useCSSVar(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
@@ -111,6 +116,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     {
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-bordered`]: token.wireframe,
     },
     pagination?.className,
     className,
@@ -120,18 +126,21 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
 
-  return wrapSSR(
-    <RcPagination
-      {...iconsProps}
-      {...restProps}
-      style={mergedStyle}
-      prefixCls={prefixCls}
-      selectPrefixCls={selectPrefixCls}
-      className={extendedClassName}
-      selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
-      locale={locale}
-      showSizeChanger={mergedShowSizeChanger}
-    />,
+  return wrapCSSVar(
+    <>
+      {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
+      <RcPagination
+        {...iconsProps}
+        {...restProps}
+        style={mergedStyle}
+        prefixCls={prefixCls}
+        selectPrefixCls={selectPrefixCls}
+        className={extendedClassName}
+        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
+        locale={locale}
+        showSizeChanger={mergedShowSizeChanger}
+      />
+    </>,
   );
 };
 
