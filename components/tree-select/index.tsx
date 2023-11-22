@@ -20,6 +20,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useSelectStyle from '../select/style';
+import useSelectCSSVar from '../select/style/cssVar';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useShowArrow from '../select/useShowArrow';
 import useIcons from '../select/useIcons';
@@ -157,7 +158,7 @@ const InternalTreeSelect = <
   useStyle(treeSelectPrefixCls, treePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const wrapCSSVar = useSelectCSSVar(rootCls);
   const treeSelectWrapCSSVar = useCSSVar(treeSelectRootCls);
 
   const mergedDropdownClassName = classNames(
