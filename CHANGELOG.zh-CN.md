@@ -27,6 +27,7 @@ tag: vVERSION
 - 🐞 修复 Collapse 可折叠区域鼠标 `hover` 样式问题。[#45994](https://github.com/ant-design/ant-design/pull/45994)
 - 🐞 修复 ColorPicker 不支持 Form 组件的禁用问题。[#45978](https://github.com/ant-design/ant-design/pull/45978) [@RedJue](https://github.com/RedJue)
 - 🐞 修复 Typography.Text `code` 在 Layout 下开启 `ellipsis` 时 tooltip 无效的问题。[#45962](https://github.com/ant-design/ant-design/pull/45962)
+- 🐞 修复 Select 搜索框在 Safari 下显示多余的 🔍 图标。[#46008](https://github.com/ant-design/ant-design/pull/46008)
 - 💄 删除 Rate 组件无用样式。 [#45927](https://github.com/ant-design/ant-design/pull/45927) [@JarvisArt](https://github.com/JarvisArt)
 - 🛠 UMD 版本 `antd.js` 现在会优先使用全局的 `@ant-design/cssinjs` 依赖。[#46009](https://github.com/ant-design/ant-design/pull/46009)
 - 🌐 补充 `eu_ES` 国际化内容。[#45928](https://github.com/ant-design/ant-design/pull/45928) [@ionlizarazu](https://github.com/ionlizarazu)
