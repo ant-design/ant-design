@@ -365,8 +365,6 @@ export interface ComponentToken {
    * @descEN Background of active danger menu item in dark mode
    */
   darkDangerItemActiveBg: string;
-  /** @internal */
-  subMenuTitleWidth: number | string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -928,8 +926,6 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemHoverColor: colorErrorHover,
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
-
-    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}px)`,
   };
 };
 
@@ -975,10 +971,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
         calc: token.calc,
-        subMenuTitleWidth:
-          token.activeBarWidth && token.activeBarBorderWidth
-            ? `calc(100% + ${token.activeBarBorderWidth}px)`
-            : `calc(100% - ${token.marginXXS * 2}px)`,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {

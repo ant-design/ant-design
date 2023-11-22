@@ -223,9 +223,11 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
 
         // Item
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-          width: token.subMenuTitleWidth,
-        },
+        [`${componentCls}-item, ${componentCls}-submenu-title`]: activeBarWidth
+          ? {
+              width: `calc(100% + ${unit(activeBarBorderWidth)})`,
+            }
+          : {},
 
         [`${componentCls}-item`]: {
           position: 'relative',

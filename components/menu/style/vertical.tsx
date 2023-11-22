@@ -12,6 +12,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     menuArrowSize,
     marginXS,
     itemMarginBlock,
+    calc,
   } = token;
 
   const paddingWithArrow = token.calc(menuArrowSize).add(padding).add(marginXS).equal();
@@ -24,19 +25,19 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       height: itemHeight,
-      lineHeight: `${unit(itemHeight)}`,
+      lineHeight: unit(itemHeight),
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
       marginInline: itemMarginInline,
       marginBlock: itemMarginBlock,
-      width: token.subMenuTitleWidth,
+      width: `calc(100% - ${unit(calc(itemMarginInline).mul(2).equal())})`,
     },
 
     [`> ${componentCls}-item,
             > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
       height: itemHeight,
-      lineHeight: `${unit(itemHeight)}`,
+      lineHeight: unit(itemHeight),
     },
 
     [`${componentCls}-item-group-list ${componentCls}-submenu-title,
@@ -68,7 +69,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
   const inlineItemStyle: CSSObject = {
     height: itemHeight,
-    lineHeight: `${unit(itemHeight)}`,
+    lineHeight: unit(itemHeight),
     listStylePosition: 'inside',
     listStyleType: 'disc',
   };
@@ -193,7 +194,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           [`${componentCls}-item-icon, ${iconCls}`]: {
             margin: 0,
             fontSize: collapsedIconSize,
-            lineHeight: `${unit(itemHeight)}`,
+            lineHeight: unit(itemHeight),
 
             '+ span': {
               display: 'inline-block',
