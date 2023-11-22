@@ -210,9 +210,9 @@ describe('ConfigProvider.Theme', () => {
 
       expect(button).toHaveClass('foo');
       expect(button).toHaveStyle({
-        '--antd-color-text': 'rgba(0, 0, 0, 0.88)',
-        boxShadow: 'var(--antd-button-default-shadow)',
-        'line-height': 'var(--antd-line-height)',
+        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--ant-button-default-shadow)',
+        'line-height': 'var(--ant-line-height)',
       });
     });
 
@@ -233,9 +233,9 @@ describe('ConfigProvider.Theme', () => {
 
       expect(fooBtn).toHaveClass('foo');
       expect(fooBtn).toHaveStyle({
-        '--antd-color-text': 'rgba(0, 0, 0, 0.88)',
-        boxShadow: 'var(--antd-button-default-shadow)',
-        'line-height': 'var(--antd-line-height)',
+        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--ant-button-default-shadow)',
+        'line-height': 'var(--ant-line-height)',
       });
 
       expect(barBtn).toHaveClass('bar');
@@ -261,10 +261,10 @@ describe('ConfigProvider.Theme', () => {
 
       const select = container.querySelector('.select-foo')!;
       expect(select).toHaveStyle({
-        '--antd-color-primary': '#1890ff',
-        '--antd-select-option-selected-color': '#000',
-        '--antd-select-option-selected-font-weight': '600',
-        '--antd-select-z-index-popup': '1050',
+        '--ant-color-primary': '#1890ff',
+        '--ant-select-option-selected-color': '#000',
+        '--ant-select-option-selected-font-weight': '600',
+        '--ant-select-z-index-popup': '1050',
       });
     });
   });
