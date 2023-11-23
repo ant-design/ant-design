@@ -366,21 +366,21 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
-              src="https://mdn.alipayobjects.com/rms/uri/file/as/0.0.2/logo_s.svg"
+              src="https://mdn.alipayobjects.com/huamei_j9rjmc/afts/img/A*3ittT5OEo2gAAAAAAAAAAAAADvGmAQ/original"
               width={16}
               height={16}
-              alt="Galacean Effects"
+              alt="Galacean"
             />
           ),
-          title: <FormattedMessage id="app.footer.galacean-effects" />,
-          description: <FormattedMessage id="app.footer.galacean-effects.slogan" />,
-          url: 'https://galacean.antgroup.com/effects/',
+          title: <FormattedMessage id="app.footer.galacean" />,
+          description: <FormattedMessage id="app.footer.galacean.slogan" />,
+          url: 'https://galacean.antgroup.com/',
           openExternal: true,
         },
         {
           icon: (
             <img
-              src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
+              src="https://gw.alipayobjects.com/zos/bmw-prod/a3bd25c4-dc50-40f7-88ea-6004566481b0.svg"
               width={16}
               height={16}
               alt="xtech"
