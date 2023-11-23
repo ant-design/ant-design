@@ -1,13 +1,13 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
-import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken {
   /**
@@ -489,7 +489,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Select',
   (token, { rootPrefixCls }) => {
     const selectToken: SelectToken = mergeToken<SelectToken>(token, {
@@ -502,4 +502,10 @@ export default genComponentStyleHook(
     return [genSelectStyle(selectToken)];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      optionLineHeight: true,
+      optionSelectedFontWeight: true,
+    },
+  },
 );
