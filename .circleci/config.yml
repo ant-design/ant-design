@@ -8,8 +8,6 @@ jobs:
   test-argos-ci:
     docker:
       - image: cimg/node:21.2-browsers
-    environment:
-      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - checkout
       - run:
