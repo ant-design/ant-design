@@ -4,7 +4,7 @@ const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { EsbuildPlugin } = require('esbuild-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
 const path = require('path');
 
 function addLocales(webpackConfig) {
