@@ -62,5 +62,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           build_script: dist
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
           PRODUCTION_ONLY: 1
