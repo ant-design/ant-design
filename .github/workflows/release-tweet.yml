@@ -1,14 +1,14 @@
 name: 🐦 Release to Tweet
 
 on:
-  release:
-    types: [published]
+  create
 
 permissions:
   contents: read
 
 jobs:
   tweet:
+    if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:
       - name: Tweet
