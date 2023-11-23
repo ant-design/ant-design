@@ -164,7 +164,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.2",
     "@ant-design/happy-work-theme": "^1.0.0",
-    "@ant-design/tools": "^17.3.2",
+    "@ant-design/tools": "^18.0.0",
     "@antv/g6": "^4.8.13",
     "@argos-ci/core": "^1.0.0",
     "@babel/eslint-plugin": "^7.19.1",
