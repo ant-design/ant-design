@@ -380,7 +380,7 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
-              src="https://gw.alipayobjects.com/zos/bmw-prod/a3bd25c4-dc50-40f7-88ea-6004566481b0.svg"
+              src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
               width={16}
               height={16}
               alt="xtech"
