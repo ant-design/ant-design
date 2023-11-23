@@ -310,6 +310,7 @@
     "typedoc": "^0.25.0",
     "typescript": "~5.2.2",
     "vanilla-jsoneditor": "^0.18.0",
+    "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1"
   },
