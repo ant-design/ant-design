@@ -6,8 +6,7 @@ import omit from 'rc-util/lib/omit';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
 const TRIGGER_EVENTS = [
