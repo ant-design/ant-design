@@ -180,13 +180,23 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
   ImagePreview: ({ rootClassName }: ImageProps) => (
-    <Image
-      src="xxx"
-      preview={{
-        visible: true,
-        rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
-      }}
-    />
+    <>
+      <Image
+        src="xxx"
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+        }}
+      />
+      <Image.PreviewGroup
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+        }}
+      >
+        <Image src="xxx" />
+      </Image.PreviewGroup>
+    </>
   ),
 };
 
