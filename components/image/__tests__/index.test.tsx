@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal } from 'antd';
+import { Modal } from 'antd';
 
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
