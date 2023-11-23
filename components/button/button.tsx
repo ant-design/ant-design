@@ -24,9 +24,8 @@ import type { ButtonHTMLType, ButtonShape, ButtonType } from './buttonHelpers';
 import { isTwoCNChar, isUnBorderedButtonType, spaceChildren } from './buttonHelpers';
 import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
-import useStyle from './style';
+import { useStyle, useCSSVar } from './style';
 import CompactCmp from './style/compactCmp';
-import useCSSVar from './style/cssVar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 

@@ -14,6 +14,7 @@ import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
   genSubStyleComponent,
   genCSSVarRegister,
+  genStyleHooks,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
@@ -27,6 +28,7 @@ export {
   genSubStyleComponent,
   genCSSVarRegister,
   genPresetColor,
+  genStyleHooks,
   mergeToken,
   statisticToken,
   calc,

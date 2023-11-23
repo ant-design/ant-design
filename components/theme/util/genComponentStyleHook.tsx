@@ -308,6 +308,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
     unitless?: {
       [key in ComponentTokenKey<C>]: boolean;
     };
+    deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
     format?: FormatComponentToken<C>;
   },
 ) => {
@@ -342,6 +343,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
         const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
         const componentToken = getComponentToken(component, realToken, defaultToken, {
           format: options?.format,
+          deprecatedTokens: options?.deprecatedTokens,
         });
         Object.keys(defaultToken).forEach((key) => {
           componentToken[prefixToken(key)] = componentToken[key];
@@ -368,4 +370,32 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
   };
 
   return useCSSVar;
+};
+
+export const genStyleHooks = <C extends OverrideComponent>(
+  component: C,
+  styleFn: GenStyleFn<C>,
+  getDefaultToken: GetDefaultToken<C>,
+  options?: {
+    resetStyle?: boolean;
+    deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];
+    format?: FormatComponentToken<C>;
+    unitless?: {
+      [key in ComponentTokenKey<C>]: boolean;
+    };
+    /**
+     * Only use component style in client side. Ignore in SSR.
+     */
+    clientOnly?: boolean;
+    /**
+     * Set order of component style. Default is -999.
+     */
+    order?: number;
+  },
+) => {
+  const useStyle = genComponentStyleHook(component, styleFn, getDefaultToken, options);
+
+  const useCSSVar = genCSSVarRegister(component, getDefaultToken, options);
+
+  return [useStyle, useCSSVar] as const;
 };

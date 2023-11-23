@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genGroupStyle from './group';
 
@@ -705,7 +705,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Button',
   (token) => {
     const buttonToken = prepareToken(token);
@@ -730,4 +730,9 @@ export default genComponentStyleHook(
     ];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      fontWeight: true,
+    },
+  },
 );
