@@ -36,7 +36,8 @@ export const generateCssinjs = ({ key, beforeRender, render }: GenCssinjsOptions
           useColStyle(prefixCls);
         };
       } else {
-        useStyle = (await import(absPath)).default;
+        const result = await import(absPath);
+        useStyle = result.default || result.useStyle;
       }
       const Demo: React.FC = () => {
         useStyle(`${key}-${componentName}`);
