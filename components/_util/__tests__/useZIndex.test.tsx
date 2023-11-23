@@ -191,7 +191,7 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
       <Image.PreviewGroup
         preview={{
           visible: true,
-          rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreviewGroup`,
         }}
       >
         <Image src="xxx" />
@@ -217,7 +217,12 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
   } else if (consumer === 'ImagePreview') {
-    selector = `${baseSelector}.comp-ImagePreview`;
+    selector = ['ImagePreview', 'ImagePreviewGroup']
+      .map(
+        (item) =>
+          `${baseSelector}.comp-${item} .ant-image-preview-wrap, ${baseSelector}.comp-${item}.ant-image-preview-operations-wrapper`,
+      )
+      .join(',');
   }
   return selector;
 }
@@ -286,7 +291,7 @@ describe('Test useZIndex hooks', () => {
           const selector2 = getConsumerSelector('.consumer2', key as ZIndexConsumer);
           const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
-          if (['SelectLike', 'DatePicker'].includes(key)) {
+          if (['SelectLike', 'DatePicker', 'ImagePreview'].includes(key)) {
             let comps = document.querySelectorAll(selector1);
             comps.forEach((comp) => {
               expect((comp as HTMLDivElement).style.zIndex).toBeFalsy();
