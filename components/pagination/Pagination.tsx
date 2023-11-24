@@ -1,3 +1,4 @@
+import * as React from 'react';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -6,17 +7,19 @@ import classNames from 'classnames';
 import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
-import { MiddleSelect, MiniSelect } from './Select';
+import { CustomSelect, SelectContext } from './Select';
+import type { SelectContextProps } from './Select';
 import useStyle from './style';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
+  showSearch?: boolean;
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
@@ -46,6 +49,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     selectComponentClass,
     responsive,
     showSizeChanger,
+    showSearch = true,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -120,18 +124,28 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };
 
+  const memoizedContextValue = React.useMemo<SelectContextProps>(
+    () => ({
+      size: isSmall ? 'small' : 'middle',
+      showSearch,
+    }),
+    [showSearch, isSmall],
+  );
+
   return wrapSSR(
-    <RcPagination
-      {...iconsProps}
-      {...restProps}
-      style={mergedStyle}
-      prefixCls={prefixCls}
-      selectPrefixCls={selectPrefixCls}
-      className={extendedClassName}
-      selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
-      locale={locale}
-      showSizeChanger={mergedShowSizeChanger}
-    />,
+    <SelectContext.Provider value={memoizedContextValue}>
+      <RcPagination
+        {...iconsProps}
+        {...restProps}
+        style={mergedStyle}
+        prefixCls={prefixCls}
+        selectPrefixCls={selectPrefixCls}
+        className={extendedClassName}
+        selectComponentClass={selectComponentClass ?? CustomSelect}
+        locale={locale}
+        showSizeChanger={mergedShowSizeChanger}
+      />
+    </SelectContext.Provider>,
   );
 };
 
