@@ -37,6 +37,7 @@ export interface AbstractCheckboxProps<T> {
   autoFocus?: boolean;
   type?: string;
   skipGroup?: boolean;
+  required?: boolean;
 }
 
 export interface CheckboxChangeEventTarget extends CheckboxProps {

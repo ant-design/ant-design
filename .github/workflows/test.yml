@@ -131,7 +131,7 @@ jobs:
       - name: dist
         run: npm run dist
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
           CI: 1
     needs: setup
 

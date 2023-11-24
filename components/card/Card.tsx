@@ -48,20 +48,24 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   tabProps?: TabsProps;
 }
 
-function getAction(actions: React.ReactNode[]): React.ReactNode[] {
-  return actions.map<React.ReactNode>((action, index) => {
-    // Move this out since eslint not allow index key
-    // And eslint-disable makes conflict with rollup
-    // ref https://github.com/ant-design/ant-design/issues/46022
-    const key = `action-${index}`;
-
-    return (
-      <li style={{ width: `${100 / actions.length}%` }} key={key}>
-        <span>{action}</span>
-      </li>
-    );
-  });
-}
+const ActionNode: React.FC<{ prefixCls: string; actions: React.ReactNode[] }> = (props) => {
+  const { prefixCls, actions = [] } = props;
+  return (
+    <ul className={`${prefixCls}-actions`}>
+      {actions.map<React.ReactNode>((action, index) => {
+        // Move this out since eslint not allow index key
+        // And eslint-disable makes conflict with rollup
+        // ref https://github.com/ant-design/ant-design/issues/46022
+        const key = `action-${index}`;
+        return (
+          <li style={{ width: `${100 / actions.length}%` }} key={key}>
+            <span>{action}</span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const {
@@ -153,10 +157,9 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       {loading ? loadingBlock : children}
     </div>
   );
+
   const actionDom =
-    actions && actions.length ? (
-      <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
-    ) : null;
+    actions && actions.length ? <ActionNode prefixCls={prefixCls} actions={actions} /> : null;
 
   const divProps = omit(others, ['onTabChange']);
 
