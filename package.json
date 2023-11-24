@@ -98,7 +98,8 @@
     "test:update": "jest --config .jest.js --no-cache -u",
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
-    "version": "tsx scripts/generate-version.ts"
+    "version": "tsx scripts/generate-version.ts",
+    "visual-regression": "tsx scripts/visual-regression.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "biome format --write",
@@ -197,6 +198,7 @@
     "@types/lodash": "^4.14.202",
     "@types/node": "^20.10.0",
     "@types/nprogress": "^0.2.3",
+    "@types/pixelmatch": "^5.2.6",
     "@types/prismjs": "^1.26.3",
     "@types/progress": "^2.0.7",
     "@types/qs": "^6.9.10",
@@ -267,6 +269,8 @@
     "node-notifier": "^10.0.1",
     "nprogress": "^0.2.0",
     "open": "^9.1.0",
+    "pixelmatch": "^5.3.0",
+    "pngjs": "^7.0.0",
     "prettier": "^3.1.0",
     "prettier-plugin-jsdoc": "^1.1.1",
     "pretty-format": "^29.7.0",
