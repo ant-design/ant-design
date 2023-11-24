@@ -165,7 +165,7 @@ describe('Image', () => {
           '.test-image-preview-class.ant-image-preview-operations-wrapper',
         ) as HTMLElement
       ).style.zIndex,
-    ).toBe('1301');
+    ).toBe('1302');
 
     fireEvent.click(baseElement.querySelectorAll('.ant-image')[1]!);
 
@@ -182,6 +182,6 @@ describe('Image', () => {
           '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
         ) as HTMLElement
       ).style.zIndex,
-    ).toBe('1301');
+    ).toBe('1302');
   });
 });
