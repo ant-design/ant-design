@@ -302,11 +302,15 @@ describe('Test useZIndex hooks', () => {
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                    consumerOffset,
+                    consumerOffset +
+                    operOffset,
                 ),
               );
             });
@@ -317,11 +321,15 @@ describe('Test useZIndex hooks', () => {
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
-                    consumerOffset,
+                    consumerOffset +
+                    operOffset,
                 ),
               );
             });
