@@ -20,6 +20,7 @@ tag: vVERSION
 
 `2023-11-24`
 
+- 🐞 修复 Image 在嵌套 Modal 中设置 `z-index` 异常的问题。[#46035](https://github.com/ant-design/ant-design/pull/46035)
 - 🐞 修复 Button 禁用的链接按钮右键点击时会有打开新链接选项的问题。[#46021](https://github.com/ant-design/ant-design/pull/46021)
 - Card
   - 🛠 把 Card 内部方法 `getAction` 重构为函数组件。[#46032](https://github.com/ant-design/ant-design/pull/46032)
