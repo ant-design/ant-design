@@ -21,7 +21,7 @@ const useStyle = createStyles(() => ({
     svg {
       margin-inline-end: 8px;
     }
-  }`,
+  `,
 }));
 
 const InstallDependencies: React.FC<InstallProps> = (props) => {
