@@ -18,14 +18,21 @@ const Demo: React.FC = () => {
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  const onShowStatic = () => {
+    Modal.confirm({
+      content: <Select open value="1" options={options} />,
+    });
+  };
+
   return (
-    <>
+    <Space>
       <Switch
         style={{ position: 'relative', zIndex: isModalOpen ? 4000 : 0 }}
         checkedChildren="Open"
         unCheckedChildren="Close"
         onChange={(open) => setIsModalOpen(open)}
       />
+      <Button onClick={onShowStatic}>Static</Button>
       <Modal
         title="Basic Modal"
         open={isModalOpen}
@@ -123,7 +130,7 @@ const Demo: React.FC = () => {
 
       {messageHolder}
       {notificationHolder}
-    </>
+    </Space>
   );
 };
 

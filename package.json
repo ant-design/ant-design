@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.11.2",
+  "version": "5.11.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -113,7 +113,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.17.2",
+    "@ant-design/cssinjs": "^1.17.5",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.18.3",
@@ -133,7 +133,7 @@
     "rc-drawer": "~6.5.2",
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.40.0",
-    "rc-image": "~7.4.0",
+    "rc-image": "~7.5.0",
     "rc-input": "~1.3.6",
     "rc-input-number": "~8.4.0",
     "rc-mentions": "~2.9.1",
@@ -164,7 +164,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.2",
     "@ant-design/happy-work-theme": "^1.0.0",
-    "@ant-design/tools": "^17.3.2",
+    "@ant-design/tools": "^18.0.0",
     "@antv/g6": "^4.8.13",
     "@argos-ci/core": "^1.0.0",
     "@babel/eslint-plugin": "^7.19.1",
@@ -177,6 +177,7 @@
     "@emotion/react": "^11.10.4",
     "@emotion/server": "^11.4.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
     "@qixian.cs/github-contributors-list": "^1.1.0",
     "@size-limit/file": "^11.0.0",
     "@stackblitz/sdk": "^1.3.0",
@@ -222,7 +223,6 @@
     "dekko": "^0.2.1",
     "dumi": "^2.3.0-alpha.9",
     "dumi-plugin-color-chunk": "^1.0.2",
-    "duplicate-package-checker-webpack-plugin": "^3.0.0",
     "esbuild-loader": "^4.0.0",
     "eslint": "^8.40.0",
     "eslint-config-airbnb": "^19.0.0",
@@ -310,6 +310,8 @@
     "typedoc": "^0.25.0",
     "typescript": "~5.2.2",
     "vanilla-jsoneditor": "^0.18.0",
+    "vanilla-tilt": "^1.8.1",
+    "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1"
   },
@@ -329,11 +331,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "402 KiB"
+      "limit": "325 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "461 KiB"
+      "limit": "371 KiB"
     }
   ],
   "title": "Ant Design",

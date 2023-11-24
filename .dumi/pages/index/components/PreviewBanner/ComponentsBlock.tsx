@@ -19,6 +19,7 @@ import {
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 
+import Tilt from './Tilt';
 import useLocale from '../../../../hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
@@ -79,7 +80,7 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       flex-direction: column;
       row-gap: ${gap}px;
-      opacity: 0.65;
+      opacity: 0.8;
     `,
 
     flex: css`
@@ -117,7 +118,11 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const { styles } = useStyle();
 
   return (
-    <div className={classNames(className, styles.holder)} style={style}>
+    <Tilt
+      options={{ max: 20, glare: true, scale: 1 }}
+      className={classNames(className, styles.holder)}
+      style={style}
+    >
       <ModalPanel title="Ant Design 5.0" width="100%">
         {locale.text}
       </ModalPanel>
@@ -252,7 +257,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
       <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
 
       <Alert message="Ant Design love you!" type="success" />
-    </div>
+    </Tilt>
   );
 };
 
