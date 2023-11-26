@@ -16,10 +16,10 @@ import { CustomSelect, SelectContext } from './Select';
 import type { SelectContextProps } from './Select';
 import useStyle from './style';
 
-export interface PaginationProps extends RcPaginationProps {
+export interface PaginationProps extends Omit<RcPaginationProps, 'showSizeChanger'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
-  showSearch?: boolean;
+  showSizeChanger: boolean | { showSearch?: boolean };
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
@@ -49,7 +49,6 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     selectComponentClass,
     responsive,
     showSizeChanger,
-    showSearch = true,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -60,7 +59,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
+  const mergedShowSizeChanger =
+    typeof showSizeChanger === 'boolean' ? showSizeChanger : pagination.showSizeChanger;
 
   const iconsProps = React.useMemo<Record<PropertyKey, React.ReactNode>>(() => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
@@ -127,9 +127,9 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const memoizedContextValue = React.useMemo<SelectContextProps>(
     () => ({
       size: isSmall ? 'small' : 'middle',
-      showSearch,
+      showSearch: typeof showSizeChanger === 'boolean' ? true : showSizeChanger?.showSearch ?? true,
     }),
-    [showSearch, isSmall],
+    [showSizeChanger, isSmall],
   );
 
   return wrapSSR(

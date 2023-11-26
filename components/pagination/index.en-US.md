@@ -50,12 +50,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - |  |
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
-| showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean | - |  |
+| showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean \| { showSearch: boolean } | - |  |
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
 | simple | Whether to use simple mode | boolean | - |  |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` |  |
-| showSearch | Configuration of page number selector is searchable | boolean | true |  |
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
 | onShowSizeChange | Called when `pageSize` is changed | function(current, size) | - |  |
