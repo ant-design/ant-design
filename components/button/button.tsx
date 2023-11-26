@@ -260,6 +260,7 @@ const InternalButton: React.ForwardRefRenderFunction<
         className={classNames(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
+        href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}

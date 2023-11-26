@@ -1081,7 +1081,6 @@ exports[`renders components/button/demo/disabled.tsx extend context correctly 1`
     </a>
     <a
       class="ant-btn ant-btn-primary ant-btn-disabled"
-      href="https://ant.design/index-cn"
       tabindex="-1"
     >
       <span>

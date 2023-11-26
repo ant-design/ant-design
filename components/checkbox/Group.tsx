@@ -18,6 +18,7 @@ export interface CheckboxOptionType {
   title?: string;
   id?: string;
   onChange?: (e: CheckboxChangeEvent) => void;
+  required?: boolean;
 }
 
 export interface AbstractCheckboxGroupProps {
@@ -126,6 +127,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
           style={option.style}
           title={option.title}
           id={option.id}
+          required={option.required}
         >
           {option.label}
         </Checkbox>

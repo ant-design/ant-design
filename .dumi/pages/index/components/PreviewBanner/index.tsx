@@ -7,7 +7,6 @@ import useLocale from '../../../../hooks/useLocale';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
 import { GroupMask } from '../Group';
-import useMouseTransform from './useMouseTransform';
 
 const ComponentsBlock = React.lazy(() => import('./ComponentsBlock'));
 
@@ -28,7 +27,6 @@ const locales = {
 const useStyle = () => {
   const { direction } = React.useContext(ConfigProvider.ConfigContext);
   const isRTL = direction === 'rtl';
-
   return createStyles(({ token, css, cx }) => {
     const textShadow = `0 0 3px ${token.colorBgContainer}`;
 
@@ -37,7 +35,9 @@ const useStyle = () => {
       inset: 0;
       backdrop-filter: blur(4px);
       opacity: 1;
-      transition: opacity 1s ease;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 1s ease;
+      pointer-events: none;
     `);
 
     return {
@@ -114,10 +114,8 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
-  const [componentsBlockStyle, mouseEvents] = useMouseTransform();
-
   return (
-    <GroupMask {...mouseEvents}>
+    <GroupMask>
       {/* Image Left Top */}
       <img
         style={{ position: 'absolute', left: isMobile ? -120 : 0, top: 0, width: 240 }}
@@ -134,7 +132,11 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
       <div className={styles.holder}>
         {/* Mobile not show the component preview */}
         <Suspense fallback={null}>
-          {!isMobile && <ComponentsBlock className={styles.block} style={componentsBlockStyle} />}
+          {isMobile ? null : (
+            <div className={styles.block}>
+              <ComponentsBlock />
+            </div>
+          )}
         </Suspense>
         <div className={styles.mask} />
 
