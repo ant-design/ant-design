@@ -19,7 +19,7 @@ import useStyle from './style';
 export interface PaginationProps extends Omit<RcPaginationProps, 'showSizeChanger'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
-  showSizeChanger: boolean | { showSearch?: boolean };
+  showSizeChanger?: boolean | { showSearch?: boolean };
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
