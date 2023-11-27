@@ -4,7 +4,7 @@ name: Visual Regression Persist Finish
 
 on:
   workflow_run:
-    workflows: ["name: Visual Regression Persist Start"]
+    workflows: ["Visual Regression Persist Start"]
     types:
       - completed
 
