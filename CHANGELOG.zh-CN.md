@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.11.5
+
+`2023-11-27`
+
+- 🐞 [MISC] 修复打包 `dist` 产物错误。[#46103](https://github.com/ant-design/ant-design/pull/46103) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 DatePicker 禁用状态下悬浮样式。[#45940](https://github.com/ant-design/ant-design/pull/45940) [@crazyair](https://github.com/crazyair)
+
 ## 5.11.4
 
 `2023-11-24`
