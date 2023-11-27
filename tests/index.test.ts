@@ -10,8 +10,10 @@ describe('antd dist files', () => {
   it('exports modules correctly', () => {
     let antd;
     if (testDist) {
+      // eslint-disable-next-line import/no-unresolved
       antd = require('../dist/antd');
     } else if (testDistMin) {
+      // eslint-disable-next-line import/no-unresolved
       antd = require('../dist/antd.min');
     } else {
       antd = require('../components');
