@@ -693,6 +693,9 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         transition: 'all 0.3s',
         [`${tabCls}-icon`]: {
           marginInlineEnd: token.marginXXS,
+          '&:only-child': {
+            marginInlineEnd: 0,
+          },
         },
       },
       '&-remove': {
