@@ -1,13 +1,21 @@
+/* eslint-disable global-require */
 import pkg from '../package.json';
 
 const testDist = process.env.LIB_DIR === 'dist';
+const testDistMin = process.env.LIB_DIR === 'dist-min';
 
 describe('antd dist files', () => {
   // https://github.com/ant-design/ant-design/issues/1638
   // https://github.com/ant-design/ant-design/issues/1968
   it('exports modules correctly', () => {
-    // eslint-disable-next-line global-require,import/no-unresolved
-    const antd = testDist ? require('../dist/antd') : require('../components');
+    let antd;
+    if (testDist) {
+      antd = require('../dist/antd');
+    } else if (testDistMin) {
+      antd = require('../dist/antd.min');
+    } else {
+      antd = require('../components');
+    }
     expect(Object.keys(antd)).toMatchSnapshot();
   });
 

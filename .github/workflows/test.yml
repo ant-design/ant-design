@@ -141,7 +141,7 @@ jobs:
     strategy:
       matrix:
         react: ['16', '17', '18']
-        module: ['dom', 'node', 'dist']
+        module: ['dom', 'node', 'dist', 'dist-min']
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
@@ -224,6 +224,13 @@ jobs:
         run: npm test
         env:
           LIB_DIR: dist
+
+      # dist min test
+      - name: dist test
+        if: ${{ matrix.module == 'dist-min' }}
+        run: npm test
+        env:
+          LIB_DIR: dist-min
     needs: [setup, dist]
 
   ############################ Test Coverage ###########################

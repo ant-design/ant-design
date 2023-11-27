@@ -14,6 +14,13 @@ if (process.env.LIB_DIR === 'dist') {
 
     return antd;
   });
+} else if (process.env.LIB_DIR === 'dist-min') {
+  jest.mock('../dist/antd.min', () => {
+    const antd = jest.requireActual('../dist/antd.min');
+    antd.theme.defaultConfig.hashed = false;
+
+    return antd;
+  });
 } else if (process.env.LIB_DIR === 'es') {
   jest.mock('../es/theme/internal', () => {
     const esTheme = jest.requireActual('../es/theme/internal');
