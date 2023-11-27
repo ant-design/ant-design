@@ -68,7 +68,9 @@ jobs:
 
       - name: generate image snapshots
         id: site
-        run: npm run test-image
+        run: |
+          npm run version
+          npm run test-image
         env:
           SITE_ENV: development
           NODE_OPTIONS: "--max_old_space_size=4096"
