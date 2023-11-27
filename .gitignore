@@ -61,7 +61,7 @@ components/version/token-meta.json
 __diff_output__/
 __image_snapshots__/
 /jest-stare
-/imageSnapshots
+/imageSnapshots*
 /imageDiffSnapshots
 
 .devcontainer*
