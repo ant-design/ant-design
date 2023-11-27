@@ -120,6 +120,15 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   boxShadow: 'none',
   cursor: 'not-allowed',
   opacity: 1,
+
+  '&:hover': {
+    ...genHoverStyle(
+      mergeToken<InputToken>(token, {
+        hoverBorderColor: token.colorBorder,
+        hoverBg: token.colorBgContainerDisabled,
+      }),
+    ),
+  },
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
@@ -210,7 +219,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-  [`&:hover:not(${token.componentCls}-disabled)`]: {
+  '&:hover': {
     ...genHoverStyle(token),
   },
 
@@ -640,7 +649,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
   return {
     [`${componentCls}-affix-wrapper`]: {
-      ...genBasicInputStyle({ ...token, componentCls: `${componentCls}-affix-wrapper` }),
+      ...genBasicInputStyle(token),
       display: 'inline-flex',
 
       [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {

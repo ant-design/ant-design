@@ -1,5 +1,4 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-
 import {
   genBasicInputStyle,
   genInputSmallStyle,
@@ -465,7 +464,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         verticalAlign: 'top',
 
         input: {
-          ...genBasicInputStyle({ ...token, componentCls: `${componentCls}-quick-jumper input` }),
+          ...genBasicInputStyle(token),
 
           width: token.controlHeightLG * 1.25,
           height: token.controlHeight,
