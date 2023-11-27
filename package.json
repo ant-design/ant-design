@@ -274,7 +274,7 @@
     "pretty-format": "^29.0.0",
     "prismjs": "^1.29.0",
     "progress": "^2.0.3",
-    "puppeteer": "^21.1.1",
+    "puppeteer": "^21.5.2",
     "qs": "^6.10.1",
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.3",
