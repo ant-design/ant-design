@@ -69,12 +69,10 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: generate image snapshots
-        id: site
         run: |
           npm run version
           npm run test-image
         env:
-          SITE_ENV: development
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       # Upload `imageSnapshots` on master
