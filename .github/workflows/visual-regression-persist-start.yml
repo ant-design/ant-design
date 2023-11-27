@@ -48,7 +48,9 @@ jobs:
   test-image:
     name: test image
     runs-on: ubuntu-latest
-    container: ghcr.io/puppeteer/puppeteer:21.5.2
+    container:
+      image: ghcr.io/puppeteer/puppeteer:21.5.2
+      options: --user root
     needs: setup
     steps:
       - name: checkout
