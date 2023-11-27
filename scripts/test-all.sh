@@ -75,6 +75,14 @@ else
   echo "[TEST ALL] dist test...skip"
 fi
 
+if ! has_arg '--skip-dist' "$@"; then
+  echo "[TEST ALL] dist-min test"
+  echo "[TEST ALL] dist-min test" > ~test-all.txt
+  LIB_DIR=dist-min npm test -- --bail
+else
+  echo "[TEST ALL] dist test...skip"
+fi
+
 if ! has_arg '--skip-es' "$@"; then
   echo "[TEST ALL] test es"
   echo "[TEST ALL] test es" > ~test-all.txt
