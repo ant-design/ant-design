@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.11.4",
+  "version": "5.11.5",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -164,7 +164,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.2",
     "@ant-design/happy-work-theme": "^1.0.0",
-    "@ant-design/tools": "^18.0.0",
+    "@ant-design/tools": "^18.0.2",
     "@antv/g6": "^4.8.23",
     "@argos-ci/core": "^1.3.0",
     "@babel/eslint-plugin": "^7.22.10",
@@ -258,7 +258,7 @@
     "jest-image-snapshot": "^6.2.0",
     "jest-puppeteer": "^9.0.1",
     "jquery": "^3.7.1",
-    "jsdom": "^22.1.0",
+    "jsdom": "^23.0.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^15.1.0",
@@ -306,9 +306,9 @@
     "stylelint-prettier": "^4.1.0",
     "sylvanas": "^0.6.1",
     "terser": "^5.24.0",
-    "tsx": "^4.4.0",
-    "typedoc": "^0.25.3",
-    "typescript": "~5.2.2",
+    "tsx": "^4.6.0",
+    "typedoc": "^0.25.4",
+    "typescript": "~5.3.0",
     "vanilla-jsoneditor": "^0.19.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.89.0",
