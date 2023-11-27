@@ -7,25 +7,46 @@ import chalk from 'chalk';
 import _ from 'lodash';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
+import sharp from 'sharp';
 
-const compareScreenshots = (
+const compareScreenshots = async (
   baseImgPath: string,
   currentImgPath: string,
   diffImage: string,
-): number => {
-  const baseImg = PNG.sync.read(fs.readFileSync(baseImgPath));
-  const currentImg = PNG.sync.read(fs.readFileSync(currentImgPath));
+): Promise<number> => {
+  const baseImgBuf = await sharp(baseImgPath).toBuffer();
+  const currentImgBuf = await sharp(currentImgPath).toBuffer();
 
-  const { width, height } = baseImg;
-  const diff = new PNG({ width, height });
+  const basePng = PNG.sync.read(baseImgBuf);
+  const targetWidth = basePng.width;
+  const targetHeight = basePng.height;
 
-  const mismatchedPixels = pixelmatch(baseImg.data, currentImg.data, diff.data, width, height, {
-    threshold: 0.1,
-  });
+  const comparePng = PNG.sync.read(
+    await sharp(currentImgBuf)
+      .resize({
+        width: targetWidth,
+        height: targetHeight,
+        fit: sharp.fit.contain,
+        background: { r: 255, g: 255, b: 255, alpha: 0 },
+      })
+      .png()
+      .toBuffer(),
+  );
 
-  diff.pack().pipe(fs.createWriteStream(diffImage));
+  const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
-  return (mismatchedPixels / (width * height)) * 100;
+  const mismatchedPixels = pixelmatch(
+    basePng.data,
+    comparePng.data,
+    diffPng.data,
+    targetWidth,
+    targetHeight,
+    { threshold: 0.1, diffMask: false },
+  );
+
+  diffPng.pack().pipe(fs.createWriteStream(diffImage));
+
+  return (mismatchedPixels / (targetWidth * targetHeight)) * 100;
 };
 
 const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('.png'));
@@ -69,11 +90,13 @@ async function boot() {
       continue;
     }
 
-    const mismatchedPxPercent = compareScreenshots(baseImgPath, currentImgPath, diffImgPath);
+    const mismatchedPxPercent = await compareScreenshots(baseImgPath, currentImgPath, diffImgPath);
 
     if (mismatchedPxPercent > 0) {
       console.log(
-        chalk.yellow(`Mismatched pixels for ${file}: ${mismatchedPxPercent.toFixed(2)}%\n`),
+        'Mismatched pixels for:',
+        chalk.yellow(file),
+        `${mismatchedPxPercent.toFixed(2)}%\n`,
       );
     }
   }
