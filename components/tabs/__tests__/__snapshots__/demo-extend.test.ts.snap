@@ -3244,7 +3244,9 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
             role="tab"
             tabindex="0"
           >
-            <span>
+            <span
+              class="ant-tabs-tab-icon"
+            >
               <span
                 aria-label="apple"
                 class="anticon anticon-apple"
@@ -3264,6 +3266,8 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
                   />
                 </svg>
               </span>
+            </span>
+            <span>
               Tab 1
             </span>
           </div>
@@ -3280,7 +3284,9 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
             role="tab"
             tabindex="0"
           >
-            <span>
+            <span
+              class="ant-tabs-tab-icon"
+            >
               <span
                 aria-label="android"
                 class="anticon anticon-android"
@@ -3300,6 +3306,8 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 1`] = `
                   />
                 </svg>
               </span>
+            </span>
+            <span>
               Tab 2
             </span>
           </div>
