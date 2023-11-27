@@ -93,7 +93,7 @@ export const BannerRecommendsFallback: FC = () => {
 
   return isMobile ? (
     <Carousel className={styles.carousel}>
-      {list.map((extra, index) => (
+      {list.map((_, index) => (
         <div key={index}>
           <Skeleton active style={{ padding: '0 24px' }} />
         </div>
@@ -114,8 +114,8 @@ export default function BannerRecommends() {
   const { isMobile } = React.useContext(SiteContext);
   const data = useSiteData();
   const extras = data?.extras?.[lang];
-  const icons = data?.icons;
-  const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+  const icons = data?.icons || [];
+  const first3 = !extras || extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
 
   return (
     <div>
