@@ -70,7 +70,7 @@ jobs:
         run: npm run test-image
         env:
           SITE_ENV: development
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       # Upload `imageSnapshots` on master
       - name: upload report artifact
