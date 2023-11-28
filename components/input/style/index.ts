@@ -278,6 +278,8 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     borderCollapse: 'separate',
     borderSpacing: 0,
 
+    '&-wrapper': {},
+
     // Undo padding and float of grid classes
     [`&[class*='col-']`]: {
       paddingInlineEnd: token.paddingXS,
