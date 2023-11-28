@@ -3,7 +3,7 @@ import { createStyles, css, useTheme } from 'antd-style';
 import classNames from 'classnames';
 import type { FC } from 'react';
 import { useContext } from 'react';
-import { Typography, Skeleton, Carousel } from 'antd';
+import { Typography, Skeleton, Carousel, Badge } from 'antd';
 import type { Extra, Icon } from './util';
 import SiteContext from '../../../theme/slots/SiteContext';
 import { getCarouselStyle, useSiteData } from './util';
@@ -27,7 +27,6 @@ const useStyle = createStyles(({ token }) => {
       padding-inline: ${token.paddingLG}px;
     `,
     cardItem: css`
-      width: 33%;
       &:hover {
         box-shadow: ${token.boxShadowCard};
       }
@@ -45,6 +44,9 @@ const useStyle = createStyles(({ token }) => {
       column-gap: ${token.paddingMD * 2}px;
       align-items: stretch;
       text-align: start;
+      > * {
+        width: calc((100% - ${token.marginXXL * 2}px) / 3);
+      }
     `,
     carousel,
   };
@@ -65,7 +67,7 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
   }
   const icon = icons.find((i) => i.name === extra.source);
 
-  return (
+  const card = (
     <a
       key={extra?.title}
       href={extra.href}
@@ -83,6 +85,16 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
       </div>
     </a>
   );
+
+  if (index === 0) {
+    return (
+      <Badge.Ribbon text="HOT" color="red">
+        {card}
+      </Badge.Ribbon>
+    );
+  }
+
+  return card;
 };
 
 export const BannerRecommendsFallback: FC = () => {

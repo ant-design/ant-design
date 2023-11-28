@@ -46,7 +46,6 @@ const Homepage: React.FC = () => {
   return (
     <section>
       <PreviewBanner>
-        {/* 文档很久没更新了，先藏起来 */}
         <Suspense fallback={<BannerRecommendsFallback />}>
           <BannerRecommends />
         </Suspense>
