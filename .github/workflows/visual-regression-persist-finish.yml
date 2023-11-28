@@ -101,7 +101,7 @@ jobs:
           git config user.email "<>"
 
           git add .
-          git cm -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
+          git commit -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
 
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
             xargs -L1 git config --unset-all
