@@ -188,6 +188,29 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             [`${componentCls}-wrapper-disabled > ${componentCls}-group-addon`]: {
               ...genDisabledStyle(token),
             },
+
+            // Fix the issue of using icons in Space Compact mode
+            // https://github.com/ant-design/ant-design/issues/45764
+            [`&:not(${componentCls}-compact-first-item):not(${componentCls}-compact-last-item)${componentCls}-compact-item`]:
+              {
+                [`${componentCls}, ${componentCls}-group-addon`]: {
+                  borderRadius: 0,
+                },
+              },
+
+            [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-first-item`]: {
+              [`${componentCls}, ${componentCls}-group-addon`]: {
+                borderStartEndRadius: 0,
+                borderEndEndRadius: 0,
+              },
+            },
+
+            [`&:not(${componentCls}-compact-first-item)${componentCls}-compact-last-item`]: {
+              [`${componentCls}, ${componentCls}-group-addon`]: {
+                borderStartStartRadius: 0,
+                borderEndStartRadius: 0,
+              },
+            },
           },
         },
 
