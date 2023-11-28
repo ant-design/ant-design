@@ -4,7 +4,7 @@ import { createStyles, css } from 'antd-style';
 
 import useDark from '../../hooks/useDark';
 import useLocale from '../../hooks/useLocale';
-// import BannerRecommends, { BannerRecommendsFallback } from './components/BannerRecommends';
+import BannerRecommends, { BannerRecommendsFallback } from './components/BannerRecommends';
 import PreviewBanner from './components/PreviewBanner';
 import Group from './components/Group';
 
@@ -46,10 +46,9 @@ const Homepage: React.FC = () => {
   return (
     <section>
       <PreviewBanner>
-        {/* 文档很久没更新了，先藏起来 */}
-        {/* <Suspense fallback={<BannerRecommendsFallback />}>
+        <Suspense fallback={<BannerRecommendsFallback />}>
           <BannerRecommends />
-        </Suspense> */}
+        </Suspense>
       </PreviewBanner>
 
       <div>
