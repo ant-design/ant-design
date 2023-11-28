@@ -1,9 +1,9 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Avatar, Segmented, Space } from 'antd';
+import { Avatar, Flex, Segmented } from 'antd';
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Flex gap="small" align="flex-start" vertical>
     <Segmented
       options={[
         {
@@ -75,7 +75,7 @@ const App: React.FC = () => (
         },
       ]}
     />
-  </Space>
+  </Flex>
 );
 
 export default App;

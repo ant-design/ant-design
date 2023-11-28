@@ -35,14 +35,14 @@ const useStyle = () => {
       inset: 0;
       backdrop-filter: blur(4px);
       opacity: 1;
-      background: rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.2);
       transition: all 1s ease;
       pointer-events: none;
     `);
 
     return {
       holder: css`
-        height: 520px;
+        height: 640px;
         display: flex;
         flex-direction: column;
         align-items: center;

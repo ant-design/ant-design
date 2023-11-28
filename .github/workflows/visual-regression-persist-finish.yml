@@ -1,10 +1,10 @@
 # Each `push on master` will persist image-snapshots that used as compare target in visual regression.
 
-name: Visual Regression Persist Finish
+name: 👁️ Visual Regression Persist Finish
 
 on:
   workflow_run:
-    workflows: ["name: Visual Regression Persist Start"]
+    workflows: ["👁️ Visual Regression Persist Start"]
     types:
       - completed
 
@@ -76,10 +76,10 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: image-snapshots
-          path: imageSnapshots
+          path: ./
 
       - name: Persist to Snapshot Repo
-        if: github.event.pull_request.head.ref == 'master'
+        if: github.ref_name == 'master'
         id: persist
         continue-on-error: true
         env:
@@ -87,21 +87,27 @@ jobs:
         # should push to snapshot repo firstly
         # push the single folder to the repo
         run: |
-          git config user.name "Antd Visual-Regression Bot"
-          git config user.email "<>"
+          git clone https://$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git
 
-          git clone git@github.com:ant-design/antd-image-snapshots.git
+          echo "✅ Clone Finished"
+
           rm antd-image-snapshots/*.txt
-          rm -rf antd-image-snapshots/imageSnapshots
-
           mv visual-regression-ref.txt antd-image-snapshots/
-          mv ./imageSnapshots antd-image-snapshots/
+
+          rm -rf antd-image-snapshots/imageSnapshots/*
+          tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
+
+          echo "✅ Changes Finished"
 
           cd antd-image-snapshots
-          git add .
-          git cm -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
 
-          git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
-            xargs -L1 git config --unset-all
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
 
-          git push --prune https://token:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
+          git commit -a -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
+
+          echo "✅ Commit Finished"
+
+          git push --prune https://vaugsX:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
+
+          echo "✅ Push Finished"
