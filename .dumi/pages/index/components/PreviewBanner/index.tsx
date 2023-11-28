@@ -42,7 +42,7 @@ const useStyle = () => {
 
     return {
       holder: css`
-        height: 520px;
+        height: 640px;
         display: flex;
         flex-direction: column;
         align-items: center;
