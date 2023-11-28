@@ -108,6 +108,6 @@ jobs:
 
           echo "✅ Commit Finished"
 
-          git push --prune https://token:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
+          git push --prune https://vaugsX:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
 
           echo "✅ Push Finished"
