@@ -55,7 +55,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         rowGap: token.marginXS,
       },
 
-      [`${confirmComponentCls}-paragraph:nth-child(2)`]: {
+      [`${confirmComponentCls}-paragraph:nth-last-child(1)`]: {
         maxWidth: `calc(100% - ${token.modalConfirmIconSize + token.marginSM}px)`,
       },
 
