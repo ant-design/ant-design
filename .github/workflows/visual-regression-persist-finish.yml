@@ -79,7 +79,7 @@ jobs:
           path: imageSnapshots
 
       - name: Persist to Snapshot Repo
-        if: github.event.push.head.ref == 'master'
+        if: github.ref_name == 'master'
         id: persist
         continue-on-error: true
         env:
