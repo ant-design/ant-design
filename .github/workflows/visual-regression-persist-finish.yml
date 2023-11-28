@@ -89,11 +89,15 @@ jobs:
         run: |
           git clone https://$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git
 
+          echo "✅ Clone Finished"
+
           rm antd-image-snapshots/*.txt
           mv visual-regression-ref.txt antd-image-snapshots/
 
           rm -rf antd-image-snapshots/imageSnapshots/*
           tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
+
+          echo "✅ Changes Finished"
 
           cd antd-image-snapshots
 
@@ -102,6 +106,8 @@ jobs:
 
           git commit -a -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
 
-          echo "Commit Finished"
+          echo "✅ Commit Finished"
 
           git push --prune https://token:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
+
+          echo "✅ Push Finished"
