@@ -87,7 +87,7 @@ jobs:
         # should push to snapshot repo firstly
         # push the single folder to the repo
         run: |
-          git clone git@github.com:ant-design/antd-image-snapshots.git
+          git clone https://$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git
 
           rm antd-image-snapshots/*.txt
           mv visual-regression-ref.txt antd-image-snapshots/
