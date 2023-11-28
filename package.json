@@ -128,7 +128,7 @@
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.20.0",
     "rc-checkbox": "~3.1.0",
-    "rc-collapse": "~3.7.1",
+    "rc-collapse": "~3.7.2",
     "rc-dialog": "~9.3.4",
     "rc-drawer": "~6.5.2",
     "rc-dropdown": "~4.1.0",
