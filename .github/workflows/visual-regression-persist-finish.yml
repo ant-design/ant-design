@@ -92,13 +92,10 @@ jobs:
           rm antd-image-snapshots/*.txt
           mv visual-regression-ref.txt antd-image-snapshots/
 
-          rm -rf antd-image-snapshots/imageSnapshots
+          rm -rf antd-image-snapshots/imageSnapshots/*
           tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
 
-          cd antd-image-snapshots/imageSnapshots
-          ls
-
-          cd ../
+          cd antd-image-snapshots
 
           git config user.name "Antd Visual-Regression Bot"
           git config user.email "<>"
