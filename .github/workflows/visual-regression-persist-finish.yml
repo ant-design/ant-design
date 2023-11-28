@@ -1,10 +1,10 @@
 # Each `push on master` will persist image-snapshots that used as compare target in visual regression.
 
-name: Visual Regression Persist Finish
+name: 👁️ Visual Regression Persist Finish
 
 on:
   workflow_run:
-    workflows: ["Visual Regression Persist Start"]
+    workflows: ["👁️ Visual Regression Persist Start"]
     types:
       - completed
 
