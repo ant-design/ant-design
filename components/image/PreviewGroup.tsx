@@ -15,6 +15,7 @@ import { getTransitionName } from '../_util/motion';
 
 // CSSINJS
 import useStyle from './style';
+import { useZIndex } from '../_util/hooks/useZIndex';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
@@ -40,6 +41,11 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
+  const [zIndex] = useZIndex(
+    'ImagePreview',
+    typeof preview === 'object' ? preview.zIndex : undefined,
+  );
+
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
       return preview;
@@ -52,6 +58,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       rootClassName: mergedRootClassName,
+      zIndex,
     };
   }, [preview]);
 

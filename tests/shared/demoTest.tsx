@@ -11,6 +11,7 @@ import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
+import { ConfigProvider } from 'antd';
 
 export { rootPropsTest };
 
@@ -60,7 +61,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+        Demo = (
+          <ConfigProvider theme={{ hashed: false }}>
+            <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+          </ConfigProvider>
+        );
 
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.
