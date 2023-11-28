@@ -663,6 +663,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     spy.mockRestore();
   });
 
+  it('bodyStyle without icon', async () => {
+    resetWarned();
+    await open({ icon: null });
+
+    expect($$('.ant-modal-confirm-body')[0].childElementCount).toEqual(1);
+  });
+
   it('styles', async () => {
     resetWarned();
     await open({ styles: { body: { width: 500 } } });
