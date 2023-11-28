@@ -97,7 +97,11 @@ jobs:
           rm -rf antd-image-snapshots/imageSnapshots
           tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
 
-          cd antd-image-snapshots
+          cd antd-image-snapshots/imageSnapshots
+          ls
+
+          cd ../
+
           git add .
           git cm -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
 
