@@ -76,7 +76,7 @@ jobs:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
           name: image-snapshots
-          path: imageSnapshots
+          path: ./
 
       - name: Persist to Snapshot Repo
         if: github.ref_name == 'master'
@@ -92,10 +92,10 @@ jobs:
 
           git clone git@github.com:ant-design/antd-image-snapshots.git
           rm antd-image-snapshots/*.txt
-          rm -rf antd-image-snapshots/imageSnapshots
-
           mv visual-regression-ref.txt antd-image-snapshots/
-          mv ./imageSnapshots antd-image-snapshots/
+
+          rm -rf antd-image-snapshots/imageSnapshots
+          tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
 
           cd antd-image-snapshots
           git add .

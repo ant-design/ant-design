@@ -70,6 +70,7 @@ jobs:
           node node_modules/puppeteer/install.mjs
           npm run version
           npm run test-image
+          tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
@@ -78,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: image-snapshots
-          path: imageSnapshots/
+          path: imageSnapshots.tar.gz
 
       # Upload git ref for next workflow `visual-regression-persist-finish` use
       - name: Save persist key
