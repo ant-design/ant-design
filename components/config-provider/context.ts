@@ -122,7 +122,7 @@ export interface ConfigConsumerProps {
     validateMessages?: ValidateMessages;
   };
   theme?: ThemeConfig;
-  select?: ComponentStyleConfig & {
+  select?: ComponentStyleConfig & SelectProps  & {
     showSearch?: boolean;
   };
   alert?: ComponentStyleConfig;
