@@ -100,10 +100,8 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git add .
-          git commit -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
+          git commit -a -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
 
-          git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
-            xargs -L1 git config --unset-all
+          echo "Commit Finished"
 
-          git push --prune https://token:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/* +refs/tags/*:refs/tags/*
+          git push --prune https://token:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
