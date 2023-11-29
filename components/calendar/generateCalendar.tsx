@@ -15,8 +15,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 type InjectDefaultProps<Props> = Omit<
   Props,

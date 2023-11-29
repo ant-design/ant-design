@@ -4,8 +4,7 @@ import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';

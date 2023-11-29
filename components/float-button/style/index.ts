@@ -4,7 +4,7 @@ import { resetComponent } from '../../style';
 import { initFadeMotion } from '../../style/motion/fade';
 import { initMotion } from '../../style/motion/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getOffset from '../util';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -370,7 +370,7 @@ export const prepareComponentToken: GetDefaultToken<'FloatButton'> = (token) => 
   dotOffsetInSquare: getOffset(token.borderRadiusLG),
 });
 
-export default genComponentStyleHook<'FloatButton'>(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'FloatButton',
   (token) => {
     const {

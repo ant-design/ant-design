@@ -4,7 +4,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -182,7 +182,7 @@ export const prepareComponentToken: GetDefaultToken<'Divider'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Divider',
   (token) => {
     const dividerToken = mergeToken<DividerToken>(token, {
@@ -193,4 +193,9 @@ export default genComponentStyleHook(
     return [genSharedDividerStyle(dividerToken)];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      orientationMargin: true,
+    },
+  },
 );

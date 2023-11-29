@@ -11,8 +11,7 @@ import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
 

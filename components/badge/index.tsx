@@ -11,8 +11,7 @@ import { ConfigContext } from '../config-provider';
 import type { PresetColorKey } from '../theme/internal';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 

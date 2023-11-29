@@ -9,7 +9,7 @@ import {
 } from '../../date-picker/style';
 import { resetComponent } from '../../style';
 import type { FullToken, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -225,7 +225,7 @@ export const prepareComponentToken: GetDefaultToken<'Calendar'> = (token) => ({
   ...initPanelComponentToken(token),
 });
 
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;

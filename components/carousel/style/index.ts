@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -355,7 +355,7 @@ export const prepareComponentToken: GetDefaultToken<'Carousel'> = () => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Carousel',
   (token) => {
     const { controlHeightLG, controlHeightSM } = token;

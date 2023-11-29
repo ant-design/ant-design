@@ -32,8 +32,7 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
-import useCSSVar from './style/cssVar';
-import useStyle from './style/index';
+import { useStyle, useCSSVar } from './style/index';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<

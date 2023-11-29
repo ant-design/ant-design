@@ -35,8 +35,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content

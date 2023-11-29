@@ -19,8 +19,7 @@ import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const Placements = [
@@ -34,7 +33,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;

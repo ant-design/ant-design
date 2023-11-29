@@ -6,8 +6,7 @@ import { isPresetSize } from '../_util/gapSize';
 import { ConfigContext } from '../config-provider';
 import type { ConfigConsumerProps } from '../config-provider';
 import type { FlexProps } from './interface';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import createFlexClassNames from './utils';
 
 const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {

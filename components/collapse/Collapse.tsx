@@ -15,8 +15,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 /** @deprecated Please use `start` | `end` instead */
 type ExpandIconPositionLegacy = 'left' | 'right';

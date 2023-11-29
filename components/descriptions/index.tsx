@@ -14,8 +14,7 @@ import useRow from './hooks/useRow';
 import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 interface CompoundedComponent {
   Item: typeof DescriptionsItem;

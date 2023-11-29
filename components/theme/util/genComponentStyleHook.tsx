@@ -303,7 +303,7 @@ export type CSSVarRegisterProps = {
 
 export const genCSSVarRegister = <C extends OverrideComponent>(
   component: C,
-  getDefaultToken: GetDefaultToken<C>,
+  getDefaultToken?: GetDefaultToken<C>,
   options?: {
     unitless?: {
       [key in ComponentTokenKey<C>]: boolean;
@@ -375,7 +375,7 @@ export const genCSSVarRegister = <C extends OverrideComponent>(
 export const genStyleHooks = <C extends OverrideComponent>(
   component: C,
   styleFn: GenStyleFn<C>,
-  getDefaultToken: GetDefaultToken<C>,
+  getDefaultToken?: GetDefaultToken<C>,
   options?: {
     resetStyle?: boolean;
     deprecatedTokens?: [ComponentTokenKey<C>, ComponentTokenKey<C>][];

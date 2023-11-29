@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
@@ -234,7 +234,7 @@ export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Drawer',
   (token) => {
     const drawerToken = mergeToken<DrawerToken>(token, {});

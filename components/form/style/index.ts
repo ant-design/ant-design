@@ -1,13 +1,13 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
-import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken {
   /**
@@ -570,7 +570,7 @@ export const prepareToken: (
   return formToken;
 };
 
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Form',
   (token, { rootPrefixCls }) => {
     const formToken = prepareToken(token, rootPrefixCls);

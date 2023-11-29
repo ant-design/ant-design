@@ -11,8 +11,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;

@@ -7,8 +7,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
 import GroupContext from './GroupContext';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export type CheckboxValueType = string | number | boolean;
 

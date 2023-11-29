@@ -5,8 +5,7 @@ import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;

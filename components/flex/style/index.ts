@@ -1,7 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { alignItemsValues, flexWrapValues, justifyContentValues } from '../utils';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -97,7 +97,7 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'Flex'> = () => ({});
 
-export default genComponentStyleHook<'Flex'>(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Flex',
   (token) => {
     const { paddingXS, padding, paddingLG } = token;

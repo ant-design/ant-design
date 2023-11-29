@@ -19,8 +19,7 @@ import { FormItemInputContext } from '../../form/context';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
-import useStyle from '../style';
-import useCSSVar from '../style/cssVar';
+import { useStyle, useCSSVar } from '../style';
 import {
   getPlaceholder,
   getTimeProps,

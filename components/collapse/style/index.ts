@@ -4,7 +4,7 @@ import { unit } from '@ant-design/cssinjs';
 import { resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -311,7 +311,7 @@ export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => ({
   contentBg: token.colorBgContainer,
 });
 
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Collapse',
   (token) => {
     const collapseToken = mergeToken<CollapseToken>(token, {

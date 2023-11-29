@@ -11,16 +11,14 @@ import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-// CSSINJS
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = typeof SizeTypes[number];
+type sizeType = (typeof SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;

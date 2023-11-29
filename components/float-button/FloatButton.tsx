@@ -17,8 +17,7 @@ import type {
   FloatButtonRef,
   FloatButtonShape,
 } from './interface';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const floatButtonPrefixCls = 'float-btn';

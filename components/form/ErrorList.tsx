@@ -8,8 +8,7 @@ import { FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
 
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const EMPTY_LIST: React.ReactNode[] = [];

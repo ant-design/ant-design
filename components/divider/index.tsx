@@ -3,8 +3,7 @@ import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export interface DividerProps {
   prefixCls?: string;

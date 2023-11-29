@@ -11,8 +11,7 @@ import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {

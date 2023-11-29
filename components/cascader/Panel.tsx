@@ -9,9 +9,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
-import useStyle from './style';
+import { useStyle, useCSSVar } from './style';
 import usePanelStyle from './style/panel';
-import useCSSVar from './style/cssVar';
 
 export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
 

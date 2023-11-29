@@ -6,8 +6,7 @@ import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObser
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
-import { useRowStyle } from './style';
-import { useRowCssVar } from './style/cssVar';
+import { useRowStyle, useRowCSSVar } from './style';
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
 const RowJustify = [
@@ -27,12 +26,12 @@ type ResponsiveLike<T> = {
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-type ResponsiveAligns = ResponsiveLike<typeof RowAligns[number]>;
-type ResponsiveJustify = ResponsiveLike<typeof RowJustify[number]>;
+type ResponsiveAligns = ResponsiveLike<(typeof RowAligns)[number]>;
+type ResponsiveJustify = ResponsiveLike<(typeof RowJustify)[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: typeof RowAligns[number] | ResponsiveAligns;
-  justify?: typeof RowJustify[number] | ResponsiveJustify;
+  align?: (typeof RowAligns)[number] | ResponsiveAligns;
+  justify?: (typeof RowJustify)[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
 }
@@ -149,7 +148,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
   const [, hashId] = useRowStyle(prefixCls);
-  const wrapCSSVar = useRowCssVar(prefixCls);
+  const wrapCSSVar = useRowCSSVar(prefixCls);
 
   const gutters = getGutter();
   const classes = classNames(

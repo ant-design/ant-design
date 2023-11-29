@@ -9,8 +9,7 @@ import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
