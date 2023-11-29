@@ -58,7 +58,7 @@ async function boot() {
   const currentImgDir = path.resolve(__dirname, '../imageSnapshots');
   const diffImgDir = path.resolve(__dirname, '../imageDiffSnapshots');
 
-  console.log(chalk.blue('⛳ Checking image snapshots with `git fetch origin master`'));
+  console.log(chalk.blue('⛳ Checking image snapshots with branch `master`'));
   console.log('\n');
 
   const baseImgFileList = readPngs(baseImgDir);
@@ -98,6 +98,8 @@ async function boot() {
         chalk.yellow(file),
         `${mismatchedPxPercent.toFixed(2)}%\n`,
       );
+    } else {
+      console.log('Passed for: %s\n', chalk.green(file));
     }
   }
 }
