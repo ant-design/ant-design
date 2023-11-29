@@ -18,7 +18,6 @@ import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
@@ -122,9 +121,8 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
-  const [, hashId] = useStyle(prefixCls, !override);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================

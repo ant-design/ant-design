@@ -3,7 +3,7 @@ import type { CSSProperties } from 'react';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 import getColumnsStyle from './columns';
 
 export interface ComponentToken {
@@ -104,8 +104,4 @@ export const prepareComponentToken = (token: GlobalToken) => {
   };
 };
 
-export default genComponentStyleHook(
-  'Cascader',
-  (token) => [genBaseStyle(token)],
-  prepareComponentToken,
-);
+export default genStyleHooks('Cascader', (token) => [genBaseStyle(token)], prepareComponentToken);

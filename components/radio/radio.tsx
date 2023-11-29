@@ -12,7 +12,6 @@ import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
@@ -49,9 +48,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const prefixCls = isButtonType ? `${radioPrefixCls}-button` : radioPrefixCls;
 
   // Style
-  const [, hashId] = useStyle(radioPrefixCls);
   const rootCls = useCSSVarCls(radioPrefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(radioPrefixCls, rootCls);
 
   const radioProps: RadioProps = { ...restProps };
 

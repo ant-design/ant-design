@@ -18,7 +18,6 @@ import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
 import useStyle from '../style';
-import useCSSVar from '../style/cssVar';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
@@ -32,7 +31,7 @@ interface FieldError {
 }
 
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
-export type ValidateStatus = typeof ValidateStatuses[number];
+export type ValidateStatus = (typeof ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
@@ -128,9 +127,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');

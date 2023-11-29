@@ -6,7 +6,6 @@ import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface GeneratorProps {
   suffixCls?: string;
@@ -84,8 +83,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
 
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {

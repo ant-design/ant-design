@@ -10,7 +10,6 @@ import type { DataNode, Key } from 'rc-tree/lib/interface';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import dropIndicatorRender from './utils/dropIndicator';
 import SwitcherIconCom from './utils/iconUtil';
 
@@ -194,8 +193,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     dropIndicatorRender,
   };
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {

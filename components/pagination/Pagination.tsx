@@ -13,7 +13,6 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import { MiddleSelect, MiniSelect } from './Select';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { useToken } from '../theme/internal';
 import BorderedStyle from './style/bordered';
 
@@ -58,8 +57,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 

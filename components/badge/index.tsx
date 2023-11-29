@@ -12,7 +12,6 @@ import type { PresetColorKey } from '../theme/internal';
 import Ribbon from './Ribbon';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 
@@ -77,8 +76,7 @@ const InternalBadge: React.ForwardRefRenderFunction<HTMLSpanElement, BadgeProps>
   const { getPrefixCls, direction, badge } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (

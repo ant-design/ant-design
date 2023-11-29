@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
@@ -145,7 +145,7 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
   defaultColor: token.colorText,
 });
 
-export default genComponentStyleHook<'Tag'>(
+export default genStyleHooks<'Tag'>(
   'Tag',
   (token) => {
     const tagToken = prepareToken(token);

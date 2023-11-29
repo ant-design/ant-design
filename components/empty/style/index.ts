@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -75,7 +75,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Empty', (token) => {
+export default genStyleHooks('Empty', (token) => {
   const { componentCls, controlHeightLG, calc } = token;
 
   const emptyToken: EmptyToken = mergeToken<EmptyToken>(token, {

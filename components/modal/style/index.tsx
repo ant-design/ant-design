@@ -4,7 +4,7 @@ import { genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { GlobalToken } from '../../theme';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn, TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import { unit } from '@ant-design/cssinjs';
 
@@ -400,7 +400,7 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   confirmBtnsMarginTop: token.wireframe ? token.marginLG : token.marginSM,
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Modal',
   (token) => {
     const modalToken = prepareToken(token);
@@ -413,4 +413,9 @@ export default genComponentStyleHook(
     ];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      titleLineHeight: true,
+    },
+  },
 );

@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
 // Direction naming standard:
@@ -471,7 +471,7 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Slider',
   (token) => {
     const sliderToken = mergeToken<SliderToken>(token, {

@@ -9,7 +9,6 @@ import AvatarContext from './AvatarContext';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useCSSVar from './style/cssVar';
 
 interface ContextProps {
   children?: React.ReactNode;
@@ -62,9 +61,8 @@ const Group: React.FC<GroupProps> = (props) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const cls = classNames(
     groupPrefixCls,

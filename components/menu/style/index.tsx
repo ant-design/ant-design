@@ -1,18 +1,13 @@
 import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { CssUtil } from 'antd-style';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  UseComponentStyleResult,
-} from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
@@ -943,15 +938,10 @@ export const formatComponentToken: FormatComponentToken<'Menu'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
-  const useOriginHook = genComponentStyleHook(
+export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boolean = true) => {
+  const useStyle = genStyleHooks(
     'Menu',
     (token) => {
-      // Dropdown will handle menu style self. We do not need to handle this.
-      if (injectStyle === false) {
-        return [];
-      }
-
       const {
         colorBgElevated,
         colorPrimary,
@@ -1070,8 +1060,13 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         ['colorItemBgSelected', 'itemSelectedBg'],
       ],
       format: formatComponentToken,
+      // Dropdown will handle menu style self. We do not need to handle this.
+      injectStyle,
+      unitless: {
+        groupTitleLineHeight: true,
+      },
     },
   );
 
-  return useOriginHook(prefixCls);
+  return useStyle(prefixCls, rootCls);
 };

@@ -7,7 +7,7 @@ import getArrowStyle, {
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 import { unit } from '@ant-design/cssinjs';
@@ -282,7 +282,7 @@ export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   ...getArrowToken(token),
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Tour',
   (token) => {
     const { borderRadiusLG } = token;

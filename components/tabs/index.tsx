@@ -14,7 +14,6 @@ import type { SizeType } from '../config-provider/SizeContext';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import TabPane, { type TabPaneProps } from './TabPane';
 
@@ -55,10 +54,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
   const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {

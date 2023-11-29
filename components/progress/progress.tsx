@@ -13,11 +13,10 @@ import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
-export type ProgressType = typeof ProgressTypes[number];
+export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = Record<string, string>;
@@ -41,7 +40,7 @@ export interface ProgressProps extends ProgressAriaProps {
   type?: ProgressType;
   percent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
-  status?: typeof ProgressStatuses[number];
+  status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
@@ -85,7 +84,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     );
   }, [percent, props.success, props.successPercent]);
 
-  const progressStatus = React.useMemo<typeof ProgressStatuses[number]>(() => {
+  const progressStatus = React.useMemo<(typeof ProgressStatuses)[number]>(() => {
     if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
       return 'success';
     }
@@ -98,8 +97,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     progress: progressStyle,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {

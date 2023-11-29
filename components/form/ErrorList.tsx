@@ -9,7 +9,6 @@ import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
 
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const EMPTY_LIST: React.ReactNode[] = [];
@@ -56,9 +55,8 @@ const ErrorList: React.FC<ErrorListProps> = ({
 
   const baseClassName = `${prefixCls}-item-explain`;
 
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 

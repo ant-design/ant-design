@@ -1,8 +1,8 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -425,7 +425,7 @@ export const prepareComponentToken: GetDefaultToken<'List'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'List',
   (token) => {
     const listToken = mergeToken<ListToken>(token, {

@@ -10,7 +10,6 @@ import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';
@@ -110,8 +109,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>

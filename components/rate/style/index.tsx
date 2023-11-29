@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
 export type ComponentToken = {
@@ -135,7 +135,7 @@ export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
   starBg: token.colorFillContent,
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Rate',
   (token) => {
     const rateToken = mergeToken<RateToken>(token, {});

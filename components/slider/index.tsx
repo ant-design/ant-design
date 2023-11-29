@@ -10,7 +10,6 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export type SliderMarks = RcSliderProps['marks'];
 
@@ -159,8 +158,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const prefixCls = getPrefixCls('slider', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     className,

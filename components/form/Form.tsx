@@ -17,7 +17,6 @@ import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import ValidateMessagesContext from './validateMessagesContext';
 import type { FeedbackIcons } from './FormItem';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -105,9 +104,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const formClassName = classNames(
     prefixCls,

@@ -6,7 +6,6 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps, DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   extends React.HTMLAttributes<HTMLElement> {
@@ -65,8 +64,7 @@ const Typography = React.forwardRef<
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const componentClassName = classNames(
     prefixCls,

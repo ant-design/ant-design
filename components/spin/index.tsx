@@ -7,11 +7,10 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useCSSVar from './style/cssVar';
 import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = typeof SpinSizes[number];
+export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -187,8 +186,7 @@ const SpinFC: SpinFCType = (props) => {
 
   const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
 
-  const [, hashId] = useStyle(spinPrefixCls);
-  const wrapCSSVar = useCSSVar(spinPrefixCls);
+  const [wrapCSSVar, hashId] = useStyle(spinPrefixCls);
 
   const spinClassProps: SpinClassProps = {
     ...props,

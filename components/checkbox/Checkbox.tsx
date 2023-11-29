@@ -12,7 +12,6 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import GroupContext from './GroupContext';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -107,9 +106,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {

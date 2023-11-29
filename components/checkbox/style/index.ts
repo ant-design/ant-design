@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
@@ -263,6 +263,4 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
-  getStyle(prefixCls, token),
-]);
+export default genStyleHooks('Checkbox', (token, { prefixCls }) => [getStyle(prefixCls, token)]);

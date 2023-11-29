@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -27,4 +27,4 @@ export const prepareComponentToken: GetDefaultToken<'Affix'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Affix', genSharedAffixStyle, prepareComponentToken);
+export default genStyleHooks('Affix', genSharedAffixStyle, prepareComponentToken);

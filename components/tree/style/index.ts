@@ -4,7 +4,7 @@ import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genFocusOutline, resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { AliasToken, DerivativeToken, FullToken, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export interface TreeSharedToken {
@@ -531,7 +531,7 @@ export const prepareComponentToken: GetDefaultToken<'Tree'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Tree',
   (token, { prefixCls }) => [
     {

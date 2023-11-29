@@ -5,7 +5,6 @@ import { RawPurePanel as PopoverRawPurePanel } from '../popover/PurePanel';
 import type { TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { withPureRenderTheme } from '../_util/PurePanel';
 
 export interface PurePanelProps extends TourStepProps {}
@@ -24,8 +23,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   return wrapCSSVar(
     <PopoverRawPurePanel

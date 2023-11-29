@@ -11,7 +11,6 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import CheckableTag from './CheckableTag';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
 
@@ -80,8 +79,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   // Style
 
   const tagClassName = classNames(

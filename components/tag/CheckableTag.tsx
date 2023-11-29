@@ -3,7 +3,6 @@ import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface CheckableTagProps {
   prefixCls?: string;
@@ -39,8 +38,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,

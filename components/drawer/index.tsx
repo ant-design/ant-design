@@ -11,16 +11,14 @@ import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-// CSSINJS
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = typeof SizeTypes[number];
+type sizeType = (typeof SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;
@@ -74,8 +72,7 @@ const Drawer: React.FC<DrawerProps> & {
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -216,8 +213,7 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,

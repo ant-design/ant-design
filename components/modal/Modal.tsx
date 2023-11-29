@@ -16,7 +16,6 @@ import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 import { useZIndex } from '../_util/hooks/useZIndex';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 let mousePosition: MousePosition;
@@ -95,9 +94,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,

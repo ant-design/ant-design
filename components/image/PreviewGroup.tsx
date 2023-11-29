@@ -15,9 +15,7 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-// CSSINJS
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export const icons = {
   rotateLeft: <RotateLeftOutlined />,
@@ -41,9 +39,8 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const previewPrefixCls = `${prefixCls}-preview`;
   const rootPrefixCls = getPrefixCls();
 
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const [zIndex] = useZIndex(
     'ImagePreview',

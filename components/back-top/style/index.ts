@@ -1,8 +1,8 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -89,7 +89,7 @@ export const prepareComponentToken: GetDefaultToken<'BackTop'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook<'BackTop'>(
+export default genStyleHooks(
   'BackTop',
   (token) => {
     const {

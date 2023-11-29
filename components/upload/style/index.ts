@@ -1,7 +1,7 @@
 import { resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';
@@ -53,7 +53,7 @@ export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Upload',
   (token) => {
     const { fontSizeHeading3, fontHeight, lineWidth, controlHeightLG, calc } = token;

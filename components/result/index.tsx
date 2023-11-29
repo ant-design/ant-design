@@ -10,7 +10,6 @@ import { ConfigContext } from '../config-provider';
 import noFound from './noFound';
 import serverError from './serverError';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import unauthorized from './unauthorized';
 
 export const IconMap = {
@@ -126,8 +125,7 @@ const Result: ResultType = ({
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,

@@ -2,7 +2,7 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -367,7 +367,7 @@ export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Badge',
   (token) => {
     const badgeToken = prepareToken(token);

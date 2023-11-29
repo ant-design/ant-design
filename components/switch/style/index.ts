@@ -3,7 +3,7 @@ import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -395,7 +395,7 @@ export const prepareComponentToken: GetDefaultToken<'Switch'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Switch',
   (token) => {
     const switchToken = mergeToken<SwitchToken>(token, {
