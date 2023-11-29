@@ -48,9 +48,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const prefixCls = isButtonType ? `${radioPrefixCls}-button` : radioPrefixCls;
 
   // Style
-  const [, hashId] = useStyle(radioPrefixCls);
   const rootCls = useCSSVarCls(radioPrefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(radioPrefixCls, rootCls);
 
   const radioProps: RadioProps = { ...restProps };
 

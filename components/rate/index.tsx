@@ -38,8 +38,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
   // Style
-  const [, hashId] = useStyle(ratePrefixCls);
-  const wrapCSSVar = useCSSVar(ratePrefixCls);
+  const [wrapCSSVar, hashId] = useStyle(ratePrefixCls);
 
   const mergedStyle: React.CSSProperties = { ...rate?.style, ...style };
 

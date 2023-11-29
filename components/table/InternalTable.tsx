@@ -539,9 +539,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   const [, token] = useToken();
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const wrapperClassNames = classNames(
     rootCls,

@@ -6,7 +6,7 @@ import useResponsiveObserver, { responsiveArray } from '../_util/responsiveObser
 import { ConfigContext } from '../config-provider';
 import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
-import { useRowStyle, useRowCSSVar } from './style';
+import { useRowStyle } from './style';
 
 const RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
 const RowJustify = [
@@ -147,8 +147,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
-  const [, hashId] = useRowStyle(prefixCls);
-  const wrapCSSVar = useRowCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useRowStyle(prefixCls);
 
   const gutters = getGutter();
   const classes = classNames(

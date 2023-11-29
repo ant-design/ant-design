@@ -21,8 +21,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls, true);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);

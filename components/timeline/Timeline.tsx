@@ -42,9 +42,8 @@ const Timeline: CompoundedComponent = (props) => {
   }
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mergedItems: TimelineItemProps[] = useItems(items, children);
 

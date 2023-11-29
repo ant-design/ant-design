@@ -172,13 +172,9 @@ export const prepareRowComponentToken: GetDefaultToken<'Grid'> = () => ({});
 export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
 
 // ============================== Export ==============================
-export const [useRowStyle, useRowCSSVar] = genStyleHooks(
-  'Grid',
-  genGridRowStyle,
-  prepareRowComponentToken,
-);
+export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
 
-export const [useColStyle, useColCSSVar] = genStyleHooks(
+export const useColStyle = genStyleHooks(
   'Grid',
   (token) => {
     const gridToken: GridColToken = mergeToken<GridColToken>(token, {

@@ -26,8 +26,7 @@ const Group: React.FC<GroupProps> = (props) => {
   const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [, hashId] = useStyle(inputPrefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
     {
