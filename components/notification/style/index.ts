@@ -115,7 +115,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     [`${noticeCls}-icon`]: {
       position: 'absolute',
       fontSize: notificationIconSize,
-      lineHeight: 0,
+      lineHeight: 1,
 
       // icon-font
       [`&-success${iconCls}`]: {
