@@ -413,4 +413,9 @@ export default genStyleHooks(
     ];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      titleLineHeight: true,
+    },
+  },
 );
