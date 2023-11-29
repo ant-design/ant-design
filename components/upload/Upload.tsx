@@ -460,12 +460,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapCSSVar(
-      <span className={wrapperCls}>{renderUploadList(uploadButton, !!children)}</span>,
+      <span className={mergedCls}>{renderUploadList(uploadButton, !!children)}</span>,
     );
   }
 
   return wrapCSSVar(
-    <span className={wrapperCls}>
+    <span className={mergedCls}>
       {uploadButton}
       {renderUploadList()}
     </span>,
