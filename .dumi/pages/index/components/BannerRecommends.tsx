@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { FC } from 'react';
 import { useContext } from 'react';
 import { Badge, Carousel, Skeleton, Typography } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStyles, useTheme } from 'antd-style';
 import classNames from 'classnames';
 
 import useLocale from '../../../hooks/useLocale';
@@ -10,32 +10,31 @@ import SiteContext from '../../../theme/slots/SiteContext';
 import type { Extra, Icon } from './util';
 import { getCarouselStyle, useSiteData } from './util';
 
-const useStyle = createStyles(({ token }) => {
+const useStyle = createStyles(({ token, css, cx }) => {
   const { carousel } = getCarouselStyle();
-  const [, lang] = useLocale();
-  console.log('lang', lang);
+
+  const itemBase = css`
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: stretch;
+    text-decoration: none;
+    background: ${token.colorBgContainer};
+    border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
+    border-radius: ${token.borderRadiusLG}px;
+    transition: all ${token.motionDurationSlow};
+    padding-block: ${token.paddingMD}px;
+    padding-inline: ${token.paddingLG}px;
+    box-sizing: border-box;
+  `;
+
   return {
-    itemBase: css`
-      display: flex;
-      flex: 1 1 0;
-      flex-direction: column;
-      align-items: stretch;
-      text-decoration: none;
-      background-color: ${token.colorBgContainer};
-      border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
-      border-radius: ${token.borderRadiusLG}px;
-      transition: all ${token.motionDurationSlow};
-      padding-block: ${token.paddingMD}px;
-      padding-inline: ${token.paddingLG}px;
+    itemBase,
+    ribbon: css`
+      & > .${cx(itemBase)} {
+        height: 100%;
+      }
     `,
-    minHeight:
-      lang === 'cn'
-        ? css`
-            min-height: calc(152px - ${token.paddingMD}px * 2);
-          `
-        : css`
-            min-height: calc(176px - ${token.paddingMD}px * 2);
-          `,
     cardItem: css`
       &:hover {
         box-shadow: ${token.boxShadowCard};
@@ -82,7 +81,7 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
       key={extra?.title}
       href={extra.href}
       target="_blank"
-      className={classNames(styles.itemBase, styles.minHeight, className)}
+      className={classNames(styles.itemBase, className)}
       rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
@@ -98,7 +97,7 @@ const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, clas
 
   if (index === 0) {
     return (
-      <Badge.Ribbon text="HOT" color="red">
+      <Badge.Ribbon text="HOT" color="red" rootClassName={styles.ribbon}>
         {card}
       </Badge.Ribbon>
     );
