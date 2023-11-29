@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Segmented, Button, Space } from 'antd';
+import { Button, Flex, Segmented } from 'antd';
 
 const Demo: React.FC = () => {
   const [options, setOptions] = useState(['Daily', 'Weekly', 'Monthly']);
@@ -11,12 +11,12 @@ const Demo: React.FC = () => {
   };
 
   return (
-    <Space direction="vertical">
+    <Flex gap="small" align="flex-start" vertical>
       <Segmented options={options} />
       <Button type="primary" disabled={moreLoaded} onClick={handleLoadOptions}>
         Load more options
       </Button>
-    </Space>
+    </Flex>
   );
 };
 

@@ -691,6 +691,9 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       '&-btn': {
         outline: 'none',
         transition: 'all 0.3s',
+        [`${tabCls}-icon:not(:last-child)`]: {
+          marginInlineEnd: token.marginSM,
+        },
       },
       '&-remove': {
         flex: 'none',
@@ -734,7 +737,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       [`& ${tabCls}-remove ${iconCls}`]: {
         margin: 0,
       },
-      [iconCls]: {
+      [`${iconCls}:not(:last-child)`]: {
         marginRight: {
           _skip_check_: true,
           value: token.marginSM,
