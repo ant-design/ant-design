@@ -10,7 +10,13 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import FloatButtonGroupContext from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { BackTopProps, FloatButtonProps, FloatButtonRef, FloatButtonShape } from './interface';
+import type {
+  BackTopProps,
+  FloatButtonElement,
+  FloatButtonProps,
+  FloatButtonRef,
+  FloatButtonShape,
+} from './interface';
 import useStyle from './style';
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
@@ -58,7 +64,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
     };
   }, [target]);
 
-  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = (e) => {
+  const scrollToTop: React.MouseEventHandler<FloatButtonElement> = (e) => {
     scrollTo(0, { getContainer: target || getDefaultTarget, duration });
     onClick?.(e);
   };
