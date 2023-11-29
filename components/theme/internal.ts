@@ -13,7 +13,6 @@ import useToken from './useToken';
 import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
   genSubStyleComponent,
-  genCSSVarRegister,
   genStyleHooks,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
@@ -26,7 +25,6 @@ export {
   PresetColors,
   genComponentStyleHook,
   genSubStyleComponent,
-  genCSSVarRegister,
   genPresetColor,
   genStyleHooks,
   mergeToken,

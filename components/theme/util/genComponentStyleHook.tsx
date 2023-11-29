@@ -306,7 +306,7 @@ export type CSSVarRegisterProps = {
   };
 };
 
-export const genCSSVarRegister = <C extends OverrideComponent>(
+const genCSSVarRegister = <C extends OverrideComponent>(
   component: C,
   getDefaultToken?: GetDefaultToken<C>,
   options?: {
