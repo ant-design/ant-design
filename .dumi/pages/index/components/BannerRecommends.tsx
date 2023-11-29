@@ -1,17 +1,19 @@
 import * as React from 'react';
-import { createStyles, css, useTheme } from 'antd-style';
-import classNames from 'classnames';
 import type { FC } from 'react';
 import { useContext } from 'react';
-import { Typography, Skeleton, Carousel, Badge } from 'antd';
-import type { Extra, Icon } from './util';
-import SiteContext from '../../../theme/slots/SiteContext';
-import { getCarouselStyle, useSiteData } from './util';
+import { Badge, Carousel, Skeleton, Typography } from 'antd';
+import { createStyles, css, useTheme } from 'antd-style';
+import classNames from 'classnames';
+
 import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../../theme/slots/SiteContext';
+import type { Extra, Icon } from './util';
+import { getCarouselStyle, useSiteData } from './util';
 
 const useStyle = createStyles(({ token }) => {
   const { carousel } = getCarouselStyle();
-
+  const [, lang] = useLocale();
+  console.log('lang', lang);
   return {
     itemBase: css`
       display: flex;
@@ -19,13 +21,21 @@ const useStyle = createStyles(({ token }) => {
       flex-direction: column;
       align-items: stretch;
       text-decoration: none;
-      background: ${token.colorBgContainer};
+      background-color: ${token.colorBgContainer};
       border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
       border-radius: ${token.borderRadiusLG}px;
       transition: all ${token.motionDurationSlow};
       padding-block: ${token.paddingMD}px;
       padding-inline: ${token.paddingLG}px;
     `,
+    minHeight:
+      lang === 'cn'
+        ? css`
+            min-height: calc(152px - ${token.paddingMD}px * 2);
+          `
+        : css`
+            min-height: calc(176px - ${token.paddingMD}px * 2);
+          `,
     cardItem: css`
       &:hover {
         box-shadow: ${token.boxShadowCard};
@@ -58,7 +68,7 @@ interface RecommendItemProps {
   icons: Icon[];
   className?: string;
 }
-const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) => {
+const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, className }) => {
   const token = useTheme();
   const { styles } = useStyle();
 
@@ -72,7 +82,7 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
       key={extra?.title}
       href={extra.href}
       target="_blank"
-      className={classNames(styles.itemBase, className)}
+      className={classNames(styles.itemBase, styles.minHeight, className)}
       rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
@@ -120,7 +130,7 @@ export const BannerRecommendsFallback: FC = () => {
   );
 };
 
-export default function BannerRecommends() {
+const BannerRecommends: React.FC = () => {
   const { styles } = useStyle();
   const [, lang] = useLocale();
   const { isMobile } = React.useContext(SiteContext);
@@ -159,4 +169,6 @@ export default function BannerRecommends() {
       )}
     </div>
   );
-}
+};
+
+export default BannerRecommends;
