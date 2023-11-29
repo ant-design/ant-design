@@ -27,8 +27,4 @@ export const prepareComponentToken: GetDefaultToken<'Affix'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
-  'Affix',
-  genSharedAffixStyle,
-  prepareComponentToken,
-);
+export default genStyleHooks('Affix', genSharedAffixStyle, prepareComponentToken);

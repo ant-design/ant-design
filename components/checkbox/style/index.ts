@@ -263,6 +263,4 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   return [genCheckboxStyle(checkboxToken)];
 }
 
-export const [useStyle, useCSSVar] = genStyleHooks('Checkbox', (token, { prefixCls }) => [
-  getStyle(prefixCls, token),
-]);
+export default genStyleHooks('Checkbox', (token, { prefixCls }) => [getStyle(prefixCls, token)]);

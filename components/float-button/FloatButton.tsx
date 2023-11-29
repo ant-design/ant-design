@@ -17,7 +17,7 @@ import type {
   FloatButtonRef,
   FloatButtonShape,
 } from './interface';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const floatButtonPrefixCls = 'float-btn';
@@ -38,9 +38,8 @@ const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mergeShape = groupShape || shape;
 

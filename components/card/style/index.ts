@@ -428,7 +428,7 @@ export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Card',
   (token) => {
     const cardToken = mergeToken<CardToken>(token, {

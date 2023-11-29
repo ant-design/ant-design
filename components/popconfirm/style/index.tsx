@@ -1,5 +1,5 @@
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -84,11 +84,6 @@ export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
-  'Popconfirm',
-  (token) => genBaseStyle(token),
-  prepareComponentToken,
-  {
-    resetStyle: false,
-  },
-);
+export default genStyleHooks('Popconfirm', (token) => genBaseStyle(token), prepareComponentToken, {
+  resetStyle: false,
+});

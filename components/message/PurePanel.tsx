@@ -10,7 +10,6 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { NoticeType } from './interface';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const TypeIcon = {
@@ -48,9 +47,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   return wrapCSSVar(
     <Notice

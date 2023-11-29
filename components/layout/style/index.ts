@@ -1,7 +1,7 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 import genLayoutLightStyle from './light';
 
 export interface ComponentToken {
@@ -317,15 +317,10 @@ export const prepareComponentToken: GetDefaultToken<'Layout'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Layout',
-  (token) => [genLayoutStyle(token)],
-  prepareComponentToken,
-  {
-    deprecatedTokens: [
-      ['colorBgBody', 'bodyBg'],
-      ['colorBgHeader', 'headerBg'],
-      ['colorBgTrigger', 'triggerBg'],
-    ],
-  },
-);
+export default genStyleHooks('Layout', (token) => [genLayoutStyle(token)], prepareComponentToken, {
+  deprecatedTokens: [
+    ['colorBgBody', 'bodyBg'],
+    ['colorBgHeader', 'headerBg'],
+    ['colorBgTrigger', 'triggerBg'],
+  ],
+});

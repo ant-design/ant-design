@@ -8,7 +8,7 @@ import {
 } from '../../input/style';
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from 'antd/es/theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
@@ -675,7 +675,7 @@ export const prepareToken = (token: Parameters<GenStyleFn<'Pagination'>>[0]) =>
   );
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Pagination',
   (token) => {
     const paginationToken = prepareToken(token);

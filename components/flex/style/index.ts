@@ -97,7 +97,7 @@ const genJustifyContentStyle: GenerateStyle<FlexToken> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'Flex'> = () => ({});
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Flex',
   (token) => {
     const { paddingXS, padding, paddingLG } = token;

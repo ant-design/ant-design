@@ -11,7 +11,6 @@ import { useLocale } from '../locale';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import type { QRCodeProps, QRProps } from './interface';
-import useCSSVar from './style/cssVar';
 import useStyle from './style/index';
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
@@ -36,8 +35,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const imageSettings: QRProps['imageSettings'] = {
     src: icon,

@@ -19,7 +19,7 @@ import { FormItemInputContext } from '../../form/context';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
-import { useStyle, useCSSVar } from '../style';
+import useStyle from '../style';
 import {
   getPlaceholder,
   getTimeProps,
@@ -80,9 +80,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
-        const [, hashId] = useStyle(prefixCls);
         const cssVarCls = useCSSVarCls(prefixCls);
-        const wrapCSSVar = useCSSVar(cssVarCls);
+        const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),

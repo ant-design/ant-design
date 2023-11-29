@@ -4,7 +4,6 @@ import * as React from 'react';
 import type { TooltipProps } from '.';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { parseColor } from './util';
 
 export interface PurePanelProps extends Omit<TooltipProps, 'children'> {}

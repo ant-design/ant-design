@@ -11,7 +11,7 @@ import type { DropdownProps } from '../dropdown';
 import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
 
@@ -95,8 +95,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   let crumbs: React.ReactNode;
 
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const mergedItems = useItems(items, legacyRoutes);
 

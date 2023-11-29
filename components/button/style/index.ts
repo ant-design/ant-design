@@ -705,7 +705,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   };
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Button',
   (token) => {
     const buttonToken = prepareToken(token);

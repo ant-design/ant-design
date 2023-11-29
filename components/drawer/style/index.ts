@@ -234,7 +234,7 @@ export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Drawer',
   (token) => {
     const drawerToken = mergeToken<DrawerToken>(token, {});

@@ -311,7 +311,7 @@ export const prepareComponentToken: GetDefaultToken<'Collapse'> = (token) => ({
   contentBg: token.colorBgContainer,
 });
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Collapse',
   (token) => {
     const collapseToken = mergeToken<CollapseToken>(token, {

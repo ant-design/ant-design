@@ -7,7 +7,7 @@ import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 interface ContextProps {
@@ -61,9 +61,8 @@ const Group: React.FC<GroupProps> = (props) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const cls = classNames(
     groupPrefixCls,

@@ -8,7 +8,6 @@ import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export type SwitchSize = 'small' | 'default';
@@ -92,8 +91,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
   );
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const mergedSize = useSize(customizeSize);
 

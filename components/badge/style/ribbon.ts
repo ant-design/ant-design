@@ -75,7 +75,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   ['Badge', 'Ribbon'],
   (token) => {
     const badgeToken = prepareToken(token);

@@ -9,7 +9,7 @@ import {
 } from '../../input/style';
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken extends SharedComponentToken {
@@ -225,7 +225,7 @@ export const prepareComponentToken: GetDefaultToken<'Mentions'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Mentions',
   (token) => {
     const mentionsToken = mergeToken<MentionsToken>(token, initInputToken(token));

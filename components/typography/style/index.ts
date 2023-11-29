@@ -1,6 +1,6 @@
 import { operationUnit } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 import {
   getCopyableStyles,
   getEditableStyles,
@@ -135,7 +135,7 @@ export const prepareComponentToken: GetDefaultToken<'Typography'> = () => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Typography',
   (token) => [genTypographyStyle(token)],
   prepareComponentToken,

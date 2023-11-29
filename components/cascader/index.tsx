@@ -26,7 +26,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import { useStyle as useSelectStyle, useCSSVar as useSelectCSSVar } from '../select/style';
+import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
@@ -35,7 +35,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -212,12 +212,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const rootPrefixCls = getPrefixCls();
 
-  const [, hashId] = useSelectStyle(prefixCls);
-  useStyle(cascaderPrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
+  const [wrapSelectCSSVar, hashId] = useSelectStyle(prefixCls, rootCls);
   const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
-  const wrapSelectCSSVar = useSelectCSSVar(rootCls);
-  const wrapCascaderCSSVar = useCSSVar(cascaderRootCls);
+  const [wrapCascaderCSSVar] = useStyle(cascaderPrefixCls, cascaderRootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 

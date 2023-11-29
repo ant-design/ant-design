@@ -15,7 +15,7 @@ import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import CalendarHeader from './Header';
 import enUS from './locale/en_US';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -119,8 +119,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
-    const [, hashId] = useStyle(prefixCls);
-    const wrapCSSVar = useCSSVar(calendarPrefixCls);
+    const [wrapCSSVar, hashId] = useStyle(prefixCls, calendarPrefixCls);
 
     const today = generateConfig.getNow();
 

@@ -252,7 +252,7 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   ];
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks('ColorPicker', (token) => {
+export default genStyleHooks('ColorPicker', (token) => {
   const { colorTextQuaternary, marginSM } = token;
 
   const colorPickerSliderHeight = 8;

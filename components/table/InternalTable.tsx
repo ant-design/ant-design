@@ -57,7 +57,6 @@ import type {
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -626,4 +625,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default (React.forwardRef(InternalTable) as RefInternalTable);

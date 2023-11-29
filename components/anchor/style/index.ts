@@ -165,7 +165,7 @@ export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Anchor',
   (token) => {
     const { fontSize, fontSizeLG, paddingXXS, calc } = token;

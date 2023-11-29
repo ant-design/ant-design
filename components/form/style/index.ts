@@ -570,7 +570,7 @@ export const prepareToken: (
   return formToken;
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Form',
   (token, { rootPrefixCls }) => {
     const formToken = prepareToken(token, rootPrefixCls);

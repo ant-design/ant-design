@@ -489,7 +489,7 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
   };
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Select',
   (token, { rootPrefixCls }) => {
     const selectToken: SelectToken = mergeToken<SelectToken>(token, {

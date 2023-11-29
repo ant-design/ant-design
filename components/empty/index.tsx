@@ -5,7 +5,7 @@ import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
 
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
 const simpleEmptyImg = <SimpleEmptyImg />;
@@ -45,8 +45,7 @@ const Empty: CompoundedComponent = ({
   const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const [locale] = useLocale('Empty');
 

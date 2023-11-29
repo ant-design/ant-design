@@ -9,7 +9,6 @@ import { RadioGroupContextProvider } from './context';
 import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
 import Radio from './radio';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
@@ -51,9 +50,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   const groupPrefixCls = `${prefixCls}-group`;
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   let childrenToRender = children;
   // 如果存在 options, 优先使用

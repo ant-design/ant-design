@@ -7,7 +7,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
 import GroupContext from './GroupContext';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 
 export type CheckboxValueType = string | number | boolean;
 
@@ -111,9 +111,8 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const domProps = omit(restProps, ['value', 'disabled']);
 

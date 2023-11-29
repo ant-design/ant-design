@@ -1614,7 +1614,7 @@ export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => (
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'DatePicker',
   (token) => {
     const pickerToken = mergeToken<PickerToken>(initInputToken(token), initPickerPanelToken(token));

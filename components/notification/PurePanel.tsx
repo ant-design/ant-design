@@ -13,7 +13,6 @@ import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType } from './interface';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import PurePanelStyle from './style/pure-panel';
 
 export const TypeIcon = {
@@ -100,9 +99,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
 
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   return wrapCSSVar(
     <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, rootCls)}>

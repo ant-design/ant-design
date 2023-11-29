@@ -5,13 +5,8 @@ import getArrowStyle, {
   getArrowOffsetToken,
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  UseComponentStyleResult,
-} from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
@@ -143,15 +138,10 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   ),
 });
 
-export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
-  const useOriginHook = genComponentStyleHook(
+export default (prefixCls: string, injectStyle: boolean = true) => {
+  const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {
-      // Popover use Tooltip as internal component. We do not need to handle this.
-      if (injectStyle === false) {
-        return [];
-      }
-
       const { borderRadius, colorTextLightSolid, colorBgSpotlight } = token;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
@@ -167,8 +157,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
     prepareComponentToken,
     {
       resetStyle: false,
+      // Popover use Tooltip as internal component. We do not need to handle this.
+      injectStyle,
     },
   );
 
-  return useOriginHook(prefixCls);
+  return useStyle(prefixCls);
 };

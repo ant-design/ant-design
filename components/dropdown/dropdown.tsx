@@ -19,7 +19,7 @@ import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const Placements = [
@@ -171,8 +171,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 

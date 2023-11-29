@@ -32,7 +32,7 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
-import { useStyle, useCSSVar } from './style/index';
+import useStyle from './style';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
@@ -136,9 +136,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rootCls, rtlCls);
   const mergeCls = classNames(

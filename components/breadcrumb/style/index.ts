@@ -147,7 +147,7 @@ export const prepareComponentToken: GetDefaultToken<'Breadcrumb'> = (token) => (
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Breadcrumb',
   (token) => {
     const breadcrumbToken = mergeToken<BreadcrumbToken>(token, {});

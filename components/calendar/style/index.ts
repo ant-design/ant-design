@@ -225,7 +225,7 @@ export const prepareComponentToken: GetDefaultToken<'Calendar'> = (token) => ({
   ...initPanelComponentToken(token),
 });
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Calendar',
   (token) => {
     const calendarCls = `${token.componentCls}-calendar`;

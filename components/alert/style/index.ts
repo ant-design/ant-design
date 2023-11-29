@@ -248,7 +248,7 @@ export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   };
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Alert',
   (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
   prepareComponentToken,

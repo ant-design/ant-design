@@ -89,7 +89,7 @@ export const prepareComponentToken: GetDefaultToken<'BackTop'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'BackTop',
   (token) => {
     const {

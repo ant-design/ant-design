@@ -367,7 +367,7 @@ export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
   };
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Badge',
   (token) => {
     const badgeToken = prepareToken(token);

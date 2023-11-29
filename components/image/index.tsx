@@ -8,10 +8,8 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
-// CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface CompositionImage<P> extends React.FC<P> {
@@ -39,9 +37,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const imageLocale = contextLocale.Image || defaultLocale.Image;
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mergedRootClassName = classNames(rootClassName, hashId, rootCls);
 

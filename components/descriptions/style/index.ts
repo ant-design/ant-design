@@ -228,7 +228,7 @@ export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) =>
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Descriptions',
   (token) => {
     const descriptionToken = mergeToken<DescriptionsToken>(token, {});

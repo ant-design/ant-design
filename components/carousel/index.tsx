@@ -4,7 +4,7 @@ import SlickCarousel from '@ant-design/react-slick';
 import classNames from 'classnames';
 
 import { ConfigContext } from '../config-provider';
-import { useStyle, useCSSVar } from './style';
+import useStyle from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -94,8 +94,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     typeof dots === 'boolean' ? false : dots?.className,
   );
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const className = classNames(
     prefixCls,

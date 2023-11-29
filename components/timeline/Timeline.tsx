@@ -5,7 +5,6 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';

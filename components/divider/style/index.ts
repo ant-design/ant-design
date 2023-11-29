@@ -182,7 +182,7 @@ export const prepareComponentToken: GetDefaultToken<'Divider'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Divider',
   (token) => {
     const dividerToken = mergeToken<DividerToken>(token, {

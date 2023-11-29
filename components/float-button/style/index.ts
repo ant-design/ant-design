@@ -370,7 +370,7 @@ export const prepareComponentToken: GetDefaultToken<'FloatButton'> = (token) => 
   dotOffsetInSquare: getOffset(token.borderRadiusLG),
 });
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'FloatButton',
   (token) => {
     const {

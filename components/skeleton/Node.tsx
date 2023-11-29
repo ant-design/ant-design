@@ -4,7 +4,6 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
   fullSize?: boolean;
@@ -22,8 +21,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,

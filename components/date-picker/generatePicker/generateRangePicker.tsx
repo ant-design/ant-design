@@ -18,7 +18,7 @@ import { FormItemInputContext } from '../../form/context';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
-import { useStyle, useCSSVar } from '../style';
+import useStyle from '../style';
 import {
   getRangePlaceholder,
   getTimeProps,
@@ -72,9 +72,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
-    const [, hashId] = useStyle(prefixCls);
     const cssVarCls = useCSSVarCls(prefixCls);
-    const wrapCSSVar = useCSSVar(cssVarCls);
+    const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
     const additionalOverrideProps: any = {
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),

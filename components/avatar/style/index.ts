@@ -197,7 +197,7 @@ export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
   };
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Avatar',
   (token) => {
     const { colorTextLightSolid, colorTextPlaceholder } = token;

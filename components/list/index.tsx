@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -14,9 +13,6 @@ import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import Item from './Item';
-import useCSSVar from './style/cssVar';
-
-// CSSINJS
 import { ListContext } from './context';
 import useStyle from './style';
 import useSize from '../config-provider/hooks/useSize';
@@ -145,8 +141,7 @@ function List<T>({
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {

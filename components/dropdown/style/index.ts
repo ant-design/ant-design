@@ -347,7 +347,7 @@ export const prepareComponentToken: GetDefaultToken<'Dropdown'> = (token) => ({
   ...getArrowToken(token),
 });
 
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Dropdown',
   (token) => {
     const { marginXXS, sizePopupArrow, paddingXXS, componentCls } = token;

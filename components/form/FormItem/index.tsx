@@ -17,7 +17,7 @@ import useChildren from '../hooks/useChildren';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
 import useItemRef from '../hooks/useItemRef';
-import { useStyle, useCSSVar } from '../style';
+import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
@@ -127,9 +127,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');

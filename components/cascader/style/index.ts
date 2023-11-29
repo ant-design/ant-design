@@ -104,8 +104,4 @@ export const prepareComponentToken = (token: GlobalToken) => {
   };
 };
 
-export const [useStyle, useCSSVar] = genStyleHooks(
-  'Cascader',
-  (token) => [genBaseStyle(token)],
-  prepareComponentToken,
-);
+export default genStyleHooks('Cascader', (token) => [genBaseStyle(token)], prepareComponentToken);

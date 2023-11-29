@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -147,7 +147,7 @@ export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
   extraMargin: `${token.paddingLG}px 0 0 0`,
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Result',
   (token) => {
     const resultInfoIconColor = token.colorInfo;

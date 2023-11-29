@@ -11,7 +11,7 @@ import {
 import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 import type { FormatComponentToken } from '../../theme/util/genComponentStyleHook';
 
@@ -496,7 +496,7 @@ export const formatComponentToken: FormatComponentToken<'InputNumber'> = (token)
   handleOpacity: token.handleVisible === true ? 1 : 0,
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'InputNumber',
   (token) => {
     const inputNumberToken = mergeToken<InputNumberToken>(token, initInputToken(token));
@@ -512,5 +512,8 @@ export default genComponentStyleHook(
   prepareComponentToken,
   {
     format: formatComponentToken,
+    unitless: {
+      handleOpacity: true,
+    },
   },
 );

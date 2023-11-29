@@ -355,7 +355,7 @@ export const prepareComponentToken: GetDefaultToken<'Carousel'> = () => {
 };
 
 // ============================== Export ==============================
-export const [useStyle, useCSSVar] = genStyleHooks(
+export default genStyleHooks(
   'Carousel',
   (token) => {
     const { controlHeightLG, controlHeightSM } = token;

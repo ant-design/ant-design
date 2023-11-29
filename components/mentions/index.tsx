@@ -18,7 +18,6 @@ import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const { Option } = RcMentions;
@@ -156,9 +155,8 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mergedClassName = classNames(
     {

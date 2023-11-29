@@ -6,7 +6,6 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import Tooltip from '../tooltip';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
