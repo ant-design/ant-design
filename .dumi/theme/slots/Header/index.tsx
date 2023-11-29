@@ -1,15 +1,13 @@
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
-import { Alert, Col, ConfigProvider, Popover, Row, Select } from 'antd';
+import { Col, Popover, Row, Select } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
-import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 
 import useLocale from '../../../hooks/useLocale';
 import DirectionIcon from '../../common/DirectionIcon';
-import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
 import { getThemeConfig } from '../../utils';
 import type { SiteContextProps } from '../SiteContext';
@@ -22,21 +20,6 @@ import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
-
-const locales = {
-  cn: {
-    message: 'Galacean Effects · 所见即所得的动效新方案。',
-    shortMessage: 'Galacean Effects · 所见即所得的动效新方案。',
-    more: '前往了解',
-    link: 'https://galacean.antgroup.com/effects/',
-  },
-  en: {
-    message: '',
-    shortMessage: '',
-    more: '',
-    link: '',
-  },
-};
 
 const useStyle = createStyles(({ token, css }) => {
   const searchIconColor = '#ced4d9';
@@ -124,12 +107,7 @@ const useStyle = createStyles(({ token, css }) => {
         padding: 0,
       },
     },
-    banner: css`
-      width: 100%;
-      text-align: center;
-      word-break: keep-all;
-      user-select: none;
-    `,
+
     link: css`
       margin-left: 10px;
 
@@ -153,7 +131,7 @@ interface HeaderState {
 
 // ================================= Header =================================
 const Header: React.FC = () => {
-  const [locale, lang] = useLocale(locales);
+  const [, lang] = useLocale();
 
   const { pkg } = useSiteData();
 
@@ -163,8 +141,7 @@ const Header: React.FC = () => {
     windowWidth: 1400,
     searching: false,
   });
-  const { direction, isMobile, bannerVisible, updateSiteConfig } =
-    useContext<SiteContextProps>(SiteContext);
+  const { direction, isMobile, updateSiteConfig } = useContext<SiteContextProps>(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
@@ -185,13 +162,6 @@ const Header: React.FC = () => {
   }, []);
   const onDirectionChange = () => {
     updateSiteConfig({ direction: direction !== 'rtl' ? 'rtl' : 'ltr' });
-  };
-  const onBannerClose = () => {
-    updateSiteConfig({ bannerVisible: false });
-
-    if (utils.isLocalStorageNameSupported()) {
-      localStorage.setItem(ANT_DESIGN_NOT_SHOW_BANNER, dayjs().toISOString());
-    }
   };
 
   useEffect(() => {
@@ -365,37 +335,6 @@ const Header: React.FC = () => {
         >
           <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />
         </Popover>
-      )}
-      {isZhCN && bannerVisible && (
-        <ConfigProvider theme={{ token: { colorInfoBg: '#ceebf9', colorTextBase: '#000' } }}>
-          <Alert
-            className={styles.banner}
-            message={
-              <>
-                <span>{isMobile ? locale.shortMessage : locale.message}</span>
-                <a
-                  className={styles.link}
-                  href={locale.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={() => {
-                    window.gtag?.('event', '点击', {
-                      event_category: 'top_banner',
-                      event_label: locale.link,
-                    });
-                  }}
-                >
-                  {locale.more}
-                </a>
-              </>
-            }
-            type="info"
-            banner
-            closable
-            showIcon={false}
-            onClose={onBannerClose}
-          />
-        </ConfigProvider>
       )}
       <Row style={{ flexFlow: 'nowrap', height: 64 }}>
         <Col {...colProps[0]}>
