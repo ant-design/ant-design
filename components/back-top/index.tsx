@@ -11,8 +11,7 @@ import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export interface BackTopProps {
   visibilityHeight?: number;

@@ -1,8 +1,8 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -197,7 +197,7 @@ export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
   };
 };
 
-export default genComponentStyleHook<'Avatar'>(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Avatar',
   (token) => {
     const { colorTextLightSolid, colorTextPlaceholder } = token;

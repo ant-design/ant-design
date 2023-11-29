@@ -7,9 +7,8 @@ import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
 import AvatarContext from './AvatarContext';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
-import useStyle from './style';
+import { useStyle, useCSSVar } from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useCSSVar from './style/cssVar';
 
 interface ContextProps {
   children?: React.ReactNode;

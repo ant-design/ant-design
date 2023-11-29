@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
   // Component token here
@@ -248,7 +248,7 @@ export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Alert',
   (token) => [genBaseStyle(token), genTypeStyle(token), genActionStyle(token)],
   prepareComponentToken,

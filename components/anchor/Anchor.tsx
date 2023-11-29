@@ -13,8 +13,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;

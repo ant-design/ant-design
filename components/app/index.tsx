@@ -10,8 +10,7 @@ import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
 import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
-import useStyle from './style';
-import useCSSVar from './style/cssVar';
+import { useStyle, useCSSVar } from './style';
 
 export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;

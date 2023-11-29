@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -165,7 +165,7 @@ export const prepareComponentToken: GetDefaultToken<'Anchor'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const [useStyle, useCSSVar] = genStyleHooks(
   'Anchor',
   (token) => {
     const { fontSize, fontSizeLG, paddingXXS, calc } = token;
