@@ -44,7 +44,6 @@
   ],
   "scripts": {
     "api-collection": "antd-tools run api-collection",
-    "argos": "tsx scripts/argos-upload.ts",
     "authors": "tsx scripts/generate-authors.ts",
     "biome:format": "biome format --write .",
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
@@ -166,7 +165,6 @@
     "@ant-design/happy-work-theme": "^1.0.0",
     "@ant-design/tools": "^18.0.2",
     "@antv/g6": "^4.8.13",
-    "@argos-ci/core": "^1.0.0",
     "@babel/eslint-plugin": "^7.19.1",
     "@biomejs/biome": "^1.0.0",
     "@codesandbox/sandpack-react": "^2.9.0",
