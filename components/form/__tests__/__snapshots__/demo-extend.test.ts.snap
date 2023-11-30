@@ -19514,6 +19514,9 @@ Array [
     <pre>
       Name Value:
     </pre>
+    <pre>
+      Custom Value: name:
+    </pre>
   </article>,
 ]
 `;
