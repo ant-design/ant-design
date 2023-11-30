@@ -19,7 +19,6 @@ import type {
 import { PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
-import useCSSVar from './style/cssVar';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -37,8 +36,7 @@ interface HolderRef extends NotificationAPI {
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   return wrapCSSVar(
     <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
       {children}

@@ -1,11 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface SharedComponentToken {
   /**
@@ -122,7 +122,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  '&:hover': {
+  '&:hover:not([disabled])': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
         hoverBorderColor: token.colorBorder,
@@ -1093,7 +1093,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Input',
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));

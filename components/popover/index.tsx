@@ -10,7 +10,6 @@ import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -46,8 +45,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const overlayCls = classNames(overlayClassName, hashId);

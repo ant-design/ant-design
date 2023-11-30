@@ -2,7 +2,7 @@ import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
@@ -65,7 +65,7 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
 
 export const prepareComponentToken: GetDefaultToken<'QRCode'> = () => ({});
 
-export default genComponentStyleHook<'QRCode'>(
+export default genStyleHooks<'QRCode'>(
   'QRCode',
   (token) => {
     const mergedToken = mergeToken<QRCodeToken>(token, {

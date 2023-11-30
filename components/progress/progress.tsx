@@ -13,7 +13,6 @@ import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
@@ -98,8 +97,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     progress: progressStyle,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {

@@ -12,6 +12,7 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -30,8 +31,7 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
-import useCSSVar from './style/cssVar';
-import useStyle from './style/index';
+import useStyle from './style';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
@@ -105,6 +105,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   } = props;
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
 
   const [colorValue, setColorValue] = useColorState('', {
     value,
@@ -112,7 +114,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   });
   const [popupOpen, setPopupOpen] = useMergedState(false, {
     value: open,
-    postState: (openData) => !disabled && openData,
+    postState: (openData) => !mergedDisabled && openData,
     onChange: onOpenChange,
   });
   const [formatValue, setFormatValue] = useMergedState(format, {
@@ -132,9 +134,8 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
   const mergeRootCls = classNames(rootClassName, rootCls, rtlCls);
   const mergeCls = classNames(
@@ -220,7 +221,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     color: colorValue,
     allowClear,
     colorCleared,
-    disabled,
+    disabled: mergedDisabled,
     disabledAlpha,
     presets,
     panelRender,
@@ -238,7 +239,7 @@ const ColorPicker: CompoundedComponent = (props) => {
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        if (popupAllowCloseRef.current && !disabled) {
+        if (popupAllowCloseRef.current && !mergedDisabled) {
           setPopupOpen(visible);
         }
       }}
@@ -262,7 +263,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           style={mergedStyle}
           color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}
-          disabled={disabled}
+          disabled={mergedDisabled}
           colorCleared={colorCleared}
           showText={showText}
           format={formatValue}

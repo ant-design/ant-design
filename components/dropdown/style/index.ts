@@ -11,7 +11,7 @@ import {
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, { getArrowOffsetToken } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genStatusStyle from './status';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
@@ -347,7 +347,7 @@ export const prepareComponentToken: GetDefaultToken<'Dropdown'> = (token) => ({
   ...getArrowToken(token),
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Dropdown',
   (token) => {
     const { marginXXS, sizePopupArrow, paddingXXS, componentCls } = token;

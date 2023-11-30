@@ -4,7 +4,7 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
@@ -286,7 +286,7 @@ export const prepareNotificationToken: (
   return notificationToken;
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Notification',
   (token) => {
     const notificationToken = prepareNotificationToken(token);

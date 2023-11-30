@@ -1,5 +1,5 @@
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genSpaceCompactStyle from './compact';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -76,7 +76,7 @@ const genSpaceGapStyle: GenerateStyle<SpaceToken> = (token) => {
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Space'> = () => ({});
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Space',
   (token) => {
     const spaceToken = mergeToken<SpaceToken>(token, {

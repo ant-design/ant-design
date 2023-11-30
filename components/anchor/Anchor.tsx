@@ -14,7 +14,6 @@ import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   key: React.Key;
@@ -153,9 +152,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 

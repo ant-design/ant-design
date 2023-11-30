@@ -1,22 +1,18 @@
 import type { CSSProperties } from 'react';
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { CssUtil } from 'antd-style';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type {
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-  UseComponentStyleResult,
-} from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
+import type { FormatComponentToken } from 'antd/es/theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -366,7 +362,7 @@ export interface ComponentToken {
    */
   darkDangerItemActiveBg: string;
   /** @internal */
-  subMenuTitleWidth: number | string;
+  itemWidth: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -929,20 +925,23 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemSelectedColor: colorTextLightSolid,
     darkDangerItemActiveBg: colorError,
 
-    subMenuTitleWidth: `calc(100% - ${token.marginXXS * 2}px)`,
+    // internal
+    itemWidth: '',
   };
 };
 
+export const formatComponentToken: FormatComponentToken<'Menu'> = (token) => ({
+  ...token,
+  itemWidth: token.activeBarWidth
+    ? `calc(100% + ${token.activeBarBorderWidth}px)`
+    : `calc(100% - ${token.itemMarginInline * 2}px)`,
+});
+
 // ============================== Export ==============================
-export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
-  const useOriginHook = genComponentStyleHook(
+export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boolean = true) => {
+  const useStyle = genStyleHooks(
     'Menu',
     (token) => {
-      // Dropdown will handle menu style self. We do not need to handle this.
-      if (injectStyle === false) {
-        return [];
-      }
-
       const {
         colorBgElevated,
         colorPrimary,
@@ -975,10 +974,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
         calc: token.calc,
-        subMenuTitleWidth:
-          token.activeBarWidth && token.activeBarBorderWidth
-            ? `calc(100% + ${token.activeBarBorderWidth}px)`
-            : `calc(100% - ${token.marginXXS * 2}px)`,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {
@@ -1064,8 +1059,14 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         ['colorActiveBarBorderSize', 'activeBarBorderWidth'],
         ['colorItemBgSelected', 'itemSelectedBg'],
       ],
+      format: formatComponentToken,
+      // Dropdown will handle menu style self. We do not need to handle this.
+      injectStyle,
+      unitless: {
+        groupTitleLineHeight: true,
+      },
     },
   );
 
-  return useOriginHook(prefixCls);
+  return useStyle(prefixCls, rootCls);
 };

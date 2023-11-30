@@ -40,9 +40,17 @@ jobs:
             echo "whitelisted=false" >> $GITHUB_OUTPUT
           fi 
 
-      - name: install dependencies
-        if: ${{ steps.check_user.outputs.whitelisted == 'true' }}
-        run: yarn
+      - name: cache package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: install
+        run: npm install
 
       - name: Build dist file
         id: build

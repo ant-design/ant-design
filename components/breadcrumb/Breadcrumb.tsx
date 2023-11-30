@@ -12,7 +12,6 @@ import type { BreadcrumbItemProps } from './BreadcrumbItem';
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useItemRender from './useItemRender';
 import useItems from './useItems';
 
@@ -96,8 +95,7 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   let crumbs: React.ReactNode;
 
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const mergedItems = useItems(items, legacyRoutes);
 

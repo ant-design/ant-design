@@ -10,7 +10,6 @@ import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export { SpaceContext } from './context';
 
@@ -64,8 +63,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,

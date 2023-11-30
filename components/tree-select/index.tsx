@@ -28,7 +28,6 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useZIndex } from '../_util/hooks/useZIndex';
 
@@ -153,12 +152,10 @@ const InternalTreeSelect = <
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [, hashId] = useSelectStyle(prefixCls);
-  useStyle(treeSelectPrefixCls, treePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
-  const treeSelectWrapCSSVar = useCSSVar(treeSelectRootCls);
+  const [wrapCSSVar, hashId] = useSelectStyle(prefixCls, rootCls);
+  const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,

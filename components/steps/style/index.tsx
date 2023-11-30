@@ -2,7 +2,7 @@ import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genStepsCustomIconStyle from './custom-icon';
 import genStepsInlineStyle from './inline';
 import genStepsLabelPlacementStyle from './label-placement';
@@ -419,7 +419,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   finishIconBorderColor: token.wireframe ? token.colorPrimary : token.controlItemBgActive,
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Steps',
   (token) => {
     const {

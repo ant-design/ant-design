@@ -17,7 +17,6 @@ import { FormItemInputContext } from '../form/context';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
@@ -85,9 +84,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   }
 
   // ===================== Style =====================
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   return wrapCSSVar(
     <RcTextArea

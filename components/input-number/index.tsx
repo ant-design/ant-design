@@ -13,7 +13,6 @@ import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
@@ -56,9 +55,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
   const cssVarCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(cssVarCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;

@@ -24,7 +24,6 @@ import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
@@ -275,8 +274,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [, hashId] = useStyle(prefixCls, !injectFromPopover);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);

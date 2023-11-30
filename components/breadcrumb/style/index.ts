@@ -1,8 +1,8 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -147,7 +147,7 @@ export const prepareComponentToken: GetDefaultToken<'Breadcrumb'> = (token) => (
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Breadcrumb',
   (token) => {
     const breadcrumbToken = mergeToken<BreadcrumbToken>(token, {});

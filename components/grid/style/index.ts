@@ -1,7 +1,7 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   //
@@ -172,9 +172,9 @@ export const prepareRowComponentToken: GetDefaultToken<'Grid'> = () => ({});
 export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
 
 // ============================== Export ==============================
-export const useRowStyle = genComponentStyleHook('Grid', genGridRowStyle, prepareRowComponentToken);
+export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
 
-export const useColStyle = genComponentStyleHook(
+export const useColStyle = genStyleHooks(
   'Grid',
   (token) => {
     const gridToken: GridColToken = mergeToken<GridColToken>(token, {

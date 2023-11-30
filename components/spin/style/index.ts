@@ -3,7 +3,7 @@ import { Keyframes } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -281,7 +281,7 @@ export const prepareComponentToken: GetDefaultToken<'Spin'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Spin',
   (token) => {
     const spinToken = mergeToken<SpinToken>(token, {

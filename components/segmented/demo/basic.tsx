@@ -1,4 +1,8 @@
 import React from 'react';
 import { Segmented } from 'antd';
 
-export default () => <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />;
+const Demo: React.FC = () => (
+  <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
+);
+
+export default Demo;

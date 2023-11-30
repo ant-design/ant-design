@@ -1045,6 +1045,48 @@ exports[`Form form should support disabled 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="ColorPicker"
+        >
+          ColorPicker
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background: rgb(22, 119, 255);"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </form>
 `;
 

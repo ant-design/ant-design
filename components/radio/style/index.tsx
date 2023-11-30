@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 // ============================== Tokens ==============================
 export interface ComponentToken {
@@ -585,7 +585,7 @@ export const prepareComponentToken: GetDefaultToken<'Radio'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Radio',
   (token) => {
     const { controlOutline, controlOutlineWidth } = token;
@@ -605,4 +605,10 @@ export default genComponentStyleHook(
     ];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      radioSize: true,
+      dotSize: true,
+    },
+  },
 );

@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
 // Direction naming standard:
@@ -49,14 +49,55 @@ export interface ComponentToken {
    * @descEN Size of dot
    */
   dotSize: number;
+  /**
+   * @desc 轨道背景色
+   * @descEN Background color of rail
+   */
   railBg: string;
+  /**
+   * @desc 轨道背景色（悬浮态）
+   * @descEN Background color of rail when hover
+   */
   railHoverBg: string;
+  /**
+   * @desc 轨道已覆盖部分背景色
+   * @descEN Background color of track
+   */
   trackBg: string;
+  /**
+   * @desc 轨道已覆盖部分背景色（悬浮态）
+   * @descEN Background color of track when hover
+   */
   trackHoverBg: string;
+  /**
+   * @desc 滑块颜色
+   * @descEN Color of handle
+   */
   handleColor: string;
+  /**
+   * @desc 滑块激活态颜色
+   * @descEN Color of handle when active
+   */
   handleActiveColor: string;
+  /**
+   * @desc 滑块禁用颜色
+   * @descEN Color of handle when disabled
+   */
+  handleColorDisabled: string;
+  /**
+   * @desc 圆点边框颜色
+   * @descEN Border color of dot
+   */
   dotBorderColor: string;
+  /**
+   * @desc 圆点激活态边框颜色
+   * @descEN Border color of dot when active
+   */
   dotActiveBorderColor: string;
+  /**
+   * @desc 轨道禁用态背景色
+   * @descEN Background color of track when disabled
+   */
   trackBgDisabled: string;
 }
 
@@ -76,6 +117,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
     marginFull,
     marginPart,
     colorFillContentHover,
+    handleColorDisabled,
     calc,
   } = token;
 
@@ -280,9 +322,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           cursor: 'not-allowed',
           width: token.handleSize,
           height: token.handleSize,
-          boxShadow: `0 0 0 ${unit(token.handleLineWidth)} ${new TinyColor(token.colorTextDisabled)
-            .onBackground(token.colorBgContainer)
-            .toHexShortString()}`,
+          boxShadow: `0 0 0 ${unit(token.handleLineWidth)} ${handleColorDisabled}`,
           insetInlineStart: 0,
           insetBlockStart: 0,
         },
@@ -422,13 +462,16 @@ export const prepareComponentToken: GetDefaultToken<'Slider'> = (token) => {
     trackHoverBg: token.colorPrimaryBorderHover,
     handleColor: token.colorPrimaryBorder,
     handleActiveColor: token.colorPrimary,
+    handleColorDisabled: new TinyColor(token.colorTextDisabled)
+      .onBackground(token.colorBgContainer)
+      .toHexShortString(),
     dotBorderColor: token.colorBorderSecondary,
     dotActiveBorderColor: token.colorPrimaryBorder,
     trackBgDisabled: token.colorBgContainerDisabled,
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Slider',
   (token) => {
     const sliderToken = mergeToken<SliderToken>(token, {

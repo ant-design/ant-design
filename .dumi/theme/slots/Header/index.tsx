@@ -25,15 +25,16 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message: '第十八届 D2 终端技术大会火热来袭，以技术会友，一起分享技术的乐趣。',
-    shortMessage: '第十八届 D2 终端技术大会火热来袭！',
-    more: '点击报名',
-    link: 'https://d2.alibabatech.com/',
+    message: 'Galacean Effects · 所见即所得的动效新方案。',
+    shortMessage: 'Galacean Effects · 所见即所得的动效新方案。',
+    more: '前往了解',
+    link: 'https://galacean.antgroup.com/effects/',
   },
   en: {
     message: '',
     shortMessage: '',
     more: '',
+    link: '',
   },
 };
 

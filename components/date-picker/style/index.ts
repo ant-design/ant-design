@@ -22,7 +22,7 @@ import {
 } from '../../style/motion';
 import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { genRoundedArrow, getArrowToken } from '../../style/roundedArrow';
@@ -1614,7 +1614,7 @@ export const prepareComponentToken: GetDefaultToken<'DatePicker'> = (token) => (
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'DatePicker',
   (token) => {
     const pickerToken = mergeToken<PickerToken>(initInputToken(token), initPickerPanelToken(token));

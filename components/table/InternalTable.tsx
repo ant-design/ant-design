@@ -57,7 +57,6 @@ import type {
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -540,9 +539,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   const [, token] = useToken();
-  const [, hashId] = useStyle(prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const wrapperClassNames = classNames(
     rootCls,
@@ -600,12 +598,16 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames({
-            [`${prefixCls}-middle`]: mergedSize === 'middle',
-            [`${prefixCls}-small`]: mergedSize === 'small',
-            [`${prefixCls}-bordered`]: bordered,
-            [`${prefixCls}-empty`]: rawData.length === 0,
-          })}
+          className={classNames(
+            {
+              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-small`]: mergedSize === 'small',
+              [`${prefixCls}-bordered`]: bordered,
+              [`${prefixCls}-empty`]: rawData.length === 0,
+            },
+            rootCls,
+            hashId,
+          )}
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}

@@ -3,7 +3,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 
 import { clearFix, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genBorderedStyle from './bordered';
 import genEllipsisStyle from './ellipsis';
 import genEmptyStyle from './empty';
@@ -479,7 +479,7 @@ export const prepareComponentToken: GetDefaultToken<'Table'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Table',
   (token) => {
     const {
@@ -589,4 +589,9 @@ export default genComponentStyleHook(
     ];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      expandIconScale: true,
+    },
+  },
 );

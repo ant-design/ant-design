@@ -5,7 +5,6 @@ import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import type { FormatConfig, valueType } from './utils';
 
 export interface StatisticProps extends FormatConfig {
@@ -48,8 +47,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const valueNode: React.ReactNode = (
     <StatisticNumber

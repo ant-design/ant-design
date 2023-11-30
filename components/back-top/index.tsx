@@ -12,7 +12,6 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface BackTopProps {
   visibilityHeight?: number;
@@ -78,8 +77,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 
   const rootPrefixCls = getPrefixCls();
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const classString = classNames(
     hashId,

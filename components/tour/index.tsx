@@ -12,7 +12,6 @@ import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -27,8 +26,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const mergedSteps = useMemo(

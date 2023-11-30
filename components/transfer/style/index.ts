@@ -1,7 +1,7 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -318,12 +318,10 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    headerHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
     colorBgContainerDisabled,
-    fontHeight,
   } = token;
 
   return {
@@ -362,14 +360,6 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
           },
         },
       },
-
-      [`${antCls}-empty-image`]: {
-        // headerHeight / 2 - Math.round(fontSize * lineHeight)
-        maxHeight: token
-          .calc(token.calc(headerHeight).div(2).equal())
-          .sub(fontHeight)
-          .equal(),
-      },
     },
   };
 };
@@ -398,7 +388,7 @@ export const prepareComponentToken: GetDefaultToken<'Transfer'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Transfer',
   (token) => {
     const transferToken = mergeToken<TransferToken>(token);

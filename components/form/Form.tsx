@@ -17,9 +17,9 @@ import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import ValidateMessagesContext from './validateMessagesContext';
 import type { FeedbackIcons } from './FormItem';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export type RequiredMark =
   | boolean
@@ -104,8 +104,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const formClassName = classNames(
     prefixCls,
@@ -115,6 +115,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
+    cssVarCls,
     hashId,
     contextForm?.className,
     className,

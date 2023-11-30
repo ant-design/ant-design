@@ -5,7 +5,6 @@ import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import Element from './Element';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   shape?: 'circle' | 'square';
@@ -22,8 +21,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const otherProps = omit(props, ['prefixCls', 'className']);
   const cls = classNames(

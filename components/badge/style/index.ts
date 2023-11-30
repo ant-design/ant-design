@@ -2,7 +2,7 @@ import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -327,9 +327,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
-  const { fontSize, lineHeight, lineWidth, marginXS, colorBorderBg } = token;
+  const { fontHeight, lineWidth, marginXS, colorBorderBg } = token;
 
-  const badgeFontHeight = Math.round(fontSize * lineHeight);
+  const badgeFontHeight = fontHeight;
   const badgeShadowSize = lineWidth;
   const badgeTextColor = token.colorBgContainer;
   const badgeColor = token.colorError;
@@ -367,7 +367,7 @@ export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Badge',
   (token) => {
     const badgeToken = prepareToken(token);

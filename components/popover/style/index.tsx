@@ -8,7 +8,7 @@ import type {
   GetDefaultToken,
   PresetColorType,
 } from '../../theme/internal';
-import { PresetColors, genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { PresetColors, genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 
@@ -207,7 +207,7 @@ export const prepareComponentToken: GetDefaultToken<'Popover'> = (token) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Popover',
   (token) => {
     const { colorBgElevated, colorText } = token;

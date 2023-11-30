@@ -1,11 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { genModalMaskStyle } from '../../modal/style';
 import { textEllipsis } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -367,7 +367,7 @@ export const prepareComponentToken: GetDefaultToken<'Image'> = (token) => ({
   previewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Image',
   (token) => {
     const previewCls = `${token.componentCls}-preview`;

@@ -6,7 +6,6 @@ import type { SkeletonElementProps } from './Element';
 import Element from './Element';
 
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
   size?: 'large' | 'small' | 'default';
@@ -24,8 +23,7 @@ const SkeletonButton: React.FC<SkeletonButtonProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const otherProps = omit(props, ['prefixCls']);
   const cls = classNames(

@@ -15,7 +15,6 @@ import type { DescriptionsItemProps } from './Item';
 import DescriptionsItem from './Item';
 import Row from './Row';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 interface CompoundedComponent {
   Item: typeof DescriptionsItem;
@@ -93,8 +92,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const mergedSize = useSize(customizeSize);
   const rows = useRow(mergedColumn, mergedItems);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   // ======================== Render ========================
   const contextValue = React.useMemo(

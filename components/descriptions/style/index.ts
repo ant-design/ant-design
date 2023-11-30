@@ -1,8 +1,8 @@
-import { unit, type CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -228,7 +228,7 @@ export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) =>
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Descriptions',
   (token) => {
     const descriptionToken = mergeToken<DescriptionsToken>(token, {});

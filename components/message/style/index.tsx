@@ -6,7 +6,7 @@ import { Keyframes } from '@ant-design/cssinjs';
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -195,7 +195,7 @@ export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Message',
   (token) => {
     // Gen-style functions here
