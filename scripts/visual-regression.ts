@@ -12,7 +12,7 @@ import sharp from 'sharp';
 const compareScreenshots = async (
   baseImgPath: string,
   currentImgPath: string,
-  diffImage: string,
+  diffImagePath: string,
 ): Promise<number> => {
   const baseImgBuf = await sharp(baseImgPath).toBuffer();
   const currentImgBuf = await sharp(currentImgPath).toBuffer();
@@ -44,7 +44,7 @@ const compareScreenshots = async (
     { threshold: 0.1, diffMask: false },
   );
 
-  diffPng.pack().pipe(fs.createWriteStream(diffImage));
+  diffPng.pack().pipe(fs.createWriteStream(diffImagePath));
 
   return (mismatchedPixels / (targetWidth * targetHeight)) * 100;
 };
@@ -61,6 +61,7 @@ async function boot() {
   console.log(chalk.blue('⛳ Checking image snapshots with branch `master`'));
   console.log('\n');
 
+  // TODO: 需要强校验 master 分支的截图是否存在，可能原因是没有下载成功
   const baseImgFileList = readPngs(baseImgDir);
   const currentImgFileList = readPngs(currentImgDir);
 
@@ -77,6 +78,13 @@ async function boot() {
   }
 
   await fse.ensureDir(diffImgDir);
+
+  let reportMdStr = `
+| image_name | expected | actual | diff |
+| --- | --- | --- | --- |
+  `.trim();
+
+  let badCaseCounts = 0;
 
   for (const file of baseImgFileList) {
     const baseImgPath = path.join(baseImgDir, file);
@@ -98,9 +106,29 @@ async function boot() {
         chalk.yellow(file),
         `${mismatchedPxPercent.toFixed(2)}%\n`,
       );
+      badCaseCounts++;
+
+      const baseImgBase64 = await fs.promises.readFile(baseImgPath, 'base64');
+      const currentImgBase64 = await fs.promises.readFile(currentImgPath, 'base64');
+      const diffImgBase64 = await fs.promises.readFile(diffImgPath, 'base64');
+
+      reportMdStr += `\n| ${[
+        path.basename(file),
+        `![master ref](data:image/png;base64,${baseImgBase64})`,
+        `![pr commit-id](data:image/png;base64,${currentImgBase64})`,
+        `![diff](data:image/png;base64,${diffImgBase64})`,
+      ].join(' | ')} |`;
     } else {
       console.log('Passed for: %s\n', chalk.green(file));
     }
+  }
+
+  if (badCaseCounts) {
+    await fs.promises.writeFile(
+      path.resolve(__dirname, '../visual-regression-report.md'),
+      reportMdStr,
+      'utf8',
+    );
   }
 }
 

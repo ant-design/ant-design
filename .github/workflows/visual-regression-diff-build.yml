@@ -1,6 +1,6 @@
 # Each PR will build preview site that help to check code is work as expect.
 
-name: Visual Regression Build
+name: 👀 Visual Regression Diff Build
 
 on:
   push:
@@ -73,47 +73,28 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: generate image snapshots
-        id: site
-        run: npm run test-image
+        id: test-image
+        run: |
+          node node_modules/puppeteer/install.mjs
+          npm run version
+          npm run test-image
+          tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
-          SITE_ENV: development
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
-      # upload master `imageSnapshots`
-      - name: upload report artifact
-        if: github.event.push.head.ref == 'master'
-        uses: actions/upload-artifact@v3
-        with:
-          name: visual-regression
-          path: imageSnapshots/
+      - name: download image snapshots from latest master
+        run: |
+          wget -O antd-image-snapshots-master.zip https://github.com/ant-design/antd-image-snapshots/archive/refs/heads/main.zip
+          unzip antd-image-snapshots-master.zip
+          mv antd-image-snapshots-main/imageSnapshots ./imageSnapshots-master
+          mv antd-image-snapshots-main/visual-regression-ref.txt ./imageSnapshots-master
 
-      # Upload PR id for next workflow use
-      - name: Save persist index
-        if: ${{ always() }}
-        run: echo ${{ github.event.number }} > ./persist-index.txt
-
-      - name: Upload persist index
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v3
-        with:
-          name: visual-regression-persist
-          path: ./persist-index.txt
-
-      # diff image with master and generate report to dir imageSnapshots/report
-      # download latest master diff image repo files
-      # 逐个文件进行 diff image 生成
-      # 都存在的文件直接 diff
-      # 新增的文件标记
-      # 删除的文件标记
-
-      # 执行 visual regression diff 任务
-      - name: visual regression build
-        if: github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master'
-        run: npm run visual-diff
+      # Execute visual regression diff task
+      - name: visual regression diff
+        run: npm run visual-regression
 
       - name: upload report artifact
-        if: github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master'
         uses: actions/upload-artifact@v3
         with:
           name: visual-regression-report
-          path: imageSnapshots/report/
+          path: ./visual-regression-report.md

@@ -69,3 +69,6 @@ __image_snapshots__/
 
 .eslintcache
 .node-version
+
+visual-regression-report.md
+antd-image-snapshots*

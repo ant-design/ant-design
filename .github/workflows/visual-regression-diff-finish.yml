@@ -1,6 +1,6 @@
 # Each PR will build preview site that help to check code is work as expect.
 
-name: Preview Deploy
+name: 👀 Visual Regression Diff Finish
 
 # master 需要传到 repo
 # pr 需要评论回调

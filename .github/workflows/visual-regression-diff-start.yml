@@ -4,7 +4,7 @@
 # Never do any `checkout` or `npm install` action!
 # `pull_request_target` will enable PR to access the secrets!
 
-name: Visual-diff Regression Start
+name: 👀 Visual Regression Diff Start
 
 on:
   pull_request_target:
@@ -25,8 +25,7 @@ jobs:
         uses: actions-cool/maintain-one-comment@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # todo: replace link with ci job visual-diff regression build url
           body: |
-            [![Prepare visual-diff regression](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)](https://preview-${{ github.event.workflow_run.id }}-ant-design.surge.sh)
+            Preparing visual-diff regression
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
