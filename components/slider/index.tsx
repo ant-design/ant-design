@@ -81,7 +81,9 @@ export interface SliderSingleProps extends SliderBaseProps {
   value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;
+  /** @deprecated Please use `onChangeComplete` instead */
   onAfterChange?: (value: number) => void;
+  onChangeComplete?: (value: number) => void;
   /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.track` instead */
@@ -95,7 +97,9 @@ export interface SliderRangeProps extends SliderBaseProps {
   value?: number[];
   defaultValue?: number[];
   onChange?: (value: number[]) => void;
+  /** @deprecated Please use `onChangeComplete` instead */
   onAfterChange?: (value: number[]) => void;
+  onChangeComplete?: (value: number[]) => void;
   /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties[];
   /** @deprecated Please use `styles.track` instead */
