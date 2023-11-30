@@ -28,16 +28,16 @@ jobs:
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: ubuntu-latest
-    if: github.event.workflow_run.event == 'pull_request'
     outputs:
-      jobs: ${{ steps.prep-summary.outputs.result }}
-      build-success: ${{ steps.prep-summary.outputs.build-success }}
-      build-failure: ${{ steps.prep-summary.outputs.build-failure }}
+      jobs: ${{ steps.visual_diff_build_job_status.outputs.result }}
+      build-success: ${{ steps.visual_diff_build_job_status.outputs.build-success }}
+      build-failure: ${{ steps.visual_diff_build_job_status.outputs.build-failure }}
     steps:
       - name: summary jobs status
         uses: actions/github-script@v6
-        id: prep-summary
+        id: visual_diff_build_job_status
         with:
+          # todo: split it out as github actions
           script: |
             const response = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
@@ -45,7 +45,7 @@ jobs:
               run_id: ${{ github.event.workflow_run.id }},
             });
 
-            // { [name]: [conclusion] }, e.g. { 'build preview': 'success' }
+            // { [name]: [conclusion] }, e.g. { 'test image': 'success' }
             const jobs = (response.data?.jobs ?? []).reduce((acc, job) => {
               if(job?.status === 'completed' && 'name' in job && 'conclusion' in job) {
                 acc[job.name] = job.conclusion;
@@ -58,8 +58,8 @@ jobs:
 
             // the name here must be the same as `jobs.xxx.{name}` in preview-build.yml
             // set output
-            core.setOutput('build-success', jobs['build preview'] === 'success');
-            core.setOutput('build-failure', jobs['build preview'] === 'failure');
+            core.setOutput('build-success', jobs['visual-diff report'] === 'success');
+            core.setOutput('build-failure', jobs['visual-diff report'] === 'failure');
             return jobs;
 
   persist-image-snapshots:
@@ -81,7 +81,7 @@ jobs:
       # Save PR id to output
       - name: save PR id
         id: pr
-        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=$(<visual-regression-pr-id.txt)" >> $GITHUB_OUTPUT
 
       # Download site artifact
       - name: download site artifact

@@ -66,7 +66,7 @@ jobs:
 
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
-        id: visuall-regression
+        id: visual-regression
         run: echo "id=$(<visual-regression-ref.txt)" >> $GITHUB_OUTPUT
 
       - name: Download Visual-Regression Artifact
@@ -104,7 +104,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git commit -a -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
+          git commit -a -m 'feat: update snapshot from ${{steps.visual-regression.outputs.id}}'
 
           echo "✅ Commit Finished"
 
@@ -118,10 +118,10 @@ jobs:
       #   with:
       #     token: ${{ secrets.GITHUB_TOKEN }}
       #     body: |
-      #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.visuall-regression.outputs.id }}-ant-design.surge.sh)
+      #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.visual-regression.outputs.id }}-ant-design.surge.sh)
       #       <!-- AUTO_PREVIEW_HOOK -->
       #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-      #     number: ${{ steps.visuall-regression.outputs.id }}
+      #     number: ${{ steps.visual-regression.outputs.id }}
 
       # - name: failed comment
       #   if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.persist.outcome == 'failure' || failure() }}
@@ -132,4 +132,4 @@ jobs:
       #       <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
       #       <!-- AUTO_PREVIEW_HOOK -->
       #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-      #     number: ${{ steps.visuall-regression.outputs.id }}
+      #     number: ${{ steps.visual-regression.outputs.id }}
