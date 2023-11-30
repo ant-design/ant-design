@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import QRCode from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
