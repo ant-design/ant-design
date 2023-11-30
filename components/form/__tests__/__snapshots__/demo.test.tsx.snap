@@ -2870,13 +2870,8 @@ Array [
                 class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
               >
                 <div
-                  class="ant-color-picker-color-block"
-                >
-                  <div
-                    class="ant-color-picker-color-block-inner"
-                    style="background:rgb(22, 119, 255)"
-                  />
-                </div>
+                  class="ant-color-picker-clear"
+                />
               </div>
             </div>
           </div>
