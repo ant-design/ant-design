@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -13,15 +13,15 @@ import type {
   CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
+  FloatButtonElement,
   FloatButtonProps,
-  FloatButtonRef,
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps>((props, ref) => {
+const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
