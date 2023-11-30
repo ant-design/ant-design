@@ -1,7 +1,7 @@
 ## zh-CN
 
-tags select，随意输入的内容（scroll the menu）。
+标签形式的多选框，用户亦可自由输入。
 
 ## en-US
 
-Select with tags, transform input to tag (scroll the menu).
+Allow user to select tags from list or input custom tag.
