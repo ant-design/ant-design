@@ -1891,30 +1891,46 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
           <div
             class="ant-form-item-control-input-content"
           >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="submit"
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
             >
-              <span>
-                Submit
-              </span>
-            </button>
-            <button
-              class="ant-btn ant-btn-default"
-              type="button"
-            >
-              <span>
-                Reset
-              </span>
-            </button>
-            <button
-              class="ant-btn ant-btn-link"
-              type="button"
-            >
-              <span>
-                Fill form
-              </span>
-            </button>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="submit"
+                >
+                  <span>
+                    Submit
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    Reset
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-link"
+                  type="button"
+                >
+                  <span>
+                    Fill form
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -19508,6 +19524,9 @@ Array [
   >
     <pre>
       Name Value:
+    </pre>
+    <pre>
+      Custom Value: name:
     </pre>
   </article>,
 ]

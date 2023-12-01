@@ -1284,6 +1284,7 @@ describe('Form', () => {
       );
 
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
+      fireEvent.click(container.querySelector('.anticon-question-circle')!);
       await waitFakeTimer();
 
       expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');

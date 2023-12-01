@@ -178,6 +178,7 @@ const GlobalLayout: React.FC = () => {
                 motion: !theme.includes('motion-off'),
               },
               cssVar: true,
+              hashed: false,
             }}
           >
             <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
