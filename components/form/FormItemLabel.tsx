@@ -103,7 +103,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
                   // https://github.com/ant-design/ant-design/issues/46154
                   e.preventDefault();
                 },
-                tabindex: undefined,
+                tabindex: null,
               })}
             </Tooltip>
           );
