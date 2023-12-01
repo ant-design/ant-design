@@ -93,9 +93,18 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         const tooltipProps = toTooltipProps(tooltip);
         if (tooltipProps) {
           const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
-          const tooltipNode = (
+          const tooltipNode: React.ReactNode = (
             <Tooltip {...restTooltipProps}>
-              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip`, title: '' })}
+              {React.cloneElement(icon, {
+                className: `${prefixCls}-item-tooltip`,
+                title: '',
+                onClick: (e: React.MouseEvent) => {
+                  // Prevent label behavior in tooltip icon
+                  // https://github.com/ant-design/ant-design/issues/46154
+                  e.preventDefault();
+                },
+                tabIndex: null,
+              })}
             </Tooltip>
           );
 
