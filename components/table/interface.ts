@@ -62,7 +62,7 @@ export interface TableLocale {
 export type SortOrder = 'descend' | 'ascend' | null;
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = typeof TableActions[number];
+export type TableAction = (typeof TableActions)[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -131,11 +131,12 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   // Filter
   filtered?: boolean;
   filters?: ColumnFilterItem[];
-  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
-  filterDropdownProps?: Omit<
-    DropdownProps,
-    'dropdownRender' | 'open' | 'onOpenChange' | 'getPopupContainer'
-  >;
+  filterDropdown?:
+    | React.ReactElement<DropdownProps>
+    | ((
+        props: FilterDropdownProps,
+        originalNode: React.ReactElement<DropdownProps>,
+      ) => React.ReactElement<DropdownProps>);
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;

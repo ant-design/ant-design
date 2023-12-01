@@ -15,7 +15,6 @@ import Dropdown, { type DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
 import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
-import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
 import type { EventDataNode } from '../../../tree';
 import Tree from '../../../tree';
@@ -344,23 +343,58 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     children: node.children?.map((item) => getFilterData(item)) || [],
   });
 
-  let dropdownContent: React.ReactNode;
+  let filterIcon: React.ReactNode;
+  if (typeof column.filterIcon === 'function') {
+    filterIcon = column.filterIcon(filtered);
+  } else if (column.filterIcon) {
+    filterIcon = column.filterIcon;
+  } else {
+    filterIcon = <FilterFilled />;
+  }
+
+  const { direction } = React.useContext(ConfigContext);
+
+  let dropdownElement = (
+    <Dropdown
+      trigger={['click']}
+      open={mergedVisible}
+      onOpenChange={onVisibleChange}
+      getPopupContainer={getPopupContainer}
+      placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+    >
+      <span
+        role="button"
+        tabIndex={-1}
+        className={classNames(`${prefixCls}-trigger`, {
+          active: filtered,
+        })}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        {filterIcon}
+      </span>
+    </Dropdown>
+  );
 
   if (typeof column.filterDropdown === 'function') {
-    dropdownContent = column.filterDropdown({
-      prefixCls: `${dropdownPrefixCls}-custom`,
-      setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
-      selectedKeys: getFilteredKeysSync(),
-      confirm: doFilter,
-      clearFilters: onReset,
-      filters: column.filters,
-      visible: mergedVisible,
-      close: () => {
-        triggerVisible(false);
+    dropdownElement = column.filterDropdown(
+      {
+        prefixCls: `${dropdownPrefixCls}-custom`,
+        setSelectedKeys: (selectedKeys: string[]) => onSelectKeys({ selectedKeys }),
+        selectedKeys: getFilteredKeysSync(),
+        confirm: doFilter,
+        clearFilters: onReset,
+        filters: column.filters,
+        visible: mergedVisible,
+        close: () => {
+          triggerVisible(false);
+        },
       },
-    });
+      dropdownElement,
+    );
   } else if (column.filterDropdown) {
-    dropdownContent = column.filterDropdown;
+    dropdownElement = column.filterDropdown;
   } else {
     const selectedKeys = getFilteredKeysSync() || [];
     const getFilterComponent = () => {
@@ -477,8 +511,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       return selectedKeys.length === 0;
     };
 
-    dropdownContent = (
-      <>
+    const menu = () => (
+      <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
           <Button type="link" size="small" disabled={getResetDisabled()} onClick={() => onReset()}>
@@ -488,57 +522,16 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             {locale.filterConfirm}
           </Button>
         </div>
-      </>
+      </FilterDropdownMenuWrapper>
     );
+
+    dropdownElement = React.cloneElement<DropdownProps>(dropdownElement, { dropdownRender: menu });
   }
-
-  // We should not block customize Menu with additional props
-  if (column.filterDropdown) {
-    dropdownContent = <OverrideProvider selectable={undefined}>{dropdownContent}</OverrideProvider>;
-  }
-
-  const menu = () => (
-    <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
-      {dropdownContent}
-    </FilterDropdownMenuWrapper>
-  );
-
-  let filterIcon: React.ReactNode;
-  if (typeof column.filterIcon === 'function') {
-    filterIcon = column.filterIcon(filtered);
-  } else if (column.filterIcon) {
-    filterIcon = column.filterIcon;
-  } else {
-    filterIcon = <FilterFilled />;
-  }
-
-  const { direction } = React.useContext(ConfigContext);
 
   return (
     <div className={`${prefixCls}-column`}>
       <span className={`${tablePrefixCls}-column-title`}>{children}</span>
-      <Dropdown
-        dropdownRender={menu}
-        trigger={['click']}
-        open={mergedVisible}
-        onOpenChange={onVisibleChange}
-        getPopupContainer={getPopupContainer}
-        placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
-        {...column.filterDropdownProps}
-      >
-        <span
-          role="button"
-          tabIndex={-1}
-          className={classNames(`${prefixCls}-trigger`, {
-            active: filtered,
-          })}
-          onClick={(e) => {
-            e.stopPropagation();
-          }}
-        >
-          {filterIcon}
-        </span>
-      </Dropdown>
+      {dropdownElement}
     </div>
   );
 }
