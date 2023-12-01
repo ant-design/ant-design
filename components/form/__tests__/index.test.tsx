@@ -225,7 +225,7 @@ describe('Form', () => {
       </Form>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      "Warning: [antd: Form.Item] A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.",
+      'Warning: [antd: Form.Item] A `Form.Item` with a render function cannot be a field, and thus cannot have a `name` prop.',
     );
   });
 
@@ -1252,6 +1252,21 @@ describe('Form', () => {
 
       expect(container.querySelector('.ant-tooltip-inner')).toHaveTextContent('Bamboo');
     });
+
+    // https://github.com/ant-design/ant-design/issues/46154
+    it('should not trigger form change when click icon', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Form>
+          <Form.Item label="light" name="foo" tooltip={{ title: 'Bar' }}>
+            <Switch onChange={onChange} />
+          </Form.Item>
+        </Form>,
+      );
+      fireEvent.click(container.querySelector('.anticon-question-circle')!);
+      expect(onChange).not.toHaveBeenCalled();
+    });
   });
 
   it('warningOnly validate', async () => {
@@ -1494,7 +1509,7 @@ describe('Form', () => {
   it('item customize margin', async () => {
     const computeSpy = jest
       .spyOn(window, 'getComputedStyle')
-      .mockImplementation(() => ({ marginBottom: 24 } as unknown as CSSStyleDeclaration));
+      .mockImplementation(() => ({ marginBottom: 24 }) as unknown as CSSStyleDeclaration);
 
     const { container } = render(
       <Form>
