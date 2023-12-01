@@ -1938,6 +1938,39 @@ Array [
 
 exports[`renders components/button/demo/legacy-group.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/button/demo/linear-gradient.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Default Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/linear-gradient.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/button/demo/loading.tsx extend context correctly 1`] = `
 <div
   class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
