@@ -109,7 +109,6 @@ const Line: React.FC<LineProps> = (props) => {
   }
 
   const percentStyle: React.CSSProperties = {
-    // width: `${validProgress(percent)}%`,
     width: `100%`,
     height,
     borderRadius,
