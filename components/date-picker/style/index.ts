@@ -938,7 +938,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::after': {
             display: 'block',
-            height: timeColumnHeight - timeCellHeight,
+            height: paddingXXS,
             content: '""',
           },
 
@@ -998,7 +998,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       },
       // https://github.com/ant-design/ant-design/issues/39227
       [`&-datetime-panel ${componentCls}-time-panel-column:after`]: {
-        height: timeColumnHeight - timeCellHeight + paddingXXS * 2,
+        height: paddingXXS,
       },
     },
   };
