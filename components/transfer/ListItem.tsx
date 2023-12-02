@@ -2,10 +2,10 @@ import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import classNames from 'classnames';
 import * as React from 'react';
 import type { KeyWiseTransferItem } from '.';
-import Checkbox from '../checkbox';
-import LocaleReceiver from '../locale/LocaleReceiver';
-import defaultLocale from '../locale/en_US';
 import TransButton from '../_util/transButton';
+import Checkbox from '../checkbox';
+import { useLocale } from '../locale';
+import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   renderedText?: string | number;
@@ -13,7 +13,7 @@ type ListItemProps<RecordType> = {
   disabled?: boolean;
   checked?: boolean;
   prefixCls: string;
-  onClick: (item: RecordType) => void;
+  onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
   showRemove?: boolean;
@@ -32,8 +32,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     showRemove,
   } = props;
 
-  const className = classNames({
-    [`${prefixCls}-content-item`]: true,
+  const className = classNames(`${prefixCls}-content-item`, {
     [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     [`${prefixCls}-content-item-checked`]: checked,
   });
@@ -43,45 +42,42 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
     title = String(renderedText);
   }
 
+  const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
+
+  const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
+
+  const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
+
+  if (showRemove) {
+    return (
+      <li {...liProps}>
+        {labelNode}
+        <TransButton
+          disabled={disabled || item.disabled}
+          className={`${prefixCls}-content-item-remove`}
+          aria-label={contextLocale?.remove}
+          onClick={() => {
+            onRemove?.(item);
+          }}
+        >
+          <DeleteOutlined />
+        </TransButton>
+      </li>
+    );
+  }
+
+  // Default click to select
+  liProps.onClick = disabled || item.disabled ? undefined : (event) => onClick(item, event);
+
   return (
-    <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-      {(contextLocale) => {
-        const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
-        const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
-
-        // Show remove
-        if (showRemove) {
-          return (
-            <li {...liProps}>
-              {labelNode}
-              <TransButton
-                disabled={disabled || item.disabled}
-                className={`${prefixCls}-content-item-remove`}
-                aria-label={contextLocale.remove}
-                onClick={() => {
-                  onRemove?.(item);
-                }}
-              >
-                <DeleteOutlined />
-              </TransButton>
-            </li>
-          );
-        }
-
-        // Default click to select
-        liProps.onClick = disabled || item.disabled ? undefined : () => onClick(item);
-        return (
-          <li {...liProps}>
-            <Checkbox
-              className={`${prefixCls}-checkbox`}
-              checked={checked}
-              disabled={disabled || item.disabled}
-            />
-            {labelNode}
-          </li>
-        );
-      }}
-    </LocaleReceiver>
+    <li {...liProps}>
+      <Checkbox
+        className={`${prefixCls}-checkbox`}
+        checked={checked}
+        disabled={disabled || item.disabled}
+      />
+      {labelNode}
+    </li>
   );
 };
 

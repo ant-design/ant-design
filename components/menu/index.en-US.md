@@ -3,6 +3,7 @@ category: Components
 group: Navigation
 title: Menu
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KeyQQL5iKkkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A versatile menu for navigation.
@@ -32,8 +33,11 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/switch-mode.tsx">Switch the menu type</code>
 <code src="./demo/style-debug.tsx" debug>Style debug</code>
 <code src="./demo/menu-v4.tsx" debug>Menu v4</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Menu
 
@@ -141,3 +145,7 @@ Menu will render fully item in flex layout and then collapse it. You need tell f
   <Menu style={{ minWidth: 0, flex: "auto" }} />
 </div>
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Menu"></ComponentTokenTable>

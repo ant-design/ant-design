@@ -3,10 +3,10 @@ import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
-import type { TooltipProps } from '../../tooltip';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
+import type { TooltipProps, TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 function tooltipProps(): TooltipProps {
@@ -14,10 +14,10 @@ function tooltipProps(): TooltipProps {
 }
 
 jest.mock('../../tooltip', () => {
-  const ReactReal = jest.requireActual('react');
+  const ReactReal: typeof React = jest.requireActual('react');
   const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
-  return ReactReal.forwardRef((props: TooltipProps, ref: any) => {
+  return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     return <TooltipComponent {...props} ref={ref} />;
   });
@@ -37,14 +37,15 @@ describe('Slider', () => {
     jest.useRealTimers();
   });
 
-  it('should show tooltip when hovering slider handler', () => {
+  it('should show tooltip when hovering slider handler', async () => {
     const { container } = render(<Slider defaultValue={30} />);
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
 
     fireEvent.mouseLeave(container.querySelector('.ant-slider-handle')!);
-
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
   });
 
@@ -55,6 +56,15 @@ describe('Slider', () => {
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
     expect(tooltipProps().placement).toEqual('left');
+  });
+
+  it('support autoAdjustOverflow', () => {
+    const { container } = render(
+      <Slider vertical defaultValue={30} tooltip={{ autoAdjustOverflow: false }} />,
+    );
+
+    fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+    expect(tooltipProps().autoAdjustOverflow).toBe(false);
   });
 
   it('when tooltip.open is true, tooltip should show always, or should never show', () => {
@@ -79,7 +89,7 @@ describe('Slider', () => {
     expect(container2.querySelector('.ant-tooltip-content')!).toBeNull();
   });
 
-  it('when step is null, thumb can only be slided to the specific mark', () => {
+  it('when step is null, thumb can only be slid to the specific mark', () => {
     const intentionallyWrongValue = 40;
     const marks = {
       0: '0',
@@ -98,7 +108,7 @@ describe('Slider', () => {
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('48');
   });
 
-  it('when step is not null, thumb can be slided to the multiples of step', () => {
+  it('when step is not null, thumb can be slid to the multiples of step', () => {
     const marks = {
       0: '0',
       48: '48',
@@ -111,7 +121,7 @@ describe('Slider', () => {
     expect(container.querySelector('.ant-slider-handle')!.getAttribute('aria-valuenow')).toBe('49');
   });
 
-  it('when step is undefined, thumb can be slided to the multiples of step', () => {
+  it('when step is undefined, thumb can be slid to the multiples of step', () => {
     const marks = {
       0: '0',
       48: '48',
@@ -133,14 +143,14 @@ describe('Slider', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should keepAlign by calling forcePopupAlign', async () => {
+  it('should keepAlign by calling forceAlign', async () => {
     const ref = React.createRef<any>();
     render(<SliderTooltip title="30" open ref={ref} />);
-    ref.current.forcePopupAlign = jest.fn();
+    ref.current.forceAlign = jest.fn();
     act(() => {
       jest.runAllTimers();
     });
-    expect(ref.current.forcePopupAlign).toHaveBeenCalled();
+    expect(ref.current.forceAlign).toHaveBeenCalled();
   });
 
   it('tipFormatter should not crash with undefined value', () => {
@@ -162,27 +172,27 @@ describe('Slider', () => {
 
     const { container, rerender } = render(<TSSlider tooltipPrefixCls="xxx" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated, please use `tooltip.prefixCls` instead.',
+      'Warning: [antd: Slider] `tooltipPrefixCls` is deprecated. Please use `tooltip.prefixCls` instead.',
     );
 
     rerender(<TSSlider getTooltipPopupContainer={() => document.body} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated, please use `tooltip.getPopupContainer` instead.',
+      'Warning: [antd: Slider] `getTooltipPopupContainer` is deprecated. Please use `tooltip.getPopupContainer` instead.',
     );
 
     rerender(<TSSlider tipFormatter={(v: any) => v} />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tipFormatter` is deprecated, please use `tooltip.formatter` instead.',
+      'Warning: [antd: Slider] `tipFormatter` is deprecated. Please use `tooltip.formatter` instead.',
     );
 
     rerender(<TSSlider tooltipVisible />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipVisible` is deprecated, please use `tooltip.open` instead.',
+      'Warning: [antd: Slider] `tooltipVisible` is deprecated. Please use `tooltip.open` instead.',
     );
 
     rerender(<TSSlider tooltipPlacement="left" />);
     expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Slider] `tooltipPlacement` is deprecated, please use `tooltip.placement` instead.',
+      'Warning: [antd: Slider] `tooltipPlacement` is deprecated. Please use `tooltip.placement` instead.',
     );
 
     // All should work

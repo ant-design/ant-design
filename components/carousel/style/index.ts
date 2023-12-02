@@ -1,22 +1,38 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 指示点宽度
+   * @descEN Width of indicator
+   */
   dotWidth: number;
+  /**
+   * @desc 指示点高度
+   * @descEN Height of indicator
+   */
   dotHeight: number;
+  /** @deprecated Use `dotActiveWidth` instead. */
   dotWidthActive: number;
+  /**
+   * @desc 激活态指示点宽度
+   * @descEN Width of active indicator
+   */
+  dotActiveWidth: number;
 }
 
 interface CarouselToken extends FullToken<'Carousel'> {
-  carouselArrowSize: number;
-  carouselDotOffset: number;
-  carouselDotInline: number;
+  carouselArrowSize: string | number;
+  carouselDotOffset: string | number;
+  carouselDotInline: string | number;
 }
 
 const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
   const { componentCls, antCls, carouselArrowSize, carouselDotOffset, marginXXS } = token;
-  const arrowOffset = -carouselArrowSize * 1.25;
+  const arrowOffset = token.calc(carouselArrowSize).mul(-1.25).equal();
 
   const carouselDotMargin = marginXXS;
 
@@ -129,7 +145,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
         display: 'block',
         width: carouselArrowSize,
         height: carouselArrowSize,
-        marginTop: -carouselArrowSize / 2,
+        marginTop: token.calc(carouselArrowSize).mul(-1).div(2).equal(),
         padding: 0,
         color: 'transparent',
         fontSize: 0,
@@ -180,6 +196,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
         display: 'flex !important',
         justifyContent: 'center',
         paddingInlineStart: 0,
+        margin: 0,
         listStyle: 'none',
 
         '&-bottom': {
@@ -215,7 +232,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
             fontSize: 0,
             background: token.colorBgContainer,
             border: 0,
-            borderRadius: 1,
+            borderRadius: token.dotHeight,
             outline: 'none',
             cursor: 'pointer',
             opacity: 0.3,
@@ -227,13 +244,13 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
 
             '&::after': {
               position: 'absolute',
-              inset: -carouselDotMargin,
+              inset: token.calc(carouselDotMargin).mul(-1).equal(),
               content: '""',
             },
           },
 
           '&.slick-active': {
-            width: token.dotWidthActive,
+            width: token.dotActiveWidth,
 
             '& button': {
               background: token.colorBgContainer,
@@ -282,7 +299,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
         li: {
           // reverse width and height in vertical situation
           ...reverseSizeOfDot,
-          margin: `${marginXXS}px 0`,
+          margin: `${unit(marginXXS)} 0`,
           verticalAlign: 'baseline',
 
           button: reverseSizeOfDot,
@@ -326,14 +343,25 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = (token) => {
   ];
 };
 
+export const prepareComponentToken: GetDefaultToken<'Carousel'> = () => {
+  const dotActiveWidth = 24;
+
+  return {
+    dotWidth: 16,
+    dotHeight: 3,
+    dotWidthActive: dotActiveWidth,
+    dotActiveWidth,
+  };
+};
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Carousel',
   (token) => {
     const { controlHeightLG, controlHeightSM } = token;
     const carouselToken = mergeToken<CarouselToken>(token, {
-      carouselArrowSize: controlHeightLG / 2,
-      carouselDotOffset: controlHeightSM / 2,
+      carouselArrowSize: token.calc(controlHeightLG).div(2).equal(),
+      carouselDotOffset: token.calc(controlHeightSM).div(2).equal(),
     });
 
     return [
@@ -342,9 +370,8 @@ export default genComponentStyleHook(
       genCarouselRtlStyle(carouselToken),
     ];
   },
+  prepareComponentToken,
   {
-    dotWidth: 16,
-    dotHeight: 3,
-    dotWidthActive: 24,
+    deprecatedTokens: [['dotWidthActive', 'dotActiveWidth']],
   },
 );

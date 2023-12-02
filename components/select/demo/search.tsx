@@ -9,6 +9,10 @@ const onSearch = (value: string) => {
   console.log('search:', value);
 };
 
+// Filter `option.label` match the user type `input`
+const filterOption = (input: string, option?: { label: string; value: string }) =>
+  (option?.label ?? '').toLowerCase().includes(input.toLowerCase());
+
 const App: React.FC = () => (
   <Select
     showSearch
@@ -16,9 +20,7 @@ const App: React.FC = () => (
     optionFilterProp="children"
     onChange={onChange}
     onSearch={onSearch}
-    filterOption={(input, option) =>
-      (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-    }
+    filterOption={filterOption}
     options={[
       {
         value: 'jack',

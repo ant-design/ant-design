@@ -1,9 +1,10 @@
-import MockDate from 'mockdate';
 import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import MockDate from 'mockdate';
+import { type PickerPanelProps } from 'rc-picker';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type { Locale } from 'rc-picker/lib/interface';
-import { type PickerPanelProps } from 'rc-picker';
+import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -42,7 +43,7 @@ jest.mock('rc-picker', () => {
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar, { mockDate: true });
+  rtlTest(Calendar, true);
 
   function openSelect(wrapper: HTMLElement, className: string) {
     fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
@@ -75,7 +76,7 @@ describe('Calendar', () => {
     const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
 
     fireEvent.click(container.querySelector('.ant-picker-cell')!);
-    expect(onSelect).toHaveBeenCalledWith(expect.anything());
+    expect(onSelect).toHaveBeenCalledWith(expect.anything(), { source: 'date' });
 
     const value = onSelect.mock.calls[0][0];
     expect(Dayjs.isDayjs(value)).toBe(true);
@@ -106,7 +107,7 @@ describe('Calendar', () => {
     const elem = container
       .querySelector('[title="2018-02-20"]')!
       .className.includes('ant-picker-cell-disabled');
-    expect(elem).toEqual(true);
+    expect(elem).toBe(true);
     expect(onSelect.mock.calls.length).toBe(0);
   });
 
@@ -269,7 +270,7 @@ describe('Calendar', () => {
     const end = Dayjs('2019-11-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(3), 'year');
   });
 
   it('if start.month > value.month, set value.month to start.month', () => {
@@ -278,7 +279,7 @@ describe('Calendar', () => {
     const end = Dayjs('2019-03-01');
     const onValueChange = jest.fn();
     createWrapper(start, end, value, onValueChange);
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(10), 'year');
   });
 
   it('if change year and month > end month, set value.month to end.month', () => {
@@ -301,7 +302,7 @@ describe('Calendar', () => {
     fireEvent.click(
       Array.from(wrapper.container.querySelectorAll('.ant-select-item-option')).at(-1)!,
     );
-    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2));
+    expect(onValueChange).toHaveBeenCalledWith(value.year(2019).month(2), 'year');
   });
 
   it('onMonthChange should work correctly', () => {
@@ -323,7 +324,7 @@ describe('Calendar', () => {
     );
     openSelect(wrapper.container, '.ant-picker-calendar-month-select');
     clickSelectItem(wrapper.container);
-    expect(onValueChange).toHaveBeenCalledWith(value.month(10));
+    expect(onValueChange).toHaveBeenCalledWith(value.month(10), 'month');
   });
 
   it('onTypeChange should work correctly', () => {
@@ -400,7 +401,7 @@ describe('Calendar', () => {
 
       for (let index = start; index < end; index += 1) {
         monthOptions.push(
-          <Select.Option className="month-item" key={`${index}`} value={index}>
+          <Select.Option className="month-item" key={index} value={index}>
             {months[index]}
           </Select.Option>,
         );
@@ -462,6 +463,20 @@ describe('Calendar', () => {
     expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
   });
 
+  it('fullCellRender in date', () => {
+    const { container } = render(
+      <Calendar fullCellRender={() => <div className="light">Bamboo</div>} />,
+    );
+    expect(container.querySelectorAll('.light')[0].innerHTML).toEqual('Bamboo');
+  });
+
+  it('fullCellRender in month', () => {
+    const { container } = render(
+      <Calendar mode="year" fullCellRender={() => <div className="bamboo">Light</div>} />,
+    );
+    expect(container.querySelectorAll('.bamboo')[0].innerHTML).toEqual('Light');
+  });
+
   it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {
     const onClick = jest.fn();
     const { container } = render(
@@ -476,5 +491,61 @@ describe('Calendar', () => {
     );
     fireEvent.click(container.querySelectorAll('.bamboo')[0]);
     expect(onClick).toHaveBeenCalled();
+  });
+
+  it('deprecated dateCellRender and monthCellRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <Calendar
+        dateCellRender={() => <div className="bamboo">Light</div>}
+        monthCellRender={() => <div className="bar">Bar</div>}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `monthCellRender` is deprecated. Please use `cellRender` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `dateCellRender` is deprecated. Please use `cellRender` instead.',
+    );
+
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
+    expect(container.querySelector('.bar')).toBeTruthy();
+    errSpy.mockRestore();
+  });
+
+  it('deprecated dateFullCellRender and monthFullCellRender', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(
+      <Calendar
+        dateFullCellRender={() => <div className="bamboo">Light</div>}
+        monthFullCellRender={() => <div className="bar">Bar</div>}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `dateFullCellRender` is deprecated. Please use `fullCellRender` instead.',
+    );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Calendar] `monthFullCellRender` is deprecated. Please use `fullCellRender` instead.',
+    );
+    expect(container.querySelector('.bamboo')).toBeTruthy();
+    fireEvent.click(Array.from(container.querySelectorAll(`.ant-radio-button-input`)).at(1)!);
+    expect(container.querySelector('.bar')).toBeTruthy();
+    errSpy.mockRestore();
+  });
+
+  it('support Calendar.generateCalendar', () => {
+    jest.useFakeTimers().setSystemTime(new Date('2000-01-01'));
+
+    const MyCalendar = Calendar.generateCalendar(dayjsGenerateConfig);
+    const { container } = render(<MyCalendar />);
+    expect(container.firstChild).toMatchSnapshot();
+
+    jest.useRealTimers();
   });
 });

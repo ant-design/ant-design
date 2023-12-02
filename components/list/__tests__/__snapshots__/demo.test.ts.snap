@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/list/demo/basic.tsx correctly 1`] = `
+exports[`renders components/list/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split"
 >
@@ -26,7 +26,7 @@ exports[`renders ./components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
                 />
               </span>
             </div>
@@ -63,7 +63,7 @@ exports[`renders ./components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
                 />
               </span>
             </div>
@@ -100,7 +100,7 @@ exports[`renders ./components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
                 />
               </span>
             </div>
@@ -137,7 +137,7 @@ exports[`renders ./components/list/demo/basic.tsx correctly 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://joeschmoe.io/api/v1/random"
+                  src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
                 />
               </span>
             </div>
@@ -167,7 +167,666 @@ exports[`renders ./components/list/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/grid.tsx correctly 1`] = `
+exports[`renders components/list/demo/component-token.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Default Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+            <!-- -->
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Small Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Large Size
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
+  >
+    <div
+      class="ant-list-header"
+    >
+      <div>
+        Header
+      </div>
+    </div>
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            Los Angeles battles huge wildfires.
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="ant-list-footer"
+    >
+      <div>
+        Footer
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Meta
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Vertical
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-vertical ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <ul
+          class="ant-list-items"
+        >
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 1
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 2
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 3
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
+          >
+            <div
+              class="ant-list-item-meta"
+            >
+              <div
+                class="ant-list-item-meta-avatar"
+              >
+                <span
+                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                >
+                  <img
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                  />
+                </span>
+              </div>
+              <div
+                class="ant-list-item-meta-content"
+              >
+                <h4
+                  class="ant-list-item-meta-title"
+                >
+                  <a
+                    href="https://ant.design"
+                  >
+                    Ant Design Title 4
+                  </a>
+                </h4>
+                <div
+                  class="ant-list-item-meta-description"
+                >
+                  Ant Design, a design language for background applications, is refined by Ant UED Team
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Empty Text
+    </span>
+  </div>,
+  <div
+    class="ant-list ant-list-split"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-list-empty-text"
+        >
+          <div
+            class="ant-empty ant-empty-normal"
+          >
+            <div
+              class="ant-empty-image"
+            >
+              <svg
+                height="41"
+                viewBox="0 0 64 41"
+                width="64"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(0 1)"
+                >
+                  <ellipse
+                    cx="32"
+                    cy="33"
+                    fill="#f5f5f5"
+                    rx="32"
+                    ry="7"
+                  />
+                  <g
+                    fill-rule="nonzero"
+                    stroke="#d9d9d9"
+                  >
+                    <path
+                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    />
+                    <path
+                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      fill="#fafafa"
+                    />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="ant-empty-description"
+            >
+              No data
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/list/demo/grid.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
 >
@@ -327,7 +986,7 @@ exports[`renders ./components/list/demo/grid.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/grid-test.tsx correctly 1`] = `
+exports[`renders components/list/demo/grid-test.tsx correctly 1`] = `
 Array [
   <div
     class="ant-list ant-list-split ant-list-grid"
@@ -1019,7 +1678,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/infinite-load.tsx correctly 1`] = `
+exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
 <div
   id="scrollableDiv"
   style="height:400px;overflow:auto;padding:0 16px;border:1px solid rgba(140, 140, 140, 0.35)"
@@ -1121,7 +1780,7 @@ exports[`renders ./components/list/demo/infinite-load.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/loadmore.tsx correctly 1`] = `
+exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
 >
@@ -1163,22 +1822,20 @@ exports[`renders ./components/list/demo/loadmore.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/pagination.tsx correctly 1`] = `
+exports[`renders components/list/demo/pagination.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-vertical"
+    class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
     style="margin-bottom:20px"
   >
     <div
       class="ant-space-item"
-      style="margin-bottom:16px"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <span>
             Pagination Position:
@@ -1256,11 +1913,10 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
           class="ant-space-item"
-          style="margin-right:8px"
         >
           <span>
             Pagination Align:
@@ -1360,7 +2016,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
                   />
                 </span>
               </div>
@@ -1397,7 +2053,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
                   />
                 </span>
               </div>
@@ -1434,7 +2090,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
                   />
                 </span>
               </div>
@@ -1471,7 +2127,7 @@ Array [
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
                   />
                 </span>
               </div>
@@ -1585,7 +2241,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/responsive.tsx correctly 1`] = `
+exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
 >
@@ -1803,7 +2459,7 @@ exports[`renders ./components/list/demo/responsive.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/simple.tsx correctly 1`] = `
+exports[`renders components/list/demo/simple.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -2043,7 +2699,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
+exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item"
 >
@@ -2072,7 +2728,7 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
                   />
                 </span>
               </div>
@@ -2101,11 +2757,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2139,11 +2794,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -2177,11 +2831,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -2238,7 +2891,7 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
                   />
                 </span>
               </div>
@@ -2267,11 +2920,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2305,11 +2957,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -2343,11 +2994,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -2404,7 +3054,7 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://joeschmoe.io/api/v1/random"
+                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
                   />
                 </span>
               </div>
@@ -2433,11 +3083,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="star"
@@ -2471,11 +3120,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="like"
@@ -2509,11 +3157,10 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
                 >
                   <div
                     class="ant-space-item"
-                    style="margin-right:8px"
                   >
                     <span
                       aria-label="message"
@@ -2746,7 +3393,7 @@ exports[`renders ./components/list/demo/vertical.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/list/demo/virtual-list.tsx correctly 1`] = `
+exports[`renders components/list/demo/virtual-list.tsx correctly 1`] = `
 <div
   class="ant-list ant-list-split"
 >

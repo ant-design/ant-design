@@ -4,6 +4,7 @@ subtitle: 单选框
 group: 数据录入
 title: Radio
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*M-YKTJnWM2kAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a9roS6DHFIcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -29,9 +30,12 @@ demo:
 <code src="./demo/radiobutton-solid.tsx">填底的按钮样式</code>
 <code src="./demo/badge.tsx" debug>测试 Badge 的样式</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 <!-- prettier-ignore-end -->
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Radio/Radio.Button
 
@@ -69,3 +73,7 @@ demo:
 | ------- | -------- |
 | blur()  | 移除焦点 |
 | focus() | 获取焦点 |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Radio"></ComponentTokenTable>

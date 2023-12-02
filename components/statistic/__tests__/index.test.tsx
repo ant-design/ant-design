@@ -44,14 +44,14 @@ describe('Statistic', () => {
     expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual('bamboo');
   });
 
-  it('support negetive number', () => {
+  it('support negative number', () => {
     const { asFragment } = render(
       <Statistic title="Account Balance (CNY)" value={-112893.12345} precision={2} />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('allow negetive precision', () => {
+  it('allow negative precision', () => {
     [
       [-1, -1112893.1212, '-1,112,893'],
       [-2, -1112893.1212, '-1,112,893'],

@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tooltip/demo/arrow.tsx correctly 1`] = `
-<div
-  class="demo"
->
+exports[`renders components/tooltip/demo/arrow.tsx correctly 1`] = `
+Array [
   <div
     class="ant-segmented"
+    style="margin-bottom:24px"
   >
     <div
       class="ant-segmented-group"
@@ -54,139 +53,144 @@ exports[`renders ./components/tooltip/demo/arrow.tsx correctly 1`] = `
         </div>
       </label>
     </div>
-  </div>
+  </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
-    role="separator"
+    class="demo"
   >
-    <span
-      class="ant-divider-inner-text"
+    <div
+      style="margin-inline-start:80px;white-space:nowrap"
     >
-      Content
-    </span>
-  </div>
-  <div
-    style="margin-left:70px;white-space:nowrap"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          TL
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Top
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          TR
+        </span>
+      </button>
+    </div>
+    <div
+      style="width:80px;float:inline-start"
     >
-      <span>
-        TL
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          LT
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Left
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          LB
+        </span>
+      </button>
+    </div>
+    <div
+      style="width:80px;margin-inline-start:344px"
     >
-      <span>
-        Top
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          RT
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Right
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          RB
+        </span>
+      </button>
+    </div>
+    <div
+      style="margin-inline-start:80px;clear:both;white-space:nowrap"
     >
-      <span>
-        TR
-      </span>
-    </button>
-  </div>
-  <div
-    style="width:70px;float:left"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        LT
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Left
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        LB
-      </span>
-    </button>
-  </div>
-  <div
-    style="width:70px;margin-left:304px"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        RT
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Right
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        RB
-      </span>
-    </button>
-  </div>
-  <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        BL
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Bottom
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        BR
-      </span>
-    </button>
-  </div>
-</div>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          BL
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          Bottom
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        style="width:80px;margin:4px"
+        type="button"
+      >
+        <span>
+          BR
+        </span>
+      </button>
+    </div>
+  </div>,
+]
 `;
 
-exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/arrow-point-at-center.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -212,37 +216,78 @@ exports[`renders ./components/tooltip/demo/arrow-point-at-center.tsx correctly 1
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx correctly 1`] = `
 <div
-  style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
+  style="display:flex;flex-direction:column;row-gap:16px"
 >
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+  <h5
+    class="ant-typography"
   >
-    <span>
-      Adjust automatically / 自动调整
-    </span>
-  </button>
-  <br />
-  <button
-    class="ant-btn ant-btn-default"
-    type="button"
+    With \`getPopupContainer\`
+  </h5>
+  <div
+    style="overflow:auto;position:relative;padding:24px;border:1px solid #e9e9e9"
   >
-    <span>
-      Ignore / 不处理
-    </span>
-  </button>
+    <div
+      style="width:200%;display:flex;flex-direction:column;align-items:center;row-gap:16px"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Adjust automatically / 自动调整
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Ignore / 不处理
+        </span>
+      </button>
+    </div>
+  </div>
+  <h5
+    class="ant-typography"
+  >
+    Without \`getPopupContainer\`
+  </h5>
+  <div
+    style="overflow:auto;position:relative;padding:24px;border:1px solid #e9e9e9"
+  >
+    <div
+      style="width:200%;display:flex;flex-direction:column;align-items:center;row-gap:16px"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Adjust automatically / 自动调整
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Ignore / 不处理
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/basic.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/basic.tsx correctly 1`] = `
 <span>
   Tooltip will show on mouse enter.
 </span>
 `;
 
-exports[`renders ./components/tooltip/demo/colorful.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/colorful.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -255,12 +300,11 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -273,7 +317,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -286,7 +329,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -299,7 +341,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -312,7 +353,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -325,7 +365,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -338,7 +377,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -351,7 +389,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -364,7 +401,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -377,7 +413,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -390,7 +425,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -403,7 +437,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -416,7 +449,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -439,12 +471,11 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;margin-bottom:-8px"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    style="flex-wrap:wrap"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -457,7 +488,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -470,7 +500,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px;padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -483,7 +512,6 @@ Array [
     </div>
     <div
       class="ant-space-item"
-      style="padding-bottom:8px"
     >
       <button
         class="ant-btn ant-btn-default"
@@ -498,19 +526,238 @@ Array [
 ]
 `;
 
-exports[`renders ./components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/destroy-tooltip-on-hide.tsx correctly 1`] = `
 <span>
   Tooltip will destroy when hidden.
 </span>
 `;
 
-exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
-<div>
+exports[`renders components/tooltip/demo/disabled.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
   <div
-    style="margin-left:70px;white-space:nowrap"
+    class="ant-space-item"
   >
     <button
       class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Enable
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      Tooltip will show on mouse enter.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/disabled-children.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Disabled
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <input
+      class="ant-input ant-input-disabled"
+      disabled=""
+      placeholder="disabled"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-input-number ant-input-number-disabled"
+    >
+      <div
+        class="ant-input-number-handler-wrap"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-handler ant-input-number-handler-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up ant-input-number-handler-up-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-handler ant-input-number-handler-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down ant-input-number-handler-down-inner"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-input-number-input-wrap"
+      >
+        <input
+          autocomplete="off"
+          class="ant-input-number-input"
+          disabled=""
+          role="spinbutton"
+          step="1"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
+      >
+        <input
+          class="ant-checkbox-input"
+          disabled=""
+          type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            disabled=""
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/tooltip/demo/placement.tsx correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    style="margin-inline-start:80px;white-space:nowrap"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -519,6 +766,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -527,6 +775,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -535,10 +784,11 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width:80px;float:inline-start"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -547,6 +797,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -555,6 +806,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -563,10 +815,11 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width:80px;margin-inline-start:344px"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -575,6 +828,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -583,6 +837,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -591,10 +846,11 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-inline-start:80px;clear:both;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -603,6 +859,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -611,6 +868,7 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -621,17 +879,17 @@ exports[`renders ./components/tooltip/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/tooltip/demo/render-panel.tsx correctly 1`] = `
+exports[`renders components/tooltip/demo/render-panel.tsx correctly 1`] = `
 Array [
   <div
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top ant-tooltip-pink"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-arrow"
-      />
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -645,11 +903,11 @@ Array [
     style="--antd-arrow-background-color:#f50"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
     >
-      <div
-        class="ant-tooltip-arrow"
-      />
       <div
         class="ant-tooltip-inner"
         role="tooltip"
@@ -663,12 +921,12 @@ Array [
     class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
   >
     <div
+      class="ant-tooltip-arrow"
+    />
+    <div
       class="ant-tooltip-content"
       style="width:200px"
     >
-      <div
-        class="ant-tooltip-arrow"
-      />
       <div
         class="ant-tooltip-inner"
         role="tooltip"

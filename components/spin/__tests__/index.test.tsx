@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { waitFakeTimer } from '../../../tests/utils';
+
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { waitFakeTimer } from '../../../tests/utils';
 
 describe('Spin', () => {
   mountTest(Spin);
@@ -17,6 +18,15 @@ describe('Spin', () => {
     );
     expect(container.querySelector<HTMLElement>('.ant-spin-nested-loading')?.style.length).toBe(0);
     expect(container.querySelector<HTMLElement>('.ant-spin')?.style.background).toBe('red');
+  });
+
+  it('should not apply nested styles when full screen', () => {
+    const { container } = render(
+      <Spin fullscreen>
+        <div>content</div>
+      </Spin>,
+    );
+    expect(container.querySelector<HTMLElement>('ant-spin-nested-loading')).toBeNull();
   });
 
   it("should render custom indicator when it's set", () => {
@@ -51,5 +61,16 @@ describe('Spin', () => {
   it('should render 0', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
+  });
+
+  it('warning tip without nest', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin tip="Not Show" />);
+    expect(container.querySelector('.ant-spin-text')).toBeFalsy();
+
+    expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Spin] `tip` only work in nest pattern.');
+
+    errSpy.mockRestore();
   });
 });

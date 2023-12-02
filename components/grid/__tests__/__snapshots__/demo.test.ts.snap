@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/grid/demo/basic.tsx correctly 1`] = `
+exports[`renders components/grid/demo/basic.tsx correctly 1`] = `
 Array [
   <div
     class="ant-row"
@@ -71,7 +71,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex.tsx correctly 1`] = `
+exports[`renders components/grid/demo/flex.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -280,7 +280,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-align.tsx correctly 1`] = `
+exports[`renders components/grid/demo/flex-align.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -435,7 +435,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-order.tsx correctly 1`] = `
+exports[`renders components/grid/demo/flex-order.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -508,7 +508,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/flex-stretch.tsx correctly 1`] = `
+exports[`renders components/grid/demo/flex-stretch.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -611,7 +611,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/gutter.tsx correctly 1`] = `
+exports[`renders components/grid/demo/gutter.tsx correctly 1`] = `
 Array [
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -735,11 +735,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:-12px"
+    style="margin-left:-8px;margin-right:-8px;row-gap:24px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -749,7 +749,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -759,7 +759,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -769,7 +769,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -779,7 +779,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -789,7 +789,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -799,7 +799,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -809,7 +809,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -821,7 +821,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/offset.tsx correctly 1`] = `
+exports[`renders components/grid/demo/offset.tsx correctly 1`] = `
 Array [
   <div
     class="ant-row"
@@ -863,7 +863,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/playground.tsx correctly 1`] = `
+exports[`renders components/grid/demo/playground.tsx correctly 1`] = `
 Array [
   <span>
     Horizontal Gutter (px):
@@ -911,6 +911,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1007,6 +1008,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="1"
@@ -1103,6 +1105,7 @@ Array [
       </div>
       <div
         aria-disabled="false"
+        aria-orientation="horizontal"
         aria-valuemax="5"
         aria-valuemin="0"
         aria-valuenow="2"
@@ -1155,11 +1158,11 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+    style="margin-left:-8px;margin-right:-8px;row-gap:16px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1167,7 +1170,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1175,7 +1178,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1183,7 +1186,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1191,7 +1194,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1199,7 +1202,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1207,7 +1210,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1215,7 +1218,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1225,11 +1228,11 @@ Array [
   Another Row:,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+    style="margin-left:-8px;margin-right:-8px;row-gap:16px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1237,7 +1240,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1245,7 +1248,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1253,7 +1256,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+      style="padding-left:8px;padding-right:8px"
     >
       <div>
         Column
@@ -1287,7 +1290,7 @@ Array [
 ]
 `;
 
-exports[`renders ./components/grid/demo/responsive.tsx correctly 1`] = `
+exports[`renders components/grid/demo/responsive.tsx correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1309,7 +1312,7 @@ exports[`renders ./components/grid/demo/responsive.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/responsive-more.tsx correctly 1`] = `
+exports[`renders components/grid/demo/responsive-more.tsx correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1331,7 +1334,7 @@ exports[`renders ./components/grid/demo/responsive-more.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/sort.tsx correctly 1`] = `
+exports[`renders components/grid/demo/sort.tsx correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -1348,7 +1351,7 @@ exports[`renders ./components/grid/demo/sort.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/grid/demo/useBreakpoint.tsx correctly 1`] = `
+exports[`renders components/grid/demo/useBreakpoint.tsx correctly 1`] = `
 Array [
   Current break point:,
   <!-- -->,

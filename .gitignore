@@ -54,12 +54,18 @@ components/version/token-meta.json
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
+.dumi/preset/components-changelog*
+.dumi/preset/misc-changelog.json
 
 # Image snapshot diff
 __diff_output__/
 __image_snapshots__/
 /jest-stare
-/imageSnapshots
+/imageSnapshots*
 /imageDiffSnapshots
 
 .devcontainer*
+.husky/prepare-commit-msg
+
+.eslintcache
+.node-version

@@ -1,14 +1,14 @@
 import React from 'react';
+import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import type { FormInstance } from '../../form';
 import Form from '../../form';
 import UploadList from '../UploadList';
+import type { UploadListProps, UploadLocale } from '../interface';
 import { previewImage } from '../utils';
 import { setup, teardown } from './mock';
 import { errorRequest, successRequest } from './requests';
-import type { FormInstance } from '../../form';
-import type { UploadFile, UploadProps } from '..';
-import type { UploadListProps, UploadLocale } from '../interface';
 
 const fileList: UploadProps['fileList'] = [
   {
@@ -35,6 +35,8 @@ describe('Upload List', () => {
   // jsdom not support `createObjectURL` yet. Let's handle this.
   const originCreateObjectURL = window.URL.createObjectURL;
   window.URL.createObjectURL = jest.fn(() => '');
+  const originRevokeObjectURL = window.URL.revokeObjectURL;
+  window.URL.revokeObjectURL = jest.fn(() => '');
 
   // Mock dom
   let size = { width: 0, height: 0 };
@@ -88,6 +90,7 @@ describe('Upload List', () => {
 
   afterAll(() => {
     window.URL.createObjectURL = originCreateObjectURL;
+    window.URL.revokeObjectURL = originRevokeObjectURL;
     mockWidthGet.mockRestore();
     mockHeightGet.mockRestore();
     mockSrcSet.mockRestore();
@@ -576,6 +579,34 @@ describe('Upload List', () => {
     unmount();
   });
 
+  // https://github.com/ant-design/ant-design/issues/27519
+  // https://github.com/ant-design/ant-design/issues/45735
+  it('should show remove icon when showRemoveIcon is true', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.querySelector('.anticon-delete')).toBeTruthy();
+    unmount();
+  });
+
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();
@@ -921,6 +952,31 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('upload gif file should be converted to the image/gif base64', async () => {
+    const mockFile = new File([''], 'foo.gif', {
+      type: 'image/gif',
+    });
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[{ originFileObj: mockFile }] as UploadProps['fileList']}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then((dataUrl) => {
+      expect(dataUrl).toEqual('data:image/gif;base64,');
+    });
+    unmount();
+  });
+
   it("upload non image file shouldn't be converted to the base64", async () => {
     const mockFile = new File([''], 'foo.7z', {
       type: 'application/x-7z-compressed',
@@ -1226,7 +1282,7 @@ describe('Upload List', () => {
         <Upload
           ref={uploadRef}
           fileList={testFileList}
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          action="https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188"
           multiple
           onChange={(info) => {
             setTestFileList([...info.fileList]);
@@ -1540,5 +1596,32 @@ describe('Upload List', () => {
     );
 
     expect(container.querySelector('.ant-upload-list-item-error')).toBeTruthy();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/42056
+  describe('when form is disabled but upload is not', () => {
+    it('should not disable remove button', () => {
+      const { container } = render(
+        <Form name="base" disabled>
+          <Form.Item name="upload">
+            <Upload
+              disabled={false}
+              defaultFileList={[
+                {
+                  uid: '1',
+                  name: 'zzz.png',
+                  status: 'error',
+                  url: 'http://www.baidu.com/zzz.png',
+                },
+              ]}
+            />
+          </Form.Item>
+        </Form>,
+      );
+
+      const removeButton = container.querySelector('.ant-upload-list-item-actions > button');
+      expect(removeButton).toBeTruthy();
+      expect(removeButton).not.toBeDisabled();
+    });
   });
 });

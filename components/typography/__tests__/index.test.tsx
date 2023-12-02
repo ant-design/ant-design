@@ -5,7 +5,7 @@ import { resetWarned } from 'rc-util/lib/warning';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFor, act, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 import Link from '../Link';
 import Paragraph from '../Paragraph';
@@ -173,7 +173,8 @@ describe('Typography', () => {
           } else if (tooltips[0] === '' && tooltips[1]) {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe('');
+            // Tooltip will be hidden in this case, with content memoized
+            expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[0]);
           } else {
             expect(container.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltips[1]);
           }
@@ -242,7 +243,7 @@ describe('Typography', () => {
       function testStep(
         { name = '', icon, tooltip, triggerType, enterIcon }: EditableConfig,
         submitFunc?: (container: ReturnType<typeof render>['container']) => void,
-        expectFunc?: (callbake: jest.Mock) => void,
+        expectFunc?: (callback: jest.Mock) => void,
       ) {
         it(name, async () => {
           jest.useFakeTimers();
@@ -250,7 +251,7 @@ describe('Typography', () => {
           const onChange = jest.fn();
 
           const className = 'test';
-          const style = { padding: 'unset' };
+          const style: React.CSSProperties = { padding: 'unset' };
 
           const { container: wrapper } = render(
             <Paragraph

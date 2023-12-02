@@ -6,6 +6,7 @@ import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 
+import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
 
 export interface SpaceCompactItemContextType {
@@ -22,14 +23,14 @@ export const SpaceCompactItemContext = React.createContext<SpaceCompactItemConte
 export const useCompactItemContext = (prefixCls: string, direction: DirectionType) => {
   const compactItemContext = React.useContext(SpaceCompactItemContext);
 
-  const compactItemClassnames = React.useMemo(() => {
-    if (!compactItemContext) return '';
-
+  const compactItemClassnames = React.useMemo<string>(() => {
+    if (!compactItemContext) {
+      return '';
+    }
     const { compactDirection, isFirstItem, isLastItem } = compactItemContext;
     const separator = compactDirection === 'vertical' ? '-vertical-' : '-';
 
-    return classNames({
-      [`${prefixCls}-compact${separator}item`]: true,
+    return classNames(`${prefixCls}-compact${separator}item`, {
       [`${prefixCls}-compact${separator}first-item`]: isFirstItem,
       [`${prefixCls}-compact${separator}last-item`]: isLastItem,
       [`${prefixCls}-compact${separator}item-rtl`]: direction === 'rtl',
@@ -66,7 +67,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const { getPrefixCls, direction: directionConfig } = React.useContext(ConfigContext);
 
   const {
-    size = 'middle',
+    size,
     direction,
     block,
     prefixCls: customizePrefixCls,
@@ -76,8 +77,10 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     ...restProps
   } = props;
 
+  const mergedSize = useSize((ctx) => size ?? ctx);
+
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const clx = classNames(
     prefixCls,
     hashId,
@@ -97,11 +100,10 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     () =>
       childNodes.map((child, i) => {
         const key = (child && child.key) || `${prefixCls}-item-${i}`;
-
         return (
           <CompactItem
             key={key}
-            compactSize={size}
+            compactSize={mergedSize}
             compactDirection={direction}
             isFirstItem={i === 0 && (!compactItemContext || compactItemContext?.isFirstItem)}
             isLastItem={
@@ -120,7 +122,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     return null;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={clx} {...restProps}>
       {nodes}
     </div>,

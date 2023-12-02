@@ -2,8 +2,10 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const { EsbuildPlugin } = require('esbuild-loader');
+const CircularDependencyPlugin = require('circular-dependency-plugin');
+const DuplicatePackageCheckerPlugin = require('@madccc/duplicate-package-checker-webpack-plugin');
+const path = require('path');
 
 function addLocales(webpackConfig) {
   let packageName = 'antd-with-locales';
@@ -23,23 +25,39 @@ function externalDayjs(config) {
   };
 }
 
-const webpackConfig = getWebpackConfig(false);
+function externalCssinjs(config) {
+  config.resolve = config.resolve || {};
+  config.resolve.alias = config.resolve.alias || {};
+
+  config.resolve.alias['@ant-design/cssinjs'] = path.resolve(__dirname, 'alias/cssinjs');
+}
+
+let webpackConfig = getWebpackConfig(false);
+
+// Used for `size-limit` ci which only need to check min files
+if (process.env.PRODUCTION_ONLY) {
+  // eslint-disable-next-line no-console
+  console.log('🍐 Build production only');
+  webpackConfig = webpackConfig.filter((config) => config.mode === 'production');
+}
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach((config) => {
     addLocales(config);
     externalDayjs(config);
+    externalCssinjs(config);
+
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
     if (process.env.ESBUILD || process.env.CSB_REPO) {
-      config.optimization.minimizer[0] = new ESBuildMinifyPlugin({
+      config.optimization.minimizer[0] = new EsbuildPlugin({
         target: 'es2015',
         css: true,
       });
     }
 
-    if (!process.env.CI) {
+    if (!process.env.CI || process.env.ANALYZER) {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
@@ -57,6 +75,13 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
+
+    config.plugins.push(
+      new CircularDependencyPlugin({
+        // add errors to webpack instead of warnings
+        failOnError: true,
+      }),
+    );
   });
 }
 

@@ -84,6 +84,7 @@ describe('FloatButtonGroup', () => {
     fireEvent.click(container);
     expect(onOpenChange).toHaveBeenCalledTimes(2);
   });
+
   it('support onClick for floatButtonGroup', () => {
     const onClick = jest.fn();
     const { container } = render(
@@ -114,5 +115,39 @@ describe('FloatButtonGroup', () => {
     fireEvent.click(container.querySelector('.ant-float-btn-group')!);
     expect(onClick).toHaveBeenCalled();
     expect(onClick2).not.toHaveBeenCalled();
+   });
+  it('warning if set `open` but not set `trigger`', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <FloatButton.Group open trigger="click">
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(warnSpy).not.toHaveBeenCalled();
+
+    render(
+      <FloatButton.Group open>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: FloatButton.Group] `open` need to be used together with `trigger`',
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('menu should support badge', () => {
+    const { container } = render(
+      <FloatButton.Group trigger="click" badge={{ dot: true }}>
+        <FloatButton />
+        <FloatButton />
+      </FloatButton.Group>,
+    );
+
+    expect(container.querySelector('.ant-badge')).toBeTruthy();
   });
 });

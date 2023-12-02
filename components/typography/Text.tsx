@@ -1,6 +1,7 @@
-import omit from 'rc-util/lib/omit';
 import * as React from 'react';
-import warning from '../_util/warning';
+import omit from 'rc-util/lib/omit';
+
+import { devUseWarning } from '../_util/warning';
 import type { BlockProps, EllipsisConfig } from './Base';
 import Base from './Base';
 
@@ -16,19 +17,23 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
 ) => {
   const mergedEllipsis = React.useMemo(() => {
     if (ellipsis && typeof ellipsis === 'object') {
-      return omit(ellipsis as any, ['expandable', 'rows']);
+      return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
     }
 
     return ellipsis;
   }, [ellipsis]);
 
-  warning(
-    typeof ellipsis !== 'object' ||
-      !ellipsis ||
-      (!('expandable' in ellipsis) && !('rows' in ellipsis)),
-    'Typography.Text',
-    '`ellipsis` do not support `expandable` or `rows` props.',
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Typography.Text');
+
+    warning(
+      typeof ellipsis !== 'object' ||
+        !ellipsis ||
+        (!('expandable' in ellipsis) && !('rows' in ellipsis)),
+      'usage',
+      '`ellipsis` do not support `expandable` or `rows` props.',
+    );
+  }
 
   return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span" />;
 };

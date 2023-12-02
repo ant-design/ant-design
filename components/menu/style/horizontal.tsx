@@ -1,3 +1,4 @@
+import { unit } from '@ant-design/cssinjs';
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -5,18 +6,18 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
   const {
     componentCls,
     motionDurationSlow,
-    menuHorizontalHeight,
+    horizontalLineHeight,
     colorSplit,
     lineWidth,
     lineType,
-    menuItemPaddingInline,
+    itemPaddingInline,
   } = token;
 
   return {
     [`${componentCls}-horizontal`]: {
-      lineHeight: `${menuHorizontalHeight}px`,
+      lineHeight: horizontalLineHeight,
       border: 0,
-      borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+      borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
       boxShadow: 'none',
 
       '&::after': {
@@ -31,7 +32,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
         position: 'relative',
         display: 'inline-block',
         verticalAlign: 'bottom',
-        paddingInline: menuItemPaddingInline,
+        paddingInline: itemPaddingInline,
       },
 
       [`> ${componentCls}-item:hover,

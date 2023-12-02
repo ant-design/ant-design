@@ -70,8 +70,8 @@ title: 文案
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/sNqQYWEJCAzCxcYCBGYD.png" alt="操作名称和目标页面的标题一致。">
 </ImagePreview>
 
-- 描述同一个事物的词汇要保持统一;
-- 上下文的语法、语种、语序要保持统一;
+- 描述同一个事物的词汇要保持统一；
+- 上下文的语法、语种、语序要保持统一；
 - 操作的名称和目标页面标题的名称保持一致。
 
 ### 重要的信息放在显著位置
@@ -85,7 +85,7 @@ title: 文案
 
 > 注：如考虑安全性问题时，隐私信息也可调整为「点击后可见」的方式。
 
-### 完整、直接得阐述信息
+### 完整、直接地阐述信息
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/ioBKvBqCNzUwQDyjMiIa.png" alt="正确示范" description="用户可以从中了解了设置后会有什么好处。">
@@ -120,7 +120,8 @@ title: 文案
 <img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/HBCyJcXZYmtLECZUtjzE.png" alt="错误示范" description="时间信息的描述词不是具体的「日」、「月」，容易让用户产生困扰。">
 </ImagePreview>
 
-<table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;clear:both;">
+<ImagePreview className="markdown" pure="true">
+<table style="font-size:12px;">
   <tr>
     <th style="border-bottom: 2px solid #108ee9;width:20%;">使用</th>
     <th style="border-bottom: 2px solid #f04134;width:25%;">不使用</th>
@@ -157,6 +158,7 @@ title: 文案
     <td>当要表达当前事物时，「此」更加明确。</td>
   </tr>
 </table>
+</ImagePreview>
 
 通用基本用词要规范，不要写错字，词语表达要完整。
 
@@ -190,7 +192,7 @@ title: 文案
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/SiyDiAnuljqDrZgcFiXn.png" alt="正确示范" description="引导用户正确输入内容。">
-<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="错误示范" description="不能、不要、请勿都给人命令或强迫的感觉。">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="错误示范" description="「不能」、「不要」、「请勿」都给人命令或强迫的感觉。">
 </ImagePreview>
 
 多给用户支持与鼓励，不要命令和强迫用户。
@@ -286,7 +288,8 @@ title: 文案
 
 ### 基本标点规范
 
-<table style="font-size:12px;float:right;width:496px;margin-left:60px;margin-bottom:100px;">
+<ImagePreview className="markdown" pure="true">
+<table style="font-size:12px;">
   <tr>
     <th>标点名称</th>
     <th>字符</th>
@@ -324,6 +327,7 @@ title: 文案
     <td>多用于替换显示隐私信息。</td>
   </tr>
 </table>
+</ImagePreview>
 
 正确地使用标点符号会让句子看起来更清晰和具有可读性。
 

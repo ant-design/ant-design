@@ -5,12 +5,12 @@ export { default as Alert } from './alert';
 export type { AlertProps } from './alert';
 export { default as Anchor } from './anchor';
 export type { AnchorLinkProps, AnchorProps } from './anchor';
+export { default as App } from './app';
+export type { AppProps } from './app';
 export { default as AutoComplete } from './auto-complete';
 export type { AutoCompleteProps } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
-export { default as FloatButton } from './float-button';
-export type { FloatButtonProps, FloatButtonGroupProps } from './float-button/interface';
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
@@ -28,11 +28,13 @@ export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
 export type { CascaderProps } from './cascader';
 export { default as Checkbox } from './checkbox';
-export type { CheckboxOptionType, CheckboxProps } from './checkbox';
+export type { CheckboxOptionType, CheckboxProps, CheckboxRef } from './checkbox';
 export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
 export type { CollapsePanelProps, CollapseProps } from './collapse';
+export { default as ColorPicker } from './color-picker';
+export type { ColorPickerProps } from './color-picker';
 export { default as ConfigProvider } from './config-provider';
 export type { ThemeConfig } from './config-provider';
 export { default as DatePicker } from './date-picker';
@@ -45,13 +47,21 @@ export { default as Drawer } from './drawer';
 export type { DrawerProps } from './drawer';
 export { default as Dropdown } from './dropdown';
 export type {
-  DropdownProps,
   // typo, but we need to support it for backwards compatibility
   // https://github.com/ant-design/ant-design/pull/35161
   DropdownProps as DropDownProps,
+  DropdownProps,
 } from './dropdown';
 export { default as Empty } from './empty';
 export type { EmptyProps } from './empty';
+export { default as Flex } from './flex';
+export type { FlexProps } from './flex/interface';
+export { default as FloatButton } from './float-button';
+export type {
+  FloatButtonGroupProps,
+  FloatButtonProps,
+  FloatButtonRef,
+} from './float-button/interface';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -75,12 +85,13 @@ export type { ListProps } from './list';
 export { default as Mentions } from './mentions';
 export type { MentionProps } from './mentions';
 export { default as Menu } from './menu';
-export type { MenuItemProps, MenuProps, MenuTheme, SubMenuProps, MenuRef } from './menu';
+export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
 export type { ModalFuncProps, ModalProps } from './modal';
 export { default as notification } from './notification';
+export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';
 export type { PaginationProps } from './pagination';
 export { default as Popconfirm } from './popconfirm';
@@ -89,6 +100,8 @@ export { default as Popover } from './popover';
 export type { PopoverProps } from './popover';
 export { default as Progress } from './progress';
 export type { ProgressProps } from './progress';
+export { default as QRCode } from './qr-code';
+export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qr-code/interface';
 export { default as Radio } from './radio';
 export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
 export { default as Rate } from './rate';
@@ -110,7 +123,7 @@ export type { SpaceProps } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps } from './spin';
 export { default as Statistic } from './statistic';
-export type { StatisticProps } from './statistic';
+export type { CountdownProps, StatisticProps } from './statistic';
 export { default as Steps } from './steps';
 export type { StepProps, StepsProps } from './steps';
 export { default as Switch } from './switch';
@@ -119,8 +132,8 @@ export { default as Table } from './table';
 export type {
   ColumnGroupType as TableColumnGroupType,
   ColumnProps as TableColumnProps,
-  ColumnsType as TableColumnsType,
   ColumnType as TableColumnType,
+  ColumnsType as TableColumnsType,
   TablePaginationConfig,
   TableProps,
 } from './table';
@@ -129,7 +142,7 @@ export type { TabPaneProps, TabsProps } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
 export { default as theme } from './theme';
-export type { GlobalToken } from './theme';
+export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
 export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';
@@ -138,13 +151,12 @@ export { default as Tooltip } from './tooltip';
 export type { TooltipProps } from './tooltip';
 export { default as Tour } from './tour';
 export type { TourProps, TourStepProps } from './tour/interface';
-export { default as App } from './app';
 export { default as Transfer } from './transfer';
 export type { TransferProps } from './transfer';
 export { default as Tree } from './tree';
 export type {
-  AntTreeNodeProps as TreeNodeProps,
   DataNode as TreeDataNode,
+  AntTreeNodeProps as TreeNodeProps,
   TreeProps,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
@@ -153,8 +165,6 @@ export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
 export type { UploadFile, UploadProps } from './upload';
+export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';
-export { default as QRCode } from './qrcode';
-export type { QRCodeProps, QRPropsCanvas } from './qrcode/interface';
-export { default as version } from './version';

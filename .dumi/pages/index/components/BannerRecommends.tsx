@@ -1,32 +1,41 @@
 import * as React from 'react';
-import { Typography, Skeleton, Carousel } from 'antd';
-import type { SerializedStyles } from '@emotion/react';
-import { css } from '@emotion/react';
-import type { Extra, Icon } from './util';
-import useSiteToken from '../../../hooks/useSiteToken';
-import SiteContext from '../../../theme/slots/SiteContext';
-import { useCarouselStyle } from './util';
+import type { FC } from 'react';
+import { useContext } from 'react';
+import { Badge, Carousel, Skeleton, Typography } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
+import classNames from 'classnames';
 
-const useStyle = () => {
-  const { token } = useSiteToken();
-  const { carousel } = useCarouselStyle();
+import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../../theme/slots/SiteContext';
+import type { Extra, Icon } from './util';
+import { getCarouselStyle, useSiteData } from './util';
+
+const useStyle = createStyles(({ token, css, cx }) => {
+  const { carousel } = getCarouselStyle();
+
+  const itemBase = css`
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: stretch;
+    text-decoration: none;
+    background: ${token.colorBgContainer};
+    border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
+    border-radius: ${token.borderRadiusLG}px;
+    transition: all ${token.motionDurationSlow};
+    padding-block: ${token.paddingMD}px;
+    padding-inline: ${token.paddingLG}px;
+    box-sizing: border-box;
+  `;
 
   return {
-    itemBase: css`
-      display: flex;
-      flex: 1 1 0;
-      flex-direction: column;
-      align-items: stretch;
-      text-decoration: none;
-      background: ${token.colorBgContainer};
-      border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
-      border-radius: ${token.borderRadiusLG}px;
-      transition: all ${token.motionDurationSlow};
-      padding-block: ${token.paddingMD}px;
-      padding-inline: ${token.paddingLG}px;
+    itemBase,
+    ribbon: css`
+      & > .${cx(itemBase)} {
+        height: 100%;
+      }
     `,
     cardItem: css`
-      width: 33%;
       &:hover {
         box-shadow: ${token.boxShadowCard};
       }
@@ -44,32 +53,35 @@ const useStyle = () => {
       column-gap: ${token.paddingMD * 2}px;
       align-items: stretch;
       text-align: start;
+      > * {
+        width: calc((100% - ${token.marginXXL * 2}px) / 3);
+      }
     `,
     carousel,
   };
-};
+});
 
 interface RecommendItemProps {
   extra: Extra;
   index: number;
   icons: Icon[];
-  itemCss: SerializedStyles;
+  className?: string;
 }
-const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => {
-  const style = useStyle();
-  const { token } = useSiteToken();
+const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, className }) => {
+  const token = useTheme();
+  const { styles } = useStyle();
 
   if (!extra) {
     return <Skeleton key={index} />;
   }
   const icon = icons.find((i) => i.name === extra.source);
 
-  return (
+  const card = (
     <a
       key={extra?.title}
       href={extra.href}
       target="_blank"
-      css={[style.itemBase, itemCss]}
+      className={classNames(styles.itemBase, className)}
       rel="noreferrer"
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>
@@ -82,41 +94,73 @@ const RecommendItem = ({ extra, index, icons, itemCss }: RecommendItemProps) => 
       </div>
     </a>
   );
+
+  if (index === 0) {
+    return (
+      <Badge.Ribbon text="HOT" color="red" rootClassName={styles.ribbon}>
+        {card}
+      </Badge.Ribbon>
+    );
+  }
+
+  return card;
 };
 
-export interface BannerRecommendsProps {
-  extras?: Extra[];
-  icons?: Icon[];
-}
+export const BannerRecommendsFallback: FC = () => {
+  const { isMobile } = useContext(SiteContext);
+  const { styles } = useStyle();
 
-export default function BannerRecommends({ extras = [], icons = [] }: BannerRecommendsProps) {
-  const styles = useStyle();
+  const list = Array(3).fill(1);
+
+  return isMobile ? (
+    <Carousel className={styles.carousel}>
+      {list.map((_, index) => (
+        <div key={index}>
+          <Skeleton active style={{ padding: '0 24px' }} />
+        </div>
+      ))}
+    </Carousel>
+  ) : (
+    <div className={styles.container}>
+      {list.map((_, index) => (
+        <Skeleton key={index} active />
+      ))}
+    </div>
+  );
+};
+
+const BannerRecommends: React.FC = () => {
+  const { styles } = useStyle();
+  const [, lang] = useLocale();
   const { isMobile } = React.useContext(SiteContext);
-  const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+  const data = useSiteData();
+  const extras = data?.extras?.[lang];
+  const icons = data?.icons || [];
+  const first3 = !extras || extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
 
   return (
     <div>
       {isMobile ? (
-        <Carousel css={styles.carousel}>
+        <Carousel className={styles.carousel}>
           {first3.map((extra, index) => (
             <div key={index}>
               <RecommendItem
                 extra={extra}
                 index={index}
                 icons={icons}
-                itemCss={styles.sliderItem}
+                className={styles.sliderItem}
               />
             </div>
           ))}
         </Carousel>
       ) : (
-        <div css={styles.container}>
+        <div className={styles.container}>
           {first3.map((extra, index) => (
             <RecommendItem
               extra={extra}
               index={index}
               icons={icons}
-              itemCss={styles.cardItem}
+              className={styles.cardItem}
               key={index}
             />
           ))}
@@ -124,4 +168,6 @@ export default function BannerRecommends({ extras = [], icons = [] }: BannerReco
       )}
     </div>
   );
-}
+};
+
+export default BannerRecommends;

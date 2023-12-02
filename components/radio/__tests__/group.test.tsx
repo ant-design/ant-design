@@ -1,8 +1,9 @@
-import React from 'react';
 import type { RefAttributes } from 'react';
+import React from 'react';
+
 import type { RadioGroupProps } from '..';
-import { render, fireEvent } from '../../../tests/utils';
 import Radio from '..';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Group', () => {
   function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
@@ -251,5 +252,12 @@ describe('Radio Group', () => {
     expect(handleFocus).toHaveBeenCalledTimes(1);
     fireEvent.blur(container.firstChild!);
     expect(handleBlur).toHaveBeenCalledTimes(1);
+  });
+
+  it('options support id', () => {
+    const { container } = render(
+      <Radio.Group options={[{ label: 'bamboo', id: 'bamboo', value: 'bamboo' }]} />,
+    );
+    expect(container.querySelector('#bamboo')).toBeTruthy();
   });
 });

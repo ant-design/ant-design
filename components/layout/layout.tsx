@@ -1,45 +1,33 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+
 import { ConfigContext } from '../config-provider';
+import { LayoutContext } from './context';
+import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
 
 export interface GeneratorProps {
-  suffixCls: string;
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  suffixCls?: string;
+  tagName: 'header' | 'footer' | 'main' | 'div';
   displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
+  suffixCls?: string;
   rootClassName?: string;
   hasSider?: boolean;
 }
 
-export interface LayoutContextProps {
-  siderHook: {
-    addSider: (id: string) => void;
-    removeSider: (id: string) => void;
-  };
-}
-export const LayoutContext = React.createContext<LayoutContextProps>({
-  siderHook: {
-    addSider: () => null,
-    removeSider: () => null,
-  },
-});
-
 interface BasicPropsWithTagName extends BasicProps {
-  tagName: 'header' | 'footer' | 'main' | 'section';
+  tagName: 'header' | 'footer' | 'main' | 'div';
 }
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
-      const { getPrefixCls } = React.useContext(ConfigContext);
-      const { prefixCls: customizePrefixCls } = props;
-      const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
-
-      return <BasicComponent ref={ref} prefixCls={prefixCls} tagName={tagName} {...props} />;
-    });
+    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
+      <BasicComponent ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
+    ));
     if (process.env.NODE_ENV !== 'production') {
       Adapter.displayName = displayName;
     }
@@ -47,34 +35,62 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   };
 }
 
-const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
-  const { prefixCls, className, children, tagName, ...others } = props;
-  const classString = classNames(prefixCls, className);
+const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    suffixCls,
+    className,
+    tagName: TagName,
+    ...others
+  } = props;
 
-  return React.createElement(tagName, { className: classString, ...others, ref }, children);
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
+
+  return wrapSSR(
+    <TagName
+      className={classNames(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
+      ref={ref}
+      {...others}
+    />,
+  );
 });
 
-const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
+const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const { direction } = React.useContext(ConfigContext);
 
   const [siders, setSiders] = React.useState<string[]>([]);
 
   const {
-    prefixCls,
+    prefixCls: customizePrefixCls,
     className,
     rootClassName,
     children,
     hasSider,
     tagName: Tag,
+    style,
     ...others
   } = props;
-  const [wrapSSR, hashId] = useStyle(prefixCls as string);
+
+  const passedProps = omit(others, ['suffixCls']);
+
+  const { getPrefixCls, layout } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('layout', customizePrefixCls);
+
+  const mergedHasSider = useHasSider(siders, children, hasSider);
+
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {
-      [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
+      [`${prefixCls}-has-sider`]: mergedHasSider,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    layout?.className,
     className,
     rootClassName,
     hashId,
@@ -94,9 +110,14 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     [],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <LayoutContext.Provider value={contextValue}>
-      <Tag ref={ref} className={classString} {...others}>
+      <Tag
+        ref={ref}
+        className={classString}
+        style={{ ...layout?.style, ...style }}
+        {...passedProps}
+      >
         {children}
       </Tag>
     </LayoutContext.Provider>,
@@ -104,29 +125,28 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
 });
 
 const Layout = generator({
-  suffixCls: 'layout',
-  tagName: 'section',
+  tagName: 'div',
   displayName: 'Layout',
 })(BasicLayout);
 
 const Header = generator({
-  suffixCls: 'layout-header',
+  suffixCls: 'header',
   tagName: 'header',
   displayName: 'Header',
 })(Basic);
 
 const Footer = generator({
-  suffixCls: 'layout-footer',
+  suffixCls: 'footer',
   tagName: 'footer',
   displayName: 'Footer',
 })(Basic);
 
 const Content = generator({
-  suffixCls: 'layout-content',
+  suffixCls: 'content',
   tagName: 'main',
   displayName: 'Content',
 })(Basic);
 
-export { Header, Footer, Content };
+export { Content, Footer, Header };
 
 export default Layout;

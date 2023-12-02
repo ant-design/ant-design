@@ -131,14 +131,13 @@ exports[`Form form should support disabled 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
             >
               <span
-                class="ant-checkbox ant-checkbox-disabled"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
                   disabled=""
                   id="disabled"
                   type="checkbox"
-                  value=""
                 />
                 <span
                   class="ant-checkbox-inner"
@@ -185,7 +184,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio ant-radio-disabled"
+                  class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
                     class="ant-radio-input"
@@ -205,7 +204,7 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
               >
                 <span
-                  class="ant-radio ant-radio-disabled"
+                  class="ant-radio ant-wave-target ant-radio-disabled"
                 >
                   <input
                     class="ant-radio-input"
@@ -298,7 +297,6 @@ exports[`Form form should support disabled 1`] = `
                   class="ant-select-selection-search"
                 >
                   <input
-                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                     aria-autocomplete="list"
                     aria-controls="rc_select_TEST_OR_SSR_list"
                     aria-expanded="false"
@@ -939,6 +937,7 @@ exports[`Form form should support disabled 1`] = `
                 >
                   <input
                     accept=""
+                    disabled=""
                     style="display: none;"
                     type="file"
                   />
@@ -987,6 +986,102 @@ exports[`Form form should support disabled 1`] = `
                 Button
               </span>
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Slider"
+        >
+          Slider
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-slider ant-slider-disabled ant-slider-horizontal"
+            >
+              <div
+                class="ant-slider-rail"
+              />
+              <div
+                class="ant-slider-track"
+                style="left: 0%; width: 0%;"
+              />
+              <div
+                class="ant-slider-step"
+              />
+              <div
+                aria-disabled="true"
+                aria-orientation="horizontal"
+                aria-valuemax="100"
+                aria-valuemin="0"
+                aria-valuenow="0"
+                class="ant-slider-handle"
+                role="slider"
+                style="left: 0%; transform: translateX(-50%);"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-form-item"
+  >
+    <div
+      class="ant-row ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-4 ant-form-item-label"
+      >
+        <label
+          class=""
+          title="ColorPicker"
+        >
+          ColorPicker
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-14 ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background: rgb(22, 119, 255);"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>

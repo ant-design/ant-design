@@ -1,5 +1,5 @@
-import React from 'react';
 import type { OptionFC } from 'rc-select/lib/Option';
+import React from 'react';
 import type { PaginationProps } from '..';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -28,7 +28,7 @@ describe('Pagination', () => {
     expect(container.querySelector('button')?.disabled).toBe(true);
   });
 
-  it('should autometically be small when size is not specified', async () => {
+  it('should automatically be small when size is not specified', async () => {
     const { container } = render(<Pagination responsive />);
     expect(container.querySelector('ul')?.className.includes('ant-pagination-mini')).toBe(true);
   });

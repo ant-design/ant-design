@@ -1,7 +1,8 @@
 import React from 'react';
+
 import type { KeyWiseTransferItem } from '..';
+import { fireEvent, render } from '../../../tests/utils';
 import type { TransferListProps } from '../list';
-import { render } from '../../../tests/utils';
 import List from '../list';
 
 const listCommonProps: TransferListProps<KeyWiseTransferItem> = {
@@ -63,5 +64,41 @@ describe('Transfer.List', () => {
     expect(container.querySelector<HTMLSpanElement>('span.ant-checkbox')).not.toHaveClass(
       'ant-checkbox-disabled',
     );
+  });
+
+  it('support custom dropdown Icon', () => {
+    const { container } = render(
+      <List
+        {...listCommonProps}
+        selectionsIcon={<span className="test-dropdown-icon">test</span>}
+      />,
+    );
+    expect(
+      container?.querySelector<HTMLSpanElement>(
+        '.ant-transfer-list .ant-transfer-list-header .test-dropdown-icon',
+      ),
+    ).toBeTruthy();
+  });
+
+  it('onItemSelect should be called correctly', () => {
+    const onItemSelect = jest.fn();
+    const { container } = render(
+      <List
+        {...listCommonProps}
+        onItemSelect={onItemSelect}
+        renderList={(props) => (
+          <div
+            className="custom-list-body"
+            onClick={(e) => {
+              props.onItemSelect('a', false, e);
+            }}
+          >
+            custom list body
+          </div>
+        )}
+      />,
+    );
+    fireEvent.click(container.querySelector('.custom-list-body')!);
+    expect(onItemSelect).toHaveBeenCalledWith('a', false);
   });
 });

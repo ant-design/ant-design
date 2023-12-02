@@ -1,19 +1,25 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { resetComponent } from '../../style';
+import { genCollapseMotion } from '../../style/motion';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';
 import { genPictureCardStyle, genPictureStyle } from './picture';
 import genRtlStyle from './rtl';
-import { resetComponent } from '../../style';
-import { genCollapseMotion } from '../../style/motion';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  /**
+   * @desc 操作按扭颜色
+   * @descEN Action button color
+   */
+  actionsColor: string;
+}
 
 export interface UploadToken extends FullToken<'Upload'> {
-  uploadThumbnailSize: number;
-  uploadProgressOffset: number;
-  uploadPicCardSize: number;
+  uploadThumbnailSize: number | string;
+  uploadProgressOffset: number | string;
+  uploadPicCardSize: number | string;
 }
 
 const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
@@ -42,25 +48,32 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
   };
 };
 
-// ============================== Export ==============================
-export default genComponentStyleHook('Upload', (token) => {
-  const { fontSizeHeading3, fontSize, lineHeight, lineWidth, controlHeightLG } = token;
-  const listItemHeightSM = Math.round(fontSize * lineHeight);
-
-  const uploadToken = mergeToken<UploadToken>(token, {
-    uploadThumbnailSize: fontSizeHeading3 * 2,
-    uploadProgressOffset: listItemHeightSM / 2 + lineWidth,
-    uploadPicCardSize: controlHeightLG * 2.55,
-  });
-
-  return [
-    genBaseStyle(uploadToken),
-    genDraggerStyle(uploadToken),
-    genPictureStyle(uploadToken),
-    genPictureCardStyle(uploadToken),
-    genListStyle(uploadToken),
-    genMotionStyle(uploadToken),
-    genRtlStyle(uploadToken),
-    genCollapseMotion(uploadToken),
-  ];
+export const prepareComponentToken: GetDefaultToken<'Upload'> = (token) => ({
+  actionsColor: token.colorTextDescription,
 });
+
+// ============================== Export ==============================
+export default genStyleHooks(
+  'Upload',
+  (token) => {
+    const { fontSizeHeading3, fontHeight, lineWidth, controlHeightLG, calc } = token;
+
+    const uploadToken = mergeToken<UploadToken>(token, {
+      uploadThumbnailSize: calc(fontSizeHeading3).mul(2).equal(),
+      uploadProgressOffset: calc(calc(fontHeight).div(2)).add(lineWidth).equal(),
+      uploadPicCardSize: calc(controlHeightLG).mul(2.55).equal(),
+    });
+
+    return [
+      genBaseStyle(uploadToken),
+      genDraggerStyle(uploadToken),
+      genPictureStyle(uploadToken),
+      genPictureCardStyle(uploadToken),
+      genListStyle(uploadToken),
+      genMotionStyle(uploadToken),
+      genRtlStyle(uploadToken),
+      genCollapseMotion(uploadToken),
+    ];
+  },
+  prepareComponentToken,
+);

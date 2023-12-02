@@ -1,7 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+import React from 'react';
 import { calcRangeKeys } from '../utils/dictUtil';
-import renderSwitcherIcon from '../utils/iconUtil';
+import SwitcherIconCom from '../utils/iconUtil';
 
 describe('Tree util', () => {
   describe('calcRangeKeys', () => {
@@ -38,20 +38,16 @@ describe('Tree util', () => {
     });
 
     it('return empty array without startKey and endKey', () => {
-      const keys = calcRangeKeys({
-        treeData,
-        expandedKeys: ['0-0', '0-2', '0-2-0'],
-      });
+      const keys = calcRangeKeys({ treeData, expandedKeys: ['0-0', '0-2', '0-2-0'] });
       expect(keys).toEqual([]);
     });
   });
 
-  describe('renderSwitcherIcon', () => {
+  describe('SwitcherIconCom', () => {
     const prefixCls = 'tree';
-
     it('returns a loading icon when loading', () => {
       const { container } = render(
-        <>{renderSwitcherIcon(prefixCls, undefined, { loading: true }, true)}</>,
+        <SwitcherIconCom prefixCls={prefixCls} treeNodeProps={{ loading: true }} showLine />,
       );
       expect(container.getElementsByClassName(`${prefixCls}-switcher-loading-icon`)).toHaveLength(
         1,
@@ -60,7 +56,11 @@ describe('Tree util', () => {
 
     it('returns nothing when node is a leaf without showLine', () => {
       const { container } = render(
-        <>{renderSwitcherIcon(prefixCls, undefined, { loading: false, isLeaf: true }, false)}</>,
+        <SwitcherIconCom
+          prefixCls={prefixCls}
+          treeNodeProps={{ loading: false, isLeaf: true }}
+          showLine={false}
+        />,
       );
       expect(container).toBeEmptyDOMElement();
     });
@@ -69,16 +69,12 @@ describe('Tree util', () => {
       const testId = 'custom-icon';
       const customLeafIcon = <div data-testid={testId} />;
       const { container } = render(
-        <>
-          {renderSwitcherIcon(
-            prefixCls,
-            undefined,
-            { loading: false, isLeaf: true },
-            { showLeafIcon: customLeafIcon },
-          )}
-        </>,
+        <SwitcherIconCom
+          prefixCls={prefixCls}
+          treeNodeProps={{ loading: false, isLeaf: true }}
+          showLine={{ showLeafIcon: customLeafIcon }}
+        />,
       );
-
       expect(screen.getByTestId(testId)).toBeVisible();
       expect(
         container.getElementsByClassName(`${prefixCls}-switcher-line-custom-icon`),
@@ -90,16 +86,12 @@ describe('Tree util', () => {
       [`${prefixCls}-switcher-leaf-line`, false],
     ])('returns %p element when showLeafIcon is %p', (expectedClassName, showLeafIcon) => {
       const { container } = render(
-        <>
-          {renderSwitcherIcon(
-            prefixCls,
-            undefined,
-            { loading: false, isLeaf: true },
-            { showLeafIcon },
-          )}
-        </>,
+        <SwitcherIconCom
+          prefixCls={prefixCls}
+          treeNodeProps={{ loading: false, isLeaf: true }}
+          showLine={{ showLeafIcon }}
+        />,
       );
-
       expect(container.getElementsByClassName(expectedClassName)).toHaveLength(1);
     });
   });

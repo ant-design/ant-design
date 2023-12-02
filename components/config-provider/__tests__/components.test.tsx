@@ -39,7 +39,7 @@ import Select from '../../select';
 import Skeleton from '../../skeleton';
 import type { SliderTooltipProps } from '../../slider';
 import Slider from '../../slider';
-// eslint-disable-next-line import/no-named-as-default
+import { render } from '../../../tests/utils';
 import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
@@ -55,7 +55,6 @@ import Transfer from '../../transfer';
 import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
-import { render } from '../../../tests/utils';
 
 dayjs.extend(customParseFormat);
 jest.mock('rc-util/lib/Portal');
@@ -105,18 +104,18 @@ describe('ConfigProvider', () => {
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
-        it('configProvider componentDisabled', () => {
+        it('configProvider componentSize small', () => {
           const { container } = render(
-            <ConfigProvider componentDisabled prefixCls="config">
+            <ConfigProvider componentSize="small" prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
-        it('configProvider virtual and dropdownMatchSelectWidth', () => {
+        it('configProvider componentDisabled', () => {
           const { container } = render(
-            <ConfigProvider virtual={false} dropdownMatchSelectWidth={false}>
+            <ConfigProvider componentDisabled prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );
@@ -351,7 +350,7 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+              avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />

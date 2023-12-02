@@ -81,7 +81,7 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual(null);
   });
 
-  it('should have aria-lable if the column is sortable and is not sorted', () => {
+  it('should have aria-label if the column is sortable and is not sorted', () => {
     const { container } = render(
       createTable(
         {
@@ -321,6 +321,21 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
+    // should merge original title into showSorterTooltip object
+    rerender(
+      createTable({
+        showSorterTooltip: {
+          overlayClassName: 'custom-tooltip',
+        },
+      }),
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
     // Root to false
     rerender(createTable({ showSorterTooltip: false }));
     act(() => {
@@ -353,6 +368,39 @@ describe('Table.sorter', () => {
       jest.runAllTimers();
     });
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
+  });
+
+  it('renders custome sort icon correctly', () => {
+    const sortIcon = ({ sortOrder }: { sortOrder?: SortOrder }): React.ReactNode => {
+      let text: string;
+      if (sortOrder === undefined) {
+        text = 'unsorted';
+      } else if (sortOrder === 'descend') {
+        text = 'sortDescend';
+      } else {
+        text = 'sortAscend';
+      }
+
+      return <span className="customize-icon">{text}</span>;
+    };
+
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            sortIcon,
+          },
+        ],
+      }),
+    );
+
+    fireEvent.click(container.querySelector('.customize-icon')!);
+    expect(container.querySelector('.customize-icon')).toMatchSnapshot();
+    fireEvent.click(container.querySelector('.customize-icon')!);
+    expect(container.querySelector('.customize-icon')).toMatchSnapshot();
+    fireEvent.click(container.querySelector('.customize-icon')!);
+    expect(container.querySelector('.customize-icon')).toMatchSnapshot();
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -778,7 +826,7 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/19443
-  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
+  it('should not being infinite loop when using Table.Column with sortOrder', () => {
     const Demo: React.FC = () => (
       <Table dataSource={[]}>
         <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
@@ -856,7 +904,7 @@ describe('Table.sorter', () => {
     expect(container.querySelectorAll('th.ant-table-column-sort')).toHaveLength(1);
   });
 
-  it('surger should support sorterOrder', () => {
+  it('surger should support sortOrder', () => {
     const { container } = render(
       <Table>
         <Table.Column key="name" title="Name" dataIndex="name" sortOrder="ascend" sorter />

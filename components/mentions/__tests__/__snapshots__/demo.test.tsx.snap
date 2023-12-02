@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/mentions/demo/async.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 <div
   class="ant-mentions"
   style="width:100%"
@@ -12,7 +12,7 @@ exports[`renders ./components/mentions/demo/async.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/mentions/demo/autoSize.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 <div
   class="ant-mentions"
   style="width:100%"
@@ -24,7 +24,7 @@ exports[`renders ./components/mentions/demo/autoSize.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/mentions/demo/basic.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-mentions"
   style="width:100%"
@@ -38,7 +38,25 @@ exports[`renders ./components/mentions/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/mentions/demo/form.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
+<div
+  style="padding-bottom:0;position:relative;min-width:0"
+>
+  <div
+    class="ant-mentions"
+    style="width:100%;margin:0"
+  >
+    <textarea
+      class="rc-textarea"
+      rows="1"
+    >
+      @
+    </textarea>
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
 >
@@ -140,12 +158,11 @@ exports[`renders ./components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
-              style="flex-wrap:wrap;margin-bottom:-8px"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+              style="flex-wrap:wrap"
             >
               <div
                 class="ant-space-item"
-                style="margin-right:8px;padding-bottom:8px"
               >
                 <button
                   class="ant-btn ant-btn-primary"
@@ -158,7 +175,6 @@ exports[`renders ./components/mentions/demo/form.tsx correctly 1`] = `
               </div>
               <div
                 class="ant-space-item"
-                style="padding-bottom:8px"
               >
                 <button
                   class="ant-btn ant-btn-default"
@@ -178,7 +194,7 @@ exports[`renders ./components/mentions/demo/form.tsx correctly 1`] = `
 </form>
 `;
 
-exports[`renders ./components/mentions/demo/placement.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 <div
   class="ant-mentions"
   style="width:100%"
@@ -190,7 +206,7 @@ exports[`renders ./components/mentions/demo/placement.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/mentions/demo/prefix.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/prefix.tsx correctly 1`] = `
 <div
   class="ant-mentions"
   style="width:100%"
@@ -203,7 +219,7 @@ exports[`renders ./components/mentions/demo/prefix.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/mentions/demo/readonly.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/readonly.tsx correctly 1`] = `
 Array [
   <div
     style="margin-bottom:10px"
@@ -234,9 +250,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/mentions/demo/render-panel.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
 <div
-  style="padding-bottom:0;position:relative;width:fit-content;min-width:0"
+  style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
     class="ant-mentions"
@@ -252,13 +268,12 @@ exports[`renders ./components/mentions/demo/render-panel.tsx correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/mentions/demo/status.tsx correctly 1`] = `
+exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-mentions ant-mentions-status-error"

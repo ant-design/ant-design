@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
 >
@@ -9,15 +9,15 @@ exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`]
   >
     <div
       id="part-1"
-      style="height:100vh;background:rgba(255,0,0,0.02)"
+      style="height: 100vh; background: rgba(255, 0, 0, 0.02);"
     />
     <div
       id="part-2"
-      style="height:100vh;background:rgba(0,255,0,0.02)"
+      style="height: 100vh; background: rgba(0, 255, 0, 0.02);"
     />
     <div
       id="part-3"
-      style="height:100vh;background:rgba(0,0,255,0.02)"
+      style="height: 100vh; background: rgba(0, 0, 255, 0.02);"
     />
   </div>
   <div
@@ -29,19 +29,20 @@ exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`]
       >
         <div
           class="ant-anchor-wrapper"
-          style="max-height:100vh"
+          style="max-height: 100vh;"
         >
           <div
             class="ant-anchor"
           >
             <span
-              class="ant-anchor-ink"
+              class="ant-anchor-ink ant-anchor-ink-visible"
+              style="top: 0px; height: 0px;"
             />
             <div
-              class="ant-anchor-link"
+              class="ant-anchor-link ant-anchor-link-active"
             >
               <a
-                class="ant-anchor-link-title"
+                class="ant-anchor-link-title ant-anchor-link-title-active"
                 href="#part-1"
                 title="Part 1"
               >
@@ -78,16 +79,100 @@ exports[`renders ./components/anchor/demo/basic.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+>
+  <div
+    class="ant-col ant-col-16"
+  >
+    <div
+      id="part-1"
+      style="height: 100vh; background: rgba(255, 0, 0, 0.02);"
+    />
+    <div
+      id="part-2"
+      style="height: 100vh; background: rgba(0, 255, 0, 0.02);"
+    />
+    <div
+      id="part-3"
+      style="height: 100vh; background: rgba(0, 0, 255, 0.02);"
+    />
+  </div>
+  <div
+    class="ant-col ant-col-8"
+  >
+    <div>
+      <div
+        class=""
+      >
+        <div
+          class="ant-anchor-wrapper"
+          style="max-height: 100vh;"
+        >
+          <div
+            class="ant-anchor"
+          >
+            <span
+              class="ant-anchor-ink ant-anchor-ink-visible"
+              style="top: 0px; height: 0px;"
+            />
+            <div
+              class="ant-anchor-link ant-anchor-link-active"
+            >
+              <a
+                class="ant-anchor-link-title ant-anchor-link-title-active"
+                href="#part-1"
+                title="Part 1"
+              >
+                Part 1
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-2"
+                title="Part 2"
+              >
+                Part 2
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-3"
+                title="Part 3"
+              >
+                Part 3
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/anchor/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/customizeHighlight.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
   >
     <span
-      class="ant-anchor-ink"
+      class="ant-anchor-ink ant-anchor-ink-visible"
+      style="top: 0px; height: 0px;"
     />
     <div
       class="ant-anchor-link"
@@ -101,10 +186,10 @@ exports[`renders ./components/anchor/demo/customizeHighlight.tsx extend context 
       </a>
     </div>
     <div
-      class="ant-anchor-link"
+      class="ant-anchor-link ant-anchor-link-active"
     >
       <a
-        class="ant-anchor-link-title"
+        class="ant-anchor-link-title ant-anchor-link-title-active"
         href="#components-anchor-demo-static"
         title="Static demo"
       >
@@ -148,10 +233,12 @@ exports[`renders ./components/anchor/demo/customizeHighlight.tsx extend context 
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/horizontal.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/customizeHighlight.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/horizontal.tsx extend context correctly 1`] = `
 Array [
   <div
-    style="padding:20px"
+    style="padding: 20px;"
   >
     <div>
       <div
@@ -159,19 +246,20 @@ Array [
       >
         <div
           class="ant-anchor-wrapper ant-anchor-wrapper-horizontal"
-          style="max-height:100vh"
+          style="max-height: 100vh;"
         >
           <div
             class="ant-anchor"
           >
             <span
-              class="ant-anchor-ink"
+              class="ant-anchor-ink ant-anchor-ink-visible"
+              style="left: 0px; width: 0px;"
             />
             <div
-              class="ant-anchor-link"
+              class="ant-anchor-link ant-anchor-link-active"
             >
               <a
-                class="ant-anchor-link-title"
+                class="ant-anchor-link-title ant-anchor-link-title-active"
                 href="#part-1"
                 title="Part 1"
               >
@@ -198,39 +286,6 @@ Array [
                 title="Part 3"
               >
                 Part 3
-              </a>
-            </div>
-            <div
-              class="ant-anchor-link"
-            >
-              <a
-                class="ant-anchor-link-title"
-                href="#part-4"
-                title="Part 4"
-              >
-                Part 4
-              </a>
-            </div>
-            <div
-              class="ant-anchor-link"
-            >
-              <a
-                class="ant-anchor-link-title"
-                href="#part-5"
-                title="Part 5"
-              >
-                Part 5
-              </a>
-            </div>
-            <div
-              class="ant-anchor-link"
-            >
-              <a
-                class="ant-anchor-link-title"
-                href="#part-6"
-                title="Part 6"
-              >
-                Part 6
               </a>
             </div>
           </div>
@@ -241,36 +296,26 @@ Array [
   <div>
     <div
       id="part-1"
-      style="width:100vw;height:100vh;text-align:center;background:rgba(0,255,0,0.02)"
+      style="width: 100vw; height: 100vh; text-align: center; background: rgba(0, 255, 0, 0.02);"
     />
     <div
       id="part-2"
-      style="width:100vw;height:100vh;text-align:center;background:rgba(0,0,255,0.02)"
+      style="width: 100vw; height: 100vh; text-align: center; background: rgba(0, 0, 255, 0.02);"
     />
     <div
       id="part-3"
-      style="width:100vw;height:100vh;text-align:center;background:#FFFBE9"
-    />
-    <div
-      id="part-4"
-      style="width:100vw;height:100vh;text-align:center;background:#F4EAD5"
-    />
-    <div
-      id="part-5"
-      style="width:100vw;height:100vh;text-align:center;background:#DAE2B6"
-    />
-    <div
-      id="part-6"
-      style="width:100vw;height:100vh;text-align:center;background:#CCD6A6"
+      style="width: 100vw; height: 100vh; text-align: center; background: rgb(255, 251, 233);"
     />
   </div>,
 ]
 `;
 
-exports[`renders ./components/anchor/demo/legacy-anchor.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/horizontal.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -337,10 +382,16 @@ exports[`renders ./components/anchor/demo/legacy-anchor.tsx extend context corre
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onChange.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/legacy-anchor.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Anchor] \`Anchor children\` is deprecated. Please use \`items\` instead.",
+]
+`;
+
+exports[`renders components/anchor/demo/onChange.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -407,10 +458,12 @@ exports[`renders ./components/anchor/demo/onChange.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/onClick.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/onChange.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/onClick.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -477,10 +530,93 @@ exports[`renders ./components/anchor/demo/onClick.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/static.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/onClick.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/replace.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+>
+  <div
+    class="ant-col ant-col-16"
+  >
+    <div
+      id="part-1"
+      style="height: 100vh; background: rgba(255, 0, 0, 0.02);"
+    />
+    <div
+      id="part-2"
+      style="height: 100vh; background: rgba(0, 255, 0, 0.02);"
+    />
+    <div
+      id="part-3"
+      style="height: 100vh; background: rgba(0, 0, 255, 0.02);"
+    />
+  </div>
+  <div
+    class="ant-col ant-col-8"
+  >
+    <div>
+      <div
+        class=""
+      >
+        <div
+          class="ant-anchor-wrapper"
+          style="max-height: 100vh;"
+        >
+          <div
+            class="ant-anchor"
+          >
+            <span
+              class="ant-anchor-ink ant-anchor-ink-visible"
+              style="top: 0px; height: 0px;"
+            />
+            <div
+              class="ant-anchor-link ant-anchor-link-active"
+            >
+              <a
+                class="ant-anchor-link-title ant-anchor-link-title-active"
+                href="#part-1"
+                title="Part 1"
+              >
+                Part 1
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-2"
+                title="Part 2"
+              >
+                Part 2
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-3"
+                title="Part 3"
+              >
+                Part 3
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/anchor/demo/replace.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/static.tsx extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -547,7 +683,9 @@ exports[`renders ./components/anchor/demo/static.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
+exports[`renders components/anchor/demo/static.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 1`] = `
 <div>
   <div
     class="ant-row"
@@ -557,19 +695,19 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
     >
       <div
         id="part-1"
-        style="height:100vh;background:rgba(255,0,0,0.02);margin-top:30vh"
+        style="height: 100vh; background: rgba(255, 0, 0, 0.02); margin-top: 30vh;"
       >
         Part 1
       </div>
       <div
         id="part-2"
-        style="height:100vh;background:rgba(0,255,0,0.02)"
+        style="height: 100vh; background: rgba(0, 255, 0, 0.02);"
       >
         Part 2
       </div>
       <div
         id="part-3"
-        style="height:100vh;background:rgba(0,0,255,0.02)"
+        style="height: 100vh; background: rgba(0, 0, 255, 0.02);"
       >
         Part 3
       </div>
@@ -583,19 +721,20 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
         >
           <div
             class="ant-anchor-wrapper"
-            style="max-height:100vh"
+            style="max-height: 100vh;"
           >
             <div
               class="ant-anchor"
             >
               <span
-                class="ant-anchor-ink"
+                class="ant-anchor-ink ant-anchor-ink-visible"
+                style="top: 0px; height: 0px;"
               />
               <div
-                class="ant-anchor-link"
+                class="ant-anchor-link ant-anchor-link-active"
               >
                 <a
-                  class="ant-anchor-link-title"
+                  class="ant-anchor-link-title ant-anchor-link-title-active"
                   href="#part-1"
                   title="Part 1"
                 >
@@ -631,7 +770,7 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
     </div>
   </div>
   <div
-    style="height:30vh;background:rgba(0,0,0,0.85);position:fixed;top:0;left:0;width:75%;color:#FFF"
+    style="height: 30vh; background: rgba(0, 0, 0, 0.85); position: fixed; top: 0px; left: 0px; width: 75%; color: rgb(255, 255, 255);"
   >
     <div>
       Fixed Top Block
@@ -639,3 +778,5 @@ exports[`renders ./components/anchor/demo/targetOffset.tsx extend context correc
   </div>
 </div>
 `;
+
+exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 2`] = `[]`;

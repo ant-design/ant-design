@@ -1,34 +1,74 @@
-import { initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme/internal';
 import { resetComponent } from '../../style';
-import getArrowStyle from '../../style/placementArrow';
+import { initZoomMotion } from '../../style/motion';
+import type { ArrowOffsetToken } from '../../style/placementArrow';
+import getArrowStyle, { getArrowOffsetToken } from '../../style/placementArrow';
+import type {
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+  PresetColorType,
+} from '../../theme/internal';
+import { PresetColors, genStyleHooks, mergeToken } from '../../theme/internal';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { getArrowToken } from '../../style/roundedArrow';
 
-export interface ComponentToken {
+export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
+  /**
+   * @deprecated Please use `titleMinWidth` instead
+   * @desc 气泡卡片宽度
+   * @descEN Width of Popover
+   */
+  width?: number;
+  /**
+   * @deprecated Please use `titleMinWidth` instead
+   * @desc 气泡卡片最小宽度
+   * @descEN Min width of Popover
+   */
+  minWidth?: number;
+  /**
+   * @desc 气泡卡片标题最小宽度
+   * @descEN Min width of Popover title
+   */
+  titleMinWidth: number;
+  /**
+   * @desc 气泡卡片 z-index
+   * @descEN z-index of Popover
+   */
   zIndexPopup: number;
-  width: number;
+  /** @internal */
+  innerPadding: number;
+  /** @internal */
+  titlePadding: number | string;
+  /** @internal */
+  titleMarginBottom: number;
+  /** @internal */
+  titleBorderBottom: string;
+  /** @internal */
+  innerContentPadding: number | string;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
   popoverBg: string;
   popoverColor: string;
-  popoverPadding: number | string;
 };
 
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   const {
     componentCls,
-    popoverBg,
     popoverColor,
-    width,
+    titleMinWidth,
     fontWeightStrong,
-    popoverPadding,
+    innerPadding,
     boxShadowSecondary,
     colorTextHeading,
-    borderRadiusLG: borderRadius,
+    borderRadiusLG,
     zIndexPopup,
-    marginXS,
+    titleMarginBottom,
     colorBgElevated,
+    popoverBg,
+    titleBorderBottom,
+    innerContentPadding,
+    titlePadding,
   } = token;
 
   return [
@@ -48,6 +88,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         textAlign: 'start',
         cursor: 'auto',
         userSelect: 'text',
+        transformOrigin: `var(--arrow-x, 50%) var(--arrow-y, 50%)`,
         '--antd-arrow-background-color': colorBgElevated,
 
         '&-rtl': {
@@ -65,34 +106,37 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         [`${componentCls}-inner`]: {
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',
-          borderRadius,
+          borderRadius: borderRadiusLG,
           boxShadow: boxShadowSecondary,
-          padding: popoverPadding,
+          padding: innerPadding,
         },
 
         [`${componentCls}-title`]: {
-          minWidth: width,
-          marginBottom: marginXS,
+          minWidth: titleMinWidth,
+          marginBottom: titleMarginBottom,
           color: colorTextHeading,
           fontWeight: fontWeightStrong,
+          borderBottom: titleBorderBottom,
+          padding: titlePadding,
         },
 
         [`${componentCls}-inner-content`]: {
           color: popoverColor,
+          padding: innerContentPadding,
         },
       },
     },
 
     // Arrow Style
-    getArrowStyle(token, {
-      colorBg: 'var(--antd-arrow-background-color)',
-    }),
+    getArrowStyle(token, 'var(--antd-arrow-background-color)'),
 
     // Pure Render
     {
       [`${componentCls}-pure`]: {
         position: 'relative',
         maxWidth: 'none',
+        margin: token.sizePopupArrow,
+        display: 'inline-block',
 
         [`${componentCls}-content`]: {
           display: 'inline-block',
@@ -107,7 +151,7 @@ const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
 
   return {
     [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
-      const lightColor = token[`${colorKey}-6`];
+      const lightColor = token[`${colorKey}6`];
       return {
         [`&${componentCls}-${colorKey}`]: {
           '--antd-arrow-background-color': lightColor,
@@ -123,63 +167,68 @@ const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
   };
 };
 
-const genWireframeStyle: GenerateStyle<PopoverToken> = (token) => {
+export const prepareComponentToken: GetDefaultToken<'Popover'> = (token) => {
   const {
-    componentCls,
     lineWidth,
+    controlHeight,
+    fontHeight,
+    padding,
+    wireframe,
+    zIndexPopupBase,
+    borderRadiusLG,
+    marginXS,
     lineType,
     colorSplit,
     paddingSM,
-    controlHeight,
-    fontSize,
-    lineHeight,
-    padding,
   } = token;
 
-  const titlePaddingBlockDist = controlHeight - Math.round(fontSize * lineHeight);
+  const titlePaddingBlockDist = controlHeight - fontHeight;
   const popoverTitlePaddingBlockTop = titlePaddingBlockDist / 2;
   const popoverTitlePaddingBlockBottom = titlePaddingBlockDist / 2 - lineWidth;
   const popoverPaddingHorizontal = padding;
 
   return {
-    [componentCls]: {
-      [`${componentCls}-inner`]: {
-        padding: 0,
-      },
+    titleMinWidth: 177,
+    zIndexPopup: zIndexPopupBase + 30,
+    ...getArrowToken(token),
+    ...getArrowOffsetToken({
+      contentRadius: borderRadiusLG,
+      limitVerticalRadius: true,
+    }),
 
-      [`${componentCls}-title`]: {
-        margin: 0,
-        padding: `${popoverTitlePaddingBlockTop}px ${popoverPaddingHorizontal}px ${popoverTitlePaddingBlockBottom}px`,
-        borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
-      },
-
-      [`${componentCls}-inner-content`]: {
-        padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
-      },
-    },
+    // internal
+    innerPadding: wireframe ? 0 : 12,
+    titleMarginBottom: wireframe ? 0 : marginXS,
+    titlePadding: wireframe
+      ? `${popoverTitlePaddingBlockTop}px ${popoverPaddingHorizontal}px ${popoverTitlePaddingBlockBottom}px`
+      : 0,
+    titleBorderBottom: wireframe ? `${lineWidth}px ${lineType} ${colorSplit}` : 'none',
+    innerContentPadding: wireframe ? `${paddingSM}px ${popoverPaddingHorizontal}px` : 0,
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Popover',
   (token) => {
-    const { colorBgElevated, colorText, wireframe } = token;
+    const { colorBgElevated, colorText } = token;
 
     const popoverToken = mergeToken<PopoverToken>(token, {
       popoverBg: colorBgElevated,
       popoverColor: colorText,
-      popoverPadding: 12, // Fixed Value
     });
 
     return [
       genBaseStyle(popoverToken),
       genColorStyle(popoverToken),
-      wireframe && genWireframeStyle(popoverToken),
       initZoomMotion(popoverToken, 'zoom-big'),
     ];
   },
-  ({ zIndexPopupBase }) => ({
-    zIndexPopup: zIndexPopupBase + 30,
-    width: 177,
-  }),
+  prepareComponentToken,
+  {
+    resetStyle: false,
+    deprecatedTokens: [
+      ['width', 'titleMinWidth'],
+      ['minWidth', 'titleMinWidth'],
+    ],
+  },
 );

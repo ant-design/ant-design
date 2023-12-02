@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/popconfirm/demo/async.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/async.tsx extend context correctly 1`] = `
 Array [
   <button
     class="ant-btn ant-btn-primary"
@@ -10,88 +10,87 @@ Array [
       Open Popconfirm with async logic
     </span>
   </button>,
-  <div>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-title"
                 >
                   Title
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Open Popconfirm with async logic
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-description"
                 >
-                  <span>
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
+                  Open Popconfirm with async logic
+                </div>
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -101,95 +100,99 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/async.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 1`] = `
 Array [
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-default ant-btn-dangerous"
+    type="button"
   >
-    Delete
-  </a>,
-  <div>
+    <span>
+      Delete
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-title"
                 >
                   Delete the task
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Are you sure to delete this task?
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-description"
                 >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
+                  Are you sure to delete this task?
+                </div>
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  No
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Yes
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -199,95 +202,99 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 1`] = `
 <div>
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-default ant-btn-dangerous"
+    type="button"
   >
-    Delete a task
-  </a>
-  <div>
+    <span>
+      Delete a task
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
                 >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-title"
                 >
                   Delete the task
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Are you sure to delete this task?
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-description"
                 >
-                  <span>
-                    No
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    Yes
-                  </span>
-                </button>
+                  Are you sure to delete this task?
+                </div>
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  No
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Yes
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -320,99 +327,103 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.tsx extend context
 </div>
 `;
 
-exports[`renders ./components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/dynamic-trigger.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 1`] = `
 Array [
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-default ant-btn-dangerous"
+    type="button"
   >
-    Delete
-  </a>,
-  <div>
+    <span>
+      Delete
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
     >
       <div
-        class="ant-popover-content"
+        class="ant-popover-inner"
+        role="tooltip"
       >
         <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
-        <div
-          class="ant-popover-inner"
-          role="tooltip"
+          class="ant-popover-inner-content"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popconfirm-inner-content"
+              class="ant-popconfirm-message"
             >
-              <div
-                class="ant-popconfirm-message"
+              <span
+                class="ant-popconfirm-message-icon"
               >
                 <span
-                  class="ant-popconfirm-message-icon"
+                  aria-label="question-circle"
+                  class="anticon anticon-question-circle"
+                  role="img"
+                  style="color: red;"
                 >
-                  <span
-                    aria-label="question-circle"
-                    class="anticon anticon-question-circle"
-                    role="img"
-                    style="color:red"
+                  <svg
+                    aria-hidden="true"
+                    data-icon="question-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="question-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                    />
+                    <path
+                      d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                    />
+                  </svg>
                 </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-title"
                 >
                   Delete the task
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Are you sure to delete this task?
-              </div>
-              <div
-                class="ant-popconfirm-buttons"
-              >
-                <button
-                  class="ant-btn ant-btn-default ant-btn-sm"
-                  type="button"
+                <div
+                  class="ant-popconfirm-description"
                 >
-                  <span>
-                    Cancel
-                  </span>
-                </button>
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
+                  Are you sure to delete this task?
+                </div>
               </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -422,28 +433,137 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/icon.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 1`] = `
 Array [
-  <a
-    href="#"
+  <button
+    class="ant-btn ant-btn-default ant-btn-dangerous"
+    type="button"
   >
-    Delete
-  </a>,
-  <div>
+    <span>
+      Delete
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
     >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <span
+                class="ant-popconfirm-message-icon"
+              >
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Delete the task
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Are you sure to delete this task?
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  No
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Yes
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popconfirm/demo/locale.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
+<div
+  class="demo"
+>
+  <div
+    style="margin-inline-start: 80px; white-space: nowrap;"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        TL
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-topLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
       <div
         class="ant-popover-content"
       >
-        <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
         <div
           class="ant-popover-inner"
           role="tooltip"
@@ -481,21 +601,26 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Delete the task
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Are you sure to delete this task?
               </div>
               <div
                 class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
                   type="button"
                 >
                   <span>
@@ -504,6 +629,7 @@ Array [
                 </button>
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
                   type="button"
                 >
                   <span>
@@ -516,1208 +642,26 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/popconfirm/demo/placement.tsx extend context correctly 1`] = `
-Array [
-  <div
-    style="margin-left:70px;white-space:nowrap"
-  >
     <button
       class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        TL
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
       type="button"
     >
       <span>
         Top
       </span>
     </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        TR
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    style="width:70px;float:left"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        LT
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Left
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        LB
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    style="width:70px;margin-left:304px"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        RT
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Right
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        RB
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
-  >
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        BL
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        Bottom
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button
-      class="ant-btn ant-btn-default"
-      type="button"
-    >
-      <span>
-        BR
-      </span>
-    </button>
-    <div>
-      <div
-        class="ant-popover ant-popconfirm"
-        style="opacity:0"
-      >
-        <div
-          class="ant-popover-content"
-        >
-          <div
-            class="ant-popover-arrow"
-          >
-            <span
-              class="ant-popover-arrow-content"
-            />
-          </div>
-          <div
-            class="ant-popover-inner"
-            role="tooltip"
-          >
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div
-                class="ant-popconfirm-inner-content"
-              >
-                <div
-                  class="ant-popconfirm-message"
-                >
-                  <span
-                    class="ant-popconfirm-message-icon"
-                  >
-                    <span
-                      aria-label="exclamation-circle"
-                      class="anticon anticon-exclamation-circle"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="exclamation-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <div
-                    class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
-                  >
-                    Are you sure to delete this task?
-                  </div>
-                </div>
-                <div
-                  class="ant-popconfirm-description"
-                >
-                  Delete the task
-                </div>
-                <div
-                  class="ant-popconfirm-buttons"
-                >
-                  <button
-                    class="ant-btn ant-btn-default ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      No
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary ant-btn-sm"
-                    type="button"
-                  >
-                    <span>
-                      Yes
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
-Array [
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      Open Popconfirm with Promise
-    </span>
-  </button>,
-  <div>
     <div
-      class="ant-popover ant-popconfirm"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; bottom: 0px; left: 0px;"
+      />
       <div
         class="ant-popover-content"
       >
-        <div
-          class="ant-popover-arrow"
-        >
-          <span
-            class="ant-popover-arrow-content"
-          />
-        </div>
         <div
           class="ant-popover-inner"
           role="tooltip"
@@ -1755,33 +699,39 @@ Array [
                   </span>
                 </span>
                 <div
-                  class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                  class="ant-popconfirm-message-text"
                 >
-                  Title
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
                 </div>
-              </div>
-              <div
-                class="ant-popconfirm-description"
-              >
-                Open Popconfirm with Promise
               </div>
               <div
                 class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
                   type="button"
                 >
                   <span>
-                    Cancel
+                    No
                   </span>
                 </button>
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
                   type="button"
                 >
                   <span>
-                    OK
+                    Yes
                   </span>
                 </button>
               </div>
@@ -1790,21 +740,1025 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/popconfirm/demo/render-panel.tsx extend context correctly 1`] = `
-Array [
-  <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
-  >
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        TR
+      </span>
+    </button>
     <div
-      class="ant-popover-content"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-topRight"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
+        style="position: absolute;"
       />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="width: 80px; float: inline-start;"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        LT
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-leftTop"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        Left
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-left"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; top: 0px; right: 0px;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        LB
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-leftBottom"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="width: 80px; margin-inline-start: 344px;"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        RT
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-rightTop"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        Right
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        RB
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-rightBottom"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="margin-inline-start: 80px; clear: both; white-space: nowrap;"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        BL
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-bottom"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-default"
+      style="width: 80px; margin: 4px;"
+      type="button"
+    >
+      <span>
+        BR
+      </span>
+    </button>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-bottomRight"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      />
+      <div
+        class="ant-popover-content"
+      >
+        <div
+          class="ant-popover-inner"
+          role="tooltip"
+        >
+          <div
+            class="ant-popover-inner-content"
+          >
+            <div
+              class="ant-popconfirm-inner-content"
+            >
+              <div
+                class="ant-popconfirm-message"
+              >
+                <span
+                  class="ant-popconfirm-message-icon"
+                >
+                  <span
+                    aria-label="exclamation-circle"
+                    class="anticon anticon-exclamation-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="exclamation-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <div
+                  class="ant-popconfirm-message-text"
+                >
+                  <div
+                    class="ant-popconfirm-title"
+                  >
+                    Are you sure to delete this task?
+                  </div>
+                  <div
+                    class="ant-popconfirm-description"
+                  >
+                    Delete the task
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-popconfirm-buttons"
+              >
+                <button
+                  class="ant-btn ant-btn-default ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    No
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  style="width: 80px; margin: 4px;"
+                  type="button"
+                >
+                  <span>
+                    Yes
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popconfirm/demo/placement.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open Popconfirm with Promise
+    </span>
+  </button>,
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popconfirm ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    />
+    <div
+      class="ant-popover-content"
+    >
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -1842,15 +1796,111 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Title
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Open Popconfirm with Promise
+                </div>
               </div>
             </div>
             <div
-              class="ant-popconfirm-description"
+              class="ant-popconfirm-buttons"
             >
-              Does this look good?
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/popconfirm/demo/promise.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/render-panel.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <span
+                class="ant-popconfirm-message-icon"
+              >
+                <span
+                  aria-label="exclamation-circle"
+                  class="anticon anticon-exclamation-circle"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="exclamation-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
+              </div>
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -1879,15 +1929,15 @@ Array [
   </div>,
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm"
-    style="width:250px"
+    style="width: 250px;"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
-      style="width:250px"
+      style="width: 250px;"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -1925,15 +1975,138 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title ant-popconfirm-message-title-only"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
               </div>
             </div>
             <div
-              class="ant-popconfirm-description"
+              class="ant-popconfirm-buttons"
             >
-              Does this look good?
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-popconfirm-buttons"
+            >
+              <button
+                class="ant-btn ant-btn-default ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  Cancel
+                </span>
+              </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-content"
+    >
+      <div
+        class="ant-popover-inner"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-inner-content"
+        >
+          <div
+            class="ant-popconfirm-inner-content"
+          >
+            <div
+              class="ant-popconfirm-message"
+            >
+              <div
+                class="ant-popconfirm-message-text"
+              >
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
+                <div
+                  class="ant-popconfirm-description"
+                >
+                  Does this look good?
+                </div>
+              </div>
             </div>
             <div
               class="ant-popconfirm-buttons"
@@ -1963,17 +2136,19 @@ Array [
 ]
 `;
 
-exports[`renders ./components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components/popconfirm/demo/render-panel.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-top ant-popconfirm"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -2011,9 +2186,13 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
               </div>
             </div>
             <div
@@ -2043,15 +2222,15 @@ Array [
   </div>,
   <div
     class="ant-popover ant-popover-pure ant-popover-placement-bottomRight ant-popconfirm"
-    style="width:250px"
+    style="width: 250px;"
   >
     <div
+      class="ant-popover-arrow"
+    />
+    <div
       class="ant-popover-content"
-      style="width:250px"
+      style="width: 250px;"
     >
-      <div
-        class="ant-popover-arrow"
-      />
       <div
         class="ant-popover-inner"
         role="tooltip"
@@ -2089,9 +2268,13 @@ Array [
                 </span>
               </span>
               <div
-                class="ant-popconfirm-message-title"
+                class="ant-popconfirm-message-text"
               >
-                Are you OK?
+                <div
+                  class="ant-popconfirm-title"
+                >
+                  Are you OK?
+                </div>
               </div>
             </div>
             <div
@@ -2121,3 +2304,5 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders components/popconfirm/demo/wireframe.tsx extend context correctly 2`] = `[]`;

@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Collapse
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 A content area which can be collapsed and expanded.
@@ -11,6 +12,49 @@ A content area which can be collapsed and expanded.
 
 - Can be used to group or hide complex regions to keep the page clean.
 - `Accordion` is a special kind of `Collapse`, which allows only one panel to be expanded at a time.
+
+```tsx | pure
+// works when >= 5.6.0, recommended ✅
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+const items: CollapseProps['items'] = [
+  {
+    key: '1',
+    label: 'This is panel header 1',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '2',
+    label: 'This is panel header 2',
+    children: <p>{text}</p>,
+  },
+  {
+    key: '3',
+    label: 'This is panel header 3',
+    children: <p>{text}</p>,
+  },
+];
+
+<Collapse items={items} defaultActiveKey={['1']} />;
+
+// works when <5.6.0 , deprecated when >=5.6.0  🙅🏻‍♀️
+
+<Collapse defaultActiveKey={['1']} onChange={onChange}>
+  <Panel header="This is panel header 1" key="1">
+    <p>{text}</p>
+  </Panel>
+  <Panel header="This is panel header 2" key="2">
+    <p>{text}</p>
+  </Panel>
+  <Panel header="This is panel header 3" key="3">
+    <p>{text}</p>
+  </Panel>
+</Collapse>;
+```
 
 ## Examples
 
@@ -25,8 +69,11 @@ A content area which can be collapsed and expanded.
 <code src="./demo/extra.tsx">Extra node</code>
 <code src="./demo/ghost.tsx">Ghost Collapse</code>
 <code src="./demo/collapsible.tsx">Collapsible</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Collapse
 
@@ -43,8 +90,11 @@ A content area which can be collapsed and expanded.
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | size | Set the size of collapse | `large` \| `middle` \| `small` | `middle` | 5.2.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
+| items | collapse items content | [ItemType](https://github.com/react-component/collapse/blob/27250ca5415faab16db412b9bff2c131bb4f32fc/src/interface.ts#L6) | - | 5.6.0 |
 
 ### Collapse.Panel
+
+<Alert message="&gt;= 5.6.0 configure the panel by `items`."></Alert>
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -54,3 +104,7 @@ A content area which can be collapsed and expanded.
 | header | Title of the panel | ReactNode | - |  |
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Collapse"></ComponentTokenTable>

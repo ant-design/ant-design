@@ -1,8 +1,10 @@
-import { presetPrimaryColors } from '@ant-design/colors';
 import * as React from 'react';
+import { presetPrimaryColors } from '@ant-design/colors';
+
+import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
-import { getSuccessPercent, validProgress } from './utils';
+import { getSize, getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -71,8 +73,8 @@ const Line: React.FC<LineProps> = (props) => {
     prefixCls,
     direction: directionConfig,
     percent,
-    strokeWidth,
     size,
+    strokeWidth,
     strokeColor,
     strokeLinecap = 'round',
     children,
@@ -92,9 +94,19 @@ const Line: React.FC<LineProps> = (props) => {
     borderRadius,
   };
 
+  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
+
+  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Progress');
+
+    warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
+  }
+
   const percentStyle: React.CSSProperties = {
     width: `${validProgress(percent)}%`,
-    height: strokeWidth || (size === 'small' ? 6 : 8),
+    height,
     borderRadius,
     ...backgroundProps,
   };
@@ -103,14 +115,19 @@ const Line: React.FC<LineProps> = (props) => {
 
   const successPercentStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,
-    height: strokeWidth || (size === 'small' ? 6 : 8),
+    height,
     borderRadius,
     backgroundColor: success?.strokeColor,
   };
 
+  const outerStyle: React.CSSProperties = {
+    width: width < 0 ? '100%' : width,
+    height,
+  };
+
   return (
     <>
-      <div className={`${prefixCls}-outer`}>
+      <div className={`${prefixCls}-outer`} style={outerStyle}>
         <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successPercent !== undefined ? (

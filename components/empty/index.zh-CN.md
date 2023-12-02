@@ -4,6 +4,7 @@ subtitle: 空状态
 group: 数据展示
 title: Empty
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 空状态时的展示占位图。
@@ -23,6 +24,8 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAA
 <code src="./demo/description.tsx">无描述</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ```jsx
 <Empty>
@@ -62,3 +65,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZdiZSLzEV0wAAAAAAA
     background-image: url("https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png");
   }
 </style>
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Empty"></ComponentTokenTable>

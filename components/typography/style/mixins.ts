@@ -8,11 +8,10 @@
 }
 */
 import { gold } from '@ant-design/colors';
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
-import { initInputToken } from '../../input/style';
-import type { GenerateStyle } from '../../theme/internal';
 import { operationUnit } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
 
 // eslint-disable-next-line import/prefer-default-export
 const getTitleStyle = (
@@ -21,10 +20,10 @@ const getTitleStyle = (
   color: string,
   token: TypographyToken,
 ) => {
-  const { sizeMarginHeadingVerticalEnd, fontWeightStrong } = token;
+  const { titleMarginBottom, fontWeightStrong } = token;
 
   return {
-    marginBottom: sizeMarginHeadingVerticalEnd,
+    marginBottom: titleMarginBottom,
     color,
     fontWeight: fontWeightStrong,
     fontSize,
@@ -187,23 +186,22 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 });
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, paddingSM } = token;
 
-  const inputToken = initInputToken(token);
-  const inputShift = inputToken.inputPaddingVertical + 1;
+  const inputShift = paddingSM;
   return {
     '&-edit-content': {
       position: 'relative',
 
       'div&': {
-        insetInlineStart: -token.paddingSM,
-        marginTop: -inputShift,
-        marginBottom: `calc(1em - ${inputShift}px)`,
+        insetInlineStart: token.calc(token.paddingSM).mul(-1).equal(),
+        marginTop: token.calc(inputShift).mul(-1).equal(),
+        marginBottom: `calc(1em - ${unit(inputShift)})`,
       },
 
       [`${componentCls}-edit-content-confirm`]: {
         position: 'absolute',
-        insetInlineEnd: token.marginXS + 2,
+        insetInlineEnd: token.calc(token.marginXS).add(2).equal(),
         insetBlockEnd: token.marginXS,
         color: token.colorTextDescription,
         // default style
@@ -223,7 +221,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
   };
 };
 
-export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
+export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
   '&-copy-success': {
     [`
     &,
@@ -254,6 +252,17 @@ export const getEllipsisStyles = (): CSSObject => ({
     // https://blog.csdn.net/iefreer/article/details/50421025
     'a&, span&': {
       verticalAlign: 'bottom',
+    },
+
+    '> code': {
+      paddingBlock: 0,
+      maxWidth: 'calc(100% - 1.2em)',
+      display: 'inline-block',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      verticalAlign: 'bottom',
+      // https://github.com/ant-design/ant-design/issues/45953
+      boxSizing: 'content-box',
     },
   },
 

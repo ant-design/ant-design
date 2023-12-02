@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '../../../tests/utils';
-import Tree from '../index';
 import type { AntTreeNodeProps } from '../Tree';
+import Tree from '../index';
 
 const { TreeNode } = Tree;
 
@@ -183,6 +183,35 @@ describe('Tree', () => {
       const nodeDraggable = jest.fn(() => false);
       render(<Tree treeData={dragTreeData} draggable={nodeDraggable} />);
       expect(nodeDraggable).toHaveBeenCalledWith(dragTreeData[0]);
+    });
+  });
+
+  describe('hidden switcherIcon', () => {
+    it('use `switcherIcon={() => null}`', () => {
+      const { container } = render(
+        <Tree defaultExpandAll switcherIcon={() => null}>
+          <TreeNode icon="icon">
+            <TreeNode title="node1" icon="icon" key="0-0-2" />
+            <TreeNode title="node2" key="0-0-3" />
+          </TreeNode>
+        </Tree>,
+      );
+      container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
+        expect(el.children.length).toBe(0);
+      });
+    });
+    it('use `switcherIcon={null}`', () => {
+      const { container } = render(
+        <Tree defaultExpandAll switcherIcon={null}>
+          <TreeNode icon="icon">
+            <TreeNode title="node1" icon="icon" key="0-0-2" />
+            <TreeNode title="node2" key="0-0-3" />
+          </TreeNode>
+        </Tree>,
+      );
+      container.querySelectorAll('.ant-tree-switcher').forEach((el) => {
+        expect(el.children.length).toBe(0);
+      });
     });
   });
 });

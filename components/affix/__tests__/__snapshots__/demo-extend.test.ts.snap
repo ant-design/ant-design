@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/affix/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/affix/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div>
     <div
@@ -34,9 +34,11 @@ Array [
 ]
 `;
 
-exports[`renders ./components/affix/demo/debug.tsx extend context correctly 1`] = `
+exports[`renders components/affix/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/affix/demo/debug.tsx extend context correctly 1`] = `
 <div
-  style="height:10000px"
+  style="height: 10000px;"
 >
   <div>
     Top
@@ -46,7 +48,7 @@ exports[`renders ./components/affix/demo/debug.tsx extend context correctly 1`] 
       class=""
     >
       <div
-        style="background:red"
+        style="background: red;"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -65,7 +67,9 @@ exports[`renders ./components/affix/demo/debug.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/affix/demo/on-change.tsx extend context correctly 1`] = `
+exports[`renders components/affix/demo/debug.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/affix/demo/on-change.tsx extend context correctly 1`] = `
 <div>
   <div
     class=""
@@ -82,12 +86,14 @@ exports[`renders ./components/affix/demo/on-change.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/affix/demo/target.tsx extend context correctly 1`] = `
+exports[`renders components/affix/demo/on-change.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/affix/demo/target.tsx extend context correctly 1`] = `
 <div
-  class="scrollable-container"
+  style="width: 100%; height: 100px; overflow: auto; border: 1px solid #40a9ff;"
 >
   <div
-    class="background"
+    style="width: 100%; height: 1000px;"
   >
     <div>
       <div
@@ -106,3 +112,5 @@ exports[`renders ./components/affix/demo/target.tsx extend context correctly 1`]
   </div>
 </div>
 `;
+
+exports[`renders components/affix/demo/target.tsx extend context correctly 2`] = `[]`;

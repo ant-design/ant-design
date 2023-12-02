@@ -1,16 +1,33 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
 import { resetComponent } from '../../style';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
-export type ComponentToken = {};
+export type ComponentToken = {
+  /**
+   * @desc 星星颜色
+   * @descEN Star color
+   */
+  starColor: string;
+  /**
+   * @desc 星星大小
+   * @descEN Star size
+   */
+  starSize: number;
+  /**
+   * @desc 星星悬浮时的缩放
+   * @descEN Scale of star when hover
+   */
+  starHoverScale: CSSObject['transform'];
+  /**
+   * @desc 星星背景色
+   * @descEN Star background color
+   */
+  starBg: string;
+};
 
-interface RateToken extends FullToken<'Rate'> {
-  rateStarColor: string;
-  rateStarSize: number;
-  rateStarHoverScale: CSSObject['transform'];
-  defaultColor: string;
-}
+interface RateToken extends FullToken<'Rate'> {}
 
 const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
   const { componentCls } = token;
@@ -30,7 +47,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         transition: `all ${token.motionDurationMid}, outline 0s`,
 
         '&:hover': {
-          transform: token.rateStarHoverScale,
+          transform: token.starHoverScale,
         },
 
         '&:focus': {
@@ -38,19 +55,15 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
         },
 
         '&:focus-visible': {
-          outline: `${token.lineWidth}px dashed ${token.rateStarColor}`,
-          transform: token.rateStarHoverScale,
+          outline: `${unit(token.lineWidth)} dashed ${token.starColor}`,
+          transform: token.starHoverScale,
         },
       },
 
       '&-first, &-second': {
-        color: token.defaultColor,
+        color: token.starBg,
         transition: `all ${token.motionDurationMid}`,
         userSelect: 'none',
-
-        [token.iconCls]: {
-          verticalAlign: 'middle',
-        },
       },
 
       '&-first': {
@@ -90,9 +103,9 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       display: 'inline-block',
       margin: 0,
       padding: 0,
-      color: token.rateStarColor,
-      fontSize: token.rateStarSize,
-      lineHeight: 'unset',
+      color: token.starColor,
+      fontSize: token.starSize,
+      lineHeight: 1,
       listStyle: 'none',
       outline: 'none',
 
@@ -100,20 +113,13 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
       [`&-disabled${componentCls} ${componentCls}-star`]: {
         cursor: 'default',
 
-        '&:hover': {
+        '> div:hover': {
           transform: 'scale(1)',
         },
       },
 
       // star styles
       ...genRateStarStyle(token),
-
-      // text styles
-      [`+ ${componentCls}-text`]: {
-        display: 'inline-block',
-        marginInlineStart: token.marginXS,
-        fontSize: token.fontSize,
-      },
 
       // rtl styles
       ...genRateRtlStyle(token),
@@ -122,14 +128,18 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Rate', (token) => {
-  const { colorFillContent } = token;
-
-  const rateToken = mergeToken<RateToken>(token, {
-    rateStarColor: token['yellow-6'],
-    rateStarSize: token.controlHeightLG * 0.5,
-    rateStarHoverScale: 'scale(1.1)',
-    defaultColor: colorFillContent,
-  });
-  return [genRateStyle(rateToken)];
+export const prepareComponentToken: GetDefaultToken<'Rate'> = (token) => ({
+  starColor: token.yellow6,
+  starSize: token.controlHeightLG * 0.5,
+  starHoverScale: 'scale(1.1)',
+  starBg: token.colorFillContent,
 });
+
+export default genStyleHooks(
+  'Rate',
+  (token) => {
+    const rateToken = mergeToken<RateToken>(token, {});
+    return [genRateStyle(rateToken)];
+  },
+  prepareComponentToken,
+);

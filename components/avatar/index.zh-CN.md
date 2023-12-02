@@ -3,6 +3,7 @@ category: Components
 subtitle: 头像
 title: Avatar
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YbgyQaRGz-UAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -27,8 +28,11 @@ group:
 <code src="./demo/toggle-debug.tsx" debug>隐藏情况下计算字符对齐</code>
 <code src="./demo/responsive.tsx">响应式尺寸</code>
 <code src="./demo/fallback.tsx" debug>图片不存在时</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Avatar
 
@@ -41,7 +45,7 @@ group:
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.7.0 |
 | src | 图片类头像的资源地址或者图片元素 | string \| ReactNode | - | ReactNode: 4.8.0 |
 | srcSet | 设置图片类头像响应式资源地址 | string | - |  |
-| draggable | 图片是否允许拖动 | boolean \| `'true'` \| `'false'` | - |  |
+| draggable | 图片是否允许拖动 | boolean \| `'true'` \| `'false'` | true |  |
 | crossOrigin | CORS 属性设置 | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.17.0 |
 | onError | 图片加载失败的事件，返回 false 会关闭组件默认的 fallback 行为 | () => boolean | - |  |
 
@@ -56,3 +60,8 @@ group:
 | maxPopoverTrigger | 设置多余头像 Popover 的触发方式 | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
 | maxStyle | 多余头像样式 | CSSProperties | - |  |
 | size | 设置头像的大小 | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
+| shape | 设置头像的形状 | `circle` \| `square` | `circle` | 5.8.0 |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Avatar"></ComponentTokenTable>

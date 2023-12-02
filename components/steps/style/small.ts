@@ -1,11 +1,11 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
   const {
     componentCls,
-    stepsSmallIconSize,
+    iconSizeSM,
     // stepsSmallIconMargin,
     fontSizeSM,
     fontSize,
@@ -22,24 +22,24 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-item-icon`]: {
-        width: stepsSmallIconSize,
-        height: stepsSmallIconSize,
+        width: iconSizeSM,
+        height: iconSizeSM,
         // margin: stepsSmallIconMargin,
         marginTop: 0,
         marginBottom: 0,
-        marginInline: `0 ${token.marginXS}px`,
+        marginInline: `0 ${unit(token.marginXS)}`,
         fontSize: fontSizeSM,
-        lineHeight: `${stepsSmallIconSize}px`,
+        lineHeight: `${unit(iconSizeSM)}`,
         textAlign: 'center',
-        borderRadius: stepsSmallIconSize,
+        borderRadius: iconSizeSM,
       },
       [`${componentCls}-item-title`]: {
         paddingInlineEnd: token.paddingSM,
         fontSize,
-        lineHeight: `${stepsSmallIconSize}px`,
+        lineHeight: `${unit(iconSizeSM)}`,
 
         '&::after': {
-          top: stepsSmallIconSize / 2,
+          top: token.calc(iconSizeSM).div(2).equal(),
         },
       },
       [`${componentCls}-item-description`]: {
@@ -47,7 +47,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         fontSize,
       },
       [`${componentCls}-item-tail`]: {
-        top: stepsSmallIconSize / 2 - token.paddingXXS,
+        top: token.calc(iconSizeSM).div(2).sub(token.paddingXXS).equal(),
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',
@@ -57,8 +57,8 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         border: 0,
         borderRadius: 0,
         [`> ${componentCls}-icon`]: {
-          fontSize: stepsSmallIconSize,
-          lineHeight: `${stepsSmallIconSize}px`,
+          fontSize: iconSizeSM,
+          lineHeight: `${unit(iconSizeSM)}`,
           transform: 'none',
         },
       },

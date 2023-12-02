@@ -2,17 +2,19 @@
 category: Components
 group: General
 title: Icon
+description: Semantic vector graphics.
 toc: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-Semantic vector graphics. Before use icons, you need to install `@ant-design/icons` package:
+## How to use
 
-```bash
-npm install --save @ant-design/icons
-```
+Before use icons, you need to install [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
+
+<InstallDependencies npm='npm install @ant-design/icons --save' yarn='yarn add @ant-design/icons' pnpm='pnpm install @ant-design/icons --save'></InstallDependencies>
 
 ## List of icons
 
@@ -173,3 +175,7 @@ The following properties are available for the component:
 | height | The height of the `svg` element | string \| number | `1em` |  |
 | style | The computed style of the `svg` element | CSSProperties | - |  |
 | width | The width of the `svg` element | string \| number | `1em` |  |
+
+## Design Token
+
+<ComponentTokenTable component="Icon"></ComponentTokenTable>

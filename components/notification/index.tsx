@@ -1,9 +1,12 @@
-import { render } from 'rc-util/lib/React/render';
 import * as React from 'react';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import { render } from 'rc-util/lib/React/render';
+
+import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
+
+export type { ArgsProps };
 
 let notification: GlobalNotification | null = null;
 
@@ -43,7 +46,7 @@ function getGlobalContext() {
 
   return {
     prefixCls: mergedPrefixCls,
-    container: mergedContainer,
+    getContainer: () => mergedContainer!,
     rtl,
     maxCount,
     top,
@@ -57,50 +60,26 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number>();
-  const [rtl, setRTL] = React.useState<boolean>();
-  const [top, setTop] = React.useState<number>();
-  const [bottom, setBottom] = React.useState<number>();
+  const [notificationConfig, setNotificationConfig] =
+    React.useState<GlobalConfigProps>(getGlobalContext);
 
-  const [api, holder] = useInternalNotification({
-    prefixCls,
-    getContainer: () => container!,
-    maxCount,
-    rtl,
-    top,
-    bottom,
-  });
+  const [api, holder] = useInternalNotification(notificationConfig);
 
   const global = globalConfig();
   const rootPrefixCls = global.getRootPrefixCls();
   const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
 
   const sync = () => {
-    const {
-      prefixCls: nextGlobalPrefixCls,
-      container: nextGlobalContainer,
-      maxCount: nextGlobalMaxCount,
-      rtl: nextGlobalRTL,
-      top: nextTop,
-      bottom: nextBottom,
-    } = getGlobalContext();
-
-    setPrefixCls(nextGlobalPrefixCls);
-    setContainer(nextGlobalContainer);
-    setMaxCount(nextGlobalMaxCount);
-    setRTL(nextGlobalRTL);
-    setTop(nextTop);
-    setBottom(nextBottom);
+    setNotificationConfig(getGlobalContext);
   };
 
   React.useEffect(sync, []);
 
   React.useImperativeHandle(ref, () => {
-    const instance: any = { ...api };
+    const instance: NotificationInstance = { ...api };
 
-    Object.keys(instance).forEach((method) => {
+    Object.keys(instance).forEach((method: keyof NotificationInstance) => {
       instance[method] = (...args: any[]) => {
         sync();
         return (api as any)[method](...args);
@@ -114,7 +93,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   });
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
       {holder}
     </ConfigProvider>
   );
@@ -187,8 +166,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-const methods = ['success', 'info', 'warning', 'error'] as const;
-type MethodType = typeof methods[number];
 
 function setNotificationGlobalConfig(config: GlobalConfigProps) {
   defaultGlobalConfig = {
@@ -203,6 +180,11 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 }
 
 function open(config: ArgsProps) {
+  // Warning if exist theme
+  if (process.env.NODE_ENV !== 'production') {
+    warnContext('notification');
+  }
+
   taskQueue.push({
     type: 'open',
     config,
@@ -218,14 +200,27 @@ function destroy(key: React.Key) {
   flushNotice();
 }
 
-const baseStaticMethods: {
+interface BaseMethods {
   open: (config: ArgsProps) => void;
   destroy: (key?: React.Key) => void;
-  config: any;
+  config: (config: GlobalConfigProps) => void;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
-} = {
+}
+
+type StaticFn = (config: ArgsProps) => void;
+
+interface NoticeMethods {
+  success: StaticFn;
+  info: StaticFn;
+  warning: StaticFn;
+  error: StaticFn;
+}
+
+const methods: (keyof NoticeMethods)[] = ['success', 'info', 'warning', 'error'];
+
+const baseStaticMethods: BaseMethods = {
   open,
   destroy,
   config: setNotificationGlobalConfig,
@@ -233,15 +228,10 @@ const baseStaticMethods: {
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
-const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =
-  baseStaticMethods as any;
+const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
 
-methods.forEach((type) => {
-  staticMethods[type] = (config) =>
-    open({
-      ...config,
-      type,
-    });
+methods.forEach((type: keyof NoticeMethods) => {
+  staticMethods[type] = (config) => open({ ...config, type });
 });
 
 // ==============================================================================
@@ -249,7 +239,7 @@ methods.forEach((type) => {
 // ==============================================================================
 const noop = () => {};
 
-/** @private Only Work in test env */
+/** @internal Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
 export let actWrapper: (wrapper: any) => void = noop;
 

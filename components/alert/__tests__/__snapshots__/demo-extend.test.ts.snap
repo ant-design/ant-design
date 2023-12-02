@@ -1,13 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/action.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success"
@@ -68,13 +67,14 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -83,7 +83,6 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-error ant-alert-with-description"
@@ -99,13 +98,14 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -139,7 +139,6 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon"
@@ -159,13 +158,13 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
         class="ant-alert-action"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
+          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
         >
           <div
             class="ant-space-item"
           >
             <button
-              class="ant-btn ant-btn-ghost ant-btn-sm"
+              class="ant-btn ant-btn-text ant-btn-sm"
               type="button"
             >
               <span>
@@ -189,13 +188,14 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -228,11 +228,10 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
         class="ant-alert-action"
       >
         <div
-          class="ant-space ant-space-vertical"
+          class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
         >
           <div
             class="ant-space-item"
-            style="margin-bottom:8px"
           >
             <button
               class="ant-btn ant-btn-primary ant-btn-sm"
@@ -247,7 +246,7 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
             class="ant-space-item"
           >
             <button
-              class="ant-btn ant-btn-ghost ant-btn-sm ant-btn-dangerous"
+              class="ant-btn ant-btn-default ant-btn-sm ant-btn-background-ghost ant-btn-dangerous"
               type="button"
             >
               <span>
@@ -271,13 +270,14 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -287,14 +287,19 @@ exports[`renders ./components/alert/demo/action.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/action.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Button] \`link\` or \`text\` button can't be a \`ghost\` button.",
+]
+`;
+
+exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-banner"
@@ -333,7 +338,6 @@ exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-banner"
@@ -382,13 +386,14 @@ exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`]
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -397,7 +402,6 @@ exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`]
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner"
@@ -432,13 +436,14 @@ exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`]
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -456,7 +461,9 @@ exports[`renders ./components/alert/demo/banner.tsx extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/alert/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/banner.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-alert ant-alert-success ant-alert-no-icon"
   data-show="true"
@@ -474,14 +481,15 @@ exports[`renders ./components/alert/demo/basic.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/closable.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon"
@@ -511,13 +519,14 @@ exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -560,13 +569,14 @@ exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -576,43 +586,15 @@ exports[`renders ./components/alert/demo/closable.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/alert/demo/close-text.tsx extend context correctly 1`] = `
-<div
-  class="ant-alert ant-alert-info ant-alert-no-icon"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-content"
-  >
-    <div
-      class="ant-alert-message"
-    >
-      Info Text
-    </div>
-  </div>
-  <button
-    class="ant-alert-close-icon"
-    tabindex="0"
-    type="button"
-  >
-    <span
-      class="ant-alert-close-text"
-    >
-      Close Now
-    </span>
-  </button>
-</div>
-`;
+exports[`renders components/alert/demo/closable.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -632,7 +614,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success"
@@ -671,7 +652,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-info"
@@ -710,7 +690,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning"
@@ -749,7 +728,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-error"
@@ -788,7 +766,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-with-description"
@@ -832,7 +809,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-with-description"
@@ -876,7 +852,6 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-with-description"
@@ -964,14 +939,15 @@ exports[`renders ./components/alert/demo/custom-icon.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/alert/demo/description.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/description.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon"
@@ -996,7 +972,6 @@ exports[`renders ./components/alert/demo/description.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
@@ -1021,7 +996,6 @@ exports[`renders ./components/alert/demo/description.tsx extend context correctl
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon"
@@ -1071,7 +1045,9 @@ exports[`renders ./components/alert/demo/description.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/description.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 1`] = `
 <button
   class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
@@ -1082,14 +1058,15 @@ exports[`renders ./components/alert/demo/error-boundary.tsx extend context corre
 </button>
 `;
 
-exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success"
@@ -1128,7 +1105,6 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-info"
@@ -1167,7 +1143,6 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning"
@@ -1216,13 +1191,14 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -1231,7 +1207,6 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-error"
@@ -1247,13 +1222,14 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -1270,7 +1246,6 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-with-description"
@@ -1314,7 +1289,6 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-with-description"
@@ -1358,7 +1332,6 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-with-description"
@@ -1412,13 +1385,14 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -1442,13 +1416,14 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
           aria-hidden="true"
           data-icon="close-circle"
           fill="currentColor"
+          fill-rule="evenodd"
           focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
           />
         </svg>
       </span>
@@ -1471,14 +1446,15 @@ exports[`renders ./components/alert/demo/icon.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/icon.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -1508,13 +1484,14 @@ exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correc
             aria-hidden="true"
             data-icon="close"
             fill="currentColor"
+            fill-rule="evenodd"
             focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
           >
             <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
             />
           </svg>
         </span>
@@ -1523,7 +1500,6 @@ exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correc
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <p>
       click the close button to see the effect
@@ -1557,14 +1533,15 @@ exports[`renders ./components/alert/demo/smooth-closed.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/alert/demo/style.tsx extend context correctly 1`] = `
+exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical"
-  style="width:100%"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-success ant-alert-no-icon"
@@ -1584,7 +1561,6 @@ exports[`renders ./components/alert/demo/style.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-info ant-alert-no-icon"
@@ -1604,7 +1580,6 @@ exports[`renders ./components/alert/demo/style.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
   >
     <div
       class="ant-alert ant-alert-warning ant-alert-no-icon"
@@ -1643,3 +1618,5 @@ exports[`renders ./components/alert/demo/style.tsx extend context correctly 1`] 
   </div>
 </div>
 `;
+
+exports[`renders components/alert/demo/style.tsx extend context correctly 2`] = `[]`;

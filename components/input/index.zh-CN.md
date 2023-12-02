@@ -4,6 +4,7 @@ subtitle: 输入框
 group: 数据录入
 title: Input
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Y3R0RowXHlAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sBqqTatJ-AkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -21,7 +22,8 @@ demo:
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>
-<code src="./demo/group.tsx">输入框组合</code>
+<code src="./demo/compact-style.tsx">紧凑模式</code>
+<code src="./demo/group.tsx" debug>输入框组合</code>
 <code src="./demo/search-input.tsx">搜索框</code>
 <code src="./demo/search-input-loading.tsx">搜索框 loading</code>
 <code src="./demo/textarea.tsx">文本域</code>
@@ -31,7 +33,7 @@ demo:
 <code src="./demo/password-input.tsx">密码框</code>
 <code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/show-count.tsx">带字数提示</code>
-<code src="./demo/textarea-show-count.tsx">带字数提示的文本域</code>
+<code src="./demo/advance-count.tsx" version=">= 5.10.0">定制计数能力</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/focus.tsx">聚焦</code>
@@ -39,8 +41,11 @@ demo:
 <code src="./demo/align.tsx" debug>文本对齐</code>
 <code src="./demo/textarea-resize.tsx" debug>文本域</code>
 <code src="./demo/debug-addon.tsx" debug>debug 前置/后置标签</code>
+<code src="./demo/component-token.tsx" debug>debug token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ### Input
 
@@ -50,13 +55,16 @@ demo:
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
+| count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
 | maxLength | 最大长度 | number | - |  |
+| prefix | 带有前缀图标的 input | ReactNode | - |  |
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| prefix | 带有前缀图标的 input | ReactNode | - |  |
+| styles | 语义化结构 style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
@@ -64,23 +72,34 @@ demo:
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 
-> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 和 `options` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
+> 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
 Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes) 一致。
 
+#### CountConfig
+
+```tsx
+interface CountConfig {
+  // 最大字符数，不同于原生 `maxLength`，超出后标红但不会截断
+  max?: number;
+  // 自定义字符计数，例如标准 emoji 长度大于 1，可以自定义计数策略将其改为 1
+  strategy?: (value: string) => number;
+  // 同 `showCount`
+  show?: boolean | ((args: { value: string; count: number; maxLength?: number }) => ReactNode);
+  // 当字符数超出 `count.max` 时的自定义裁剪逻辑，不配置时不进行裁剪
+  exceedFormatter?: (value: string, config: { max: number }) => string;
+}
+```
+
 ### Input.TextArea
+
+同 Input 属性，外加：
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 可以点击清除图标删除内容 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| bordered | 是否有边框 | boolean | true | 4.5.0 |
-| defaultValue | 输入框默认内容 | string | - |  |
-| maxLength | 内容最大长度 | number | - | 4.7.0 |
-| showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
-| value | 输入框内容 | string | - |  |
-| onPressEnter | 按下回车的回调 | function(e) | - |  |
-| onResize | resize 回调 | function({ width, height }) | - |  |
+| classNames | 语义化结构 class | Record<[SemanticDOM](#inputtextarea-1), string> | - | 5.4.0 |
+| styles | 语义化结构 style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
@@ -90,23 +109,9 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
 | loading | 搜索 loading | boolean | false |
-| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event) | - |
+| onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
 
 其余属性和 Input 一致。
-
-#### Input.Group
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| compact | 是否用紧凑模式 | boolean | false |
-| size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |
-
-```jsx
-<Input.Group>
-  <input />
-  <input />
-</Input.Group>
-```
 
 #### Input.Password
 
@@ -128,6 +133,28 @@ Input 的其他属性和 React 自带的 [input](https://reactjs.org/docs/dom-el
 | --- | --- | --- | --- |
 | blur | 取消焦点 | - |  |
 | focus | 获取焦点 | (option?: { preventScroll?: boolean, cursor?: 'start' \| 'end' \| 'all' }) | option - 4.10.0 |
+
+### Semantic DOM
+
+#### Input
+
+| 名称   | 说明               | 版本  |
+| ------ | ------------------ | ----- |
+| input  | `input` 元素       | 5.4.0 |
+| prefix | 所有前缀的包裹元素 | 5.4.0 |
+| suffix | 所有后缀的包裹元素 | 5.4.0 |
+| count  | 文字计数元素       | 5.4.0 |
+
+#### Input.TextArea
+
+| 名称     | 说明            | 版本  |
+| -------- | --------------- | ----- |
+| textarea | `textarea` 元素 | 5.4.0 |
+| count    | 文字计数元素    | 5.4.0 |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Input"></ComponentTokenTable>
 
 ## FAQ
 

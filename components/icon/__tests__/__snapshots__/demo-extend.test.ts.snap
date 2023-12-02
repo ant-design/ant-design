@@ -1,12 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/icon/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="home"
@@ -30,7 +29,6 @@ exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="setting"
@@ -54,7 +52,6 @@ exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="smile"
@@ -78,7 +75,6 @@ exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="sync"
@@ -102,7 +98,6 @@ exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] =
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="smile"
@@ -115,7 +110,7 @@ exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] =
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="-ms-transform:rotate(180deg);transform:rotate(180deg)"
+        style="transform: rotate(180deg);"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -151,18 +146,19 @@ exports[`renders ./components/icon/demo/basic.tsx extend context correctly 1`] =
 </div>
 `;
 
-exports[`renders ./components/icon/demo/custom.tsx extend context correctly 1`] = `
+exports[`renders components/icon/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/icon/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
       role="img"
-      style="color:hotpink"
+      style="color: hotpink;"
     >
       <svg
         fill="currentColor"
@@ -178,12 +174,11 @@ exports[`renders ./components/icon/demo/custom.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
       role="img"
-      style="font-size:32px"
+      style="font-size: 32px;"
     >
       <svg
         fill="currentColor"
@@ -228,7 +223,6 @@ exports[`renders ./components/icon/demo/custom.tsx extend context correctly 1`] 
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
@@ -286,13 +280,14 @@ exports[`renders ./components/icon/demo/custom.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/icon/demo/iconfont.tsx extend context correctly 1`] = `
+exports[`renders components/icon/demo/custom.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/icon/demo/iconfont.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
@@ -314,7 +309,6 @@ exports[`renders ./components/icon/demo/iconfont.tsx extend context correctly 1`
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
@@ -358,13 +352,14 @@ exports[`renders ./components/icon/demo/iconfont.tsx extend context correctly 1`
 </div>
 `;
 
-exports[`renders ./components/icon/demo/scriptUrl.tsx extend context correctly 1`] = `
+exports[`renders components/icon/demo/iconfont.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
@@ -386,7 +381,6 @@ exports[`renders ./components/icon/demo/scriptUrl.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
@@ -408,7 +402,6 @@ exports[`renders ./components/icon/demo/scriptUrl.tsx extend context correctly 1
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       class="anticon"
@@ -452,13 +445,14 @@ exports[`renders ./components/icon/demo/scriptUrl.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/icon/demo/two-tone.tsx extend context correctly 1`] = `
+exports[`renders components/icon/demo/scriptUrl.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/icon/demo/two-tone.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="smile"
@@ -476,22 +470,21 @@ exports[`renders ./components/icon/demo/two-tone.tsx extend context correctly 1`
       >
         <path
           d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-          fill="#1890ff"
+          fill="#1677ff"
         />
         <path
           d="M512 140c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zM288 421a48.01 48.01 0 0196 0 48.01 48.01 0 01-96 0zm224 272c-85.5 0-155.6-67.3-160-151.6a8 8 0 018-8.4h48.1c4.2 0 7.8 3.2 8.1 7.4C420 589.9 461.5 629 512 629s92.1-39.1 95.8-88.6c.3-4.2 3.9-7.4 8.1-7.4H664a8 8 0 018 8.4C667.6 625.7 597.5 693 512 693zm176-224a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-          fill="#e6f7ff"
+          fill="#e6f4ff"
         />
         <path
           d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm376 112h-48.1c-4.2 0-7.8 3.2-8.1 7.4-3.7 49.5-45.3 88.6-95.8 88.6s-92-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4zm-24-112a48 48 0 1096 0 48 48 0 10-96 0z"
-          fill="#1890ff"
+          fill="#1677ff"
         />
       </svg>
     </span>
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:8px"
   >
     <span
       aria-label="heart"
@@ -552,3 +545,5 @@ exports[`renders ./components/icon/demo/two-tone.tsx extend context correctly 1`
   </div>
 </div>
 `;
+
+exports[`renders components/icon/demo/two-tone.tsx extend context correctly 2`] = `[]`;

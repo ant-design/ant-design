@@ -2,6 +2,7 @@
 category: Components
 title: Avatar
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JJBSS5lBG4IAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YbgyQaRGz-UAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 group:
@@ -22,8 +23,11 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 <code src="./demo/toggle-debug.tsx" debug>Calculate text style when hiding</code>
 <code src="./demo/responsive.tsx">Responsive Size</code>
 <code src="./demo/fallback.tsx" debug>Fallback</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Avatar
 
@@ -36,7 +40,7 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.7.0 |
 | src | The address of the image for an image avatar or image element | string \| ReactNode | - | ReactNode: 4.8.0 |
 | srcSet | A list of sources to use for different screen resolutions | string | - |  |
-| draggable | Whether the picture is allowed to be dragged | boolean \| `'true'` \| `'false'` | - |  |
+| draggable | Whether the picture is allowed to be dragged | boolean \| `'true'` \| `'false'` | true |  |
 | crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.17.0 |
 | onError | Handler when img load error, return false to prevent default fallback behavior | () => boolean | - |  |
 
@@ -51,3 +55,8 @@ Avatars can be used to represent people or objects. It supports images, `Icon`s,
 | maxPopoverTrigger | Set the trigger of excess avatar Popover | `hover` \| `focus` \| `click` | `hover` | 4.17.0 |
 | maxStyle | The style of excess avatar style | CSSProperties | - |  |
 | size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
+| shape | The shape of the avatar | `circle` \| `square` | `circle` | 5.8.0 |
+
+## Design Token
+
+<ComponentTokenTable component="Avatar"></ComponentTokenTable>

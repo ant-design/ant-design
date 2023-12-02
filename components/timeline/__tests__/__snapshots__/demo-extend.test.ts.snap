@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/timeline/demo/alternate.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/alternate.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-alternate"
 >
@@ -47,7 +47,7 @@ exports[`renders ./components/timeline/demo/alternate.tsx extend context correct
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
-        style="font-size:16px"
+        style="font-size: 16px;"
       >
         <svg
           aria-hidden="true"
@@ -116,7 +116,7 @@ exports[`renders ./components/timeline/demo/alternate.tsx extend context correct
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
-        style="font-size:16px"
+        style="font-size: 16px;"
       >
         <svg
           aria-hidden="true"
@@ -145,7 +145,9 @@ exports[`renders ./components/timeline/demo/alternate.tsx extend context correct
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/alternate.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/basic.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -212,7 +214,9 @@ exports[`renders ./components/timeline/demo/basic.tsx extend context correctly 1
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/color.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/color.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -346,7 +350,7 @@ exports[`renders ./components/timeline/demo/color.tsx extend context correctly 1
     />
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom"
-      style="border-color:#00CCFF;color:#00CCFF"
+      style="border-color: #00ccff; color: rgb(0, 204, 255);"
     >
       <span
         aria-label="smile"
@@ -379,7 +383,78 @@ exports[`renders ./components/timeline/demo/color.tsx extend context correctly 1
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/custom.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/color.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 1`] = `
+<ul
+  class="ant-timeline"
+>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Create a services site 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Solve initial network problems 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Technical testing 2015-09-01
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      Network problems being solved 2015-09-01
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`renders components/timeline/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/custom.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -469,17 +544,19 @@ exports[`renders ./components/timeline/demo/custom.tsx extend context correctly 
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/label.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/custom.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/label.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-bottom:20px"
+    style="margin-bottom: 20px;"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio ant-radio-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
@@ -499,7 +576,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -518,7 +595,7 @@ Array [
       class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
@@ -616,7 +693,9 @@ Array [
 ]
 `;
 
-exports[`renders ./components/timeline/demo/pending.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/label.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div>
   <ul
     class="ant-timeline ant-timeline-pending"
@@ -704,7 +783,7 @@ exports[`renders ./components/timeline/demo/pending.tsx extend context correctly
   </ul>
   <button
     class="ant-btn ant-btn-primary"
-    style="margin-top:16px"
+    style="margin-top: 16px;"
     type="button"
   >
     <span>
@@ -714,7 +793,9 @@ exports[`renders ./components/timeline/demo/pending.tsx extend context correctly
 </div>
 `;
 
-exports[`renders ./components/timeline/demo/right.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/pending.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/right.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline ant-timeline-right"
 >
@@ -761,7 +842,7 @@ exports[`renders ./components/timeline/demo/right.tsx extend context correctly 1
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
-        style="font-size:16px"
+        style="font-size: 16px;"
       >
         <svg
           aria-hidden="true"
@@ -805,7 +886,9 @@ exports[`renders ./components/timeline/demo/right.tsx extend context correctly 1
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
+exports[`renders components/timeline/demo/right.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 1`] = `
 <ul
   class="ant-timeline"
 >
@@ -871,3 +954,5 @@ exports[`renders ./components/timeline/demo/wireframe.tsx extend context correct
   </li>
 </ul>
 `;
+
+exports[`renders components/timeline/demo/wireframe.tsx extend context correctly 2`] = `[]`;

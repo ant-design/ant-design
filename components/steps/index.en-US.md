@@ -3,6 +3,7 @@ category: Components
 group: Navigation
 title: Steps
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*677sTqCpE3wAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 `Steps` is a navigation bar that guides users through the steps of a task.
@@ -32,8 +33,11 @@ When a given task is complicated or has a certain sequence in the series of subt
 <code src="./demo/steps-in-steps.tsx" debug>Steps inside Steps</code>
 <code src="./demo/inline.tsx">Inline Steps</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Steps
 
@@ -78,3 +82,7 @@ A single step in the step bar.
 | status | To specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | string | `wait` |  |
 | subTitle | Subtitle of the step | ReactNode | - |  |
 | title | Title of the step | ReactNode | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Steps"></ComponentTokenTable>

@@ -5,6 +5,7 @@ group: 反馈
 noinstant: true
 title: Message
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*JjZBT6N1MusAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7qMTRoq3ZGkAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -26,10 +27,13 @@ demo:
 <code src="./demo/thenable.tsx">Promise 接口</code>
 <code src="./demo/custom-style.tsx">自定义样式</code>
 <code src="./demo/update.tsx">更新消息内容</code>
-<code src="./demo/info.tsx">普通提示</code>
+<code src="./demo/info.tsx">静态方法（不推荐）</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 组件提供了一些静态方法，使用方式和参数如下：
 
@@ -102,11 +106,15 @@ message.config({
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | duration | 默认自动关闭延时，单位秒 | number | 3 |  |
-| getContainer | 配置渲染节点的输出位置 | () => HTMLElement | () => document.body |  |
-| maxCount | 最大显示数, 超过限制时，最早的消息会被自动关闭 | number | - |  |
+| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLElement | () => document.body |  |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
 | prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
 | top | 消息距离顶部的位置 | number | 8 |  |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Message"></ComponentTokenTable>
 
 ## FAQ
 

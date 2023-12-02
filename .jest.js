@@ -1,13 +1,10 @@
 const compileModules = [
-  'array-move',
-  'react-dnd',
-  'react-dnd-html5-backend',
-  '@react-dnd',
-  'dnd-core',
   'react-sticky-box',
-  'tween-one',
+  'rc-tween-one',
   '@babel',
   '@ant-design',
+  'countup.js',
+  '.pnpm',
 ];
 
 const ignoreList = [];
@@ -22,11 +19,11 @@ const ignoreList = [];
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  `/node_modules/(?!${ignoreList.join('|')})[^/]+?/(?!(es)/)`,
+  `[/\\\\]node_modules[/\\\\](?!${ignoreList.join('|')})[^/\\\\]+?[/\\\\](?!(es)[/\\\\])`,
 ];
 
 function getTestRegex(libDir) {
-  if (['dist', 'lib', 'es'].includes(libDir)) {
+  if (['dist', 'lib', 'es', 'dist-min'].includes(libDir)) {
     return 'demo\\.test\\.(j|t)sx?$';
   }
   return '.*\\.test\\.(j|t)sx?$';
@@ -43,6 +40,8 @@ module.exports = {
     '/\\.(css|less)$/': 'identity-obj-proxy',
     '^antd$': '<rootDir>/components/index',
     '^antd/es/(.*)$': '<rootDir>/components/$1',
+    '^antd/lib/(.*)$': '<rootDir>/components/$1',
+    '^antd/locale/(.*)$': '<rootDir>/components/locale/$1',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
@@ -62,6 +61,7 @@ module.exports = {
     '!components/*/__tests__/image.test.{ts,tsx}',
     '!components/__tests__/node.test.tsx',
     '!components/*/demo/*.tsx',
+    '!components/*/design/**',
   ],
   transformIgnorePatterns,
   globals: {

@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: List
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Simple List.
@@ -24,8 +25,11 @@ A list can be used to display content related to a single subject. The content c
 <code src="./demo/responsive.tsx">Responsive grid list</code>
 <code src="./demo/infinite-load.tsx">Scrolling loaded</code>
 <code src="./demo/virtual-list.tsx">virtual list</code>
+<code src="./demo/component-token.tsx" debug>custom component token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### List
 
@@ -84,3 +88,7 @@ More about pagination, please check [`Pagination`](/components/pagination/).
 | avatar      | The avatar of list item      | ReactNode | -       |         |
 | description | The description of list item | ReactNode | -       |         |
 | title       | The title of list item       | ReactNode | -       |         |
+
+## Design Token
+
+<ComponentTokenTable component="List"></ComponentTokenTable>

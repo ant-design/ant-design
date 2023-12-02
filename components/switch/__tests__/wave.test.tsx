@@ -1,6 +1,6 @@
 import React from 'react';
 import Switch from '..';
-import { waitFakeTimer, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('click wave effect', () => {
   async function click(container: HTMLElement) {

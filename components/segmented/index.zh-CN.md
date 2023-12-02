@@ -4,6 +4,7 @@ subtitle: 分段控制器
 group: 数据展示
 title: Segmented
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*papwTpNscPIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tz7qSaWpi1kAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -29,8 +30,11 @@ demo:
 <code src="./demo/icon-only.tsx">只设置图标</code>
 <code src="./demo/controlled-two.tsx" debug>受控同步模式</code>
 <code src="./demo/size-consistent.tsx" debug>统一高度</code>
+<code src="./demo/componentToken.tsx" debug>自定义组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 > 自 `antd@4.20.0` 版本开始提供该组件。
 
@@ -45,3 +49,7 @@ demo:
 | options | 数据化配置选项内容 | string\[] \| number\[] \| Array<{ label: ReactNode value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | value | 当前选中的值 | string \| number |  |  |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Segmented"></ComponentTokenTable>

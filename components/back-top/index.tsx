@@ -1,15 +1,16 @@
+import * as React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+
 import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
 import scrollTo from '../_util/scrollTo';
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import warning from '../_util/warning';
+import { devUseWarning } from '../_util/warning';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export interface BackTopProps {
@@ -49,7 +50,9 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   );
 
   if (process.env.NODE_ENV !== 'production') {
-    warning(false, 'BackTop', '`BackTop` is deprecated, please use `FloatButton.BackTop` instead.');
+    const warning = devUseWarning('BackTop');
+
+    warning.deprecated(false, 'BackTop', 'FloatButton.BackTop');
   }
 
   React.useEffect(() => {
@@ -71,8 +74,10 @@ const BackTop: React.FC<BackTopProps> = (props) => {
   const { getPrefixCls, direction } = React.useContext<ConfigConsumerProps>(ConfigContext);
 
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
+
   const rootPrefixCls = getPrefixCls();
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const classString = classNames(
     hashId,
@@ -102,7 +107,7 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     </div>
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
         {({ className: motionClassName }) =>
@@ -119,4 +124,4 @@ if (process.env.NODE_ENV !== 'production') {
   BackTop.displayName = 'BackTop';
 }
 
-export default React.memo(BackTop);
+export default BackTop;

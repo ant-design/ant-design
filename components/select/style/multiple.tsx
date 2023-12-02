@@ -1,27 +1,29 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
-import { mergeToken } from '../../theme/internal';
 import { resetIcon } from '../../style';
+import { mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
 const FIXED_ITEM_MARGIN = 2;
 
-function getSelectItemStyle({
-  controlHeightSM,
-  controlHeight,
-  lineWidth: borderWidth,
-}: SelectToken) {
-  const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
-  const selectItemMargin = Math.ceil(selectItemDist / 2);
-  return [selectItemDist, selectItemMargin];
-}
+const getSelectItemStyle = (token: SelectToken): number | string => {
+  const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
+  const selectItemDist = token
+    .calc(selectHeight)
+    .sub(multipleSelectItemHeight)
+    .div(2)
+    .sub(lineWidth)
+    .equal();
+  return selectItemDist;
+};
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { componentCls, iconCls } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
-  const selectItemHeight = token.controlHeightSM;
-  const [selectItemDist] = getSelectItemStyle(token);
+  const selectItemHeight = token.multipleSelectItemHeight;
+  const selectItemDist = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
@@ -54,8 +56,11 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
+        height: '100%',
         // Multiple is little different that horizontal is follow the vertical
-        padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
+        padding: `${unit(token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal())} ${unit(
+          token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
+        )}`,
         borderRadius: token.borderRadius,
 
         [`${componentCls}-show-search&`]: {
@@ -63,15 +68,16 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
 
         [`${componentCls}-disabled&`]: {
-          background: token.colorBgContainerDisabled,
+          background: token.multipleSelectorBgDisabled,
           cursor: 'not-allowed',
         },
 
         '&:after': {
           display: 'inline-block',
           width: 0,
-          margin: `${FIXED_ITEM_MARGIN}px 0`,
-          lineHeight: `${selectItemHeight}px`,
+          margin: `${unit(FIXED_ITEM_MARGIN)} 0`,
+          lineHeight: unit(selectItemHeight),
+          visibility: 'hidden',
           content: '"\\a0"',
         },
       },
@@ -80,40 +86,44 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${componentCls}-show-arrow ${componentCls}-selector,
         &${componentCls}-allow-clear ${componentCls}-selector
       `]: {
-        paddingInlineEnd: token.fontSizeIcon + token.controlPaddingHorizontal,
+        paddingInlineEnd: token
+          .calc(token.fontSizeIcon)
+          .add(token.controlPaddingHorizontal)
+          .equal(),
       },
 
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
-        position: 'relative',
         display: 'flex',
+        alignSelf: 'center',
         flex: 'none',
         boxSizing: 'border-box',
         maxWidth: '100%',
         height: selectItemHeight,
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
-        background: token.colorFillSecondary,
-        border: `${token.lineWidth}px solid ${token.colorSplit}`,
+        lineHeight: unit(
+          token.calc(selectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
+        ),
+        background: token.multipleItemBg,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-        userSelect: 'none',
-        marginInlineEnd: FIXED_ITEM_MARGIN * 2,
+        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
         paddingInlineStart: token.paddingXS,
-        paddingInlineEnd: token.paddingXS / 2,
+        paddingInlineEnd: token.calc(token.paddingXS).div(2).equal(),
 
         [`${componentCls}-disabled&`]: {
-          color: token.colorTextDisabled,
-          borderColor: token.colorBorder,
+          color: token.multipleItemColorDisabled,
+          borderColor: token.multipleItemBorderColorDisabled,
           cursor: 'not-allowed',
         },
 
         // It's ok not to do this, but 24px makes bottom narrow in view should adjust
         '&-content': {
           display: 'inline-block',
-          marginInlineEnd: token.paddingXS / 2,
+          marginInlineEnd: token.calc(token.paddingXS).div(2).equal(),
           overflow: 'hidden',
           whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
           textOverflow: 'ellipsis',
@@ -122,7 +132,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         '&-remove': {
           ...resetIcon(),
 
-          display: 'inline-block',
+          display: 'inline-flex',
+          alignItems: 'center',
           color: token.colorIcon,
           fontWeight: 'bold',
           fontSize: 10,
@@ -146,11 +157,16 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
       },
 
+      // https://github.com/ant-design/ant-design/issues/44754
+      [`${selectOverflowPrefixCls}-item-suffix`]: {
+        height: '100%',
+      },
+
       [`${componentCls}-selection-search`]: {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-        marginInlineStart: token.inputPaddingHorizontalBase - selectItemDist,
+        marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
         [`
           &-input,
@@ -158,7 +174,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         `]: {
           height: selectItemHeight,
           fontFamily: token.fontFamily,
-          lineHeight: `${selectItemHeight}px`,
+          lineHeight: unit(selectItemHeight),
           transition: `all ${token.motionDurationSlow}`,
         },
 
@@ -179,7 +195,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       // ======================= Placeholder =======================
-      [`${componentCls}-selection-placeholder `]: {
+      [`${componentCls}-selection-placeholder`]: {
         position: 'absolute',
         top: '50%',
         insetInlineStart: token.inputPaddingHorizontalBase,
@@ -191,48 +207,46 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   };
 }
 
-export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
+const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
   const { componentCls } = token;
 
   const smallToken = mergeToken<SelectToken>(token, {
-    controlHeight: token.controlHeightSM,
-    controlHeightSM: token.controlHeightXS,
+    selectHeight: token.controlHeightSM,
+    multipleSelectItemHeight: token.controlHeightXS,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });
-  const [, smSelectItemMargin] = getSelectItemStyle(token);
+
+  const largeToken = mergeToken<SelectToken>(token, {
+    fontSize: token.fontSizeLG,
+    selectHeight: token.controlHeightLG,
+    multipleSelectItemHeight: token.multipleItemHeightLG,
+    borderRadius: token.borderRadiusLG,
+    borderRadiusSM: token.borderRadius,
+  });
 
   return [
     genSizeStyle(token),
     // ======================== Small ========================
-    // Shared
     genSizeStyle(smallToken, 'sm'),
 
     // Padding
     {
       [`${componentCls}-multiple${componentCls}-sm`]: {
         [`${componentCls}-selection-placeholder`]: {
-          insetInline: token.controlPaddingHorizontalSM - token.lineWidth,
+          insetInline: token.calc(token.controlPaddingHorizontalSM).sub(token.lineWidth).equal(),
         },
 
         // https://github.com/ant-design/ant-design/issues/29559
         [`${componentCls}-selection-search`]: {
-          marginInlineStart: smSelectItemMargin,
+          marginInlineStart: 2, // Magic Number
         },
       },
     },
 
     // ======================== Large ========================
-    // Shared
-    genSizeStyle(
-      mergeToken<any>(token, {
-        fontSize: token.fontSizeLG,
-        controlHeight: token.controlHeightLG,
-        controlHeightSM: token.controlHeight,
-        borderRadius: token.borderRadiusLG,
-        borderRadiusSM: token.borderRadius,
-      }),
-      'lg',
-    ),
+    genSizeStyle(largeToken, 'lg'),
   ];
-}
+};
+
+export default genMultipleStyle;

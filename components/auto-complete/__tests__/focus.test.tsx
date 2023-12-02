@@ -56,7 +56,7 @@ describe('AutoComplete children could be focus', () => {
     expect(mockRef).toHaveBeenCalled();
   });
 
-  it('child.ref instance should support be focused and blured', () => {
+  it('child.ref instance should support be focused and blurred', () => {
     const inputRef = React.createRef<HTMLInputElement>();
     render(
       <AutoComplete dataSource={[]}>

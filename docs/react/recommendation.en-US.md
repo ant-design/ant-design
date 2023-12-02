@@ -1,5 +1,8 @@
 ---
-order: 9
+group:
+  title: Other
+  order: 3
+order: 0
 title: Third-Party Libraries
 ---
 
@@ -7,7 +10,7 @@ title: Third-Party Libraries
 
 | Category | Recommended Components |
 | --- | --- |
-| Visualization and charts | [Ant Design Charts](https://charts.ant.design) [AntV Data Visualization](https://antv.vision/en) |
+| Visualization and charts | [Ant Design Charts](https://charts.ant.design) [AntV Data Visualization](https://antv.vision/en) [reactflow](https://reactflow.dev/) |
 | React Hooks Library | [ahooks](https://github.com/alibaba/hooks) |
 | React Form Library | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
@@ -38,8 +41,9 @@ title: Third-Party Libraries
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Number/Currency | [react-countup](https://www.npmjs.com/package/react-countup) [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-field](https://github.com/cchanxzy/react-currency-input-field) |
-
 | Application Frameworks | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
+| Flow-based UI | [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
+| Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 
 ## Products we are using ✨
 
@@ -52,7 +56,6 @@ There are some products to recommend for developer/designer/product manager.
 | Sketch plugin     | [Kitchen](https://kitchen.alipay.com)                                 |
 | Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | Image Compressor  | [tinypng](https://tinypng.com/)                                       |
-| Charts Dictionary | [图之典](http://tuzhidian.com/)                                       |
 
 <style>
 .markdown table td:first-child {

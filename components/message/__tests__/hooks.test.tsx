@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { act } from 'react-dom/test-utils';
-import { triggerMotionEnd } from './util';
-import type { ArgsProps } from '..';
+import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
 import message from '..';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeEach(() => {
@@ -148,7 +148,7 @@ describe('message.hooks', () => {
           <button
             type="button"
             onClick={() => {
-              hide = api.open({ ontent: 'nice', duration: 0 } as unknown as ArgsProps);
+              hide = api.open({ content: 'nice', duration: 0 });
             }}
           >
             test
@@ -255,5 +255,48 @@ describe('message.hooks', () => {
     );
 
     errorSpy.mockRestore();
+  });
+
+  it('not export style in SSR', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [, holder] = message.useMessage();
+
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+    };
+
+    render(<Demo />);
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText).not.toContain('.ant-message');
+  });
+
+  it('component fontSize should work', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({
+          content: <div />,
+          className: 'fontSize',
+        });
+      }, []);
+
+      return (
+        <ConfigProvider theme={{ components: { Message: { fontSize: 20 } } }}>
+          {holder}
+        </ConfigProvider>
+      );
+    };
+
+    render(<Demo />);
+
+    const msg = document.querySelector('.fontSize');
+
+    expect(msg).toBeTruthy();
+    expect(msg).toHaveStyle({
+      fontSize: '20px',
+    });
   });
 });

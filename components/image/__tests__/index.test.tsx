@@ -1,4 +1,6 @@
 import React from 'react';
+import { Modal } from 'antd';
+
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -104,5 +106,82 @@ describe('Image', () => {
     baseElement.querySelector('.ant-image-preview-img')?.addEventListener('load', onLoadCb);
     fireEvent.load(baseElement.querySelector('.ant-image-preview-img')!);
     expect(onLoadCb).toHaveBeenCalled();
+  });
+  it('Preview should support rootClassName', () => {
+    const { container, baseElement } = render(
+      <Image.PreviewGroup preview={{ visible: true, rootClassName: 'test-root-class' }}>
+        <Image src={src} />
+      </Image.PreviewGroup>,
+    );
+
+    fireEvent.click(container.querySelector('.ant-image')!);
+
+    expect(baseElement.querySelector('.test-root-class')).toBeTruthy();
+  });
+  it('Image.PreviewGroup preview in a nested modal where z-index Settings should be correct', () => {
+    const App = () => (
+      <Modal open>
+        <Modal open>
+          <Modal open>
+            <Image
+              width={200}
+              src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              preview={{
+                rootClassName: 'test-image-preview-class',
+              }}
+            />
+            <Image.PreviewGroup
+              preview={{
+                rootClassName: 'test-image-preview-group-class',
+              }}
+            >
+              <Image
+                width={200}
+                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+              />
+              <Image
+                width={200}
+                src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+              />
+            </Image.PreviewGroup>
+          </Modal>
+        </Modal>
+      </Modal>
+    );
+    const { baseElement } = render(<App />);
+
+    fireEvent.click(baseElement.querySelector('.ant-image')!);
+
+    expect(
+      (
+        baseElement.querySelector(
+          '.test-image-preview-class .ant-image-preview-wrap',
+        ) as HTMLElement
+      ).style.zIndex,
+    ).toBe('1301');
+    expect(
+      (
+        baseElement.querySelector(
+          '.test-image-preview-class.ant-image-preview-operations-wrapper',
+        ) as HTMLElement
+      ).style.zIndex,
+    ).toBe('1302');
+
+    fireEvent.click(baseElement.querySelectorAll('.ant-image')[1]!);
+
+    expect(
+      (
+        baseElement.querySelector(
+          '.test-image-preview-group-class .ant-image-preview-wrap',
+        ) as HTMLElement
+      ).style.zIndex,
+    ).toBe('1301');
+    expect(
+      (
+        baseElement.querySelector(
+          '.test-image-preview-group-class.ant-image-preview-operations-wrapper',
+        ) as HTMLElement
+      ).style.zIndex,
+    ).toBe('1302');
   });
 });

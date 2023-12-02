@@ -1,13 +1,14 @@
+import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import * as React from 'react';
 import TestUtils from 'react-dom/test-utils';
+
 import type { ModalFuncProps } from '..';
 import Modal from '..';
-import { waitFakeTimer, act } from '../../../tests/utils';
+import { act, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -95,11 +96,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   };
   /* eslint-enable */
 
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   beforeEach(() => {
+    jest.useFakeTimers();
     (global as any).injectPromise = false;
     (global as any).rejectPromise = null;
   });
@@ -201,6 +199,39 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(0);
     expect(onCancel).toHaveBeenCalledTimes(1);
+  });
+
+  it('should not fire twice onOk when button is pressed twice', async () => {
+    let resolveFn: VoidFunction;
+    const onOk = jest.fn(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveFn = resolve;
+        }),
+    );
+    await open({
+      onOk,
+    });
+
+    // Load will not clickable
+    await waitFakeTimer();
+    for (let i = 0; i < 10; i += 1) {
+      act(() => {
+        $$('.ant-btn-primary')[0].click();
+      });
+    }
+    expect(onOk).toHaveBeenCalledTimes(1);
+
+    // Resolve this promise
+    resolveFn!();
+    await Promise.resolve();
+
+    // Resolve still can not clickable
+    act(() => {
+      $$('.ant-btn-primary')[0].click();
+    });
+
+    expect(onOk).toHaveBeenCalledTimes(1);
   });
 
   it('should not hide confirm when onOk return Promise.resolve', async () => {
@@ -509,7 +540,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     // We check icon is not exist in the body
-    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(2);
+    expect(document.querySelector('.ant-modal-confirm-body')!.children).toHaveLength(1);
     expect(
       document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
     ).toBeFalsy();
@@ -620,7 +651,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   });
 
   it('bodyStyle', async () => {
+    resetWarned();
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => {});
     await open({ bodyStyle: { width: 500 } });
+
+    const { width } = $$('.ant-modal-body')[0].style;
+    expect(width).toBe('500px');
+    expect(spy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `bodyStyle` is deprecated. Please use `styles.body` instead.',
+    );
+    spy.mockRestore();
+  });
+
+  it('styles', async () => {
+    resetWarned();
+    await open({ styles: { body: { width: 500 } } });
 
     const { width } = $$('.ant-modal-body')[0].style;
     expect(width).toBe('500px');
@@ -772,5 +817,64 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
     await waitFakeTimer();
     expect($$('.custom-modal-footer')).toHaveLength(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/41170
+  describe('footer', () => {
+    (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
+      it(`${type} should not render the footer in the default`, async () => {
+        Modal[type]({
+          content: 'hai',
+        });
+
+        await waitFakeTimer();
+
+        expect(document.querySelector(`.ant-modal-footer`)).toBeFalsy();
+      });
+    });
+
+    it('confirm should render the footer when footer is set', async () => {
+      Modal.confirm({
+        content: 'hai',
+        footer: 'hai',
+      });
+
+      await waitFakeTimer();
+
+      expect(document.querySelector(`.ant-modal-content`)).toMatchSnapshot();
+    });
+  });
+
+  it('warning getContainer be false', async () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    Modal.confirm({
+      getContainer: false,
+    });
+
+    await waitFakeTimer();
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] Static method not support `getContainer` to be `false` since it do not have context env.',
+    );
+
+    warnSpy.mockRestore();
+  });
+
+  it('Should custom footer function work width confirm', async () => {
+    Modal.confirm({
+      content: 'hai',
+      footer: (_, { OkBtn, CancelBtn }) => (
+        <>
+          <OkBtn />
+          <CancelBtn />
+          <div className="custom-footer-ele">footer-ele</div>
+        </>
+      ),
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
 });

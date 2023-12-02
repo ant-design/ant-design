@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -55,7 +55,7 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -74,7 +74,7 @@ jobs:
         run: npm run site
         env:
           SITE_ENV: development
-          NODE_OPTIONS: --max_old_space_size=4096
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: upload site artifact
         uses: actions/upload-artifact@v3
@@ -94,3 +94,32 @@ jobs:
         with:
           name: pr
           path: ./pr-id.txt
+
+  site-test:
+    name: site E2E test
+    runs-on: ubuntu-latest
+    needs: [setup, build-site]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: download site artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: site
+          path: _site
+
+      - name: run e2e test
+        run: npm run site:test

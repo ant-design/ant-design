@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
-import LocaleReceiver from '../../locale/LocaleReceiver';
 import defaultLocale from '../../locale/en_US';
+import useLocale from '../../locale/useLocale';
 import ConfirmDialog from '../ConfirmDialog';
-import type { ModalFuncProps } from '../Modal';
+import type { ModalFuncProps } from '../interface';
 
 export interface HookModalProps {
   afterClose: () => void;
   config: ModalFuncProps;
+  onConfirm?: (confirmed: boolean) => void;
+  /**
+   * Do not throw if is await mode
+   */
+  isSilent?: () => boolean;
 }
 
 export interface HookModalRef {
@@ -16,7 +21,7 @@ export interface HookModalRef {
 }
 
 const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = (
-  { afterClose, config },
+  { afterClose: hookAfterClose, config, ...restProps },
   ref,
 ) => {
   const [open, setOpen] = React.useState(true);
@@ -25,6 +30,11 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const prefixCls = getPrefixCls('modal');
   const rootPrefixCls = getPrefixCls();
+
+  const afterClose = () => {
+    hookAfterClose();
+    innerConfig.afterClose?.();
+  };
 
   const close = (...args: any[]) => {
     setOpen(false);
@@ -46,24 +56,23 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   const mergedOkCancel = innerConfig.okCancel ?? innerConfig.type === 'confirm';
 
+  const [contextLocale] = useLocale('Modal', defaultLocale.Modal);
+
   return (
-    <LocaleReceiver componentName="Modal" defaultLocale={defaultLocale.Modal}>
-      {(contextLocale) => (
-        <ConfirmDialog
-          prefixCls={prefixCls}
-          rootPrefixCls={rootPrefixCls}
-          {...innerConfig}
-          close={close}
-          open={open}
-          afterClose={afterClose}
-          okText={
-            innerConfig.okText || (mergedOkCancel ? contextLocale.okText : contextLocale.justOkText)
-          }
-          direction={direction}
-          cancelText={innerConfig.cancelText || contextLocale.cancelText}
-        />
-      )}
-    </LocaleReceiver>
+    <ConfirmDialog
+      prefixCls={prefixCls}
+      rootPrefixCls={rootPrefixCls}
+      {...innerConfig}
+      close={close}
+      open={open}
+      afterClose={afterClose}
+      okText={
+        innerConfig.okText || (mergedOkCancel ? contextLocale?.okText : contextLocale?.justOkText)
+      }
+      direction={innerConfig.direction || direction}
+      cancelText={innerConfig.cancelText || contextLocale?.cancelText}
+      {...restProps}
+    />
   );
 };
 

@@ -1,9 +1,9 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
 const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, stepsSmallIconSize, stepsIconSize } = token;
+  const { componentCls, iconSizeSM, iconSize } = token;
 
   return {
     [`&${componentCls}-vertical`]: {
@@ -22,11 +22,11 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
         [`${componentCls}-item-content`]: {
           display: 'block',
-          minHeight: token.controlHeight * 1.5,
+          minHeight: token.calc(token.controlHeight).mul(1.5).equal(),
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${stepsIconSize}px`,
+          lineHeight: `${unit(iconSize)}`,
         },
         [`${componentCls}-item-description`]: {
           paddingBottom: token.paddingSM,
@@ -35,10 +35,12 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         position: 'absolute',
         top: 0,
-        insetInlineStart: token.stepsIconSize / 2 - token.lineWidth,
+        insetInlineStart: token.calc(iconSize).div(2).sub(token.lineWidth).equal(),
         width: token.lineWidth,
         height: '100%',
-        padding: `${stepsIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
+        padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSize).equal())} 0 ${unit(
+          token.calc(token.marginXXS).mul(1.5).equal(),
+        )}`,
 
         '&::after': {
           width: token.lineWidth,
@@ -59,11 +61,13 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`${componentCls}-item-tail`]: {
           position: 'absolute',
           top: 0,
-          insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth,
-          padding: `${stepsSmallIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
+          insetInlineStart: token.calc(iconSizeSM).div(2).sub(token.lineWidth).equal(),
+          padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSizeSM).equal())} 0 ${unit(
+            token.calc(token.marginXXS).mul(1.5).equal(),
+          )}`,
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: `${stepsSmallIconSize}px`,
+          lineHeight: `${unit(iconSizeSM)}`,
         },
       },
     },

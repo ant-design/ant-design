@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table.sorter renders custome sort icon correctly 1`] = `
+<span
+  class="customize-icon"
+>
+  sortAscend
+</span>
+`;
+
+exports[`Table.sorter renders custome sort icon correctly 2`] = `
+<span
+  class="customize-icon"
+>
+  sortDescend
+</span>
+`;
+
+exports[`Table.sorter renders custome sort icon correctly 3`] = `
+<span
+  class="customize-icon"
+>
+  unsorted
+</span>
+`;
+
 exports[`Table.sorter renders sorter icon correctly 1`] = `
 <thead
   class="ant-table-thead"

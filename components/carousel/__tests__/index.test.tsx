@@ -3,7 +3,7 @@ import type { CarouselRef } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { waitFakeTimer, render } from '../../../tests/utils';
+import { render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -26,6 +26,15 @@ describe('Carousel', () => {
     );
     const { innerSlider } = ref.current || {};
     expect(typeof innerSlider.slickNext).toBe('function');
+  });
+
+  it('should support id property', () => {
+    const { container } = render(
+      <Carousel id="my-carousel">
+        <div />
+      </Carousel>,
+    );
+    expect(container.querySelector('.ant-carousel')?.getAttribute('id')).toBe('my-carousel');
   });
 
   it('should has prev, next and go function', async () => {
@@ -128,7 +137,7 @@ describe('Carousel', () => {
   });
 
   describe('dots precise control by plain object', () => {
-    it('use dots to provide dotsClasse', () => {
+    it('use dots to provide dotsClass', () => {
       const { container } = render(
         <Carousel dots={{ className: 'customDots' }}>
           <div>1</div>
@@ -138,5 +147,34 @@ describe('Carousel', () => {
       );
       expect(container.querySelector('.slick-dots')).toHaveClass('customDots');
     });
+  });
+
+  it('should not wait for the animation', async () => {
+    const ref = React.createRef<CarouselRef>();
+    render(
+      <Carousel ref={ref}>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+      </Carousel>,
+    );
+    const { prev, next, goTo } = ref.current || {};
+    expect(typeof prev).toBe('function');
+    expect(typeof next).toBe('function');
+    expect(typeof goTo).toBe('function');
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(0);
+    ref.current?.goTo(1);
+    ref.current?.goTo(2);
+    ref.current?.goTo(1);
+    await waitFakeTimer();
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
+    ref.current?.prev();
+    ref.current?.next();
+    ref.current?.next();
+    await waitFakeTimer();
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(2);
+    ref.current?.prev();
+    await waitFakeTimer();
+    expect(ref.current?.innerSlider.state.currentSlide).toBe(1);
   });
 });

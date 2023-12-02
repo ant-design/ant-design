@@ -1,7 +1,7 @@
 import * as React from 'react';
-import warning from '../../../_util/warning';
+
+import { devUseWarning } from '../../../_util/warning';
 import type {
-  ColumnFilterItem,
   ColumnsType,
   ColumnTitleProps,
   ColumnType,
@@ -9,11 +9,12 @@ import type {
   FilterValue,
   GetPopupContainer,
   Key,
+  SafeKey,
   TableLocale,
   TransformColumns,
 } from '../../interface';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../../util';
-import FilterDropdown from './FilterDropdown';
+import FilterDropdown, { flattenKeys } from './FilterDropdown';
 
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
@@ -129,29 +130,21 @@ function injectFilter<RecordType>(
   });
 }
 
-export function flattenKeys(filters?: ColumnFilterItem[]) {
-  let keys: FilterValue = [];
-  (filters || []).forEach(({ value, children }) => {
-    keys.push(value);
-    if (children) {
-      keys = [...keys, ...flattenKeys(children)];
-    }
-  });
-  return keys;
-}
-
 function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
   const currentFilters: Record<string, FilterValue | null> = {};
 
   filterStates.forEach(({ key, filteredKeys, column }) => {
+    const keyAsString = key as SafeKey;
     const { filters, filterDropdown } = column;
     if (filterDropdown) {
-      currentFilters[key] = filteredKeys || null;
+      currentFilters[keyAsString] = filteredKeys || null;
     } else if (Array.isArray(filteredKeys)) {
       const keys = flattenKeys(filters);
-      currentFilters[key] = keys.filter((originKey) => filteredKeys.includes(String(originKey)));
+      currentFilters[keyAsString] = keys.filter((originKey) =>
+        filteredKeys.includes(String(originKey)),
+      );
     } else {
-      currentFilters[key] = null;
+      currentFilters[keyAsString] = null;
     }
   });
 
@@ -215,7 +208,12 @@ function useFilter<RecordType>({
   FilterState<RecordType>[],
   Record<string, FilterValue | null>,
 ] {
-  const mergedColumns = getMergedColumns(rawMergedColumns || []);
+  const warning = devUseWarning('Table');
+
+  const mergedColumns = React.useMemo(
+    () => getMergedColumns(rawMergedColumns || []),
+    [rawMergedColumns],
+  );
 
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(() =>
     collectFilterStates(mergedColumns, true),
@@ -259,7 +257,7 @@ function useFilter<RecordType>({
 
     warning(
       filteredKeysIsAllControlled,
-      'Table',
+      'usage',
       'Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );
 
@@ -288,5 +286,7 @@ function useFilter<RecordType>({
 
   return [transformColumns, mergedFilterStates, filters];
 }
+
+export { flattenKeys };
 
 export default useFilter;

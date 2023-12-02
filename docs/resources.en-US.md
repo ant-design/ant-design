@@ -15,7 +15,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - Sketch Symbols
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - Sketch Symbols for Desktop
-  - https://gw.alipayobjects.com/os/hitu-asset/5217de80-7a3e-413f-809e-20ecede4f3f3/hitu-1669000735416-5000001.sketch
+  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.5.0.Beta.sketch
   - Official
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -53,6 +53,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Free open source Figma library with complete accurate to code components
   - https://www.figma.com/community/file/831698976089873405
+- Ruyi Design Assistant
+  - https://github.com/ant-design/ant-design/assets/507615/45201521-37d0-4360-b81e-a1260dedad7a
+  - Figma Plugin,Design using Antd code component library and deliver component code that is friendly to developers
+  - https://www.figma.com/community/plugin/1192146318523533547
 - Ant Design Chart
   - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
   - Sketch Symbols for Chart
@@ -74,6 +78,10 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - Use fully components and templates on MasterGo
   - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
+- AntBlocks UI for Figma
+  - https://uploads-ssl.webflow.com/64dc925e7cb893427a5c9cdc/64e4610f7818dcc7501057ad_antblocks-ui-card-img.svg
+  - High-quality, responsive, and customizable React components built on Ant Design
+  - https://www.antblocksui.com/#figma
 </ResourceCards>
 
 ## Articles

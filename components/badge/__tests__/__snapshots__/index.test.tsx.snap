@@ -11,16 +11,18 @@ exports[`Badge render Badge status/color when contains children 1`] = `
       data-show="true"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -28,20 +30,22 @@ exports[`Badge render Badge status/color when contains children 1`] = `
   >
     <a />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
       data-show="true"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -54,16 +58,18 @@ exports[`Badge render Badge status/color when contains children 1`] = `
       style="background: rgb(0, 136, 204);"
       title="5"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          5
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            5
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
 </div>
@@ -79,36 +85,38 @@ exports[`Badge render correct with negative number 1`] = `
       data-show="true"
       title="-10"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          -
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            -
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          1
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            1
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          0
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            0
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
   <span
@@ -119,36 +127,38 @@ exports[`Badge render correct with negative number 1`] = `
       data-show="true"
       title="-10"
     >
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
+      <bdi>
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          -
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            -
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          1
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            1
+          </span>
         </span>
-      </span>
-      <span
-        class="ant-scroll-number-only"
-        style="transition: none;"
-      >
         <span
-          class="ant-scroll-number-only-unit current"
+          class="ant-scroll-number-only"
+          style="transition: none;"
         >
-          0
+          <span
+            class="ant-scroll-number-only-unit current"
+          >
+            0
+          </span>
         </span>
-      </span>
+      </bdi>
     </sup>
   </span>
 </div>
@@ -176,16 +186,18 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
     style="margin-top: 10px; left: 10px;"
     title="5"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        5
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          5
+        </span>
       </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -200,16 +212,18 @@ exports[`Badge should be compatible with borderColor style 1`] = `
     style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: #d9d9d9; box-shadow: 0 0 0 1px #d9d9d9 inset;"
     title="4"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        4
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          4
+        </span>
       </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -232,7 +246,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     class="ant-badge ant-badge-not-a-wrapper"
   >
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-blue"
+      class="ant-scroll-number ant-badge-count ant-badge-color-blue"
       data-show="true"
       title="0"
     >
@@ -255,7 +269,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
   >
     <div />
     <sup
-      class="ant-scroll-number ant-badge-count ant-badge-status-green"
+      class="ant-scroll-number ant-badge-count ant-badge-color-green"
       data-show="true"
       title="0"
     >
@@ -274,86 +288,88 @@ exports[`Badge should render when count is changed 1`] = `
     data-show="true"
     title="10"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        1
-      </span>
-    </span>
-    <span
-      class="ant-scroll-number-only"
-      style="transform: translateY(-100%);"
-    >
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -900%; left: 0px;"
-      >
-        0
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </span>
       </span>
       <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -800%; left: 0px;"
+        class="ant-scroll-number-only"
+        style="transform: translateY(-100%);"
       >
-        1
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -900%; left: 0px;"
+        >
+          0
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -800%; left: 0px;"
+        >
+          1
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -700%; left: 0px;"
+        >
+          2
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -600%; left: 0px;"
+        >
+          3
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -500%; left: 0px;"
+        >
+          4
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -400%; left: 0px;"
+        >
+          5
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -300%; left: 0px;"
+        >
+          6
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -200%; left: 0px;"
+        >
+          7
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -100%; left: 0px;"
+        >
+          8
+        </span>
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          9
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 100%; left: 0px;"
+        >
+          0
+        </span>
       </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -700%; left: 0px;"
-      >
-        2
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -600%; left: 0px;"
-      >
-        3
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -500%; left: 0px;"
-      >
-        4
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -400%; left: 0px;"
-      >
-        5
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -300%; left: 0px;"
-      >
-        6
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -200%; left: 0px;"
-      >
-        7
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -100%; left: 0px;"
-      >
-        8
-      </span>
-      <span
-        class="ant-scroll-number-only-unit current"
-      >
-        9
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 100%; left: 0px;"
-      >
-        0
-      </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -367,86 +383,88 @@ exports[`Badge should render when count is changed 2`] = `
     data-show="true"
     title="11"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        1
-      </span>
-    </span>
-    <span
-      class="ant-scroll-number-only"
-      style="transform: translateY(-100%);"
-    >
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -900%; left: 0px;"
-      >
-        1
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </span>
       </span>
       <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -800%; left: 0px;"
+        class="ant-scroll-number-only"
+        style="transform: translateY(-100%);"
       >
-        2
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -900%; left: 0px;"
+        >
+          1
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -800%; left: 0px;"
+        >
+          2
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -700%; left: 0px;"
+        >
+          3
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -600%; left: 0px;"
+        >
+          4
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -500%; left: 0px;"
+        >
+          5
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -400%; left: 0px;"
+        >
+          6
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -300%; left: 0px;"
+        >
+          7
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -200%; left: 0px;"
+        >
+          8
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -100%; left: 0px;"
+        >
+          9
+        </span>
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          0
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 100%; left: 0px;"
+        >
+          1
+        </span>
       </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -700%; left: 0px;"
-      >
-        3
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -600%; left: 0px;"
-      >
-        4
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -500%; left: 0px;"
-      >
-        5
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -400%; left: 0px;"
-      >
-        6
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -300%; left: 0px;"
-      >
-        7
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -200%; left: 0px;"
-      >
-        8
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -100%; left: 0px;"
-      >
-        9
-      </span>
-      <span
-        class="ant-scroll-number-only-unit current"
-      >
-        0
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 100%; left: 0px;"
-      >
-        1
-      </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -460,27 +478,29 @@ exports[`Badge should render when count is changed 3`] = `
     data-show="true"
     title="11"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        1
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </span>
       </span>
-    </span>
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
       <span
-        class="ant-scroll-number-only-unit current"
-        style=""
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        1
+        <span
+          class="ant-scroll-number-only-unit current"
+          style=""
+        >
+          1
+        </span>
       </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -508,26 +528,28 @@ exports[`Badge should render when count is changed 5`] = `
     data-show="true"
     title="10"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        1
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          1
+        </span>
       </span>
-    </span>
-    <span
-      class="ant-scroll-number-only"
-      style="transition: none;"
-    >
       <span
-        class="ant-scroll-number-only-unit current"
+        class="ant-scroll-number-only"
+        style="transition: none;"
       >
-        0
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          0
+        </span>
       </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;
@@ -541,76 +563,78 @@ exports[`Badge should render when count is changed 6`] = `
     data-show="true"
     title="9"
   >
-    <span
-      class="ant-scroll-number-only"
-      style="transform: translateY(100%);"
-    >
+    <bdi>
       <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: -100%; left: 0px;"
+        class="ant-scroll-number-only"
+        style="transform: translateY(100%);"
       >
-        9
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: -100%; left: 0px;"
+        >
+          9
+        </span>
+        <span
+          class="ant-scroll-number-only-unit current"
+        >
+          0
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 100%; left: 0px;"
+        >
+          1
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 200%; left: 0px;"
+        >
+          2
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 300%; left: 0px;"
+        >
+          3
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 400%; left: 0px;"
+        >
+          4
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 500%; left: 0px;"
+        >
+          5
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 600%; left: 0px;"
+        >
+          6
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 700%; left: 0px;"
+        >
+          7
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 800%; left: 0px;"
+        >
+          8
+        </span>
+        <span
+          class="ant-scroll-number-only-unit"
+          style="position: absolute; top: 900%; left: 0px;"
+        >
+          9
+        </span>
       </span>
-      <span
-        class="ant-scroll-number-only-unit current"
-      >
-        0
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 100%; left: 0px;"
-      >
-        1
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 200%; left: 0px;"
-      >
-        2
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 300%; left: 0px;"
-      >
-        3
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 400%; left: 0px;"
-      >
-        4
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 500%; left: 0px;"
-      >
-        5
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 600%; left: 0px;"
-      >
-        6
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 700%; left: 0px;"
-      >
-        7
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 800%; left: 0px;"
-      >
-        8
-      </span>
-      <span
-        class="ant-scroll-number-only-unit"
-        style="position: absolute; top: 900%; left: 0px;"
-      >
-        9
-      </span>
-    </span>
+    </bdi>
   </sup>
 </span>
 `;

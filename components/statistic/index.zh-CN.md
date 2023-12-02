@@ -4,6 +4,7 @@ subtitle: 统计数值
 group: 数据展示
 title: Statistic
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YL7PRYNtH-4AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*BPWDRbSYxJ4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -23,8 +24,11 @@ demo:
 <code src="./demo/animated.tsx">动画效果</code>
 <code src="./demo/card.tsx" background="grey">在卡片中使用</code>
 <code src="./demo/countdown.tsx">倒计时</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 #### Statistic
 
@@ -53,3 +57,7 @@ demo:
 | valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
 | onFinish | 倒计时完成时触发 | () => void | - |  |
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - | 4.16.0 |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Statistic"></ComponentTokenTable>

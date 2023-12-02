@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import type { CSSMotionProps } from 'rc-motion';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import * as React from 'react';
 import { useMemo } from 'react';
@@ -8,6 +9,7 @@ import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
 
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const EMPTY_LIST: React.ReactNode[] = [];
 
@@ -40,7 +42,7 @@ export interface ErrorListProps {
   onVisibleChanged?: (visible: boolean) => void;
 }
 
-export default function ErrorList({
+const ErrorList: React.FC<ErrorListProps> = ({
   help,
   helpStatus,
   errors = EMPTY_LIST,
@@ -48,14 +50,15 @@ export default function ErrorList({
   className: rootClassName,
   fieldId,
   onVisibleChanged,
-}: ErrorListProps) {
+}) => {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
-  const [, hashId] = useStyle(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
-  const collapseMotion = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
+  const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 
   // We have to debounce here again since somewhere use ErrorList directly still need no shaking
   // ref: https://github.com/ant-design/ant-design/issues/36336
@@ -81,7 +84,7 @@ export default function ErrorList({
     helpProps.id = `${fieldId}_help`;
   }
 
-  return (
+  return wrapCSSVar(
     <CSSMotion
       motionDeadline={collapseMotion.motionDeadline}
       motionName={`${prefixCls}-show-help`}
@@ -94,7 +97,7 @@ export default function ErrorList({
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, rootClassName, hashId)}
+            className={classNames(baseClassName, holderClassName, cssVarCls, rootClassName, hashId)}
             style={holderStyle}
             role="alert"
           >
@@ -129,6 +132,8 @@ export default function ErrorList({
           </div>
         );
       }}
-    </CSSMotion>
+    </CSSMotion>,
   );
-}
+};
+
+export default ErrorList;

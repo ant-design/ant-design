@@ -1,8 +1,16 @@
 import type React from 'react';
-import type Group from './FloatButtonGroup';
-import type BackTop from './BackTop';
+
+import type { BadgeProps } from '../badge';
 import type { TooltipProps } from '../tooltip';
+import type BackTop from './BackTop';
+import type Group from './FloatButtonGroup';
 import type PurePanel from './PurePanel';
+
+export type FloatButtonElement = HTMLAnchorElement & HTMLButtonElement;
+
+export interface FloatButtonRef {
+  nativeElement: FloatButtonElement | null;
+}
 
 export type FloatButtonType = 'default' | 'primary';
 
@@ -10,7 +18,9 @@ export type FloatButtonShape = 'circle' | 'square';
 
 export type FloatButtonGroupTrigger = 'click' | 'hover';
 
-export interface FloatButtonProps {
+export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
+
+export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -22,7 +32,8 @@ export interface FloatButtonProps {
   tooltip?: TooltipProps['title'];
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  badge?: FloatButtonBadgeProps;
+  ['aria-label']?: React.HtmlHTMLAttributes<HTMLElement>['aria-label'];
 }
 
 export interface FloatButtonContentProps extends React.DOMAttributes<HTMLDivElement> {
@@ -47,7 +58,7 @@ export interface FloatButtonGroupProps extends FloatButtonProps {
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
   visibilityHeight?: number;
-  onClick?: React.MouseEventHandler<HTMLDivElement>;
+  onClick?: React.MouseEventHandler<FloatButtonElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
   children?: React.ReactNode;
@@ -58,7 +69,7 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'> {
 }
 
 export type CompoundedComponent = React.ForwardRefExoticComponent<
-  FloatButtonProps & React.RefAttributes<HTMLAnchorElement | HTMLButtonElement>
+  FloatButtonProps & React.RefAttributes<FloatButtonElement>
 > & {
   Group: typeof Group;
   BackTop: typeof BackTop;

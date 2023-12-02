@@ -1,9 +1,13 @@
 import { css, Global } from '@emotion/react';
 import React from 'react';
+import { useTheme } from 'antd-style';
 
-export default () => (
-  <Global
-    styles={css`
+export default () => {
+  const { anchorTop } = useTheme();
+
+  return (
+    <Global
+      styles={css`
       body,
       div,
       dl,
@@ -55,6 +59,19 @@ export default () => (
         vertical-align: middle;
         border-style: none;
       }
+
+      [id] {
+        scroll-margin-top: ${anchorTop}px;
+      }
+
+      [data-prefers-color='dark'] {
+        color-scheme: dark;
+      }
+
+      [data-prefers-color='light'] {
+        color-scheme: light;
+      }
     `}
-  />
-);
+    />
+  );
+};

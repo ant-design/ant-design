@@ -3,6 +3,7 @@ category: Components
 group: Feedback
 title: Skeleton
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*uae3QbkNCm8AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Provide a placeholder while you wait for content to load, or to visualize content that doesn't exist yet.
@@ -23,8 +24,11 @@ Provide a placeholder while you wait for content to load, or to visualize conten
 <code src="./demo/element.tsx">Button/Avatar/Input/Image/Node</code>
 <code src="./demo/children.tsx">Contains sub component</code>
 <code src="./demo/list.tsx">List</code>
+<code src="./demo/componentToken.tsx" debug>Custom component token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Skeleton
 
@@ -73,3 +77,7 @@ Provide a placeholder while you wait for content to load, or to visualize conten
 | -------- | --------------------- | ------------------------------- | ------- |
 | active   | Show animation effect | boolean                         | false   |
 | size     | Set the size of input | `large` \| `small` \| `default` | -       |
+
+## Design Token
+
+<ComponentTokenTable component="Skeleton"></ComponentTokenTable>

@@ -1,12 +1,13 @@
+import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React, { useMemo, useRef, useState } from 'react';
+
+import { isValidElement } from '../_util/reactNode';
+import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
-import { isValidElement } from '../_util/reactNode';
-import { groupKeysMap } from '../_util/transKeys';
 import type {
   KeyWiseTransferItem,
   RenderResult,
@@ -34,6 +35,8 @@ function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: Recor
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
+const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
+
 export interface RenderedItem<RecordType> {
   renderedText: string;
   renderedEl: React.ReactNode;
@@ -46,12 +49,12 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   titleText: React.ReactNode;
   dataSource: RecordType[];
-  filterOption?: (filterText: string, item: RecordType) => boolean;
+  filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean;
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onItemSelect: (key: string, check: boolean) => void;
-  onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
+  onItemSelect: (key: string, check: boolean, e?: React.MouseEvent<Element, MouseEvent>) => void;
+  onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
   /** Render item */
@@ -72,6 +75,11 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   selectAllLabel?: SelectAllLabel;
   showRemove?: boolean;
   pagination?: PaginationType;
+  selectionsIcon?: React.ReactNode;
+}
+
+export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {
+  onItemSelect: (key: string, check: boolean) => void;
 }
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
@@ -99,6 +107,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
     itemsUnit,
     itemUnit,
     selectAllLabel,
+    selectionsIcon,
     footer,
     renderList,
     onItemSelectAll,
@@ -110,7 +119,6 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   } = props;
 
   const [filterValue, setFilterValue] = useState<string>('');
-
   const listBodyRef = useRef<ListBodyRef<RecordType>>({});
 
   const internalHandleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,13 +133,18 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const matchFilter = (text: string, item: RecordType) => {
     if (filterOption) {
-      return filterOption(filterValue, item);
+      return filterOption(filterValue, item, direction);
     }
     return text.includes(filterValue);
   };
 
   const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
-    let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
+    let bodyContent: React.ReactNode = renderList
+      ? renderList({
+          ...listProps,
+          onItemSelect: (key: string, check: boolean) => listProps.onItemSelect(key, check),
+        })
+      : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
       bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
@@ -345,8 +358,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeys.push(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, true);
-          onItemSelectAll?.(newUnCheckedKeys, false);
+          onItemSelectAll?.(newCheckedKeys, 'replace');
         },
       },
     ];
@@ -354,7 +366,7 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
 
   const dropdown: React.ReactNode = (
     <Dropdown className={`${prefixCls}-header-dropdown`} menu={{ items }} disabled={disabled}>
-      <DownOutlined />
+      {isValidIcon(selectionsIcon) ? selectionsIcon : <DownOutlined />}
     </Dropdown>
   );
 

@@ -1,14 +1,14 @@
-import React from 'react';
 import type { SingleValueType } from 'rc-cascader/lib/Cascader';
+import React from 'react';
 import type { BaseOptionType, DefaultOptionType } from '..';
 import Cascader from '..';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -124,10 +124,7 @@ describe('Cascader', () => {
 
   it('can be selected', () => {
     const onChange = jest.fn();
-    const { container } = render(<Cascader options={options} onChange={onChange} />);
-
-    toggleOpen(container);
-    expect(isOpen(container)).toBeTruthy();
+    const { container } = render(<Cascader open options={options} onChange={onChange} />);
 
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
@@ -469,19 +466,17 @@ describe('Cascader', () => {
           defaultValue={['zhejiang', 'hangzhou']}
           onChange={onChange}
           popupPlacement="bottomRight"
+          open
         />
       </ConfigProvider>,
     );
 
-    toggleOpen(container);
     clickOption(container, 0, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 1, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
-    toggleOpen(container);
     clickOption(container, 2, 0);
     expect(getDropdown(container)).toMatchSnapshot();
 
@@ -685,5 +680,52 @@ describe('Cascader', () => {
       expect(selectedValue!.length).toBe(1);
       expect(selectedValue!.join(',')).toBe('zhejiang');
     });
+  });
+
+  it('should be correct expression with disableCheckbox', () => {
+    const { container } = render(
+      <Cascader
+        multiple
+        options={[
+          {
+            label: '台湾',
+            value: 'tw',
+            children: [
+              {
+                label: '福建',
+                value: 'fj',
+                disableCheckbox: true,
+              },
+              {
+                label: '兰州',
+                value: 'lz',
+              },
+              { label: '北京', value: 'bj' },
+            ],
+          },
+        ]}
+      />,
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector')!);
+    // disabled className
+    fireEvent.click(container.querySelector('.ant-cascader-menu-item')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-disabled')).toHaveLength(1);
+    // Check all children except disableCheckbox When the parent checkbox is checked
+    expect(container.querySelectorAll('.ant-cascader-checkbox')).toHaveLength(4);
+    fireEvent.click(container.querySelector('.ant-cascader-checkbox')!);
+    expect(container.querySelectorAll('.ant-cascader-checkbox-checked')).toHaveLength(3);
+  });
+
+  it('deprecate showArrow', () => {
+    resetWarned();
+
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<Cascader showArrow />);
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+    );
+    expect(container.querySelector('.ant-select-show-arrow')).toBeTruthy();
+
+    errSpy.mockRestore();
   });
 });

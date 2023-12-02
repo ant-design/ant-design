@@ -1,7 +1,9 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -30,7 +32,7 @@ export interface SubMenuProps {
 const SubMenu: React.FC<SubMenuProps> = (props) => {
   const { popupClassName, icon, title, theme: customTheme } = props;
   const context = React.useContext(MenuContext);
-  const { prefixCls, inlineCollapsed, theme: contextTheme, mode } = context;
+  const { prefixCls, inlineCollapsed, theme: contextTheme } = context;
 
   const parentPath = useFullPath();
 
@@ -65,12 +67,12 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
     [context],
   );
 
-  const popupOffset = mode === 'horizontal' ? [0, 8] : [10, 0];
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('Menu');
 
   return (
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
-        popupOffset={popupOffset}
         {...omit(props, ['icon'])}
         title={titleNode}
         popupClassName={classNames(
@@ -78,6 +80,9 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
           popupClassName,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
+        popupStyle={{
+          zIndex,
+        }}
       />
     </MenuContext.Provider>
   );

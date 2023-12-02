@@ -1,47 +1,43 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import { textEllipsis } from '../../style';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
 import type { MenuToken } from '.';
+import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
-    menuItemHeight,
+    itemHeight,
     itemMarginInline,
     padding,
     menuArrowSize,
     marginXS,
-    marginXXS,
+    itemMarginBlock,
+    itemWidth,
   } = token;
 
-  const paddingWithArrow = padding + menuArrowSize + marginXS;
+  const paddingWithArrow = token.calc(menuArrowSize).add(padding).add(marginXS).equal();
 
   return {
     [`${componentCls}-item`]: {
       position: 'relative',
+      overflow: 'hidden',
     },
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-      height: menuItemHeight,
-      lineHeight: `${menuItemHeight}px`,
+      height: itemHeight,
+      lineHeight: unit(itemHeight),
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
-
       marginInline: itemMarginInline,
-      marginBlock: marginXXS,
-      width: `calc(100% - ${itemMarginInline * 2}px)`,
-    },
-
-    // disable margin collapsed
-    [`${componentCls}-submenu`]: {
-      paddingBottom: 0.02,
+      marginBlock: itemMarginBlock,
+      width: itemWidth,
     },
 
     [`> ${componentCls}-item,
             > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-      height: menuItemHeight,
-      lineHeight: `${menuItemHeight}px`,
+      height: itemHeight,
+      lineHeight: unit(itemHeight),
     },
 
     [`${componentCls}-item-group-list ${componentCls}-submenu-title,
@@ -55,23 +51,25 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
   const {
     componentCls,
     iconCls,
-    menuItemHeight,
+    itemHeight,
     colorTextLightSolid,
     dropdownWidth,
     controlHeightLG,
     motionDurationMid,
     motionEaseOut,
     paddingXL,
-    fontSizeSM,
+    itemMarginInline,
     fontSizeLG,
     motionDurationSlow,
     paddingXS,
     boxShadowSecondary,
+    collapsedWidth,
+    collapsedIconSize,
   } = token;
 
   const inlineItemStyle: CSSObject = {
-    height: menuItemHeight,
-    lineHeight: `${menuItemHeight}px`,
+    height: itemHeight,
+    lineHeight: unit(itemHeight),
     listStylePosition: 'inside',
     listStyleType: 'disc',
   };
@@ -100,7 +98,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     {
       [`${componentCls}-submenu-popup ${componentCls}-vertical${componentCls}-sub`]: {
         minWidth: dropdownWidth,
-        maxHeight: `calc(100vh - ${controlHeightLG * 2.5}px)`,
+        maxHeight: `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
         padding: '0',
         overflow: 'hidden',
         borderInlineEnd: 0,
@@ -165,7 +163,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     // Inline Collapse Only
     {
       [`${componentCls}-inline-collapsed`]: {
-        width: menuItemHeight * 2,
+        width: collapsedWidth,
 
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu ${componentCls}-submenu-title`]: {
@@ -181,7 +179,9 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           > ${componentCls}-item-group > ${componentCls}-item-group-list > ${componentCls}-submenu > ${componentCls}-submenu-title,
           > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
           insetInlineStart: 0,
-          paddingInline: `calc(50% - ${fontSizeSM}px)`,
+          paddingInline: `calc(50% - ${unit(token.calc(fontSizeLG).div(2).equal())} - ${unit(
+            itemMarginInline,
+          )})`,
           textOverflow: 'clip',
 
           [`
@@ -193,8 +193,8 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
           [`${componentCls}-item-icon, ${iconCls}`]: {
             margin: 0,
-            fontSize: fontSizeLG,
-            lineHeight: `${menuItemHeight}px`,
+            fontSize: collapsedIconSize,
+            lineHeight: unit(itemHeight),
 
             '+ span': {
               display: 'inline-block',

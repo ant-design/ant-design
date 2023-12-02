@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Tabs
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Tabs make it easy to switch between different views.
@@ -22,6 +23,7 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/centered.tsx">Centered</code>
 <code src="./demo/icon.tsx">Icon</code>
+<code src="./demo/custom-indicator.tsx">Indicator</code>
 <code src="./demo/slide.tsx">Slide</code>
 <code src="./demo/extra.tsx">Extra content</code>
 <code src="./demo/size.tsx">Size</code>
@@ -34,8 +36,11 @@ Ant Design has 3 types of Tabs for different situations.
 <code src="./demo/custom-tab-bar-node.tsx">Draggable Tabs</code>
 <code src="./demo/animated.tsx" debug>Animated</code>
 <code src="./demo/nest.tsx" debug>Nest</code>
+<code src="./demo/component-token.tsx" debug>component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Tabs
 
@@ -44,10 +49,11 @@ Ant Design has 3 types of Tabs for different situations.
 | --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |  |
 | addIcon | Customize add icon | ReactNode | - | 4.4.0 |
-| animated | Whether to change tabs with animation. Only works while `tabPosition="top"` | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
+| animated | Whether to change tabs with animation. | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
+| indicatorSize | Customize length of indicator, which is the same as tab by default | number \| (origin: number) => number | - | 5.9.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
@@ -68,11 +74,18 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
 ### TabItemType
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"` | ReactNode | - |
-| disabled | Set TabPane disabled | boolean | false |
-| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |
-| key | TabPane's key | string | - |
-| label | TabPane's head display text | ReactNode | - |
-| children | TabPane's head display content | ReactNode | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | - |  |
+| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false | 5.11.0 |
+| disabled | Set TabPane disabled | boolean | false |  |
+| forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |  |
+| key | TabPane's key | string | - |  |
+| label | TabPane's head display text | ReactNode | - |  |
+| icon | TabPane's head display icon | ReactNode | - | 5.12.0 |
+| children | TabPane's head display content | ReactNode | - |  |
+| closable | Whether a close (x) button is visible, Only works while `type="editable-card"` | boolean | true |  |
+
+## Design Token
+
+<ComponentTokenTable component="Tabs"></ComponentTokenTable>

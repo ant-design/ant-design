@@ -34,13 +34,13 @@ export function merge<T extends object>(...objs: Partial<T>[]): T {
   return ret;
 }
 
-/** @private Internal Usage. Not use in your production. */
+/** @internal Internal Usage. Not use in your production. */
 export const statistic: Record<
   string,
   { global: string[]; component: Record<string, string | number> }
 > = {};
 
-/** @private Internal Usage. Not use in your production. */
+/** @internal Internal Usage. Not use in your production. */
 // eslint-disable-next-line camelcase
 export const _statistic_build_: typeof statistic = {};
 
@@ -54,7 +54,7 @@ export default function statisticToken<T extends object>(token: T) {
   let flush: (componentName: string, componentToken: Record<string, string | number>) => void =
     noop;
 
-  if (enableStatistic) {
+  if (enableStatistic && typeof Proxy !== 'undefined') {
     tokenKeys = new Set<string>();
 
     proxy = new Proxy(token, {
@@ -67,7 +67,13 @@ export default function statisticToken<T extends object>(token: T) {
     });
 
     flush = (componentName, componentToken) => {
-      statistic[componentName] = { global: Array.from(tokenKeys!), component: componentToken };
+      statistic[componentName] = {
+        global: Array.from(tokenKeys!),
+        component: {
+          ...statistic[componentName]?.component,
+          ...componentToken,
+        },
+      };
     };
   }
 

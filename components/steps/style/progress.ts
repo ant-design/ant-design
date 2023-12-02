@@ -20,7 +20,12 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         paddingInlineStart: token.paddingXXS,
         [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
           top: token.marginXXS,
-          insetInlineStart: token.stepsIconSize / 2 - token.lineWidth + token.paddingXXS,
+          insetInlineStart: token
+            .calc(token.iconSize)
+            .div(2)
+            .sub(token.lineWidth)
+            .add(token.paddingXXS)
+            .equal(),
         },
       },
 
@@ -33,12 +38,17 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       [`&${componentCls}-small${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
         {
-          insetInlineStart: token.stepsSmallIconSize / 2 - token.lineWidth + token.paddingXXS,
+          insetInlineStart: token
+            .calc(token.iconSizeSM)
+            .div(2)
+            .sub(token.lineWidth)
+            .add(token.paddingXXS)
+            .equal(),
         },
 
       [`&${componentCls}-label-vertical`]: {
         [`${componentCls}-item ${componentCls}-item-tail`]: {
-          top: token.margin - 2 * token.lineWidth,
+          top: token.calc(token.margin).sub(token.calc(token.lineWidth).mul(2).equal()).equal(),
         },
       },
 
@@ -47,10 +57,26 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          insetBlockStart:
-            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
-          insetInlineStart:
-            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          insetBlockStart: token
+            .calc(
+              token
+                .calc(token.iconSize)
+                .sub(token.stepsProgressSize)
+                .sub(token.calc(token.lineWidth).mul(2).equal())
+                .equal(),
+            )
+            .div(2)
+            .equal(),
+          insetInlineStart: token
+            .calc(
+              token
+                .calc(token.iconSize)
+                .sub(token.stepsProgressSize)
+                .sub(token.calc(token.lineWidth).mul(2).equal())
+                .equal(),
+            )
+            .div(2)
+            .equal(),
         },
       },
     },

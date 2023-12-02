@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { Cascader } from 'antd';
 
 interface Option {
-  value: string;
-  label: string;
+  value?: string | number | null;
+  label: React.ReactNode;
   children?: Option[];
   isLeaf?: boolean;
-  loading?: boolean;
 }
 
 const optionLists: Option[] = [
@@ -25,17 +24,15 @@ const optionLists: Option[] = [
 const App: React.FC = () => {
   const [options, setOptions] = useState<Option[]>(optionLists);
 
-  const onChange = (value: string[], selectedOptions: Option[]) => {
+  const onChange = (value: (string | number)[], selectedOptions: Option[]) => {
     console.log(value, selectedOptions);
   };
 
   const loadData = (selectedOptions: Option[]) => {
     const targetOption = selectedOptions[selectedOptions.length - 1];
-    targetOption.loading = true;
 
     // load options lazily
     setTimeout(() => {
-      targetOption.loading = false;
       targetOption.children = [
         {
           label: `${targetOption.label} Dynamic 1`,

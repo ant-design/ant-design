@@ -5,9 +5,25 @@ import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
 import { cloneElement } from '../_util/reactNode';
 import Avatar from './avatar';
-import type { AvatarSize } from './SizeContext';
-import { SizeContextProvider } from './SizeContext';
+import AvatarContext from './AvatarContext';
+import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+
+interface ContextProps {
+  children?: React.ReactNode;
+}
+
+const AvatarContextProvider: React.FC<AvatarContextType & ContextProps> = (props) => {
+  const { size, shape } = React.useContext<AvatarContextType>(AvatarContext);
+  const avatarContextValue = React.useMemo<AvatarContextType>(
+    () => ({ size: props.size || size, shape: props.shape || shape }),
+    [props.size, props.shape, size, shape],
+  );
+  return (
+    <AvatarContext.Provider value={avatarContextValue}>{props.children}</AvatarContext.Provider>
+  );
+};
 
 export interface GroupProps {
   className?: string;
@@ -24,6 +40,7 @@ export interface GroupProps {
    * or a custom number size
    * */
   size?: AvatarSize;
+  shape?: 'circle' | 'square';
 }
 
 const Group: React.FC<GroupProps> = (props) => {
@@ -32,30 +49,34 @@ const Group: React.FC<GroupProps> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     rootClassName,
+    style,
     maxCount,
     maxStyle,
     size,
+    shape,
+    maxPopoverPlacement = 'top',
+    maxPopoverTrigger = 'hover',
+    children,
   } = props;
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const cls = classNames(
     groupPrefixCls,
     {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
+    cssVarCls,
     className,
     rootClassName,
     hashId,
   );
 
-  const { children, maxPopoverPlacement = 'top', maxPopoverTrigger = 'hover' } = props;
   const childrenWithProps = toArray(children).map((child, index) =>
-    cloneElement(child, {
-      key: `avatar-key-${index}`,
-    }),
+    cloneElement(child, { key: `avatar-key-${index}` }),
   );
 
   const numOfChildren = childrenWithProps.length;
@@ -73,21 +94,21 @@ const Group: React.FC<GroupProps> = (props) => {
         <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
     );
-    return wrapSSR(
-      <SizeContextProvider size={size}>
-        <div className={cls} style={props.style}>
+    return wrapCSSVar(
+      <AvatarContextProvider shape={shape} size={size}>
+        <div className={cls} style={style}>
           {childrenShow}
         </div>
-      </SizeContextProvider>,
+      </AvatarContextProvider>,
     );
   }
 
-  return wrapSSR(
-    <SizeContextProvider size={size}>
-      <div className={cls} style={props.style}>
+  return wrapCSSVar(
+    <AvatarContextProvider shape={shape} size={size}>
+      <div className={cls} style={style}>
         {childrenWithProps}
       </div>
-    </SizeContextProvider>,
+    </AvatarContextProvider>,
   );
 };
 

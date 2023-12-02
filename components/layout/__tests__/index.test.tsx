@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { act } from 'react-dom/test-utils';
 import { UserOutlined } from '@ant-design/icons';
+import { renderToString } from 'react-dom/server';
+import { act } from 'react-dom/test-utils';
+
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import Menu from '../../menu';
 import { fireEvent, render } from '../../../tests/utils';
+import Menu from '../../menu';
 
 const { Sider, Content, Footer, Header } = Layout;
 
@@ -319,6 +321,7 @@ describe('Sider', () => {
 
   (['Layout', 'Header', 'Footer', 'Sider'] as const).forEach((tag) => {
     const ComponentMap = { Layout, Header, Footer, Sider };
+
     it(`should get ${tag} element from ref`, () => {
       const ref = React.createRef<HTMLDivElement>();
       const onSelect = jest.fn();
@@ -330,5 +333,17 @@ describe('Sider', () => {
       );
       expect(ref.current instanceof HTMLElement).toBe(true);
     });
+  });
+
+  it('auto check hasSider', () => {
+    const htmlContent = renderToString(
+      <Layout>
+        <div />
+        <Sider />
+        <div />
+      </Layout>,
+    );
+
+    expect(htmlContent).toContain('ant-layout-has-sider');
   });
 });

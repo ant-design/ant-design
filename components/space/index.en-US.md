@@ -3,6 +3,7 @@ category: Components
 group: Layout
 title: Space
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
 Set components spacing.
@@ -12,6 +13,11 @@ Set components spacing.
 - Avoid components clinging together and set a unified space.
 - Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
 
+### Difference with Flex component
+
+- Space is used to set the spacing between inline elements. It will add a wrapper element for each child element for inline alignment. Suitable for equidistant arrangement of multiple child elements in rows and columns.
+- Flex is used to set the layout of block-level elements. It does not add a wrapper element. Suitable for layout of child elements in vertical or horizontal direction, and provides more flexibility and control.
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -19,7 +25,6 @@ Set components spacing.
 <code src="./demo/vertical.tsx">Vertical Space</code>
 <code src="./demo/size.tsx">Space Size</code>
 <code src="./demo/align.tsx">Align</code>
-<code src="./demo/customize.tsx">Customize Size</code>
 <code src="./demo/wrap.tsx">Wrap</code>
 <code src="./demo/split.tsx">Split</code>
 <code src="./demo/compact.tsx">Compact Mode for form component</code>
@@ -31,6 +36,8 @@ Set components spacing.
 <code src="./demo/gap-in-line.tsx" debug>Flex gap style</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -53,6 +60,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect
@@ -62,3 +70,14 @@ Use Space.Compact when child form components are compactly connected and the bor
 | block | Option to fit width to its parent\'s width | boolean | false | 4.24.0 |
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+
+### `styles` and `classNames` attribute
+
+<!-- prettier-ignore -->
+| Property | Description | Version |
+| -------- | ------------------------- | ------- |
+| item     | set `Space` child element | 5.6.0   |
+
+## Design Token
+
+<ComponentTokenTable component="Space"></ComponentTokenTable>

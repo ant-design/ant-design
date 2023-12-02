@@ -2,12 +2,12 @@ import * as React from 'react';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import { ConfigContext } from '../config-provider';
 import { RadioOptionTypeContextProvider } from './context';
-import type { RadioChangeEvent } from './interface';
+import type { RadioChangeEvent, RadioRef } from './interface';
 import Radio from './radio';
 
 export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 
-const RadioButton = (props: RadioButtonProps, ref: React.Ref<any>) => {
+const RadioButton: React.ForwardRefRenderFunction<RadioRef, RadioButtonProps> = (props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, ...radioProps } = props;
@@ -20,4 +20,4 @@ const RadioButton = (props: RadioButtonProps, ref: React.Ref<any>) => {
   );
 };
 
-export default React.forwardRef(RadioButton);
+export default React.forwardRef<RadioRef, RadioButtonProps>(RadioButton);

@@ -14,7 +14,7 @@ export default function derivative(token: SeedToken): MapToken {
       const colors = generate(token[colorKey]);
 
       return new Array(10).fill(1).reduce((prev, _, i) => {
-        prev[`${colorKey}-${i + 1}`] = colors[i];
+        prev[`${colorKey}${i + 1}`] = colors[i];
         return prev;
       }, {}) as ColorPalettes;
     })

@@ -1,10 +1,13 @@
+import { blue } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
+
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../theme/internal';
 import { clearFix, textEllipsis } from '../../style';
+import type { GenerateStyle } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
 const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
+  const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
 
@@ -18,9 +21,12 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
       `]: {
         [itemCls]: {
           position: 'relative',
-          height: uploadThumbnailSize + token.lineWidth * 2 + token.paddingXS * 2,
+          height: calc(uploadThumbnailSize)
+            .add(calc(token.lineWidth).mul(2))
+            .add(calc(token.paddingXS).mul(2))
+            .equal(),
           padding: token.paddingXS,
-          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+          border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
           borderRadius: token.borderRadiusLG,
 
           '&:hover': {
@@ -31,7 +37,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
             ...textEllipsis,
             width: uploadThumbnailSize,
             height: uploadThumbnailSize,
-            lineHeight: `${uploadThumbnailSize + token.paddingSM}px`,
+            lineHeight: unit(calc(uploadThumbnailSize).add(token.paddingSM).equal()),
             textAlign: 'center',
             flex: 'none',
 
@@ -50,9 +56,9 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 
           [`${itemCls}-progress`]: {
             bottom: uploadProgressOffset,
-            width: `calc(100% - ${token.paddingSM * 2}px)`,
+            width: `calc(100% - ${unit(calc(token.paddingSM).mul(2).equal())})`,
             marginTop: 0,
-            paddingInlineStart: uploadThumbnailSize + token.paddingXS,
+            paddingInlineStart: calc(uploadThumbnailSize).add(token.paddingXS).equal(),
           },
         },
 
@@ -61,10 +67,10 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 
           // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
           [`${itemCls}-thumbnail ${iconCls}`]: {
-            [`svg path[fill='#e6f7ff']`]: {
+            [`svg path[fill='${blue[0]}']`]: {
               fill: token.colorErrorBg,
             },
-            [`svg path[fill='#1890ff']`]: {
+            [`svg path[fill='${blue.primary}']`]: {
               fill: token.colorError,
             },
           },
@@ -89,7 +95,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
 };
 
 const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, iconCls, fontSizeLG, colorTextLightSolid } = token;
+  const { componentCls, iconCls, fontSizeLG, colorTextLightSolid, calc } = token;
 
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
@@ -113,7 +119,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
         textAlign: 'center',
         verticalAlign: 'top',
         backgroundColor: token.colorFillAlter,
-        border: `${token.lineWidth}px dashed ${token.colorBorder}`,
+        border: `${unit(token.lineWidth)} dashed ${token.colorBorder}`,
         borderRadius: token.borderRadiusLG,
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -137,8 +143,8 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           display: 'inline-block',
           width: uploadPictureCardSize,
           height: uploadPictureCardSize,
-          marginBlock: `0 ${token.marginXS}px`,
-          marginInline: `0 ${token.marginXS}px`,
+          marginBlock: `0 ${unit(token.marginXS)}`,
+          marginInline: `0 ${unit(token.marginXS)}`,
           verticalAlign: 'top',
         },
 
@@ -153,8 +159,8 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           '&::before': {
             position: 'absolute',
             zIndex: 1,
-            width: `calc(100% - ${token.paddingXS * 2}px)`,
-            height: `calc(100% - ${token.paddingXS * 2}px)`,
+            width: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
+            height: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
             backgroundColor: token.colorBgMask,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
@@ -181,10 +187,14 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
             zIndex: 10,
             width: fontSizeLG,
-            margin: `0 ${token.marginXXS}px`,
+            margin: `0 ${unit(token.marginXXS)}`,
             fontSize: fontSizeLG,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
+
+            svg: {
+              verticalAlign: 'baseline',
+            },
           },
         },
 
@@ -214,7 +224,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           position: 'absolute',
           bottom: token.margin,
           display: 'block',
-          width: `calc(100% - ${token.paddingXS * 2}px)`,
+          width: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
         },
 
         [`${itemCls}-uploading`]: {
@@ -229,7 +239,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
 
         [`${itemCls}-progress`]: {
           bottom: token.marginXL,
-          width: `calc(100% - ${token.paddingXS * 2}px)`,
+          width: `calc(100% - ${unit(calc(token.paddingXS).mul(2).equal())})`,
           paddingInlineStart: 0,
         },
       },

@@ -4,6 +4,7 @@ subtitle: 气泡卡片
 group: 数据展示
 title: Popover
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XhL3QpRw92kAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*RMP_TrdZ3nsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -27,8 +28,11 @@ demo:
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 | 参数    | 说明     | 类型                         | 默认值 | 版本 |
 | ------- | -------- | ---------------------------- | ------ | ---- |
@@ -40,3 +44,11 @@ demo:
 ## 注意
 
 请确保 `Popover` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onFocus`、`onClick` 事件。
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Popover"></ComponentTokenTable>
+
+## FAQ
+
+请参考 [Tooltip FAQ](/components/tooltip#faq)。

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.0.0/schema.json",
+  "formatter": {
+    "enabled": true,
+    "ignore": ["./dist/*", "./es/**/*", "./lib/**/*", "_site/**/*"],
+    "indentStyle": "space",
+    "lineWidth": 100,
+    "indentSize": 2
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  }
+}

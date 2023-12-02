@@ -1,10 +1,10 @@
-import { css, Global } from '@emotion/react';
 import React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-import useSiteToken from '../../../hooks/useSiteToken';
+import { css, Global } from '@emotion/react';
+import { useTheme } from 'antd-style';
 
-export default () => {
-  const { token } = useSiteToken();
+const GlobalStyle: React.FC = () => {
+  const token = useTheme();
 
   const { antCls } = token;
 
@@ -28,9 +28,17 @@ export default () => {
           max-height: 100%;
         }
 
+        .markdown > a > img,
+        .markdown > img {
+          display: block;
+          margin: 0 auto;
+        }
+
         .markdown p > img {
-          margin: 34px 0;
+          margin: 34px auto;
           box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
+          max-width: 1024px;
+          display: block;
         }
 
         .markdown p > img.markdown-inline-image {
@@ -178,6 +186,17 @@ export default () => {
             padding: 12px 20px;
             font-size: 13px;
             line-height: 2;
+          }
+        }
+        .pic-plus {
+          & > * {
+            display: inline-block !important;
+            vertical-align: middle;
+          }
+          span {
+            margin: 0 20px;
+            color: #aaa;
+            font-size: 30px;
           }
         }
 
@@ -328,19 +347,18 @@ export default () => {
               &:first-child {
                 width: 18%;
                 min-width: 58px;
-                color: #595959;
+                color: ${token.colorText};
                 font-weight: 600;
                 white-space: nowrap;
               }
 
               &:nth-child(2) {
-                width: 55%;
                 min-width: 160px;
               }
 
               &:nth-child(3) {
                 width: 22%;
-                color: ${token['magenta-7']};
+                color: ${token.magenta7};
                 font-size: ${Math.max(token.fontSize - 1, 12)}px;
               }
 
@@ -455,3 +473,5 @@ export default () => {
     />
   );
 };
+
+export default GlobalStyle;

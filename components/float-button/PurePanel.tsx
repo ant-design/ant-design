@@ -1,11 +1,11 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import BackTop from './BackTop';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
-import BackTop from './BackTop';
-import type { FloatButtonProps, FloatButtonGroupProps } from './interface';
-import { ConfigContext } from '../config-provider';
+import type { FloatButtonGroupProps, FloatButtonProps } from './interface';
 
 export interface PureFloatButtonProps extends Omit<FloatButtonProps, 'target'> {
   backTop?: boolean;
@@ -21,7 +21,8 @@ export interface PurePanelProps
 const PureFloatButton: React.FC<PureFloatButtonProps> = ({ backTop, ...props }) =>
   backTop ? <BackTop {...props} visibilityHeight={0} /> : <FloatButton {...props} />;
 
-function PurePanel({ className, items, ...props }: PurePanelProps) {
+/** @private Internal Component. Do not use in your production. */
+const PurePanel: React.FC<PurePanelProps> = ({ className, items, ...props }) => {
   const { prefixCls: customizePrefixCls } = props;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -39,6 +40,6 @@ function PurePanel({ className, items, ...props }: PurePanelProps) {
   }
 
   return <PureFloatButton className={classNames(className, pureCls)} {...props} />;
-}
+};
 
-export default React.memo(PurePanel);
+export default PurePanel;

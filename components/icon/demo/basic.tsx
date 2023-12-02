@@ -1,3 +1,7 @@
+/**
+ * live: false
+ */
+
 import React from 'react';
 import {
   HomeOutlined,

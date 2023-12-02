@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import type { TimelineItemProps } from './TimelineItem';
-import TimelineItemList from './TimelineItemList';
-import TimelineItem from './TimelineItem';
-import warning from '../_util/warning';
-import useItems from './useItems';
+import classNames from 'classnames';
 
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { TimelineItemProps } from './TimelineItem';
+import TimelineItem from './TimelineItem';
+import TimelineItemList from './TimelineItemList';
+import useItems from './useItems';
 
 export interface TimelineProps {
   prefixCls?: string;
@@ -28,23 +30,28 @@ type CompoundedComponent = React.FC<TimelineProps> & {
 };
 
 const Timeline: CompoundedComponent = (props) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, children, items, ...restProps } = props;
+  const { getPrefixCls, direction, timeline } = React.useContext(ConfigContext);
+  const { prefixCls: customizePrefixCls, children, items, className, style, ...restProps } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
   // =================== Warning =====================
   if (process.env.NODE_ENV !== 'production') {
-    warning(!children, 'Timeline', '`Timeline.Item` is deprecated. Please use `items` instead.');
+    const warning = devUseWarning('Timeline');
+
+    warning.deprecated(!children, 'Timeline.Item', 'items');
   }
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mergedItems: TimelineItemProps[] = useItems(items, children);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <TimelineItemList
       {...restProps}
+      className={classNames(timeline?.className, className, rootCls)}
+      style={{ ...timeline?.style, ...style }}
       prefixCls={prefixCls}
       direction={direction}
       items={mergedItems}

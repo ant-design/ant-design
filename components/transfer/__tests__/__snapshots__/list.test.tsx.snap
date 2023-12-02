@@ -11,13 +11,12 @@ exports[`Transfer.List should render correctly 1`] = `
       class="ant-checkbox-wrapper ant-transfer-list-checkbox"
     >
       <span
-        class="ant-checkbox ant-checkbox-indeterminate"
+        class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
       >
         <input
           aria-checked="mixed"
           class="ant-checkbox-input"
           type="checkbox"
-          value=""
         />
         <span
           class="ant-checkbox-inner"
@@ -65,13 +64,12 @@ exports[`Transfer.List should render correctly 1`] = `
           class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox"
         >
           <span
-            class="ant-checkbox ant-checkbox-checked"
+            class="ant-checkbox ant-wave-target ant-checkbox-checked"
           >
             <input
               checked=""
               class="ant-checkbox-input"
               type="checkbox"
-              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -89,12 +87,11 @@ exports[`Transfer.List should render correctly 1`] = `
           class="ant-checkbox-wrapper ant-transfer-list-checkbox"
         >
           <span
-            class="ant-checkbox"
+            class="ant-checkbox ant-wave-target"
           >
             <input
               class="ant-checkbox-input"
               type="checkbox"
-              value=""
             />
             <span
               class="ant-checkbox-inner"
@@ -112,13 +109,12 @@ exports[`Transfer.List should render correctly 1`] = `
           class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox"
         >
           <span
-            class="ant-checkbox ant-checkbox-disabled"
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
           >
             <input
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-              value=""
             />
             <span
               class="ant-checkbox-inner"

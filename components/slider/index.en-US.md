@@ -3,6 +3,7 @@ category: Components
 group: Data Entry
 title: Slider
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*_4heQaUrFn4AAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*XkgXTaudeosAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -25,12 +26,17 @@ To input a value in a range.
 <code src="./demo/vertical.tsx">Vertical</code>
 <code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
 <code src="./demo/reverse.tsx">Reverse</code>
-<code src="./demo/dragableTrack.tsx">Draggable track</code>
+<code src="./demo/draggableTrack.tsx">Draggable track</code>
+<code src="./demo/multiple.tsx">Multiple handles</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
+Common props ref：[Common props](/docs/react/common-props)
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoAdjustOverflow | Whether to automatically adjust the popup position | boolean | true | 5.8.0 |
 | autoFocus | Whether get focus when component mounted | boolean | false |  |
 | defaultValue | The default value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | If true, the slider will not be intractable | boolean | false |  |
@@ -46,11 +52,17 @@ To input a value in a range.
 | tooltip | The tooltip relate props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
 | vertical | If true, the slider will be vertical | boolean | false |  |
-| onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
+| onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
-| trackStyle | The style of slider track (the active range) | CSSProperties | - |  |
-| railStyle | The style of slider rail (the background) | CSSProperties | - |  |
-| handleStyle | The style of slider handle | CSSProperties | - |  |
+
+### `styles` 和 `classNames` 属性
+
+| Property | Description                                 | Version |
+| -------- | ------------------------------------------- | ------- |
+| track    | The track between handle to handle in range | 5.10.0  |
+| tracks   | Who track in range                          | 5.10.0  |
+| rail     | Background rail                             | 5.10.0  |
+| handle   | The handle pointer                          | 5.10.0  |
 
 ### range
 
@@ -73,3 +85,7 @@ To input a value in a range.
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Design Token
+
+<ComponentTokenTable component="Slider"></ComponentTokenTable>

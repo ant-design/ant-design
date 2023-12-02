@@ -1,15 +1,15 @@
-/* eslint-disable react/no-string-refs, react/prefer-es6-class */
-import produce from 'immer';
-import { cloneDeep } from 'lodash';
-import type { UploadRequestOption } from 'rc-upload/lib/interface';
 import React, { useEffect, useRef } from 'react';
+import { produce } from 'immer';
+import cloneDeep from 'lodash/cloneDeep';
+import type { UploadRequestOption } from 'rc-upload/lib/interface';
+
 import type { RcFile, UploadFile, UploadProps } from '..';
 import Upload from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer, act } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Form from '../../form';
-import { resetWarned } from '../../_util/warning';
 import { getFileItem, isImageUrl, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
@@ -481,7 +481,7 @@ describe('Upload', () => {
     // Delay return true for remove
     await waitFakeTimer();
     await act(async () => {
-      await removePromise(true);
+      removePromise(true);
     });
 
     expect(onChange).toHaveBeenCalled();
@@ -772,6 +772,48 @@ describe('Upload', () => {
           name: 'foo.png',
         }),
       ]);
+
+      // Only trigger for file in `maxCount`
+      onChange.mock.calls.forEach((args) => {
+        expect(args[0].file.name).toBe('foo.png');
+      });
+    });
+
+    // https://github.com/ant-design/ant-design/issues/43190
+    it('should trigger onChange when remove', async () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Upload
+          onChange={onChange}
+          maxCount={2}
+          defaultFileList={[
+            {
+              uid: 'bamboo',
+              name: 'bamboo.png',
+            },
+            {
+              uid: 'little',
+              name: 'little.png',
+            },
+          ]}
+          showUploadList
+        >
+          <button type="button">upload</button>
+        </Upload>,
+      );
+
+      // Click delete
+      fireEvent.click(container.querySelector('.ant-upload-list-item-action')!);
+
+      await waitFakeTimer();
+
+      expect(onChange).toHaveBeenCalledWith(
+        expect.objectContaining({
+          // Have 1 file
+          fileList: [expect.anything()],
+        }),
+      );
     });
   });
 
@@ -945,5 +987,52 @@ describe('Upload', () => {
         ],
       }),
     );
+  });
+
+  it('prevent auto batch in control mode', async () => {
+    const mockFile1 = new File(['bamboo'], 'bamboo.png', { type: 'image/png' });
+    const mockFile2 = new File(['light'], 'light.png', { type: 'image/png' });
+
+    const customRequest = jest.fn(async (options) => {
+      // stop here to make sure new fileList has been set and passed to Upload
+      // eslint-disable-next-line no-promise-executor-return
+      await new Promise((resolve) => setTimeout(resolve, 0));
+      options.onProgress({ percent: 0 });
+      const url = Promise.resolve<string>('https://ant.design');
+      options.onProgress({ percent: 100 });
+      options.onSuccess({}, { ...options.file, url });
+    });
+
+    let fileListOut: UploadProps['fileList'] = [];
+
+    const Demo: React.FC = () => {
+      const [fileList, setFileList] = React.useState<UploadFile[]>([]);
+
+      const onChange: UploadProps['onChange'] = async (e) => {
+        const newFileList = Array.isArray(e) ? e : e.fileList;
+        setFileList(newFileList);
+
+        fileListOut = newFileList;
+      };
+
+      return (
+        <Upload customRequest={customRequest} onChange={onChange} fileList={fileList}>
+          <button type="button">Upload</button>
+        </Upload>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    fireEvent.change(container.querySelector<HTMLInputElement>('input')!, {
+      target: { files: [mockFile1, mockFile2] },
+    });
+
+    // React 18 is async now
+    await waitFakeTimer();
+
+    fileListOut.forEach((file) => {
+      expect(file.status).toBe('done');
+    });
   });
 });

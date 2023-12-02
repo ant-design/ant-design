@@ -3,12 +3,12 @@ category: Components
 group: 数据录入
 title: DatePicker
 subtitle: 日期选择框
+description: 输入或选择日期的控件。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xXA9TJ8BTioAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3OpRQKcygo8AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
-
-输入或选择日期的控件。
 
 ## 何时使用
 
@@ -25,10 +25,10 @@ demo:
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-date.tsx">不可选择日期和时间</code>
 <code src="./demo/select-in-range.tsx">选择不超过七天的范围</code>
-<code src="./demo/presetted-ranges.tsx">预设范围</code>
+<code src="./demo/preset-ranges.tsx">预设范围</code>
 <code src="./demo/extra-footer.tsx">额外的页脚</code>
 <code src="./demo/size.tsx">三种大小</code>
-<code src="./demo/date-render.tsx">定制日期单元格</code>
+<code src="./demo/cell-render.tsx">定制单元格</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/bordered.tsx">无边框</code>
 <code src="./demo/placement.tsx">弹出位置</code>
@@ -36,8 +36,11 @@ demo:
 <code src="./demo/start-end.tsx" debug>自定义日期范围选择</code>
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 日期类组件包括以下五种形式。
 
@@ -54,18 +57,26 @@ demo:
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
+<!-- prettier-ignore -->
+:::warning
+在搭配 Nextjs 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。
+这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
+:::
+
 ```jsx
-import 'dayjs/locale/zh-cn';
 import locale from 'antd/es/date-picker/locale/zh_CN';
+
+import 'dayjs/locale/zh-cn';
 
 <DatePicker locale={locale} />;
 ```
 
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
 import locale from 'antd/locale/zh_CN';
+import dayjs from 'dayjs';
+
+import 'dayjs/locale/zh-cn';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={dayjs('2015-01-01', 'YYYY-MM-DD')} />
@@ -78,13 +89,16 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 是否显示清除按钮 | boolean | true |  |
+| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
 | className | 选择器 className | string | - |  |
-| dateRender | 自定义日期单元格的内容 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - |  |
+| dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
+| changeOnBlur | 失去焦点时触发 `change` 事件，例如 datetime 下不再需要点击确认按钮 | boolean | false | 5.5.0 |
+| cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | disabled | 禁用 | boolean | false |  |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs) => boolean | - |  |
+| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | popupClassName | 额外的弹出日历 className | string | - | 4.23.0 |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
@@ -98,13 +112,13 @@ import locale from 'antd/locale/zh_CN';
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
-| presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/) }[] | - |  |
+| presets | 预设时间范围快捷选择, 自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: Dayjs \| (() => Dayjs) }\[] | - |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
-| superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
-| superPrevIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
+| superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
+| superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 
@@ -119,10 +133,9 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期，如果开始时间或结束时间为 `null` 或者 `undefined`，日期范围将是一个开区间 | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | 不可选择的时间 | function(date) | - |  |
-| format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs](https://day.js.org/)，支持[自定义格式](#components-date-picker-demo-format) | string \| (value: dayjs) => string \| (string \| (value: dayjs) => string)\[] | `YYYY-MM-DD` |  |
+| format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
@@ -137,9 +150,8 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
-| format | 展示的日期格式，配置参考 [dayjs](https://day.js.org/) | string | `YYYY` |  |
+| format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
@@ -150,9 +162,8 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
-| format | 展示的日期格式，配置参考 [dayjs](https://day.js.org/) | string | `YYYY-\QQ` |  |
+| format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-\QQ` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
@@ -161,10 +172,8 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
-| format | 展示的日期格式，配置参考 [dayjs](https://day.js.org/) | string | `YYYY-MM` |  |
-| monthCellRender | 自定义的月份内容渲染方法 | function(date, locale): ReactNode | - |  |
+| format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
@@ -173,9 +182,8 @@ import locale from 'antd/locale/zh_CN';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/) | - |  |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/) | - |  |
-| format | 展示的日期格式，配置参考 [dayjs](https://day.js.org/) | string | `YYYY-wo` |  |
+| format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-wo` |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs, dateString: string) | - |  |
@@ -185,13 +193,13 @@ import locale from 'antd/locale/zh_CN';
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
-| dateRender | 自定义日期单元格的内容。`info` 参数自 4.3.0 添加 | function(currentDate: dayjs, today: dayjs, info: { range: `start` \| `end` }) => React.ReactNode | - |  |
-| defaultPickerValue | 默认面板日期 | [dayjs](https://day.js.org/)\[] | - |  |
+| dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
+| cellRender | 自定义单元格的内容。 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | disabled | 禁用起始项 | \[boolean, boolean] | - |  |
 | disabledTime | 不可选择的时间 | function(date: dayjs, partial: `start` \| `end`) | - |  |
-| format | 展示的日期格式 | string | `YYYY-MM-DD HH:mm:ss` |  |
-| presets | 预设时间范围快捷选择 | { label: React.ReactNode, value: [dayjs](https://day.js.org/)\[] }[] | - |  |
+| format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
+| presets | 预设时间范围快捷选择，自 `5.8.0` 起 value 支持函数返回值 | { label: React.ReactNode, value: (Dayjs \| (() => Dayjs))\[] }\[] | - |  |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
 | separator | 设置分隔符 | React.ReactNode | `<SwapRightOutlined />` |  |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
@@ -200,11 +208,30 @@ import locale from 'antd/locale/zh_CN';
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
 
+#### formatType
+
+```typescript
+import type { Dayjs } from 'dayjs';
+
+type Generic = string;
+type GenericFn = (value: Dayjs) => string;
+
+export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
+```
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="DatePicker"></ComponentTokenTable>
+
 ## FAQ
 
 ### 当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？
 
 请参考[常见问答](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)
+
+### 为何日期选择年份后返回的是日期面板而不是月份面板？
+
+当用户选择完年份后，系统会直接切换至日期面板，而非显式提供月份选择。这样做的设计在于用户只需进行一次点击即可完成年份修改，无需再次点击进入月份选择界面，从而减少了用户的操作负担，同时也避免需要额外感知月份的记忆负担。
 
 ### 如何在 DatePicker 中使用自定义日期库（如 Moment.js ）？
 
@@ -220,9 +247,12 @@ import locale from 'antd/locale/zh_CN';
 
 ```js
 import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
-import 'dayjs/plugin/updateLocale';
 
+import 'dayjs/locale/zh-cn';
+
+import updateLocale from 'dayjs/plugin/updateLocale';
+
+dayjs.extend(updateLocale);
 dayjs.updateLocale('zh-cn', {
   weekStart: 0,
 });

@@ -2,7 +2,7 @@
 import React from 'react';
 import Upload from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { fireEvent, render, waitFor, act } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { setup, teardown } from './mock';
 
 describe('Upload.Dragger', () => {

@@ -1,6 +1,8 @@
-import classNames from 'classnames';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
+import classNames from 'classnames';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { FormItemStatusContextProps } from '../form/context';
 import { FormItemInputContext } from '../form/context';
@@ -21,10 +23,10 @@ export interface GroupProps {
 
 const Group: React.FC<GroupProps> = (props) => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '' } = props;
+  const { prefixCls: customizePrefixCls, className } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapSSR, hashId] = useStyle(inputPrefixCls);
+  const [wrapCSSVar, hashId] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -47,7 +49,13 @@ const Group: React.FC<GroupProps> = (props) => {
     [formItemContext],
   );
 
-  return wrapSSR(
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Input.Group');
+
+    warning.deprecated(false, 'Input.Group', 'Space.Compact');
+  }
+
+  return wrapCSSVar(
     <span
       className={cls}
       style={props.style}

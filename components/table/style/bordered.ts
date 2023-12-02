@@ -1,10 +1,20 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-  const tableBorder = `${token.lineWidth}px ${token.lineType} ${token.tableBorderColor}`;
+  const {
+    componentCls,
+    lineWidth,
+    lineType,
+    tableBorderColor,
+    tableHeaderBg,
+    tablePaddingVertical,
+    tablePaddingHorizontal,
+    calc,
+  } = token;
+  const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
 
   const getSizeBorderStyle = (
     size: 'small' | 'middle',
@@ -14,9 +24,13 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`&${componentCls}-${size}`]: {
       [`> ${componentCls}-container`]: {
         [`> ${componentCls}-content, > ${componentCls}-body`]: {
-          '> table > tbody > tr > td': {
+          [`
+            > table > tbody > tr > th,
+            > table > tbody > tr > td
+          `]: {
             [`> ${componentCls}-expanded-row-fixed`]: {
-              margin: `-${paddingVertical}px -${paddingHorizontal + token.lineWidth}px`,
+              margin: `${unit(calc(paddingVertical).mul(-1).equal())}
+              ${unit(calc(calc(paddingHorizontal).add(lineWidth)).mul(-1).equal())}`,
             },
           },
         },
@@ -36,6 +50,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         // ============================ Content ============================
         [`> ${componentCls}-container`]: {
           borderInlineStart: tableBorder,
+          borderTop: tableBorder,
 
           [`
             > ${componentCls}-content,
@@ -47,6 +62,8 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               // ============================= Cell =============================
               [`
                 > thead > tr > th,
+                > thead > tr > td,
+                > tbody > tr > th,
                 > tbody > tr > td,
                 > tfoot > tr > th,
                 > tfoot > tr > td
@@ -77,31 +94,24 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
 
               // ========================== Expandable ==========================
-              '> tbody > tr > td': {
+              [`
+                > tbody > tr > th,
+                > tbody > tr > td
+              `]: {
                 [`> ${componentCls}-expanded-row-fixed`]: {
-                  margin: `-${token.tablePaddingVertical}px -${
-                    token.tablePaddingHorizontal + token.lineWidth
-                  }px`,
-
+                  margin: `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
+                    calc(calc(tablePaddingHorizontal).add(lineWidth)).mul(-1).equal(),
+                  )}`,
                   '&::after': {
                     position: 'absolute',
                     top: 0,
-                    insetInlineEnd: token.lineWidth,
+                    insetInlineEnd: lineWidth,
                     bottom: 0,
                     borderInlineEnd: tableBorder,
                     content: '""',
                   },
                 },
               },
-            },
-          },
-
-          [`
-            > ${componentCls}-content,
-            > ${componentCls}-header
-          `]: {
-            '> table': {
-              borderTop: tableBorder,
             },
           },
         },
@@ -114,7 +124,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 > tr${componentCls}-expanded-row,
                 > tr${componentCls}-placeholder
               `]: {
-                '> td': {
+                [`> th, > td`]: {
                   borderInlineEnd: 0,
                 },
               },
@@ -149,8 +159,12 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
         // https://github.com/ant-design/ant-design/issues/35577
         '&-scrollbar:not([rowspan])': {
-          boxShadow: `0 ${token.lineWidth}px 0 ${token.lineWidth}px ${token.tableHeaderBg}`,
+          boxShadow: `0 ${unit(lineWidth)} 0 ${unit(lineWidth)} ${tableHeaderBg}`,
         },
+      },
+
+      [`${componentCls}-bordered ${componentCls}-cell-scrollbar`]: {
+        borderInlineEnd: tableBorder,
       },
     },
   };

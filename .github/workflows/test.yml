@@ -17,7 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: cache package-lock.json
         uses: actions/cache@v3
@@ -49,7 +53,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -71,7 +79,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -84,9 +96,6 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: check demo
-        run: node ./scripts/check-demo.js
     needs: setup
 
   ################################ Dist ################################
@@ -95,7 +104,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -116,9 +129,10 @@ jobs:
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: CI=1 npm run dist
+        run: npm run dist
         env:
-          NODE_OPTIONS: --max_old_space_size=4096
+          NODE_OPTIONS: "--max_old_space_size=4096"
+          CI: 1
     needs: setup
 
   ################################ Test ################################
@@ -127,14 +141,18 @@ jobs:
     strategy:
       matrix:
         react: ['16', '17', '18']
-        module: ['dom', 'node', 'dist']
+        module: ['dom', 'node', 'dist', 'dist-min']
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -161,7 +179,7 @@ jobs:
         run: npm run install-react-18
 
       - name: restore cache from dist
-        if: ${{ matrix.module == 'dist' }}
+        if: ${{ matrix.module == 'dist' || matrix.module == 'dist-min' }}
         uses: actions/cache@v3
         with:
           path: dist
@@ -170,6 +188,12 @@ jobs:
       - name: check
         if: ${{ matrix.module == 'dist' }}
         run: node ./tests/dekko/dist.test.js
+
+      - name: check use client
+        if: ${{ matrix.module == 'dist' }}
+        run: node ./tests/dekko/use-client.test.js
+        env:
+          LIB_DIR: dist
 
       # dom test
       - name: dom test
@@ -200,6 +224,13 @@ jobs:
         run: npm test
         env:
           LIB_DIR: dist
+
+      # dist min test
+      - name: dist-min test
+        if: ${{ matrix.module == 'dist-min' }}
+        run: npm test
+        env:
+          LIB_DIR: dist-min
     needs: [setup, dist]
 
   ############################ Test Coverage ###########################
@@ -208,7 +239,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: [normal-test]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - uses: actions/download-artifact@v3
         with:
           name: coverage-artifacts
@@ -229,7 +265,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v3
@@ -260,6 +300,10 @@ jobs:
 
       - name: check
         run: node ./tests/dekko/lib.test.js
+
+      - name: check use client
+        run: node ./tests/dekko/use-client.test.js
+
     needs: setup
 
   compiled-module-test:
@@ -276,7 +320,11 @@ jobs:
       - name: checkout
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
       - name: restore cache from package-lock.json
         # lib only run in master branch not in pull request

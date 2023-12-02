@@ -1,9 +1,9 @@
 import React from 'react';
-import DropdownButton from '../dropdown-button';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render, waitFakeTimer } from '../../../tests/utils';
 import type { DropdownProps } from '../dropdown';
-import { render } from '../../../tests/utils';
+import DropdownButton from '../dropdown-button';
 
 let dropdownProps: DropdownProps;
 
@@ -15,7 +15,12 @@ jest.mock('../dropdown', () => {
   const MockedDropdown: React.FC<DropdownProps> & {
     Button: typeof ActualDropdownComponent.Button;
   } = (props) => {
-    dropdownProps = props;
+    const clone: Record<string, any> = {};
+    Object.keys(props).forEach((key: keyof typeof props) => {
+      clone[key] = props[key];
+    });
+
+    dropdownProps = clone;
     const { children, ...restProps } = props;
     return h.createElement(ActualDropdownComponent, { ...restProps }, children);
   };
@@ -150,5 +155,18 @@ describe('DropdownButton', () => {
     const dropdownRender = jest.fn((menu) => <div>Custom Menu {menu}</div>);
     render(<DropdownButton open dropdownRender={dropdownRender} />);
     expect(dropdownRender).toHaveBeenCalled();
+  });
+
+  it('should support focus menu when set autoFocus', async () => {
+    jest.useFakeTimers();
+    const items = [
+      {
+        label: 'foo',
+        key: '1',
+      },
+    ];
+    const { container } = render(<DropdownButton open autoFocus menu={{ items }} />);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-dropdown-menu-item-active')).toBeTruthy();
   });
 });

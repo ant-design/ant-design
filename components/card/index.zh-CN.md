@@ -4,6 +4,7 @@ group: 数据展示
 title: Card
 subtitle: 卡片
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 通用卡片容器。
@@ -25,8 +26,11 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAA
 <code src="./demo/inner.tsx">内部卡片</code>
 <code src="./demo/tabs.tsx">带页签的卡片</code>
 <code src="./demo/meta.tsx">支持更多内容配置</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
+
+通用属性参考：[通用属性](/docs/react/common-props)
 
 ```jsx
 <Card title="卡片标题">卡片内容</Card>
@@ -48,7 +52,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAA
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
 | size | card 的尺寸 | `default` \| `small` | `default` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
-| tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
+| tabList | 页签标题列表 | [TabItemType](/components/tabs#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
@@ -71,3 +75,7 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VXtCTp93KPAAAAAAAA
 | description | 描述内容           | ReactNode     | -      |      |
 | style       | 定义容器类名的样式 | CSSProperties | -      |      |
 | title       | 标题内容           | ReactNode     | -      |      |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Card"></ComponentTokenTable>

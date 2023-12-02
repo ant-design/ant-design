@@ -1,15 +1,18 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
-import { ConfigContext } from '../config-provider';
-import useBreakpoint from '../grid/hooks/useBreakpoint';
+
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
-import warning from '../_util/warning';
-import type { AvatarSize } from './SizeContext';
-import SizeContext from './SizeContext';
+import { devUseWarning } from '../_util/warning';
+import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
+import type { AvatarContextType, AvatarSize } from './AvatarContext';
+import AvatarContext from './AvatarContext';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -24,7 +27,7 @@ export interface AvatarProps {
   src?: React.ReactNode;
   /** Srcset of image avatar */
   srcSet?: string;
-  draggable?: boolean;
+  draggable?: boolean | 'true' | 'false';
   /** Icon to be used in avatar */
   icon?: React.ReactNode;
   style?: React.CSSProperties;
@@ -36,7 +39,7 @@ export interface AvatarProps {
   crossOrigin?: '' | 'anonymous' | 'use-credentials';
   onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
   /* callback when img load error */
-  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self */
+  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by yourself */
   onError?: () => boolean;
 }
 
@@ -44,8 +47,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   props,
   ref,
 ) => {
-  const groupSize = React.useContext(SizeContext);
-
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
   const [isImgExist, setIsImgExist] = React.useState(true);
@@ -54,7 +55,9 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   const avatarChildrenRef = React.useRef<HTMLSpanElement>(null);
   const avatarNodeMergeRef = composeRef<HTMLSpanElement>(ref, avatarNodeRef);
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, avatar } = React.useContext(ConfigContext);
+
+  const avatarCtx = React.useContext<AvatarContextType>(AvatarContext);
 
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {
@@ -80,13 +83,11 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     setScale(1);
   }, [props.src]);
 
-  React.useEffect(() => {
-    setScaleParam();
-  }, [props.gap]);
+  React.useEffect(setScaleParam, [props.gap]);
 
   const handleImgLoadError = () => {
     const { onError } = props;
-    const errorFlag = onError ? onError() : undefined;
+    const errorFlag = onError?.();
     if (errorFlag !== false) {
       setIsImgExist(false);
     }
@@ -94,8 +95,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const {
     prefixCls: customizePrefixCls,
-    shape = 'circle',
-    size: customSize = 'default',
+    shape,
+    size: customSize,
     src,
     srcSet,
     icon,
@@ -108,18 +109,19 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const size = customSize === 'default' ? groupSize : customSize;
+  const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'default');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
   );
   const screens = useBreakpoint(needResponsive);
-  const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {
+  const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
     if (typeof size !== 'object') {
       return {};
     }
 
     const currentBreakpoint: Breakpoint = responsiveArray.find((screen) => screens[screen])!;
+
     const currentSize = size[currentBreakpoint];
 
     return currentSize
@@ -127,19 +129,24 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
           width: currentSize,
           height: currentSize,
           lineHeight: `${currentSize}px`,
-          fontSize: icon ? currentSize / 2 : 18,
+          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size]);
 
-  warning(
-    !(typeof icon === 'string' && icon.length > 2),
-    'Avatar',
-    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-  );
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Avatar');
+
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'breaking',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+  }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -148,14 +155,18 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const hasImageElement = React.isValidElement(src);
 
+  const mergedShape = shape || avatarCtx?.shape || 'circle';
+
   const classString = classNames(
     prefixCls,
     sizeCls,
+    avatar?.className,
+    `${prefixCls}-${mergedShape}`,
     {
-      [`${prefixCls}-${shape}`]: !!shape,
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: !!icon,
     },
+    cssVarCls,
     className,
     rootClassName,
     hashId,
@@ -226,10 +237,10 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   delete others.onError;
   delete others.gap;
 
-  return wrapSSR(
+  return wrapCSSVar(
     <span
       {...others}
-      style={{ ...sizeStyle, ...responsiveSizeStyle, ...others.style }}
+      style={{ ...sizeStyle, ...responsiveSizeStyle, ...avatar?.style, ...others.style }}
       className={classString}
       ref={avatarNodeMergeRef}
     >

@@ -65,7 +65,7 @@ describe('Badge', () => {
     expect(container.querySelectorAll('.ant-badge-dot').length).toBe(0);
   });
 
-  it('should have an overriden title attribute', () => {
+  it('should have an overridden title attribute', () => {
     const { container } = render(<Badge count={10} title="Custom title" />);
     expect((container.querySelector('.ant-scroll-number')! as HTMLElement).title).toEqual(
       'Custom title',
@@ -85,7 +85,7 @@ describe('Badge', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-badge')!);
       jest.runAllTimers();
     });
-    expect((container.firstChild! as HTMLElement).classList).toContain('ant-tooltip-open');
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
   });
 
   it('should render when count is changed', () => {
@@ -220,5 +220,33 @@ describe('Badge', () => {
     expect(container).toMatchSnapshot();
     expect(container.querySelectorAll('.ant-badge-count')).toHaveLength(4);
     expect(container.querySelectorAll('[title="0"]')).toHaveLength(4);
+  });
+
+  it('should support classNames and styles', () => {
+    const { container } = render(
+      <Badge
+        count={10}
+        classNames={{
+          root: 'test-root',
+          indicator: 'test-indicator',
+        }}
+        styles={{
+          root: { backgroundColor: 'yellow' },
+          indicator: { backgroundColor: 'blue' },
+        }}
+      >
+        test
+      </Badge>,
+    );
+
+    const element = container.querySelector<HTMLSpanElement>('.ant-badge');
+
+    // classNames
+    expect(element).toHaveClass('test-root');
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveClass('test-indicator');
+
+    // styles
+    expect(element).toHaveStyle({ backgroundColor: 'yellow' });
+    expect(element?.querySelector<HTMLElement>('sup')).toHaveStyle({ backgroundColor: 'blue' });
   });
 });

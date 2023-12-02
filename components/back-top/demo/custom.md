@@ -8,4 +8,4 @@
 
 You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
 
-> Note: `BackTop` expects a element could accept `onClick` propety as children. If you put a text directly as children the component will not function properly.
+> Note: `BackTop` expects a element could accept `onClick` property as children. If you put a text directly as children the component will not function properly.

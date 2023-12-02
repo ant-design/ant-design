@@ -3,6 +3,7 @@ category: Components
 group: Data Display
 title: Timeline
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FkTySqNt3sYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yIl9S4hAIBcAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -40,8 +41,11 @@ return (
 <code src="./demo/right.tsx">Right alternate</code>
 <code src="./demo/label.tsx">Label</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
+
+Common props ref：[Common props](/docs/react/common-props)
 
 ### Timeline
 
@@ -64,3 +68,7 @@ Node of timeline.
 | label | Set the label | ReactNode | - |
 | children | Set the content | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |
+
+## Design Token
+
+<ComponentTokenTable component="Timeline"></ComponentTokenTable>

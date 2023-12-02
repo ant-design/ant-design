@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/image/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width:200px"
+  style="width: 200px;"
 >
   <img
     class="ant-image-img"
@@ -41,11 +41,95 @@ exports[`renders ./components/image/demo/basic.tsx extend context correctly 1`] 
 </div>
 `;
 
-exports[`renders ./components/image/demo/controlled-preview.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/component-token.tsx extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-image"
+    style="width: 150px;"
+  >
+    <img
+      class="ant-image-img"
+      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+      width="150"
+    />
+    <div
+      class="ant-image-mask"
+    >
+      <div
+        class="ant-image-mask-info"
+      >
+        <span
+          aria-label="eye"
+          class="anticon anticon-eye"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="eye"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+            />
+          </svg>
+        </span>
+        Preview
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-image"
+    style="width: 150px;"
+  >
+    <img
+      class="ant-image-img"
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      width="150"
+    />
+    <div
+      class="ant-image-mask"
+    >
+      <div
+        class="ant-image-mask-info"
+      >
+        <span
+          aria-label="eye"
+          class="anticon anticon-eye"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="eye"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+            />
+          </svg>
+        </span>
+        Preview
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/image/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 1`] = `
 Array [
   <div>
     scaleStep:
-    <!-- -->
     <div
       class="ant-input-number"
     >
@@ -134,17 +218,17 @@ Array [
   </button>,
   <div
     class="ant-image"
-    style="width:200px"
+    style="width: 200px;"
   >
     <img
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-      style="display:none"
+      style="display: none;"
       width="200"
     />
     <div
       class="ant-image-mask"
-      style="display:none"
+      style="display: none;"
     >
       <div
         class="ant-image-mask-info"
@@ -175,16 +259,18 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/fallback.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/controlled-preview.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/fallback.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width:200px;height:200px"
+  style="width: 200px; height: 200px;"
 >
   <img
     class="ant-image-img"
     height="200"
     src="error"
-    style="height:200px"
+    style="height: 200px;"
     width="200"
   />
   <div
@@ -218,17 +304,75 @@ exports[`renders ./components/image/demo/fallback.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/image/demo/placeholder.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/fallback.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/imageRender.tsx extend context correctly 1`] = `
+<div
+  class="ant-image"
+  style="width: 200px;"
+>
+  <img
+    class="ant-image-img"
+    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    width="200"
+  />
+  <div
+    class="ant-image-mask"
+  >
+    <div
+      class="ant-image-mask-info"
+    >
+      <span
+        aria-label="eye"
+        class="anticon anticon-eye"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="eye"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+          />
+        </svg>
+      </span>
+      Preview
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/image/demo/imageRender.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/nested.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-default"
+  type="button"
+>
+  <span>
+    showModal
+  </span>
+</button>
+`;
+
+exports[`renders components/image/demo/nested.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/placeholder.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
+  style="column-gap: 12px; row-gap: 12px;"
 >
   <div
     class="ant-space-item"
-    style="margin-right:12px"
   >
     <div
       class="ant-image"
-      style="width:200px"
+      style="width: 200px;"
     >
       <img
         class="ant-image-img"
@@ -241,7 +385,7 @@ exports[`renders ./components/image/demo/placeholder.tsx extend context correctl
       >
         <div
           class="ant-image"
-          style="width:200px"
+          style="width: 200px;"
         >
           <img
             class="ant-image-img"
@@ -295,11 +439,13 @@ exports[`renders ./components/image/demo/placeholder.tsx extend context correctl
 </div>
 `;
 
-exports[`renders ./components/image/demo/preview-group.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/placeholder.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/preview-group.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-image"
-    style="width:200px"
+    style="width: 200px;"
   >
     <img
       class="ant-image-img"
@@ -337,7 +483,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width:200px"
+    style="width: 200px;"
   >
     <img
       class="ant-image-img"
@@ -376,11 +522,13 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/preview-group-top-progress.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/preview-group.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/preview-group-top-progress.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-image"
-    style="width:150px"
+    style="width: 150px;"
   >
     <img
       class="ant-image-img"
@@ -418,7 +566,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width:150px"
+    style="width: 150px;"
   >
     <img
       class="ant-image-img"
@@ -456,7 +604,7 @@ Array [
   </div>,
   <div
     class="ant-image"
-    style="width:150px"
+    style="width: 150px;"
   >
     <img
       class="ant-image-img"
@@ -495,165 +643,55 @@ Array [
 ]
 `;
 
-exports[`renders ./components/image/demo/preview-group-visible.tsx extend context correctly 1`] = `
-Array [
-  <div
-    class="ant-image"
-    style="width:200px"
-  >
-    <img
-      class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
-      width="200"
-    />
-    <div
-      class="ant-image-mask"
-    >
-      <div
-        class="ant-image-mask-info"
-      >
-        <span
-          aria-label="eye"
-          class="anticon anticon-eye"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="eye"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-            />
-          </svg>
-        </span>
-        Preview
-      </div>
-    </div>
-  </div>,
-  <div
-    style="display:none"
-  >
-    <div
-      class="ant-image"
-    >
-      <img
-        class="ant-image-img"
-        src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
-      />
-      <div
-        class="ant-image-mask"
-      >
-        <div
-          class="ant-image-mask-info"
-        >
-          <span
-            aria-label="eye"
-            class="anticon anticon-eye"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="eye"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-              />
-            </svg>
-          </span>
-          Preview
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-image"
-    >
-      <img
-        class="ant-image-img"
-        src="https://gw.alipayobjects.com/zos/antfincdn/cV16ZqzMjW/photo-1473091540282-9b846e7965e3.webp"
-      />
-      <div
-        class="ant-image-mask"
-      >
-        <div
-          class="ant-image-mask-info"
-        >
-          <span
-            aria-label="eye"
-            class="anticon anticon-eye"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="eye"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-              />
-            </svg>
-          </span>
-          Preview
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-image"
-    >
-      <img
-        class="ant-image-img"
-        src="https://gw.alipayobjects.com/zos/antfincdn/x43I27A55%26/photo-1438109491414-7198515b166b.webp"
-      />
-      <div
-        class="ant-image-mask"
-      >
-        <div
-          class="ant-image-mask-info"
-        >
-          <span
-            aria-label="eye"
-            class="anticon anticon-eye"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="eye"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-              />
-            </svg>
-          </span>
-          Preview
-        </div>
-      </div>
-    </div>
-  </div>,
-]
-`;
+exports[`renders components/image/demo/preview-group-top-progress.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders ./components/image/demo/preview-mask.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/preview-group-visible.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width:96px"
+  style="width: 200px;"
+>
+  <img
+    class="ant-image-img"
+    src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
+    width="200"
+  />
+  <div
+    class="ant-image-mask"
+  >
+    <div
+      class="ant-image-mask-info"
+    >
+      <span
+        aria-label="eye"
+        class="anticon anticon-eye"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="eye"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+          />
+        </svg>
+      </span>
+      Preview
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/image/demo/preview-group-visible.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/preview-mask.tsx extend context correctly 1`] = `
+<div
+  class="ant-image"
+  style="width: 96px;"
 >
   <img
     class="ant-image-img"
@@ -664,11 +702,10 @@ exports[`renders ./components/image/demo/preview-mask.tsx extend context correct
     class="ant-image-mask customize-mask"
   >
     <div
-      class="ant-space ant-space-vertical ant-space-align-center"
+      class="ant-space ant-space-vertical ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
         class="ant-space-item"
-        style="margin-bottom:8px"
       >
         <span
           aria-label="zoom-in"
@@ -700,10 +737,12 @@ exports[`renders ./components/image/demo/preview-mask.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/image/demo/previewSrc.tsx extend context correctly 1`] = `
+exports[`renders components/image/demo/preview-mask.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/previewSrc.tsx extend context correctly 1`] = `
 <div
   class="ant-image"
-  style="width:200px"
+  style="width: 200px;"
 >
   <img
     class="ant-image-img"
@@ -740,3 +779,48 @@ exports[`renders ./components/image/demo/previewSrc.tsx extend context correctly
   </div>
 </div>
 `;
+
+exports[`renders components/image/demo/previewSrc.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/toolbarRender.tsx extend context correctly 1`] = `
+<div
+  class="ant-image"
+  style="width: 200px;"
+>
+  <img
+    class="ant-image-img"
+    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+    width="200"
+  />
+  <div
+    class="ant-image-mask"
+  >
+    <div
+      class="ant-image-mask-info"
+    >
+      <span
+        aria-label="eye"
+        class="anticon anticon-eye"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="eye"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+          />
+        </svg>
+      </span>
+      Preview
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/image/demo/toolbarRender.tsx extend context correctly 2`] = `[]`;

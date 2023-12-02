@@ -1,5 +1,8 @@
 ---
-order: 9
+group:
+  title: 其他
+  order: 3
+order: 0
 title: 社区精选组件
 ---
 
@@ -7,7 +10,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
-| 可视化图表 | [Ant Design Charts](https://charts.ant.design/zh) [AntV 数据可视化解决方案](https://antv.vision/zh) |
+| 可视化图表 | [Ant Design Charts](https://charts.ant.design) [AntV 数据可视化解决方案](https://antv.vision/zh) [reactflow](https://reactflow.dev/) |
 | React Hooks 库 | [ahooks](https://github.com/alibaba/hooks) |
 | 表单 | [ProForm](https://procomponents.ant.design/components/form) [Formily](https://github.com/alibaba/formily) [react-hook-form](https://github.com/react-hook-form/react-hook-form) [formik](https://github.com/formium/formik) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
@@ -41,6 +44,8 @@ title: 社区精选组件
 | 数字/金额 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
 | 移动端探测 | [react-device-detect](https://github.com/duskload/react-device-detect) |
 | 应用程序框架 | [umi](https://github.com/umijs/umi/) [remix](https://github.com/remix-run/remix) [refine](https://github.com/pankod/refine) |
+| Flow 流 | [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
+| 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 
 ## 推荐产品 ✨
 
@@ -53,7 +58,6 @@ title: 社区精选组件
 | Sketch 插件  | [Kitchen](https://kitchen.alipay.com)                                 |
 | 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | 图片压缩     | [tinypng](https://tinypng.com/)                                       |
-| 图表分类查询 | [图之典](http://tuzhidian.com/)                                       |
 
 <style>
 .markdown table td:first-child {

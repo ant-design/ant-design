@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/statistic/demo/animated.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/animated.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -23,14 +23,16 @@ exports[`renders ./components/statistic/demo/animated.tsx extend context correct
         <span
           class="ant-statistic-content-value"
         >
-          <span />
+          <span>
+            0
+          </span>
         </span>
       </div>
     </div>
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -46,7 +48,9 @@ exports[`renders ./components/statistic/demo/animated.tsx extend context correct
         <span
           class="ant-statistic-content-value"
         >
-          <span />
+          <span>
+            0
+          </span>
         </span>
       </div>
     </div>
@@ -54,14 +58,16 @@ exports[`renders ./components/statistic/demo/animated.tsx extend context correct
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/animated.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/statistic/demo/basic.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -88,7 +94,7 @@ exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -119,7 +125,7 @@ exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 
     </div>
     <button
       class="ant-btn ant-btn-primary"
-      style="margin-top:16px"
+      style="margin-top: 16px;"
       type="button"
     >
       <span>
@@ -129,7 +135,7 @@ exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -155,14 +161,16 @@ exports[`renders ./components/statistic/demo/basic.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/statistic/demo/card.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-card"
@@ -180,7 +188,7 @@ exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1
           </div>
           <div
             class="ant-statistic-content"
-            style="color:#3f8600"
+            style="color: rgb(63, 134, 0);"
           >
             <span
               class="ant-statistic-content-prefix"
@@ -231,7 +239,7 @@ exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-card"
@@ -249,7 +257,7 @@ exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1
           </div>
           <div
             class="ant-statistic-content"
-            style="color:#cf1322"
+            style="color: rgb(207, 19, 34);"
           >
             <span
               class="ant-statistic-content-prefix"
@@ -301,14 +309,119 @@ exports[`renders ./components/statistic/demo/card.tsx extend context correctly 1
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/countdown.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/card.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/statistic/demo/component-token.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Account Balance (CNY)
+      </div>
+      <div
+        class="ant-statistic-content"
+      >
+        <span
+          class="ant-statistic-content-value"
+        >
+          <span
+            class="ant-statistic-content-value-int"
+          >
+            112,893
+          </span>
+          <span
+            class="ant-statistic-content-value-decimal"
+          >
+            .00
+          </span>
+        </span>
+      </div>
+    </div>
+    <button
+      class="ant-btn ant-btn-primary"
+      style="margin-top: 16px;"
+      type="button"
+    >
+      <span>
+        Recharge
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
+  >
+    <div
+      class="ant-statistic"
+    >
+      <div
+        class="ant-statistic-title"
+      >
+        Active Users
+      </div>
+      <div
+        class="ant-skeleton ant-statistic-skeleton"
+      >
+        <div
+          class="ant-skeleton-content"
+        >
+          <h3
+            class="ant-skeleton-title"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/statistic/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/statistic/demo/countdown.tsx extend context correctly 1`] = `
+<div
+  class="ant-row"
+  style="margin-left: -8px; margin-right: -8px;"
+>
+  <div
+    class="ant-col ant-col-12"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -331,7 +444,7 @@ exports[`renders ./components/statistic/demo/countdown.tsx extend context correc
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -354,7 +467,7 @@ exports[`renders ./components/statistic/demo/countdown.tsx extend context correc
   </div>
   <div
     class="ant-col ant-col-24"
-    style="padding-left:8px;padding-right:8px;margin-top:32px"
+    style="padding-left: 8px; padding-right: 8px; margin-top: 32px;"
   >
     <div
       class="ant-statistic"
@@ -377,7 +490,7 @@ exports[`renders ./components/statistic/demo/countdown.tsx extend context correc
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -401,14 +514,16 @@ exports[`renders ./components/statistic/demo/countdown.tsx extend context correc
 </div>
 `;
 
-exports[`renders ./components/statistic/demo/unit.tsx extend context correctly 1`] = `
+exports[`renders components/statistic/demo/countdown.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/statistic/demo/unit.tsx extend context correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="margin-left: -8px; margin-right: -8px;"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -458,7 +573,7 @@ exports[`renders ./components/statistic/demo/unit.tsx extend context correctly 1
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
+    style="padding-left: 8px; padding-right: 8px;"
   >
     <div
       class="ant-statistic"
@@ -490,3 +605,5 @@ exports[`renders ./components/statistic/demo/unit.tsx extend context correctly 1
   </div>
 </div>
 `;
+
+exports[`renders components/statistic/demo/unit.tsx extend context correctly 2`] = `[]`;

@@ -37,13 +37,13 @@ const items: MenuProps['items'] = [
 const App: React.FC = () => {
   const { token } = useToken();
 
-  const contentStyle = {
+  const contentStyle: React.CSSProperties = {
     backgroundColor: token.colorBgElevated,
     borderRadius: token.borderRadiusLG,
     boxShadow: token.boxShadowSecondary,
   };
 
-  const menuStyle = {
+  const menuStyle: React.CSSProperties = {
     boxShadow: 'none',
   };
 

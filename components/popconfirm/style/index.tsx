@@ -1,7 +1,11 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 
 export interface ComponentToken {
+  /**
+   * @desc 确认框 z-index
+   * @descEN z-index of Popconfirm
+   */
   zIndexPopup: number;
 }
 
@@ -12,28 +16,27 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
   const {
     componentCls,
     iconCls,
+    antCls,
     zIndexPopup,
     colorText,
     colorWarning,
+    marginXXS,
     marginXS,
     fontSize,
     fontWeightStrong,
-    lineHeight,
+    colorTextHeading,
   } = token;
 
   return {
     [componentCls]: {
       zIndex: zIndexPopup,
 
-      [`${componentCls}-inner-content`]: {
-        color: colorText,
+      [`&${antCls}-popover`]: {
+        fontSize,
       },
 
       [`${componentCls}-message`]: {
-        position: 'relative',
         marginBottom: marginXS,
-        color: colorText,
-        fontSize,
         display: 'flex',
         flexWrap: 'nowrap',
         alignItems: 'start',
@@ -41,31 +44,28 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
         [`> ${componentCls}-message-icon ${iconCls}`]: {
           color: colorWarning,
           fontSize,
-          flex: 'none',
           lineHeight: 1,
-          paddingTop: (Math.round(fontSize * lineHeight) - fontSize) / 2,
+          marginInlineEnd: marginXS,
         },
 
-        '&-title': {
-          flex: 'auto',
-          marginInlineStart: marginXS,
-        },
-
-        '&-title-only': {
+        [`${componentCls}-title`]: {
           fontWeight: fontWeightStrong,
-        },
-      },
+          color: colorTextHeading,
 
-      [`${componentCls}-description`]: {
-        position: 'relative',
-        marginInlineStart: fontSize + marginXS,
-        marginBottom: marginXS,
-        color: colorText,
-        fontSize,
+          '&:only-child': {
+            fontWeight: 'normal',
+          },
+        },
+
+        [`${componentCls}-description`]: {
+          marginTop: marginXXS,
+          color: colorText,
+        },
       },
 
       [`${componentCls}-buttons`]: {
         textAlign: 'end',
+        whiteSpace: 'nowrap',
 
         button: {
           marginInlineStart: marginXS,
@@ -76,14 +76,14 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Popconfirm',
-  (token) => genBaseStyle(token),
-  (token) => {
-    const { zIndexPopupBase } = token;
+export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
+  const { zIndexPopupBase } = token;
 
-    return {
-      zIndexPopup: zIndexPopupBase + 60,
-    };
-  },
-);
+  return {
+    zIndexPopup: zIndexPopupBase + 60,
+  };
+};
+
+export default genStyleHooks('Popconfirm', (token) => genBaseStyle(token), prepareComponentToken, {
+  resetStyle: false,
+});
