@@ -17,7 +17,6 @@ import type {
   FloatButtonRef,
   FloatButtonShape,
 } from './interface';
-import useStyle from './style';
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
@@ -73,7 +72,6 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const [wrapSSR] = useStyle(prefixCls);
 
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
 
@@ -81,7 +79,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const contentProps: FloatButtonProps = { prefixCls, icon, type, shape: mergeShape, ...restProps };
 
-  return wrapSSR(
+  return (
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
       {({ className: motionClassName }) => (
         <FloatButton
@@ -91,7 +89,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
           className={classNames(className, motionClassName)}
         />
       )}
-    </CSSMotion>,
+    </CSSMotion>
   );
 });
 

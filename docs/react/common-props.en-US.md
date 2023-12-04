@@ -1,8 +1,7 @@
 ---
 group:
-  title: Other
-  order: 0
-order: 0
+  title: Advanced
+order: 6
 title: Common Props
 ---
 

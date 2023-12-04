@@ -103,7 +103,7 @@ const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
           height: token.margin,
           width: '100%',
           insetInline: 0,
-          bottom: -token.margin,
+          bottom: token.calc(token.margin).mul(-1).equal(),
           background: 'transparent',
           pointerEvents: 'auto',
         },

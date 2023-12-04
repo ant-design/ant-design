@@ -21,6 +21,7 @@ import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -30,7 +31,7 @@ interface FieldError {
 }
 
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
-export type ValidateStatus = typeof ValidateStatuses[number];
+export type ValidateStatus = (typeof ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
@@ -126,7 +127,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');
@@ -240,7 +242,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, hashId)}
+        className={classNames(className, cssVarCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -255,7 +257,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapSSR(renderLayout(mergedChildren) as JSX.Element);
+    return wrapCSSVar(renderLayout(mergedChildren) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -269,7 +271,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // >>>>> With Field
-  return wrapSSR(
+  return wrapCSSVar(
     <Field
       {...props}
       messageVariables={variables}

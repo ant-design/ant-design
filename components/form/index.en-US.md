@@ -387,7 +387,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
+`type Form.useWatch = (namePath: NamePath | (selector: (values: Store) => any), formInstance?: FormInstance | WatchOptions): Value`
+
+`5.12.0` add `selector`
 
 Watch the value of a field. You can use this to interact with other hooks like `useSWR` to reduce development costs:
 

@@ -1,8 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
 export interface ComponentToken {
   /**
@@ -40,8 +41,8 @@ export interface ComponentToken {
 interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPadding: number;
   segmentedBgColor: string;
-  segmentedPaddingHorizontal: number;
-  segmentedPaddingHorizontalSM: number;
+  segmentedPaddingHorizontal: number | string;
+  segmentedPaddingHorizontalSM: number | string;
 }
 
 // ============================== Mixins ==============================
@@ -70,6 +71,19 @@ const segmentedTextEllipsisCss: CSSObject = {
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
   const { componentCls } = token;
+
+  const labelHeight = token
+    .calc(token.controlHeight)
+    .sub(token.calc(token.segmentedPadding).mul(2))
+    .equal();
+  const labelHeightLG = token
+    .calc(token.controlHeightLG)
+    .sub(token.calc(token.segmentedPadding).mul(2))
+    .equal();
+  const labelHeightSM = token
+    .calc(token.controlHeightSM)
+    .sub(token.calc(token.segmentedPadding).mul(2))
+    .equal();
 
   return {
     [componentCls]: {
@@ -149,15 +163,15 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
 
         '&-label': {
-          minHeight: token.controlHeight - token.segmentedPadding * 2,
-          lineHeight: `${token.controlHeight - token.segmentedPadding * 2}px`,
-          padding: `0 ${token.segmentedPaddingHorizontal}px`,
+          minHeight: labelHeight,
+          lineHeight: unit(labelHeight),
+          padding: `0 ${unit(token.segmentedPaddingHorizontal)}`,
           ...segmentedTextEllipsisCss,
         },
 
         // syntactic sugar to add `icon` for Segmented Item
         '&-icon + *': {
-          marginInlineStart: token.marginSM / 2,
+          marginInlineStart: token.calc(token.marginSM).div(2).equal(),
         },
 
         '&-input': {
@@ -180,7 +194,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         insetInlineStart: 0,
         width: 0,
         height: '100%',
-        padding: `${token.paddingXXS}px 0`,
+        padding: `${unit(token.paddingXXS)} 0`,
         borderRadius: token.borderRadiusSM,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
@@ -193,9 +207,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&${componentCls}-lg`]: {
         borderRadius: token.borderRadiusLG,
         [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightLG - token.segmentedPadding * 2,
-          lineHeight: `${token.controlHeightLG - token.segmentedPadding * 2}px`,
-          padding: `0 ${token.segmentedPaddingHorizontal}px`,
+          minHeight: labelHeightLG,
+          lineHeight: unit(labelHeightLG),
+          padding: `0 ${unit(token.segmentedPaddingHorizontal)}`,
           fontSize: token.fontSizeLG,
         },
         [`${componentCls}-item, ${componentCls}-thumb`]: {
@@ -206,9 +220,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&${componentCls}-sm`]: {
         borderRadius: token.borderRadiusSM,
         [`${componentCls}-item-label`]: {
-          minHeight: token.controlHeightSM - token.segmentedPadding * 2,
-          lineHeight: `${token.controlHeightSM - token.segmentedPadding * 2}px`,
-          padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
+          minHeight: labelHeightSM,
+          lineHeight: unit(labelHeightSM),
+          padding: `0 ${unit(token.segmentedPaddingHorizontalSM)}`,
         },
         [`${componentCls}-item, ${componentCls}-thumb`]: {
           borderRadius: token.borderRadiusXS,
@@ -229,28 +243,30 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const prepareComponentToken: GetDefaultToken<'Segmented'> = (token) => {
+  const { colorTextLabel, colorText, colorFillSecondary, colorBgElevated, colorFill } = token;
+  return {
+    itemColor: colorTextLabel,
+    itemHoverColor: colorText,
+    itemHoverBg: colorFillSecondary,
+    itemSelectedBg: colorBgElevated,
+    itemActiveBg: colorFill,
+    itemSelectedColor: colorText,
+  };
+};
+
+export default genStyleHooks(
   'Segmented',
   (token) => {
-    const { lineWidth, lineWidthBold, colorBgLayout } = token;
+    const { lineWidth, lineWidthBold, colorBgLayout, calc } = token;
 
     const segmentedToken = mergeToken<SegmentedToken>(token, {
       segmentedPadding: lineWidthBold,
       segmentedBgColor: colorBgLayout,
-      segmentedPaddingHorizontal: token.controlPaddingHorizontal - lineWidth,
-      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - lineWidth,
+      segmentedPaddingHorizontal: calc(token.controlPaddingHorizontal).sub(lineWidth).equal(),
+      segmentedPaddingHorizontalSM: calc(token.controlPaddingHorizontalSM).sub(lineWidth).equal(),
     });
     return [genSegmentedStyle(segmentedToken)];
   },
-  (token) => {
-    const { colorTextLabel, colorText, colorFillSecondary, colorBgElevated, colorFill } = token;
-    return {
-      itemColor: colorTextLabel,
-      itemHoverColor: colorText,
-      itemHoverBg: colorFillSecondary,
-      itemSelectedBg: colorBgElevated,
-      itemActiveBg: colorFill,
-      itemSelectedColor: colorText,
-    };
-  },
+  prepareComponentToken,
 );

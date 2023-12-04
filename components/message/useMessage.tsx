@@ -36,11 +36,11 @@ interface HolderRef extends NotificationAPI {
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
-  const [, hashId] = useStyle(prefixCls);
-  return (
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  return wrapCSSVar(
     <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
       {children}
-    </NotificationProvider>
+    </NotificationProvider>,
   );
 };
 

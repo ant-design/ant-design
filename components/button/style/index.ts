@@ -1,10 +1,10 @@
 import type { CSSProperties } from 'react';
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
-import type { GlobalToken } from '../../theme';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genGroupStyle from './group';
 
@@ -91,6 +91,21 @@ export interface ComponentToken {
    */
   paddingInlineSM: CSSProperties['paddingInline'];
   /**
+   * @desc 按钮横向内间距
+   * @descEN Horizontal padding of button
+   */
+  paddingBlock: CSSProperties['paddingInline'];
+  /**
+   * @desc 大号按钮横向内间距
+   * @descEN Horizontal padding of large button
+   */
+  paddingBlockLG: CSSProperties['paddingInline'];
+  /**
+   * @desc 小号按钮横向内间距
+   * @descEN Horizontal padding of small button
+   */
+  paddingBlockSM: CSSProperties['paddingInline'];
+  /**
    * @desc 只有图标的按钮图标尺寸
    * @descEN Icon size of button which only contains icon
    */
@@ -139,6 +154,7 @@ export interface ComponentToken {
 
 export interface ButtonToken extends FullToken<'Button'> {
   buttonPaddingHorizontal: CSSProperties['paddingInline'];
+  buttonPaddingVertical: CSSProperties['paddingBlock'];
   buttonIconOnlyFontSize: number;
 }
 
@@ -156,7 +172,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       textAlign: 'center',
       backgroundImage: 'none',
       background: 'transparent',
-      border: `${token.lineWidth}px ${token.lineType} transparent`,
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
       cursor: 'pointer',
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
       userSelect: 'none',
@@ -208,44 +224,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       [`&-icon-only${componentCls}-compact-item`]: {
         flex: 'none',
       },
-      // Special styles for Primary Button
-      [`&-compact-item${componentCls}-primary`]: {
-        [`&:not([disabled]) + ${componentCls}-compact-item${componentCls}-primary:not([disabled])`]:
-          {
-            position: 'relative',
-
-            '&:before': {
-              position: 'absolute',
-              top: -token.lineWidth,
-              insetInlineStart: -token.lineWidth,
-              display: 'inline-block',
-              width: token.lineWidth,
-              height: `calc(100% + ${token.lineWidth * 2}px)`,
-              background: token.colorPrimaryHover,
-              content: '""',
-            },
-          },
-      },
-      // Special styles for Primary Button
-      '&-compact-vertical-item': {
-        [`&${componentCls}-primary`]: {
-          [`&:not([disabled]) + ${componentCls}-compact-vertical-item${componentCls}-primary:not([disabled])`]:
-            {
-              position: 'relative',
-
-              '&:before': {
-                position: 'absolute',
-                top: -token.lineWidth,
-                insetInlineStart: -token.lineWidth,
-                display: 'inline-block',
-                width: `calc(100% + ${token.lineWidth * 2}px)`,
-                height: token.lineWidth,
-                background: token.colorPrimaryHover,
-                content: '""',
-              },
-            },
-        },
-      },
     },
   };
 };
@@ -271,8 +249,8 @@ const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => (
 
 const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
   borderRadius: token.controlHeight,
-  paddingInlineStart: token.controlHeight / 2,
-  paddingInlineEnd: token.controlHeight / 2,
+  paddingInlineStart: token.calc(token.controlHeight).div(2).equal(),
+  paddingInlineEnd: token.calc(token.controlHeight).div(2).equal(),
 });
 
 // =============================== Type ===============================
@@ -569,14 +547,11 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     componentCls,
     controlHeight,
     fontSize,
-    lineHeight,
-    lineWidth,
     borderRadius,
     buttonPaddingHorizontal,
     iconCls,
+    buttonPaddingVertical,
   } = token;
-
-  const paddingVertical = Math.max(0, (controlHeight - fontSize * lineHeight) / 2 - lineWidth);
 
   const iconOnlyCls = `${componentCls}-icon-only`;
 
@@ -586,7 +561,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
       [`${componentCls}${sizePrefixCls}`]: {
         fontSize,
         height: controlHeight,
-        padding: `${paddingVertical}px ${buttonPaddingHorizontal}px`,
+        padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
 
         [`&${iconOnlyCls}`]: {
@@ -635,7 +610,8 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     controlHeight: token.controlHeightSM,
     fontSize: token.contentFontSizeSM,
     padding: token.paddingXS,
-    buttonPaddingHorizontal: token.paddingInlineSM, // Fixed padding
+    buttonPaddingHorizontal: token.paddingInlineSM,
+    buttonPaddingVertical: token.paddingBlockSM,
     borderRadius: token.borderRadiusSM,
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
@@ -648,6 +624,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
+    buttonPaddingVertical: token.paddingBlockLG,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });
@@ -670,46 +647,65 @@ const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize } = token;
+  const { paddingInline, onlyIconSize, paddingBlock } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
+    buttonPaddingVertical: paddingBlock,
     buttonIconOnlyFontSize: onlyIconSize,
   });
 
   return buttonToken;
 };
 
-export const prepareComponentToken = (token: GlobalToken) => ({
-  fontWeight: 400,
-  defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
-  primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
-  dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
-  primaryColor: token.colorTextLightSolid,
-  dangerColor: token.colorTextLightSolid,
-  borderColorDisabled: token.colorBorder,
-  defaultGhostColor: token.colorBgContainer,
-  ghostBg: 'transparent',
-  defaultGhostBorderColor: token.colorBgContainer,
-  paddingInline: token.paddingContentHorizontal - token.lineWidth,
-  paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
-  paddingInlineSM: 8 - token.lineWidth,
-  onlyIconSize: token.fontSizeLG,
-  onlyIconSizeSM: token.fontSizeLG - 2,
-  onlyIconSizeLG: token.fontSizeLG + 2,
-  groupBorderColor: token.colorPrimaryHover,
-  linkHoverBg: 'transparent',
-  textHoverBg: token.colorBgTextHover,
-  defaultColor: token.colorText,
-  defaultBg: token.colorBgContainer,
-  defaultBorderColor: token.colorBorder,
-  defaultBorderColorDisabled: token.colorBorder,
-  contentFontSize: token.fontSize,
-  contentFontSizeSM: token.fontSize,
-  contentFontSizeLG: token.fontSizeLG,
-});
+export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
+  const contentFontSize = token.fontSize;
+  const contentFontSizeSM = token.fontSize;
+  const contentFontSizeLG = token.fontSizeLG;
 
-export default genComponentStyleHook(
+  return {
+    fontWeight: 400,
+    defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
+    primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
+    dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
+    primaryColor: token.colorTextLightSolid,
+    dangerColor: token.colorTextLightSolid,
+    borderColorDisabled: token.colorBorder,
+    defaultGhostColor: token.colorBgContainer,
+    ghostBg: 'transparent',
+    defaultGhostBorderColor: token.colorBgContainer,
+    paddingInline: token.paddingContentHorizontal - token.lineWidth,
+    paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
+    paddingInlineSM: 8 - token.lineWidth,
+    paddingBlock: Math.max(
+      (token.controlHeight - contentFontSize * token.lineHeight) / 2 - token.lineWidth,
+      0,
+    ),
+    paddingBlockSM: Math.max(
+      (token.controlHeightSM - contentFontSizeSM * token.lineHeight) / 2 - token.lineWidth,
+      0,
+    ),
+    paddingBlockLG: Math.max(
+      (token.controlHeightLG - contentFontSizeLG * token.lineHeight) / 2 - token.lineWidth,
+      0,
+    ),
+    onlyIconSize: token.fontSizeLG,
+    onlyIconSizeSM: token.fontSizeLG - 2,
+    onlyIconSizeLG: token.fontSizeLG + 2,
+    groupBorderColor: token.colorPrimaryHover,
+    linkHoverBg: 'transparent',
+    textHoverBg: token.colorBgTextHover,
+    defaultColor: token.colorText,
+    defaultBg: token.colorBgContainer,
+    defaultBorderColor: token.colorBorder,
+    defaultBorderColorDisabled: token.colorBorder,
+    contentFontSize,
+    contentFontSizeSM,
+    contentFontSizeLG,
+  };
+};
+
+export default genStyleHooks(
   'Button',
   (token) => {
     const buttonToken = prepareToken(token);
@@ -734,4 +730,9 @@ export default genComponentStyleHook(
     ];
   },
   prepareComponentToken,
+  {
+    unitless: {
+      fontWeight: true,
+    },
+  },
 );

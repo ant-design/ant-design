@@ -11,6 +11,7 @@ import { ConfirmContent } from './ConfirmDialog';
 import type { ModalFuncProps } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface PurePanelProps
   extends Omit<PanelProps, 'prefixCls' | 'footer'>,
@@ -35,8 +36,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
-
-  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(rootPrefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 
@@ -66,7 +67,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     };
   }
 
-  return (
+  return wrapCSSVar(
     <Panel
       prefixCls={prefixCls}
       className={classNames(
@@ -75,12 +76,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         type && confirmPrefixCls,
         type && `${confirmPrefixCls}-${type}`,
         className,
+        rootCls,
       )}
       {...restProps}
       closeIcon={renderCloseIcon(prefixCls, closeIcon)}
       closable={closable}
       {...additionalProps}
-    />
+    />,
   );
 };
 

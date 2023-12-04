@@ -1,7 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -52,7 +53,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
   return {
     // Result
     [componentCls]: {
-      padding: `${paddingLG * 2}px ${paddingXL}px`,
+      padding: `${unit(token.calc(paddingLG).mul(2).equal())} ${unit(paddingXL)}`,
 
       // RTL
       '&-rtl': {
@@ -93,7 +94,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
 
     [`${componentCls} ${componentCls}-content`]: {
       marginTop: paddingLG,
-      padding: `${paddingLG}px ${padding * 2.5}px`,
+      padding: `${unit(paddingLG)} ${unit(token.calc(padding).mul(2.5).equal())}`,
       backgroundColor: token.colorFillAlter,
     },
 
@@ -136,10 +137,17 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
   genStatusIconStyle(token),
 ];
 
-// ============================== Export ==============================
 const getStyle: GenerateStyle<ResultToken> = (token) => genResultStyle(token);
 
-export default genComponentStyleHook(
+// ============================== Export ==============================
+export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
+  titleFontSize: token.fontSizeHeading3,
+  subtitleFontSize: token.fontSize,
+  iconFontSize: token.fontSizeHeading3 * 3,
+  extraMargin: `${token.paddingLG}px 0 0 0`,
+});
+
+export default genStyleHooks(
   'Result',
   (token) => {
     const resultInfoIconColor = token.colorInfo;
@@ -158,10 +166,5 @@ export default genComponentStyleHook(
 
     return [getStyle(resultToken)];
   },
-  (token) => ({
-    titleFontSize: token.fontSizeHeading3,
-    subtitleFontSize: token.fontSize,
-    iconFontSize: token.fontSizeHeading3 * 3,
-    extraMargin: `${token.paddingLG}px 0 0 0`,
-  }),
+  prepareComponentToken,
 );
