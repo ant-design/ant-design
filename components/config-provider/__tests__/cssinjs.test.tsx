@@ -30,9 +30,7 @@ describe('ConfigProvider.DynamicTheme', () => {
     expect(
       dynamicStyles.some((style) => {
         const { innerHTML } = style;
-        return (
-          innerHTML.includes('.ant-btn-primary') && innerHTML.includes('background-color:#f00000')
-        );
+        return innerHTML.includes('.ant-btn-primary') && innerHTML.includes('background:#f00000');
       }),
     ).toBeTruthy();
   });
