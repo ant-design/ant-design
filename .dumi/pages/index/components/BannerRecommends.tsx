@@ -123,8 +123,8 @@ export const BannerRecommendsFallback: FC = () => {
   ) : (
     <div className={styles.container}>
       {list.map((_, index) => (
-        <div className={styles.itemBase}>
-          <Skeleton key={index} active />
+        <div key={index} className={styles.itemBase}>
+          <Skeleton active />
         </div>
       ))}
     </div>
