@@ -24,7 +24,7 @@ tag: vVERSION
 - 🛠 rc-pagination 重构为 FC。[#46204](https://github.com/ant-design/ant-design/pull/46204) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 `Form.useWatch` 支持 selector 函数参数调用。[#46180](https://github.com/ant-design/ant-design/pull/46180) [@crazyair](https://github.com/crazyair)
 - 🆕 Slider 组件支持 `onChangeComplete` 事件，并废弃 `onAfterChange`.。[#46182](https://github.com/ant-design/ant-design/pull/46182) [@MadCcc](https://github.com/MadCcc)
-- 🆕 Tab Item 支持 `icon` 属性。[#46096](https://github.com/ant-design/ant-design/pull/46096) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Tabs 配置项 `items` 支持 `icon` 属性。[#46096](https://github.com/ant-design/ant-design/pull/46096) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 `Switch` 支持 `value` and `defaultValue` 属性。[#45747](https://github.com/ant-design/ant-design/pull/45747) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Progress 进度条视觉效果，渐变效果应该随着百分比改变。[#46209](https://github.com/ant-design/ant-design/pull/46209) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复点击 Form `tooltip` 图标会触发 Switch 切换的问题。[#46155](https://github.com/ant-design/ant-design/pull/46155)

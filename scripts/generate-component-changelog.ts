@@ -41,6 +41,7 @@ componentNameMap.Notification.push(...fillComponentKey('notification'));
 
 // Collect misc. When ComponentName not match will fallback to misc
 const miscKeys = [
+  '🔥',
   'ComponentToken',
   'Component Token',
   'Design Token',
