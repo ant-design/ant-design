@@ -21,6 +21,7 @@ tag: vVERSION
 `2023-12-04`
 
 - 🐞 MISC: Fix missing color less variables converted from token. [#46250](https://github.com/ant-design/ant-design/pull/46250)
+- 🐞 Fix Notification title overlaps with the close icon when it is too long。 [#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
 
 ## 5.12.0
 

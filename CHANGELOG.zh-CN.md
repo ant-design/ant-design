@@ -21,6 +21,7 @@ tag: vVERSION
 `2023-12-04`
 
 - 🐞 MISC: 修复 token 转换 less 变量丢失的问题。[#46250](https://github.com/ant-design/ant-design/pull/46250)
+- 🐞 修复 Notification 标题太长时会与关闭图标重叠的问题。[#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
 
 ## 5.12.0
 
