@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2023-12-04`
 
-- 🔥 Support CSS variable themes. [#44654](https://github.com/ant-design/ant-design/discussions/44654)
+- 🔥 Component Token Support CSS variables. [#44654](https://github.com/ant-design/ant-design/discussions/44654)
 - 🛠 Refactor rc-pagination from class component to FC. [#46204](https://github.com/ant-design/ant-design/pull/46204) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 Alert could support linear-gradient background by `colorInfoBg` token. [#46188](https://github.com/ant-design/ant-design/pull/46188)
 - 🆕 `Form.useWatch` support selector function param. [#46180](https://github.com/ant-design/ant-design/pull/46180) [@crazyair](https://github.com/crazyair)

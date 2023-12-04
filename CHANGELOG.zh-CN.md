@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2023-12-04`
 
-- 🔥 支持 CSS 变量主题。[#44654](https://github.com/ant-design/ant-design/discussions/44654)
+- 🔥 Component Token 支持 CSS 变量。[#44654](https://github.com/ant-design/ant-design/discussions/44654)
 - 🛠 rc-pagination 重构为 FC。[#46204](https://github.com/ant-design/ant-design/pull/46204) [@Wxh16144](https://github.com/Wxh16144)
 - 🆕 `Form.useWatch` 支持 selector 函数参数调用。[#46180](https://github.com/ant-design/ant-design/pull/46180) [@crazyair](https://github.com/crazyair)
 - 🆕 Slider 组件支持 `onChangeComplete` 事件，并废弃 `onAfterChange`.。[#46182](https://github.com/ant-design/ant-design/pull/46182) [@MadCcc](https://github.com/MadCcc)
