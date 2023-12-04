@@ -16,6 +16,12 @@ tag: vVERSION
 
 ---
 
+## 5.12.1
+
+`2023-12-04`
+
+- 🐞 MISC: Fix missing color less variables converted from token. [#46250](https://github.com/ant-design/ant-design/pull/46250)
+
 ## 5.12.0
 
 `2023-12-04`
