@@ -27,6 +27,7 @@ export type {
 } from './maps';
 export { PresetColors } from './presetColors';
 export type {
+  LegacyColorPalettes,
   ColorPalettes,
   PresetColorKey,
   PresetColorType,
