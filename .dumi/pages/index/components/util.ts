@@ -82,7 +82,7 @@ export function preLoad(list: string[]) {
 }
 
 export function useSiteData(): Partial<SiteData> | undefined {
-  const [data, setData] = useState<SiteData>();
+  const [data, setData] = useState<SiteData | undefined>(undefined);
 
   useEffect(() => {
     fetch('https://render.alipay.com/p/h5data/antd4-config_website-h5data.json').then(
