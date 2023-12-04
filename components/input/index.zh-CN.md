@@ -108,6 +108,7 @@ interface CountConfig {
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
+| disableEnterButton | 是否禁用回车键 | boolean | false |
 | loading | 搜索 loading | boolean | false |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
 

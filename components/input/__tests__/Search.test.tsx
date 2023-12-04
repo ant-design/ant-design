@@ -1,5 +1,6 @@
-import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
+import { fireEvent, render } from '@testing-library/react';
+
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -215,5 +216,10 @@ describe('Input.Search', () => {
     expect(
       container.querySelector('.ant-input-affix-wrapper')?.classList.contains('className'),
     ).toBe(false);
+  });
+
+  it("Can disable the 'enterButton' when the 'disableEnterButton' is true", () => {
+    const { container } = render(<Search enterButton="button" disableEnterButton />);
+    expect(container.querySelector('button')?.hasAttribute('disabled')).toBeTruthy();
   });
 });

@@ -1,7 +1,8 @@
+import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
@@ -23,6 +24,7 @@ export interface SearchProps extends InputProps {
     },
   ) => void;
   enterButton?: React.ReactNode;
+  disableEnterButton?: boolean;
   loading?: boolean;
 }
 
@@ -34,6 +36,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     size: customizeSize,
     suffix,
     enterButton = false,
+    disableEnterButton = false,
     addonAfter,
     loading,
     disabled,
@@ -116,7 +119,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
         className={btnClassName}
         type={enterButton ? 'primary' : undefined}
         size={size}
-        disabled={disabled}
+        disabled={disableEnterButton || disabled}
         key="enterButton"
         onMouseDown={onMouseDown}
         onClick={onSearch}
