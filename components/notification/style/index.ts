@@ -1,12 +1,13 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -20,6 +21,8 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number;
+  /** @internal */
+  closeBtnHoverBg: string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -28,8 +31,8 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationPadding: string;
   notificationPaddingVertical: number;
   notificationPaddingHorizontal: number;
-  notificationIconSize: number;
-  notificationCloseButtonSize: number;
+  notificationIconSize: number | string;
+  notificationCloseButtonSize: number | string;
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
@@ -71,7 +74,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     [noticeCls]: {
       padding: notificationPadding,
       width,
-      maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
+      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
       overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
@@ -100,12 +103,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
 
     [`${noticeCls}-with-icon ${noticeCls}-message`]: {
       marginBottom: token.marginXS,
-      marginInlineStart: token.marginSM + notificationIconSize,
+      marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize: fontSizeLG,
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-description`]: {
-      marginInlineStart: token.marginSM + notificationIconSize,
+      marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize,
     },
 
@@ -148,7 +151,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
 
       '&:hover': {
         color: token.colorIconHover,
-        backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+        backgroundColor: token.closeBtnHoverBg,
       },
     },
 
@@ -259,19 +262,22 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 export const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
+  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
 });
 
-export const prepareNotificationToken = (token: AliasToken) => {
+export const prepareNotificationToken: (
+  token: Parameters<GenStyleFn<'Notification'>>[0],
+) => NotificationToken = (token) => {
   const notificationPaddingVertical = token.paddingMD;
   const notificationPaddingHorizontal = token.paddingLG;
   const notificationToken = mergeToken<NotificationToken>(token, {
     notificationBg: token.colorBgElevated,
     notificationPaddingVertical,
     notificationPaddingHorizontal,
-    notificationIconSize: token.fontSizeLG * token.lineHeightLG,
-    notificationCloseButtonSize: token.controlHeightLG * 0.55,
+    notificationIconSize: token.calc(token.fontSizeLG).mul(token.lineHeightLG).equal(),
+    notificationCloseButtonSize: token.calc(token.controlHeightLG).mul(0.55).equal(),
     notificationMarginBottom: token.margin,
-    notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
+    notificationPadding: `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
     notificationMarginEdge: token.marginLG,
     animationMaxHeight: 150,
     notificationStackLayer: 3,
@@ -280,7 +286,7 @@ export const prepareNotificationToken = (token: AliasToken) => {
   return notificationToken;
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Notification',
   (token) => {
     const notificationToken = prepareNotificationToken(token);

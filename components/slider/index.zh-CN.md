@@ -54,7 +54,7 @@ demo:
 | tooltip | 设置 Tooltip 相关属性 | [tooltip](#tooltip) | - | 4.23.0 |
 | value | 设置当前取值。当 `range` 为 false 时，使用 number，否则用 \[number, number] | number \| \[number, number] | - |  |
 | vertical | 值为 true 时，Slider 为垂直方向 | boolean | false |  |
-| onAfterChange | 与 `onmouseup` 触发时机一致，把当前值作为参数传入 | (value) => void | - |  |
+| onChangeComplete | 与 `mouseup` 和 `keyup` 触发时机一致，把当前值作为参数传入 | (value) => void | - |  |
 | onChange | 当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入 | (value) => void | - |  |
 
 ### `styles` 和 `classNames` 属性

@@ -76,7 +76,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Collapse');
@@ -153,7 +153,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     [children],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcCollapse
       ref={ref}
       openMotion={openMotion}

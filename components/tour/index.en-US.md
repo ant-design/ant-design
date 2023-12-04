@@ -45,6 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | scrollIntoViewOptions | support pass custom scrollIntoView options | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 | indicatorsRender | custom indicator | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
 | zIndex | Tour's zIndex | number | 1001 | 5.3.0 |
+| getPopupContainer | Set the rendering node of Tour floating layer | `(node: HTMLElement) => HTMLElement` | body | 5.12.0 |
 
 ### TourStep
 

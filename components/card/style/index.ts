@@ -1,8 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { clearFix, resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -72,13 +72,13 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     flexDirection: 'column',
     minHeight: headerHeight,
     marginBottom: -1, // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
-    padding: `0 ${cardPaddingBase}px`,
+    padding: `0 ${unit(cardPaddingBase)}`,
     color: token.colorTextHeading,
     fontWeight: token.fontWeightStrong,
     fontSize: token.headerFontSize,
     background: token.headerBg,
-    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
-    borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+    borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderSecondary}`,
+    borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
 
     ...clearFix(),
 
@@ -111,7 +111,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       fontSize: token.fontSize,
 
       '&-bar': {
-        borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorderSecondary}`,
+        borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderSecondary}`,
       },
     },
   };
@@ -126,11 +126,11 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     border: 0,
     borderRadius: 0,
     boxShadow: `
-      ${lineWidth}px 0 0 0 ${colorBorderSecondary},
-      0 ${lineWidth}px 0 0 ${colorBorderSecondary},
-      ${lineWidth}px ${lineWidth}px 0 0 ${colorBorderSecondary},
-      ${lineWidth}px 0 0 0 ${colorBorderSecondary} inset,
-      0 ${lineWidth}px 0 0 ${colorBorderSecondary} inset;
+      ${unit(lineWidth)} 0 0 0 ${colorBorderSecondary},
+      0 ${unit(lineWidth)} 0 0 ${colorBorderSecondary},
+      ${unit(lineWidth)} ${unit(lineWidth)} 0 0 ${colorBorderSecondary},
+      ${unit(lineWidth)} 0 0 0 ${colorBorderSecondary} inset,
+      0 ${unit(lineWidth)} 0 0 ${colorBorderSecondary} inset;
     `,
     transition: `all ${token.motionDurationMid}`,
 
@@ -157,9 +157,9 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     padding: 0,
     listStyle: 'none',
     background: actionsBg,
-    borderTop: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
+    borderTop: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
     display: 'flex',
-    borderRadius: `0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px `,
+    borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
     ...clearFix(),
 
     '& > li': {
@@ -170,7 +170,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       '> span': {
         position: 'relative',
         display: 'block',
-        minWidth: token.cardActionsIconSize * 2,
+        minWidth: token.calc(token.cardActionsIconSize).mul(2).equal(),
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         cursor: 'pointer',
@@ -184,7 +184,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
           display: 'inline-block',
           width: '100%',
           color: token.colorTextDescription,
-          lineHeight: `${token.fontSize * token.lineHeight}px`,
+          lineHeight: unit(token.fontHeight),
           transition: `color ${token.motionDurationMid}`,
 
           '&:hover': {
@@ -194,12 +194,12 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
         [`> ${iconCls}`]: {
           fontSize: cardActionsIconSize,
-          lineHeight: `${cardActionsIconSize * token.lineHeight}px`,
+          lineHeight: unit(token.calc(cardActionsIconSize).mul(token.lineHeight).equal()),
         },
       },
 
       '&:not(:last-child)': {
-        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
+        borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
       },
     },
   };
@@ -207,7 +207,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Meta ==============================
 const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
-  margin: `-${token.marginXXS}px 0`,
+  margin: `${unit(token.calc(token.marginXXS).mul(-1).equal())} 0`,
   display: 'flex',
   ...clearFix(),
 
@@ -242,7 +242,7 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
   return {
     [`${componentCls}-head`]: {
-      padding: `0 ${cardPaddingBase}px`,
+      padding: `0 ${unit(cardPaddingBase)}`,
       background: colorFillAlter,
 
       '&-title': {
@@ -251,7 +251,7 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-body`]: {
-      padding: `${token.padding}px ${cardPaddingBase}px`,
+      padding: `${unit(token.padding)} ${unit(cardPaddingBase)}`,
     },
   };
 };
@@ -306,7 +306,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
       [`${componentCls}-body`]: {
         padding: cardPaddingBase,
-        borderRadius: ` 0 0 ${token.borderRadiusLG}px ${token.borderRadiusLG}px`,
+        borderRadius: ` 0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
         ...clearFix(),
       },
 
@@ -319,7 +319,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         },
 
         [`img, img + ${antCls}-image-mask`]: {
-          borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0`,
+          borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
         },
       },
 
@@ -329,7 +329,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-bordered`]: {
-      border: `${token.lineWidth}px ${token.lineType} ${colorBorderSecondary}`,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
 
       [`${componentCls}-cover`]: {
         marginTop: -1,
@@ -349,15 +349,15 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-contain-grid`]: {
-      borderRadius: `${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0 `,
+      borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0 `,
       [`${componentCls}-body`]: {
         display: 'flex',
         flexWrap: 'wrap',
       },
 
       [`&:not(${componentCls}-loading) ${componentCls}-body`]: {
-        marginBlockStart: -token.lineWidth,
-        marginInlineStart: -token.lineWidth,
+        marginBlockStart: token.calc(token.lineWidth).mul(-1).equal(),
+        marginInlineStart: token.calc(token.lineWidth).mul(-1).equal(),
         padding: 0,
       },
     },
@@ -389,7 +389,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
         minHeight: headerHeightSM,
-        padding: `0 ${cardPaddingSM}px`,
+        padding: `0 ${unit(cardPaddingSM)}`,
         fontSize: headerFontSizeSM,
 
         [`> ${componentCls}-head-wrapper`]: {
@@ -415,8 +415,20 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Card'> = (token) => ({
+  headerBg: 'transparent',
+  headerFontSize: token.fontSizeLG,
+  headerFontSizeSM: token.fontSize,
+  headerHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
+  headerHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
+  actionsBg: token.colorBgContainer,
+  actionsLiMargin: `${token.paddingSM}px 0`,
+  tabsMarginBottom: -token.padding - token.lineWidth,
+  extraColor: token.colorText,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Card',
   (token) => {
     const cardToken = mergeToken<CardToken>(token, {
@@ -435,15 +447,5 @@ export default genComponentStyleHook(
       genCardSizeStyle(cardToken),
     ];
   },
-  (token) => ({
-    headerBg: 'transparent',
-    headerFontSize: token.fontSizeLG,
-    headerFontSizeSM: token.fontSize,
-    headerHeight: token.fontSizeLG * token.lineHeightLG + token.padding * 2,
-    headerHeightSM: token.fontSize * token.lineHeight + token.paddingXS * 2,
-    actionsBg: token.colorBgContainer,
-    actionsLiMargin: `${token.paddingSM}px 0`,
-    tabsMarginBottom: -token.padding - token.lineWidth,
-    extraColor: token.colorText,
-  }),
+  prepareComponentToken,
 );

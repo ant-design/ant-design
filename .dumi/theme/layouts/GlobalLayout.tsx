@@ -4,7 +4,7 @@ import {
   createCache,
   extractStyle,
   legacyNotSelectorLinter,
-  logicalPropertiesLinter,
+  NaNLinter,
   parentSelectorLinter,
   StyleProvider,
 } from '@ant-design/cssinjs';
@@ -45,7 +45,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
       }
       return null;
     })
-    .filter((item) => item) as typeof antdTheme.darkAlgorithm[];
+    .filter((item) => item) as (typeof antdTheme.darkAlgorithm)[];
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
@@ -168,7 +168,7 @@ const GlobalLayout: React.FC = () => {
     <DarkContext.Provider value={theme.includes('dark')}>
       <StyleProvider
         cache={styleCache}
-        linters={[logicalPropertiesLinter, legacyNotSelectorLinter, parentSelectorLinter]}
+        linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
         <SiteContext.Provider value={siteContextValue}>
           <SiteThemeProvider
@@ -177,6 +177,8 @@ const GlobalLayout: React.FC = () => {
               token: {
                 motion: !theme.includes('motion-off'),
               },
+              cssVar: true,
+              hashed: false,
             }}
           >
             <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>

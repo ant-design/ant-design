@@ -2108,4 +2108,44 @@ describe('Form', () => {
     expect(container.querySelector('.ant-input-number-suffix')).toBeTruthy();
     expect(container.querySelector('.ant-input-number-focused')).toBeTruthy();
   });
+
+  // https://github.com/ant-design/ant-design/issues/20803#issuecomment-601626759
+  it('without explicitly passing `valuePropName`', async () => {
+    const submit = jest.fn();
+    const Demo = () => (
+      <Form
+        initialValues={{
+          foo: true,
+        }}
+        onFinish={submit}
+      >
+        <Form.Item label="Switch" name="foo">
+          <Switch />
+        </Form.Item>
+        <button type="submit">Submit</button>
+      </Form>
+    );
+
+    const { getByRole } = render(<Demo />);
+
+    await waitFakeTimer();
+
+    const switchNode = getByRole('switch');
+
+    expect(switchNode).toBeTruthy();
+    expect(switchNode).toBeChecked();
+
+    fireEvent.click(switchNode);
+    expect(switchNode).not.toBeChecked();
+
+    const submitButton = getByRole('button');
+    expect(submitButton).toBeTruthy();
+    fireEvent.click(submitButton);
+
+    await waitFakeTimer();
+
+    expect(submit).toHaveBeenCalledWith({
+      foo: false,
+    });
+  });
 });

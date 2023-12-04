@@ -7596,7 +7596,7 @@ Array [
           </li>
         </ul>
         <ul
-          class="ant-pagination ant-pagination-simple ant-pagination-mini ant-transfer-list-pagination"
+          class="ant-pagination ant-pagination-mini ant-transfer-list-pagination ant-pagination-simple"
         >
           <li
             aria-disabled="true"
@@ -8189,7 +8189,7 @@ Array [
           </li>
         </ul>
         <ul
-          class="ant-pagination ant-pagination-simple ant-pagination-mini ant-transfer-list-pagination"
+          class="ant-pagination ant-pagination-mini ant-transfer-list-pagination ant-pagination-simple"
         >
           <li
             aria-disabled="true"

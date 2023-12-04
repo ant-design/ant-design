@@ -5,8 +5,8 @@ import { Keyframes } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -186,8 +186,16 @@ const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
   ];
 };
 
+export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
+  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 10,
+  contentBg: token.colorBgElevated,
+  contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
+    token.paddingSM
+  }px`,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Message',
   (token) => {
     // Gen-style functions here
@@ -196,11 +204,5 @@ export default genComponentStyleHook(
     });
     return [genMessageStyle(combinedToken)];
   },
-  (token) => ({
-    zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 10,
-    contentBg: token.colorBgElevated,
-    contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
-      token.paddingSM
-    }px`,
-  }),
+  prepareComponentToken,
 );

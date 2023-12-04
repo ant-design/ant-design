@@ -1,8 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -56,19 +56,19 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
   return {
     [`&${componentCls}-bordered`]: {
       [`> ${componentCls}-view`]: {
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         '> table': {
           tableLayout: 'auto',
           borderCollapse: 'collapse',
         },
         [`${componentCls}-row`]: {
-          borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
           '&:last-child': {
             borderBottom: 'none',
           },
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
-            padding: `${token.padding}px ${token.paddingLG}px`,
-            borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+            padding: `${unit(token.padding)} ${unit(token.paddingLG)}`,
+            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
             '&:last-child': {
               borderInlineEnd: 'none',
             },
@@ -85,14 +85,14 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
       [`&${componentCls}-middle`]: {
         [`${componentCls}-row`]: {
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
-            padding: `${token.paddingSM}px ${token.paddingLG}px`,
+            padding: `${unit(token.paddingSM)} ${unit(token.paddingLG)}`,
           },
         },
       },
       [`&${componentCls}-small`]: {
         [`${componentCls}-row`]: {
           [`> ${componentCls}-item-label, > ${componentCls}-item-content`]: {
-            padding: `${token.paddingXS}px ${token.padding}px`,
+            padding: `${unit(token.paddingXS)} ${unit(token.padding)}`,
           },
         },
       },
@@ -161,7 +161,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
           content: '":"',
           position: 'relative',
           top: -0.5, // magic for position
-          marginInline: `${colonMarginLeft}px ${colonMarginRight}px`,
+          marginInline: `${unit(colonMarginLeft)} ${unit(colonMarginRight)}`,
         },
 
         [`&${componentCls}-item-no-colon::after`]: {
@@ -215,21 +215,24 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
     },
   };
 };
+
+export const prepareComponentToken: GetDefaultToken<'Descriptions'> = (token) => ({
+  labelBg: token.colorFillAlter,
+  titleColor: token.colorText,
+  titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
+  itemPaddingBottom: token.padding,
+  colonMarginRight: token.marginXS,
+  colonMarginLeft: token.marginXXS / 2,
+  contentColor: token.colorText,
+  extraColor: token.colorText,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Descriptions',
   (token) => {
     const descriptionToken = mergeToken<DescriptionsToken>(token, {});
-    return [genDescriptionStyles(descriptionToken)];
+    return genDescriptionStyles(descriptionToken);
   },
-  (token) => ({
-    labelBg: token.colorFillAlter,
-    titleColor: token.colorText,
-    titleMarginBottom: token.fontSizeSM * token.lineHeightSM,
-    itemPaddingBottom: token.padding,
-    colonMarginRight: token.marginXS,
-    colonMarginLeft: token.marginXXS / 2,
-    contentColor: token.colorText,
-    extraColor: token.colorText,
-  }),
+  prepareComponentToken,
 );

@@ -430,63 +430,67 @@ exports[`renders components/button/demo/danger.tsx extend context correctly 1`] 
 exports[`renders components/button/demo/danger.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/debug-block.tsx extend context correctly 1`] = `
-<div
-  class="ant-form-item"
+<form
+  class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item-row"
+    class="ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item-row"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
-          <button
-            class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-block"
-            style="margin-bottom: 12px;"
-            type="button"
+          <div
+            class="ant-form-item-control-input-content"
           >
-            <span>
-              Submit
-            </span>
-          </button>
-          <button
-            class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-icon-only"
-            type="button"
-          >
-            <span
-              class="ant-btn-icon"
+            <button
+              class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-block"
+              style="margin-bottom: 12px;"
+              type="button"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-round ant-btn-default ant-btn-lg ant-btn-icon-only"
+              type="button"
             >
               <span
-                aria-label="download"
-                class="anticon anticon-download"
-                role="img"
+                class="ant-btn-icon"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="download"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="download"
+                  class="anticon anticon-download"
+                  role="img"
                 >
-                  <path
-                    d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="download"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                    />
+                  </svg>
+                </span>
               </span>
-            </span>
-          </button>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</form>
 `;
 
 exports[`renders components/button/demo/debug-block.tsx extend context correctly 2`] = `[]`;
@@ -1937,6 +1941,39 @@ Array [
 `;
 
 exports[`renders components/button/demo/legacy-group.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/button/demo/linear-gradient.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        Primary Button
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Default Button
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/button/demo/linear-gradient.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/button/demo/loading.tsx extend context correctly 1`] = `
 <div

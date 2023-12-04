@@ -20,6 +20,7 @@ import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const Placements = [
   'topLeft',
@@ -32,7 +33,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -169,7 +170,8 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -208,6 +210,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayClassName,
     rootClassName,
     hashId,
+    rootCls,
     dropdown?.className,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );
@@ -250,6 +253,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
+        rootClassName={rootCls}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
@@ -305,7 +309,7 @@ const Dropdown: CompoundedComponent = (props) => {
     );
   }
 
-  return wrapSSR(renderNode);
+  return wrapCSSVar(renderNode);
 };
 
 function postPureProps(props: DropdownProps) {

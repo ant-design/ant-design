@@ -5,7 +5,7 @@ import type { DrawerClassNames, DrawerStyles } from '../DrawerPanel';
 
 const useStyle = createStyles(({ token }) => ({
   'my-drawer-body': {
-    background: token['blue-1'],
+    background: token.blue1,
   },
   'my-drawer-mask': {
     boxShadow: `inset 0 0 15px #fff`,

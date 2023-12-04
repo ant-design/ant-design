@@ -403,7 +403,6 @@ export default function Theme() {
           ...themeToken,
           colorPrimary: colorPrimaryValue,
         },
-        hashed: true,
         algorithm: algorithmFn,
         components: {
           Layout: isLight
