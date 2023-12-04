@@ -2,17 +2,19 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import { resetIcon } from '../../style';
 import { mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
 
 const FIXED_ITEM_MARGIN = 2;
 
-const getSelectItemStyle = ({
-  multipleSelectItemHeight,
-  selectHeight,
-  lineWidth: borderWidth,
-}: SelectToken): readonly [number, number] => {
-  const selectItemDist = (selectHeight - multipleSelectItemHeight) / 2 - borderWidth;
-  const selectItemMargin = Math.ceil(selectItemDist / 2);
-  return [selectItemDist, selectItemMargin] as const;
+const getSelectItemStyle = (token: SelectToken): number | string => {
+  const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
+  const selectItemDist = token
+    .calc(selectHeight)
+    .sub(multipleSelectItemHeight)
+    .div(2)
+    .sub(lineWidth)
+    .equal();
+  return selectItemDist;
 };
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
@@ -21,7 +23,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
   const selectItemHeight = token.multipleSelectItemHeight;
-  const [selectItemDist] = getSelectItemStyle(token);
+  const selectItemDist = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
@@ -56,7 +58,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         height: '100%',
         // Multiple is little different that horizontal is follow the vertical
-        padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
+        padding: `${unit(token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal())} ${unit(
+          token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
+        )}`,
         borderRadius: token.borderRadius,
 
         [`${componentCls}-show-search&`]: {
@@ -71,8 +75,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         '&:after': {
           display: 'inline-block',
           width: 0,
-          margin: `${FIXED_ITEM_MARGIN}px 0`,
-          lineHeight: `${selectItemHeight}px`,
+          margin: `${unit(FIXED_ITEM_MARGIN)} 0`,
+          lineHeight: unit(selectItemHeight),
           visibility: 'hidden',
           content: '"\\a0"',
         },
@@ -82,7 +86,10 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${componentCls}-show-arrow ${componentCls}-selector,
         &${componentCls}-allow-clear ${componentCls}-selector
       `]: {
-        paddingInlineEnd: token.fontSizeIcon + token.controlPaddingHorizontal,
+        paddingInlineEnd: token
+          .calc(token.fontSizeIcon)
+          .add(token.controlPaddingHorizontal)
+          .equal(),
       },
 
       // ======================== Selections ========================
@@ -95,15 +102,17 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         height: selectItemHeight,
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: `${selectItemHeight - token.lineWidth * 2}px`,
+        lineHeight: unit(
+          token.calc(selectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
+        ),
         background: token.multipleItemBg,
-        border: `${token.lineWidth}px ${token.lineType} ${token.multipleItemBorderColor}`,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-        marginInlineEnd: FIXED_ITEM_MARGIN * 2,
+        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
         paddingInlineStart: token.paddingXS,
-        paddingInlineEnd: token.paddingXS / 2,
+        paddingInlineEnd: token.calc(token.paddingXS).div(2).equal(),
 
         [`${componentCls}-disabled&`]: {
           color: token.multipleItemColorDisabled,
@@ -114,7 +123,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         // It's ok not to do this, but 24px makes bottom narrow in view should adjust
         '&-content': {
           display: 'inline-block',
-          marginInlineEnd: token.paddingXS / 2,
+          marginInlineEnd: token.calc(token.paddingXS).div(2).equal(),
           overflow: 'hidden',
           whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
           textOverflow: 'ellipsis',
@@ -157,7 +166,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-        marginInlineStart: token.inputPaddingHorizontalBase - selectItemDist,
+        marginInlineStart: token.calc(token.inputPaddingHorizontalBase).sub(selectItemDist).equal(),
 
         [`
           &-input,
@@ -165,7 +174,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         `]: {
           height: selectItemHeight,
           fontFamily: token.fontFamily,
-          lineHeight: `${selectItemHeight}px`,
+          lineHeight: unit(selectItemHeight),
           transition: `all ${token.motionDurationSlow}`,
         },
 
@@ -216,8 +225,6 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
     borderRadiusSM: token.borderRadius,
   });
 
-  const [, smSelectItemMargin] = getSelectItemStyle(token);
-
   return [
     genSizeStyle(token),
     // ======================== Small ========================
@@ -227,12 +234,12 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
     {
       [`${componentCls}-multiple${componentCls}-sm`]: {
         [`${componentCls}-selection-placeholder`]: {
-          insetInline: token.controlPaddingHorizontalSM - token.lineWidth,
+          insetInline: token.calc(token.controlPaddingHorizontalSM).sub(token.lineWidth).equal(),
         },
 
         // https://github.com/ant-design/ant-design/issues/29559
         [`${componentCls}-selection-search`]: {
-          marginInlineStart: smSelectItemMargin,
+          marginInlineStart: 2, // Magic Number
         },
       },
     },

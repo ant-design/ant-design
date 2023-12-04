@@ -115,7 +115,7 @@ const Editable: React.FC<EditableProps> = (props) => {
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const textAreaClassName = classNames(
     prefixCls,
@@ -128,7 +128,7 @@ const Editable: React.FC<EditableProps> = (props) => {
     hashId,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={textAreaClassName} style={style}>
       <TextArea
         ref={ref}

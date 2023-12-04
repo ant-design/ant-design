@@ -16,6 +16,7 @@ import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 import { useZIndex } from '../_util/hooks/useZIndex';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 let mousePosition: MousePosition;
 
@@ -93,7 +94,8 @@ const Modal: React.FC<ModalProps> = (props) => {
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
@@ -119,7 +121,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
 
   // =========================== Render ===========================
-  return wrapSSR(
+  return wrapCSSVar(
     <NoCompactStyle>
       <NoFormStyle status override>
         <zIndexContext.Provider value={contextZIndex}>
@@ -129,7 +131,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             zIndex={zIndex}
             getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
             prefixCls={prefixCls}
-            rootClassName={classNames(hashId, rootClassName)}
+            rootClassName={classNames(hashId, rootClassName, rootCls)}
             footer={dialogFooter}
             visible={open ?? visible}
             mousePosition={restProps.mousePosition ?? mousePosition}

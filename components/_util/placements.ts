@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 
-import { getArrowOffset } from '../style/placementArrow';
+import { getArrowOffsetToken } from '../style/placementArrow';
 
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
@@ -19,7 +19,7 @@ export interface PlacementsConfig {
 
 export function getOverflowOptions(
   placement: string,
-  arrowOffset: ReturnType<typeof getArrowOffset>,
+  arrowOffset: ReturnType<typeof getArrowOffsetToken>,
   arrowWidth: number,
   autoAdjustOverflow?: boolean | AdjustOverflow,
 ) {
@@ -38,14 +38,14 @@ export function getOverflowOptions(
   switch (placement) {
     case 'top':
     case 'bottom':
-      baseOverflow.shiftX = arrowOffset.dropdownArrowOffset * 2 + arrowWidth;
+      baseOverflow.shiftX = arrowOffset.arrowOffsetHorizontal * 2 + arrowWidth;
       baseOverflow.shiftY = true;
       baseOverflow.adjustY = true;
       break;
 
     case 'left':
     case 'right':
-      baseOverflow.shiftY = arrowOffset.dropdownArrowOffsetVertical * 2 + arrowWidth;
+      baseOverflow.shiftY = arrowOffset.arrowOffsetVertical * 2 + arrowWidth;
       baseOverflow.shiftX = true;
       baseOverflow.adjustX = true;
       break;
@@ -197,7 +197,7 @@ export default function getPlacements(config: PlacementsConfig) {
     }
 
     // Dynamic offset
-    const arrowOffset = getArrowOffset({
+    const arrowOffset = getArrowOffsetToken({
       contentRadius: borderRadius,
       limitVerticalRadius: true,
     });
@@ -206,22 +206,22 @@ export default function getPlacements(config: PlacementsConfig) {
       switch (key) {
         case 'topLeft':
         case 'bottomLeft':
-          placementInfo.offset[0] = -arrowOffset.dropdownArrowOffset - halfArrowWidth;
+          placementInfo.offset[0] = -arrowOffset.arrowOffsetHorizontal - halfArrowWidth;
           break;
 
         case 'topRight':
         case 'bottomRight':
-          placementInfo.offset[0] = arrowOffset.dropdownArrowOffset + halfArrowWidth;
+          placementInfo.offset[0] = arrowOffset.arrowOffsetHorizontal + halfArrowWidth;
           break;
 
         case 'leftTop':
         case 'rightTop':
-          placementInfo.offset[1] = -arrowOffset.dropdownArrowOffset - halfArrowWidth;
+          placementInfo.offset[1] = -arrowOffset.arrowOffsetHorizontal - halfArrowWidth;
           break;
 
         case 'leftBottom':
         case 'rightBottom':
-          placementInfo.offset[1] = arrowOffset.dropdownArrowOffset + halfArrowWidth;
+          placementInfo.offset[1] = arrowOffset.arrowOffsetHorizontal + halfArrowWidth;
           break;
       }
     }

@@ -57,7 +57,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
@@ -97,7 +97,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
 
   const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSegmented
       {...restProps}
       className={cls}

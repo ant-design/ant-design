@@ -6,7 +6,7 @@ describe('Slider.typescript', () => {
     const value = 0;
     const onChange = (v: number) => v;
     const result = (
-      <Slider defaultValue={value} value={value} onChange={onChange} onAfterChange={onChange} />
+      <Slider defaultValue={value} value={value} onChange={onChange} onChangeComplete={onChange} />
     );
     expect(result).toBeTruthy();
   });
@@ -20,7 +20,7 @@ describe('Slider.typescript', () => {
         defaultValue={value}
         value={value}
         onChange={onChange}
-        onAfterChange={onChange}
+        onChangeComplete={onChange}
       />
     );
     expect(result).toBeTruthy();
@@ -34,7 +34,7 @@ describe('Slider.typescript', () => {
         defaultValue={value}
         value={value}
         onChange={onChange}
-        onAfterChange={onChange}
+        onChangeComplete={onChange}
         step={null}
       />
     );

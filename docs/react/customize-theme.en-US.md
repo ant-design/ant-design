@@ -4,7 +4,6 @@ group:
   order: 1
 order: 0
 title: Customize Theme
-tag: Updated
 ---
 
 Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
@@ -329,9 +328,9 @@ const globalToken = getDesignToken();
 Same as ConfigProvider, `getDesignToken` could also accept a config object as `theme`:
 
 ```tsx
-import { createRoot } from 'react-dom/client';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
+import { createRoot } from 'react-dom/client';
 
 const { getDesignToken, useToken } = theme;
 

@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { Keyframes, unit } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { CSSUtil } from '../../theme/util/genComponentStyleHook';
 
 export type ComponentToken = {
   /** @deprecated use gradientFromColor instead. */
@@ -56,18 +57,18 @@ interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonButtonCls: string;
   skeletonInputCls: string;
   skeletonImageCls: string;
-  imageSizeBase: number;
+  imageSizeBase: number | string;
   skeletonLoadingBackground: string;
   skeletonLoadingMotionDuration: string;
   borderRadius: number;
 }
 
-const genSkeletonElementCommonSize = (size: number): CSSObject => ({
+const genSkeletonElementCommonSize = (size: number | string): CSSObject => ({
   height: size,
-  lineHeight: `${size}px`,
+  lineHeight: unit(size),
 });
 
-const genSkeletonElementAvatarSize = (size: number): CSSObject => ({
+const genSkeletonElementAvatarSize = (size: number | string): CSSObject => ({
   width: size,
   ...genSkeletonElementCommonSize(size),
 });
@@ -80,10 +81,9 @@ const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
   animationTimingFunction: 'ease',
   animationIterationCount: 'infinite',
 });
-
-const genSkeletonElementInputSize = (size: number): CSSObject => ({
-  width: size * 5,
-  minWidth: size * 5,
+const genSkeletonElementInputSize = (size: number, calc: CSSUtil['calc']): CSSObject => ({
+  width: calc(size).mul(5).equal(),
+  minWidth: calc(size).mul(5).equal(),
   ...genSkeletonElementCommonSize(size),
 });
 
@@ -117,6 +117,7 @@ const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
     controlHeightLG,
     controlHeightSM,
     gradientFromColor,
+    calc,
   } = token;
   return {
     [`${skeletonInputCls}`]: {
@@ -124,26 +125,26 @@ const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
       verticalAlign: 'top',
       background: gradientFromColor,
       borderRadius: borderRadiusSM,
-      ...genSkeletonElementInputSize(controlHeight),
+      ...genSkeletonElementInputSize(controlHeight, calc),
     },
 
     [`${skeletonInputCls}-lg`]: {
-      ...genSkeletonElementInputSize(controlHeightLG),
+      ...genSkeletonElementInputSize(controlHeightLG, calc),
     },
 
     [`${skeletonInputCls}-sm`]: {
-      ...genSkeletonElementInputSize(controlHeightSM),
+      ...genSkeletonElementInputSize(controlHeightSM, calc),
     },
   };
 };
 
-const genSkeletonElementImageSize = (size: number): CSSObject => ({
+const genSkeletonElementImageSize = (size: number | string): CSSObject => ({
   width: size,
   ...genSkeletonElementCommonSize(size),
 });
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
-  const { skeletonImageCls, imageSizeBase, gradientFromColor, borderRadiusSM } = token;
+  const { skeletonImageCls, imageSizeBase, gradientFromColor, borderRadiusSM, calc } = token;
   return {
     [`${skeletonImageCls}`]: {
       display: 'flex',
@@ -152,14 +153,14 @@ const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
       verticalAlign: 'top',
       background: gradientFromColor,
       borderRadius: borderRadiusSM,
-      ...genSkeletonElementImageSize(imageSizeBase * 2),
+      ...genSkeletonElementImageSize(calc(imageSizeBase).mul(2).equal()),
       [`${skeletonImageCls}-path`]: {
         fill: '#bfbfbf',
       },
       [`${skeletonImageCls}-svg`]: {
         ...genSkeletonElementImageSize(imageSizeBase),
-        maxWidth: imageSizeBase * 4,
-        maxHeight: imageSizeBase * 4,
+        maxWidth: calc(imageSizeBase).mul(4).equal(),
+        maxHeight: calc(imageSizeBase).mul(4).equal(),
       },
       [`${skeletonImageCls}-svg${skeletonImageCls}-svg-circle`]: {
         borderRadius: '50%',
@@ -188,9 +189,9 @@ const genSkeletonElementButtonShape = (
   };
 };
 
-const genSkeletonElementButtonSize = (size: number): CSSObject => ({
-  width: size * 2,
-  minWidth: size * 2,
+const genSkeletonElementButtonSize = (size: number, calc: CSSUtil['calc']): CSSObject => ({
+  width: calc(size).mul(2).equal(),
+  minWidth: calc(size).mul(2).equal(),
   ...genSkeletonElementCommonSize(size),
 });
 
@@ -202,6 +203,7 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
     controlHeightLG,
     controlHeightSM,
     gradientFromColor,
+    calc,
   } = token;
   return {
     [`${skeletonButtonCls}`]: {
@@ -209,19 +211,19 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
       verticalAlign: 'top',
       background: gradientFromColor,
       borderRadius: borderRadiusSM,
-      width: controlHeight * 2,
-      minWidth: controlHeight * 2,
-      ...genSkeletonElementButtonSize(controlHeight),
+      width: calc(controlHeight).mul(2).equal(),
+      minWidth: calc(controlHeight).mul(2).equal(),
+      ...genSkeletonElementButtonSize(controlHeight, calc),
     },
     ...genSkeletonElementButtonShape(token, controlHeight, skeletonButtonCls),
 
     [`${skeletonButtonCls}-lg`]: {
-      ...genSkeletonElementButtonSize(controlHeightLG),
+      ...genSkeletonElementButtonSize(controlHeightLG, calc),
     },
     ...genSkeletonElementButtonShape(token, controlHeightLG, `${skeletonButtonCls}-lg`),
 
     [`${skeletonButtonCls}-sm`]: {
-      ...genSkeletonElementButtonSize(controlHeightSM),
+      ...genSkeletonElementButtonSize(controlHeightSM, calc),
     },
     ...genSkeletonElementButtonShape(token, controlHeightSM, `${skeletonButtonCls}-sm`),
   };
@@ -369,10 +371,26 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const prepareComponentToken: GetDefaultToken<'Skeleton'> = (token) => {
+  const { colorFillContent, colorFill } = token;
+  const gradientFromColor = colorFillContent;
+  const gradientToColor = colorFill;
+  return {
+    color: gradientFromColor,
+    colorGradientEnd: gradientToColor,
+    gradientFromColor,
+    gradientToColor,
+    titleHeight: token.controlHeight / 2,
+    blockRadius: token.borderRadiusSM,
+    paragraphMarginTop: token.marginLG + token.marginXXS,
+    paragraphLiHeight: token.controlHeight / 2,
+  };
+};
+
+export default genStyleHooks(
   'Skeleton',
   (token) => {
-    const { componentCls } = token;
+    const { componentCls, calc } = token;
 
     const skeletonToken = mergeToken<SkeletonToken>(token, {
       skeletonAvatarCls: `${componentCls}-avatar`,
@@ -381,28 +399,14 @@ export default genComponentStyleHook(
       skeletonButtonCls: `${componentCls}-button`,
       skeletonInputCls: `${componentCls}-input`,
       skeletonImageCls: `${componentCls}-image`,
-      imageSizeBase: token.controlHeight * 1.5,
+      imageSizeBase: calc(token.controlHeight).mul(1.5).equal(),
       borderRadius: 100, // Large number to make capsule shape
       skeletonLoadingBackground: `linear-gradient(90deg, ${token.gradientFromColor} 25%, ${token.gradientToColor} 37%, ${token.gradientFromColor} 63%)`,
       skeletonLoadingMotionDuration: '1.4s',
     });
     return [genBaseStyle(skeletonToken)];
   },
-  (token) => {
-    const { colorFillContent, colorFill } = token;
-    const gradientFromColor = colorFillContent;
-    const gradientToColor = colorFill;
-    return {
-      color: gradientFromColor,
-      colorGradientEnd: gradientToColor,
-      gradientFromColor,
-      gradientToColor,
-      titleHeight: token.controlHeight / 2,
-      blockRadius: token.borderRadiusSM,
-      paragraphMarginTop: token.marginLG + token.marginXXS,
-      paragraphLiHeight: token.controlHeight / 2,
-    };
-  },
+  prepareComponentToken,
   {
     deprecatedTokens: [
       ['color', 'gradientFromColor'],

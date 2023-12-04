@@ -8,18 +8,17 @@ import type { CSSMotionProps } from 'rc-motion';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-// CSSINJS
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { DrawerClassNames, DrawerPanelProps, DrawerStyles } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
-import zIndexContext from '../_util/zindexContext';
 
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = typeof SizeTypes[number];
+type sizeType = (typeof SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;
@@ -70,10 +69,10 @@ const Drawer: React.FC<DrawerProps> & {
   } = props;
 
   const { getPopupContainer, getPrefixCls, direction, drawer } = React.useContext(ConfigContext);
+
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const getContainer =
     // 有可能为 false，所以不能直接判断
@@ -149,7 +148,7 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // =========================== Render ===========================
-  return wrapSSR(
+  return wrapCSSVar(
     <NoCompactStyle>
       <NoFormStyle status override>
         <zIndexContext.Provider value={contextZIndex}>
@@ -214,8 +213,7 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -225,7 +223,7 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
     className,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={cls} style={style}>
       <DrawerPanel prefixCls={prefixCls} {...restProps} />
     </div>,

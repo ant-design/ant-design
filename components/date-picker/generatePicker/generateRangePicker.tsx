@@ -28,6 +28,7 @@ import {
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 import { useZIndex } from '../../_util/hooks/useZIndex';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -71,7 +72,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
-    const [wrapSSR, hashId] = useStyle(prefixCls);
+    const cssVarCls = useCSSVarCls(prefixCls);
+    const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
     const additionalOverrideProps: any = {
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
@@ -115,7 +117,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-    return wrapSSR(
+    return wrapCSSVar(
       <RCRangePicker<DateType>
         separator={
           <span aria-label="to" className={`${prefixCls}-separator`}>
@@ -144,6 +146,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           compactItemClassnames,
           className,
           rangePicker?.className,
+          cssVarCls,
           rootClassName,
         )}
         style={{ ...rangePicker?.style, ...style }}
@@ -153,7 +156,12 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         generateConfig={generateConfig}
         components={Components}
         direction={direction}
-        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName, rootClassName)}
+        dropdownClassName={classNames(
+          hashId,
+          popupClassName || dropdownClassName,
+          cssVarCls,
+          rootClassName,
+        )}
         popupStyle={{
           ...props.popupStyle,
           zIndex,

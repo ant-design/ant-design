@@ -1,7 +1,7 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -70,7 +70,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         },
 
         [`${tableCls}-pagination${tableCls}-pagination`]: {
-          margin: `${margin}px 0 ${marginXXS}px`,
+          margin: `${unit(margin)} 0 ${unit(marginXXS)}`,
         },
       },
 
@@ -140,7 +140,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     flexDirection: 'column',
     width: listWidth,
     height: listHeight,
-    border: `${lineWidth}px ${lineType} ${colorBorder}`,
+    border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
     borderRadius: token.borderRadiusLG,
 
     '&-with-pagination': {
@@ -160,13 +160,13 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       alignItems: 'center',
       height: headerHeight,
       // border-top is on the transfer dom. We should minus 1px for this
-      padding: `${
-        transferHeaderVerticalPadding - lineWidth
-      }px ${paddingSM}px ${transferHeaderVerticalPadding}px`,
+      padding: `${unit(token.calc(transferHeaderVerticalPadding).sub(lineWidth).equal())} ${unit(
+        paddingSM,
+      )} ${unit(transferHeaderVerticalPadding)}`,
       color: colorText,
       background: colorBgContainer,
-      borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
-      borderRadius: `${borderRadiusLG}px ${borderRadiusLG}px 0 0`,
+      borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      borderRadius: `${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0 0`,
 
       '> *:not(:last-child)': {
         marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
@@ -221,7 +221,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         display: 'flex',
         alignItems: 'center',
         minHeight: itemHeight,
-        padding: `${itemPaddingBlock}px ${paddingSM}px`,
+        padding: `${unit(itemPaddingBlock)} ${unit(paddingSM)}`,
         transition: `all ${motionDurationSlow}`,
 
         '> *:not(:last-child)': {
@@ -250,7 +250,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
           '&::after': {
             position: 'absolute',
-            inset: `-${itemPaddingBlock}px -50%`,
+            inset: `-${unit(itemPaddingBlock)} -50%`,
             content: '""',
           },
         },
@@ -285,9 +285,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     },
 
     '&-pagination': {
-      padding: `${token.paddingXS}px 0`,
+      padding: `${unit(token.paddingXS)} 0`,
       textAlign: 'end',
-      borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+      borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
       [`${antCls}-pagination-options`]: {
         paddingInlineEnd: token.paddingXS,
@@ -303,7 +303,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     },
 
     '&-footer': {
-      borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+      borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
     },
 
     // fix: https://github.com/ant-design/ant-design/issues/44489
@@ -318,12 +318,9 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
     antCls,
     iconCls,
     componentCls,
-    headerHeight,
     marginXS,
     marginXXS,
     fontSizeIcon,
-    fontSize,
-    lineHeight,
     colorBgContainerDisabled,
   } = token;
 
@@ -348,7 +345,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         flex: 'none',
         flexDirection: 'column',
         alignSelf: 'center',
-        margin: `0 ${marginXS}px`,
+        margin: `0 ${unit(marginXS)}`,
         verticalAlign: 'middle',
 
         [`${antCls}-btn`]: {
@@ -363,10 +360,6 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
           },
         },
       },
-
-      [`${antCls}-empty-image`]: {
-        maxHeight: headerHeight / 2 - Math.round(fontSize * lineHeight),
-      },
     },
   };
 };
@@ -380,15 +373,25 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Transfer'> = (token) => {
+  const { fontSize, lineHeight, controlHeight, controlHeightLG, lineWidth } = token;
+  const fontHeight = Math.round(fontSize * lineHeight);
+  return {
+    listWidth: 180,
+    listHeight: 200,
+    listWidthLG: 250,
+    headerHeight: controlHeightLG,
+    itemHeight: controlHeight,
+    itemPaddingBlock: (controlHeight - fontHeight) / 2,
+    transferHeaderVerticalPadding: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
+  };
+};
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Transfer',
   (token) => {
-    const { fontSize, lineHeight, lineWidth, controlHeightLG } = token;
-    const fontHeight = Math.round(fontSize * lineHeight);
-    const transferToken = mergeToken<TransferToken>(token, {
-      transferHeaderVerticalPadding: Math.ceil((controlHeightLG - lineWidth - fontHeight) / 2),
-    });
+    const transferToken = mergeToken<TransferToken>(token);
 
     return [
       genTransferStyle(transferToken),
@@ -397,16 +400,5 @@ export default genComponentStyleHook(
       genTransferRTLStyle(transferToken),
     ];
   },
-  (token) => {
-    const { fontSize, lineHeight, controlHeight, controlHeightLG } = token;
-    const fontHeight = Math.round(fontSize * lineHeight);
-    return {
-      listWidth: 180,
-      listHeight: 200,
-      listWidthLG: 250,
-      headerHeight: controlHeightLG,
-      itemHeight: controlHeight,
-      itemPaddingBlock: (controlHeight - fontHeight) / 2,
-    };
-  },
+  prepareComponentToken,
 );
