@@ -67,6 +67,9 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   };
 }
 
+type CardClassNamesModule = keyof Exclude<CardProps['classNames'], undefined>;
+type CardStylesModule = keyof Exclude<CardProps['styles'], undefined>;
+
 const ActionNode: React.FC<{
   actionClasses: string;
   actions: React.ReactNode[];
@@ -124,6 +127,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     props.onTabChange?.(key);
   };
 
+  const moduleClass = (moduleName: CardClassNamesModule) =>
+    classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
+
+  const moduleStyle = (moduleName: CardStylesModule) => ({
+    ...card?.styles?.[moduleName],
+    ...customStyles?.[moduleName],
+  });
+
   const isContainGrid = React.useMemo<boolean>(() => {
     let containGrid = false;
     React.Children.forEach(children, (element: JSX.Element) => {
@@ -155,70 +166,36 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   let head: React.ReactNode;
   const mergedSize = useSize(customizeSize);
   const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
-  const tabsClasses = classNames(
-    `${prefixCls}-head-tabs`,
-    card?.classNames?.tabs,
-    customClassNames?.tabs,
-  );
-  const mergedTabsStyle: React.CSSProperties = { ...card?.styles?.tabs, ...customStyles?.tabs };
+  const tabsClasses = classNames(`${prefixCls}-head-tabs`, moduleClass('tabs'));
   const tabs = tabList ? (
     <Tabs
       size={tabSize}
       {...extraProps}
       className={tabsClasses}
-      style={mergedTabsStyle}
+      style={moduleStyle('tabs')}
       onChange={onTabChange}
       items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
     />
   ) : null;
   if (title || extra || tabs) {
-    const headClasses = classNames(
-      `${prefixCls}-head`,
-      card?.classNames?.head,
-      customClassNames?.head,
-    );
+    const headClasses = classNames(`${prefixCls}-head`, moduleClass('head'));
+    const titleClasses = classNames(`${prefixCls}-head-title`, moduleClass('title'));
+    const extraClasses = classNames(`${prefixCls}-extra`, moduleClass('extra'));
+    const headWrapperClasses = classNames(`${prefixCls}-head-wrapper`, moduleClass('headWrapper'));
     const mergedHeadStyle: React.CSSProperties = {
-      ...card?.styles?.head,
-      ...customStyles?.head,
+      ...moduleStyle('head'),
       ...headStyle,
-    };
-    const titleClasses = classNames(
-      `${prefixCls}-head-title`,
-      card?.classNames?.title,
-      customClassNames?.title,
-    );
-    const mergedTitleStyle: React.CSSProperties = {
-      ...card?.styles?.title,
-      ...customStyles?.title,
-    };
-    const extraClasses = classNames(
-      `${prefixCls}-extra`,
-      card?.classNames?.extra,
-      customClassNames?.extra,
-    );
-    const mergedExtraStyle: React.CSSProperties = {
-      ...card?.styles?.extra,
-      ...customStyles?.extra,
-    };
-    const headWrapperClasses = classNames(
-      `${prefixCls}-head-wrapper`,
-      card?.classNames?.headWrapper,
-      customClassNames?.headWrapper,
-    );
-    const mergedHeadWrapperStyle: React.CSSProperties = {
-      ...card?.styles?.headWrapper,
-      ...customStyles?.headWrapper,
     };
     head = (
       <div className={headClasses} style={mergedHeadStyle}>
-        <div className={headWrapperClasses} style={mergedHeadWrapperStyle}>
+        <div className={headWrapperClasses} style={moduleStyle('headWrapper')}>
           {title && (
-            <div className={titleClasses} style={mergedTitleStyle}>
+            <div className={titleClasses} style={moduleStyle('title')}>
               {title}
             </div>
           )}
           {extra && (
-            <div className={extraClasses} style={mergedExtraStyle}>
+            <div className={extraClasses} style={moduleStyle('extra')}>
               {extra}
             </div>
           )}
@@ -227,28 +204,15 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       </div>
     );
   }
-  const coverClasses = classNames(
-    `${prefixCls}-cover`,
-    card?.classNames?.cover,
-    customClassNames?.cover,
-  );
-  const mergedCoverStyle: React.CSSProperties = {
-    ...card?.styles?.cover,
-    ...customStyles?.cover,
-  };
+  const coverClasses = classNames(`${prefixCls}-cover`, moduleClass('cover'));
   const coverDom = cover ? (
-    <div className={coverClasses} style={mergedCoverStyle}>
+    <div className={coverClasses} style={moduleStyle('cover')}>
       {cover}
     </div>
   ) : null;
-  const bodyClasses = classNames(
-    `${prefixCls}-body`,
-    card?.classNames?.body,
-    customClassNames?.body,
-  );
+  const bodyClasses = classNames(`${prefixCls}-body`, moduleClass('body'));
   const mergedBodyStyle: React.CSSProperties = {
-    ...card?.styles?.body,
-    ...customStyles?.body,
+    ...moduleStyle('body'),
     ...bodyStyle,
   };
   const body = (
@@ -257,18 +221,14 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     </div>
   );
 
-  const actionClasses = classNames(
-    `${prefixCls}-actions`,
-    card?.classNames?.actions,
-    customClassNames?.actions,
-  );
-  const mergedActionStyle: React.CSSProperties = {
-    ...card?.styles?.actions,
-    ...customStyles?.actions,
-  };
+  const actionClasses = classNames(`${prefixCls}-actions`, moduleClass('actions'));
   const actionDom =
     actions && actions.length ? (
-      <ActionNode actionClasses={actionClasses} actionStyle={mergedActionStyle} actions={actions} />
+      <ActionNode
+        actionClasses={actionClasses}
+        actionStyle={moduleStyle('actions')}
+        actions={actions}
+      />
     ) : null;
 
   const divProps = omit(others, ['onTabChange']);
