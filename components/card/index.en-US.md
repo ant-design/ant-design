@@ -55,6 +55,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
+| classNames | Config Card build-in module's className | `head?: string; body?: string; extra?: string; title?: string; tabs?: string; actions?: string; cover?: string; headWrapper?: string;` | - | 5.13.0 |
+| styles | Config Card build-in module's style | `head?: CSSProperties; body?: CSSProperties; extra?: CSSProperties; title?: CSSProperties; tabs?: CSSProperties; actions?: CSSProperties; cover?: CSSProperties; headWrapper?: CSSProperties;` | - | 5.13.0 |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid

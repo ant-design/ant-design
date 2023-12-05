@@ -14,6 +14,7 @@ import type { Locale } from '../locale';
 import type { ModalProps } from '../modal';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
+import type { CardProps } from '../card';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
@@ -47,18 +48,6 @@ export interface ThemeConfig {
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
   inherit?: boolean;
-  cssVar?:
-    | {
-        /**
-         * Prefix for css variable, default to `antd`.
-         */
-        prefix?: string;
-        /**
-         * Unique key for theme, should be set manually < react@18.
-         */
-        key?: string;
-      }
-    | boolean;
 }
 
 export interface ComponentStyleConfig {
@@ -174,7 +163,10 @@ export interface ConfigConsumerProps {
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
-  card?: ComponentStyleConfig;
+  card?: ComponentStyleConfig & {
+    classNames?: CardProps['classNames'];
+    styles: CardProps['styles'];
+  };
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;

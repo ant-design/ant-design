@@ -174,4 +174,15 @@ describe('Card', () => {
 
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should support custom className', () => {
+    const { container } = render(<Card title="Card title" classNames={{ head: 'custom-head' }} />);
+    expect(container.querySelectorAll('.custom-head').length).toBe(1);
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should support custom styles', () => {
+    const { container } = render(<Card title="Card title" styles={{ head: { color: 'red' } }} />);
+    expect(container).toMatchSnapshot();
+  });
 });
