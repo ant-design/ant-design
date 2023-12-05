@@ -56,8 +56,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAA
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
-| classNames | 配置卡片内置模块的 className | `head?: string; body?: string; extra?: string; title?: string; tabs?: string; actions?: string; cover?: string; headWrapper?: string;` | - | 5.13.0 |
-| styles | 配置卡片内置模块的 style | `head?: CSSProperties; body?: CSSProperties; extra?: CSSProperties; title?: CSSProperties; tabs?: CSSProperties; actions?: CSSProperties; cover?: CSSProperties; headWrapper?: CSSProperties;` | - | 5.13.0 |
+| classNames | 配置卡片内置模块的 className | `head?: string; body?: string; extra?: string; title?: string; tabs?: string; actions?: string; cover?: string;` | - | 5.13.0 |
+| styles | 配置卡片内置模块的 style | `head?: CSSProperties; body?: CSSProperties; extra?: CSSProperties; title?: CSSProperties; tabs?: CSSProperties; actions?: CSSProperties; cover?: CSSProperties;` | - | 5.13.0 |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |
 
 ### Card.Grid

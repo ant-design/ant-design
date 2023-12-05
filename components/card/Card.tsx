@@ -53,7 +53,6 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
     tabs?: string;
     actions?: string;
     cover?: string;
-    headWrapper?: string;
   };
   styles?: {
     head?: React.CSSProperties;
@@ -63,7 +62,6 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
     tabs?: React.CSSProperties;
     actions?: React.CSSProperties;
     cover?: React.CSSProperties;
-    headWrapper?: React.CSSProperties;
   };
 }
 
@@ -181,14 +179,13 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     const headClasses = classNames(`${prefixCls}-head`, moduleClass('head'));
     const titleClasses = classNames(`${prefixCls}-head-title`, moduleClass('title'));
     const extraClasses = classNames(`${prefixCls}-extra`, moduleClass('extra'));
-    const headWrapperClasses = classNames(`${prefixCls}-head-wrapper`, moduleClass('headWrapper'));
     const mergedHeadStyle: React.CSSProperties = {
       ...moduleStyle('head'),
       ...headStyle,
     };
     head = (
       <div className={headClasses} style={mergedHeadStyle}>
-        <div className={headWrapperClasses} style={moduleStyle('headWrapper')}>
+        <div className={`${prefixCls}-head-wrapper`}>
           {title && (
             <div className={titleClasses} style={moduleStyle('title')}>
               {title}
