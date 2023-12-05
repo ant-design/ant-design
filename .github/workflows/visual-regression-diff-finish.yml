@@ -37,7 +37,6 @@ jobs:
         uses: actions/github-script@v6
         id: visual_diff_build_job_status
         with:
-          # todo: split it out as github actions
           script: |
             const response = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
@@ -62,13 +61,13 @@ jobs:
             core.setOutput('build-failure', jobs['visual-diff report'] === 'failure');
             return jobs;
 
-  persist-image-snapshots:
-    name: persist image-snapshots
+  download-visual-regression-report:
+    name: download visual-regression report
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
     runs-on: ubuntu-latest
     needs: upstream-workflow-summary
-    if: github.event.workflow_run.event == 'push' && github.event.push.head.ref == 'master'
+    if: github.event.workflow_run.event == 'push_request' && github.event.push_request.head.ref == 'master'
     steps:
       # We need get persist-index first
       - name: download image snapshot artifact
@@ -76,28 +75,29 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: pr
+          name: visual-regression-diff-ref
 
       # Save PR id to output
       - name: save PR id
         id: pr
         run: echo "id=$(<visual-regression-pr-id.txt)" >> $GITHUB_OUTPUT
 
-      # Download site artifact
-      - name: download site artifact
+      # Download report artifact
+      - name: download report artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: site
+          name: visual-regression-report
 
-      - name: upload surge service
-        id: deploy
-        continue-on-error: true
-        run: |
-          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+      # TODO: unzip report and then upload them to oss && convert to markdown report
+      # - name: upload surge service
+      #   id: deploy
+      #   continue-on-error: true
+      #   run: |
+      #     export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+      #     npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@v3
@@ -117,6 +117,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
-            <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+            <!-- VISUAL_DIFF_REGRESSION_HOOK -->
+          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}

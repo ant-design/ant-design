@@ -24,7 +24,6 @@ jobs:
         uses: actions/github-script@v6
         id: persist_start_job_status
         with:
-          # todo: split it out as github actions
           script: |
             const response = await github.rest.actions.listJobsForWorkflowRun({
               owner: context.repo.owner,
@@ -66,7 +65,7 @@ jobs:
 
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
-        id: visual-regression
+        id: visual_regression
         run: echo "id=$(<visual-regression-ref.txt)" >> $GITHUB_OUTPUT
 
       - name: Download Visual-Regression Artifact
@@ -121,7 +120,7 @@ jobs:
       #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.visual-regression.outputs.id }}-ant-design.surge.sh)
       #       <!-- AUTO_PREVIEW_HOOK -->
       #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-      #     number: ${{ steps.visual-regression.outputs.id }}
+      #     number: ${{ steps.visual_regression.outputs.id }}
 
       # - name: failed comment
       #   if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.persist.outcome == 'failure' || failure() }}
@@ -132,4 +131,4 @@ jobs:
       #       <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
       #       <!-- AUTO_PREVIEW_HOOK -->
       #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-      #     number: ${{ steps.visual-regression.outputs.id }}
+      #     number: ${{ steps.visual_regression.outputs.id }}

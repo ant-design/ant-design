@@ -89,25 +89,28 @@ jobs:
           mv antd-image-snapshots-main/imageSnapshots ./imageSnapshots-master
           mv antd-image-snapshots-main/visual-regression-ref.txt ./imageSnapshots-master
 
-      # Execute visual regression diff task
+      # Execute visual regression diff task and zip then
       - name: visual regression diff
-        run: npm run visual-regression
+        run: |
+          npm run visual-regression
+          tar -czvf visualRegressionReport.tar.gz visualRegressionReport/*
 
+      # Upload report in `visualRegressionReport`
       - name: upload report artifact
         uses: actions/upload-artifact@v3
         with:
           name: visual-regression-report
-          path: ./visual-regression-report.md
+          path: visualRegressionReport.tar.gz
 
-      # # Upload git ref for next workflow `visual-regression-diff-finish` use
-      # - name: Save persist key
-      #   if: ${{ always() }}
-      # # should be pr id
-      #   run: echo ${{ github.event.number }} > ./visual-regression-pr-id.txt
+      # Upload git ref for next workflow `visual-regression-diff-finish` use
+      - name: Save persist key
+        if: ${{ always() }}
+      # should be pr id
+        run: echo ${{ github.event.number }} > ./visual-regression-pr-id.txt
 
-      # - name: Upload persist key
-      #   if: ${{ always() }}
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: visual-regression-diff-ref
-      #     path: ./visual-regression-pr-id.txt
+      - name: Upload persist key
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: visual-regression-diff-ref
+          path: ./visual-regression-pr-id.txt
