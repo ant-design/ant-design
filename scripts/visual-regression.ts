@@ -44,7 +44,10 @@ const compareScreenshots = async (
     { threshold: 0.1, diffMask: false },
   );
 
-  diffPng.pack().pipe(fs.createWriteStream(diffImagePath));
+  // if mismatched then write diff image
+  if (mismatchedPixels) {
+    diffPng.sync.write(diffImagePath);
+  }
 
   return (mismatchedPixels / (targetWidth * targetHeight)) * 100;
 };
@@ -127,6 +130,12 @@ async function boot() {
     await fs.promises.writeFile(
       path.resolve(__dirname, '../visual-regression-report.md'),
       reportMdStr,
+      'utf8',
+    );
+  } else {
+    await fs.promises.writeFile(
+      path.resolve(__dirname, '../visual-regression-report.md'),
+      `No visual diff differences have been found`.trim(),
       'utf8',
     );
   }
