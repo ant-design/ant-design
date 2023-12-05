@@ -48,6 +48,18 @@ export interface ThemeConfig {
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
   inherit?: boolean;
+  cssVar?:
+    | {
+        /**
+         * Prefix for css variable, default to `antd`.
+         */
+        prefix?: string;
+        /**
+         * Unique key for theme, should be set manually < react@18.
+         */
+        key?: string;
+      }
+    | boolean;
 }
 
 export interface ComponentStyleConfig {
