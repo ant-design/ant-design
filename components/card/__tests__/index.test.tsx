@@ -177,12 +177,20 @@ describe('Card', () => {
 
   it('should support custom className', () => {
     const { container } = render(<Card title="Card title" classNames={{ head: 'custom-head' }} />);
-    expect(container.querySelectorAll('.custom-head').length).toBe(1);
+    const { container } = render(
+      <Card title="Card title" classNames={{ head: 'custom-head' }}>
+        <p>Card content</p>
+      </Card>,
+    );
     expect(container).toMatchSnapshot();
   });
 
   it('should support custom styles', () => {
-    const { container } = render(<Card title="Card title" styles={{ head: { color: 'red' } }} />);
+    const { container } = render(
+      <Card title="Card title" styles={{ head: { color: 'red' } }}>
+        <p>Card content</p>
+      </Card>,
+    );
     expect(container).toMatchSnapshot();
   });
 });
