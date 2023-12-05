@@ -176,7 +176,6 @@ describe('Card', () => {
   });
 
   it('should support custom className', () => {
-    const { container } = render(<Card title="Card title" classNames={{ head: 'custom-head' }} />);
     const { container } = render(
       <Card title="Card title" classNames={{ head: 'custom-head' }}>
         <p>Card content</p>
