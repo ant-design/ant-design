@@ -138,6 +138,8 @@ async function boot() {
   const jsonl = badCaseCounts.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
+  // TODO: jsonl 转为 markdown 格式，并将其中的图片链接替换为上传后地址
+  // https://antd-argos.oss-cn-shanghai.aliyuncs.com/commit-id
 }
 
 boot();

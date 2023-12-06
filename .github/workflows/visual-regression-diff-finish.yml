@@ -92,12 +92,20 @@ jobs:
           name: visual-regression-report
 
       # TODO: unzip report and then upload them to oss && convert to markdown report
-      # - name: upload surge service
-      #   id: deploy
-      #   continue-on-error: true
-      #   run: |
-      #     export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
-      #     npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+      - name: upload visual-regression report
+        id: deploy
+        continue-on-error: true
+        run: |
+          tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
+          echo "✅ Uncompress Finished"
+
+          npm install ali-oss --save
+          echo "✅ Install `ali-oss` Finished"
+
+          # node scripts/visual-regression-report-upload.js ./visualRegressionReport
+
+          # export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          # npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@v3
