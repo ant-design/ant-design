@@ -46,20 +46,18 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
   classNames?: {
-    head?: string;
+    header?: string;
     body?: string;
     extra?: string;
     title?: string;
-    tabs?: string;
     actions?: string;
     cover?: string;
   };
   styles?: {
-    head?: React.CSSProperties;
+    header?: React.CSSProperties;
     body?: React.CSSProperties;
     extra?: React.CSSProperties;
     title?: React.CSSProperties;
-    tabs?: React.CSSProperties;
     actions?: React.CSSProperties;
     cover?: React.CSSProperties;
   };
@@ -164,23 +162,21 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   let head: React.ReactNode;
   const mergedSize = useSize(customizeSize);
   const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
-  const tabsClasses = classNames(`${prefixCls}-head-tabs`, moduleClass('tabs'));
   const tabs = tabList ? (
     <Tabs
       size={tabSize}
       {...extraProps}
-      className={tabsClasses}
-      style={moduleStyle('tabs')}
+      className={`${prefixCls}-head-tabs`}
       onChange={onTabChange}
       items={tabList.map(({ tab, ...item }) => ({ label: tab, ...item }))}
     />
   ) : null;
   if (title || extra || tabs) {
-    const headClasses = classNames(`${prefixCls}-head`, moduleClass('head'));
+    const headClasses = classNames(`${prefixCls}-head`, moduleClass('header'));
     const titleClasses = classNames(`${prefixCls}-head-title`, moduleClass('title'));
     const extraClasses = classNames(`${prefixCls}-extra`, moduleClass('extra'));
     const mergedHeadStyle: React.CSSProperties = {
-      ...moduleStyle('head'),
+      ...moduleStyle('header'),
       ...headStyle,
     };
     head = (
