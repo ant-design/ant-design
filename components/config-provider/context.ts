@@ -82,6 +82,11 @@ export interface ButtonConfig extends ComponentStyleConfig {
   styles?: ButtonProps['styles'];
 }
 
+export interface CardConfig extends ComponentStyleConfig {
+  classNames?: CardProps['classNames'];
+  styles: CardProps['styles'];
+}
+
 export interface DrawerConfig extends ComponentStyleConfig {
   classNames?: DrawerProps['classNames'];
   styles?: DrawerProps['styles'];
@@ -175,10 +180,7 @@ export interface ConfigConsumerProps {
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
-  card?: ComponentStyleConfig & {
-    classNames?: CardProps['classNames'];
-    styles: CardProps['styles'];
-  };
+  card?: CardConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
