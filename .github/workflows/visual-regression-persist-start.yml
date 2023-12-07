@@ -84,11 +84,11 @@ jobs:
       # Upload git ref for next workflow `visual-regression-persist-finish` use
       - name: Save persist key
         if: ${{ always() }}
-        run: echo ${{ github.sha }} > ./visual-regression-ref.txt
+        run: echo ${{ github.sha }} > ./visual-regression-master-ref.txt
 
       - name: Upload persist key
         if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
-          name: visual-regression-persist-ref
-          path: ./visual-regression-ref.txt
+          name: visual-regression-master-ref
+          path: ./visual-regression-master-ref.txt
