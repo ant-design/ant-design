@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Radio, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
 const onChange = (key: string) => {
@@ -24,13 +24,30 @@ const items: TabsProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Tabs
-    defaultActiveKey="1"
-    items={items}
-    onChange={onChange}
-    indicatorSize={(origin) => origin - 16}
-  />
-);
+const App: React.FC = () => {
+  const [align, setAlign] = React.useState<TabsProps['indicatorAlign']>('center');
+  return (
+    <>
+      <Radio.Group
+        defaultValue="center"
+        onChange={(e) => setAlign(e.target.value)}
+        style={{ marginBottom: 12 }}
+      >
+        {['start', 'center', 'end'].map((item) => (
+          <Radio.Button key={item} value={item}>
+            {item}
+          </Radio.Button>
+        ))}
+      </Radio.Group>
+      <Tabs
+        defaultActiveKey="1"
+        items={items}
+        onChange={onChange}
+        indicatorSize={(origin) => origin - 20}
+        indicatorAlign={align}
+      />
+    </>
+  );
+};
 
 export default App;
