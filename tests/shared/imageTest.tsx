@@ -86,7 +86,7 @@ export default function imageTest(
       });
 
       expect(image).toMatchImageSnapshot({
-        customSnapshotIdentifier: identifier + name.replace(/\s/g, '-'),
+        customSnapshotIdentifier: `${identifier}-${name.replace(/\s/g, '-')}`,
       });
 
       MockDate.reset();
