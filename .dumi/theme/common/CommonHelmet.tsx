@@ -4,7 +4,7 @@ import React, { useMemo } from 'react';
 const CommonHelmet = () => {
   const meta = useRouteMeta();
 
-  const [title, description] = useMemo(() => {
+  const [title, metas] = useMemo(() => {
     let helmetTitle;
     if (!meta.frontmatter.subtitle && !meta.frontmatter.title) {
       helmetTitle = '404 Not Found - Ant Design';
@@ -14,16 +14,23 @@ const CommonHelmet = () => {
       } - Ant Design`;
     }
     const helmetDescription = meta.frontmatter.description || '';
-    return [helmetTitle, helmetDescription];
+    const helmetMetas: JSX.IntrinsicElements['meta'][] = [
+      {
+        property: 'og:title',
+        content: title,
+      },
+    ];
+    if (helmetDescription) {
+      helmetMetas.push({
+        name: 'description',
+        content: helmetDescription,
+      });
+    }
+
+    return [helmetTitle, helmetMetas];
   }, [meta]);
 
-  return (
-    <Helmet>
-      <title>{title}</title>
-      <meta property="og:title" content={title} />
-      {description && <meta name="description" content={description} />}
-    </Helmet>
-  );
+  return <Helmet title={title} meta={metas} />;
 };
 
 export default CommonHelmet;
