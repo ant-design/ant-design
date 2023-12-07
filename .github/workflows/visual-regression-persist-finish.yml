@@ -70,7 +70,7 @@ jobs:
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
         id: visuall-regression
-        run: echo "id=$(<visual-regression-master-ref.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=$(<visual-regression-ref.txt)" >> $GITHUB_OUTPUT
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
@@ -94,6 +94,6 @@ jobs:
 
           echo "🤖 Uploading"
           node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
-          node scripts/visual-regression-upload.js ./visual-regression-master-ref.txt --ref=${{ github.ref_name }}
+          node scripts/visual-regression-upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
 
           echo "✅ Uploaded"
