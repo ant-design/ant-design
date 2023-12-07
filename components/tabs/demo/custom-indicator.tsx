@@ -32,11 +32,7 @@ const App: React.FC = () => {
         defaultValue="center"
         style={{ marginBottom: 12 }}
         onChange={(e) => setAlign(e.target.value)}
-        options={[
-          { label: 'start', value: 'start' },
-          { label: 'center', value: 'center' },
-          { label: 'end', value: 'end' },
-        ]}
+        options={['start', 'center', 'end']}
       />
       <Tabs
         defaultActiveKey="1"
