@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Tabs } from 'antd';
+import { Segmented, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
 const onChange = (key: string) => {
@@ -28,10 +28,10 @@ const App: React.FC = () => {
   const [align, setAlign] = React.useState<TabsProps['indicatorAlign']>('center');
   return (
     <>
-      <Radio.Group
+      <Segmented
         defaultValue="center"
-        style={{ marginBottom: 12 }}
-        onChange={(e) => setAlign(e.target.value)}
+        style={{ marginBottom: 8 }}
+        onChange={(value) => setAlign(value as TabsProps['indicatorAlign'])}
         options={['start', 'center', 'end']}
       />
       <Tabs
