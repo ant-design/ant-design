@@ -53,15 +53,18 @@ jobs:
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
     runs-on: ubuntu-latest
-    needs: upstream-workflow-summary
+    needs: [upstream-workflow-summary]
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
       # We need get persist key first
       - name: Download Visual Regression Ref
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: visual-regression-persist-ref
+          name: visual-regression-master-ref
 
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
@@ -77,58 +80,20 @@ jobs:
           name: image-snapshots
           path: ./
 
-      - name: Persist to Snapshot Repo
+      - name: Persist Image Snapshot to OSS
         if: github.ref_name == 'master'
         id: persist
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.ANTD_IMAGE_SNAP_REPO_TOKEN }}
-        # should push to snapshot repo firstly
-        # push the single folder to the repo
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          git clone https://$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git
+          rm package.json
+          npm i ali-oss --no-save
 
-          echo "✅ Clone Finished"
+          echo "🤖 Uploading"
+          node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
+          node scripts/visual-regression-upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
 
-          rm antd-image-snapshots/*.txt
-          mv visual-regression-ref.txt antd-image-snapshots/
-
-          rm -rf antd-image-snapshots/imageSnapshots/*
-          tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
-
-          echo "✅ Changes Finished"
-
-          cd antd-image-snapshots
-
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-          git commit -a -m 'feat: update snapshot from ${{steps.visual-regression.outputs.id}}'
-
-          echo "✅ Commit Finished"
-
-          git push --prune https://vaugsX:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
-
-          echo "✅ Push Finished"
-
-      # - name: success comment
-      #   uses: actions-cool/maintain-one-comment@v3
-      #   if: ${{ steps.persist.outcome == 'success' }}
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     body: |
-      #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.visual-regression.outputs.id }}-ant-design.surge.sh)
-      #       <!-- AUTO_PREVIEW_HOOK -->
-      #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-      #     number: ${{ steps.visual_regression.outputs.id }}
-
-      # - name: failed comment
-      #   if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.persist.outcome == 'failure' || failure() }}
-      #   uses: actions-cool/maintain-one-comment@v3
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     body: |
-      #       <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
-      #       <!-- AUTO_PREVIEW_HOOK -->
-      #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-      #     number: ${{ steps.visual_regression.outputs.id }}
+          echo "✅ Uploaded"

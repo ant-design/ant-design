@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.12.1
+
+`2023-12-04`
+
+- 🐞 MISC: 修复 token 转换 less 变量丢失的问题。[#46250](https://github.com/ant-design/ant-design/pull/46250)
+- 🐞 修复 Notification 标题太长时会与关闭图标重叠的问题。[#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
+
 ## 5.12.0
 
 `2023-12-04`
@@ -25,6 +32,7 @@ tag: vVERSION
 - 🆕 `Form.useWatch` 支持 selector 函数参数调用。[#46180](https://github.com/ant-design/ant-design/pull/46180) [@crazyair](https://github.com/crazyair)
 - 🆕 Slider 组件支持 `onChangeComplete` 事件，并废弃 `onAfterChange`。[#46182](https://github.com/ant-design/ant-design/pull/46182) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Tabs 配置项 `items` 支持 `icon` 属性。[#46096](https://github.com/ant-design/ant-design/pull/46096) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Tour 支持 `getPopupContainer` 属性。[#45751](https://github.com/ant-design/ant-design/pull/45751) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Switch 支持 `value` and `defaultValue` 属性。[#45747](https://github.com/ant-design/ant-design/pull/45747) [@Wxh16144](https://github.com/Wxh16144)
 - 🐞 修复 Progress 进度条视觉效果，渐变效果应该随着百分比改变。[#46209](https://github.com/ant-design/ant-design/pull/46209) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复点击 Form `tooltip` 图标会触发 Switch 切换的问题。[#46155](https://github.com/ant-design/ant-design/pull/46155)
