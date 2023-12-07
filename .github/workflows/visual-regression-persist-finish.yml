@@ -62,12 +62,12 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: visual-regression-persist-ref
+          name: visual-regression-master-ref
 
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
         id: visuall-regression
-        run: echo "id=$(<visual-regression-ref.txt)" >> $GITHUB_OUTPUT
+        run: echo "id=$(<visual-regression-master-ref.txt)" >> $GITHUB_OUTPUT
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
@@ -78,36 +78,19 @@ jobs:
           name: image-snapshots
           path: ./
 
-      - name: Persist to Snapshot Repo
+      - name: Persist Image Snapshot to OSS
         if: github.ref_name == 'master'
         id: persist
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.ANTD_IMAGE_SNAP_REPO_TOKEN }}
-        # should push to snapshot repo firstly
-        # push the single folder to the repo
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          git clone https://$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git
+          npm i ali-oss
 
-          echo "✅ Clone Finished"
+          echo "🤖 Uploading"
+          node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
+          node scripts/visual-regression-upload.js ./visual-regression-master-ref.txt --ref=${{ github.ref_name }}
 
-          rm antd-image-snapshots/*.txt
-          mv visual-regression-ref.txt antd-image-snapshots/
-
-          rm -rf antd-image-snapshots/imageSnapshots/*
-          tar -xzvf imageSnapshots.tar.gz -C antd-image-snapshots/imageSnapshots
-
-          echo "✅ Changes Finished"
-
-          cd antd-image-snapshots
-
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-          git commit -a -m 'feat: update snapshot from ${{steps.visuall-regression.outputs.id}}'
-
-          echo "✅ Commit Finished"
-
-          git push --prune https://vaugsX:$GITHUB_TOKEN@github.com/ant-design/antd-image-snapshots.git +refs/remotes/origin/*:refs/heads/*
-
-          echo "✅ Push Finished"
+          echo "✅ Uploaded"
