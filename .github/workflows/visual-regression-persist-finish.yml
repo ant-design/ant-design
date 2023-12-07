@@ -12,13 +12,6 @@ permissions:
   contents: read
 
 jobs:
-  checkout:
-    name: checkout
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v4
-
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: ubuntu-latest
@@ -61,8 +54,11 @@ jobs:
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
     runs-on: ubuntu-latest
-    needs: [checkout, upstream-workflow-summary]
+    needs: [upstream-workflow-summary]
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
       # We need get persist key first
       - name: Download Visual Regression Ref
         uses: dawidd6/action-download-artifact@v2
@@ -94,7 +90,6 @@ jobs:
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
           ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          ll ./scripts
           npm i ali-oss
 
           echo "🤖 Uploading"
