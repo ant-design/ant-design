@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 jobs:
-  setup:
+  checkout:
     name: checkout
     runs-on: ubuntu-latest
     steps:
