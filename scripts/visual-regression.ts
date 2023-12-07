@@ -1,10 +1,11 @@
 /* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
 import path from 'path';
 import fs from 'fs';
+import os from 'os';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
-import fetch from 'node-fetch';
+import tar from 'tar';
 import fse from 'fs-extra';
 import chalk from 'chalk';
 import _ from 'lodash';
@@ -62,12 +63,16 @@ const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
 const ossDomain = `https://${process.env.ALI_OSS_BUCKET}.oss-cn-shanghai.aliyuncs.com`;
 
 async function downloadFile(url: string, destPath: string) {
-  const stream = fs.createWriteStream(destPath);
-  const { body } = await fetch(url);
-  await finished(Readable.fromWeb(body).pipe(stream));
+  const response = await fetch(url);
+  if (!response.ok || response.status !== 200) {
+    throw new Error(`Download file failed: ${new URL(url).pathname}`);
+  }
+  // @ts-ignore
+  const body = Readable.fromWeb(response.body);
+  await finished(body.pipe(fs.createWriteStream(destPath)));
 }
 
-async function downloadBaseSnapshots(refName: string = 'master') {
+async function downloadBaseSnapshots(refName: string, targetDir: string) {
   const baseImageRefUrl = `${ossDomain}/${refName}/visual-regression-ref.txt`;
   // get content from baseImageRefText
   const res = await fetch(baseImageRefUrl);
@@ -77,15 +82,26 @@ async function downloadBaseSnapshots(refName: string = 'master') {
   if (ref) {
     // download imageSnapshotsUrl
     const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
-    await downloadFile(imageSnapshotsUrl, 'imageSnapshots-master.tar.gz');
-    // untar to imageSnapshots-master
+    const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
+    await downloadFile(imageSnapshotsUrl, targzPath);
+    // untar
+    return await tar.x({
+      strip: 1,
+      C: targetDir,
+      file: targzPath,
+    });
   }
 
   throw new Error(`Missing base snapshots from ${refName}, ${ref}`);
 }
 
 async function boot() {
+  console.log(chalk.green('Preparing image snapshots from latest `master` branch\n'));
   const baseImgSourceDir = path.resolve(__dirname, '../imageSnapshots-master');
+  await fse.ensureDir(baseImgSourceDir);
+
+  await downloadBaseSnapshots('master', baseImgSourceDir);
+
   const currentImgSourceDir = path.resolve(__dirname, '../imageSnapshots');
 
   const reportDir = path.resolve(__dirname, '../visualRegressionReport');
@@ -93,6 +109,7 @@ async function boot() {
   const diffImgReportDir = path.resolve(reportDir, './images/diff');
   const baseImgReportDir = path.resolve(reportDir, './images/base');
   const currentImgReportDir = path.resolve(reportDir, './images/current');
+
   await fse.ensureDir(diffImgReportDir);
   await fse.ensureDir(baseImgReportDir);
   await fse.ensureDir(currentImgReportDir);
@@ -100,7 +117,6 @@ async function boot() {
   console.log(chalk.blue('⛳ Checking image snapshots with branch `master`'));
   console.log('\n');
 
-  // TODO: 需要强校验 master 分支的截图是否存在，可能原因是没有下载成功
   const baseImgFileList = readPngs(baseImgSourceDir);
   const currentImgFileList = readPngs(currentImgSourceDir);
 
@@ -166,8 +182,15 @@ async function boot() {
   const jsonl = badCaseCounts.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  // TODO: jsonl 转为 markdown 格式，并将其中的图片链接替换为上传后地址
-  // https://antd-argos.oss-cn-shanghai.aliyuncs.com/commit-id
+
+  await tar.c(
+    {
+      gzip: true,
+      cwd: reportDir,
+      file: `${path.basename(reportDir)}.tar.gz`,
+    },
+    await fse.readdir(reportDir),
+  );
 }
 
 boot();

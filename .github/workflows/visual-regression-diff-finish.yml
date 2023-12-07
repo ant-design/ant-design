@@ -102,7 +102,7 @@ jobs:
           npm install ali-oss --save
           echo "✅ Install `ali-oss` Finished"
 
-          # node scripts/visual-regression-report-upload.js ./visualRegressionReport
+          # node scripts/visual-regression-upload.js ./visualRegressionReport
 
           # export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
           # npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}

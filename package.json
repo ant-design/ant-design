@@ -208,6 +208,7 @@
     "@types/react-dom": "^18.2.17",
     "@types/react-highlight-words": "^0.16.7",
     "@types/react-resizable": "^3.0.7",
+    "@types/tar": "^6.1.10",
     "@types/throttle-debounce": "^5.0.2",
     "@types/warning": "^3.0.3",
     "@typescript-eslint/eslint-plugin": "^6.12.0",
@@ -268,6 +269,7 @@
     "lunar-typescript": "^1.6.13",
     "lz-string": "^1.5.0",
     "mockdate": "^3.0.5",
+    "node-fetch": "^3.3.2",
     "node-notifier": "^10.0.1",
     "nprogress": "^0.2.0",
     "open": "^9.1.0",
@@ -310,6 +312,8 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
     "sylvanas": "^0.6.1",
+    "tar": "^6.2.0",
+    "tar-fs": "^3.0.4",
     "terser": "^5.24.0",
     "tsx": "^4.6.0",
     "typedoc": "^0.25.4",
@@ -318,7 +322,8 @@
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.10.1",
-    "xhr-mock": "^2.5.1"
+    "xhr-mock": "^2.5.1",
+    "zlib": "^1.0.5"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
