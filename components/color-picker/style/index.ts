@@ -179,22 +179,17 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
     controlOutline,
   } = token;
 
-  const innerContent = `${componentCls}-inner-content`;
-
   return [
     {
       [componentCls]: {
-        [innerContent]: {
-          [`&:not(${innerContent}-customized)`]: {
-            display: 'flex',
-            flexDirection: 'column',
-            width: colorPickerWidth,
+        [`${componentCls}-inner-content`]: {
+          display: 'flex',
+          flexDirection: 'column',
+          width: colorPickerWidth,
 
-            [`${innerContent}-divider`]: {
-              margin: `${marginSM}px 0 ${marginXS}px`,
-            },
+          '&-divider': {
+            margin: `${marginSM}px 0 ${marginXS}px`,
           },
-
           [`${componentCls}-panel`]: {
             ...genPickerStyle(token),
           },
