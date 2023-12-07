@@ -82,15 +82,10 @@ jobs:
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
-      - name: download image snapshots from latest master
-        run: |
-          wget -O antd-image-snapshots-master.zip https://github.com/ant-design/antd-image-snapshots/archive/refs/heads/main.zip
-          unzip antd-image-snapshots-master.zip
-          mv antd-image-snapshots-main/imageSnapshots ./imageSnapshots-master
-          mv antd-image-snapshots-main/visual-regression-ref.txt ./imageSnapshots-master
-
       # Execute visual regression diff task and zip then
       - name: visual regression diff
+        env:
+          ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
           npm run visual-regression
           tar -czvf visualRegressionReport.tar.gz visualRegressionReport/*

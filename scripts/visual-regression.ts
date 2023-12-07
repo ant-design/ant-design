@@ -1,7 +1,10 @@
 /* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
 import path from 'path';
 import fs from 'fs';
+import { Readable } from 'stream';
+import { finished } from 'stream/promises';
 
+import fetch from 'node-fetch';
 import fse from 'fs-extra';
 import chalk from 'chalk';
 import _ from 'lodash';
@@ -55,6 +58,31 @@ const compareScreenshots = async (
 const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('.png'));
 
 const prettyList = (list: string[]) => list.map((i) => ` * ${i}`).join('\n');
+
+const ossDomain = `https://${process.env.ALI_OSS_BUCKET}.oss-cn-shanghai.aliyuncs.com`;
+
+async function downloadFile(url: string, destPath: string) {
+  const stream = fs.createWriteStream(destPath);
+  const { body } = await fetch(url);
+  await finished(Readable.fromWeb(body).pipe(stream));
+}
+
+async function downloadBaseSnapshots(refName: string = 'master') {
+  const baseImageRefUrl = `${ossDomain}/${refName}/visual-regression-ref.txt`;
+  // get content from baseImageRefText
+  const res = await fetch(baseImageRefUrl);
+  const text = await res.text();
+  const ref = text.trim();
+
+  if (ref) {
+    // download imageSnapshotsUrl
+    const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
+    await downloadFile(imageSnapshotsUrl, 'imageSnapshots-master.tar.gz');
+    // untar to imageSnapshots-master
+  }
+
+  throw new Error(`Missing base snapshots from ${refName}, ${ref}`);
+}
 
 async function boot() {
   const baseImgSourceDir = path.resolve(__dirname, '../imageSnapshots-master');
