@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { Segmented } from 'antd';
 
 enum Options {
@@ -8,7 +8,7 @@ enum Options {
 }
 
 const Demo: React.FC = () => {
-  const [value, setValue] = React.useState<Options>(Options.Map);
+  const [value, setValue] = useState(Options.Map);
 
   return (
     <Segmented
