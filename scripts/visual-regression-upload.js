@@ -1,4 +1,4 @@
-/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-restricted-syntax, no-console */
 // Attention: use all node builtin modules except `ali-oss`
 // Must keep our ak/sk safe
 
