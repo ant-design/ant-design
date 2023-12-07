@@ -3,7 +3,6 @@ group:
   title: 进阶使用
 order: 2
 title: 服务端渲染
-tag: New
 ---
 
 服务端渲染样式有两种方案，它们各有优缺点：
@@ -16,13 +15,14 @@ tag: New
 使用 `@ant-design/cssinjs` 将所需样式抽离：
 
 ```tsx
+import React from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import type Entity from '@ant-design/cssinjs/es/Cache';
 import { renderToString } from 'react-dom/server';
 
-export default () => {
+const App = () => {
   // SSR Render
-  const cache = createCache();
-
+  const cache = React.useMemo<Entity>(() => createCache(), []);
   const html = renderToString(
     <StyleProvider cache={cache}>
       <MyApp />
@@ -34,17 +34,19 @@ export default () => {
 
   // Mix with style
   return `
-<!DOCTYPE html>
-<html>
-  <head>
-    ${styleText}
-  </head>
-  <body>
-    <div id="root">${html}</div>
-  </body>
-</html>
-`;
+    <!DOCTYPE html>
+    <html>
+      <head>
+        ${styleText}
+      </head>
+      <body>
+        <div id="root">${html}</div>
+      </body>
+    </html>
+  `;
 };
+
+export default App;
 ```
 
 ## 整体导出
@@ -89,8 +91,8 @@ fs.writeFileSync(outputPath, css);
 
 ```tsx
 import fs from 'fs';
-import { extractStyle } from '@ant-design/static-style-extract';
 import React from 'react';
+import { extractStyle } from '@ant-design/static-style-extract';
 import { ConfigProvider } from 'antd';
 
 const outputPath = './public/antd.min.css';
@@ -155,6 +157,7 @@ fs.writeFileSync(outputPath, css);
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
 import type { AppProps } from 'next/app';
+
 import '../public/antd.min.css'; // 添加这行
 import '../styles/globals.css';
 
@@ -237,8 +240,8 @@ const cssText = extractStyle((node) => (
 import { createHash } from 'crypto';
 import fs from 'fs';
 import path from 'path';
-import type Entity from '@ant-design/cssinjs/lib/Cache';
 import { extractStyle } from '@ant-design/cssinjs';
+import type Entity from '@ant-design/cssinjs/lib/Cache';
 
 export type DoExtraStyleOptions = {
   cache: Entity;
@@ -280,9 +283,10 @@ export function doExtraStyle({
 
 ```tsx
 // _document.tsx
-import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import type { DocumentContext } from 'next/document';
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+
 import { doExtraStyle } from '../scripts/genAntdCss';
 
 export default class MyDocument extends Document {

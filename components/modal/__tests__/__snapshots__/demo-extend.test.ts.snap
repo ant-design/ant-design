@@ -669,6 +669,65 @@ exports[`renders components/modal/demo/modal-render.tsx extend context correctly
 
 exports[`renders components/modal/demo/modal-render.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/modal/demo/nested.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      style="position: relative; z-index: 0;"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          Open
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          Close
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        Static
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  />
+</div>
+`;
+
+exports[`renders components/modal/demo/nested.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/modal/demo/position.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -932,6 +991,164 @@ exports[`renders components/modal/demo/render-panel.tsx extend context correctly
                 OK
               </span>
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+      tabindex="0"
+    />
+  </div>
+  <div
+    aria-modal="true"
+    class="ant-modal ant-modal-pure-panel"
+    role="dialog"
+    style="width: 380px; height: 200px;"
+  >
+    <div
+      aria-hidden="true"
+      style="width: 0px; height: 0px; overflow: hidden; outline: none;"
+      tabindex="0"
+    />
+    <div
+      class="ant-modal-content"
+    >
+      <button
+        aria-label="Close"
+        class="ant-modal-close"
+        type="button"
+      >
+        <span
+          class="ant-modal-close-x"
+        >
+          <span
+            aria-label="close"
+            class="anticon anticon-close ant-modal-close-icon"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </button>
+      <div
+        class="ant-modal-header"
+      >
+        <div
+          class="ant-modal-title"
+        >
+          Custom Footer Render
+        </div>
+      </div>
+      <div
+        class="ant-modal-body"
+      >
+        <div
+          class="ant-typography"
+        >
+          <a
+            class="ant-typography"
+            href="https://github.com/ant-design/ant-design/pull/44318"
+          >
+            Feature #44318
+          </a>
+        </div>
+      </div>
+      <div
+        class="ant-modal-footer"
+      >
+        <div
+          class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+        >
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <div
+              class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+            >
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-default"
+                  type="button"
+                >
+                  <span>
+                    Cancel
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-dangerous"
+                  type="button"
+                >
+                  <span>
+                    Custom
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+              >
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    OK
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

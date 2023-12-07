@@ -1,6 +1,8 @@
+import { unit } from '@ant-design/cssinjs';
+
 import { genFocusOutline, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
@@ -102,7 +104,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           height: token.checkboxSize,
           direction: 'ltr',
           backgroundColor: token.colorBgContainer,
-          border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+          border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
           borderRadius: token.borderRadiusSM,
           borderCollapse: 'separate',
           transition: `all ${token.motionDurationSlow}`,
@@ -113,9 +115,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             top: '50%',
             insetInlineStart: '21.5%',
             display: 'table',
-            width: (token.checkboxSize / 14) * 5,
-            height: (token.checkboxSize / 14) * 8,
-            border: `${token.lineWidthBold}px solid ${token.colorWhite}`,
+            width: token.calc(token.checkboxSize).div(14).mul(5).equal(),
+            height: token.calc(token.checkboxSize).div(14).mul(8).equal(),
+            border: `${unit(token.lineWidthBold)} solid ${token.colorWhite}`,
             borderTop: 0,
             borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
@@ -195,8 +197,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             '&:after': {
               top: '50%',
               insetInlineStart: '50%',
-              width: token.fontSizeLG / 2,
-              height: token.fontSizeLG / 2,
+              width: token.calc(token.fontSizeLG).div(2).equal(),
+              height: token.calc(token.fontSizeLG).div(2).equal(),
               backgroundColor: token.colorPrimary,
               border: 0,
               transform: 'translate(-50%, -50%) scale(1)',
@@ -261,6 +263,4 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
-  getStyle(prefixCls, token),
-]);
+export default genStyleHooks('Checkbox', (token, { prefixCls }) => [getStyle(prefixCls, token)]);

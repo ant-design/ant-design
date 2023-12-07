@@ -261,29 +261,26 @@ describe('should support showCount', () => {
     expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('8 / 5');
   });
 
-  describe('emoji', () => {
-    it('should minimize value between emoji length and maxLength', () => {
-      const { container } = render(<Input maxLength={1} showCount value="👀" />);
-      expect(container.querySelector('input')?.getAttribute('value')).toBe('👀');
-      expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 1');
-
-      const { container: container1 } = render(<Input maxLength={2} showCount value="👀" />);
-      expect(container1.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 2');
-    });
-
-    it('slice emoji', () => {
-      const { container } = render(<Input maxLength={5} showCount value="1234😂" />);
-      expect(container.querySelector('input')?.getAttribute('value')).toBe('1234😂');
-      expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
-    });
-  });
-
   it('count formatter', () => {
     const { container } = render(
       <Input
         maxLength={5}
         showCount={{
           formatter: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
+        }}
+        value="12345"
+      />,
+    );
+    expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('12345, 5, 5');
+  });
+
+  it('count', () => {
+    const { container } = render(
+      <Input
+        count={{
+          show: ({ value, count, maxLength }) => `${value}, ${count}, ${maxLength}`,
+          max: 5,
         }}
         value="12345"
       />,

@@ -811,7 +811,7 @@ Array [
         type="button"
       >
         <span>
-          Show Modal
+          Show in Modal
         </span>
       </button>
     </div>
@@ -823,11 +823,27 @@ Array [
         type="button"
       >
         <span>
-          Show Drawer
+          Show in Drawer
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn ant-btn-default"
+        type="button"
+      >
+        <span>
+          Not Show in Drawer
         </span>
       </button>
     </div>
   </div>,
+  <div
+    class=""
+    style="position:relative"
+  />,
   <div
     class=""
     style="position:relative"

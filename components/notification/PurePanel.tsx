@@ -1,3 +1,4 @@
+import * as React from 'react';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
@@ -7,10 +8,12 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import { Notice } from 'rc-notification';
 import type { NoticeProps } from 'rc-notification/lib/Notice';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { IconType } from './interface';
 import useStyle from './style';
+import PurePanelStyle from './style/pure-panel';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -88,6 +91,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     btn,
     closable = true,
     closeIcon,
+    className: notificationClassName,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -95,16 +99,21 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
 
-  const [, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
-  return (
-    <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className)}>
+  return wrapCSSVar(
+    <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, rootCls)}>
+      <PurePanelStyle prefixCls={prefixCls} />
       <Notice
         {...restProps}
         prefixCls={prefixCls}
         eventKey="pure"
         duration={null}
         closable={closable}
+        className={classNames({
+          notificationClassName,
+        })}
         closeIcon={getCloseIcon(prefixCls, closeIcon)}
         content={
           <PureContent
@@ -117,7 +126,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
           />
         }
       />
-    </div>
+    </div>,
   );
 };
 

@@ -44,7 +44,7 @@ const App: React.FC = () => {
   const [value, setValue] = useState(['0-0-0']);
 
   const onChange = (newValue: string[]) => {
-    console.log('onChange ', value);
+    console.log('onChange ', newValue);
     setValue(newValue);
   };
 

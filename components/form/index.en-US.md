@@ -18,7 +18,6 @@ High performance Form component with data scope management. Including data colle
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
-<code src="./demo/control-ref.tsx">Form methods (Class component)</code>
 <code src="./demo/layout.tsx">Form Layout</code>
 <code src="./demo/disabled.tsx">Form disabled</code>
 <code src="./demo/required-mark.tsx">Required style</code>
@@ -308,9 +307,23 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | setFieldValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first) | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | Set fields value(Will directly pass to form store and **reset validation message**. If you do not want to modify passed object, please clone first). Use `setFieldValue` instead if you want to only config single value in Form.List | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
-| validateFields | Validate fields. Use `recursive` to validate all the field in the path | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean }) => Promise | `validateOnly`: 5.5.0, `recursive`: 5.9.0 |
+| validateFields | Validate fields. Use `recursive` to validate all the field in the path | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validateFields)) => Promise |  |
 
-#### validateFields return sample
+#### validateFields
+
+```tsx
+export interface ValidateConfig {
+  // New in 5.5.0. Only validate content and not show error message on UI.
+  validateOnly?: boolean;
+  // New in 5.9.0. Recursively validate the provided `nameList` and its sub-paths.
+  recursive?: boolean;
+  // New in 5.11.0. Validate dirty fields (touched + validated).
+  // It's useful to validate fields only when they are touched or validated.
+  dirty?: boolean;
+}
+```
+
+return sample:
 
 ```jsx
 validateFields()
@@ -374,7 +387,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
+`type Form.useWatch = (namePath: NamePath | (selector: (values: Store) => any), formInstance?: FormInstance | WatchOptions): Value`
+
+`5.12.0` add `selector`
 
 Watch the value of a field. You can use this to interact with other hooks like `useSWR` to reduce development costs:
 

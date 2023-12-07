@@ -12,7 +12,7 @@
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url] [![Covered by Argos Visual Testing][argos-ci-image]][argos-ci-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -40,8 +40,6 @@
 [renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
-[argos-ci-image]: https://argos-ci.com/badge.svg
-[argos-ci-url]: https://app.argos-ci.com/ant-design/ant-design/reference
 
 </div>
 
@@ -84,7 +82,7 @@ pnpm add antd
 
 ## 🔨 示例
 
-```jsx
+```tsx
 import React from 'react';
 import { Button, DatePicker } from 'antd';
 
@@ -94,6 +92,8 @@ const App = () => (
     <DatePicker />
   </>
 );
+
+export default App;
 ```
 
 ### 🌈 定制主题
@@ -102,7 +102,7 @@ const App = () => (
 
 ### 🛡 TypeScript
 
-参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)。
+`antd` 使用 TypeScript 编写，具有完整的类型定义，参考 [在 create-react-app 中使用](https://ant.design/docs/react/use-with-create-react-app-cn)。
 
 ## 🌍 国际化
 

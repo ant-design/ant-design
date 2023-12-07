@@ -56,7 +56,7 @@ export default () => (
 为了统一 LTR 和 RTL 样式，Ant Design 使用了 CSS 逻辑属性。例如原 `margin-left` 使用 `margin-inline-start` 代替，使其在 LTR 和 RTL 下都为起始位置间距。如果你需要兼容旧版浏览器（如 360 浏览器、QQ 浏览器 等等），可以通过 `@ant-design/cssinjs` 的 `StyleProvider` 配置 `transformers` 将其转换：
 
 ```tsx
-import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
+import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
 
 // `transformers` 提供预处理功能将样式进行转换
 export default () => (
@@ -83,7 +83,7 @@ export default () => (
 在响应式网页开发中，需要一种方便且灵活的方式来实现页面的适配和响应式设计。`px2remTransformer` 转换器可以快速而准确地将样式表中的像素单位转换为相对于根元素（HTML 标签）的 rem 单位，实现页面的自适应和响应式布局。
 
 ```tsx
-import { StyleProvider, px2remTransformer } from '@ant-design/cssinjs';
+import { px2remTransformer, StyleProvider } from '@ant-design/cssinjs';
 
 const px2rem = px2remTransformer({
   rootValue: 32, // 32px = 1rem; @default 16

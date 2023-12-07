@@ -27,6 +27,8 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
+import { useZIndex } from '../../_util/hooks/useZIndex';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -48,6 +50,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       prefixCls: customizePrefixCls,
       getPopupContainer: customGetPopupContainer,
       className,
+      style,
       placement,
       size: customizeSize,
       disabled: customDisabled,
@@ -63,13 +66,14 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     } = props;
 
     const innerRef = React.useRef<RCRangePicker<DateType>>(null);
-    const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
+    const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
 
-    const [wrapSSR, hashId] = useStyle(prefixCls);
+    const cssVarCls = useCSSVarCls(prefixCls);
+    const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
     const additionalOverrideProps: any = {
       ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
@@ -110,7 +114,10 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
 
     const locale = { ...contextLocale, ...props.locale! };
 
-    return wrapSSR(
+    // ============================ zIndex ============================
+    const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
+
+    return wrapCSSVar(
       <RCRangePicker<DateType>
         separator={
           <span aria-label="to" className={`${prefixCls}-separator`}>
@@ -138,15 +145,27 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           hashId,
           compactItemClassnames,
           className,
+          rangePicker?.className,
+          cssVarCls,
           rootClassName,
         )}
+        style={{ ...rangePicker?.style, ...style }}
         locale={locale.lang}
         prefixCls={prefixCls}
         getPopupContainer={customGetPopupContainer || getPopupContainer}
         generateConfig={generateConfig}
         components={Components}
         direction={direction}
-        dropdownClassName={classNames(hashId, popupClassName || dropdownClassName, rootClassName)}
+        dropdownClassName={classNames(
+          hashId,
+          popupClassName || dropdownClassName,
+          cssVarCls,
+          rootClassName,
+        )}
+        popupStyle={{
+          ...props.popupStyle,
+          zIndex,
+        }}
         allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
     );

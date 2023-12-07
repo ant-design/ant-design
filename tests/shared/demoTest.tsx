@@ -1,15 +1,17 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import path from 'path';
+import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { globSync } from 'glob';
-import * as React from 'react';
+import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
-import { kebabCase } from 'lodash';
+
+import { resetWarned } from '../../components/_util/warning';
 import { render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
-import { resetWarned } from '../../components/_util/warning';
+import { ConfigProvider } from 'antd';
 
 export { rootPropsTest };
 
@@ -59,7 +61,11 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         }
 
         // Inject cssinjs cache to avoid create <style /> element
-        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+        Demo = (
+          <ConfigProvider theme={{ hashed: false }}>
+            <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+          </ConfigProvider>
+        );
 
         // Demo Test also include `dist` test which is already uglified.
         // We need test this as SSR instead.

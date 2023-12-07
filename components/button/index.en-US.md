@@ -48,6 +48,7 @@ And 4 other properties additionally.
 <code src="./demo/legacy-group.tsx" debug>Deprecated Button Group</code>
 <code src="./demo/chinese-chars-loading.tsx" debug>Loading style bug</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/linear-gradient.tsx" debug>Gradient Button</code>
 
 ## API
 
@@ -90,6 +91,12 @@ It accepts all props which native buttons support.
 ### How to remove space between 2 chinese characters?
 
 Following the Ant Design specification, we will add one space between if Button (exclude Text button and Link button) contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#api) to set `autoInsertSpaceInButton` as `false`.
+
+```tsx
+<ConfigProvider autoInsertSpaceInButton={false}>
+  <Button>按钮</Button>
+</ConfigProvider>
+```
 
 <img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" width="100px" height="64px" style="box-shadow: none; margin: 0;" alt="Button with two Chinese characters" />
 

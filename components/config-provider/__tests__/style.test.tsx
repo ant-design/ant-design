@@ -18,6 +18,7 @@ import DatePicker from '../../date-picker';
 import Descriptions from '../../descriptions';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
+import Dropdown from '../../dropdown';
 import Empty from '../../empty';
 import Flex from '../../flex';
 import Form from '../../form';
@@ -1045,6 +1046,34 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
   });
 
+  it('Should RangePicker className works', () => {
+    const { RangePicker } = TimePicker;
+    const { container } = render(
+      <ConfigProvider
+        rangePicker={{
+          className: 'test-class',
+        }}
+      >
+        <RangePicker />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker')).toHaveClass('test-class');
+  });
+
+  it('Should RangePicker style works', () => {
+    const { RangePicker } = TimePicker;
+    const { container } = render(
+      <ConfigProvider
+        rangePicker={{
+          style: { color: 'red' },
+        }}
+      >
+        <RangePicker style={{ fontSize: '16px' }} />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-picker')).toHaveStyle('color: red; font-size: 16px;');
+  });
+
   it('Should message className & style works', () => {
     const Demo: React.FC = () => {
       const [messageApi, contextHolder] = message.useMessage();
@@ -1278,5 +1307,18 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-flex');
     expect(element).toHaveClass('cp-flex');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
+  it('Should Dropdown className & style works', () => {
+    const { container } = render(
+      <ConfigProvider dropdown={{ className: 'cp-dropdown', style: { backgroundColor: 'red' } }}>
+        <Dropdown menu={{ items: [{ label: 'foo', key: '1' }] }} open>
+          <span>test</span>
+        </Dropdown>
+      </ConfigProvider>,
+    );
+    const element = container.querySelector<HTMLDivElement>('.ant-dropdown');
+    expect(element).toHaveClass('cp-dropdown');
+    expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 });

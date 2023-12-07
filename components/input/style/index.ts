@@ -1,9 +1,11 @@
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GlobalToken } from '../../theme/interface';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface SharedComponentToken {
   /**
@@ -120,7 +122,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   cursor: 'not-allowed',
   opacity: 1,
 
-  '&:hover': {
+  '&:hover:not([disabled])': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
         hoverBorderColor: token.colorBorder,
@@ -134,7 +136,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
   const { paddingBlockLG, fontSizeLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
 
   return {
-    padding: `${paddingBlockLG}px ${paddingInlineLG}px`,
+    padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
     fontSize: fontSizeLG,
     lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
@@ -142,7 +144,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
 };
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => ({
-  padding: `${token.paddingBlockSM}px ${token.paddingInlineSM}px`,
+  padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
   borderRadius: token.borderRadiusSM,
 });
 
@@ -206,7 +208,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   display: 'inline-block',
   width: '100%',
   minWidth: 0,
-  padding: `${token.paddingBlock}px ${token.paddingInline}px`,
+  padding: `${unit(token.paddingBlock)} ${unit(token.paddingInline)}`,
   color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
@@ -330,26 +332,28 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
       '&-addon': {
         position: 'relative',
-        padding: `0 ${token.paddingInline}px`,
+        padding: `0 ${unit(token.paddingInline)}`,
         color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
         backgroundColor: token.addonBg,
-        border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
         lineHeight: 1,
 
         // Reset Select's style in addon
         [`${antCls}-select`]: {
-          margin: `-${token.paddingBlock + 1}px -${token.paddingInline}px`,
+          margin: `${unit(token.calc(token.paddingBlock).add(1).mul(-1).equal())} ${unit(
+            token.calc(token.paddingInline).mul(-1).equal(),
+          )}`,
 
           [`&${antCls}-select-single:not(${antCls}-select-customize-input):not(${antCls}-pagination-size-changer)`]:
             {
               [`${antCls}-select-selector`]: {
                 backgroundColor: 'inherit',
-                border: `${token.lineWidth}px ${token.lineType} transparent`,
+                border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
                 boxShadow: 'none',
               },
             },
@@ -363,7 +367,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
         // https://github.com/ant-design/ant-design/issues/31333
         [`${antCls}-cascader-picker`]: {
-          margin: `-9px -${token.paddingInline}px`,
+          margin: `-9px ${unit(token.calc(token.paddingInline).mul(-1).equal())}`,
           backgroundColor: 'transparent',
           [`${antCls}-cascader-input`]: {
             textAlign: 'start',
@@ -487,7 +491,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       '& > *:not(:last-child)': {
-        marginInlineEnd: -token.lineWidth,
+        marginInlineEnd: token.calc(token.lineWidth).mul(-1).equal(),
         borderInlineEndWidth: token.lineWidth,
       },
 
@@ -545,7 +549,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`${componentCls}-group-wrapper + ${componentCls}-group-wrapper`]: {
-        marginInlineStart: -token.lineWidth,
+        marginInlineStart: token.calc(token.lineWidth).mul(-1).equal(),
         [`${componentCls}-affix-wrapper`]: {
           borderRadius: 0,
         },
@@ -570,10 +574,14 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, controlHeightSM, lineWidth } = token;
+  const { componentCls, controlHeightSM, lineWidth, calc } = token;
 
   const FIXED_CHROME_COLOR_HEIGHT = 16;
-  const colorSmallPadding = (controlHeightSM - lineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
+  const colorSmallPadding = calc(controlHeightSM)
+    .sub(calc(lineWidth).mul(2))
+    .sub(FIXED_CHROME_COLOR_HEIGHT)
+    .div(2)
+    .equal();
 
   return {
     [componentCls]: {
@@ -629,7 +637,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       },
 
       '&-has-suffix': {
-        margin: `0 ${token.inputAffixPadding}px`,
+        margin: `0 ${unit(token.inputAffixPadding)}`,
       },
     },
   };
@@ -843,7 +851,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       // fix slight height diff in Firefox:
       // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
       [`${componentCls}-lg`]: {
-        lineHeight: token.lineHeightLG - 0.0002,
+        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal({ unit: false }),
       },
 
       [`> ${componentCls}-group`]: {
@@ -908,7 +916,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         [`&:not(${componentCls}-compact-last-item)`]: {
           [`${componentCls}-group-addon`]: {
             [`${componentCls}-search-button`]: {
-              marginInlineEnd: -token.lineWidth,
+              marginInlineEnd: token.calc(token.lineWidth).mul(-1).equal(),
               borderRadius: 0,
             },
           },
@@ -952,7 +960,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
 
         [`${componentCls}-data-count`]: {
           position: 'absolute',
-          bottom: -token.fontSize * token.lineHeight,
+          bottom: token.calc(token.fontSize).mul(token.lineHeight).mul(-1).equal(),
           insetInlineEnd: 0,
           color: token.colorTextDescription,
           whiteSpace: 'nowrap',
@@ -1017,6 +1025,20 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
   };
 };
 
+// ============================== Range ===============================
+const genRangeStyle: GenerateStyle<InputToken> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`${componentCls}-out-of-range`]: {
+      [`&, & input, & textarea, ${componentCls}-show-count-suffix, ${componentCls}-data-count`]: {
+        color: token.colorError,
+      },
+    },
+  };
+};
+
+// ============================== Tokens ==============================
 export function initInputToken(token: GlobalToken): SharedInputToken {
   return mergeToken<InputToken>(token, {
     inputAffixPadding: token.paddingXXS,
@@ -1071,7 +1093,7 @@ export const initComponentToken = (token: GlobalToken): SharedComponentToken => 
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Input',
   (token) => {
     const inputToken = mergeToken<InputToken>(token, initInputToken(token));
@@ -1082,6 +1104,7 @@ export default genComponentStyleHook(
       genAffixStyle(inputToken),
       genGroupStyle(inputToken),
       genSearchInputStyle(inputToken),
+      genRangeStyle(inputToken),
       // =====================================================
       // ==             Space Compact                       ==
       // =====================================================

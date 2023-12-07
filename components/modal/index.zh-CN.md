@@ -36,6 +36,7 @@ demo:
 <code src="./demo/confirm.tsx">静态确认对话框</code>
 <code src="./demo/classNames.tsx">自定义内部模块 className</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
+<code src="./demo/nested.tsx" debug>嵌套弹框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
@@ -103,7 +104,8 @@ demo:
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closable | 是否显示右上角的关闭按钮 | boolean | false | 4.9.0 |
+| closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |

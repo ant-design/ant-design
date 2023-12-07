@@ -1,9 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { INTERNAL_HOOKS, type TableProps as RcTableProps } from 'rc-table';
+import {
+  INTERNAL_HOOKS,
+  type Reference as RcReference,
+  type TableProps as RcTableProps,
+} from 'rc-table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import omit from 'rc-util/lib/omit';
 
+import useProxyImperativeHandle from '../_util/hooks/useProxyImperativeHandle';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -11,6 +16,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -196,6 +202,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
+  const [, token] = useToken();
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
@@ -221,6 +231,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ============================ Width =============================
   const getContainerWidth = useContainerWidth(prefixCls);
+
+  // ============================= Refs =============================
+  const rootRef = React.useRef<HTMLDivElement>(null);
+  const tblRef = React.useRef<RcReference>(null);
+
+  useProxyImperativeHandle(ref, () => ({
+    ...tblRef.current!,
+    nativeElement: rootRef.current!,
+  }));
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
@@ -334,6 +353,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    rootClassName: classNames(rootClassName, rootCls),
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
@@ -523,11 +543,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const [, token] = useToken();
-
   const wrapperClassNames = classNames(
+    rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
     {
@@ -570,23 +587,28 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
-  return wrapSSR(
-    <div ref={ref} className={wrapperClassNames} style={mergedStyle}>
+  return wrapCSSVar(
+    <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <TableComponent
           {...virtualProps}
           {...tableProps}
+          ref={tblRef}
           columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames({
-            [`${prefixCls}-middle`]: mergedSize === 'middle',
-            [`${prefixCls}-small`]: mergedSize === 'small',
-            [`${prefixCls}-bordered`]: bordered,
-            [`${prefixCls}-empty`]: rawData.length === 0,
-          })}
+          className={classNames(
+            {
+              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-small`]: mergedSize === 'small',
+              [`${prefixCls}-bordered`]: bordered,
+              [`${prefixCls}-empty`]: rawData.length === 0,
+            },
+            rootCls,
+            hashId,
+          )}
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
@@ -603,4 +625,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default (React.forwardRef(InternalTable) as RefInternalTable);

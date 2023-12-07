@@ -13,6 +13,7 @@ import useSize from '../config-provider/hooks/useSize';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
@@ -54,7 +55,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const cssVarCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
@@ -103,18 +105,21 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   );
   const wrapperClassName = `${prefixCls}-group`;
 
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+
   const element = (
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={classNames(className, rootClassName, compactItemClassnames)}
+      className={classNames(cssVarCls, className, rootClassName, compactItemClassnames)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}
       readOnly={readOnly}
       controls={controlsTemp}
       prefix={prefix}
-      suffix={hasFeedback && feedbackIcon}
+      suffix={suffixNode}
       addonAfter={
         addonAfter && (
           <NoCompactStyle>
@@ -168,7 +173,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     />
   );
 
-  return wrapSSR(element);
+  return wrapCSSVar(element);
 });
 
 const TypedInputNumber = InputNumber as unknown as (<T extends ValueType = ValueType>(

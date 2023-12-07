@@ -11,12 +11,14 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { PresetColorType } from '../_util/colors';
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
@@ -272,7 +274,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -292,9 +294,13 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     hashId,
   );
 
-  return wrapSSR(
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Tooltip', otherProps.zIndex);
+
+  const content = (
     <RcTooltip
       {...otherProps}
+      zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}
@@ -318,7 +324,11 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       destroyTooltipOnHide={!!destroyTooltipOnHide}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
-    </RcTooltip>,
+    </RcTooltip>
+  );
+
+  return wrapCSSVar(
+    <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>

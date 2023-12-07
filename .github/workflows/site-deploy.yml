@@ -70,13 +70,13 @@ jobs:
       - name: build site
         run: npm run predeploy
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: build dist and bundle analyzer report
         run: npm run dist
         env:
           ANALYZER: 1
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: Get version
         id: publish-version

@@ -1,15 +1,16 @@
 import React, { useMemo, useState } from 'react';
-import { Button, Popover, Segmented, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, Popover, Segmented } from 'antd';
 
 const text = <span>Title</span>;
+
+const buttonWidth = 80;
+
 const content = (
   <div>
     <p>Content</p>
     <p>Content</p>
   </div>
 );
-
-const buttonWidth = 80;
 
 const App: React.FC = () => {
   const [arrow, setArrow] = useState('Show');
@@ -29,16 +30,10 @@ const App: React.FC = () => {
   }, [arrow]);
 
   return (
-    <ConfigProvider
-      button={{
-        style: { width: buttonWidth, margin: 4 },
-      }}
-    >
+    <ConfigProvider button={{ style: { width: buttonWidth, margin: 4 } }}>
       <Segmented
         options={['Show', 'Hide', 'Center']}
-        onChange={(val: string) => {
-          setArrow(val);
-        }}
+        onChange={(val: string) => setArrow(val)}
         style={{ marginBottom: 24 }}
       />
       <div className="demo">

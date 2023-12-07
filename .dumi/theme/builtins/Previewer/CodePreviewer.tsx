@@ -5,7 +5,7 @@ import stackblitzSdk from '@stackblitz/sdk';
 import { Alert, Badge, Space, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, useSiteData, LiveContext } from 'dumi';
+import { FormattedMessage, LiveContext, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
 import type { AntdPreviewerProps } from './Previewer';
@@ -255,7 +255,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
       'react@18/umd/react.development.js',
       'react-dom@18/umd/react-dom.development.js',
       'dayjs@1/dayjs.min.js',
-      `antd@${pkg.version}/dist/antd-with-locales.js`,
+      `antd@${pkg.version}/dist/antd-with-locales.min.js`,
       `@ant-design/icons/dist/index.umd.js`,
       'react-router-dom/dist/umd/react-router-dom.production.min.js',
       'react-router/dist/umd/react-router.production.min.js',

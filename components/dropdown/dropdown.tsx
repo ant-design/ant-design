@@ -7,17 +7,20 @@ import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const Placements = [
   'topLeft',
@@ -30,7 +33,7 @@ const Placements = [
   'bottom',
 ] as const;
 
-type Placement = typeof Placements[number];
+type Placement = (typeof Placements)[number];
 type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 type OverlayFunc = () => React.ReactElement;
@@ -45,7 +48,7 @@ export interface DropdownProps {
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
-  onOpenChange?: (open: boolean) => void;
+  onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
@@ -90,6 +93,7 @@ const Dropdown: CompoundedComponent = (props) => {
     getPopupContainer,
     overlayClassName,
     rootClassName,
+    overlayStyle,
     open,
     onOpenChange,
     // Deprecated
@@ -106,6 +110,7 @@ const Dropdown: CompoundedComponent = (props) => {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    dropdown,
   } = React.useContext(ConfigContext);
 
   // Warning for deprecated usage
@@ -165,7 +170,8 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -194,15 +200,20 @@ const Dropdown: CompoundedComponent = (props) => {
   });
 
   const onInnerOpenChange = useEvent((nextOpen: boolean) => {
-    onOpenChange?.(nextOpen);
+    onOpenChange?.(nextOpen, { source: 'trigger' });
     onVisibleChange?.(nextOpen);
     setOpen(nextOpen);
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, rootClassName, hashId, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
+  const overlayClassNameCustomized = classNames(
+    overlayClassName,
+    rootClassName,
+    hashId,
+    rootCls,
+    dropdown?.className,
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+  );
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
@@ -216,6 +227,7 @@ const Dropdown: CompoundedComponent = (props) => {
     if (menu?.selectable && menu?.multiple) {
       return;
     }
+    onOpenChange?.(false, { source: 'menu' });
     setOpen(false);
   }, [menu?.selectable, menu?.multiple]);
 
@@ -241,6 +253,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
+        rootClassName={rootCls}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
@@ -263,8 +276,11 @@ const Dropdown: CompoundedComponent = (props) => {
     );
   };
 
+  // =========================== zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Dropdown', overlayStyle?.zIndex as number);
+
   // ============================ Render ============================
-  return wrapSSR(
+  let renderNode = (
     <RcDropdown
       alignPoint={alignPoint!}
       {...omit(props, ['rootClassName'])}
@@ -281,10 +297,19 @@ const Dropdown: CompoundedComponent = (props) => {
       overlay={renderOverlay}
       placement={memoPlacement}
       onVisibleChange={onInnerOpenChange}
+      overlayStyle={{ ...dropdown?.style, ...overlayStyle, zIndex }}
     >
       {dropdownTrigger}
-    </RcDropdown>,
+    </RcDropdown>
   );
+
+  if (zIndex) {
+    renderNode = (
+      <zIndexContext.Provider value={contextZIndex}>{renderNode}</zIndexContext.Provider>
+    );
+  }
+
+  return wrapCSSVar(renderNode);
 };
 
 function postPureProps(props: DropdownProps) {

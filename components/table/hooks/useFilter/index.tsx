@@ -76,6 +76,7 @@ function injectFilter<RecordType>(
   triggerFilter: (filterState: FilterState<RecordType>) => void,
   getPopupContainer?: GetPopupContainer,
   pos?: string,
+  rootClassName?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
@@ -103,6 +104,7 @@ function injectFilter<RecordType>(
             triggerFilter={triggerFilter}
             locale={locale}
             getPopupContainer={getPopupContainer}
+            rootClassName={rootClassName}
           >
             {renderColumnTitle(column.title, renderProps)}
           </FilterDropdown>
@@ -122,6 +124,7 @@ function injectFilter<RecordType>(
           triggerFilter,
           getPopupContainer,
           columnPos,
+          rootClassName,
         ),
       };
     }
@@ -184,6 +187,7 @@ interface FilterConfig<RecordType> {
     filterStates: FilterState<RecordType>[],
   ) => void;
   getPopupContainer?: GetPopupContainer;
+  rootClassName?: string;
 }
 
 const getMergedColumns = <RecordType extends unknown>(
@@ -203,6 +207,7 @@ function useFilter<RecordType>({
   onFilterChange,
   getPopupContainer,
   locale: tableLocale,
+  rootClassName,
 }: FilterConfig<RecordType>): [
   TransformColumns<RecordType>,
   FilterState<RecordType>[],
@@ -282,6 +287,8 @@ function useFilter<RecordType>({
       tableLocale,
       triggerFilter,
       getPopupContainer,
+      undefined,
+      rootClassName,
     );
 
   return [transformColumns, mergedFilterStates, filters];

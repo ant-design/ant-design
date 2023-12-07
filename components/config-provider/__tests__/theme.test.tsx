@@ -1,8 +1,9 @@
-import { kebabCase } from 'lodash';
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import React from 'react';
+import kebabCase from 'lodash/kebabCase';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
+
 import ConfigProvider from '..';
-import { InputNumber } from '../..';
+import { InputNumber, Button, Select } from '../..';
 import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import theme from '../../theme';
@@ -195,5 +196,76 @@ describe('ConfigProvider.Theme', () => {
       </ConfigProvider>,
     );
     expect(tokenRef?.colorPrimaryText).toBe('#1677ff');
+  });
+
+  describe('cssVar', () => {
+    it('should work', () => {
+      const { container } = render(
+        <ConfigProvider theme={{ cssVar: { key: 'foo' } }}>
+          <Button>Button</Button>
+        </ConfigProvider>,
+      );
+
+      const button = container.querySelector('button')!;
+
+      expect(button).toHaveClass('foo');
+      expect(button).toHaveStyle({
+        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--ant-button-default-shadow)',
+        'line-height': 'var(--ant-line-height)',
+      });
+    });
+
+    it('prefix', () => {
+      const { container } = render(
+        <>
+          <ConfigProvider theme={{ cssVar: { key: 'foo' }, hashed: true }}>
+            <Button className="button-foo">Button</Button>
+          </ConfigProvider>
+          <ConfigProvider theme={{ cssVar: { key: 'bar', prefix: 'bar' }, hashed: true }}>
+            <Button className="button-bar">Button</Button>
+          </ConfigProvider>
+        </>,
+      );
+
+      const fooBtn = container.querySelector('.button-foo')!;
+      const barBtn = container.querySelector('.button-bar')!;
+
+      expect(fooBtn).toHaveClass('foo');
+      expect(fooBtn).toHaveStyle({
+        '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--ant-button-default-shadow)',
+        'line-height': 'var(--ant-line-height)',
+      });
+
+      expect(barBtn).toHaveClass('bar');
+      expect(barBtn).toHaveStyle({
+        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--bar-button-default-shadow)',
+        'line-height': 'var(--bar-line-height)',
+      });
+    });
+
+    it('component token should work', () => {
+      const { container } = render(
+        <ConfigProvider
+          theme={{
+            cssVar: { key: 'foo' },
+            hashed: true,
+            components: { Select: { colorPrimary: '#1890ff', optionSelectedColor: '#000' } },
+          }}
+        >
+          <Select className="select-foo" />
+        </ConfigProvider>,
+      );
+
+      const select = container.querySelector('.select-foo')!;
+      expect(select).toHaveStyle({
+        '--ant-color-primary': '#1890ff',
+        '--ant-select-option-selected-color': '#000',
+        '--ant-select-option-selected-font-weight': '600',
+        '--ant-select-z-index-popup': '1050',
+      });
+    });
   });
 });

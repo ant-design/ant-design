@@ -1,33 +1,41 @@
 import * as React from 'react';
-import { createStyles, css, useTheme } from 'antd-style';
-import classNames from 'classnames';
 import type { FC } from 'react';
 import { useContext } from 'react';
-import { Typography, Skeleton, Carousel } from 'antd';
-import type { Extra, Icon } from './util';
-import SiteContext from '../../../theme/slots/SiteContext';
-import { getCarouselStyle, useSiteData } from './util';
-import useLocale from '../../../hooks/useLocale';
+import { Badge, Carousel, Skeleton, Typography } from 'antd';
+import { createStyles, useTheme } from 'antd-style';
+import classNames from 'classnames';
 
-const useStyle = createStyles(({ token }) => {
+import useLocale from '../../../hooks/useLocale';
+import SiteContext from '../../../theme/slots/SiteContext';
+import type { Extra, Icon } from './util';
+import { getCarouselStyle, useSiteData } from './util';
+
+const useStyle = createStyles(({ token, css, cx }) => {
   const { carousel } = getCarouselStyle();
 
+  const itemBase = css`
+    display: flex;
+    flex: 1 1 0;
+    flex-direction: column;
+    align-items: stretch;
+    text-decoration: none;
+    background: ${token.colorBgContainer};
+    border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
+    border-radius: ${token.borderRadiusLG}px;
+    transition: all ${token.motionDurationSlow};
+    padding-block: ${token.paddingMD}px;
+    padding-inline: ${token.paddingLG}px;
+    box-sizing: border-box;
+  `;
+
   return {
-    itemBase: css`
-      display: flex;
-      flex: 1 1 0;
-      flex-direction: column;
-      align-items: stretch;
-      text-decoration: none;
-      background: ${token.colorBgContainer};
-      border: ${token.lineWidth}px solid ${token.colorBorderSecondary};
-      border-radius: ${token.borderRadiusLG}px;
-      transition: all ${token.motionDurationSlow};
-      padding-block: ${token.paddingMD}px;
-      padding-inline: ${token.paddingLG}px;
+    itemBase,
+    ribbon: css`
+      & > .${cx(itemBase)} {
+        height: 100%;
+      }
     `,
     cardItem: css`
-      width: 33%;
       &:hover {
         box-shadow: ${token.boxShadowCard};
       }
@@ -45,6 +53,9 @@ const useStyle = createStyles(({ token }) => {
       column-gap: ${token.paddingMD * 2}px;
       align-items: stretch;
       text-align: start;
+      > * {
+        width: calc((100% - ${token.marginXXL * 2}px) / 3);
+      }
     `,
     carousel,
   };
@@ -56,7 +67,7 @@ interface RecommendItemProps {
   icons: Icon[];
   className?: string;
 }
-const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) => {
+const RecommendItem: React.FC<RecommendItemProps> = ({ extra, index, icons, className }) => {
   const token = useTheme();
   const { styles } = useStyle();
 
@@ -65,7 +76,7 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
   }
   const icon = icons.find((i) => i.name === extra.source);
 
-  return (
+  const card = (
     <a
       key={extra?.title}
       href={extra.href}
@@ -83,6 +94,16 @@ const RecommendItem = ({ extra, index, icons, className }: RecommendItemProps) =
       </div>
     </a>
   );
+
+  if (index === 0) {
+    return (
+      <Badge.Ribbon text="HOT" color="red" rootClassName={styles.ribbon}>
+        {card}
+      </Badge.Ribbon>
+    );
+  }
+
+  return card;
 };
 
 export const BannerRecommendsFallback: FC = () => {
@@ -93,8 +114,8 @@ export const BannerRecommendsFallback: FC = () => {
 
   return isMobile ? (
     <Carousel className={styles.carousel}>
-      {list.map((extra, index) => (
-        <div key={index}>
+      {list.map((_, index) => (
+        <div key={index} className={styles.itemBase}>
           <Skeleton active style={{ padding: '0 24px' }} />
         </div>
       ))}
@@ -102,20 +123,26 @@ export const BannerRecommendsFallback: FC = () => {
   ) : (
     <div className={styles.container}>
       {list.map((_, index) => (
-        <Skeleton key={index} active />
+        <div key={index} className={styles.itemBase}>
+          <Skeleton active />
+        </div>
       ))}
     </div>
   );
 };
 
-export default function BannerRecommends() {
+const BannerRecommends: React.FC = () => {
   const { styles } = useStyle();
   const [, lang] = useLocale();
   const { isMobile } = React.useContext(SiteContext);
   const data = useSiteData();
   const extras = data?.extras?.[lang];
-  const icons = data?.icons;
-  const first3 = extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+  const icons = data?.icons || [];
+  const first3 = !extras || extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+
+  if (!data) {
+    return <BannerRecommendsFallback />;
+  }
 
   return (
     <div>
@@ -147,4 +174,6 @@ export default function BannerRecommends() {
       )}
     </div>
   );
-}
+};
+
+export default BannerRecommends;

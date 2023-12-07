@@ -34,6 +34,8 @@ const isBright = (value: Color, bgColorToken: string) => {
   return r * 0.299 + g * 0.587 + b * 0.114 > 192;
 };
 
+const genCollapsePanelKey = ({ label }: PresetsItem) => `panel-${label}`;
+
 const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color, onChange }) => {
   const [locale] = useLocale('ColorPicker');
   const [, token] = useToken();
@@ -43,8 +45,13 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   });
   const colorPresetsPrefixCls = `${prefixCls}-presets`;
 
-  const activeKeys = useMemo<string[]>(
-    () => presetsValue.map((preset) => `panel-${preset.label}`),
+  const activeKeys = useMemo(
+    () =>
+      presetsValue.reduce<string[]>((acc, preset) => {
+        const { defaultOpen = true } = preset;
+        if (defaultOpen) acc.push(genCollapsePanelKey(preset));
+        return acc;
+      }, []),
     [presetsValue],
   );
 
@@ -53,7 +60,7 @@ const ColorPresets: FC<ColorPresetsProps> = ({ prefixCls, presets, value: color,
   };
 
   const items: CollapseProps['items'] = presetsValue.map((preset) => ({
-    key: `panel-${preset.label}`,
+    key: genCollapsePanelKey(preset),
     label: <div className={`${colorPresetsPrefixCls}-label`}>{preset?.label}</div>,
     children: (
       <div className={`${colorPresetsPrefixCls}-items`}>

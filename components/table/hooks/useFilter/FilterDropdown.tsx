@@ -11,7 +11,7 @@ import Button from '../../../button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
-import Dropdown from '../../../dropdown';
+import Dropdown, { type DropdownProps } from '../../../dropdown';
 import Empty from '../../../empty';
 import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
@@ -133,6 +133,7 @@ export interface FilterDropdownProps<RecordType> {
   locale: TableLocale;
   getPopupContainer?: GetPopupContainer;
   filterResetToDefaultFilteredValue?: boolean;
+  rootClassName?: string;
 }
 
 function wrapStringListType(keys?: FilterKey) {
@@ -154,6 +155,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     locale,
     children,
     getPopupContainer,
+    rootClassName,
   } = props;
 
   const {
@@ -295,17 +297,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter(getFilteredKeysSync());
   };
 
-  const onVisibleChange = (newVisible: boolean) => {
-    if (newVisible && propFilteredKeys !== undefined) {
-      // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefined)
-      setFilteredKeysSync(wrapStringListType(propFilteredKeys));
-    }
+  const onVisibleChange: DropdownProps['onOpenChange'] = (newVisible, info) => {
+    if (info.source === 'trigger') {
+      if (newVisible && propFilteredKeys !== undefined) {
+        // Sync filteredKeys on appear in controlled mode (propFilteredKeys !== undefined)
+        setFilteredKeysSync(wrapStringListType(propFilteredKeys));
+      }
 
-    triggerVisible(newVisible);
+      triggerVisible(newVisible);
 
-    // Default will filter when closed
-    if (!newVisible && !column.filterDropdown) {
-      onConfirm();
+      // Default will filter when closed
+      if (!newVisible && !column.filterDropdown) {
+        onConfirm();
+      }
     }
   };
 
@@ -522,6 +526,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onOpenChange={onVisibleChange}
         getPopupContainer={getPopupContainer}
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+        rootClassName={rootClassName}
       >
         <span
           role="button"

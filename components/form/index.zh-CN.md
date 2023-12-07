@@ -19,7 +19,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
-<code src="./demo/control-ref.tsx">表单方法调用（Class component）</code>
 <code src="./demo/layout.tsx">表单布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
@@ -307,9 +306,23 @@ Form.List 渲染表单相关操作函数。
 | setFieldValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入） | (name: [NamePath](#namepath), value: any) => void | 4.22.0 |
 | setFieldsValue | 设置表单的值（该值将直接传入 form store 中并且**重置错误信息**。如果你不希望传入对象被修改，请克隆后传入）。如果你只想修改 Form.List 中单项值，请通过 `setFieldValue` 进行指定 | (values) => void |  |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |  |
-| validateFields | 触发表单验证，设置 `recursive` 时会递归校验所有包含的路径 | (nameList?: [NamePath](#namepath)\[], { validateOnly?: boolean, recursive?: boolean }) => Promise | `validateOnly`: 5.5.0, `recursive`: 5.9.0 |
+| validateFields | 触发表单验证，设置 `recursive` 时会递归校验所有包含的路径 | (nameList?: [NamePath](#namepath)\[], config?: [ValidateConfig](#validateFields)) => Promise |  |
 
-#### validateFields 返回示例
+#### validateFields
+
+```tsx
+export interface ValidateConfig {
+  // 5.5.0 新增。仅校验内容而不会将错误信息展示到 UI 上。
+  validateOnly?: boolean;
+  // 5.9.0 新增。对提供的 `nameList` 与其子路径进行递归校验。
+  recursive?: boolean;
+  // 5.11.0 新增。校验 dirty 的字段（touched + validated）。
+  // 使用 `dirty` 可以很方便的仅校验用户操作过和被校验过的字段。
+  dirty?: boolean;
+}
+```
+
+返回示例：
 
 ```jsx
 validateFields()
@@ -373,7 +386,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
+`type Form.useWatch = (namePath: NamePath | (selector: (values: Store)) => any, formInstance?: FormInstance | WatchOptions): Value`
+
+`5.12.0` 新增 `selector`
 
 用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 

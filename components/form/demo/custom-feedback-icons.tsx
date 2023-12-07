@@ -1,9 +1,8 @@
 import React from 'react';
-import { uniqueId } from 'lodash';
-
-import { createStyles, css } from 'antd-style';
 import { AlertFilled, CloseSquareFilled } from '@ant-design/icons';
 import { Button, Form, Input, Tooltip } from 'antd';
+import { createStyles, css } from 'antd-style';
+import uniqueId from 'lodash/uniqueId';
 
 const useStyle = createStyles(() => ({
   'custom-feedback-icons': css`

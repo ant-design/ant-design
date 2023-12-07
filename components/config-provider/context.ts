@@ -5,18 +5,18 @@ import type { Options } from 'scroll-into-view-if-needed';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
-import type { ModalProps } from '../modal';
 import type { ButtonProps } from '../button';
+import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { RequiredMark } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
+import type { ModalProps } from '../modal';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
-import type { DrawerProps } from '../drawer';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -47,6 +47,18 @@ export interface ThemeConfig {
   algorithm?: MappingAlgorithm | MappingAlgorithm[];
   hashed?: boolean;
   inherit?: boolean;
+  cssVar?:
+    | {
+        /**
+         * Prefix for css variable, default to `antd`.
+         */
+        prefix?: string;
+        /**
+         * Unique key for theme, should be set manually < react@18.
+         */
+        key?: string;
+      }
+    | boolean;
 }
 
 export interface ComponentStyleConfig {
@@ -171,6 +183,8 @@ export interface ConfigConsumerProps {
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
+  rangePicker?: ComponentStyleConfig;
+  dropdown?: ComponentStyleConfig;
   flex?: FlexConfig;
   wave?: WaveConfig;
   warning?: WarningContextProps;

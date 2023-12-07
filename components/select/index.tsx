@@ -7,6 +7,7 @@ import type { OptionProps } from 'rc-select/lib/Option';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -22,8 +23,9 @@ import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
-import useShowArrow from './useShowArrow';
 import useIcons from './useIcons';
+import useShowArrow from './useShowArrow';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 type RawValue = string | number;
 
@@ -120,7 +122,8 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -180,12 +183,13 @@ const InternalSelect = <
     'itemIcon',
   ]);
 
-  const rcSelectRtlDropdownClassName = classNames(
+  const mergedPopupClassName = classNames(
     popupClassName || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    rootCls,
     hashId,
   );
 
@@ -208,6 +212,7 @@ const InternalSelect = <
     select?.className,
     className,
     rootClassName,
+    rootCls,
     hashId,
   );
 
@@ -240,8 +245,11 @@ const InternalSelect = <
     );
   }
 
+  // ====================== zIndex =========================
+  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+
   // ====================== Render =======================
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
@@ -264,8 +272,12 @@ const InternalSelect = <
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={rcSelectRtlDropdownClassName}
+      dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
+      dropdownStyle={{
+        ...props?.dropdownStyle,
+        zIndex,
+      }}
     />,
   );
 };

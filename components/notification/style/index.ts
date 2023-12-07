@@ -1,10 +1,13 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
+
+import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
 import genStackStyle from './stack';
+import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -18,6 +21,8 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number;
+  /** @internal */
+  closeBtnHoverBg: string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -26,14 +31,14 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationPadding: string;
   notificationPaddingVertical: number;
   notificationPaddingHorizontal: number;
-  notificationIconSize: number;
-  notificationCloseButtonSize: number;
+  notificationIconSize: number | string;
+  notificationCloseButtonSize: number | string;
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
 }
 
-const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
+export const genNoticeStyle = (token: NotificationToken): CSSObject => {
   const {
     iconCls,
     componentCls, // .ant-notification
@@ -49,8 +54,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     notificationBg,
     notificationPadding,
     notificationMarginEdge,
-    motionDurationMid,
-    motionEaseInOut,
     fontSize,
     lineHeight,
     width,
@@ -60,25 +63,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
   const noticeCls = `${componentCls}-notice`;
 
-  const fadeOut = new Keyframes('antNotificationFadeOut', {
-    '0%': {
-      maxHeight: token.animationMaxHeight,
-      marginBottom: notificationMarginBottom,
-    },
-
-    '100%': {
-      maxHeight: 0,
-      marginBottom: 0,
-      paddingTop: 0,
-      paddingBottom: 0,
-      opacity: 0,
-    },
-  });
-
-  const noticeStyle: CSSObject = {
+  return {
     position: 'relative',
-    width,
-    maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
     marginBottom: notificationMarginBottom,
     marginInlineStart: 'auto',
     background: notificationBg,
@@ -87,6 +73,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
     [noticeCls]: {
       padding: notificationPadding,
+      width,
+      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
       overflow: 'hidden',
       lineHeight,
       wordWrap: 'break-word',
@@ -109,18 +97,18 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
       color: colorText,
     },
 
-    [`&${noticeCls}-closable ${noticeCls}-message`]: {
+    [`${noticeCls}-closable ${noticeCls}-message`]: {
       paddingInlineEnd: token.paddingLG,
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-message`]: {
       marginBottom: token.marginXS,
-      marginInlineStart: token.marginSM + notificationIconSize,
+      marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize: fontSizeLG,
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-description`]: {
-      marginInlineStart: token.marginSM + notificationIconSize,
+      marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
       fontSize,
     },
 
@@ -130,7 +118,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     [`${noticeCls}-icon`]: {
       position: 'absolute',
       fontSize: notificationIconSize,
-      lineHeight: 0,
+      lineHeight: 1,
 
       // icon-font
       [`&-success${iconCls}`]: {
@@ -163,7 +151,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
       '&:hover': {
         color: token.colorIconHover,
-        backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+        backgroundColor: token.closeBtnHoverBg,
       },
     },
 
@@ -172,6 +160,33 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
       marginTop: token.marginSM,
     },
   };
+};
+
+const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
+  const {
+    componentCls, // .ant-notification
+    notificationMarginBottom,
+    notificationMarginEdge,
+    motionDurationMid,
+    motionEaseInOut,
+  } = token;
+
+  const noticeCls = `${componentCls}-notice`;
+
+  const fadeOut = new Keyframes('antNotificationFadeOut', {
+    '0%': {
+      maxHeight: token.animationMaxHeight,
+      marginBottom: notificationMarginBottom,
+    },
+
+    '100%': {
+      maxHeight: 0,
+      marginBottom: 0,
+      paddingTop: 0,
+      paddingBottom: 0,
+      opacity: 0,
+    },
+  });
 
   return [
     // ============================ Holder ============================
@@ -236,39 +251,45 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
     {
       [componentCls]: {
         [`${noticeCls}-wrapper`]: {
-          ...noticeStyle,
+          ...genNoticeStyle(token),
         },
-      },
-    },
-
-    // ============================= Pure =============================
-    {
-      [`${noticeCls}-pure-panel`]: {
-        ...noticeStyle,
-        margin: 0,
       },
     },
   ];
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const prepareComponentToken = (token: AliasToken) => ({
+  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
+  width: 384,
+  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
+});
+
+export const prepareNotificationToken: (
+  token: Parameters<GenStyleFn<'Notification'>>[0],
+) => NotificationToken = (token) => {
+  const notificationPaddingVertical = token.paddingMD;
+  const notificationPaddingHorizontal = token.paddingLG;
+  const notificationToken = mergeToken<NotificationToken>(token, {
+    notificationBg: token.colorBgElevated,
+    notificationPaddingVertical,
+    notificationPaddingHorizontal,
+    notificationIconSize: token.calc(token.fontSizeLG).mul(token.lineHeightLG).equal(),
+    notificationCloseButtonSize: token.calc(token.controlHeightLG).mul(0.55).equal(),
+    notificationMarginBottom: token.margin,
+    notificationPadding: `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
+    notificationMarginEdge: token.marginLG,
+    animationMaxHeight: 150,
+    notificationStackLayer: 3,
+  });
+
+  return notificationToken;
+};
+
+export default genStyleHooks(
   'Notification',
   (token) => {
-    const notificationPaddingVertical = token.paddingMD;
-    const notificationPaddingHorizontal = token.paddingLG;
-    const notificationToken = mergeToken<NotificationToken>(token, {
-      notificationBg: token.colorBgElevated,
-      notificationPaddingVertical,
-      notificationPaddingHorizontal,
-      notificationIconSize: token.fontSizeLG * token.lineHeightLG,
-      notificationCloseButtonSize: token.controlHeightLG * 0.55,
-      notificationMarginBottom: token.margin,
-      notificationPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
-      notificationMarginEdge: token.marginLG,
-      animationMaxHeight: 150,
-      notificationStackLayer: 3,
-    });
+    const notificationToken = prepareNotificationToken(token);
 
     return [
       genNotificationStyle(notificationToken),
@@ -276,8 +297,5 @@ export default genComponentStyleHook(
       genStackStyle(notificationToken),
     ];
   },
-  (token) => ({
-    zIndexPopup: token.zIndexPopupBase + 50,
-    width: 384,
-  }),
+  prepareComponentToken,
 );

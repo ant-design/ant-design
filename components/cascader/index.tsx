@@ -12,6 +12,7 @@ import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -21,6 +22,7 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
@@ -210,8 +212,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
-  const [wrapCascaderSSR] = useStyle(cascaderPrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapSelectCSSVar, hashId] = useSelectStyle(prefixCls, rootCls);
+  const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
+  const [wrapCascaderCSSVar] = useStyle(cascaderPrefixCls, cascaderRootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
@@ -228,6 +232,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
     },
     rootClassName,
+    rootCls,
+    cascaderRootCls,
     hashId,
   );
 
@@ -288,6 +294,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
+  // ============================ zIndex ============================
+  const [zIndex] = useZIndex('SelectLike', restProps.dropdownStyle?.zIndex as number);
+
   // ==================== Render =====================
   const renderNode = (
     <RcCascader
@@ -306,6 +315,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         cascader?.className,
         className,
         rootClassName,
+        rootCls,
+        cascaderRootCls,
         hashId,
       )}
       disabled={mergedDisabled}
@@ -324,6 +335,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
+      dropdownStyle={{
+        ...restProps.dropdownStyle,
+        zIndex,
+      }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
@@ -331,7 +346,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     />
   );
 
-  return wrapCascaderSSR(wrapSelectSSR(renderNode));
+  return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));
 }) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {

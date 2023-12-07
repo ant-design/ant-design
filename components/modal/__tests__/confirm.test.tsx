@@ -663,6 +663,14 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     spy.mockRestore();
   });
 
+  it('styles', async () => {
+    resetWarned();
+    await open({ styles: { body: { width: 500 } } });
+
+    const { width } = $$('.ant-modal-body')[0].style;
+    expect(width).toBe('500px');
+  });
+
   describe('the callback close should be a method when onCancel has a close parameter', () => {
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`click the close icon to trigger ${type} onCancel`, async () => {

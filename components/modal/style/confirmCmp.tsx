@@ -1,4 +1,5 @@
 // Style as confirm component
+import { unit } from '@ant-design/cssinjs';
 import { prepareComponentToken, prepareToken, type ModalToken } from '.';
 import { clearFix } from '../../style';
 import { genSubStyleComponent, type GenerateStyle } from '../../theme/internal';
@@ -13,11 +14,11 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
     modalConfirmIconSize,
     fontSize,
     lineHeight,
+    modalTitleHeight,
+    fontHeight,
+    confirmBodyPadding,
   } = token;
   const confirmComponentCls = `${componentCls}-confirm`;
-
-  const titleHeight = Math.round(titleFontSize * titleLineHeight);
-  const contentHeight = Math.round(fontSize * lineHeight);
 
   return {
     [confirmComponentCls]: {
@@ -30,6 +31,9 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
       [`${confirmComponentCls}-body-wrapper`]: {
         ...clearFix(),
       },
+      [`&${componentCls} ${componentCls}-body`]: {
+        padding: confirmBodyPadding,
+      },
 
       // ====================== Body ======================
       [`${confirmComponentCls}-body`]: {
@@ -40,11 +44,17 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         [`> ${token.iconCls}`]: {
           flex: 'none',
           fontSize: modalConfirmIconSize,
-          marginInlineEnd: token.marginSM,
-          marginTop: (contentHeight - modalConfirmIconSize) / 2,
+          marginInlineEnd: token.confirmIconMarginInlineEnd,
+          marginTop: token
+            .calc(token.calc(fontHeight).sub(modalConfirmIconSize).equal())
+            .div(2)
+            .equal(),
         },
         [`&-has-title > ${token.iconCls}`]: {
-          marginTop: (titleHeight - modalConfirmIconSize) / 2,
+          marginTop: token
+            .calc(token.calc(modalTitleHeight).sub(modalConfirmIconSize).equal())
+            .div(2)
+            .equal(),
         },
       },
 
@@ -53,7 +63,9 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
         flexDirection: 'column',
         flex: 'auto',
         rowGap: token.marginXS,
-        maxWidth: `calc(100% - ${token.modalConfirmIconSize + token.marginSM}px)`,
+        maxWidth: `calc(100% - ${unit(
+          token.calc(token.modalConfirmIconSize).add(token.marginSM).equal(),
+        )})`,
       },
 
       [`${confirmComponentCls}-title`]: {
@@ -72,7 +84,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
       // ===================== Footer =====================
       [`${confirmComponentCls}-btns`]: {
         textAlign: 'end',
-        marginTop: token.marginSM,
+        marginTop: token.confirmBtnsMarginTop,
 
         [`${token.antCls}-btn + ${token.antCls}-btn`]: {
           marginBottom: 0,

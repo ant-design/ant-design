@@ -14,7 +14,7 @@ export const PresetColors = [
   'gold',
 ] as const;
 
-export type PresetColorKey = typeof PresetColors[number];
+export type PresetColorKey = (typeof PresetColors)[number];
 
 export type PresetColorType = Record<PresetColorKey, string>;
 

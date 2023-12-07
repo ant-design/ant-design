@@ -23,7 +23,7 @@ const transformIgnorePatterns = [
 ];
 
 function getTestRegex(libDir) {
-  if (['dist', 'lib', 'es'].includes(libDir)) {
+  if (['dist', 'lib', 'es', 'dist-min'].includes(libDir)) {
     return 'demo\\.test\\.(j|t)sx?$';
   }
   return '.*\\.test\\.(j|t)sx?$';

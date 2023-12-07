@@ -1,6 +1,7 @@
-import { SmileOutlined } from '@ant-design/icons';
 import React, { useEffect } from 'react';
+import { SmileOutlined } from '@ant-design/icons';
 import type { NotificationConfig } from 'antd/es/notification/interface';
+
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -206,6 +207,30 @@ describe('App', () => {
           return innerHTML.startsWith('.anticon');
         }),
       ).toBeTruthy();
+    });
+  });
+
+  describe('component', () => {
+    it('replace', () => {
+      const { container } = render(
+        <App component="section">
+          <p />
+        </App>,
+      );
+
+      expect(container.querySelector('section.ant-app')).toBeTruthy();
+    });
+
+    it('to false', () => {
+      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(
+        <App component={false}>
+          <p />
+        </App>,
+      );
+      expect(warnSpy).not.toHaveBeenCalled();
+      expect(container.querySelector('.ant-app')).toBeFalsy();
+      warnSpy.mockRestore();
     });
   });
 });
