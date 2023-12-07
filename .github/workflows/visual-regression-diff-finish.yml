@@ -91,40 +91,47 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           name: visual-regression-report
 
-      # TODO: unzip report and then upload them to oss && convert to markdown report
+      # unzip report and then upload them to oss
+      # TODO: convert to markdown report and comment in a single stage??
       - name: upload visual-regression report
-        id: deploy
-        continue-on-error: true
+        id: report
+        env:
+          ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
+          ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
           tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
           echo "✅ Uncompress Finished"
 
-          npm install ali-oss --save
+          rm package.json
+          npm i ali-oss --no-save
           echo "✅ Install `ali-oss` Finished"
 
-          # node scripts/visual-regression-upload.js ./visualRegressionReport
+          echo "🤖 Uploading"
+          node scripts/visual-regression-upload.js ./visualRegressionReport
+          echo "✅ Uploaded"
 
           # export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
           # npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
-      - name: success comment
-        uses: actions-cool/maintain-one-comment@v3
-        if: ${{ steps.deploy.outcome == 'success' }}
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
-            <!-- AUTO_PREVIEW_HOOK -->
-          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
-          number: ${{ steps.pr.outputs.id }}
+      # - name: success comment
+      #   uses: actions-cool/maintain-one-comment@v3
+      #   if: ${{ steps.report.outcome == 'success' }}
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     body: |
+      #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+      #       <!-- AUTO_PREVIEW_HOOK -->
+      #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+      #     number: ${{ steps.pr.outputs.id }}
 
-      - name: failed comment
-        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@v3
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: |
-            <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
-            <!-- VISUAL_DIFF_REGRESSION_HOOK -->
-          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-          number: ${{ steps.pr.outputs.id }}
+      # - name: failed comment
+      #   if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.report.outcome == 'failure' || failure() }}
+      #   uses: actions-cool/maintain-one-comment@v3
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     body: |
+      #       <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
+      #       <!-- VISUAL_DIFF_REGRESSION_HOOK -->
+      #     body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
+      #     number: ${{ steps.pr.outputs.id }}

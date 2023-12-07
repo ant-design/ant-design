@@ -91,6 +91,7 @@ jobs:
         run: |
           rm package.json
           npm i ali-oss --no-save
+          echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
           node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
