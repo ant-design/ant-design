@@ -30,15 +30,14 @@ const App: React.FC = () => {
     <>
       <Radio.Group
         defaultValue="center"
-        onChange={(e) => setAlign(e.target.value)}
         style={{ marginBottom: 12 }}
-      >
-        {['start', 'center', 'end'].map((item) => (
-          <Radio.Button key={item} value={item}>
-            {item}
-          </Radio.Button>
-        ))}
-      </Radio.Group>
+        onChange={(e) => setAlign(e.target.value)}
+        options={[
+          { label: 'start', value: 'start' },
+          { label: 'center', value: 'center' },
+          { label: 'end', value: 'end' },
+        ]}
+      />
       <Tabs
         defaultActiveKey="1"
         items={items}

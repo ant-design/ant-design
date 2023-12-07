@@ -1667,18 +1667,18 @@ Array [
     style="margin-bottom:12px"
   >
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="ant-radio ant-wave-target"
       >
         <input
-          class="ant-radio-button-input"
+          class="ant-radio-input"
           type="radio"
           value="start"
         />
         <span
-          class="ant-radio-button-inner"
+          class="ant-radio-inner"
         />
       </span>
       <span>
@@ -1686,19 +1686,19 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
-          class="ant-radio-button-input"
+          class="ant-radio-input"
           type="radio"
           value="center"
         />
         <span
-          class="ant-radio-button-inner"
+          class="ant-radio-inner"
         />
       </span>
       <span>
@@ -1706,18 +1706,18 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper"
+      class="ant-radio-wrapper"
     >
       <span
-        class="ant-radio-button"
+        class="ant-radio ant-wave-target"
       >
         <input
-          class="ant-radio-button-input"
+          class="ant-radio-input"
           type="radio"
           value="end"
         />
         <span
-          class="ant-radio-button-inner"
+          class="ant-radio-inner"
         />
       </span>
       <span>
