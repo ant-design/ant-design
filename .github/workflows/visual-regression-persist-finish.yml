@@ -12,6 +12,13 @@ permissions:
   contents: read
 
 jobs:
+  setup:
+    name: prepare node_modules
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: ubuntu-latest
