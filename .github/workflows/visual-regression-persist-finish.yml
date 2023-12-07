@@ -90,7 +90,8 @@ jobs:
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
           ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          npm i ali-oss
+          rm package.json
+          npm i ali-oss --no-save
 
           echo "🤖 Uploading"
           node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
