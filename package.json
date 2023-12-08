@@ -99,7 +99,7 @@
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
     "version": "tsx scripts/generate-version.ts",
-    "ci": "npm ci"
+    "npm-install": "npm install"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "biome format --write",
