@@ -99,7 +99,8 @@
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
     "version": "tsx scripts/generate-version.ts",
-    "visual-regression": "tsx scripts/visual-regression.ts"
+    "visual-regression": "tsx scripts/visual-regression.ts",
+    "npm-install": "npm install"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "biome format --write",
@@ -113,7 +114,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.18.0",
+    "@ant-design/cssinjs": "^1.18.1",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.23.4",
@@ -318,7 +319,7 @@
     "tsx": "^4.6.0",
     "typedoc": "^0.25.4",
     "typescript": "~5.3.0",
-    "vanilla-jsoneditor": "^0.19.0",
+    "vanilla-jsoneditor": "^0.20.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.10.1",
