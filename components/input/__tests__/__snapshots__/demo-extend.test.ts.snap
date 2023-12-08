@@ -5296,17 +5296,6 @@ exports[`renders components/input/demo/basic.tsx extend context correctly 1`] = 
 
 exports[`renders components/input/demo/basic.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/input/demo/borderless.tsx extend context correctly 1`] = `
-<input
-  class="ant-input ant-input-borderless"
-  placeholder="Borderless"
-  type="text"
-  value=""
-/>
-`;
-
-exports[`renders components/input/demo/borderless.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/input/demo/borderless-debug.tsx extend context correctly 1`] = `
 <div
   style="background-color: rgba(0, 0, 128, 0.2);"
@@ -10813,3 +10802,14 @@ Array [
 `;
 
 exports[`renders components/input/demo/tooltip.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/input/demo/variant.tsx extend context correctly 1`] = `
+<input
+  class="ant-input ant-input-borderless"
+  placeholder="Borderless"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders components/input/demo/variant.tsx extend context correctly 2`] = `[]`;

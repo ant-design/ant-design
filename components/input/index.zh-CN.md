@@ -54,7 +54,6 @@ demo:
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - |  |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
-| bordered | 是否有边框 | boolean | true | 4.5.0 |
 | classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
@@ -69,7 +68,7 @@ demo:
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
 | value | 输入框内容 | string | - |  |
-| varaint | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.13.0 |
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 

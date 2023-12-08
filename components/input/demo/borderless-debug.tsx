@@ -7,8 +7,8 @@ const App: React.FC = () => (
   <div style={{ backgroundColor: 'rgba(0, 0, 128, .2)' }}>
     <Input placeholder="Unbordered" variant="borderless" />
     <Input placeholder="Unbordered" variant="borderless" size="large" />
-    <TextArea placeholder="Unbordered" bordered={false} />
-    <TextArea placeholder="Unbordered" bordered={false} allowClear />
+    <TextArea placeholder="Unbordered" variant="borderless" />
+    <TextArea placeholder="Unbordered" variant="borderless" allowClear />
     <Input placeholder="Unbordered" variant="borderless" allowClear />
     <Input prefix="￥" suffix="RMB" variant="borderless" />
     <Input prefix="￥" suffix="RMB" disabled variant="borderless" />

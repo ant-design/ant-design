@@ -53,7 +53,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
-| bordered | Whether has border style | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
@@ -68,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
-| varaint | Variants of Input | `outlined` \| `borderless` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 
