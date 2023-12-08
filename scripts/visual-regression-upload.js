@@ -6,7 +6,7 @@
 const OSS = require('ali-oss');
 const path = require('path');
 const fs = require('fs');
-const { assert } = require('console');
+const assert = require('assert');
 
 // node scripts/visual-regression-upload.js ./visualRegressionReport.tar.gz --ref=pr-id
 // node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=master-commitId

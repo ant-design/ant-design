@@ -1,3 +1,4 @@
+/* eslint-disable compat/compat */
 /* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
 import path from 'path';
 import fs from 'fs';
@@ -85,7 +86,7 @@ async function downloadBaseSnapshots(refName: string, targetDir: string) {
     const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
     await downloadFile(imageSnapshotsUrl, targzPath);
     // untar
-    return await tar.x({
+    return tar.x({
       strip: 1,
       C: targetDir,
       file: targzPath,

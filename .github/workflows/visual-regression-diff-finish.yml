@@ -17,7 +17,7 @@ name: 👀 Visual Regression Diff Finish
 
 on:
   workflow_run:
-    workflows: ["Visual Regression Build"]
+    workflows: ["👀 Visual Regression Diff Build"]
     types:
       - completed
 
@@ -108,11 +108,8 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression-upload.js ./visualRegressionReport
+          node scripts/visual-regression-upload.js ./visualRegressionReport --ref=${{ steps.pr.outputs.id }}
           echo "✅ Uploaded"
-
-          # export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
-          # npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       # - name: success comment
       #   uses: actions-cool/maintain-one-comment@v3
@@ -121,8 +118,8 @@ jobs:
       #     token: ${{ secrets.GITHUB_TOKEN }}
       #     body: |
       #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
-      #       <!-- AUTO_PREVIEW_HOOK -->
-      #     body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+      #       <!-- VISUAL_DIFF_REGRESSION_HOOK -->
+      #     body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
       #     number: ${{ steps.pr.outputs.id }}
 
       # - name: failed comment
