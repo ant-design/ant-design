@@ -19,7 +19,7 @@ import { inputVariants, triggerFocus } from './Input';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useVariant from '../_util/hooks/useVariants';
-import { devUseWarning } from 'antd/es/_util/warning';
+import { devUseWarning } from '../_util/warning';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
