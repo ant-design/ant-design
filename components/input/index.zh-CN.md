@@ -21,6 +21,7 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/variant.tsx">变体</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>
 <code src="./demo/compact-style.tsx">紧凑模式</code>
 <code src="./demo/group.tsx" debug>输入框组合</code>
@@ -35,7 +36,6 @@ demo:
 <code src="./demo/show-count.tsx">带字数提示</code>
 <code src="./demo/advance-count.tsx" version=">= 5.10.0">定制计数能力</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/focus.tsx">聚焦</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
 <code src="./demo/align.tsx" debug>文本对齐</code>
@@ -69,6 +69,7 @@ demo:
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
 | value | 输入框内容 | string | - |  |
+| varaint | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.13.0 |
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 

@@ -55,6 +55,9 @@ export function triggerFocus(
   }
 }
 
+const inputVariants = ['outlined', 'borderless'] as const;
+export type InputVariant = (typeof inputVariants)[number];
+
 export interface InputProps
   extends Omit<
     RcInputProps,
@@ -64,7 +67,12 @@ export interface InputProps
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
+  /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
+  /**
+   * @default 'outlined'
+   */
+  variant?: InputVariant;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -87,8 +95,15 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     rootClassName,
     onChange,
     classNames: classes,
+    variant = 'outlined',
     ...rest
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const { deprecated } = devUseWarning('Input');
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+  }
+
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
@@ -166,6 +181,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
+  const enableVariantCls = inputVariants.includes(variant) && variant !== 'outlined';
+
   return wrapCSSVar(
     <RcInput
       ref={composeRef(ref, inputRef)}
@@ -215,6 +232,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
             [`${prefixCls}-borderless`]: !bordered,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,
@@ -229,6 +247,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
             [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           hashId,
