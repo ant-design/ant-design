@@ -98,7 +98,8 @@
     "test:update": "jest --config .jest.js --no-cache -u",
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
-    "version": "tsx scripts/generate-version.ts"
+    "version": "tsx scripts/generate-version.ts",
+    "npm-install": "npm install"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": "biome format --write",
