@@ -6,6 +6,7 @@ import os from 'os';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
+import minimist from 'minimist';
 import tar from 'tar';
 import fse from 'fs-extra';
 import chalk from 'chalk';
@@ -99,6 +100,44 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
 interface IBadCase {
   type: 'removed' | 'changed';
   filename: string;
+}
+
+function generateReportMd(badCases: IBadCase[], targetBranch: string, targetRef: string) {
+  // parse args from -- --pr-id=123
+  const argv = minimist(process.argv.slice(2));
+  const prId = argv['pr-id'];
+  assert(prId, 'Missing --pr-id');
+  const publicPath = `${ossDomain}/pr-${prId}`;
+
+  let reportMdStr = `
+| image_name | expected | actual | diff |
+| --- | --- | --- | --- |
+    `.trim();
+  reportMdStr += '\n';
+
+  for (const badCase of badCases) {
+    const { filename, type } = badCase;
+    if (type === 'changed') {
+      reportMdStr += '| ';
+      reportMdStr += [
+        badCase.filename,
+        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
+        `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
+        `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
+      ].join(' | ');
+      reportMdStr += ' |\n';
+    } else if (type === 'removed') {
+      reportMdStr += '| ';
+      reportMdStr += [
+        badCase.filename,
+        `![master: ref](${publicPath}/visualRegressionReport/images/base/${filename})`,
+        `⛔️`,
+        `🚨`,
+      ].join(' | ');
+      reportMdStr += ' |\n';
+    }
+  }
+  return reportMdStr;
 }
 
 async function boot() {
@@ -200,44 +239,6 @@ async function boot() {
     },
     await fse.readdir(reportDir),
   );
-}
-
-function generateReportMd(badCases: IBadCase[], targetBranch: string, targetRef: string) {
-  // parse args from -- --pr-id=123
-  const argv = require('minimist')(process.argv.slice(2));
-  const prId = argv['pr-id'];
-  assert(prId, 'Missing --pr-id');
-  const publicPath = `${ossDomain}/pr-${prId}`;
-
-  let reportMdStr = `
-| image_name | expected | actual | diff |
-| --- | --- | --- | --- |
-    `.trim();
-  reportMdStr += '\n';
-
-  for (const badCase of badCases) {
-    const { filename, type } = badCase;
-    if (type === 'changed') {
-      reportMdStr += '| ';
-      reportMdStr += [
-        badCase.filename,
-        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
-        `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
-        `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
-      ].join(' | ');
-      reportMdStr += ' |\n';
-    } else if (type === 'removed') {
-      reportMdStr += '| ';
-      reportMdStr += [
-        badCase.filename,
-        `![master: ref](${publicPath}/visualRegressionReport/images/base/${filename})`,
-        `⛔️`,
-        `🚨`,
-      ].join(' | ');
-      reportMdStr += ' |\n';
-    }
-  }
-  return reportMdStr;
 }
 
 boot();
