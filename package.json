@@ -269,6 +269,7 @@
     "lodash": "^4.17.21",
     "lunar-typescript": "^1.6.13",
     "lz-string": "^1.5.0",
+    "minimist": "^1.2.8",
     "mockdate": "^3.0.5",
     "node-fetch": "^3.3.2",
     "node-notifier": "^10.0.1",

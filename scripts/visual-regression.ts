@@ -13,6 +13,7 @@ import _ from 'lodash';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
 import sharp from 'sharp';
+import { assert } from 'console';
 
 const compareScreenshots = async (
   baseImgPath: string,
@@ -73,27 +74,31 @@ async function downloadFile(url: string, destPath: string) {
   await finished(body.pipe(fs.createWriteStream(destPath)));
 }
 
-async function downloadBaseSnapshots(refName: string, targetDir: string) {
-  const baseImageRefUrl = `${ossDomain}/${refName}/visual-regression-ref.txt`;
+async function getBranchLatestRef(branchName: string) {
+  const baseImageRefUrl = `${ossDomain}/${branchName}/visual-regression-ref.txt`;
   // get content from baseImageRefText
   const res = await fetch(baseImageRefUrl);
   const text = await res.text();
   const ref = text.trim();
+  return ref;
+}
 
-  if (ref) {
-    // download imageSnapshotsUrl
-    const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
-    const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
-    await downloadFile(imageSnapshotsUrl, targzPath);
-    // untar
-    return tar.x({
-      strip: 1,
-      C: targetDir,
-      file: targzPath,
-    });
-  }
+async function downloadBaseSnapshots(ref: string, targetDir: string) {
+  // download imageSnapshotsUrl
+  const imageSnapshotsUrl = `${ossDomain}/${ref}/imageSnapshots.tar.gz`;
+  const targzPath = path.resolve(os.tmpdir(), `./${path.basename(targetDir)}.tar.gz`);
+  await downloadFile(imageSnapshotsUrl, targzPath);
+  // untar
+  return tar.x({
+    strip: 1,
+    C: targetDir,
+    file: targzPath,
+  });
+}
 
-  throw new Error(`Missing base snapshots from ${refName}, ${ref}`);
+interface IBadCase {
+  type: 'removed' | 'changed';
+  filename: string;
 }
 
 async function boot() {
@@ -101,7 +106,11 @@ async function boot() {
   const baseImgSourceDir = path.resolve(__dirname, '../imageSnapshots-master');
   await fse.ensureDir(baseImgSourceDir);
 
-  await downloadBaseSnapshots('master', baseImgSourceDir);
+  const targetBranch = 'master';
+  const targetRef = await getBranchLatestRef(targetBranch);
+  assert(targetRef, `Missing ref from ${targetBranch}`);
+
+  await downloadBaseSnapshots(targetRef, baseImgSourceDir);
 
   const currentImgSourceDir = path.resolve(__dirname, '../imageSnapshots');
 
@@ -133,10 +142,7 @@ async function boot() {
     console.log('\n');
   }
 
-  const badCaseCounts: {
-    type: 'removed' | 'changed';
-    filename: string;
-  }[] = [];
+  const badCases: IBadCase[] = [];
 
   for (const file of baseImgFileList) {
     const baseImgPath = path.join(baseImgSourceDir, file);
@@ -146,7 +152,7 @@ async function boot() {
     const currentImgExists = await fse.exists(currentImgPath);
     if (!currentImgExists) {
       console.log(chalk.red(`⛔️ Missing image: ${file}\n`));
-      badCaseCounts.push({
+      badCases.push({
         type: 'removed',
         filename: file,
       });
@@ -166,7 +172,7 @@ async function boot() {
       await fse.copy(baseImgPath, path.join(baseImgReportDir, file));
       await fse.copy(currentImgPath, path.join(currentImgReportDir, file));
 
-      badCaseCounts.push({
+      badCases.push({
         type: 'changed',
         filename: file,
       });
@@ -175,14 +181,16 @@ async function boot() {
     }
   }
 
-  if (badCaseCounts.length) {
-    console.log(chalk.red('⛔️ Failed cases:\n'), prettyList(badCaseCounts.map((i) => i.filename)));
+  if (badCases.length) {
+    console.log(chalk.red('⛔️ Failed cases:\n'), prettyList(badCases.map((i) => i.filename)));
     console.log('\n');
   }
 
-  const jsonl = badCaseCounts.map((i) => JSON.stringify(i)).join('\n');
-  // write jsonl report to diffImgDir
+  const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
+  // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
+  const mdStr = generateReportMd(badCases, targetBranch, targetRef);
+  await fse.writeFile(path.join(reportDir, './report.md'), mdStr);
 
   await tar.c(
     {
@@ -192,6 +200,44 @@ async function boot() {
     },
     await fse.readdir(reportDir),
   );
+}
+
+function generateReportMd(badCases: IBadCase[], targetBranch: string, targetRef: string) {
+  // parse args from -- --pr-id=123
+  const argv = require('minimist')(process.argv.slice(2));
+  const prId = argv['pr-id'];
+  assert(prId, 'Missing --pr-id');
+  const publicPath = `${ossDomain}/pr-${prId}`;
+
+  let reportMdStr = `
+| image_name | expected | actual | diff |
+| --- | --- | --- | --- |
+    `.trim();
+  reportMdStr += '\n';
+
+  for (const badCase of badCases) {
+    const { filename, type } = badCase;
+    if (type === 'changed') {
+      reportMdStr += '| ';
+      reportMdStr += [
+        badCase.filename,
+        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
+        `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
+        `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
+      ].join(' | ');
+      reportMdStr += ' |\n';
+    } else if (type === 'removed') {
+      reportMdStr += '| ';
+      reportMdStr += [
+        badCase.filename,
+        `![master: ref](${publicPath}/visualRegressionReport/images/base/${filename})`,
+        `⛔️`,
+        `🚨`,
+      ].join(' | ');
+      reportMdStr += ' |\n';
+    }
+  }
+  return reportMdStr;
 }
 
 boot();

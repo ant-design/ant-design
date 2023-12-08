@@ -94,7 +94,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
-          node scripts/visual-regression-upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
+          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
+          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
 
           echo "✅ Uploaded"

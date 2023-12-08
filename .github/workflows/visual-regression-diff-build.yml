@@ -92,7 +92,7 @@ jobs:
         env:
           ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          npm run visual-regression
+          npm run visual-regression -- --pr-id=${{ github.event.number }}
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact

@@ -107,28 +107,34 @@ jobs:
           npm i ali-oss --no-save
           echo "✅ Install `ali-oss` Finished"
 
+          echo "🤖 Generating final visual-regression report"
+          node scripts/visual-regression/report.js
+          echo "✅ Generate visual-regression report Finished"
+
           echo "🤖 Uploading"
-          node scripts/visual-regression-upload.js ./visualRegressionReport --ref=${{ steps.pr.outputs.id }}
+          node scripts/visual-regression/upload.js ./visualRegressionReport --ref=pr-${{ steps.pr.outputs.id }}
           echo "✅ Uploaded"
 
-      # - name: success comment
-      #   uses: actions-cool/maintain-one-comment@v3
-      #   if: ${{ steps.report.outcome == 'success' }}
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     body: |
-      #       [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
-      #       <!-- VISUAL_DIFF_REGRESSION_HOOK -->
-      #     body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-      #     number: ${{ steps.pr.outputs.id }}
+          echo "content=$(<visualRegressionReport/report.md)" >> $GITHUB_OUTPUT
 
-      # - name: failed comment
-      #   if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.report.outcome == 'failure' || failure() }}
-      #   uses: actions-cool/maintain-one-comment@v3
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     body: |
-      #       <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
-      #       <!-- VISUAL_DIFF_REGRESSION_HOOK -->
-      #     body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-      #     number: ${{ steps.pr.outputs.id }}
+      - name: success comment
+        uses: actions-cool/maintain-one-comment@v3
+        if: ${{ steps.report.outcome == 'success' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            ${{ steps.report.outputs.content }}
+            <!-- VISUAL_DIFF_REGRESSION_HOOK -->
+          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}
+
+      - name: failed comment
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.report.outcome == 'failure' || failure() }}
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            Visual Regression Report failed
+            <!-- VISUAL_DIFF_REGRESSION_HOOK -->
+          body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}

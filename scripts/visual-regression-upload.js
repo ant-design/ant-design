@@ -8,12 +8,12 @@ const path = require('path');
 const fs = require('fs');
 const assert = require('assert');
 
-// node scripts/visual-regression-upload.js ./visualRegressionReport.tar.gz --ref=pr-id
-// node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=master-commitId
+// node scripts/visual-regression/upload.js ./visualRegressionReport.tar.gz --ref=pr-id
+// node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=master-commitId
 
 const args = process.argv.slice(2);
 if (args.length < 2) {
-  console.error('Usage: node scripts/visual-regression-upload.js <tarFilePath> --ref=<refValue>');
+  console.error('Usage: node scripts/visual-regression/upload.js <tarFilePath> --ref=<refValue>');
   process.exit(1);
 }
 
