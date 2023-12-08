@@ -310,7 +310,7 @@
     "tsx": "^4.6.0",
     "typedoc": "^0.25.4",
     "typescript": "~5.3.0",
-    "vanilla-jsoneditor": "^0.19.0",
+    "vanilla-jsoneditor": "^0.20.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.10.1",
