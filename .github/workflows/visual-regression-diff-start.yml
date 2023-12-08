@@ -1,4 +1,4 @@
-# When `preview-build` start. Leave a message on the PR
+# When `visual-regression-diff-build` start. Leave a message on the PR
 #
 # 🚨🚨🚨 Important 🚨🚨🚨
 # Never do any `checkout` or `npm install` action!
@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 jobs:
-  preview-start:
+  visual-regression-diff-start:
     permissions:
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
