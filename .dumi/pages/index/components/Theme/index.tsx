@@ -407,8 +407,8 @@ export default function Theme() {
         components: {
           Layout: isLight
             ? {
-                colorBgHeader: 'transparent',
-                colorBgBody: 'transparent',
+                headerBg: 'transparent',
+                bodyBg: 'transparent',
               }
             : {
                 // colorBgBody: 'transparent',

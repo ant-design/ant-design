@@ -97,7 +97,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       color: colorText,
     },
 
-    [`&${noticeCls}-closable ${noticeCls}-message`]: {
+    [`${noticeCls}-closable ${noticeCls}-message`]: {
       paddingInlineEnd: token.paddingLG,
     },
 

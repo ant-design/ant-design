@@ -115,7 +115,7 @@ export const BannerRecommendsFallback: FC = () => {
   return isMobile ? (
     <Carousel className={styles.carousel}>
       {list.map((_, index) => (
-        <div key={index}>
+        <div key={index} className={styles.itemBase}>
           <Skeleton active style={{ padding: '0 24px' }} />
         </div>
       ))}
@@ -123,7 +123,9 @@ export const BannerRecommendsFallback: FC = () => {
   ) : (
     <div className={styles.container}>
       {list.map((_, index) => (
-        <Skeleton key={index} active />
+        <div key={index} className={styles.itemBase}>
+          <Skeleton active />
+        </div>
       ))}
     </div>
   );
@@ -137,6 +139,10 @@ const BannerRecommends: React.FC = () => {
   const extras = data?.extras?.[lang];
   const icons = data?.icons || [];
   const first3 = !extras || extras.length === 0 ? Array(3).fill(null) : extras.slice(0, 3);
+
+  if (!data) {
+    return <BannerRecommendsFallback />;
+  }
 
   return (
     <div>

@@ -7,7 +7,7 @@ const conicColors = { '0%': '#87d068', '50%': '#ffe58f', '100%': '#ffccc7' };
 const App: React.FC = () => (
   <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
     <Progress percent={99.9} strokeColor={twoColors} />
-    <Progress percent={99.9} status="active" strokeColor={{ from: '#108ee9', to: '#87d068' }} />
+    <Progress percent={50} status="active" strokeColor={{ from: '#108ee9', to: '#87d068' }} />
     <Space wrap>
       <Progress type="circle" percent={90} strokeColor={twoColors} />
       <Progress type="circle" percent={100} strokeColor={twoColors} />
