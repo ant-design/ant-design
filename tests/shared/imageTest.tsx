@@ -3,6 +3,7 @@ import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
+import path from 'path';
 import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import MockDate from 'mockdate';
@@ -29,7 +30,11 @@ interface ImageTestOptions {
 }
 
 // eslint-disable-next-line jest/no-export
-export default function imageTest(component: React.ReactElement, options: ImageTestOptions) {
+export default function imageTest(
+  component: React.ReactElement,
+  identifier: string,
+  options: ImageTestOptions,
+) {
   function test(name: string, themedComponent: React.ReactElement) {
     it(name, async () => {
       await jestPuppeteer.resetPage();
@@ -80,7 +85,9 @@ export default function imageTest(component: React.ReactElement, options: ImageT
         fullPage: !options.onlyViewport,
       });
 
-      expect(image).toMatchImageSnapshot();
+      expect(image).toMatchImageSnapshot({
+        customSnapshotIdentifier: `${identifier}-${name.replace(/\s/g, '-')}`,
+      });
 
       MockDate.reset();
       page.off('request', onRequestHandle);
@@ -96,7 +103,7 @@ export default function imageTest(component: React.ReactElement, options: ImageT
         </div>,
       );
       test(
-        `[CSS Var] component image screenshot should correct ${key}`,
+        `component image screenshot should correct ${key}.css-var`,
         <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
           <div>CSS Var</div>
           <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
@@ -115,7 +122,7 @@ export default function imageTest(component: React.ReactElement, options: ImageT
       </>,
     );
     test(
-      `[CSS Var] component image screenshot should correct`,
+      `component image screenshot should correct.css-var`,
       <>
         <div>CSS Var</div>
         {Object.entries(themes).map(([key, algorithm]) => (
@@ -151,7 +158,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       if (typeof Demo === 'function') {
         Demo = <Demo />;
       }
-      imageTest(Demo, {
+      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, {
         onlyViewport:
           options.onlyViewport === true ||
           (Array.isArray(options.onlyViewport) &&
