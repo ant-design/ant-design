@@ -4,7 +4,7 @@ name: 👁 Visual Regression Diff Finish
 
 on:
   workflow_run:
-    workflows: [👁 Visual Regression Diff Build]
+    workflows: ["👁 Visual Regression Diff Build"]
     types:
       - completed
 
