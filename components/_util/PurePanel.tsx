@@ -4,7 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';
 
-export function withPureRenderTheme<T extends AnyObject = AnyObject>(Component: React.FC<T>) {
+export function withPureRenderTheme<T extends AnyObject = AnyObject>(Component: React.FC) {
   return (props: T) => (
     <ConfigProvider theme={{ token: { motion: false, zIndexPopupBase: 0 } }}>
       <Component {...props} />
