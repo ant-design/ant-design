@@ -4,11 +4,11 @@
 # Never do any `checkout` or `npm install` action!
 # `pull_request_target` will enable PR to access the secrets!
 
-name: 👁 Visual Regression Diff Start
+name: Visual Regression Diff Start
 
 on:
   workflow_run:
-    workflows: ["👁 Visual Regression Diff Build"]
+    workflows: ["Visual Regression Diff Build"]
     types:
       - in_progress
 
