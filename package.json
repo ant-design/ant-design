@@ -325,8 +325,7 @@
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.10.1",
-    "xhr-mock": "^2.5.1",
-    "zlib": "^1.0.5"
+    "xhr-mock": "^2.5.1"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
