@@ -24,7 +24,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
   getDropdownCls?: null | ((prefixCls: string) => string),
   postProps?: (props: ComponentProps) => ComponentProps,
 ) => {
-  type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
+  type WrapProps = ComponentProps & AnyObject;
 
   const PurePanel: React.FC<WrapProps> = (props) => {
     const { prefixCls: customizePrefixCls, style } = props;
