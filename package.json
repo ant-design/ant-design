@@ -301,7 +301,7 @@
     "semver": "^7.5.4",
     "simple-git": "^3.21.0",
     "size-limit": "^11.0.0",
-    "stylelint": "^15.11.0",
+    "stylelint": "^16.11.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^35.0.0",
     "stylelint-prettier": "^4.1.0",
