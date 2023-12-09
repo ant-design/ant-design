@@ -48,8 +48,13 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     paddingInline,
     paddingBlock,
     fontSize,
+    fontSizeIcon,
+    colorTextTertiary,
+    colorTextQuaternary,
     colorBgElevated,
     paddingXXS,
+    paddingXS,
+    paddingLG,
     borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
@@ -78,15 +83,52 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         },
       },
 
-      [`&-affix-wrapper ${componentCls}-suffix`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineEnd: paddingInline,
-        bottom: 0,
-        zIndex: 1,
+      [`&-affix-wrapper`]: {
         display: 'inline-flex',
-        alignItems: 'center',
-        margin: 'auto',
+        position: 'relative',
+
+        [`${componentCls}-suffix`]: {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: paddingInline,
+          bottom: 0,
+          zIndex: 1,
+          display: 'inline-flex',
+          alignItems: 'center',
+          margin: 'auto',
+        },
+
+        [`${componentCls}-clear-icon`]: {
+          position: 'absolute',
+          insetInlineEnd: 0,
+          insetBlockStart: paddingXS,
+          margin: 0,
+          color: colorTextQuaternary,
+          fontSize: fontSizeIcon,
+          verticalAlign: -1,
+          // https://github.com/ant-design/ant-design/pull/18151
+          // https://codesandbox.io/s/wizardly-sun-u10br
+          cursor: 'pointer',
+          transition: `color ${motionDurationSlow}`,
+
+          '&:hover': {
+            color: colorTextTertiary,
+          },
+
+          '&:active': {
+            color: colorText,
+          },
+
+          '&-hidden': {
+            visibility: 'hidden',
+          },
+        },
+      },
+
+      [`&-mentions-allow-clear`]: {
+        [`> ${componentCls} > textarea`]: {
+          paddingInlineEnd: paddingLG,
+        },
       },
 
       // ================= Input Area =================

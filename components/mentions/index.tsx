@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
+import type { BaseInputProps } from 'rc-input/lib/interface';
 import RcMentions from 'rc-mentions';
 import type {
   DataDrivenOptionProps as MentionsOptionProps,
@@ -79,6 +81,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     notFoundContent,
     options,
     status: customStatus,
+    allowClear,
     popupClassName,
     style,
     ...restProps
@@ -154,6 +157,14 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
+  // Allow clear
+  let mergedAllowClear: BaseInputProps['allowClear'];
+  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
+    mergedAllowClear = allowClear;
+  } else if (allowClear) {
+    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
+  }
+
   // Style
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
@@ -178,6 +189,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       notFoundContent={notFoundContentEle}
       className={mergedClassName}
       disabled={disabled}
+      allowClear={mergedAllowClear}
       direction={direction}
       style={{ ...contextMentions?.style, ...style }}
       {...restProps}
