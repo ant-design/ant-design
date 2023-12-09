@@ -1,6 +1,6 @@
 # Each PR will visual-regression diff that help to check code is work as expect.
 
-name: 👀 Visual Regression Diff Build
+name: 👁 Visual Regression Diff Build
 
 on:
   pull_request:
