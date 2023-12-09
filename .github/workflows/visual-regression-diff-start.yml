@@ -7,8 +7,10 @@
 name: 👀 Visual Regression Diff Start
 
 on:
-  pull_request_target:
-    types: [opened, synchronize, reopened]
+  workflow_run:
+    workflows: ["👀 Visual Regression Diff Build"]
+    types:
+      - requested
 
 permissions:
   contents: read
