@@ -4,7 +4,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import ConfigProvider, { ConfigContext } from '../config-provider';
 import type { AnyObject } from './type';
 
-export function withPureRenderTheme<T extends AnyObject = AnyObject>(Component: React.FC) {
+export function withPureRenderTheme<T extends AnyObject = AnyObject>(Component: React.FC<T>) {
   return (props: T) => (
     <ConfigProvider theme={{ token: { motion: false, zIndexPopupBase: 0 } }}>
       <Component {...props} />
@@ -81,7 +81,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
     };
 
     if (postProps) {
-      mergedProps = postProps(mergedProps as ComponentProps);
+      mergedProps = postProps(mergedProps);
     }
     const mergedStyle: React.CSSProperties = {
       paddingBottom: popupHeight,
@@ -95,7 +95,7 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
     );
   };
 
-  return withPureRenderTheme(PurePanel);
+  return withPureRenderTheme<AnyObject>(PurePanel);
 };
 
 export default genPurePanel;
