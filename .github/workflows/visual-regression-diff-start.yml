@@ -8,9 +8,9 @@ name: 👀 Visual Regression Diff Start
 
 on:
   workflow_run:
-    workflows: ["👀 Visual Regression Diff Build"]
+    workflows: [👀 Visual Regression Diff Build]
     types:
-      - requested
+      - in_progress
 
 permissions:
   contents: read
