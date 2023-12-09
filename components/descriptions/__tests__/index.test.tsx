@@ -188,6 +188,16 @@ describe('Descriptions', () => {
     expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
+  it('Descriptions support id', () => {
+    const wrapper = render(
+      <Descriptions id="descriptions">
+        <Descriptions.Item>Cloud Database</Descriptions.Item>
+      </Descriptions>,
+    );
+    const descriptionItemsElement = wrapper.container.querySelector('#descriptions');
+    expect(descriptionItemsElement).not.toBeNull();
+  });
+
   it('keep key', () => {
     render(
       <Descriptions>
