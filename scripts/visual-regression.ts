@@ -103,6 +103,10 @@ interface IBadCase {
 }
 
 function generateReportMd(badCases: IBadCase[], targetBranch: string, targetRef: string) {
+  if (badCases.length === 0) {
+    return 'Congrats! No visual-regression diff found.';
+  }
+
   // parse args from -- --pr-id=123
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
