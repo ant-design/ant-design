@@ -308,7 +308,7 @@ exports[`Tour controlled current 1`] = `
   <div>
     <div
       class="ant-tour-mask"
-      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: none;"
+      style="position: fixed; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 1001; pointer-events: auto;"
     >
       <svg
         style="width: 100%; height: 100%;"

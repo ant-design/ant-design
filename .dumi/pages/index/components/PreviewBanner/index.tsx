@@ -42,7 +42,7 @@ const useStyle = () => {
 
     return {
       holder: css`
-        height: 520px;
+        height: 640px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -94,6 +94,7 @@ const useStyle = () => {
 
       child: css`
         position: relative;
+        width: 100%;
         z-index: 1;
       `,
     };

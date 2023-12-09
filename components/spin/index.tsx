@@ -10,7 +10,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = typeof SpinSizes[number];
+export type SpinSize = (typeof SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -186,14 +186,14 @@ const SpinFC: SpinFCType = (props) => {
 
   const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(spinPrefixCls);
+  const [wrapCSSVar, hashId] = useStyle(spinPrefixCls);
 
   const spinClassProps: SpinClassProps = {
     ...props,
     spinPrefixCls,
     hashId,
   };
-  return wrapSSR(<Spin {...spinClassProps} />);
+  return wrapCSSVar(<Spin {...spinClassProps} />);
 };
 
 SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {

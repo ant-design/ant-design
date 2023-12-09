@@ -1,6 +1,6 @@
 # Each `push on master` will persist image-snapshots that used as compare target in visual regression.
 
-name: Visual Regression Persist Start
+name: 👁️ Visual Regression Persist Start
 
 on:
   push:
@@ -15,7 +15,6 @@ jobs:
   setup:
     name: prepare node_modules
     runs-on: ubuntu-latest
-    container: ghcr.io/puppeteer/puppeteer:21.5.2
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -67,12 +66,12 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: generate image snapshots
-        id: site
         run: |
+          node node_modules/puppeteer/install.mjs
           npm run version
           npm run test-image
+          tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
-          SITE_ENV: development
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       # Upload `imageSnapshots` on master
@@ -80,7 +79,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: image-snapshots
-          path: imageSnapshots/
+          path: imageSnapshots.tar.gz
 
       # Upload git ref for next workflow `visual-regression-persist-finish` use
       - name: Save persist key
@@ -91,5 +90,5 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
-          name: visual-regression-persist-ref
+          name: visual-regression-master-ref
           path: ./visual-regression-ref.txt

@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tooltip | The tooltip relate props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
 | vertical | If true, the slider will be vertical | boolean | false |  |
-| onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
+| onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
 
 ### `styles` 和 `classNames` 属性

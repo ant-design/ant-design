@@ -25,10 +25,10 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message: 'Galacean Effects · 所见即所得的动效新方案。',
-    shortMessage: 'Galacean Effects · 所见即所得的动效新方案。',
+    message: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
+    shortMessage: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
     more: '前往了解',
-    link: 'https://galacean.antgroup.com/effects/',
+    link: 'https://www.yuque.com/opensource2023',
   },
   en: {
     message: '',
@@ -367,7 +367,14 @@ const Header: React.FC = () => {
         </Popover>
       )}
       {isZhCN && bannerVisible && (
-        <ConfigProvider theme={{ token: { colorInfoBg: '#ceebf9', colorTextBase: '#000' } }}>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorInfoBg: 'linear-gradient(90deg, #84fab0, #8fd3f4)',
+              colorTextBase: '#000',
+            },
+          }}
+        >
           <Alert
             className={styles.banner}
             message={

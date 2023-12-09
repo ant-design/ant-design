@@ -10,8 +10,13 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import FloatButtonGroupContext from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { BackTopProps, FloatButtonProps, FloatButtonRef, FloatButtonShape } from './interface';
-import useStyle from './style';
+import type {
+  BackTopProps,
+  FloatButtonElement,
+  FloatButtonProps,
+  FloatButtonRef,
+  FloatButtonShape,
+} from './interface';
 
 const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
   const {
@@ -58,7 +63,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
     };
   }, [target]);
 
-  const scrollToTop: React.MouseEventHandler<HTMLDivElement> = (e) => {
+  const scrollToTop: React.MouseEventHandler<FloatButtonElement> = (e) => {
     scrollTo(0, { getContainer: target || getDefaultTarget, duration });
     onClick?.(e);
   };
@@ -67,7 +72,6 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  const [wrapSSR] = useStyle(prefixCls);
 
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
 
@@ -75,7 +79,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
 
   const contentProps: FloatButtonProps = { prefixCls, icon, type, shape: mergeShape, ...restProps };
 
-  return wrapSSR(
+  return (
     <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
       {({ className: motionClassName }) => (
         <FloatButton
@@ -85,7 +89,7 @@ const BackTop = React.forwardRef<FloatButtonRef, BackTopProps>((props, ref) => {
           className={classNames(className, motionClassName)}
         />
       )}
-    </CSSMotion>,
+    </CSSMotion>
   );
 });
 
