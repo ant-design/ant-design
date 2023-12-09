@@ -1,10 +1,10 @@
 # Each PR will visual-regression diff that help to check code is work as expect.
 
-name: Visual Regression Diff Finish
+name: 👀 Visual Regression Diff Finish
 
 on:
   workflow_run:
-    workflows: ["Visual Regression Diff Build"]
+    workflows: ["👀 Visual Regression Diff Build"]
     types:
       - completed
 
