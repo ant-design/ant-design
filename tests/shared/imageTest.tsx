@@ -115,6 +115,7 @@ export default function imageTest(
   } else {
     test(
       `component image screenshot should correct`,
+      false,
       <>
         {Object.entries(themes).map(([key, algorithm]) => (
           <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
@@ -125,6 +126,7 @@ export default function imageTest(
     );
     test(
       `component image screenshot should correct.css-var`,
+      true,
       <>
         <div>CSS Var</div>
         {Object.entries(themes).map(([key, algorithm]) => (
