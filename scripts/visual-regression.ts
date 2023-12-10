@@ -8,6 +8,7 @@ import { finished } from 'stream/promises';
 
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
+import remarkGfm from 'remark-gfm';
 import minimist from 'minimist';
 import tar from 'tar';
 import fse from 'fs-extra';
@@ -127,8 +128,10 @@ function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: s
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
 
+  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check [Full Report](${htmlReportLink}) for details`;
+
   // github action pr comment has limit of 65536 4-byte unicode characters
-  const limit = 65536;
+  const limit = 65536 - addonFullReportDesc.length;
 
   let reportMdStr = `
 ${commonHeader}
@@ -140,6 +143,8 @@ ${commonHeader}
   reportMdStr += '\n';
 
   let fullVersionMd = reportMdStr;
+
+  let addonFullReportDescAdded = false;
 
   for (const badCase of badCases) {
     const { filename, type } = badCase;
@@ -167,12 +172,19 @@ ${commonHeader}
     if (lineReportMdStr) {
       if (reportMdStr.length + lineReportMdStr.length < limit) {
         reportMdStr += lineReportMdStr;
+      } else if (!addonFullReportDescAdded) {
+        reportMdStr += addonFullReportDesc;
+        addonFullReportDescAdded = true;
       }
       fullVersionMd += lineReportMdStr;
     }
   }
 
-  const reportHtmlStr = remark().use(remarkHtml).processSync(fullVersionMd).toString();
+  const reportHtmlStr = remark()
+    .use(remarkGfm)
+    .use(remarkHtml)
+    .processSync(fullVersionMd)
+    .toString();
 
   // convert fullVersionMd to html
   return [reportMdStr, reportHtmlStr];
