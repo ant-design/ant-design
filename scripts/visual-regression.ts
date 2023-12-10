@@ -136,8 +136,8 @@ function generateReportMd(badCases: IBadCase[], targetBranch: string, targetRef:
       reportMdStr += [
         badCase.filename,
         `![master: ref](${publicPath}/visualRegressionReport/images/base/${filename})`,
-        `⛔️`,
-        `🚨`,
+        `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
+        `🚨🚨🚨 Removed 🚨🚨🚨`,
       ].join(' | ');
       reportMdStr += ' |\n';
     }
