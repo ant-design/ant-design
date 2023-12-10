@@ -6,6 +6,8 @@ import os from 'os';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
 
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
 import minimist from 'minimist';
 import tar from 'tar';
 import fse from 'fs-extra';
@@ -103,46 +105,77 @@ interface IBadCase {
   filename: string;
 }
 
-function generateReportMd(badCases: IBadCase[], targetBranch: string, targetRef: string) {
-  if (badCases.length === 0) {
-    return 'Congrats! No visual-regression diff found.';
-  }
-
+function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: string) {
   // parse args from -- --pr-id=123
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
   assert(prId, 'Missing --pr-id');
   const publicPath = `${ossDomain}/pr-${prId}`;
 
+  const commonHeader = `
+## Visual Regression Report for PR #${prId}
+> **Target branch:** ${targetBranch} (${targetRef})
+  `.trim();
+
+  if (badCases.length === 0) {
+    return [
+      commonHeader,
+      '------------------------',
+      'Congrats! No visual-regression diff found',
+    ].join('\n');
+  }
+
+  const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
+
+  // github action pr comment has limit of 65536 4-byte unicode characters
+  const limit = 65536;
+
   let reportMdStr = `
+${commonHeader}
+> [View Full Report](${htmlReportLink})\n
+------------------------
 | image_name | expected | actual | diff |
 | --- | --- | --- | --- |
     `.trim();
   reportMdStr += '\n';
 
+  let fullVersionMd = reportMdStr;
+
   for (const badCase of badCases) {
     const { filename, type } = badCase;
+    let lineReportMdStr = '';
     if (type === 'changed') {
-      reportMdStr += '| ';
-      reportMdStr += [
+      lineReportMdStr += '| ';
+      lineReportMdStr += [
         badCase.filename,
         `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
         `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
         `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
       ].join(' | ');
-      reportMdStr += ' |\n';
+      lineReportMdStr += ' |\n';
     } else if (type === 'removed') {
-      reportMdStr += '| ';
-      reportMdStr += [
+      lineReportMdStr += '| ';
+      lineReportMdStr += [
         badCase.filename,
         `![master: ref](${publicPath}/visualRegressionReport/images/base/${filename})`,
         `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
         `🚨🚨🚨 Removed 🚨🚨🚨`,
       ].join(' | ');
-      reportMdStr += ' |\n';
+      lineReportMdStr += ' |\n';
+    }
+
+    if (lineReportMdStr) {
+      if (reportMdStr.length + lineReportMdStr.length < limit) {
+        reportMdStr += lineReportMdStr;
+      }
+      fullVersionMd += lineReportMdStr;
     }
   }
-  return reportMdStr;
+
+  const reportHtmlStr = remark().use(remarkHtml).processSync(fullVersionMd).toString();
+
+  // convert fullVersionMd to html
+  return [reportMdStr, reportHtmlStr];
 }
 
 async function boot() {
@@ -233,8 +266,9 @@ async function boot() {
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const mdStr = generateReportMd(badCases, targetBranch, targetRef);
-  await fse.writeFile(path.join(reportDir, './report.md'), mdStr);
+  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef);
+  await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
+  await fse.writeFile(path.join(reportDir, './report.html'), reportHtmlStr);
 
   await tar.c(
     {

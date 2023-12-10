@@ -27,7 +27,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            Visual-Regression Diff Build Start
-            👀 📊 🔄 🔍 🐞
+            ## Visual-Regression Diff Building...
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
