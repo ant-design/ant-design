@@ -133,6 +133,7 @@ export interface FilterDropdownProps<RecordType> {
   locale: TableLocale;
   getPopupContainer?: GetPopupContainer;
   filterResetToDefaultFilteredValue?: boolean;
+  rootClassName?: string;
 }
 
 function wrapStringListType(keys?: FilterKey) {
@@ -154,6 +155,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     locale,
     children,
     getPopupContainer,
+    rootClassName,
   } = props;
 
   const {
@@ -524,6 +526,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onOpenChange={onVisibleChange}
         getPopupContainer={getPopupContainer}
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+        rootClassName={rootClassName}
       >
         <span
           role="button"

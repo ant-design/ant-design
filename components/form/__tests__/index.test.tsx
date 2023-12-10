@@ -1089,16 +1089,44 @@ describe('Form', () => {
     });
   });
 
-  it('legacy hideRequiredMark', () => {
-    const { container } = render(
-      <Form hideRequiredMark role="form">
-        <Form.Item name="light" label="light" required>
-          <Input />
-        </Form.Item>
-      </Form>,
-    );
+  describe('legacy hideRequiredMark', () => {
+    it('should work', () => {
+      const { container } = render(
+        <Form hideRequiredMark role="form">
+          <Form.Item name="light" label="light" required>
+            <Input />
+          </Form.Item>
+        </Form>,
+      );
 
-    expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+      expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+    });
+
+    it('priority should be higher than CP', () => {
+      const { container, rerender } = render(
+        <ConfigProvider form={{ requiredMark: true }}>
+          <Form hideRequiredMark role="form">
+            <Form.Item name="light" label="light" required>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+
+      rerender(
+        <ConfigProvider form={{ requiredMark: undefined }}>
+          <Form hideRequiredMark role="form">
+            <Form.Item name="light" label="light" required>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('form')!).toHaveClass('ant-form-hide-required-mark');
+    });
   });
 
   it('form should support disabled', () => {
