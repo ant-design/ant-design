@@ -104,7 +104,7 @@ export default function imageTest(
         </div>,
       );
       test(
-        `component image screenshot should correct ${key}`,
+        `[CSS Var] component image screenshot should correct ${key}`,
         true,
         <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
           <div>CSS Var</div>
@@ -125,7 +125,7 @@ export default function imageTest(
       </>,
     );
     test(
-      `component image screenshot should correct.css-var`,
+      `[CSS Var] component image screenshot should correct.css-var`,
       true,
       <>
         <div>CSS Var</div>
