@@ -47,6 +47,7 @@ export interface DescriptionsProps {
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
   items?: DescriptionsItemType[];
+  id?: string;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
