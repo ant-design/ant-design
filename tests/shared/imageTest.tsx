@@ -35,7 +35,7 @@ export default function imageTest(
   identifier: string,
   options: ImageTestOptions,
 ) {
-  function test(name: string, isCssVar: boolean, themedComponent: React.ReactElement) {
+  function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
       await jestPuppeteer.resetPage();
       await page.setRequestInterception(true);
@@ -86,7 +86,7 @@ export default function imageTest(
       });
 
       expect(image).toMatchImageSnapshot({
-        customSnapshotIdentifier: `${identifier}${isCssVar ? '.css-var' : ''}`,
+        customSnapshotIdentifier: `${identifier}${suffix}`,
       });
 
       MockDate.reset();
@@ -98,14 +98,14 @@ export default function imageTest(
     Object.entries(themes).forEach(([key, algorithm]) => {
       test(
         `component image screenshot should correct ${key}`,
-        false,
+        `-${key}`,
         <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
           <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
         </div>,
       );
       test(
         `[CSS Var] component image screenshot should correct ${key}`,
-        true,
+        `-${key}.css-var`,
         <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
           <div>CSS Var</div>
           <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
@@ -115,7 +115,7 @@ export default function imageTest(
   } else {
     test(
       `component image screenshot should correct`,
-      false,
+      '',
       <>
         {Object.entries(themes).map(([key, algorithm]) => (
           <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
@@ -125,8 +125,8 @@ export default function imageTest(
       </>,
     );
     test(
-      `[CSS Var] component image screenshot should correct.css-var`,
-      true,
+      `[CSS Var] component image screenshot should correct`,
+      '.css-var',
       <>
         <div>CSS Var</div>
         {Object.entries(themes).map(([key, algorithm]) => (
