@@ -134,7 +134,7 @@ function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: s
 ${commonHeader}
 > [View Full Report](${htmlReportLink})\n
 ------------------------
-| image_name | expected | actual | diff |
+| image name | expected | actual | diff |
 | --- | --- | --- | --- |
     `.trim();
   reportMdStr += '\n';
