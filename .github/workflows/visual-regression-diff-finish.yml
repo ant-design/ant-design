@@ -113,8 +113,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            Visual-Regression Report Success
-            🥳 ✅ 📊 🎉 🎈
             ${{ steps.report.outputs.content }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
@@ -126,8 +124,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            Visual-Regression Report Failed
-            😔 📉 📊 ❌ 🚫
+            ## Visual-Regression Diff Failed
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}
