@@ -102,7 +102,10 @@ jobs:
           node scripts/visual-regression-upload.js ./visualRegressionReport --ref=pr-${{ steps.pr.outputs.id }}
           echo "✅ Uploaded"
 
-          echo "content=$(<visualRegressionReport/report.md)" >> $GITHUB_OUTPUT
+          delimiter="$(openssl rand -hex 8)"
+          echo "content<<${delimiter}" >> "${GITHUB_OUTPUT}"
+          echo "$(<visualRegressionReport/report.md)" >> "${GITHUB_OUTPUT}"
+          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@v3
@@ -115,7 +118,7 @@ jobs:
             ${{ steps.report.outputs.content }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-          number: ${{ steps.report.outputs.id }}
+          number: ${{ steps.pr.outputs.id }}
 
       - name: failed comment
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.report.outcome == 'failure' || failure() }}
@@ -127,4 +130,4 @@ jobs:
             😔 📉 📊 ❌ 🚫
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-          number: ${{ steps.report.outputs.id }}
+          number: ${{ steps.pr.outputs.id }}
