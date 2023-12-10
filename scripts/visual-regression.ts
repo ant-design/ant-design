@@ -91,6 +91,7 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
   await downloadFile(imageSnapshotsUrl, targzPath);
   // untar
   return tar.x({
+    // remove top-level dir
     strip: 1,
     C: targetDir,
     file: targzPath,
@@ -167,7 +168,7 @@ async function boot() {
   await fse.ensureDir(baseImgReportDir);
   await fse.ensureDir(currentImgReportDir);
 
-  console.log(chalk.blue('⛳ Checking image snapshots with branch `master`'));
+  console.log(chalk.blue('⛳ Checking image snapshots with branch %s'), targetBranch);
   console.log('\n');
 
   const baseImgFileList = readPngs(baseImgSourceDir);
@@ -238,6 +239,7 @@ async function boot() {
   await tar.c(
     {
       gzip: true,
+      // ignore top-level dir(e.g. visualRegressionReport) and zip all files in it
       cwd: reportDir,
       file: `${path.basename(reportDir)}.tar.gz`,
     },

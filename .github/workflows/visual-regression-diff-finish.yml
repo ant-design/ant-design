@@ -90,7 +90,8 @@ jobs:
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
           ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          tar -xzvf visualRegressionReport.tar.gz
+          mkdir ./visualRegressionReport
+          tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
           echo "✅ Uncompress Finished"
 
           rm package.json
@@ -114,7 +115,7 @@ jobs:
             ${{ steps.report.outputs.content }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-          number: ${{ steps.pr.outputs.id }}
+          number: ${{ steps.report.outputs.id }}
 
       - name: failed comment
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.report.outcome == 'failure' || failure() }}
@@ -126,4 +127,4 @@ jobs:
             😔 📉 📊 ❌ 🚫
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
-          number: ${{ steps.pr.outputs.id }}
+          number: ${{ steps.report.outputs.id }}
