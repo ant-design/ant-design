@@ -91,7 +91,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     if (hideRequiredMark) {
       return false;
     }
-    
+
     if (contextForm && contextForm.requiredMark !== undefined) {
       return contextForm.requiredMark;
     }

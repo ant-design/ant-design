@@ -1,1 +1,0 @@
-# antd-image-snapshots
