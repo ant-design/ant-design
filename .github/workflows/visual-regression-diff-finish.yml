@@ -90,7 +90,8 @@ jobs:
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
           ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
-          tar -xzvf visualRegressionReport.tar.gz
+          mkdir ./visualRegressionReport
+          tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
           echo "✅ Uncompress Finished"
 
           rm package.json
@@ -101,7 +102,10 @@ jobs:
           node scripts/visual-regression-upload.js ./visualRegressionReport --ref=pr-${{ steps.pr.outputs.id }}
           echo "✅ Uploaded"
 
-          echo "content=$(<visualRegressionReport/report.md)" >> $GITHUB_OUTPUT
+          delimiter="$(openssl rand -hex 8)"
+          echo "content<<${delimiter}" >> "${GITHUB_OUTPUT}"
+          echo "$(<visualRegressionReport/report.md)" >> "${GITHUB_OUTPUT}"
+          echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@v3
