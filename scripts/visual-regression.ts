@@ -162,7 +162,7 @@ ${commonHeader}
       lineReportMdStr += '| ';
       lineReportMdStr += [
         badCase.filename,
-        `![master: ref](${publicPath}/visualRegressionReport/images/base/${filename})`,
+        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
         `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
         `🚨🚨🚨 Removed 🚨🚨🚨`,
       ].join(' | ');
