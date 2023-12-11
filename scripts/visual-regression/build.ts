@@ -194,7 +194,7 @@ ${commonHeader}
 
 async function boot() {
   console.log(chalk.green('Preparing image snapshots from latest `master` branch\n'));
-  const baseImgSourceDir = path.resolve(__dirname, '../imageSnapshots-master');
+  const baseImgSourceDir = path.resolve(__dirname, '../../imageSnapshots-master');
   await fse.ensureDir(baseImgSourceDir);
 
   const targetBranch = 'master';
@@ -203,9 +203,9 @@ async function boot() {
 
   await downloadBaseSnapshots(targetRef, baseImgSourceDir);
 
-  const currentImgSourceDir = path.resolve(__dirname, '../imageSnapshots');
+  const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
 
-  const reportDir = path.resolve(__dirname, '../visualRegressionReport');
+  const reportDir = path.resolve(__dirname, '../../visualRegressionReport');
   // save diff images(x3) to reportDir
   const diffImgReportDir = path.resolve(reportDir, './images/diff');
   const baseImgReportDir = path.resolve(reportDir, './images/base');
