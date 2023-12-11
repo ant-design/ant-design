@@ -70,6 +70,7 @@ async function uploadFile(client, filePath, refValue) {
     'x-oss-object-acl': 'public-read',
     // https://help.aliyun.com/zh/oss/developer-reference/prevent-objects-from-being-overwritten-by-objects-that-have-the-same-names-3
     'x-oss-forbid-overwrite': 'false',
+    'content-type': 'utf8',
   };
 
   console.log('Uploading file: %s', filePath);

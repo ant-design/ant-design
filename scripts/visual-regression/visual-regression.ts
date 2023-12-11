@@ -282,7 +282,13 @@ async function boot() {
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
   const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef);
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
-  await fse.writeFile(path.join(reportDir, './report.html'), reportHtmlStr);
+  const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
+
+  await fse.writeFile(
+    path.join(reportDir, './report.html'),
+    htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
+    'utf-8',
+  );
 
   await tar.c(
     {

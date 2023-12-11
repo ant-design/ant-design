@@ -98,7 +98,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression-upload.js ./visualRegressionReport --ref=pr-${{ steps.pr.outputs.id }}
+          node scripts/visual-regression/upload.js ./visualRegressionReport --ref=pr-${{ steps.pr.outputs.id }}
           echo "✅ Uploaded"
 
           delimiter="$(openssl rand -hex 8)"
