@@ -12,8 +12,8 @@
       }
       /* Table Styles */
       table {
-        border-collapse: collapse;
         width: 100%;
+        border-collapse: collapse;
       }
 
       th,
@@ -37,16 +37,16 @@
       }
 
       /* Responsive Table */
-      @media screen and (max-width: 600px) {
+      @media screen and (max-width: 600px) and (min-width: 1px) {
         table {
           border: 0;
         }
 
         th,
         td {
-          border: none;
           display: block;
           padding: 6px;
+          border: none;
         }
 
         th {
