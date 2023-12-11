@@ -239,7 +239,11 @@ async function boot() {
 
   const badCases: IBadCase[] = [];
 
-  for (const file of baseImgFileList) {
+  // compare cssinjs and css-var png from pr
+  // to the same cssinjs png in `master` branch
+  const cssinjsImgs = baseImgFileList.filter((i) => !i.endsWith('.css-var.png'));
+
+  for (const file of cssinjsImgs) {
     const baseImgPath = path.join(baseImgSourceDir, file);
     const currentImgPath = path.join(currentImgSourceDir, file);
     const diffImgPath = path.join(diffImgReportDir, file);
