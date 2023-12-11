@@ -99,7 +99,7 @@
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
     "version": "tsx scripts/generate-version.ts",
-    "visual-regression": "tsx scripts/visual-regression.ts",
+    "visual-regression": "tsx scripts/visual-regression/build.ts",
     "npm-install": "npm install"
   },
   "lint-staged": {
