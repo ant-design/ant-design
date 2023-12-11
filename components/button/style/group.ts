@@ -41,7 +41,7 @@ const genGroupStyle: GenerateStyle<ButtonToken> = (token) => {
           },
 
           '&:not(:first-child)': {
-            marginInlineStart: -lineWidth,
+            marginInlineStart: token.calc(lineWidth).mul(-1).equal(),
 
             [`&, & > ${componentCls}`]: {
               borderStartStartRadius: 0,

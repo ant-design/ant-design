@@ -47,6 +47,7 @@ export interface DescriptionsProps {
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
   items?: DescriptionsItemType[];
+  id?: string;
 }
 
 const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) => {
@@ -92,7 +93,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const mergedSize = useSize(customizeSize);
   const rows = useRow(mergedColumn, mergedItems);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
   // ======================== Render ========================
   const contextValue = React.useMemo(
@@ -100,7 +101,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     [labelStyle, contentStyle],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(

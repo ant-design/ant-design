@@ -23,9 +23,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <PopoverRawPurePanel
       prefixCls={prefixCls}
       hashId={hashId}

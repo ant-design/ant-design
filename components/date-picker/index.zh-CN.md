@@ -57,6 +57,11 @@ demo:
 
 如有特殊需求（仅修改单一组件的语言），请使用 locale 参数，参考：[默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
 
+<!-- prettier-ignore -->
+:::warning
+在搭配 Nextjs 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
+:::
+
 ```jsx
 import locale from 'antd/es/date-picker/locale/zh_CN';
 

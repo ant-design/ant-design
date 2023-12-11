@@ -18,7 +18,6 @@ High performance Form component with data scope management. Including data colle
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
-<code src="./demo/control-ref.tsx">Form methods (Class component)</code>
 <code src="./demo/layout.tsx">Form Layout</code>
 <code src="./demo/disabled.tsx">Form disabled</code>
 <code src="./demo/required-mark.tsx">Required style</code>
@@ -388,7 +387,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
+`type Form.useWatch = (namePath: NamePath | (selector: (values: Store) => any), formInstance?: FormInstance | WatchOptions): Value`
+
+`5.12.0` add `selector`
 
 Watch the value of a field. You can use this to interact with other hooks like `useSWR` to reduce development costs:
 

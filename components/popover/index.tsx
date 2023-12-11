@@ -45,12 +45,12 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const overlayCls = classNames(overlayClassName, hashId);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Tooltip
       placement={placement}
       trigger={trigger}

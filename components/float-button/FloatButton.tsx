@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useMemo } from 'react';
+import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
@@ -13,15 +13,16 @@ import type {
   CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
+  FloatButtonElement,
   FloatButtonProps,
-  FloatButtonRef,
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps>((props, ref) => {
+const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -37,12 +38,14 @@ const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
   const mergeShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
+    rootCls,
     prefixCls,
     className,
     rootClassName,
@@ -92,7 +95,7 @@ const FloatButton = forwardRef<FloatButtonRef['nativeElement'], FloatButtonProps
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     props.href ? (
       <a ref={ref} {...restProps} className={classString}>
         {buttonNode}

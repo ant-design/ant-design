@@ -56,6 +56,11 @@ The default locale is en-US, if you need to use other languages, recommend to us
 
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
+<!-- prettier-ignore -->
+:::warning
+When use with Nextjs App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+:::
+
 ```jsx
 import locale from 'antd/es/date-picker/locale/zh_CN';
 

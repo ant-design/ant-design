@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import type { MenuProps } from 'antd';
+import type { ImageProps, MenuProps } from 'antd';
 import {
   AutoComplete,
   Cascader,
@@ -9,6 +9,7 @@ import {
   DatePicker,
   Drawer,
   Dropdown,
+  Image,
   Menu,
   Modal,
   Popconfirm,
@@ -178,6 +179,25 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
     </>
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
+  ImagePreview: ({ rootClassName }: ImageProps) => (
+    <>
+      <Image
+        src="xxx"
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+        }}
+      />
+      <Image.PreviewGroup
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreviewGroup`,
+        }}
+      >
+        <Image src="xxx" />
+      </Image.PreviewGroup>
+    </>
+  ),
 };
 
 function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
@@ -196,6 +216,13 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
       .join(',');
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
+  } else if (consumer === 'ImagePreview') {
+    selector = ['ImagePreview', 'ImagePreviewGroup']
+      .map(
+        (item) =>
+          `${baseSelector}.comp-${item} .ant-image-preview-wrap, ${baseSelector}.comp-${item}.ant-image-preview-operations-wrapper`,
+      )
+      .join(',');
   }
   return selector;
 }
@@ -264,7 +291,7 @@ describe('Test useZIndex hooks', () => {
           const selector2 = getConsumerSelector('.consumer2', key as ZIndexConsumer);
           const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
-          if (['SelectLike', 'DatePicker'].includes(key)) {
+          if (['SelectLike', 'DatePicker', 'ImagePreview'].includes(key)) {
             let comps = document.querySelectorAll(selector1);
             comps.forEach((comp) => {
               expect((comp as HTMLDivElement).style.zIndex).toBeFalsy();
@@ -275,11 +302,15 @@ describe('Test useZIndex hooks', () => {
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                    consumerOffset,
+                    consumerOffset +
+                    operOffset,
                 ),
               );
             });
@@ -290,11 +321,15 @@ describe('Test useZIndex hooks', () => {
               const consumerOffset = isColorPicker
                 ? containerBaseZIndexOffset.Popover
                 : consumerBaseZIndexOffset[key as ZIndexConsumer];
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
-                    consumerOffset,
+                    consumerOffset +
+                    operOffset,
                 ),
               );
             });
@@ -327,7 +362,7 @@ describe('Test useZIndex hooks', () => {
           }
 
           unmount();
-        }, 15000);
+        }, 20000);
       });
     });
   });
@@ -337,13 +372,17 @@ describe('Test useZIndex hooks', () => {
 
     const instance = Modal.confirm({
       title: 'bamboo',
-      content: 'little',
+      content: <Select open />,
     });
 
     await waitFakeTimer();
 
     expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
       zIndex: '2000',
+    });
+
+    expect(document.querySelector('.ant-select-dropdown')).toHaveStyle({
+      zIndex: '2050',
     });
 
     instance.destroy();

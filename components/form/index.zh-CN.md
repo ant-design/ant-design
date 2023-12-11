@@ -19,7 +19,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
-<code src="./demo/control-ref.tsx">表单方法调用（Class component）</code>
 <code src="./demo/layout.tsx">表单布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
@@ -387,7 +386,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
+`type Form.useWatch = (namePath: NamePath | (selector: (values: Store)) => any, formInstance?: FormInstance | WatchOptions): Value`
+
+`5.12.0` 新增 `selector`
 
 用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 

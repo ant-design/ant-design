@@ -131,7 +131,7 @@ jobs:
       - name: dist
         run: npm run dist
         env:
-          NODE_OPTIONS: "--max_old_space_size=4096 --openssl-legacy-provider"
+          NODE_OPTIONS: "--max_old_space_size=4096"
           CI: 1
     needs: setup
 
@@ -141,7 +141,7 @@ jobs:
     strategy:
       matrix:
         react: ['16', '17', '18']
-        module: ['dom', 'node', 'dist']
+        module: ['dom', 'node', 'dist', 'dist-min']
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
@@ -179,7 +179,7 @@ jobs:
         run: npm run install-react-18
 
       - name: restore cache from dist
-        if: ${{ matrix.module == 'dist' }}
+        if: ${{ matrix.module == 'dist' || matrix.module == 'dist-min' }}
         uses: actions/cache@v3
         with:
           path: dist
@@ -224,6 +224,13 @@ jobs:
         run: npm test
         env:
           LIB_DIR: dist
+
+      # dist min test
+      - name: dist-min test
+        if: ${{ matrix.module == 'dist-min' }}
+        run: npm test
+        env:
+          LIB_DIR: dist-min
     needs: [setup, dist]
 
   ############################ Test Coverage ###########################

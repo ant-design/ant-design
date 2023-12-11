@@ -21,15 +21,18 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
         prev[`${colorKey}-${i + 1}`] = colors[i];
         prev[`${colorKey}${i + 1}`] = colors[i];
         return prev;
-      }, {}) as ColorPalettes;
+      }, {}) as ColorPalettes & LegacyColorPalettes;
     })
-    .reduce((prev, cur) => {
-      prev = {
-        ...prev,
-        ...cur,
-      };
-      return prev;
-    }, {} as ColorPalettes & LegacyColorPalettes);
+    .reduce(
+      (prev, cur) => {
+        prev = {
+          ...prev,
+          ...cur,
+        };
+        return prev;
+      },
+      {} as ColorPalettes & LegacyColorPalettes,
+    );
 
   const mergedMapToken = mapToken ?? defaultAlgorithm(token);
 

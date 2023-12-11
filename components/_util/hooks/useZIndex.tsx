@@ -5,7 +5,7 @@ import zIndexContext from '../zindexContext';
 
 export type ZIndexContainer = 'Modal' | 'Drawer' | 'Popover' | 'Popconfirm' | 'Tooltip' | 'Tour';
 
-export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu';
+export type ZIndexConsumer = 'SelectLike' | 'Dropdown' | 'DatePicker' | 'Menu' | 'ImagePreview';
 
 // Z-Index control range
 // Container: 1000 + offset 100 (max base + 10 * offset = 2000)
@@ -30,6 +30,7 @@ export const consumerBaseZIndexOffset: Record<ZIndexConsumer, number> = {
   Dropdown: 50,
   DatePicker: 50,
   Menu: 50,
+  ImagePreview: 1,
 };
 
 function isContainerType(type: ZIndexContainer | ZIndexConsumer): type is ZIndexContainer {
@@ -43,7 +44,13 @@ export function useZIndex(
   const [, token] = useToken();
   const parentZIndex = React.useContext(zIndexContext);
   const isContainer = isContainerType(componentType);
+
+  if (customZIndex !== undefined) {
+    return [customZIndex, customZIndex];
+  }
+
   let zIndex = parentZIndex ?? 0;
+
   if (isContainer) {
     zIndex +=
       // Use preset token zIndex by default but not stack when has parent container

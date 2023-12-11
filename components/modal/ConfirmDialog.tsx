@@ -17,7 +17,7 @@ import OkBtn from './components/ConfirmOkBtn';
 import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
-import Dialog from './Modal';
+import Modal from './Modal';
 import ConfirmCmp from './style/confirmCmp';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
@@ -233,7 +233,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   // ========================= Render =========================
   return (
-    <Dialog
+    <Modal
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames(
@@ -269,7 +269,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       focusTriggerAfterClose={focusTriggerAfterClose}
     >
       <ConfirmContent {...props} confirmPrefixCls={confirmPrefixCls} />
-    </Dialog>
+    </Modal>
   );
 };
 

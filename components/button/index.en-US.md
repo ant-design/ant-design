@@ -48,6 +48,7 @@ And 4 other properties additionally.
 <code src="./demo/legacy-group.tsx" debug>Deprecated Button Group</code>
 <code src="./demo/chinese-chars-loading.tsx" debug>Loading style bug</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/linear-gradient.tsx" debug>Gradient Button</code>
 
 ## API
 

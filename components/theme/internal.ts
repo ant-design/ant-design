@@ -10,11 +10,15 @@ import type {
 } from './interface';
 import { PresetColors } from './interface';
 import useToken from './useToken';
-import type { FullToken } from './util/genComponentStyleHook';
-import genComponentStyleHook, { genSubStyleComponent } from './util/genComponentStyleHook';
+import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
+import genComponentStyleHook, {
+  genSubStyleComponent,
+  genStyleHooks,
+} from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
+import calc from './util/calc';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {
@@ -22,8 +26,10 @@ export {
   genComponentStyleHook,
   genSubStyleComponent,
   genPresetColor,
+  genStyleHooks,
   mergeToken,
   statisticToken,
+  calc,
   // hooks
   useResetIconStyle,
   useStyleRegister,
@@ -39,4 +45,5 @@ export type {
   PresetColorType,
   SeedToken,
   UseComponentStyleResult,
+  GetDefaultToken,
 };

@@ -3,7 +3,6 @@ group:
   title: 进阶使用
 order: 2
 title: 服务端渲染
-tag: New
 ---
 
 服务端渲染样式有两种方案，它们各有优缺点：

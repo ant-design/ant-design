@@ -68,6 +68,7 @@ const useThemeAnimation = () => {
     if (!(event && typeof document.startViewTransition === 'function')) {
       return;
     }
+    const time = Date.now();
     const x = event.clientX;
     const y = event.clientY;
     const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
@@ -98,6 +99,7 @@ const useThemeAnimation = () => {
         root.classList.add(isDark ? 'light' : 'dark');
       })
       .ready.then(() => {
+        console.log(`Theme transition finished in ${Date.now() - time}ms`);
         const clipPath = [
           `circle(0px at ${x}px ${y}px)`,
           `circle(${endRadius}px at ${x}px ${y}px)`,

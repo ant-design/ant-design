@@ -83,7 +83,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
 
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {
@@ -110,7 +110,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
     [],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <LayoutContext.Provider value={contextValue}>
       <Tag
         ref={ref}
