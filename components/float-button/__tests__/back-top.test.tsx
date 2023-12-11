@@ -17,6 +17,14 @@ describe('BackTop', () => {
   mountTest(BackTop);
   rtlTest(BackTop);
 
+  it('no error when BackTop work', async () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<BackTop visibilityHeight={0} />);
+    await waitFakeTimer();
+    expect(errSpy).not.toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
@@ -52,13 +60,5 @@ describe('BackTop', () => {
   it('pass style to float button', () => {
     const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
     expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')?.style.color).toBe('red');
-  });
-
-  it('no error when BackTop work', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<BackTop visibilityHeight={0} />);
-    jest.runAllTimers();
-    expect(errSpy).not.toHaveBeenCalled();
-    errSpy.mockRestore();
   });
 });
