@@ -56,8 +56,8 @@ export function triggerFocus(
   }
 }
 
-export const inputVariants = ['outlined', 'borderless'] as const;
-export type InputVariant = (typeof inputVariants)[number];
+export const InputVariants = ['outlined', 'borderless'] as const;
+export type InputVariant = (typeof InputVariants)[number];
 
 export interface InputProps
   extends Omit<
@@ -182,8 +182,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
-  const variant = useVariant(customVariant, bordered);
-  const enableVariantCls = inputVariants.includes(variant) && variant !== 'outlined';
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
   return wrapCSSVar(
     <RcInput

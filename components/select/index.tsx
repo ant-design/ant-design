@@ -26,6 +26,7 @@ import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useVariants from '../_util/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -39,6 +40,9 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
+const SelectVariants = ['outlined', 'borderless'] as const;
+export type SelectVariant = (typeof SelectVariants)[number];
+
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
@@ -48,12 +52,15 @@ export interface InternalSelectProps<
   size?: SizeType;
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /** @default `outlined` */
+  variant?: SelectVariant;
 }
 
 export interface SelectProps<
@@ -101,10 +108,16 @@ const InternalSelect = <
     direction: propDirection,
     style,
     allowClear,
+    variant: customizeVariant,
     ...props
   }: SelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
 ) => {
+  if (process.env.NODE_ENV !== 'production') {
+    const { deprecated } = devUseWarning('Select');
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+  }
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -121,6 +134,8 @@ const InternalSelect = <
   const direction = propDirection ?? contextDirection;
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
@@ -204,7 +219,7 @@ const InternalSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),

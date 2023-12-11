@@ -15,7 +15,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import type { InputFocusOptions, InputVariant } from './Input';
-import { inputVariants, triggerFocus } from './Input';
+import { InputVariants, triggerFocus } from './Input';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useVariant from '../_util/hooks/useVariants';
@@ -99,8 +99,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const cssVarCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
 
-  const variant = useVariant(customVariant, bordered);
-  const enableVariantCls = variant !== 'outlined' && inputVariants.includes(variant);
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
   return wrapCSSVar(
     <RcTextArea

@@ -4,18 +4,24 @@ type DefaultVariant = 'outlined' | 'borderless';
  * Compatible for legacy `bordered` prop, safe to remove after `bordered` is removed.
  * @param variant
  * @param legacyBordered
+ * @param variants
  */
-const useVariant = <T extends DefaultVariant>(
+const useVariant = <T extends string>(
   variant: T | undefined,
   legacyBordered: boolean | undefined,
-): T | DefaultVariant => {
+  variants: readonly (T | DefaultVariant)[],
+): [T | DefaultVariant, boolean] => {
+  let mergedVariant: T | DefaultVariant;
   if (typeof variant !== 'undefined') {
-    return variant;
+    mergedVariant = variant;
+  } else if (legacyBordered === false) {
+    mergedVariant = 'borderless';
+  } else {
+    mergedVariant = 'outlined';
   }
-  if (legacyBordered === false) {
-    return 'borderless';
-  }
-  return 'outlined';
+
+  const enableVariantCls = variants.includes(mergedVariant) && variant !== 'outlined';
+  return [mergedVariant, enableVariantCls];
 };
 
 export default useVariant;
