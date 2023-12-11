@@ -42,7 +42,9 @@ jobs:
             const total = Object.keys(jobs).length;
             if(total === 0) core.setFailed('no jobs found');
 
-            // the name here must be the same as `jobs.xxx.{name}` in preview-build.yml
+            // the name here must be the same as `jobs.xxx.{name}`
+            console.log('visual-diff report job status: %s', jobs['test image']);
+
             // set output
             core.setOutput('build-success', jobs['test image'] === 'success');
             core.setOutput('build-failure', jobs['test image'] === 'failure');
@@ -93,7 +95,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
-          node scripts/visual-regression-upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
+          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
+          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
 
           echo "✅ Uploaded"
