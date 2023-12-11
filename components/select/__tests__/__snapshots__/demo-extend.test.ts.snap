@@ -2,7 +2,7 @@
 
 exports[`renders components/select/demo/automatic-tokenization.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -416,7 +416,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -595,7 +595,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
       style="width: 120px;"
     >
       <div
@@ -716,7 +716,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-loading"
+      class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
       style="width: 120px;"
     >
       <div
@@ -836,7 +836,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -993,7 +993,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -1138,7 +1138,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -1303,7 +1303,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
 
 exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-single ant-select-show-arrow"
   style="width: 300px;"
 >
   <div
@@ -1426,7 +1426,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
           class="ant-space-item"
         >
           <input
-            class="ant-input ant-input-outlined"
+            class="ant-input"
             placeholder="Please enter item"
             type="text"
             value=""
@@ -1506,7 +1506,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
 
 exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1796,7 +1796,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-outlined"
+      class="ant-input"
       style="width: 100px;"
       type="text"
       value="222"
@@ -1806,7 +1806,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width: 120px;"
     >
       <div
@@ -1998,7 +1998,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 120px;"
     >
       <div
@@ -2265,7 +2265,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 2`] =
 
 exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
   style="width: 120px; margin-top: 50vh;"
 >
   <div
@@ -4073,7 +4073,7 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
 
 exports[`renders components/select/demo/hide-selected.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -4243,7 +4243,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
 
 exports[`renders components/select/demo/label-in-value.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-single ant-select-show-arrow"
   style="width: 120px;"
 >
   <div
@@ -4396,7 +4396,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -4965,7 +4965,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -5457,7 +5457,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 2`
 
 exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-single ant-select-show-arrow"
   style="width: 200px;"
 >
   <div
@@ -5644,7 +5644,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -5838,7 +5838,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px; height: 60px;"
     >
       <div
@@ -6004,7 +6004,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -6199,7 +6199,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 120px;"
     >
       <div
@@ -6453,7 +6453,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 120px; height: 60px;"
     >
       <div
@@ -6992,7 +6992,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
 
 exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -7381,7 +7381,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
   >
     <div
@@ -7664,7 +7664,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </div>
   </div>
   <div
-    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-single ant-select-show-arrow"
     style="width: 120px;"
   >
     <div
@@ -7832,7 +7832,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -8384,7 +8384,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -8940,7 +8940,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
 
 exports[`renders components/select/demo/search.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -9098,7 +9098,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 2`] 
 
 exports[`renders components/select/demo/search-box.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-search"
+  class="ant-select ant-select-single ant-select-show-search"
   style="width: 200px;"
 >
   <div
@@ -9146,7 +9146,7 @@ exports[`renders components/select/demo/search-box.tsx extend context correctly 
 
 exports[`renders components/select/demo/search-sort.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
   style="width: 200px;"
 >
   <div
@@ -9356,7 +9356,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
 
 exports[`renders components/select/demo/select-users.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -9520,7 +9520,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -10073,7 +10073,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width: 100%;"
       >
         <div
@@ -10615,7 +10615,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width: 100%;"
       >
         <div
@@ -11165,7 +11165,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-status-error ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-status-error ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -11285,7 +11285,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-status-warning ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-status-warning ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -11415,7 +11415,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -11594,7 +11594,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
       style="width: 120px;"
     >
       <div
@@ -11718,7 +11718,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] 
 
 exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
