@@ -172,5 +172,18 @@ describe('Select', () => {
 
       errSpy.mockRestore();
     });
+
+    it('deprecate bordered', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const { container } = render(<Select bordered={false} />);
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: Select] `bordered` is deprecated'),
+      );
+      expect(container.querySelector('.ant-select-borderless')).toBeTruthy();
+
+      errSpy.mockRestore();
+    });
   });
 });
