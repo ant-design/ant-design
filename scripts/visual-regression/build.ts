@@ -108,7 +108,15 @@ interface IBadCase {
   filename: string;
 }
 
-function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: string) {
+function md2Html(md: string) {
+  return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
+}
+
+function generateReport(
+  badCases: IBadCase[],
+  targetBranch: string,
+  targetRef: string,
+): [string, string] {
   // parse args from -- --pr-id=123
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
@@ -121,11 +129,13 @@ function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: s
   `.trim();
 
   if (badCases.length === 0) {
-    return [
+    const mdStr = [
       commonHeader,
       '------------------------',
       'Congrats! No visual-regression diff found',
     ].join('\n');
+
+    return [mdStr, md2Html(mdStr)];
   }
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
@@ -182,14 +192,8 @@ ${commonHeader}
     }
   }
 
-  const reportHtmlStr = remark()
-    .use(remarkGfm)
-    .use(remarkHtml)
-    .processSync(fullVersionMd)
-    .toString();
-
   // convert fullVersionMd to html
-  return [reportMdStr, reportHtmlStr];
+  return [reportMdStr, md2Html(fullVersionMd)];
 }
 
 async function boot() {
