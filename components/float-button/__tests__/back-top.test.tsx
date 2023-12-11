@@ -8,6 +8,14 @@ import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 const { BackTop } = FloatButton;
 
 describe('BackTop', () => {
+  let errSpy: jest.SpyInstance;
+
+  beforeAll(() => {
+    errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+  });
+  afterAll(() => {
+    errSpy.mockRestore();
+  });
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -16,14 +24,6 @@ describe('BackTop', () => {
   });
   mountTest(BackTop);
   rtlTest(BackTop);
-
-  it('no error when BackTop work', async () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<BackTop visibilityHeight={0} />);
-    await waitFakeTimer();
-    expect(errSpy).not.toHaveBeenCalled();
-    errSpy.mockRestore();
-  });
 
   it('should scroll to top after click it', async () => {
     const { container } = render(<BackTop />);
@@ -60,5 +60,9 @@ describe('BackTop', () => {
   it('pass style to float button', () => {
     const { container } = render(<BackTop style={{ color: 'red' }} visibilityHeight={0} />);
     expect(container.querySelector<HTMLButtonElement>('.ant-float-btn')?.style.color).toBe('red');
+  });
+
+  it('no error when BackTop work', () => {
+    expect(errSpy).not.toHaveBeenCalled();
   });
 });
