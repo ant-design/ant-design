@@ -87,7 +87,10 @@ const InternalSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  {
+  props: SelectProps<ValueType, OptionType>,
+  ref: React.Ref<BaseSelectRef>,
+) => {
+  const {
     prefixCls: customizePrefixCls,
     bordered = true,
     className,
@@ -109,14 +112,8 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
-    ...props
-  }: SelectProps<ValueType, OptionType>,
-  ref: React.Ref<BaseSelectRef>,
-) => {
-  if (process.env.NODE_ENV !== 'production') {
-    const { deprecated } = devUseWarning('Select');
-    deprecated(!('bordered' in props), 'bordered', 'variant');
-  }
+    ...rest
+  } = props;
 
   const {
     getPopupContainer: getContextPopupContainer,
@@ -181,19 +178,18 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
-    ...props,
+    ...rest,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
     prefixCls,
-    showArrow: props.showArrow,
     componentName: 'Select',
   });
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
-  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
+  const selectProps = omit(rest as typeof rest & { itemIcon: React.ReactNode }, [
     'suffixIcon',
     'itemIcon',
   ]);
@@ -258,6 +254,8 @@ const InternalSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   // ====================== zIndex =========================
