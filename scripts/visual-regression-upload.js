@@ -17,6 +17,8 @@ if (args.length < 2) {
   process.exit(1);
 }
 
+const ALI_OSS_BUCKET = 'antd-visual-diff';
+
 /**
  * Extract the tar file path and ref value from the cli arguments
  * @param {string[]} cliArgs
@@ -99,7 +101,7 @@ async function boot() {
     endpoint: 'oss-cn-shanghai.aliyuncs.com',
     accessKeyId: process.env.ALI_OSS_AK_ID,
     accessKeySecret: process.env.ALI_OSS_AK_SECRET,
-    bucket: process.env.ALI_OSS_BUCKET,
+    bucket: ALI_OSS_BUCKET,
   });
 
   // if is a file then upload it directly
