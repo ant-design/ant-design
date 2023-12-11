@@ -315,7 +315,7 @@
     "stylelint": "^16.0.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^35.0.0",
-    "stylelint-prettier": "^4.1.0",
+    "stylelint-prettier": "^5.0.0",
     "sylvanas": "^0.6.1",
     "tar": "^6.2.0",
     "tar-fs": "^3.0.4",
