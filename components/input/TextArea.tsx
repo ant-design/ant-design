@@ -27,7 +27,7 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   size?: SizeType;
   status?: InputStatus;
   rootClassName?: string;
-  /** @default `outlined` */
+  /** @default "outlined" */
   variant?: InputVariant;
 }
 
