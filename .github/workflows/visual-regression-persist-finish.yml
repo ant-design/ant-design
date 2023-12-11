@@ -87,7 +87,6 @@ jobs:
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
-          ALI_OSS_BUCKET: ${{ secrets.ALI_OSS_BUCKET }}
         run: |
           rm package.json
           npm i ali-oss --no-save
