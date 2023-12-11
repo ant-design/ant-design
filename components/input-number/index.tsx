@@ -14,6 +14,10 @@ import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { InputVariant } from '../input/Input';
+import { devUseWarning } from '../_util/warning';
+import useVariant from '../_util/hooks/useVariants';
+import { InputVariants } from '../input/Input';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
@@ -24,12 +28,20 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   prefix?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
+  /** @default "outlined" */
+  variant?: InputVariant;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
+  if (process.env.NODE_ENV !== 'production') {
+    const { deprecated } = devUseWarning('InputNumber');
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+  }
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -45,10 +57,11 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     addonBefore,
     addonAfter,
     prefix,
-    bordered = true,
+    bordered,
     readOnly,
     status: customStatus,
     controls,
+    variant: customVariant,
     ...others
   } = props;
 
@@ -92,12 +105,14 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+
   const inputNumberClass = classNames(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
@@ -148,7 +163,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
           },
           hashId,
         ),

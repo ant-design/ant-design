@@ -59,7 +59,7 @@ export interface InternalSelectProps<
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
-  /** @default `outlined` */
+  /** @default "outlined" */
   variant?: SelectVariant;
 }
 

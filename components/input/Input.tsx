@@ -71,7 +71,7 @@ export interface InputProps
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
   /**
-   * @default 'outlined'
+   * @default "outlined"
    */
   variant?: InputVariant;
   [key: `data-${string}`]: string | undefined;
