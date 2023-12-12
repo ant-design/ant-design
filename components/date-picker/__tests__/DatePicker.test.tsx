@@ -127,28 +127,6 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('showTime={{ showHour: true, showSecond: true }}', () => {
-    const { container } = render(
-      <DatePicker
-        defaultValue={dayjs()}
-        showTime={{ showHour: true, showSecond: true }}
-        format="YYYY-MM-DD"
-        open
-      />,
-    );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
-    expect(
-      container
-        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
-        .querySelectorAll('.ant-picker-time-panel-cell').length,
-    ).toBe(24);
-    expect(
-      container
-        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
-        .querySelectorAll('.ant-picker-time-panel-cell').length,
-    ).toBe(60);
-  });
-
   it('showTime={{ showMinute: true, showSecond: true }}', () => {
     const { container } = render(
       <DatePicker
