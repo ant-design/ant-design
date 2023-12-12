@@ -20,7 +20,8 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
-<code src="./demo/variant.tsx">Variants</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/addon.tsx">Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
 <code src="./demo/group.tsx" debug>Input Group</code>

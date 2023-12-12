@@ -56,7 +56,7 @@ export function triggerFocus(
   }
 }
 
-export const InputVariants = ['outlined', 'borderless'] as const;
+export const InputVariants = ['outlined', 'borderless', 'filled'] as const;
 export type InputVariant = (typeof InputVariants)[number];
 
 export interface InputProps
@@ -232,25 +232,26 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-${variant}`]: !inputHasPrefixSuffix && enableVariantCls,
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,
           input?.classNames?.input,
           hashId,
         ),
-      }}
-      classes={{
         affixWrapper: classNames(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-disabled`]: mergedDisabled,
           },
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
           hashId,
         ),
+      }}
+      classes={{
         wrapper: classNames(
           {
             [`${prefixCls}-group-rtl`]: direction === 'rtl',
@@ -263,6 +264,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
             [`${prefixCls}-group-wrapper-disabled`]: mergedDisabled,
+            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
           hashId,

@@ -3,90 +3,20 @@ import { unit } from '@ant-design/cssinjs';
 
 import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
-import type { GlobalToken } from '../../theme/interface';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
+import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import {
+  genBorderlessStyle,
+  genFilledGroupStyle,
+  genFilledStyle,
+  genOutlinedGroupStyle,
+  genOutlinedStyle,
+} from './variants';
+import type { ComponentToken, InputToken } from './token';
+import { initComponentToken, initInputToken } from './token';
 
-export interface SharedComponentToken {
-  /**
-   * @desc 输入框横向内边距
-   * @descEN Horizontal padding of input
-   */
-  paddingInline: number;
-  /**
-   * @desc 小号输入框横向内边距
-   * @descEN Horizontal padding of small input
-   */
-  paddingInlineSM: number;
-  /**
-   * @desc 大号输入框横向内边距
-   * @descEN Horizontal padding of large input
-   */
-  paddingInlineLG: number;
-  /**
-   * @desc 输入框纵向内边距
-   * @descEN Vertical padding of input
-   */
-  paddingBlock: number;
-  /**
-   * @desc 小号输入框纵向内边距
-   * @descEN Vertical padding of small input
-   */
-  paddingBlockSM: number;
-  /**
-   * @desc 大号输入框纵向内边距
-   * @descEN Vertical padding of large input
-   */
-  paddingBlockLG: number;
-  /**
-   * @desc 前/后置标签背景色
-   * @descEN Background color of addon
-   */
-  addonBg: string;
-  /**
-   * @desc 悬浮态边框色
-   * @descEN Hover border color
-   */
-  hoverBorderColor: string;
-  /**
-   * @desc 激活态边框色
-   * @descEN Active border color
-   */
-  activeBorderColor: string;
-  /**
-   * @desc 激活态阴影
-   * @descEN Box-shadow when active
-   */
-  activeShadow: string;
-  /**
-   * @desc 错误状态时激活态阴影
-   * @descEN Box-shadow when active in error status
-   */
-  errorActiveShadow: string;
-  /**
-   * @desc 警告状态时激活态阴影
-   * @descEN Box-shadow when active in warning status
-   */
-  warningActiveShadow: string;
-  /**
-   * @desc 输入框hover状态时背景颜色
-   * @descEN Background color when the input box hovers
-   */
-  hoverBg: string;
-  /**
-   * @desc 输入框激活状态时背景颜色
-   * @descEN Background color when the input box is activated
-   */
-  activeBg: string;
-}
-
-export interface ComponentToken extends SharedComponentToken {}
-
-export interface SharedInputToken {
-  inputAffixPadding: number;
-}
-
-interface InputToken extends FullToken<'Input'>, SharedInputToken {}
+export type { ComponentToken };
+export { initComponentToken, initInputToken };
 
 export const genPlaceholderStyle = (color: string): CSSObject => ({
   // Firefox
@@ -212,33 +142,12 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
-  backgroundColor: token.colorBgContainer,
-  backgroundImage: 'none',
-  borderWidth: token.lineWidth,
-  borderStyle: token.lineType,
-  borderColor: token.colorBorder,
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-  '&:hover': {
-    ...genHoverStyle(token),
-  },
 
-  '&:focus, &:focus-within': {
-    ...genActiveStyle(token),
-  },
-
-  '&-disabled, &[disabled]': {
-    ...genDisabledStyle(token),
-  },
-
-  '&-borderless': {
-    '&, &:hover, &:focus, &-focused, &-disabled, &[disabled]': {
-      backgroundColor: 'transparent',
-      border: 'none',
-      boxShadow: 'none',
-    },
-  },
+  // Variants
+  ...genBorderlessStyle(),
 
   // Reset height for `textarea`s
   'textarea&': {
@@ -337,8 +246,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.addonBg,
-        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
         lineHeight: 1,
@@ -375,14 +282,6 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
             boxShadow: 'none',
           },
         },
-      },
-
-      '&-addon:first-child': {
-        borderInlineEnd: 0,
-      },
-
-      '&-addon:last-child': {
-        borderInlineStart: 0,
       },
     },
 
@@ -587,7 +486,10 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [componentCls]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
-      ...genStatusStyle(token, componentCls),
+
+      // Variants
+      ...genOutlinedStyle(token, componentCls),
+      ...genFilledStyle(token, componentCls),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -654,8 +556,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     iconCls,
   } = token;
 
+  const affixCls = `${componentCls}-affix-wrapper`;
+
   return {
-    [`${componentCls}-affix-wrapper`]: {
+    [affixCls]: {
       ...genBasicInputStyle(token),
       display: 'inline-flex',
 
@@ -670,18 +574,13 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         zIndex: 1,
       },
 
-      '&-disabled': {
-        [`${componentCls}[disabled]`]: {
-          background: 'transparent',
-        },
-      },
-
       [`> input${componentCls}`]: {
         padding: 0,
         fontSize: 'inherit',
         border: 'none',
         borderRadius: 0,
         outline: 'none',
+        background: 'transparent',
 
         '&::-ms-reveal': {
           display: 'none',
@@ -739,15 +638,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           color: colorIconHover,
         },
       },
-
-      // status
-      ...genStatusStyle(token, `${componentCls}-affix-wrapper`),
     },
   };
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { componentCls, colorError, colorWarning, borderRadiusLG, borderRadiusSM } = token;
+  const { componentCls, borderRadiusLG, borderRadiusSM } = token;
 
   return {
     [`${componentCls}-group`]: {
@@ -782,19 +678,9 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
         },
 
-        // Status
-        '&-status-error': {
-          [`${componentCls}-group-addon`]: {
-            color: colorError,
-            borderColor: colorError,
-          },
-        },
-        '&-status-warning': {
-          [`${componentCls}-group-addon`]: {
-            color: colorWarning,
-            borderColor: colorWarning,
-          },
-        },
+        // Variants
+        ...genOutlinedGroupStyle(token),
+        ...genFilledGroupStyle(token),
 
         '&-disabled': {
           [`${componentCls}-group-addon`]: {
@@ -1035,60 +921,6 @@ const genRangeStyle: GenerateStyle<InputToken> = (token) => {
         color: token.colorError,
       },
     },
-  };
-};
-
-// ============================== Tokens ==============================
-export function initInputToken(token: GlobalToken): SharedInputToken {
-  return mergeToken<InputToken>(token, {
-    inputAffixPadding: token.paddingXXS,
-  });
-}
-
-export const initComponentToken = (token: GlobalToken): SharedComponentToken => {
-  const {
-    controlHeight,
-    fontSize,
-    lineHeight,
-    lineWidth,
-    controlHeightSM,
-    controlHeightLG,
-    fontSizeLG,
-    lineHeightLG,
-    paddingSM,
-    controlPaddingHorizontalSM,
-    controlPaddingHorizontal,
-    colorFillAlter,
-    colorPrimaryHover,
-    colorPrimary,
-    controlOutlineWidth,
-    controlOutline,
-    colorErrorOutline,
-    colorWarningOutline,
-  } = token;
-
-  return {
-    paddingBlock: Math.max(
-      Math.round(((controlHeight - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-      0,
-    ),
-    paddingBlockSM: Math.max(
-      Math.round(((controlHeightSM - fontSize * lineHeight) / 2) * 10) / 10 - lineWidth,
-      0,
-    ),
-    paddingBlockLG:
-      Math.ceil(((controlHeightLG - fontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth,
-    paddingInline: paddingSM - lineWidth,
-    paddingInlineSM: controlPaddingHorizontalSM - lineWidth,
-    paddingInlineLG: controlPaddingHorizontal - lineWidth,
-    addonBg: colorFillAlter,
-    activeBorderColor: colorPrimary,
-    hoverBorderColor: colorPrimaryHover,
-    activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
-    errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
-    warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
-    hoverBg: '',
-    activeBg: '',
   };
 };
 

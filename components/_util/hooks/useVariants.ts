@@ -20,7 +20,7 @@ const useVariant = <T extends string>(
     mergedVariant = 'outlined';
   }
 
-  const enableVariantCls = variants.includes(mergedVariant) && mergedVariant !== 'outlined';
+  const enableVariantCls = variants.includes(mergedVariant);
   return [mergedVariant, enableVariantCls];
 };
 
