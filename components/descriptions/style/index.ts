@@ -58,7 +58,6 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
       [`> ${componentCls}-view`]: {
         border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         '> table': {
-          tableLayout: 'auto',
           borderCollapse: 'collapse',
         },
         [`${componentCls}-row`]: {
