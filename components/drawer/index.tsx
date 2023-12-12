@@ -18,7 +18,7 @@ import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 
 const SizeTypes = ['default', 'large'] as const;
-type sizeType = typeof SizeTypes[number];
+type sizeType = (typeof SizeTypes)[number];
 
 export interface PushState {
   distance: string | number;

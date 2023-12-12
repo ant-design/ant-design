@@ -26,12 +26,12 @@ type ResponsiveLike<T> = {
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-type ResponsiveAligns = ResponsiveLike<typeof RowAligns[number]>;
-type ResponsiveJustify = ResponsiveLike<typeof RowJustify[number]>;
+type ResponsiveAligns = ResponsiveLike<(typeof RowAligns)[number]>;
+type ResponsiveJustify = ResponsiveLike<(typeof RowJustify)[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: typeof RowAligns[number] | ResponsiveAligns;
-  justify?: typeof RowJustify[number] | ResponsiveJustify;
+  align?: (typeof RowAligns)[number] | ResponsiveAligns;
+  justify?: (typeof RowJustify)[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
 }

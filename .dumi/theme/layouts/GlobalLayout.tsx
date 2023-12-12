@@ -45,7 +45,7 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
       }
       return null;
     })
-    .filter((item) => item) as typeof antdTheme.darkAlgorithm[];
+    .filter((item) => item) as (typeof antdTheme.darkAlgorithm)[];
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
