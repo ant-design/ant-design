@@ -85,6 +85,15 @@ describe('Mentions', () => {
     expect(wrapper.container.querySelectorAll('.bamboo-light').length).toBeTruthy();
   });
 
+  it('allowClear', () => {
+    const wrapper = render(<Mentions allowClear />);
+    simulateInput(wrapper, '111');
+    const textareaInstance = wrapper.container.querySelector('textarea')!;
+    expect(textareaInstance.value).toEqual('111');
+    fireEvent.click(wrapper.container.querySelector('.ant-mentions-clear-icon')!);
+    expect(textareaInstance.value).toEqual('');
+  });
+
   it('warning if use Mentions.Option', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
