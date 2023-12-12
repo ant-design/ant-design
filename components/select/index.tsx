@@ -132,7 +132,9 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants);
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants, {
+    omitOutlined: true,
+  });
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);

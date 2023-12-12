@@ -112,10 +112,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           `${prefixCls}-textarea-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+            [`${prefixCls}-disabled`]: mergedDisabled,
           },
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
           hashId,

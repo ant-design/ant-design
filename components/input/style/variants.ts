@@ -1,8 +1,28 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { genDisabledStyle } from '.';
-import type { InputToken } from './token';
 import { unit } from '@ant-design/cssinjs';
+import { genHoverStyle } from '.';
+import type { InputToken } from './token';
+import { mergeToken } from 'antd/es/theme/internal';
 
+export const genDisabledStyle = (token: InputToken): CSSObject => ({
+  color: token.colorTextDisabled,
+  backgroundColor: token.colorBgContainerDisabled,
+  borderColor: token.colorBorder,
+  boxShadow: 'none',
+  cursor: 'not-allowed',
+  opacity: 1,
+
+  '&:hover:not([disabled])': {
+    ...genHoverStyle(
+      mergeToken<InputToken>(token, {
+        hoverBorderColor: token.colorBorder,
+        hoverBg: token.colorBgContainerDisabled,
+      }),
+    ),
+  },
+});
+
+/* ============== Outlined ============== */
 const genBaseOutlineStyle = (
   token: InputToken,
   options: {
@@ -51,7 +71,11 @@ const genOutlineStatusStyle = (
   },
 });
 
-export const genOutlinedStyle = (token: InputToken, parentCls: string): CSSObject => ({
+export const genOutlinedStyle = (
+  token: InputToken,
+  parentCls: string,
+  extraStyles?: CSSObject,
+): CSSObject => ({
   '&-outlined': {
     ...genBaseOutlineStyle(token, {
       borderColor: token.colorBorder,
@@ -83,6 +107,8 @@ export const genOutlinedStyle = (token: InputToken, parentCls: string): CSSObjec
       activeShadow: token.warningActiveShadow,
       affixColor: token.colorWarning,
     }),
+
+    ...extraStyles,
   },
 });
 
@@ -133,7 +159,8 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
   },
 });
 
-export const genBorderlessStyle = (): CSSObject => ({
+/* ============ Borderless ============ */
+export const genBorderlessStyle = (extraStyles?: CSSObject): CSSObject => ({
   '&-borderless': {
     background: 'transparent',
     border: 'none',
@@ -141,9 +168,12 @@ export const genBorderlessStyle = (): CSSObject => ({
     '&:focus, &:focus-within': {
       outline: 'none',
     },
+
+    ...extraStyles,
   },
 });
 
+/* ============== Filled ============== */
 const genBaseFilledStyle = (
   token: InputToken,
   options: {
@@ -194,7 +224,11 @@ const genFilledStatusStyle = (
   },
 });
 
-export const genFilledStyle = (token: InputToken, parentCls: string): CSSObject => ({
+export const genFilledStyle = (
+  token: InputToken,
+  parentCls: string,
+  extraStyles?: CSSObject,
+): CSSObject => ({
   '&-filled': {
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
@@ -225,6 +259,8 @@ export const genFilledStyle = (token: InputToken, parentCls: string): CSSObject 
       inputColor: token.colorWarningText,
       affixColor: token.colorWarning,
     }),
+
+    ...extraStyles,
   },
 });
 

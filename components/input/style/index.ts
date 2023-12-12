@@ -44,24 +44,6 @@ export const genActiveStyle = (token: InputToken) => ({
   backgroundColor: token.activeBg,
 });
 
-export const genDisabledStyle = (token: InputToken): CSSObject => ({
-  color: token.colorTextDisabled,
-  backgroundColor: token.colorBgContainerDisabled,
-  borderColor: token.colorBorder,
-  boxShadow: 'none',
-  cursor: 'not-allowed',
-  opacity: 1,
-
-  '&:hover:not([disabled])': {
-    ...genHoverStyle(
-      mergeToken<InputToken>(token, {
-        hoverBorderColor: token.colorBorder,
-        hoverBg: token.colorBgContainerDisabled,
-      }),
-    ),
-  },
-});
-
 const genInputLargeStyle = (token: InputToken): CSSObject => {
   const { paddingBlockLG, fontSizeLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
 
@@ -145,9 +127,6 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
-
-  // Variants
-  ...genBorderlessStyle(),
 
   // Reset height for `textarea`s
   'textarea&': {
@@ -490,6 +469,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       // Variants
       ...genOutlinedStyle(token, componentCls),
       ...genFilledStyle(token, componentCls),
+      ...genBorderlessStyle(),
 
       '&[type="color"]': {
         height: token.controlHeight,
@@ -563,7 +543,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genBasicInputStyle(token),
       display: 'inline-flex',
 
-      [`&:not(${componentCls}-affix-wrapper-disabled):hover`]: {
+      [`&:not(${componentCls}-disabled):hover`]: {
         zIndex: 1,
         [`${componentCls}-search-with-button &`]: {
           zIndex: 0,
@@ -682,11 +662,11 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         ...genOutlinedGroupStyle(token),
         ...genFilledGroupStyle(token),
 
-        '&-disabled': {
-          [`${componentCls}-group-addon`]: {
-            ...genDisabledStyle(token),
-          },
-        },
+        // '&-disabled': {
+        //   [`${componentCls}-group-addon`]: {
+        //     ...genDisabledStyle(token),
+        //   },
+        // },
 
         // Fix the issue of using icons in Space Compact mode
         // https://github.com/ant-design/ant-design/issues/42122

@@ -25,7 +25,7 @@ demo:
 <code src="./demo/digit.tsx">高精度小数</code>
 <code src="./demo/formatter.tsx">格式化展示</code>
 <code src="./demo/keyboard.tsx">键盘行为</code>
-<code src="./demo/variant.tsx">形态变体</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
 <code src="./demo/prefix.tsx">前缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
@@ -61,7 +61,7 @@ demo:
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
 | value | 当前值 | number | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头的回调 | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |

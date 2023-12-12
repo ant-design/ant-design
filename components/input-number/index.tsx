@@ -18,6 +18,7 @@ import type { InputVariant } from '../input/Input';
 import { devUseWarning } from '../_util/warning';
 import useVariant from '../_util/hooks/useVariants';
 import { InputVariants } from '../input/Input';
+import { hasPrefixSuffix } from '../input/utils';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
@@ -107,21 +108,22 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+  const hasAffix = hasPrefixSuffix(props) || hasFeedback;
+
   const inputNumberClass = classNames(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${variant}`]: enableVariantCls,
+      [`${prefixCls}-${variant}`]: !hasAffix && enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
     hashId,
   );
   const wrapperClassName = `${prefixCls}-group`;
-
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const element = (
     <RcInputNumber
@@ -158,12 +160,13 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }}
       classes={{
         affixWrapper: classNames(
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
+            [`${prefixCls}-disabled`]: mergedDisabled,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           hashId,
         ),
@@ -179,6 +182,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
           hashId,

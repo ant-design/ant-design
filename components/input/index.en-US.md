@@ -68,7 +68,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
-| variant | Variants of Input | `outlined` \| `borderless` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 

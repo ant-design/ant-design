@@ -1,7 +1,6 @@
 import type { SharedComponentToken, SharedInputToken } from '../../input/style';
 import {
   genBasicInputStyle,
-  genDisabledStyle,
   genPlaceholderStyle,
   genStatusStyle,
   initComponentToken,
@@ -11,6 +10,7 @@ import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
+import { genDisabledStyle } from '../../input/style/variants';
 
 export interface ComponentToken extends SharedComponentToken {
   /**

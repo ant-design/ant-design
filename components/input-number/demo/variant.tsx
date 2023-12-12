@@ -1,6 +1,12 @@
 import React from 'react';
-import { InputNumber } from 'antd';
+import { Flex, InputNumber } from 'antd';
 
-const App: React.FC = () => <InputNumber min={1} max={10} defaultValue={3} variant="borderless" />;
+const App: React.FC = () => (
+  <Flex vertical gap={12}>
+    <InputNumber placeholder="Outlined" style={{ width: 200 }} />
+    <InputNumber placeholder="Filled" variant="filled" style={{ width: 200 }} />
+    <InputNumber placeholder="Borderless" variant="borderless" style={{ width: 200 }} />
+  </Flex>
+);
 
 export default App;
