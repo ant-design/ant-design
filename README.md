@@ -1,20 +1,29 @@
-<p align="center">
-  <a href="https://ant.design">
-    <img width="200" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
-  </a>
-</p>
+<div align="center"><a name="readme-top"></a>
 
-<h1 align="center">Ant Design</h1>
+<img height="180" src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg">
 
-<div align="center">
+<h1>Ant Design</h1>
 
 An enterprise-class UI design language and React UI library.
 
-[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url]
+[![codecov][codecov-image]][codecov-url]
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url]
+[![][bundlesize-js-image]][unpkg-js-url]
+[![FOSSA Status][fossa-image]][fossa-url]
 
-[![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url]
+[![Renovate status][renovate-image]][renovate-dashboard-url]
+[![][issues-helper-image]][issues-helper-url]
+[![dumi][dumi-image]][dumi-url]
+[![Issues need help][help-wanted-image]][help-wanted-url]
+
+[Changelog](./CHANGELOG-.zh-CN.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English | [中文](./README-zh_CN.md)
+
+![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
 [npm-image]: http://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/antd
@@ -40,6 +49,8 @@ An enterprise-class UI design language and React UI library.
 [renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
+[github-issues-url]: https://new-issue.ant.design
+[github-issues-url]: https://new-issue.ant.design
 
 <!-- Copy-paste in your Readme.md file -->
 
@@ -55,8 +66,6 @@ An enterprise-class UI design language and React UI library.
 </div>
 
 [![](https://user-images.githubusercontent.com/507615/209472919-6f7e8561-be8c-4b0b-9976-eb3c692aa20a.png)](https://ant.design)
-
-English | [中文](./README-zh_CN.md)
 
 ## ✨ Features
 
