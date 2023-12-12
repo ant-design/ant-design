@@ -21,7 +21,7 @@ An enterprise-class UI design language and React UI library.
 [![dumi][dumi-image]][dumi-url]
 [![Issues need help][help-wanted-image]][help-wanted-url]
 
-[Changelog](./CHANGELOG-.zh-CN.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English | [中文](./README-zh_CN.md)
+[Changelog](./CHANGELOG.en-US.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · English | [中文](./README-zh_CN.md)
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
