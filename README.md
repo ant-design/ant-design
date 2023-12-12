@@ -50,7 +50,6 @@ An enterprise-class UI design language and React UI library.
 [dumi-image]: https://img.shields.io/badge/docs%20by-dumi-blue?style=flat-square
 [dumi-url]: https://github.com/umijs/dumi
 [github-issues-url]: https://new-issue.ant.design
-[github-issues-url]: https://new-issue.ant.design
 
 <!-- Copy-paste in your Readme.md file -->
 
