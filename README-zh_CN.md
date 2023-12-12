@@ -21,7 +21,7 @@
 [![dumi][dumi-image]][dumi-url]
 [![Issues need help][help-wanted-image]][help-wanted-url]
 
-[Changelog](./CHANGELOG-.zh-CN.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · [English](./README.md) · 中文
+[Changelog](./CHANGELOG-zh-CN.md) · [Report Bug][github-issues-url] · [Request Feature][github-issues-url] · [English](./README.md) · 中文
 
 ![](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
