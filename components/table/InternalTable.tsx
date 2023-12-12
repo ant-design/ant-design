@@ -202,6 +202,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
+  const [, token] = useToken();
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
@@ -349,6 +353,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    rootClassName: classNames(rootClassName, rootCls),
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
@@ -538,10 +543,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  const [, token] = useToken();
-  const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
-
   const wrapperClassNames = classNames(
     rootCls,
     `${prefixCls}-wrapper`,
@@ -624,4 +625,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default (React.forwardRef(InternalTable) as RefInternalTable);

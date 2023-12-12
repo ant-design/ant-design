@@ -35,7 +35,7 @@ Select component to select value from options.
 <code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
-<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/variant.tsx">Variants</code>
 <code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
 <code src="./demo/responsive.tsx">Responsive maxTagCount</code>
 <code src="./demo/big-data.tsx">Big Data</code>
@@ -59,7 +59,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
 | autoFocus | Get focus by default | boolean | false |  |
-| bordered | Whether has border style | boolean | true |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -97,6 +96,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
+| variant | Variants of Input | `outlined` \| `borderless` | `outlined` | 5.13.0 |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |

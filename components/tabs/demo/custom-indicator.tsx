@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from 'antd';
+import { Segmented, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
 const onChange = (key: string) => {
@@ -24,13 +24,25 @@ const items: TabsProps['items'] = [
   },
 ];
 
-const App: React.FC = () => (
-  <Tabs
-    defaultActiveKey="1"
-    items={items}
-    onChange={onChange}
-    indicatorSize={(origin) => origin - 16}
-  />
-);
+const App: React.FC = () => {
+  const [align, setAlign] = React.useState<TabsProps['indicatorAlign']>('center');
+  return (
+    <>
+      <Segmented
+        defaultValue="center"
+        style={{ marginBottom: 8 }}
+        onChange={(value) => setAlign(value as TabsProps['indicatorAlign'])}
+        options={['start', 'center', 'end']}
+      />
+      <Tabs
+        defaultActiveKey="1"
+        items={items}
+        onChange={onChange}
+        indicatorSize={(origin) => origin - 20}
+        indicatorAlign={align}
+      />
+    </>
+  );
+};
 
 export default App;

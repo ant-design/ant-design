@@ -18,7 +18,7 @@ const App: React.FC = () => {
       placeholder="Borderless"
       onSearch={(text) => setOptions(getPanelValue(text))}
       onSelect={globalThis.console.log}
-      bordered={false}
+      variant="borderless"
     />
   );
 };
