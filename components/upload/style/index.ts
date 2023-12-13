@@ -1,4 +1,3 @@
-import { unit } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import { genCollapseMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
