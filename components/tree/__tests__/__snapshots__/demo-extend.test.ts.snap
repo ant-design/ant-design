@@ -4211,14 +4211,14 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
 exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>
   <span
-    class="ant-input-group-wrapper ant-input-search"
+    class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
     style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-wrapper ant-input-group"
     >
       <input
-        class="ant-input"
+        class="ant-input ant-input-outlined"
         placeholder="Search"
         type="text"
         value=""

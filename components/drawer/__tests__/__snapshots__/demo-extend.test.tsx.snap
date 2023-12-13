@@ -903,7 +903,7 @@ Array [
                           >
                             <input
                               aria-required="true"
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               id="name"
                               placeholder="Please enter user name"
                               type="text"
@@ -946,7 +946,7 @@ Array [
                             class="ant-form-item-control-input-content"
                           >
                             <span
-                              class="ant-input-group-wrapper"
+                              class="ant-input-group-wrapper ant-input-group-wrapper-outlined"
                               style="width: 100%;"
                             >
                               <span
@@ -959,7 +959,7 @@ Array [
                                 </span>
                                 <input
                                   aria-required="true"
-                                  class="ant-input"
+                                  class="ant-input ant-input-outlined"
                                   id="url"
                                   placeholder="Please enter url"
                                   type="text"
@@ -2777,7 +2777,7 @@ Array [
                           >
                             <textarea
                               aria-required="true"
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               id="description"
                               placeholder="please enter url description"
                               rows="4"

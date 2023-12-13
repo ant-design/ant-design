@@ -3492,7 +3492,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             style="padding: 8px;"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               placeholder="Search name"
                               style="margin-bottom: 8px; display: block;"
                               type="text"
@@ -3628,7 +3628,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             style="padding: 8px;"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               placeholder="Search age"
                               style="margin-bottom: 8px; display: block;"
                               type="text"
@@ -3840,7 +3840,7 @@ exports[`renders components/table/demo/custom-filter-panel.tsx extend context co
                             style="padding: 8px;"
                           >
                             <input
-                              class="ant-input"
+                              class="ant-input ant-input-outlined"
                               placeholder="Search address"
                               style="margin-bottom: 8px; display: block;"
                               type="text"
@@ -9500,7 +9500,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10019,7 +10019,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10475,7 +10475,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10818,7 +10818,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -26101,7 +26101,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
 exports[`renders components/table/demo/row-selection-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
