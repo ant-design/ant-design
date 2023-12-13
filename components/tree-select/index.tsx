@@ -245,6 +245,7 @@ const InternalTreeSelect = <
     className,
     rootClassName,
     cssVarCls,
+    rootCls,
     treeSelectRootCls,
     hashId,
   );
