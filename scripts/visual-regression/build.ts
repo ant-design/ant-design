@@ -197,11 +197,12 @@ ${commonHeader}
 }
 
 async function boot() {
-  console.log(chalk.green('Preparing image snapshots from latest `master` branch\n'));
-  const baseImgSourceDir = path.resolve(__dirname, '../../imageSnapshots-master');
+  const targetBranch = 'master';
+
+  console.log(chalk.green('Preparing image snapshots from latest `%s` branch\n', targetBranch));
+  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetBranch = 'master';
   const targetRef = await getBranchLatestRef(targetBranch);
   assert(targetRef, `Missing ref from ${targetBranch}`);
 
@@ -227,7 +228,11 @@ async function boot() {
 
   const deletedImgs = _.difference(baseImgFileList, currentImgFileList);
   if (deletedImgs.length) {
-    console.log(chalk.red('⛔️ Missing images compare to master:\n'), prettyList(deletedImgs));
+    console.log(
+      chalk.red('⛔️ Missing images compare to %s:\n%s'),
+      targetBranch,
+      prettyList(deletedImgs),
+    );
     console.log('\n');
   }
   // ignore new images
