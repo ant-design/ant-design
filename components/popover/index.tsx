@@ -14,7 +14,7 @@ import useStyle from './style';
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
-  /** Force render Popover content*/
+  /** Force render Popover content */
   forceRender?: boolean;
 }
 

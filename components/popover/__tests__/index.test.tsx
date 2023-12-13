@@ -91,21 +91,17 @@ describe('Popover', () => {
   });
 
   it('forceRender works', () => {
-    const content = (
-      <div className='forceRender'>
-        rendered
-      </div>
-    );
+    const content = <div className="forceRender">rendered</div>;
     const { baseElement, rerender } = render(
-      <Popover content={content} title="Title" >
-       should not be rendered
-      </Popover>
+      <Popover content={content} title="Title">
+        should not be rendered
+      </Popover>,
     );
     expect(baseElement.querySelectorAll('div.forceRender').length).toBe(0);
     rerender(
       <Popover content={content} title="Title" forceRender>
-       should be rendered
-      </Popover>
+        should be rendered
+      </Popover>,
     );
     expect(baseElement.querySelectorAll('div.forceRender').length).toBe(1);
   });
