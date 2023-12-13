@@ -121,7 +121,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
             [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
             [`${prefixCls}-disabled`]: mergedDisabled,
           },
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
+          getStatusClassNames(prefixCls, mergedStatus),
           hashId,
         ),
       }}
