@@ -341,7 +341,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (!children || mergedDisabled) {
     delete rcUploadProps.id;
   }
-
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName='Upload' defaultLocale={defaultLocale.Upload}>
@@ -355,6 +354,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             downloadIcon,
           } =
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+
+          // use showRemoveIcon if it is specified explicitly
+          const realShowRemoveIcon =
+            typeof showRemoveIcon === 'undefined' ? !mergedDisabled : !!showRemoveIcon;
+
           return (
             <UploadList
               prefixCls={prefixCls}
@@ -364,7 +368,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               onPreview={onPreview}
               onDownload={onDownload}
               onRemove={handleRemove}
-              showRemoveIcon={!mergedDisabled && showRemoveIcon}
+              showRemoveIcon={realShowRemoveIcon}
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
               removeIcon={removeIcon}
