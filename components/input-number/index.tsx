@@ -55,8 +55,8 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;

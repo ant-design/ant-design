@@ -145,8 +145,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   }
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',

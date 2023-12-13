@@ -122,7 +122,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls, !override);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
@@ -181,7 +181,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           defaultMotions={defaultMotions}
           expandIcon={mergedExpandIcon}
           ref={ref}
-          rootClassName={classNames(rootClassName, hashId, overrideObj.rootClassName, rootCls)}
+          rootClassName={classNames(rootClassName, hashId, overrideObj.rootClassName, cssVarCls)}
         >
           {mergedChildren}
         </RcMenu>

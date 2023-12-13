@@ -127,8 +127,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');

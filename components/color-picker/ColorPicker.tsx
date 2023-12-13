@@ -137,9 +137,9 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, rootCls, rtlCls);
+  const mergeRootCls = classNames(rootClassName, cssVarCls, rtlCls);
   const mergeCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {

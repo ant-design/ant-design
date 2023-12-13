@@ -107,7 +107,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
@@ -133,7 +133,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     checkbox?.className,
     className,
     rootClassName,
-    rootCls,
+    cssVarCls,
     hashId,
   );
   const checkboxClass = classNames(

@@ -33,7 +33,7 @@ export default function CascaderPanel(props: CascaderPanelProps) {
   );
 
   const rootCls = useCSSVarCls(cascaderPrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(cascaderPrefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -56,7 +56,7 @@ export default function CascaderPanel(props: CascaderPanelProps) {
       {...props}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
-      className={classNames(className, hashId, rootClassName, rootCls)}
+      className={classNames(className, hashId, rootClassName, cssVarCls)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}

@@ -104,8 +104,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const formClassName = classNames(
     prefixCls,

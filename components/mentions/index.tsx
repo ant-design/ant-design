@@ -156,7 +156,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedClassName = classNames(
     {
@@ -169,7 +169,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     !hasFeedback && className,
     rootClassName,
     hashId,
-    rootCls,
+    cssVarCls,
   );
 
   const mentions = (
@@ -184,11 +184,11 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId, rootCls)}
+      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls)}
       ref={mergedRef}
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}
-      classes={{ affixWrapper: classNames(rootCls, hashId, className) }}
+      classes={{ affixWrapper: classNames(hashId, className) }}
     >
       {mentionOptions}
     </RcMentions>

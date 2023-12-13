@@ -34,10 +34,10 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const groupCls = classNames(groupPrefixCls, hashId, rootCls, className, {
+  const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
     [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
