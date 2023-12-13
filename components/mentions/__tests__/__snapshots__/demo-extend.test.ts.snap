@@ -2,7 +2,7 @@
 
 exports[`renders components/mentions/demo/async.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width: 100%;"
 >
   <textarea
@@ -16,7 +16,7 @@ exports[`renders components/mentions/demo/async.tsx extend context correctly 2`]
 
 exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width: 100%;"
 >
   <textarea
@@ -35,7 +35,7 @@ exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 
 
 exports[`renders components/mentions/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width: 100%;"
 >
   <textarea
@@ -54,7 +54,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-mentions"
+    class="ant-mentions ant-mentions-outlined"
     style="width: 100%; margin: 0px;"
   >
     <textarea
@@ -143,7 +143,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions"
+              class="ant-mentions ant-mentions-outlined"
             >
               <textarea
                 class="rc-textarea"
@@ -183,7 +183,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions"
+              class="ant-mentions ant-mentions-outlined"
             >
               <textarea
                 aria-required="true"
@@ -254,7 +254,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 2`] 
 
 exports[`renders components/mentions/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width: 100%;"
 >
   <textarea
@@ -268,7 +268,7 @@ exports[`renders components/mentions/demo/placement.tsx extend context correctly
 
 exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width: 100%;"
 >
   <textarea
@@ -287,7 +287,7 @@ Array [
     style="margin-bottom: 10px;"
   >
     <div
-      class="ant-mentions ant-mentions-disabled"
+      class="ant-mentions ant-mentions-disabled ant-mentions-outlined"
       style="width: 100%;"
     >
       <textarea
@@ -299,7 +299,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-mentions"
+    class="ant-mentions ant-mentions-outlined"
     style="width: 100%;"
   >
     <textarea
@@ -319,7 +319,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-mentions"
+    class="ant-mentions ant-mentions-outlined"
     style="width: 100%; margin: 0px;"
   >
     <textarea
@@ -390,7 +390,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-status-error"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-error"
     >
       <textarea
         class="rc-textarea"
@@ -404,7 +404,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-status-warning"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning"
     >
       <textarea
         class="rc-textarea"
@@ -418,3 +418,40 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
 `;
 
 exports[`renders components/mentions/demo/status.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/mentions/demo/variant.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 12px;"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Outlined"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-filled"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Filled"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-borderless"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Borderless"
+      rows="1"
+    />
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/variant.tsx extend context correctly 2`] = `[]`;

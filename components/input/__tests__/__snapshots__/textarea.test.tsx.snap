@@ -3,16 +3,16 @@
 exports[`TextArea allowClear classNames and styles should work 1`] = `
 <div>
   <textarea
-    class="ant-input custom-textarea custom-class"
+    class="ant-input ant-input-outlined custom-textarea custom-class"
     style="color: red; background: red;"
   />
   <span
-    class="ant-input-affix-wrapper custom-class ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count"
+    class="ant-input-affix-wrapper custom-class ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-show-count ant-input-show-count"
     data-count="0"
     style="background: red;"
   >
     <textarea
-      class="ant-input custom-textarea"
+      class="ant-input ant-input-outlined custom-textarea"
       style="color: red;"
     />
     <span
@@ -31,10 +31,10 @@ exports[`TextArea allowClear classNames and styles should work 1`] = `
 
 exports[`TextArea allowClear should change type when click 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   >
     111
   </textarea>
@@ -73,10 +73,10 @@ exports[`TextArea allowClear should change type when click 1`] = `
 
 exports[`TextArea allowClear should change type when click 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-affix-wrapper-focused ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -113,10 +113,10 @@ exports[`TextArea allowClear should change type when click 2`] = `
 
 exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -153,10 +153,10 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 
 exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -193,10 +193,10 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 
 exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -233,10 +233,10 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
 
 exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 1`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -273,10 +273,10 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 
 exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 2`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -313,10 +313,10 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 
 exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 3`] = `
 <span
-  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-allow-clear"
+  class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-allow-clear"
 >
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
   <span
     class="ant-input-suffix"
@@ -353,20 +353,20 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
 
 exports[`TextArea maxLength should support maxLength 1`] = `
 <textarea
-  class="ant-input"
+  class="ant-input ant-input-outlined"
   maxlength="10"
 />
 `;
 
 exports[`TextArea should support disabled 1`] = `
 <textarea
-  class="ant-input ant-input-disabled"
+  class="ant-input ant-input-outlined ant-input-disabled"
   disabled=""
 />
 `;
 
 exports[`TextArea should support size 1`] = `
 <textarea
-  class="ant-input ant-input-lg"
+  class="ant-input ant-input-outlined ant-input-lg"
 />
 `;

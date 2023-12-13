@@ -8,7 +8,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -19,7 +19,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           +
         </div>
         <div
-          class="ant-input-number"
+          class="ant-input-number ant-input-number-outlined"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -104,7 +104,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -255,7 +255,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           </div>
         </div>
         <div
-          class="ant-input-number"
+          class="ant-input-number ant-input-number-outlined"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -514,13 +514,13 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
       >
         <div
-          class="ant-input-number"
+          class="ant-input-number ant-input-number-outlined"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -623,7 +623,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group"
@@ -765,7 +765,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           </div>
         </div>
         <div
-          class="ant-input-number"
+          class="ant-input-number ant-input-number-outlined"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -845,7 +845,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper-disabled"
@@ -856,7 +856,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           +
         </div>
         <div
-          class="ant-input-number ant-input-number-disabled"
+          class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -960,7 +960,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-group-wrapper"
+      class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     >
       <div
         class="ant-input-number-wrapper ant-input-number-group ant-input-number-wrapper-disabled"
@@ -971,7 +971,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           +
         </div>
         <div
-          class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled"
+          class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-disabled ant-input-number-outlined"
         >
           <span
             class="ant-input-number-prefix"
@@ -1087,7 +1087,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
 
 exports[`renders components/input-number/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number"
+  class="ant-input-number ant-input-number-outlined"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -1168,7 +1168,7 @@ exports[`renders components/input-number/demo/basic.tsx extend context correctly
 
 exports[`renders components/input-number/demo/controls.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number"
+  class="ant-input-number ant-input-number-outlined"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -1260,7 +1260,7 @@ exports[`renders components/input-number/demo/debug-token.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1337,7 +1337,7 @@ exports[`renders components/input-number/demo/debug-token.tsx extend context cor
     class="ant-space-item"
   >
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1417,7 +1417,7 @@ exports[`renders components/input-number/demo/debug-token.tsx extend context cor
 
 exports[`renders components/input-number/demo/digit.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number"
+  class="ant-input-number ant-input-number-outlined"
   style="width: 200px;"
 >
   <div
@@ -1500,7 +1500,7 @@ exports[`renders components/input-number/demo/digit.tsx extend context correctly
 exports[`renders components/input-number/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number ant-input-number-disabled"
+    class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -1601,7 +1601,7 @@ exports[`renders components/input-number/demo/formatter.tsx extend context corre
     class="ant-space-item"
   >
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1679,7 +1679,7 @@ exports[`renders components/input-number/demo/formatter.tsx extend context corre
     class="ant-space-item"
   >
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1768,7 +1768,7 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1880,7 +1880,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-out-of-range"
+      class="ant-input-number ant-input-number-outlined ant-input-number-out-of-range"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1976,7 +1976,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx extend context co
 exports[`renders components/input-number/demo/prefix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-input-number-affix-wrapper"
+    class="ant-input-number-affix-wrapper ant-input-number-outlined"
     style="width: 100%;"
   >
     <span
@@ -2061,7 +2061,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-group-wrapper"
+    class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined"
     style="width: 100%;"
   >
     <div
@@ -2091,7 +2091,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-input-number-affix-wrapper"
+        class="ant-input-number-affix-wrapper ant-input-number-outlined"
       >
         <span
           class="ant-input-number-prefix"
@@ -2177,7 +2177,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled"
+    class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-disabled ant-input-number-outlined"
     style="width: 100%;"
   >
     <span
@@ -2270,7 +2270,7 @@ exports[`renders components/input-number/demo/render-panel.tsx extend context co
   style="display: flex; flex-direction: column; row-gap: 16px;"
 >
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
     style="width: 100%;"
   >
     <div
@@ -2357,7 +2357,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-lg"
+      class="ant-input-number ant-input-number-lg ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -2437,7 +2437,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -2517,7 +2517,7 @@ exports[`renders components/input-number/demo/size.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-sm"
+      class="ant-input-number ant-input-number-sm ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -2607,7 +2607,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-status-error"
+      class="ant-input-number ant-input-number-outlined ant-input-number-status-error"
       style="width: 100%;"
     >
       <div
@@ -2685,7 +2685,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-status-warning"
+      class="ant-input-number ant-input-number-outlined ant-input-number-status-warning"
       style="width: 100%;"
     >
       <div
@@ -2763,7 +2763,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-error"
+      class="ant-input-number-affix-wrapper ant-input-number-status-error ant-input-number-outlined"
       style="width: 100%;"
     >
       <span
@@ -2871,7 +2871,7 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-warning"
+      class="ant-input-number-affix-wrapper ant-input-number-status-warning ant-input-number-outlined"
       style="width: 100%;"
     >
       <span
@@ -2982,79 +2982,233 @@ exports[`renders components/input-number/demo/status.tsx extend context correctl
 
 exports[`renders components/input-number/demo/variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-input-number ant-input-number-borderless"
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 12px;"
 >
   <div
-    class="ant-input-number-handler-wrap"
+    class="ant-input-number ant-input-number-outlined"
+    style="width: 200px;"
   >
-    <span
-      aria-disabled="false"
-      aria-label="Increase Value"
-      class="ant-input-number-handler ant-input-number-handler-up"
-      role="button"
-      unselectable="on"
+    <div
+      class="ant-input-number-handler-wrap"
     >
       <span
-        aria-label="up"
-        class="anticon anticon-up ant-input-number-handler-up-inner"
-        role="img"
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up"
+        role="button"
+        unselectable="on"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="up"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="up"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
-          <path
-            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
-    <span
-      aria-disabled="false"
-      aria-label="Decrease Value"
-      class="ant-input-number-handler ant-input-number-handler-down"
-      role="button"
-      unselectable="on"
-    >
       <span
-        aria-label="down"
-        class="anticon anticon-down ant-input-number-handler-down-inner"
-        role="img"
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down"
+        role="button"
+        unselectable="on"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
       </span>
-    </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        placeholder="Outlined"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+    </div>
   </div>
   <div
-    class="ant-input-number-input-wrap"
+    class="ant-input-number ant-input-number-filled"
+    style="width: 200px;"
   >
-    <input
-      aria-valuemax="10"
-      aria-valuemin="1"
-      aria-valuenow="3"
-      autocomplete="off"
-      class="ant-input-number-input"
-      role="spinbutton"
-      step="1"
-      value="3"
-    />
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="up"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        placeholder="Filled"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ant-input-number ant-input-number-borderless"
+    style="width: 200px;"
+  >
+    <div
+      class="ant-input-number-handler-wrap"
+    >
+      <span
+        aria-disabled="false"
+        aria-label="Increase Value"
+        class="ant-input-number-handler ant-input-number-handler-up"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="up"
+          class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="up"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        aria-disabled="false"
+        aria-label="Decrease Value"
+        class="ant-input-number-handler ant-input-number-handler-down"
+        role="button"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-input-number-input-wrap"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        placeholder="Borderless"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+    </div>
   </div>
 </div>
 `;
