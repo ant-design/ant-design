@@ -26,7 +26,7 @@ const GlobalDemoStyles: React.FC = () => {
           margin: 0 0 16px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
-          border-radius: ${token.borderRadius}px;
+          border-radius: ${token.borderRadiusLG}px;
           transition: all 0.2s;
 
           .code-box-title {
