@@ -419,9 +419,15 @@ export const genStyleHooks = <C extends OverrideComponent>(
 
   const useCSSVar = genCSSVarRegister(component, getDefaultToken, options);
 
-  return (prefixCls: string, rootCls: string = prefixCls) => {
+  return (
+    prefixCls: string,
+    rootCls: string = prefixCls,
+    styleOptions: { extraRootCls?: boolean } = { extraRootCls: true },
+  ) => {
     const [, hashId] = useStyle(prefixCls);
-    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls, { extraRootCls: rootCls !== prefixCls });
+    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls, {
+      extraRootCls: styleOptions.extraRootCls && rootCls !== prefixCls,
+    });
 
     return [wrapCSSVar, hashId, cssVarCls] as const;
   };

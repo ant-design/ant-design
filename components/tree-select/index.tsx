@@ -154,7 +154,7 @@ const InternalTreeSelect = <
 
   const rootCls = useCSSVarCls(prefixCls);
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
-  const [wrapCSSVar, hashId] = useSelectStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
   const mergedDropdownClassName = classNames(
@@ -164,7 +164,7 @@ const InternalTreeSelect = <
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
-    rootCls,
+    cssVarCls,
     treeSelectRootCls,
     hashId,
   );
@@ -243,7 +243,7 @@ const InternalTreeSelect = <
     compactItemClassnames,
     className,
     rootClassName,
-    rootCls,
+    cssVarCls,
     treeSelectRootCls,
     hashId,
   );

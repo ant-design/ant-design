@@ -55,7 +55,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -106,9 +106,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         className,
         rootClassName,
         hashId,
-        rootCls,
+        cssVarCls,
       )}
-      popupClassName={classNames(popupClassName, hashId, rootCls)}
+      popupClassName={classNames(popupClassName, hashId, cssVarCls)}
       style={mergedStyle}
       editable={editable}
       moreIcon={moreIcon}
