@@ -58,9 +58,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         height: '100%',
         // Multiple is little different that horizontal is follow the vertical
-        padding: `${unit(token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal())} ${unit(
-          token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
-        )}`,
+        paddingInline: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
+        paddingBlock: token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal(),
         borderRadius: token.borderRadius,
 
         [`${componentCls}-show-search&`]: {
