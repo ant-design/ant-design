@@ -241,42 +241,55 @@ async function boot() {
 
   // compare cssinjs and css-var png from pr
   // to the same cssinjs png in `master` branch
-  const cssinjsImgs = baseImgFileList.filter((i) => !i.endsWith('.css-var.png'));
+  const cssInJsImgNames = baseImgFileList
+    .filter((i) => !i.endsWith('.css-var.png'))
+    .map((n) => path.basename(n, path.extname(n)));
 
-  for (const file of cssinjsImgs) {
-    const baseImgPath = path.join(baseImgSourceDir, file);
-    const currentImgPath = path.join(currentImgSourceDir, file);
-    const diffImgPath = path.join(diffImgReportDir, file);
+  for (const basename of cssInJsImgNames) {
+    for (const extname of ['.png', '.css-var.png']) {
+      // baseImg always use cssinjs png
+      const baseImgName = `${basename}.png`;
+      const baseImgPath = path.join(baseImgSourceDir, baseImgName);
 
-    const currentImgExists = await fse.exists(currentImgPath);
-    if (!currentImgExists) {
-      console.log(chalk.red(`⛔️ Missing image: ${file}\n`));
-      badCases.push({
-        type: 'removed',
-        filename: file,
-      });
-      await fse.copy(baseImgPath, path.join(baseImgReportDir, file));
-      continue;
-    }
+      // currentImg use cssinjs png or css-var png
+      const compareImgName = basename + extname;
+      const currentImgPath = path.join(currentImgSourceDir, compareImgName);
+      const diffImgPath = path.join(diffImgReportDir, compareImgName);
 
-    const mismatchedPxPercent = await compareScreenshots(baseImgPath, currentImgPath, diffImgPath);
+      const currentImgExists = await fse.exists(currentImgPath);
+      if (!currentImgExists) {
+        console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
+        badCases.push({
+          type: 'removed',
+          filename: compareImgName,
+        });
+        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        continue;
+      }
 
-    if (mismatchedPxPercent > 0) {
-      console.log(
-        'Mismatched pixels for:',
-        chalk.yellow(file),
-        `${mismatchedPxPercent.toFixed(2)}%\n`,
+      const mismatchedPxPercent = await compareScreenshots(
+        baseImgPath,
+        currentImgPath,
+        diffImgPath,
       );
-      // copy compare imgs(x2) to report dir
-      await fse.copy(baseImgPath, path.join(baseImgReportDir, file));
-      await fse.copy(currentImgPath, path.join(currentImgReportDir, file));
 
-      badCases.push({
-        type: 'changed',
-        filename: file,
-      });
-    } else {
-      console.log('Passed for: %s\n', chalk.green(file));
+      if (mismatchedPxPercent > 0) {
+        console.log(
+          'Mismatched pixels for:',
+          chalk.yellow(compareImgName),
+          `${mismatchedPxPercent.toFixed(2)}%\n`,
+        );
+        // copy compare imgs(x2) to report dir
+        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
+
+        badCases.push({
+          type: 'changed',
+          filename: compareImgName,
+        });
+      } else {
+        console.log('Passed for: %s\n', chalk.green(compareImgName));
+      }
     }
   }
 
