@@ -19,7 +19,6 @@ import type AbstractCalculator from './calc/calculator';
 import genMaxMin from './maxmin';
 import statisticToken, { merge as mergeToken } from './statistic';
 import useResetIconStyle from './useResetIconStyle';
-import classNames from 'classnames';
 
 export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -361,7 +360,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
     return null;
   };
 
-  const useCSSVar = (rootCls: string, cssVarOptions?: { extraRootCls?: boolean }) => {
+  const useCSSVar = (rootCls: string) => {
     const [, , , , cssVar] = useToken();
 
     return [
@@ -374,7 +373,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
         ) : (
           node
         ),
-      cssVar && classNames({ [rootCls]: cssVarOptions?.extraRootCls }, cssVar.key),
+      cssVar?.key,
     ] as const;
   };
 
@@ -419,15 +418,9 @@ export const genStyleHooks = <C extends OverrideComponent>(
 
   const useCSSVar = genCSSVarRegister(component, getDefaultToken, options);
 
-  return (
-    prefixCls: string,
-    rootCls: string = prefixCls,
-    styleOptions: { extraRootCls?: boolean } = { extraRootCls: true },
-  ) => {
+  return (prefixCls: string, rootCls: string = prefixCls) => {
     const [, hashId] = useStyle(prefixCls);
-    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls, {
-      extraRootCls: styleOptions.extraRootCls && rootCls !== prefixCls,
-    });
+    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
 
     return [wrapCSSVar, hashId, cssVarCls] as const;
   };

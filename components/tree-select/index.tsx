@@ -165,6 +165,7 @@ const InternalTreeSelect = <
     },
     rootClassName,
     cssVarCls,
+    rootCls,
     treeSelectRootCls,
     hashId,
   );

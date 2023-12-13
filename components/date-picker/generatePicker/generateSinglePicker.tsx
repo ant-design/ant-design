@@ -174,6 +174,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               consumerStyle?.className,
               className,
               cssVarCls,
+              rootCls,
               rootClassName,
             )}
             style={{ ...consumerStyle?.style, ...style }}

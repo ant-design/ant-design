@@ -56,7 +56,7 @@ export default function CascaderPanel(props: CascaderPanelProps) {
       {...props}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
-      className={classNames(className, hashId, rootClassName, cssVarCls)}
+      className={classNames(className, hashId, rootClassName, cssVarCls, rootCls)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}

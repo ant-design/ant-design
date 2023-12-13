@@ -211,6 +211,7 @@ const Dropdown: CompoundedComponent = (props) => {
     rootClassName,
     hashId,
     cssVarCls,
+    rootCls,
     dropdown?.className,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
   );

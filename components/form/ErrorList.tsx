@@ -97,7 +97,14 @@ const ErrorList: React.FC<ErrorListProps> = ({
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, cssVarCls, rootClassName, hashId)}
+            className={classNames(
+              baseClassName,
+              holderClassName,
+              cssVarCls,
+              rootCls,
+              rootClassName,
+              hashId,
+            )}
             style={holderStyle}
             role="alert"
           >

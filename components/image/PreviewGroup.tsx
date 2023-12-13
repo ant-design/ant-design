@@ -52,7 +52,12 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const mergedRootClassName = classNames(hashId, cssVarCls, _preview.rootClassName ?? '');
+    const mergedRootClassName = classNames(
+      hashId,
+      cssVarCls,
+      rootCls,
+      _preview.rootClassName ?? '',
+    );
 
     return {
       ..._preview,

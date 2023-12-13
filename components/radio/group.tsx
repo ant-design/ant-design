@@ -103,6 +103,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     rootClassName,
     hashId,
     cssVarCls,
+    rootCls,
   );
   return wrapCSSVar(
     <div

@@ -214,13 +214,14 @@ const PurePanel: React.FC<Omit<DrawerPanelProps, 'prefixCls'> & PurePanelInterfa
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
     `${prefixCls}-pure`,
     `${prefixCls}-${placement}`,
     hashId,
+    cssVarCls,
     className,
   );
 

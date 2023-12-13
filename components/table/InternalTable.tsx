@@ -545,6 +545,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const wrapperClassNames = classNames(
     cssVarCls,
+    rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
     {
@@ -607,6 +608,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
               [`${prefixCls}-empty`]: rawData.length === 0,
             },
             cssVarCls,
+            rootCls,
             hashId,
           )}
           data={pageData}

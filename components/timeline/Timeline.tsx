@@ -50,7 +50,7 @@ const Timeline: CompoundedComponent = (props) => {
   return wrapCSSVar(
     <TimelineItemList
       {...restProps}
-      className={classNames(timeline?.className, className, cssVarCls)}
+      className={classNames(timeline?.className, className, cssVarCls, rootCls)}
       style={{ ...timeline?.style, ...style }}
       prefixCls={prefixCls}
       direction={direction}

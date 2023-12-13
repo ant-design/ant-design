@@ -116,6 +116,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
     cssVarCls,
+    rootCls,
     hashId,
     contextForm?.className,
     className,

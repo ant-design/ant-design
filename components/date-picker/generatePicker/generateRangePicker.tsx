@@ -147,6 +147,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           className,
           rangePicker?.className,
           cssVarCls,
+          rootCls,
           rootClassName,
         )}
         style={{ ...rangePicker?.style, ...style }}
@@ -160,6 +161,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
           hashId,
           popupClassName || dropdownClassName,
           cssVarCls,
+          rootCls,
           rootClassName,
         )}
         popupStyle={{

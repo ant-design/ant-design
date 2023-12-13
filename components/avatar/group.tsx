@@ -70,6 +70,7 @@ const Group: React.FC<GroupProps> = (props) => {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     cssVarCls,
+    rootCls,
     className,
     rootClassName,
     hashId,

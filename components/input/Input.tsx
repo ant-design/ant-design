@@ -183,6 +183,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         className,
         rootClassName,
         cssVarCls,
+        rootCls,
         hashId,
         compactItemClassnames,
         input?.className,

@@ -167,6 +167,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       [`${prefixCls}-icon`]: !!icon,
     },
     cssVarCls,
+    rootCls,
     className,
     rootClassName,
     hashId,

@@ -232,6 +232,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       [`${cascaderPrefixCls}-dropdown-rtl`]: mergedDirection === 'rtl',
     },
     rootClassName,
+    rootCls,
     cascaderRootCls,
     hashId,
     cssVarCls,

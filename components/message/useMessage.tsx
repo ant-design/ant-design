@@ -40,7 +40,7 @@ const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefi
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return wrapCSSVar(
-    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls) }}>
+    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
       {children}
     </NotificationProvider>,
   );

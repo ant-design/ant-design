@@ -77,6 +77,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     rootClassName,
     hashId,
     cssVarCls,
+    rootCls,
   );
 
   return wrapCSSVar(

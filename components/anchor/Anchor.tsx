@@ -274,6 +274,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const wrapperClass = classNames(
     hashId,
     cssVarCls,
+    rootCls,
     rootClassName,
     `${prefixCls}-wrapper`,
     {

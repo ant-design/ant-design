@@ -107,8 +107,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         rootClassName,
         hashId,
         cssVarCls,
+        rootCls,
       )}
-      popupClassName={classNames(popupClassName, hashId, cssVarCls)}
+      popupClassName={classNames(popupClassName, hashId, cssVarCls, rootCls)}
       style={mergedStyle}
       editable={editable}
       moreIcon={moreIcon}

@@ -190,6 +190,7 @@ const InternalSelect = <
     },
     rootClassName,
     cssVarCls,
+    rootCls,
     hashId,
   );
 
@@ -213,6 +214,7 @@ const InternalSelect = <
     className,
     rootClassName,
     cssVarCls,
+    rootCls,
     hashId,
   );
 

@@ -170,6 +170,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     rootClassName,
     hashId,
     cssVarCls,
+    rootCls,
   );
 
   const mentions = (
@@ -184,11 +185,11 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls)}
+      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}
-      classes={{ affixWrapper: classNames(hashId, className) }}
+      classes={{ affixWrapper: classNames(hashId, className, cssVarCls, rootCls) }}
     >
       {mentionOptions}
     </RcMentions>

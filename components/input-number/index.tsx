@@ -112,7 +112,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     <RcInputNumber
       ref={inputRef}
       disabled={mergedDisabled}
-      className={classNames(cssVarCls, className, rootClassName, compactItemClassnames)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName, compactItemClassnames)}
       upHandler={upIcon}
       downHandler={downIcon}
       prefixCls={prefixCls}

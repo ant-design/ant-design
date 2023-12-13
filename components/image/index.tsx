@@ -40,7 +40,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls);
+  const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classNames(className, hashId, image?.className);
 

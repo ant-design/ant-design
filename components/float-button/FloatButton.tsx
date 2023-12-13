@@ -46,6 +46,7 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
   const classString = classNames(
     hashId,
     cssVarCls,
+    rootCls,
     prefixCls,
     className,
     rootClassName,
