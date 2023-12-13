@@ -27,7 +27,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============== Outlined ============== */
-const genBaseOutlineStyle = (
+export const genBaseOutlinedStyle = (
   token: InputToken,
   options: {
     borderColor: string;
@@ -54,7 +54,7 @@ const genBaseOutlineStyle = (
   },
 });
 
-const genOutlineStatusStyle = (
+const genOutlinedStatusStyle = (
   token: InputToken,
   options: {
     status: string;
@@ -67,7 +67,7 @@ const genOutlineStatusStyle = (
   },
 ): CSSObject => ({
   [`&${options.parentCls}-status-${options.status}:not(${options.parentCls}-disabled)`]: {
-    ...genBaseOutlineStyle(token, options),
+    ...genBaseOutlinedStyle(token, options),
 
     [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
       color: options.affixColor,
@@ -81,7 +81,7 @@ export const genOutlinedStyle = (
   extraStyles?: CSSObject,
 ): CSSObject => ({
   '&-outlined': {
-    ...genBaseOutlineStyle(token, {
+    ...genBaseOutlinedStyle(token, {
       borderColor: token.colorBorder,
       hoverBorderColor: token.colorPrimaryHover,
       activeBorderColor: token.colorPrimary,
@@ -92,7 +92,7 @@ export const genOutlinedStyle = (
       ...genDisabledStyle(token),
     },
 
-    ...genOutlineStatusStyle(token, {
+    ...genOutlinedStatusStyle(token, {
       status: 'error',
       parentCls,
       borderColor: token.colorError,
@@ -102,7 +102,7 @@ export const genOutlinedStyle = (
       affixColor: token.colorError,
     }),
 
-    ...genOutlineStatusStyle(token, {
+    ...genOutlinedStatusStyle(token, {
       status: 'warning',
       parentCls,
       borderColor: token.colorWarning,
