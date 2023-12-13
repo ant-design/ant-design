@@ -1,8 +1,12 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
-import { genHoverStyle } from '.';
 import type { InputToken } from './token';
-import { mergeToken } from 'antd/es/theme/internal';
+import { mergeToken } from '../../theme/internal';
+
+export const genHoverStyle = (token: InputToken): CSSObject => ({
+  borderColor: token.hoverBorderColor,
+  backgroundColor: token.hoverBg,
+});
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.colorTextDisabled,

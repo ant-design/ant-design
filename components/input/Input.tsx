@@ -71,6 +71,7 @@ export interface InputProps
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
   /**
+   * @since 5.13.0
    * @default "outlined"
    */
   variant?: InputVariant;

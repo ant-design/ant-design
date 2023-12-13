@@ -87,11 +87,17 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         ...genOutlinedStyle(token, componentCls, {
           [`${componentCls}-handler-wrap`]: {
             background: handleBg,
+            [`${componentCls}-handler-down`]: {
+              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+            },
           },
         }),
         ...genFilledStyle(token, componentCls, {
           [`${componentCls}-handler-wrap`]: {
             background: filledHandleBg,
+            [`${componentCls}-handler-down`]: {
+              borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
+            },
           },
 
           '&:focus-within': {
@@ -100,11 +106,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             },
           },
         }),
-        ...genBorderlessStyle({
-          [`${componentCls}-handler-down`]: {
-            borderBlockStartWidth: 0,
-          },
-        }),
+        ...genBorderlessStyle(),
 
         '&-rtl': {
           direction: 'rtl',
@@ -317,7 +319,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         [`${componentCls}-handler-down`]: {
-          borderBlockStart: `${unit(lineWidth)} ${lineType} ${handleBorderColor}`,
           borderEndEndRadius: borderRadius,
         },
 

@@ -33,7 +33,10 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   bordered?: boolean;
   status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
-  /** @default "outlined" */
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
   variant?: InputVariant;
 }
 

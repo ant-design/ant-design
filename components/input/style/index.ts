@@ -32,11 +32,6 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
   },
 });
 
-export const genHoverStyle = (token: InputToken): CSSObject => ({
-  borderColor: token.hoverBorderColor,
-  backgroundColor: token.hoverBg,
-});
-
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.activeBorderColor,
   boxShadow: token.activeShadow,
@@ -59,61 +54,6 @@ export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
   borderRadius: token.borderRadiusSM,
 });
-
-export const genStatusStyle = (token: InputToken, parentCls: string): CSSObject => {
-  const {
-    componentCls,
-    colorError,
-    colorWarning,
-    errorActiveShadow,
-    warningActiveShadow,
-    colorErrorBorderHover,
-    colorWarningBorderHover,
-  } = token;
-
-  return {
-    [`&-status-error:not(${parentCls}-disabled):not(${parentCls}-borderless)${parentCls}`]: {
-      borderColor: colorError,
-
-      '&:hover': {
-        borderColor: colorErrorBorderHover,
-      },
-
-      '&:focus, &:focus-within': {
-        ...genActiveStyle(
-          mergeToken<InputToken>(token, {
-            activeBorderColor: colorError,
-            activeShadow: errorActiveShadow,
-          }),
-        ),
-      },
-
-      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
-        color: colorError,
-      },
-    },
-    [`&-status-warning:not(${parentCls}-disabled):not(${parentCls}-borderless)${parentCls}`]: {
-      borderColor: colorWarning,
-
-      '&:hover': {
-        borderColor: colorWarningBorderHover,
-      },
-
-      '&:focus, &:focus-within': {
-        ...genActiveStyle(
-          mergeToken<InputToken>(token, {
-            activeBorderColor: colorWarning,
-            activeShadow: warningActiveShadow,
-          }),
-        ),
-      },
-
-      [`${componentCls}-prefix, ${componentCls}-suffix`]: {
-        color: colorWarning,
-      },
-    },
-  };
-};
 
 export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   position: 'relative',

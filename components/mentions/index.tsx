@@ -19,6 +19,9 @@ import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { InputVariant } from '../input/Input';
+import { InputVariants } from '../input/Input';
+import useVariant from '../_util/hooks/useVariants';
 
 export const { Option } = RcMentions;
 
@@ -42,6 +45,11 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
   status?: InputStatus;
   options?: MentionsOptionProps[];
   popupClassName?: string;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: InputVariant;
 }
 
 export interface MentionsRef extends RcMentionsRef {}
@@ -81,6 +89,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     status: customStatus,
     popupClassName,
     style,
+    variant: customVariant,
     ...restProps
   } = props;
   const [focused, setFocused] = React.useState(false);
@@ -158,11 +167,17 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
 
+  const [variant, enableVariantCls] = useVariant(customVariant, undefined, InputVariants);
+
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+
   const mergedClassName = classNames(
     {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-focused`]: focused,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${variant}`]: enableVariantCls,
     },
     getStatusClassNames(prefixCls, mergedStatus),
     contextMentions?.className,
@@ -187,8 +202,10 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       dropdownClassName={classNames(popupClassName, rootClassName, hashId, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
-      suffix={hasFeedback && feedbackIcon}
-      classes={{ affixWrapper: classNames(rootCls, hashId, className) }}
+      suffix={suffixNode}
+      classes={{
+        affixWrapper: classNames(rootCls, hashId, className),
+      }}
     >
       {mentionOptions}
     </RcMentions>

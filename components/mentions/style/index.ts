@@ -1,8 +1,7 @@
-import type { SharedComponentToken, SharedInputToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genBasicInputStyle,
   genPlaceholderStyle,
-  genStatusStyle,
   initComponentToken,
   initInputToken,
 } from '../../input/style';
@@ -10,7 +9,12 @@ import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
-import { genDisabledStyle } from '../../input/style/variants';
+import {
+  genBorderlessStyle,
+  genDisabledStyle,
+  genFilledStyle,
+  genOutlinedStyle,
+} from '../../input/style/variants';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -70,7 +74,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       whiteSpace: 'pre-wrap',
       verticalAlign: 'bottom',
 
-      ...genStatusStyle(token, componentCls),
+      // Variants
+      ...genOutlinedStyle(token, componentCls),
+      ...genFilledStyle(token, componentCls),
+      ...genBorderlessStyle(),
 
       '&-disabled': {
         '> textarea': {
@@ -221,7 +228,7 @@ export const prepareComponentToken: GetDefaultToken<'Mentions'> = (token) => ({
   dropdownHeight: 250,
   controlItemWidth: 100,
   zIndexPopup: token.zIndexPopupBase + 50,
-  itemPaddingVertical: token.controlHeight - token.fontHeight,
+  itemPaddingVertical: (token.controlHeight - token.fontHeight) / 2,
 });
 
 // ============================== Export ==============================
