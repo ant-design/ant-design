@@ -108,7 +108,15 @@ interface IBadCase {
   filename: string;
 }
 
-function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: string) {
+function md2Html(md: string) {
+  return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
+}
+
+function generateReport(
+  badCases: IBadCase[],
+  targetBranch: string,
+  targetRef: string,
+): [string, string] {
   // parse args from -- --pr-id=123
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
@@ -121,11 +129,13 @@ function generateReport(badCases: IBadCase[], targetBranch: string, targetRef: s
   `.trim();
 
   if (badCases.length === 0) {
-    return [
+    const mdStr = [
       commonHeader,
       '------------------------',
       'Congrats! No visual-regression diff found',
     ].join('\n');
+
+    return [mdStr, md2Html(mdStr)];
   }
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
@@ -182,19 +192,13 @@ ${commonHeader}
     }
   }
 
-  const reportHtmlStr = remark()
-    .use(remarkGfm)
-    .use(remarkHtml)
-    .processSync(fullVersionMd)
-    .toString();
-
   // convert fullVersionMd to html
-  return [reportMdStr, reportHtmlStr];
+  return [reportMdStr, md2Html(fullVersionMd)];
 }
 
 async function boot() {
   console.log(chalk.green('Preparing image snapshots from latest `master` branch\n'));
-  const baseImgSourceDir = path.resolve(__dirname, '../imageSnapshots-master');
+  const baseImgSourceDir = path.resolve(__dirname, '../../imageSnapshots-master');
   await fse.ensureDir(baseImgSourceDir);
 
   const targetBranch = 'master';
@@ -203,9 +207,9 @@ async function boot() {
 
   await downloadBaseSnapshots(targetRef, baseImgSourceDir);
 
-  const currentImgSourceDir = path.resolve(__dirname, '../imageSnapshots');
+  const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
 
-  const reportDir = path.resolve(__dirname, '../visualRegressionReport');
+  const reportDir = path.resolve(__dirname, '../../visualRegressionReport');
   // save diff images(x3) to reportDir
   const diffImgReportDir = path.resolve(reportDir, './images/diff');
   const baseImgReportDir = path.resolve(reportDir, './images/base');
@@ -282,7 +286,13 @@ async function boot() {
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
   const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef);
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
-  await fse.writeFile(path.join(reportDir, './report.html'), reportHtmlStr);
+  const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
+
+  await fse.writeFile(
+    path.join(reportDir, './report.html'),
+    htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
+    'utf-8',
+  );
 
   await tar.c(
     {
