@@ -364,7 +364,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   }
 
   const wrapperCls = `${prefixCls}-wrapper`;
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, wrapperCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, wrapperCls);
 
   const [contextLocale] = useLocale('Upload', defaultLocale.Upload);
 
@@ -412,11 +412,19 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const mergedCls = classNames(wrapperCls, className, rootClassName, hashId, ctxUpload?.className, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
-    [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
-  });
+  const mergedCls = classNames(
+    wrapperCls,
+    className,
+    rootClassName,
+    hashId,
+    cssVarCls,
+    ctxUpload?.className,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-picture-card-wrapper`]: listType === 'picture-card',
+      [`${prefixCls}-picture-circle-wrapper`]: listType === 'picture-circle',
+    },
+  );
 
   const mergedStyle: React.CSSProperties = { ...ctxUpload?.style, ...style };
 

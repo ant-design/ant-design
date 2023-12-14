@@ -93,7 +93,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   const mergedSize = useSize(customizeSize);
   const rows = useRow(mergedColumn, mergedItems);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ======================== Render ========================
   const contextValue = React.useMemo(
@@ -115,6 +115,7 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           className,
           rootClassName,
           hashId,
+          cssVarCls,
         )}
         style={{ ...descriptions?.style, ...style }}
         {...restProps}

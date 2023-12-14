@@ -63,7 +63,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -78,6 +78,7 @@ const Space = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {
     },
     className,
     rootClassName,
+    cssVarCls,
   );
 
   const itemClassName = classNames(

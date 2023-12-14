@@ -3,7 +3,6 @@ import type { ComponentType, FC, ReactElement } from 'react';
 import React, { useContext } from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/cssinjs';
-import classNames from 'classnames';
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
@@ -258,7 +257,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
       },
     );
 
-    return [wrapSSR, classNames(hashId, cssVar?.key)];
+    return [wrapSSR, hashId];
   };
 }
 
@@ -364,22 +363,25 @@ const genCSSVarRegister = <C extends OverrideComponent>(
   const useCSSVar = (rootCls: string) => {
     const [, , , , cssVar] = useToken();
 
-    return (node: ReactElement): ReactElement =>
-      injectStyle && cssVar ? (
-        <>
-          <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
-          {node}
-        </>
-      ) : (
-        node
-      );
+    return [
+      (node: ReactElement): ReactElement =>
+        injectStyle && cssVar ? (
+          <>
+            <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
+            {node}
+          </>
+        ) : (
+          node
+        ),
+      cssVar?.key,
+    ] as const;
   };
 
   return useCSSVar;
 };
 
 export const genStyleHooks = <C extends OverrideComponent>(
-  component: C,
+  component: C | [C, string],
   styleFn: GenStyleFn<C>,
   getDefaultToken?: GetDefaultToken<C>,
   options?: {
@@ -414,12 +416,16 @@ export const genStyleHooks = <C extends OverrideComponent>(
 ) => {
   const useStyle = genComponentStyleHook(component, styleFn, getDefaultToken, options);
 
-  const useCSSVar = genCSSVarRegister(component, getDefaultToken, options);
+  const useCSSVar = genCSSVarRegister(
+    Array.isArray(component) ? component[0] : component,
+    getDefaultToken,
+    options,
+  );
 
   return (prefixCls: string, rootCls: string = prefixCls) => {
     const [, hashId] = useStyle(prefixCls);
-    const wrapCSSVar = useCSSVar(rootCls);
+    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
 
-    return [wrapCSSVar, hashId] as const;
+    return [wrapCSSVar, hashId, cssVarCls] as const;
   };
 };
