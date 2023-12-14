@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - master
+      - feature
 
 permissions:
   contents: read

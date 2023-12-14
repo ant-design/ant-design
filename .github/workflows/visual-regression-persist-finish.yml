@@ -83,7 +83,7 @@ jobs:
           path: ./
 
       - name: Persist Image Snapshot to OSS
-        if: github.ref_name == 'master'
+        if: github.ref_name == 'master' || github.ref_name == 'feature'
         id: persist
         continue-on-error: true
         env:
