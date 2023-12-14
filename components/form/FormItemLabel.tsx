@@ -148,11 +148,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   return (
     <Col {...mergedLabelCol} className={labelColClassName}>
-      <label
-        htmlFor={htmlFor}
-        className={labelClassName}
-        title={typeof label === 'string' ? label : ''}
-      >
+      <label htmlFor={htmlFor} className={labelClassName}>
         {labelChildren}
       </label>
     </Col>
