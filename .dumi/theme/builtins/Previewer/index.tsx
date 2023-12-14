@@ -10,8 +10,9 @@ const Previewer = React.lazy(() => import('./Previewer'));
 const useStyle = createStyles(({ css }) => ({
   skeletonWrapper: css`
     width: 100% !important;
-    height: 500px;
+    height: 250px;
     margin-bottom: 16px;
+    border-radius: 8px;
   `,
 }));
 
