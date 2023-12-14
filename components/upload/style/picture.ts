@@ -184,25 +184,25 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
           opacity: 0,
           transition: `all ${token.motionDurationSlow}`,
 
-          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
+          [`
+            ${iconCls}-eye,
+            ${iconCls}-download,
+            ${iconCls}-delete
+          `]: {
             zIndex: 10,
             width: fontSizeLG,
             margin: `0 ${unit(token.marginXXS)}`,
             fontSize: fontSizeLG,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
+            color: colorTextLightSolid,
+
+            '&:hover': {
+              color: colorTextLightSolid,
+            },
 
             svg: {
               verticalAlign: 'baseline',
-            },
-          },
-        },
-
-        [`${itemCls}-actions, ${itemCls}-actions:hover`]: {
-          [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
-            color: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
-            '&:hover': {
-              color: colorTextLightSolid,
             },
           },
         },
