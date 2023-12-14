@@ -407,6 +407,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
       [`input${componentCls}-input`]: {
         padding: `${unit(paddingBlock)} 0`,
+        color: 'inherit',
       },
 
       '&::before': {
