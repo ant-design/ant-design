@@ -140,7 +140,7 @@ const InternalSelect = <
   });
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -205,6 +205,7 @@ const InternalSelect = <
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    cssVarCls,
     rootCls,
     hashId,
   );
@@ -228,6 +229,7 @@ const InternalSelect = <
     select?.className,
     className,
     rootClassName,
+    cssVarCls,
     rootCls,
     hashId,
   );

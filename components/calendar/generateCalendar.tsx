@@ -119,7 +119,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
-    const [wrapCSSVar, hashId] = useStyle(prefixCls, calendarPrefixCls);
+    const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, calendarPrefixCls);
 
     const today = generateConfig.getNow();
 
@@ -294,6 +294,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
           className,
           rootClassName,
           hashId,
+          cssVarCls,
         )}
         style={{ ...calendar?.style, ...style }}
       >

@@ -140,14 +140,14 @@ function generateReport(
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
 
-  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check [Full Report](${htmlReportLink}) for details`;
+  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   // github action pr comment has limit of 65536 4-byte unicode characters
   const limit = 65536 - addonFullReportDesc.length;
 
   let reportMdStr = `
 ${commonHeader}
-> [View Full Report](${htmlReportLink})\n
+> <a href="${htmlReportLink}" target="_blank">View Full Report</a> \n
 ------------------------
 | image name | expected | actual | diff |
 | --- | --- | --- | --- |
