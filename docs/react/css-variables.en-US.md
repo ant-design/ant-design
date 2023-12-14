@@ -25,9 +25,7 @@ To enable CSS variable mode, use the `cssVar` configuration in the `theme` prope
 
 <!-- prettier-ignore -->
 :::warning
-CSS variable mode requires a unique key for each theme to ensure style isolation. 
-In React 18, we use `useId` to generate unique keys by default, so you don't have to worry about this issue in React 18.
-But in React 17 or 16, you need to manually set a unique key for each theme, otherwise the themes will be mixed up.
+CSS variable mode requires a unique key for each theme to ensure style isolation. In React 18, we use `useId` to generate unique keys by default, so you don't have to worry about this issue in React 18. But in React 17 or 16, you need to manually set a unique key for each theme, otherwise the themes will be mixed up.
 :::
 
 ```tsx

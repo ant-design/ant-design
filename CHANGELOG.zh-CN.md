@@ -16,6 +16,20 @@ tag: vVERSION
 
 ---
 
+## 5.12.2
+
+`2023-12-11`
+
+- 🐞 MISC: 修复 React 17 以下使用 webpack 构建时报错 `useId` 找不到的问题。[#46261](https://github.com/ant-design/ant-design/pull/46261)
+- Pagination
+  - 🐞 修复 Pagination 在低版本浏览器上报错的问题。[react-component/pagination#545](https://github.com/react-component/pagination/pull/545)
+  - 🐞 修复 Pagination `simple` 模式下 `current` 受控选中分页不生效的问题。[react-component/pagination#546](https://github.com/react-component/pagination/pull/546)
+- 🐞 修复 Table 筛选菜单在 CSS 变量模式下丢失背景色的问题。[#46314](https://github.com/ant-design/ant-design/pull/46314)
+- 🐞 优化 Spin 交互，全屏状态时禁止用户触发鼠标事件。[#46303](https://github.com/ant-design/ant-design/pull/46303) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Form `hideRequiredMark` 属性的优先级低于 ConfigProvider 的 form 配置的问题。[#46299](https://github.com/ant-design/ant-design/pull/46299) [@linhf123](https://github.com/linhf123)
+- TypeScript
+  - 🤖 修复 Descriptions TS 定义不支持 `id` 属性的问题。[#46367](https://github.com/ant-design/ant-design/pull/46367) [@RSS1102](https://github.com/RSS1102)
+
 ## 5.12.1
 
 `2023-12-04`

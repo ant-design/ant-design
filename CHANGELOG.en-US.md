@@ -16,6 +16,20 @@ tag: vVERSION
 
 ---
 
+## 5.12.2
+
+`2023-12-11`
+
+- 🐞 MISC: Fix `useId` error when webpack build with React 17. [#46261](https://github.com/ant-design/ant-design/pull/46261)
+- Pagination
+  - 🐞 Fix Pagination throws error in legacy browsers. [react-component/pagination#545](https://github.com/react-component/pagination/pull/545)
+  - 🐞 Fix Pagination `current` not working in `simple` mode. [react-component/pagination#546](https://github.com/react-component/pagination/pull/546)
+- 🐞 Fix Table filter dropdown lost background color in CSS variables mode. [#46314](https://github.com/ant-design/ant-design/pull/46314)
+- 🐞 Prevent interaction when Spin component enable `fullscreen` prop. [#46303](https://github.com/ant-design/ant-design/pull/46303) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Form `hideRequiredMark` prop's priority compared with ConfigProvider `form` prop. [#46299](https://github.com/ant-design/ant-design/pull/46299) [@linhf123](https://github.com/linhf123)
+- TypeScript
+  - 🤖 Fix Descriptions `id` type. [#46367](https://github.com/ant-design/ant-design/pull/46367) [@RSS1102](https://github.com/RSS1102)
+
 ## 5.12.1
 
 `2023-12-04`

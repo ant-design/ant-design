@@ -8,6 +8,7 @@ const Demo = () => (
         <span>Add title: </span>
         <Col>
           <ColorPicker
+            defaultValue="#1677ff"
             panelRender={(panel) => (
               <div className="custom-panel">
                 <div
@@ -32,6 +33,7 @@ const Demo = () => (
         <span>Horizontal layout: </span>
         <Col>
           <ColorPicker
+            defaultValue="#1677ff"
             styles={{
               popupOverlayInner: {
                 width: 468 + 24,

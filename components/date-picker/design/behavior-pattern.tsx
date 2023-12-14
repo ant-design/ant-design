@@ -1,7 +1,8 @@
 import React from 'react';
+
 import BehaviorMap from '../../../.dumi/theme/common/BehaviorMap';
 
-const BehaviorPattern = () => (
+const BehaviorPattern: React.FC = () => (
   <BehaviorMap
     data={{
       id: '200000004',
