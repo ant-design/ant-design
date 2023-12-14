@@ -9,6 +9,7 @@ import { supportRef } from 'rc-util/lib/ref';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormInstance } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
@@ -21,7 +22,6 @@ import useStyle from '../style';
 import { getFieldId, toArray } from '../util';
 import ItemHolder from './ItemHolder';
 import StatusProvider from './StatusProvider';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -44,16 +44,38 @@ export type FeedbackIcons = (itemStatus: {
 }) => { [key in ValidateStatus]?: React.ReactNode };
 
 interface MemoInputProps {
-  value: any;
+  control: object;
   update: any;
   children: React.ReactNode;
   childProps: any[];
 }
 
+// https://github.com/ant-design/ant-design/issues/46417
+// `getValueProps` may modify the value props name,
+// we should check if the control is similar.
+function isSimilarControl(a: object, b: object) {
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+
+  return (
+    keysA.length === keysB.length &&
+    keysA.every((key) => {
+      const propValueA = (a as any)[key];
+      const propValueB = (b as any)[key];
+
+      return (
+        propValueA === propValueB ||
+        typeof propValueA === 'function' ||
+        typeof propValueB === 'function'
+      );
+    })
+  );
+}
+
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) =>
-    prev.value === next.value &&
+    isSimilarControl(prev.control, next.control) &&
     prev.update === next.update &&
     prev.childProps.length === next.childProps.length &&
     prev.childProps.every((value, index) => value === next.childProps[index]),
@@ -393,7 +415,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           childNode = (
             <MemoInput
-              value={mergedControl[props.valuePropName || 'value']}
+              control={mergedControl}
               update={mergedChildren}
               childProps={watchingChildProps}
             >
