@@ -381,7 +381,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
 };
 
 export const genStyleHooks = <C extends OverrideComponent>(
-  component: C,
+  component: C | [C, string],
   styleFn: GenStyleFn<C>,
   getDefaultToken?: GetDefaultToken<C>,
   options?: {
@@ -416,7 +416,11 @@ export const genStyleHooks = <C extends OverrideComponent>(
 ) => {
   const useStyle = genComponentStyleHook(component, styleFn, getDefaultToken, options);
 
-  const useCSSVar = genCSSVarRegister(component, getDefaultToken, options);
+  const useCSSVar = genCSSVarRegister(
+    Array.isArray(component) ? component[0] : component,
+    getDefaultToken,
+    options,
+  );
 
   return (prefixCls: string, rootCls: string = prefixCls) => {
     const [, hashId] = useStyle(prefixCls);
