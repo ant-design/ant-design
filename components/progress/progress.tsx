@@ -97,7 +97,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     progress: progressStyle,
   } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const progressInfo = React.useMemo<React.ReactNode>(() => {
     if (!showInfo) {
@@ -188,6 +188,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   return wrapCSSVar(

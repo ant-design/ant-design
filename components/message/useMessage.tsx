@@ -19,6 +19,7 @@ import type {
 import { PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -36,9 +37,12 @@ interface HolderRef extends NotificationAPI {
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   return wrapCSSVar(
-    <NotificationProvider classNames={{ list: hashId }}>{children}</NotificationProvider>,
+    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
+      {children}
+    </NotificationProvider>,
   );
 };
 

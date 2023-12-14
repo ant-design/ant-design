@@ -21,7 +21,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     prefixCls,
@@ -32,6 +32,7 @@ const SkeletonNode: React.FC<SkeletonNodeProps> = (props) => {
     hashId,
     className,
     rootClassName,
+    cssVarCls,
   );
 
   const content = children ?? <DotChartOutlined />;

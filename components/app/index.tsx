@@ -36,8 +36,8 @@ const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
-  const customClassName = classNames(hashId, prefixCls, className, rootClassName);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls);
 
   const appConfig = useContext<AppConfig>(AppConfigContext);
 
