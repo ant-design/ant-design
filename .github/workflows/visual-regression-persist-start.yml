@@ -91,5 +91,5 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v3
         with:
-          name: visual-regression-master-ref
+          name: visual-regression-ref
           path: ./visual-regression-ref.txt
