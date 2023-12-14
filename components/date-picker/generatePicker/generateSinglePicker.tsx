@@ -80,8 +80,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
-        const cssVarCls = useCSSVarCls(prefixCls);
-        const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+        const rootCls = useCSSVarCls(prefixCls);
+        const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),
@@ -174,6 +174,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               consumerStyle?.className,
               className,
               cssVarCls,
+              rootCls,
               rootClassName,
             )}
             style={{ ...consumerStyle?.style, ...style }}

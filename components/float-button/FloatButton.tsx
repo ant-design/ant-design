@@ -39,12 +39,13 @@ const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((prop
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergeShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
+    cssVarCls,
     rootCls,
     prefixCls,
     className,

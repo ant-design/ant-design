@@ -112,15 +112,25 @@ function md2Html(md: string) {
   return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
 }
 
+function parseArgs() {
+  // parse args from -- --pr-id=123 --base_ref=feature
+  const argv = minimist(process.argv.slice(2));
+  const prId = argv['pr-id'];
+  assert(prId, 'Missing --pr-id');
+  const baseRef = argv['base-ref'];
+  assert(baseRef, 'Missing --base-ref');
+  return {
+    prId,
+    baseRef,
+  };
+}
+
 function generateReport(
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
+  prId: string,
 ): [string, string] {
-  // parse args from -- --pr-id=123
-  const argv = minimist(process.argv.slice(2));
-  const prId = argv['pr-id'];
-  assert(prId, 'Missing --pr-id');
   const publicPath = `${ossDomain}/pr-${prId}`;
 
   const commonHeader = `
@@ -140,14 +150,14 @@ function generateReport(
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
 
-  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check [Full Report](${htmlReportLink}) for details`;
+  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   // github action pr comment has limit of 65536 4-byte unicode characters
   const limit = 65536 - addonFullReportDesc.length;
 
   let reportMdStr = `
 ${commonHeader}
-> [View Full Report](${htmlReportLink})\n
+> <a href="${htmlReportLink}" target="_blank">View Full Report</a> \n
 ------------------------
 | image name | expected | actual | diff |
 | --- | --- | --- | --- |
@@ -197,9 +207,15 @@ ${commonHeader}
 }
 
 async function boot() {
-  const targetBranch = 'master';
+  const { prId, baseRef: targetBranch = 'master' } = parseArgs();
 
-  console.log(chalk.green('Preparing image snapshots from latest `%s` branch\n', targetBranch));
+  console.log(
+    chalk.green(
+      'Preparing image snapshots from latest `%s` branch for pr %s\n',
+      targetBranch,
+      prId,
+    ),
+  );
   const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
   await fse.ensureDir(baseImgSourceDir);
 
@@ -306,7 +322,7 @@ async function boot() {
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef);
+  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef, prId);
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
 

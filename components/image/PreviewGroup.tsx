@@ -40,7 +40,7 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   const rootPrefixCls = getPrefixCls();
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [zIndex] = useZIndex(
     'ImagePreview',
@@ -52,7 +52,12 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const mergedRootClassName = classNames(hashId, rootCls, _preview.rootClassName ?? '');
+    const mergedRootClassName = classNames(
+      hashId,
+      cssVarCls,
+      rootCls,
+      _preview.rootClassName ?? '',
+    );
 
     return {
       ..._preview,

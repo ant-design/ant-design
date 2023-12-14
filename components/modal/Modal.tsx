@@ -95,7 +95,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
@@ -131,7 +131,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             zIndex={zIndex}
             getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
             prefixCls={prefixCls}
-            rootClassName={classNames(hashId, rootClassName, rootCls)}
+            rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
             footer={dialogFooter}
             visible={open ?? visible}
             mousePosition={restProps.mousePosition ?? mousePosition}

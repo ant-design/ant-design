@@ -57,7 +57,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
@@ -120,6 +120,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...pagination?.style, ...style };

@@ -31,7 +31,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('flex', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedVertical = vertical ?? ctxFlex?.vertical;
 
@@ -41,6 +41,7 @@ const Flex = React.forwardRef<HTMLElement, FlexProps>((props, ref) => {
     ctxFlex?.className,
     prefixCls,
     hashId,
+    cssVarCls,
     createFlexClassNames(prefixCls, props),
     {
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
