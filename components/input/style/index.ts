@@ -501,6 +501,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         borderRadius: 0,
         outline: 'none',
         background: 'transparent',
+        color: 'inherit',
 
         '&::-ms-reveal': {
           display: 'none',

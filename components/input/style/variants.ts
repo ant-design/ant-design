@@ -160,6 +160,12 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
       addonBorderColor: token.colorWarning,
       addonColor: token.colorWarningText,
     }),
+
+    [`&${token.componentCls}-group-wrapper-disabled`]: {
+      [`${token.componentCls}-group-addon`]: {
+        ...genDisabledStyle(token),
+      },
+    },
   },
 });
 
