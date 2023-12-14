@@ -170,13 +170,21 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============ Borderless ============ */
-export const genBorderlessStyle = (extraStyles?: CSSObject): CSSObject => ({
+export const genBorderlessStyle = (
+  token: InputToken,
+  parentCls: string,
+  extraStyles?: CSSObject,
+): CSSObject => ({
   '&-borderless': {
     background: 'transparent',
     border: 'none',
 
     '&:focus, &:focus-within': {
       outline: 'none',
+    },
+
+    [`&${parentCls}-disabled, &[disabled]`]: {
+      color: token.colorTextDisabled,
     },
 
     ...extraStyles,

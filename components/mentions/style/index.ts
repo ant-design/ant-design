@@ -77,7 +77,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       // Variants
       ...genOutlinedStyle(token, componentCls),
       ...genFilledStyle(token, componentCls),
-      ...genBorderlessStyle(),
+      ...genBorderlessStyle(token, componentCls),
 
       '&-disabled': {
         '> textarea': {

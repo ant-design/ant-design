@@ -106,7 +106,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             },
           },
         }),
-        ...genBorderlessStyle(),
+        ...genBorderlessStyle(token, componentCls),
 
         '&-rtl': {
           direction: 'rtl',
@@ -407,7 +407,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
       [`input${componentCls}-input`]: {
         padding: `${unit(paddingBlock)} 0`,
-        color: 'inherit',
       },
 
       '&::before': {
@@ -422,6 +421,8 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       [componentCls]: {
+        color: 'inherit',
+
         '&-prefix, &-suffix': {
           display: 'flex',
           flex: 'none',
