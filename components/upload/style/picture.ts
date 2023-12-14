@@ -1,5 +1,4 @@
 import { blue } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
 
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
