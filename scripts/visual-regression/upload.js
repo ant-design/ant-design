@@ -28,11 +28,14 @@ function parseArgs(cliArgs) {
   let refValue = '';
 
   for (let i = 1; i < cliArgs.length; i++) {
-    if (cliArgs[i].startsWith('--ref=')) {
+    if (cliArgs[i].startsWith('--pr-id=')) {
       refValue = cliArgs[i].substring(6);
       break;
     }
   }
+
+  assert(filepath, 'filepath is required');
+  assert(prId, 'prId is required');
 
   return [filepath, refValue];
 }
@@ -84,9 +87,8 @@ async function uploadFile(client, filePath, refValue) {
 }
 
 async function boot() {
-  const [filepath, refValue] = parseArgs(args);
-  assert(filepath, 'filepath is required');
-  assert(refValue, 'refValue is required');
+  const [filepath, prId] = parseArgs(args);
+  const refValue = `pr-${prId}`;
 
   const fileOrFolderName = filepath;
   // check if exists
