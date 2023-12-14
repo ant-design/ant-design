@@ -28,14 +28,14 @@ function parseArgs(cliArgs) {
   let refValue = '';
 
   for (let i = 1; i < cliArgs.length; i++) {
-    if (cliArgs[i].startsWith('--pr-id=')) {
+    if (cliArgs[i].startsWith('--ref=')) {
       refValue = cliArgs[i].substring(6);
       break;
     }
   }
 
   assert(filepath, 'filepath is required');
-  assert(prId, 'prId is required');
+  assert(refValue, 'refValue is required');
 
   return [filepath, refValue];
 }
