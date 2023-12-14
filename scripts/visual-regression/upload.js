@@ -87,8 +87,7 @@ async function uploadFile(client, filePath, refValue) {
 }
 
 async function boot() {
-  const [filepath, prId] = parseArgs(args);
-  const refValue = `pr-${prId}`;
+  const [filepath, refValue] = parseArgs(args);
 
   const fileOrFolderName = filepath;
   // check if exists
