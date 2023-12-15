@@ -107,7 +107,6 @@ export default function imageTest(
         `[CSS Var] component image screenshot should correct ${key}`,
         `-${key}.css-var`,
         <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <div>CSS Var</div>
           <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
         </div>,
       );
@@ -128,7 +127,6 @@ export default function imageTest(
       `[CSS Var] component image screenshot should correct`,
       '.css-var',
       <>
-        <div>CSS Var</div>
         {Object.entries(themes).map(([key, algorithm]) => (
           <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
             <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>

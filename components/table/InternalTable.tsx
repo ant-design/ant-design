@@ -204,7 +204,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const [, token] = useToken();
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
@@ -544,6 +544,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   const wrapperClassNames = classNames(
+    cssVarCls,
     rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
@@ -606,6 +607,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
             },
+            cssVarCls,
             rootCls,
             hashId,
           )}

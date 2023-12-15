@@ -79,7 +79,7 @@ const Steps: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const isInline = props.type === 'inline';
   const iconPrefix = getPrefixCls('', props.iconPrefix);
@@ -97,6 +97,7 @@ const Steps: CompoundedComponent = (props) => {
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
   const icons = {
     finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,

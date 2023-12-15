@@ -59,6 +59,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+        with:
+          # checkout the head sha/branch that triggered this workflow
+          ref: ${{ github.event.workflow_run.head_sha || github.event.workflow_run.head_branch}}
 
       # We need get persist key first
       - name: Download Visual Regression Ref
@@ -66,7 +69,7 @@ jobs:
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
-          name: visual-regression-master-ref
+          name: visual-regression-ref
 
       # Save visual-regression ref to output
       - name: Extra Visual Regression Ref
@@ -83,7 +86,7 @@ jobs:
           path: ./
 
       - name: Persist Image Snapshot to OSS
-        if: github.ref_name == 'master'
+        if: github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature')
         id: persist
         continue-on-error: true
         env:
@@ -95,7 +98,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=${{ github.sha }}
-          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=${{ github.ref_name }}
+          node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=${{ github.event.workflow_run.head_sha }}
+          node scripts/visual-regression/upload.js ./visual-regression-ref.txt --ref=${{ github.event.workflow_run.head_branch }}
 
           echo "✅ Uploaded"

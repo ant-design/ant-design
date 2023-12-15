@@ -19,6 +19,7 @@ jobs:
       jobs: ${{ steps.visual_diff_build_job_status.outputs.result }}
       build-success: ${{ steps.visual_diff_build_job_status.outputs.build-success }}
       build-failure: ${{ steps.visual_diff_build_job_status.outputs.build-failure }}
+      job-status: ${{ steps.visual_diff_build_job_status.outputs.job-status }}
     steps:
       - name: summary jobs status
         uses: actions/github-script@v6
@@ -48,6 +49,7 @@ jobs:
             // set output
             core.setOutput('build-success', jobs['visual-diff report'] === 'success');
             core.setOutput('build-failure', jobs['visual-diff report'] === 'failure');
+            core.setOutput('job-status', jobs['visual-diff report']);
             return jobs;
 
   download-visual-regression-report:
@@ -126,6 +128,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             ## Visual-Regression Diff Failed
+            Visual-diff report job conclusion: ${{ fromJSON(needs.upstream-workflow-summary.outputs.job-status) }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}

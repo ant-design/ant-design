@@ -61,8 +61,8 @@ const Group: React.FC<GroupProps> = (props) => {
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const cls = classNames(
     groupPrefixCls,
@@ -70,6 +70,7 @@ const Group: React.FC<GroupProps> = (props) => {
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     cssVarCls,
+    rootCls,
     className,
     rootClassName,
     hashId,

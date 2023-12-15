@@ -1,74 +1,79 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="https://unpkg.com/antd@latest/dist/reset.css" rel="stylesheet" />
-    <style>
-      body {
-        padding-top: 16px;
-        padding-bottom: 16px;
-      }
-      /* Table Styles */
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ant Design Visual Diff Report</title>
+  <link href="https://unpkg.com/antd@latest/dist/reset.css" rel="stylesheet" />
+  <style>
+    body {
+      padding-top: 16px;
+      padding-bottom: 16px;
+    }
+
+    /* Table Styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Hover Effect */
+    tr:hover {
+      background-color: #e5e5e5;
+    }
+
+    /* Responsive Table */
+    @media screen and (max-width: 600px) and (min-width: 1px) {
       table {
-        width: 100%;
-        border-collapse: collapse;
+        border: 0;
       }
 
       th,
       td {
-        padding: 8px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
+        display: block;
+        padding: 6px;
+        border: none;
       }
 
       th {
-        background-color: #f2f2f2;
+        text-align: left;
+        background-color: transparent;
       }
 
       tr:nth-child(even) {
-        background-color: #f9f9f9;
+        background-color: transparent;
       }
 
-      /* Hover Effect */
+      tr:nth-child(odd) {
+        background-color: transparent;
+      }
+
       tr:hover {
-        background-color: #e5e5e5;
+        background-color: transparent;
       }
+    }
+  </style>
+</head>
 
-      /* Responsive Table */
-      @media screen and (max-width: 600px) and (min-width: 1px) {
-        table {
-          border: 0;
-        }
+<body>
+  {{reportContent}}
+</body>
 
-        th,
-        td {
-          display: block;
-          padding: 6px;
-          border: none;
-        }
-
-        th {
-          text-align: left;
-          background-color: transparent;
-        }
-
-        tr:nth-child(even) {
-          background-color: transparent;
-        }
-
-        tr:nth-child(odd) {
-          background-color: transparent;
-        }
-
-        tr:hover {
-          background-color: transparent;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    {{reportContent}}
-  </body>
 </html>

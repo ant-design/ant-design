@@ -115,7 +115,7 @@ const Editable: React.FC<EditableProps> = (props) => {
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const textAreaClassName = classNames(
     prefixCls,
@@ -126,6 +126,7 @@ const Editable: React.FC<EditableProps> = (props) => {
     className,
     textClassName,
     hashId,
+    cssVarCls,
   );
 
   return wrapCSSVar(
