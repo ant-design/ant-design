@@ -213,29 +213,27 @@ async function boot() {
 
   const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
 
-  if (isLocalEnv) {
-    if (!fse.existsSync(baseImgSourceDir)) {
-      console.log(
-        chalk.yellow(
-          `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
-            baseImgSourceDir,
-          )}\` from latest \`${targetBranch}\` branch`,
-        ),
-      );
-      process.exit(1);
-    }
-  } else {
+  console.log(
+    chalk.green(
+      `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
+    ),
+  );
+  await fse.ensureDir(baseImgSourceDir);
+
+  const targetRef = await getBranchLatestRef(targetBranch);
+  assert(targetRef, `Missing ref from ${targetBranch}`);
+
+  if (!isLocalEnv) {
+    await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  } else if (!fse.existsSync(baseImgSourceDir)) {
     console.log(
-      chalk.green(
-        `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
+      chalk.yellow(
+        `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
+          baseImgSourceDir,
+        )}\` from latest \`${targetBranch}\` branch`,
       ),
     );
-    await fse.ensureDir(baseImgSourceDir);
-
-    const targetRef = await getBranchLatestRef(targetBranch);
-    assert(targetRef, `Missing ref from ${targetBranch}`);
-
-    await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+    process.exit(1);
   }
 
   const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
