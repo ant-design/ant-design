@@ -38,9 +38,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const imageLocale = contextLocale.Image || defaultLocale.Image;
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classNames(rootClassName, hashId, rootCls);
+  const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classNames(className, hashId, image?.className);
 

@@ -56,6 +56,65 @@ describe('RangePicker', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('the left selection is before the right selection', () => {
+    let rangePickerValue: dayjs.Dayjs[] = [];
+    const Test: React.FC = () => {
+      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+      return (
+        <RangePicker
+          value={value}
+          mode={['month', 'month']}
+          onPanelChange={(v) => {
+            setValue(v);
+            rangePickerValue = v as dayjs.Dayjs[];
+          }}
+        />
+      );
+    };
+
+    const wrapper = render(<Test />);
+
+    openPicker(wrapper);
+    selectCell(wrapper, 'Feb');
+    openPicker(wrapper, 1);
+    selectCell(wrapper, 'May');
+    closePicker(wrapper, 1);
+
+    const [start, end] = rangePickerValue;
+
+    expect(start.isBefore(end, 'date')).toBeTruthy();
+  });
+
+  it('the left selection is after the right selection, no selection made', () => {
+    let rangePickerValue: dayjs.Dayjs[] = [];
+    const Test: React.FC = () => {
+      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+      return (
+        <RangePicker
+          value={value}
+          mode={['month', 'month']}
+          onPanelChange={(v) => {
+            setValue(v);
+            rangePickerValue = v as dayjs.Dayjs[];
+          }}
+        />
+      );
+    };
+
+    const wrapper = render(<Test />);
+
+    openPicker(wrapper);
+    selectCell(wrapper, 'May');
+    openPicker(wrapper, 1);
+    selectCell(wrapper, 'Feb');
+    closePicker(wrapper, 1);
+
+    const [start, end] = rangePickerValue;
+
+    expect(start).not.toBeNull();
+    expect(end).toBeNull();
+  });
+
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {

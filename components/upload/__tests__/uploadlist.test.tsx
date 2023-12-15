@@ -607,6 +607,46 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('disabled should not affect preview and download icon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const { container: wrapper, unmount } = render(
+      <Upload
+        listType="picture-card"
+        defaultFileList={list as UploadProps['defaultFileList']}
+        showUploadList={{
+          showPreviewIcon: true,
+          showDownloadIcon: true,
+          showRemoveIcon: true,
+        }}
+        disabled
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    // preview icon
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[0].hasAttribute('disabled'),
+    ).toBeFalsy();
+    // download icon
+
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[1].hasAttribute('disabled'),
+    ).toBeFalsy();
+    // delete icon
+    expect(
+      wrapper.querySelectorAll('.ant-upload-list-item-actions > *')[2].hasAttribute('disabled'),
+    ).toBeTruthy();
+    unmount();
+  });
+
   it('should support custom onClick in custom icon', async () => {
     const handleRemove = jest.fn();
     const handleChange = jest.fn();

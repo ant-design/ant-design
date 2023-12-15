@@ -55,8 +55,8 @@ const ErrorList: React.FC<ErrorListProps> = ({
 
   const baseClassName = `${prefixCls}-item-explain`;
 
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const collapseMotion: CSSMotionProps = useMemo(() => initCollapseMotion(prefixCls), [prefixCls]);
 
@@ -97,7 +97,14 @@ const ErrorList: React.FC<ErrorListProps> = ({
         return (
           <div
             {...helpProps}
-            className={classNames(baseClassName, holderClassName, cssVarCls, rootClassName, hashId)}
+            className={classNames(
+              baseClassName,
+              holderClassName,
+              cssVarCls,
+              rootCls,
+              rootClassName,
+              hashId,
+            )}
             style={holderStyle}
             role="alert"
           >

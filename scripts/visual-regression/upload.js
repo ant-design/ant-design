@@ -6,16 +6,18 @@
 const OSS = require('ali-oss');
 const path = require('path');
 const fs = require('fs');
-const { assert } = require('console');
+const assert = require('assert');
 
-// node scripts/visual-regression-upload.js ./visualRegressionReport.tar.gz --ref=pr-id
-// node scripts/visual-regression-upload.js ./imageSnapshots.tar.gz --ref=master-commitId
+// node scripts/visual-regression/upload.js ./visualRegressionReport.tar.gz --ref=pr-id
+// node scripts/visual-regression/upload.js ./imageSnapshots.tar.gz --ref=master-commitId
 
 const args = process.argv.slice(2);
 if (args.length < 2) {
-  console.error('Usage: node scripts/visual-regression-upload.js <tarFilePath> --ref=<refValue>');
+  console.error('Usage: node scripts/visual-regression/upload.js <tarFilePath> --ref=<refValue>');
   process.exit(1);
 }
+
+const ALI_OSS_BUCKET = 'antd-visual-diff';
 
 /**
  * Extract the tar file path and ref value from the cli arguments
@@ -31,6 +33,9 @@ function parseArgs(cliArgs) {
       break;
     }
   }
+
+  assert(filepath, 'filepath is required');
+  assert(refValue, 'refValue is required');
 
   return [filepath, refValue];
 }
@@ -83,8 +88,6 @@ async function uploadFile(client, filePath, refValue) {
 
 async function boot() {
   const [filepath, refValue] = parseArgs(args);
-  assert(filepath, 'filepath is required');
-  assert(refValue, 'refValue is required');
 
   const fileOrFolderName = filepath;
   // check if exists
@@ -99,7 +102,7 @@ async function boot() {
     endpoint: 'oss-cn-shanghai.aliyuncs.com',
     accessKeyId: process.env.ALI_OSS_AK_ID,
     accessKeySecret: process.env.ALI_OSS_AK_SECRET,
-    bucket: process.env.ALI_OSS_BUCKET,
+    bucket: ALI_OSS_BUCKET,
   });
 
   // if is a file then upload it directly

@@ -96,9 +96,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Wrapper > Checkbox > inner
         [`${checkboxCls}-inner`]: {
           boxSizing: 'border-box',
-          position: 'relative',
-          top: 0,
-          insetInlineStart: 0,
           display: 'block',
           width: token.checkboxSize,
           height: token.checkboxSize,
@@ -113,7 +110,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             boxSizing: 'border-box',
             position: 'absolute',
             top: '50%',
-            insetInlineStart: '21.5%',
+            insetInlineStart: '25%',
             display: 'table',
             width: token.calc(token.checkboxSize).div(14).mul(5).equal(),
             height: token.calc(token.checkboxSize).div(14).mul(8).equal(),
