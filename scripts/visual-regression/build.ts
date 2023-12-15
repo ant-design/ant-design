@@ -21,6 +21,8 @@ import { assert } from 'console';
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
+const isLocalEnv = process.env.LOCAL;
+
 const compareScreenshots = async (
   baseImgPath: string,
   currentImgPath: string,
@@ -131,7 +133,7 @@ function generateReport(
   targetRef: string,
   prId: string,
 ): [string, string] {
-  const publicPath = `${ossDomain}/pr-${prId}`;
+  const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
 
   const commonHeader = `
 ## Visual Regression Report for PR #${prId}
@@ -209,20 +211,30 @@ ${commonHeader}
 async function boot() {
   const { prId, baseRef: targetBranch = 'master' } = parseArgs();
 
+  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
+
   console.log(
     chalk.green(
-      'Preparing image snapshots from latest `%s` branch for pr %s\n',
-      targetBranch,
-      prId,
+      `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
     ),
   );
-  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
   await fse.ensureDir(baseImgSourceDir);
 
   const targetRef = await getBranchLatestRef(targetBranch);
   assert(targetRef, `Missing ref from ${targetBranch}`);
 
-  await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  if (!isLocalEnv) {
+    await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  } else if (!fse.existsSync(baseImgSourceDir)) {
+    console.log(
+      chalk.yellow(
+        `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
+          baseImgSourceDir,
+        )}\` from latest \`${targetBranch}\` branch`,
+      ),
+    );
+    process.exit(1);
+  }
 
   const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
 
