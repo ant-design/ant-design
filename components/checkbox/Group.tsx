@@ -112,7 +112,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
   const groupPrefixCls = `${prefixCls}-group`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const domProps = omit(restProps, ['value', 'disabled']);
 
@@ -153,6 +153,7 @@ const InternalGroup: React.ForwardRefRenderFunction<HTMLDivElement, CheckboxGrou
     },
     className,
     rootClassName,
+    cssVarCls,
     rootCls,
     hashId,
   );

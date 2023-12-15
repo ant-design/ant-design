@@ -19,7 +19,7 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
         transition: `border-color ${token.motionDurationSlow}`,
 
         [componentCls]: {
-          padding: `${unit(token.padding)} 0`,
+          padding: token.padding,
         },
 
         [`${componentCls}-btn`]: {

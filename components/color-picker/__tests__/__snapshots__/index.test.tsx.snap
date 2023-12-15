@@ -6,13 +6,8 @@ exports[`ColorPicker Should disabled work 1`] = `
     class="ant-color-picker-trigger ant-color-picker-trigger-disabled"
   >
     <div
-      class="ant-color-picker-color-block"
-    >
-      <div
-        class="ant-color-picker-color-block-inner"
-        style="background: rgb(22, 119, 255);"
-      />
-    </div>
+      class="ant-color-picker-clear"
+    />
   </div>
 </div>
 `;
@@ -23,13 +18,8 @@ exports[`ColorPicker Should panelRender work 1`] = `
     class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
   >
     <div
-      class="ant-color-picker-color-block"
-    >
-      <div
-        class="ant-color-picker-color-block-inner"
-        style="background: rgb(22, 119, 255);"
-      />
-    </div>
+      class="ant-color-picker-clear"
+    />
   </div>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
@@ -66,16 +56,16 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     style="position: relative;"
                   >
                     <div
-                      style="position: absolute; left: 41.372549019607845px; top: -50px; z-index: 1;"
+                      style="position: absolute; left: -50px; top: 50px; z-index: 1;"
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
+                        style="background-color: rgba(0, 0, 0, 0);"
                       />
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 0, 0);"
+                      style="background-color: rgb(255, 0, 0);"
                     />
                   </div>
                 </div>
@@ -93,11 +83,11 @@ exports[`ColorPicker Should panelRender work 1`] = `
                         style="position: relative;"
                       >
                         <div
-                          style="position: absolute; left: 9.728183118741065px; top: -16.666666666666668px; z-index: 1;"
+                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
                         >
                           <div
                             class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(0, 0, 0);"
+                            style="background-color: rgb(255, 0, 0);"
                           />
                         </div>
                         <div
@@ -114,11 +104,11 @@ exports[`ColorPicker Should panelRender work 1`] = `
                         style="position: relative;"
                       >
                         <div
-                          style="position: absolute; left: 50px; top: -16.666666666666668px; z-index: 1;"
+                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
                         >
                           <div
                             class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(22, 119, 255);"
+                            style="background-color: rgba(0, 0, 0, 0);"
                           />
                         </div>
                         <div
@@ -133,7 +123,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                   >
                     <div
                       class="ant-color-picker-color-block-inner"
-                      style="background: rgb(22, 119, 255);"
+                      style="background: rgba(0, 0, 0, 0);"
                     />
                   </div>
                 </div>
@@ -215,7 +205,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677ff"
+                      value="000000"
                     />
                   </span>
                 </div>
@@ -226,9 +216,9 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
                       unselectable="on"
                     >
@@ -253,9 +243,9 @@ exports[`ColorPicker Should panelRender work 1`] = `
                       </span>
                     </span>
                     <span
-                      aria-disabled="false"
+                      aria-disabled="true"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -286,12 +276,12 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     <input
                       aria-valuemax="100"
                       aria-valuemin="0"
-                      aria-valuenow="100"
+                      aria-valuenow="0"
                       autocomplete="off"
                       class="ant-input-number-input"
                       role="spinbutton"
                       step="1"
-                      value="100%"
+                      value="0%"
                     />
                   </div>
                 </div>
@@ -311,13 +301,8 @@ exports[`ColorPicker Should panelRender work 2`] = `
     class="ant-color-picker-trigger ant-popover-open ant-color-picker-trigger-active"
   >
     <div
-      class="ant-color-picker-color-block"
-    >
-      <div
-        class="ant-color-picker-color-block-inner"
-        style="background: rgb(22, 119, 255);"
-      />
-    </div>
+      class="ant-color-picker-clear"
+    />
   </div>
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
@@ -354,16 +339,16 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     style="position: relative;"
                   >
                     <div
-                      style="position: absolute; left: 41.372549019607845px; top: -50px; z-index: 1;"
+                      style="position: absolute; left: -50px; top: 50px; z-index: 1;"
                     >
                       <div
                         class="ant-color-picker-handler"
-                        style="background-color: rgb(22, 119, 255);"
+                        style="background-color: rgba(0, 0, 0, 0);"
                       />
                     </div>
                     <div
                       class="ant-color-picker-saturation"
-                      style="background-color: rgb(0, 0, 0);"
+                      style="background-color: rgb(255, 0, 0);"
                     />
                   </div>
                 </div>
@@ -381,11 +366,11 @@ exports[`ColorPicker Should panelRender work 2`] = `
                         style="position: relative;"
                       >
                         <div
-                          style="position: absolute; left: 9.728183118741065px; top: -16.666666666666668px; z-index: 1;"
+                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
                         >
                           <div
                             class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(0, 0, 0);"
+                            style="background-color: rgb(255, 0, 0);"
                           />
                         </div>
                         <div
@@ -402,11 +387,11 @@ exports[`ColorPicker Should panelRender work 2`] = `
                         style="position: relative;"
                       >
                         <div
-                          style="position: absolute; left: 50px; top: -16.666666666666668px; z-index: 1;"
+                          style="position: absolute; left: -50px; top: -16.666666666666668px; z-index: 1;"
                         >
                           <div
                             class="ant-color-picker-handler ant-color-picker-handler-sm"
-                            style="background-color: rgb(22, 119, 255);"
+                            style="background-color: rgba(0, 0, 0, 0);"
                           />
                         </div>
                         <div
@@ -421,7 +406,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   >
                     <div
                       class="ant-color-picker-color-block-inner"
-                      style="background: rgb(22, 119, 255);"
+                      style="background: rgba(0, 0, 0, 0);"
                     />
                   </div>
                 </div>
@@ -503,7 +488,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     <input
                       class="ant-input ant-input-sm"
                       type="text"
-                      value="1677ff"
+                      value="000000"
                     />
                   </span>
                 </div>
@@ -514,9 +499,9 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
-                      aria-disabled="true"
+                      aria-disabled="false"
                       aria-label="Increase Value"
-                      class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
+                      class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
                       unselectable="on"
                     >
@@ -541,9 +526,9 @@ exports[`ColorPicker Should panelRender work 2`] = `
                       </span>
                     </span>
                     <span
-                      aria-disabled="false"
+                      aria-disabled="true"
                       aria-label="Decrease Value"
-                      class="ant-input-number-handler ant-input-number-handler-down"
+                      class="ant-input-number-handler ant-input-number-handler-down ant-input-number-handler-down-disabled"
                       role="button"
                       unselectable="on"
                     >
@@ -574,12 +559,12 @@ exports[`ColorPicker Should panelRender work 2`] = `
                     <input
                       aria-valuemax="100"
                       aria-valuemin="0"
-                      aria-valuenow="100"
+                      aria-valuenow="0"
                       autocomplete="off"
                       class="ant-input-number-input"
                       role="spinbutton"
                       step="1"
-                      value="100%"
+                      value="0%"
                     />
                   </div>
                 </div>
@@ -606,12 +591,7 @@ exports[`ColorPicker rtl render component should be rendered correctly in RTL di
   class="ant-color-picker-trigger ant-color-picker-rtl"
 >
   <div
-    class="ant-color-picker-color-block"
-  >
-    <div
-      class="ant-color-picker-color-block-inner"
-      style="background: rgb(22, 119, 255);"
-    />
-  </div>
+    class="ant-color-picker-clear"
+  />
 </div>
 `;

@@ -2787,9 +2787,7 @@ exports[`renders components/tabs/demo/icon.tsx correctly 1`] = `
               </span>
             </span>
             <span>
-              Tab
-              <!-- -->
-              1
+              Tab 1
             </span>
           </div>
         </div>
@@ -2827,9 +2825,7 @@ exports[`renders components/tabs/demo/icon.tsx correctly 1`] = `
               </span>
             </span>
             <span>
-              Tab
-              <!-- -->
-              2
+              Tab 2
             </span>
           </div>
         </div>

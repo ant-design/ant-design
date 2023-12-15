@@ -73,4 +73,10 @@ describe('Spin', () => {
 
     errSpy.mockRestore();
   });
+
+  it('right style when fullscreen', () => {
+    const { container } = render(<Spin fullscreen spinning />);
+    const element = container.querySelector<HTMLDivElement>('.ant-spin.ant-spin-fullscreen');
+    expect(element).not.toHaveStyle({ pointerEvents: 'none' });
+  });
 });

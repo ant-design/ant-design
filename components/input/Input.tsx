@@ -111,8 +111,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const inputRef = useRef<InputRef>(null);
 
   // Style
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ===================== Compact Item =====================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -201,6 +201,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         className,
         rootClassName,
         cssVarCls,
+        rootCls,
         hashId,
         compactItemClassnames,
         input?.className,

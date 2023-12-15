@@ -243,9 +243,9 @@ const Affix = React.forwardRef<AffixRef, AffixProps>((props, ref) => {
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
 
-  const [wrapCSSVar, hashId] = useStyle(affixPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(affixPrefixCls);
 
-  const rootCls = classNames(rootClassName, hashId, affixPrefixCls);
+  const rootCls = classNames(rootClassName, hashId, affixPrefixCls, cssVarCls);
 
   const mergedCls = classNames({ [rootCls]: affixStyle });
 

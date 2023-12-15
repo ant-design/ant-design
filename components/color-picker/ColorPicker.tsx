@@ -12,14 +12,13 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import { useToken } from '../theme/internal';
 import type { Color } from './color';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
@@ -108,9 +107,8 @@ const ColorPicker: CompoundedComponent = (props) => {
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
-  const [, token] = useToken();
 
-  const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
+  const [colorValue, setColorValue] = useColorState('', {
     value,
     defaultValue,
   });
@@ -125,7 +123,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange: onFormatChange,
   });
 
-  const [colorCleared, setColorCleared] = useState(false);
+  const [colorCleared, setColorCleared] = useState(!value && !defaultValue);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -137,9 +135,9 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, rootCls, rtlCls);
+  const mergeRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergeCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {

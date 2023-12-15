@@ -96,8 +96,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   }
 
   // ===================== Style =====================
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
@@ -106,7 +106,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       {...rest}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(cssVarCls, className, rootClassName)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName)}
       classes={{
         affixWrapper: classNames(
           `${prefixCls}-textarea-affix-wrapper`,
