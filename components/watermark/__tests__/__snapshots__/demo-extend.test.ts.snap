@@ -401,7 +401,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-color-picker-input"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                             >
                               <span
                                 class="ant-input-prefix"

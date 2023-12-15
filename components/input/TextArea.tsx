@@ -110,21 +110,6 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       className={classNames(cssVarCls, rootCls, className, rootClassName)}
-      classes={{
-        affixWrapper: classNames(
-          `${prefixCls}-textarea-affix-wrapper`,
-          {
-            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: enableVariantCls,
-            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
-            [`${prefixCls}-disabled`]: mergedDisabled,
-          },
-          getStatusClassNames(prefixCls, mergedStatus),
-          hashId,
-        ),
-      }}
       classNames={{
         ...classes,
         textarea: classNames(
@@ -136,6 +121,18 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           getStatusClassNames(prefixCls, mergedStatus),
           hashId,
           classes?.textarea,
+        ),
+        affixWrapper: classNames(
+          `${prefixCls}-textarea-affix-wrapper`,
+          {
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+          hashId,
         ),
       }}
       prefixCls={prefixCls}

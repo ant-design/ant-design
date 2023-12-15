@@ -886,7 +886,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
       >
         <span
@@ -932,7 +932,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
         style="width: 50%;"
       >
         <span
@@ -1012,7 +1012,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-last-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-last-item"
         style="width: 20%;"
       >
         <span
@@ -8429,7 +8429,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <div
-        class="ant-input-number-group-wrapper ant-input-number-compact-item ant-input-number-group-wrapper-outlined"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -8516,7 +8516,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-input-number-group-wrapper ant-input-number-compact-item ant-input-number-compact-last-item ant-input-number-group-wrapper-outlined"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -9827,7 +9827,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -9872,7 +9872,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         value=""
       />
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10243,7 +10243,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10288,7 +10288,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10369,7 +10369,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-first-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10413,7 +10413,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-last-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10458,7 +10458,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-first-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10509,7 +10509,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -11720,7 +11720,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number-group-wrapper ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item ant-input-number-group-wrapper-outlined"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -13692,7 +13692,7 @@ Array [
         class="ant-space-compact"
       >
         <span
-          class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-group-wrapper-outlined"
+          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
           style="width: 110px;"
         >
           <span

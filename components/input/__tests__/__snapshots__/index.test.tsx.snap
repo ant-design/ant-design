@@ -339,7 +339,7 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 exports[`Input allowClear should support classNames and styles 1`] = `
 <div>
   <span
-    class="rc-input-affix-wrapper custom-class rc-input-outlined"
+    class="rc-input-affix-wrapper rc-input-outlined custom-class"
     style="background-color: red;"
   >
     <span
@@ -368,7 +368,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     </span>
   </span>
   <span
-    class="rc-input-group-wrapper custom-class rc-input-group-wrapper-outlined"
+    class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
     style="background-color: red;"
   >
     <span
@@ -416,7 +416,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     value="123"
   />
   <span
-    class="rc-input-group-wrapper custom-class rc-input-group-wrapper-outlined"
+    class="rc-input-group-wrapper rc-input-group-wrapper-outlined custom-class"
     style="background-color: red;"
   >
     <span

@@ -7,7 +7,7 @@ exports[`TextArea allowClear classNames and styles should work 1`] = `
     style="color: red; background: red;"
   />
   <span
-    class="ant-input-affix-wrapper custom-class ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-show-count ant-input-show-count"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-show-count ant-input-show-count custom-class"
     data-count="0"
     style="background: red;"
   >

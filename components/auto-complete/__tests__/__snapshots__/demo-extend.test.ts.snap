@@ -250,7 +250,7 @@ exports[`renders components/auto-complete/demo/certain-category.tsx extend conte
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-select-selection-search-input ant-input-group-wrapper-lg ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-select-selection-search-input"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -1097,7 +1097,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   class="ant-select-selection-search"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-select-selection-search-input ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input"
                   >
                     <input
                       aria-autocomplete="list"
@@ -1312,7 +1312,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     class="ant-select-selection-search"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-select-selection-search-input ant-input-outlined"
+                      class="ant-input-affix-wrapper ant-input-outlined ant-select-selection-search-input"
                     >
                       <input
                         aria-autocomplete="list"
@@ -1528,7 +1528,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     class="ant-select-selection-search"
                   >
                     <span
-                      class="ant-input-group-wrapper ant-input-search ant-select-selection-search-input ant-input-group-wrapper-outlined"
+                      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
                     >
                       <span
                         class="ant-input-wrapper ant-input-group"
@@ -1757,7 +1757,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                     class="ant-select-selection-search"
                   >
                     <span
-                      class="ant-input-group-wrapper ant-input-search ant-select-selection-search-input ant-input-group-wrapper-outlined"
+                      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-select-selection-search-input"
                     >
                       <span
                         class="ant-input-wrapper ant-input-group"
@@ -2339,7 +2339,7 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx extend con
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-group-wrapper-lg ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
       >
         <span
           class="ant-input-wrapper ant-input-group"

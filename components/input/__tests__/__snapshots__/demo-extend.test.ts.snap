@@ -611,7 +611,7 @@ exports[`renders components/input/demo/advance-count.tsx extend context correctl
       Exceed Max
     </h5>
     <span
-      class="ant-input-affix-wrapper ant-input-out-of-range ant-input-outlined"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-out-of-range"
     >
       <input
         class="ant-input ant-input-outlined"
@@ -5414,7 +5414,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-borderless ant-input-disabled"
+    class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-borderless"
   >
     <span
       class="ant-input-prefix"
@@ -5520,7 +5520,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -5788,7 +5788,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-first-item ant-input-group-wrapper-lg ant-input-group-wrapper-outlined"
+        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -6018,7 +6018,7 @@ exports[`renders components/input/demo/filled-debug.tsx extend context correctly
       />
     </span>
     <span
-      class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-filled ant-input-disabled"
+      class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-filled"
     >
       <span
         class="ant-input-prefix"
@@ -6651,7 +6651,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width: 40%;"
     >
       <span
@@ -6731,7 +6731,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </span>
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width: 40%;"
     >
       <span
@@ -9856,7 +9856,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
     >
       <input
         class="ant-input"
@@ -9897,7 +9897,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
     class="ant-space-item"
   >
     <span
-      class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
     >
       <input
         class="ant-input"
@@ -9944,7 +9944,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-space-item"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+          class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
         >
           <input
             class="ant-input"
@@ -10106,7 +10106,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-outlined ant-input-disabled"
+    class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined"
   >
     <span
       class="ant-input-prefix"
@@ -10138,7 +10138,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width: 200px;"
     >
       <span
@@ -10189,7 +10189,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width: 200px;"
     >
       <span
@@ -10274,7 +10274,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
       style="width: 304px;"
     >
       <span
@@ -10364,7 +10364,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -10414,7 +10414,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -10478,7 +10478,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -10540,7 +10540,7 @@ exports[`renders components/input/demo/search-input.tsx extend context correctly
 exports[`renders components/input/demo/search-input-loading.tsx extend context correctly 1`] = `
 Array [
   <span
-    class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -10588,7 +10588,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -10636,7 +10636,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg ant-input-group-wrapper-outlined"
+    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-group-wrapper-outlined ant-input-search ant-input-search-large ant-input-search-with-button"
   >
     <span
       class="ant-input-wrapper ant-input-group"

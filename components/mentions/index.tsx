@@ -173,17 +173,9 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const mergedClassName = classNames(
-    {
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-focused`]: focused,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${variant}`]: enableVariantCls,
-    },
-    getStatusClassNames(prefixCls, mergedStatus),
     contextMentions?.className,
-    !hasFeedback && className,
+    className,
     rootClassName,
-    hashId,
     cssVarCls,
     rootCls,
   );
@@ -204,8 +196,18 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       ref={mergedRef}
       options={mergedOptions}
       suffix={suffixNode}
-      classes={{
-        affixWrapper: classNames(cssVarCls, rootCls, hashId, className),
+      classNames={{
+        mentions: classNames(
+          {
+            [`${prefixCls}-disabled`]: disabled,
+            [`${prefixCls}-focused`]: focused,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+          hashId,
+        ),
+        affixWrapper: hashId,
       }}
     >
       {mentionOptions}

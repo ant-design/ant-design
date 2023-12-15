@@ -4094,7 +4094,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
 exports[`renders components/tree/demo/search.tsx correctly 1`] = `
 <div>
   <span
-    class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
     style="margin-bottom:8px"
   >
     <span

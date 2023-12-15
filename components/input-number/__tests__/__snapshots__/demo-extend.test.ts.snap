@@ -971,7 +971,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           +
         </div>
         <div
-          class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-disabled ant-input-number-outlined"
+          class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-outlined"
         >
           <span
             class="ant-input-number-prefix"
@@ -2177,7 +2177,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-disabled ant-input-number-disabled ant-input-number-outlined"
+    class="ant-input-number-affix-wrapper ant-input-number-disabled ant-input-number-affix-wrapper-disabled ant-input-number-outlined"
     style="width: 100%;"
   >
     <span

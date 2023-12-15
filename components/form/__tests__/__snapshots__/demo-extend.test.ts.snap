@@ -687,7 +687,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
             >
               <input
                 aria-required="true"
@@ -875,7 +875,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+                class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
               >
                 <input
                   aria-required="true"
@@ -1269,7 +1269,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+                class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
               >
                 <input
                   aria-required="true"
@@ -5643,7 +5643,7 @@ Array [
                             class="ant-color-picker-input"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined ant-input-disabled"
+                              class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -6393,7 +6393,7 @@ exports[`renders components/form/demo/disabled-input-debug.tsx extend context co
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-outlined ant-input-disabled ant-input-status-error"
+              class="ant-input-affix-wrapper ant-input-disabled ant-input-affix-wrapper-disabled ant-input-outlined ant-input-status-error"
             >
               <span
                 class="ant-input-prefix"
@@ -7701,7 +7701,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
             >
               <input
                 class="ant-input"
@@ -8732,7 +8732,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback ant-input-password"
             >
               <input
                 aria-required="true"
@@ -8801,7 +8801,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback ant-input-password"
             >
               <input
                 aria-required="true"
@@ -21561,7 +21561,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           class="ant-color-picker-input"
                         >
                           <span
-                            class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                           >
                             <span
                               class="ant-input-prefix"
@@ -27636,7 +27636,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-outlined ant-input-status-warning ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-has-feedback ant-input-password"
             >
               <input
                 class="ant-input"
@@ -27726,7 +27726,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-password ant-input-outlined ant-input-status-error ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-has-feedback ant-input-password"
             >
               <input
                 class="ant-input"

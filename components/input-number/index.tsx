@@ -160,15 +160,12 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }
       classNames={{
         input: inputNumberClass,
-      }}
-      classes={{
         affixWrapper: classNames(
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-disabled`]: mergedDisabled,
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           hashId,
@@ -180,7 +177,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
           },
           hashId,
         ),
-        group: classNames(
+        groupWrapper: classNames(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',

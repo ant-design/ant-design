@@ -285,7 +285,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -668,7 +668,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -1053,7 +1053,7 @@ exports[`renders components/color-picker/demo/change-completed.tsx extend contex
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -1436,7 +1436,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -1824,7 +1824,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -2186,7 +2186,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -2511,7 +2511,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                           class="ant-color-picker-input"
                         >
                           <span
-                            class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                           >
                             <span
                               class="ant-input-prefix"
@@ -4195,7 +4195,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                             class="ant-color-picker-input"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -5026,7 +5026,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                               class="ant-color-picker-input"
                             >
                               <span
-                                class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                                class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                               >
                                 <span
                                   class="ant-input-prefix"
@@ -5416,7 +5416,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -6176,7 +6176,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                   >
                     <span
                       class="ant-input-prefix"
@@ -6579,7 +6579,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                       >
                         <span
                           class="ant-input-prefix"
@@ -6959,7 +6959,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                       >
                         <span
                           class="ant-input-prefix"
@@ -7339,7 +7339,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                       >
                         <span
                           class="ant-input-prefix"
@@ -7732,7 +7732,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                       >
                         <span
                           class="ant-input-prefix"
@@ -8117,7 +8117,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                       >
                         <span
                           class="ant-input-prefix"
@@ -8502,7 +8502,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-color-picker-input"
                     >
                       <span
-                        class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                        class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                       >
                         <span
                           class="ant-input-prefix"
@@ -8898,7 +8898,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                   >
                     <span
                       class="ant-input-prefix"
@@ -9285,7 +9285,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                   >
                     <span
                       class="ant-input-prefix"
@@ -9689,7 +9689,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                   >
                     <span
                       class="ant-input-prefix"
@@ -10070,7 +10070,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"
@@ -10453,7 +10453,7 @@ Array [
                 class="ant-color-picker-input"
               >
                 <span
-                  class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm ant-input-outlined"
+                  class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                 >
                   <span
                     class="ant-input-prefix"

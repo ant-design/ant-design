@@ -2,7 +2,7 @@
 
 exports[`Input.Search rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-rtl ant-input-group-wrapper-rtl ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-rtl ant-input-group-wrapper-outlined ant-input-search ant-input-search-rtl"
 >
   <span
     class="ant-input-wrapper ant-input-group ant-input-group-rtl"
@@ -50,7 +50,7 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
 
 exports[`Input.Search should support ReactNode suffix without error 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -109,7 +109,7 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
 
 exports[`Input.Search should support addonAfter 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -160,7 +160,7 @@ exports[`Input.Search should support addonAfter 1`] = `
 
 exports[`Input.Search should support addonAfter 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -211,7 +211,7 @@ exports[`Input.Search should support addonAfter 2`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -269,7 +269,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -327,7 +327,7 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 
 exports[`Input.Search should support custom Button 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -355,7 +355,7 @@ exports[`Input.Search should support custom Button 1`] = `
 
 exports[`Input.Search should support custom button 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -380,7 +380,7 @@ exports[`Input.Search should support custom button 1`] = `
 
 exports[`Input.Search should support invalid addonAfter 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -428,7 +428,7 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
 
 exports[`Input.Search should support invalid suffix 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -483,7 +483,7 @@ exports[`Input.Search should support invalid suffix 1`] = `
 
 exports[`Input.Search should support loading 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
@@ -531,7 +531,7 @@ exports[`Input.Search should support loading 1`] = `
 
 exports[`Input.Search should support loading 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button ant-input-group-wrapper-outlined"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"

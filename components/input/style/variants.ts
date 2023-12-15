@@ -331,6 +331,7 @@ export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
       [`${token.componentCls}-group`]: {
         '&-addon': {
           background: token.colorFillTertiary,
+          color: token.colorTextDisabled,
         },
 
         '&-addon:first-child': {

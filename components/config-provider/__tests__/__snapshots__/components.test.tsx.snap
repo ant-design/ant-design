@@ -15936,7 +15936,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-group-wrapper-outlined"
+      class="config-input-group-wrapper config-input-group-wrapper-outlined config-input-search"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -15982,7 +15982,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-outlined"
+    class="config-input-affix-wrapper config-input-outlined config-input-password"
   >
     <input
       class="config-input"
@@ -16035,7 +16035,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-group-wrapper-disabled config-input-group-wrapper-outlined"
+      class="config-input-group-wrapper config-input-group-wrapper-disabled config-input-group-wrapper-outlined config-input-search"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -16083,7 +16083,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-affix-wrapper-disabled config-input-password config-input-outlined config-input-disabled"
+    class="config-input-affix-wrapper config-input-disabled config-input-affix-wrapper-disabled config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-disabled"
@@ -16137,7 +16137,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-large config-input-group-wrapper-lg config-input-group-wrapper-outlined"
+      class="config-input-group-wrapper config-input-group-wrapper-lg config-input-group-wrapper-outlined config-input-search config-input-search-large"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -16183,7 +16183,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg config-input-outlined"
+    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-lg"
@@ -16235,7 +16235,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-middle config-input-group-wrapper-outlined"
+      class="config-input-group-wrapper config-input-group-wrapper-outlined config-input-search config-input-search-middle"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -16281,7 +16281,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-outlined"
+    class="config-input-affix-wrapper config-input-outlined config-input-password"
   >
     <input
       class="config-input"
@@ -16333,7 +16333,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-small config-input-group-wrapper-sm config-input-group-wrapper-outlined"
+      class="config-input-group-wrapper config-input-group-wrapper-sm config-input-group-wrapper-outlined config-input-search config-input-search-small"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -16379,7 +16379,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-sm config-input-outlined"
+    class="config-input-affix-wrapper config-input-affix-wrapper-sm config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-sm"
@@ -16431,7 +16431,7 @@ exports[`ConfigProvider components Input normal 1`] = `
       value=""
     />
     <span
-      class="ant-input-group-wrapper ant-input-search ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -16477,7 +16477,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-password ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
   >
     <input
       class="ant-input"
@@ -16529,7 +16529,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       value=""
     />
     <span
-      class="ant-input-group-wrapper prefix-Input ant-input-group-wrapper-outlined"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined prefix-Input"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -16575,7 +16575,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper prefix-Input ant-input-outlined"
+    class="ant-input-affix-wrapper ant-input-outlined prefix-Input"
   >
     <input
       class="ant-input"

@@ -203,7 +203,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         rootClassName,
         cssVarCls,
         rootCls,
-        hashId,
         compactItemClassnames,
         input?.className,
       )}
@@ -247,20 +246,17 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
             [`${prefixCls}-${variant}`]: enableVariantCls,
-            [`${prefixCls}-disabled`]: mergedDisabled,
           },
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
           hashId,
         ),
-      }}
-      classes={{
         wrapper: classNames(
           {
             [`${prefixCls}-group-rtl`]: direction === 'rtl',
           },
           hashId,
         ),
-        group: classNames(
+        groupWrapper: classNames(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',

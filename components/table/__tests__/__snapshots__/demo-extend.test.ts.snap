@@ -9500,7 +9500,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10019,7 +10019,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10475,7 +10475,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
@@ -10818,7 +10818,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             class="ant-table-filter-dropdown-search"
                           >
                             <span
-                              class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input ant-input-outlined"
+                              class="ant-input-affix-wrapper ant-input-outlined ant-table-filter-dropdown-search-input"
                             >
                               <span
                                 class="ant-input-prefix"
