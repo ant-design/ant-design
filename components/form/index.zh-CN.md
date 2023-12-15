@@ -566,26 +566,6 @@ Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件
 </Form.Item>
 ```
 
-### 自定义 validator 没有效果
-
-这是由于你的 `validator` 有错误导致 `callback` 没有执行到。你可以选择通过 `async` 返回一个 promise 或者使用 `try...catch` 进行错误捕获：
-
-```jsx
-validator: async (rule, value) => {
-  throw new Error('Something wrong!');
-}
-
-// or
-
-validator(rule, value, callback) => {
-  try {
-    throw new Error('Something wrong!');
-  } catch (err) {
-    callback(err);
-  }
-}
-```
-
 ### name 为数组时的转换规则？
 
 当 `name` 为数组时，会按照顺序填充路径。当存在数字且 form store 中没有该字段时会自动转变成数组。因而如果需要数组为 key 时请使用 string 如：`['1', 'name']`。

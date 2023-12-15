@@ -49,7 +49,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
 
   // Style
   const rootCls = useCSSVarCls(radioPrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(radioPrefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(radioPrefixCls, rootCls);
 
   const radioProps: RadioProps = { ...restProps };
 
@@ -76,6 +76,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     className,
     rootClassName,
     hashId,
+    cssVarCls,
     rootCls,
   );
 
