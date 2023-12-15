@@ -234,7 +234,12 @@ describe('DatePicker', () => {
 
   it('showTime={{ showHour: true }}', () => {
     const { container } = render(
-      <DatePicker defaultValue={dayjs()} showTime={{ showHour: true }} format="YYYY-MM-DD" open />,
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showHour: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
     );
     expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
     expect(
@@ -244,9 +249,14 @@ describe('DatePicker', () => {
     ).toBe(24);
   });
 
-  it('showTime={{ }} (no true args)', () => {
+    it('showTime={{ }} (no true args)', () => {
     const { container } = render(
-      <DatePicker defaultValue={dayjs()} showTime={{}} format="YYYY-MM-DD" open />,
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ }}
+        format="YYYY-MM-DD"
+        open
+      />,
     );
     expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(0);
   });

@@ -247,28 +247,36 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space-item"
-      >
-        <span>
-          Add title:
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
-          class="ant-color-picker-trigger"
+          class="ant-space-item"
+        >
+          <span>
+            Add title:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
         >
           <div
-            class="ant-color-picker-color-block"
+            class="ant-col"
           >
             <div
-              class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
-            />
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -278,28 +286,36 @@ exports[`renders components/color-picker/demo/panel-render.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      class="ant-row ant-row-middle"
     >
       <div
-        class="ant-space-item"
-      >
-        <span>
-          Horizontal layout:
-        </span>
-      </div>
-      <div
-        class="ant-space-item"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
       >
         <div
-          class="ant-color-picker-trigger"
+          class="ant-space-item"
+        >
+          <span>
+            Horizontal layout:
+          </span>
+        </div>
+        <div
+          class="ant-space-item"
         >
           <div
-            class="ant-color-picker-color-block"
+            class="ant-col"
           >
             <div
-              class="ant-color-picker-color-block-inner"
-              style="background:rgb(22, 119, 255)"
-            />
+              class="ant-color-picker-trigger"
+            >
+              <div
+                class="ant-color-picker-color-block"
+              >
+                <div
+                  class="ant-color-picker-color-block-inner"
+                  style="background:rgb(22, 119, 255)"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
