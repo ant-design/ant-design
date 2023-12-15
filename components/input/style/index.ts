@@ -407,9 +407,9 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genBasicInputStyle(token),
 
       // Variants
-      ...genOutlinedStyle(token, componentCls),
-      ...genFilledStyle(token, componentCls),
-      ...genBorderlessStyle(token, componentCls),
+      ...genOutlinedStyle(token),
+      ...genFilledStyle(token),
+      ...genBorderlessStyle(token),
 
       '&[type="color"]': {
         height: token.controlHeight,

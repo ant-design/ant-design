@@ -58,7 +58,6 @@ const genOutlinedStatusStyle = (
   token: InputToken,
   options: {
     status: string;
-    parentCls: string;
     borderColor: string;
     hoverBorderColor: string;
     activeBorderColor: string;
@@ -66,7 +65,7 @@ const genOutlinedStatusStyle = (
     affixColor: string;
   },
 ): CSSObject => ({
-  [`&${options.parentCls}-status-${options.status}:not(${options.parentCls}-disabled)`]: {
+  [`&${token.componentCls}-status-${options.status}:not(${token.componentCls}-disabled)`]: {
     ...genBaseOutlinedStyle(token, options),
 
     [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
@@ -75,11 +74,7 @@ const genOutlinedStatusStyle = (
   },
 });
 
-export const genOutlinedStyle = (
-  token: InputToken,
-  parentCls: string,
-  extraStyles?: CSSObject,
-): CSSObject => ({
+export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
   '&-outlined': {
     ...genBaseOutlinedStyle(token, {
       borderColor: token.colorBorder,
@@ -88,13 +83,12 @@ export const genOutlinedStyle = (
       activeShadow: token.activeShadow,
     }),
 
-    [`&${parentCls}-disabled, &[disabled]`]: {
+    [`&${token.componentCls}-disabled, &[disabled]`]: {
       ...genDisabledStyle(token),
     },
 
     ...genOutlinedStatusStyle(token, {
       status: 'error',
-      parentCls,
       borderColor: token.colorError,
       hoverBorderColor: token.colorErrorBorderHover,
       activeBorderColor: token.colorError,
@@ -104,7 +98,6 @@ export const genOutlinedStyle = (
 
     ...genOutlinedStatusStyle(token, {
       status: 'warning',
-      parentCls,
       borderColor: token.colorWarning,
       hoverBorderColor: token.colorWarningBorderHover,
       activeBorderColor: token.colorWarning,
@@ -170,11 +163,7 @@ export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
 });
 
 /* ============ Borderless ============ */
-export const genBorderlessStyle = (
-  token: InputToken,
-  parentCls: string,
-  extraStyles?: CSSObject,
-): CSSObject => ({
+export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
   '&-borderless': {
     background: 'transparent',
     border: 'none',
@@ -183,7 +172,7 @@ export const genBorderlessStyle = (
       outline: 'none',
     },
 
-    [`&${parentCls}-disabled, &[disabled]`]: {
+    [`&${token.componentCls}-disabled, &[disabled]`]: {
       color: token.colorTextDisabled,
     },
 
@@ -225,7 +214,6 @@ const genFilledStatusStyle = (
   token: InputToken,
   options: {
     status: string;
-    parentCls: string;
     bg: string;
     hoverBg: string;
     activeBorderColor: string;
@@ -233,7 +221,7 @@ const genFilledStatusStyle = (
     inputColor?: string;
   },
 ): CSSObject => ({
-  [`&${options.parentCls}-status-${options.status}:not(${options.parentCls}-disabled)`]: {
+  [`&${token.componentCls}-status-${options.status}:not(${token.componentCls}-disabled)`]: {
     ...genBaseFilledStyle(token, options),
 
     [`${token.componentCls}-prefix, ${token.componentCls}-suffix`]: {
@@ -242,11 +230,7 @@ const genFilledStatusStyle = (
   },
 });
 
-export const genFilledStyle = (
-  token: InputToken,
-  parentCls: string,
-  extraStyles?: CSSObject,
-): CSSObject => ({
+export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSObject => ({
   '&-filled': {
     ...genBaseFilledStyle(token, {
       bg: token.colorFillTertiary,
@@ -254,13 +238,12 @@ export const genFilledStyle = (
       activeBorderColor: token.colorPrimary,
     }),
 
-    [`&${parentCls}-disabled, &[disabled]`]: {
+    [`&${token.componentCls}-disabled, &[disabled]`]: {
       ...genDisabledStyle(token),
     },
 
     ...genFilledStatusStyle(token, {
       status: 'error',
-      parentCls,
       bg: token.colorErrorBg,
       hoverBg: token.colorErrorBgHover,
       activeBorderColor: token.colorError,
@@ -270,7 +253,6 @@ export const genFilledStyle = (
 
     ...genFilledStatusStyle(token, {
       status: 'warning',
-      parentCls,
       bg: token.colorWarningBg,
       hoverBg: token.colorWarningBgHover,
       activeBorderColor: token.colorWarning,
@@ -305,14 +287,14 @@ export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
         background: token.colorFillTertiary,
       },
 
-      [`&-addon + ${token.componentCls}-filled:not(:focus):not(:focus-within)`]: {
-        borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-      },
-
-      [`${token.componentCls}-filled:has(+ ${token.componentCls}-group-addon):not(:focus):not(:focus-within)`]:
-        {
+      [`${token.componentCls}-filled:not(:focus):not(:focus-within)`]: {
+        '&:not(:first-child)': {
+          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+        },
+        '&:not(:last-child)': {
           borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         },
+      },
     },
 
     ...genFilledGroupStatusStyle(token, {

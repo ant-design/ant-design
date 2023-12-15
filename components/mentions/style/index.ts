@@ -75,9 +75,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       verticalAlign: 'bottom',
 
       // Variants
-      ...genOutlinedStyle(token, componentCls),
-      ...genFilledStyle(token, componentCls),
-      ...genBorderlessStyle(token, componentCls),
+      ...genOutlinedStyle(token),
+      ...genFilledStyle(token),
+      ...genBorderlessStyle(token),
 
       '&-disabled': {
         '> textarea': {
