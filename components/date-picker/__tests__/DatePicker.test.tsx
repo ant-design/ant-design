@@ -1,16 +1,19 @@
 import type { TriggerProps } from '@rc-component/trigger';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
+
+import React from 'react';
+import { CloseCircleFilled } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import React from 'react';
-import userEvent from '@testing-library/user-event';
-import { CloseCircleFilled } from '@ant-design/icons';
+
 import DatePicker from '..';
+import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render, screen, waitFor } from '../../../tests/utils';
-import { resetWarned } from '../../_util/warning';
 import type { PickerLocale } from '../generatePicker';
 import { closeCircleByRole, expectCloseCircle } from './utils';
 
@@ -124,6 +127,55 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
+  it('showTime={{ showMinute: true, showSecond: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showMinute: true, showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
+  it('showTime={{ showHour: true, showMinute: true, showSecond: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showHour: true, showMinute: true, showSecond: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(3);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[2]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(60);
+  });
+
   it('showTime={{ showHour: true, showSecond: true }}', () => {
     const { container } = render(
       <DatePicker
@@ -146,27 +198,59 @@ describe('DatePicker', () => {
     ).toBe(60);
   });
 
-  it('showTime={{ showMinute: true, showSecond: true }}', () => {
+  it('showTime={{ showSecond: true }}', () => {
     const { container } = render(
       <DatePicker
         defaultValue={dayjs()}
-        showTime={{ showMinute: true, showSecond: true }}
+        showTime={{ showSecond: true }}
         format="YYYY-MM-DD"
         open
       />,
     );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
     expect(
       container
         .querySelectorAll('.ant-picker-time-panel-column')?.[0]
         .querySelectorAll('.ant-picker-time-panel-cell').length,
     ).toBe(60);
+  });
+
+  it('showTime={{ showMinute: true }}', () => {
+    const { container } = render(
+      <DatePicker
+        defaultValue={dayjs()}
+        showTime={{ showMinute: true }}
+        format="YYYY-MM-DD"
+        open
+      />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
     expect(
       container
-        .querySelectorAll('.ant-picker-time-panel-column')?.[1]
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
         .querySelectorAll('.ant-picker-time-panel-cell').length,
     ).toBe(60);
   });
+
+  it('showTime={{ showHour: true }}', () => {
+    const { container } = render(
+      <DatePicker defaultValue={dayjs()} showTime={{ showHour: true }} format="YYYY-MM-DD" open />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
+    expect(
+      container
+        .querySelectorAll('.ant-picker-time-panel-column')?.[0]
+        .querySelectorAll('.ant-picker-time-panel-cell').length,
+    ).toBe(24);
+  });
+
+  it('showTime={{ }} (no true args)', () => {
+    const { container } = render(
+      <DatePicker defaultValue={dayjs()} showTime={{}} format="YYYY-MM-DD" open />,
+    );
+    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(0);
+  });
+
   it('showTime should work correctly when format is custom function', () => {
     const { container } = render(
       <DatePicker

@@ -124,6 +124,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
     callback: () => void,
     prefixCls: string,
     title?: string,
+    acceptUploadDisabled?: boolean,
   ) => {
     const btnProps: ButtonProps = {
       type: 'text',
@@ -136,8 +137,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
         }
       },
       className: `${prefixCls}-list-item-action`,
-      disabled,
     };
+    if (acceptUploadDisabled) {
+      btnProps.disabled = disabled;
+    }
     if (isValidElement(customIcon)) {
       const btnIcon = cloneElement(customIcon, {
         ...customIcon.props,

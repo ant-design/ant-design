@@ -3,6 +3,7 @@ import { ColorPicker } from 'antd';
 
 export default () => (
   <ColorPicker
+    defaultValue="#1677ff"
     presets={[
       {
         label: 'Recommended',

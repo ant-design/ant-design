@@ -14,16 +14,21 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { InputFocusOptions } from './Input';
-import { triggerFocus } from './Input';
+import type { InputFocusOptions, InputVariant } from './Input';
+import { InputVariants, triggerFocus } from './Input';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useVariant from '../_util/hooks/useVariants';
+import { devUseWarning } from '../_util/warning';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
+  /** @deprecated Use `variant` instead */
   bordered?: boolean;
   size?: SizeType;
   status?: InputStatus;
   rootClassName?: string;
+  /** @default "outlined" */
+  variant?: InputVariant;
 }
 
 export interface TextAreaRef {
@@ -43,8 +48,15 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     classNames: classes,
     rootClassName,
     className,
+    variant: customVariant,
     ...rest
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const { deprecated } = devUseWarning('TextArea');
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+  }
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   // ===================== Size =====================
@@ -84,21 +96,23 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   }
 
   // ===================== Style =====================
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
   return wrapCSSVar(
     <RcTextArea
       {...rest}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(cssVarCls, className, rootClassName)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName)}
       classes={{
         affixWrapper: classNames(
           `${prefixCls}-textarea-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
@@ -111,7 +125,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         ...classes,
         textarea: classNames(
           {
-            [`${prefixCls}-borderless`]: !bordered,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },

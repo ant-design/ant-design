@@ -20,6 +20,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
+<code src="./demo/variant.tsx">Variants</code>
 <code src="./demo/addon.tsx">Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
 <code src="./demo/group.tsx" debug>Input Group</code>
@@ -34,7 +35,6 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/show-count.tsx">With character counting</code>
 <code src="./demo/advance-count.tsx" version=">= 5.10.0">Custom count logic</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/focus.tsx">Focus</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
 <code src="./demo/align.tsx" debug>Text Align</code>
@@ -53,7 +53,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
-| bordered | Whether has border style | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
@@ -68,6 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
+| variant | Variants of Input | `outlined` \| `borderless` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 

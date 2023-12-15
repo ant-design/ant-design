@@ -37,7 +37,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
   const rootCls = useCSSVarCls(rootPrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 
@@ -76,6 +76,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         type && confirmPrefixCls,
         type && `${confirmPrefixCls}-${type}`,
         className,
+        cssVarCls,
         rootCls,
       )}
       {...restProps}

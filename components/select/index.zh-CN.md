@@ -36,7 +36,7 @@ demo:
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
-<code src="./demo/bordered.tsx">无边框</code>
+<code src="./demo/variant.tsx">形态变体</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
 <code src="./demo/responsive.tsx">响应式 maxTagCount</code>
 <code src="./demo/big-data.tsx">大数据</code>
@@ -60,7 +60,6 @@ demo:
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: 支持对象类型 |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
-| bordered | 是否有边框 | boolean | true |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true |  |
 | defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
 | defaultValue | 指定默认选中的条目 | string \| string\[] \|<br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
@@ -98,6 +97,7 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
+| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |

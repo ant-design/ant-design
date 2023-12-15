@@ -1,7 +1,7 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import type { InputRef, InputProps as RcInputProps } from 'rc-input';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
 import RcInput from 'rc-input';
 import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
@@ -19,6 +19,7 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useVariant from '../_util/hooks/useVariants';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -55,6 +56,9 @@ export function triggerFocus(
   }
 }
 
+export const InputVariants = ['outlined', 'borderless'] as const;
+export type InputVariant = (typeof InputVariants)[number];
+
 export interface InputProps
   extends Omit<
     RcInputProps,
@@ -64,7 +68,12 @@ export interface InputProps
   size?: SizeType;
   disabled?: boolean;
   status?: InputStatus;
+  /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
+  /**
+   * @default "outlined"
+   */
+  variant?: InputVariant;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -87,16 +96,23 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     rootClassName,
     onChange,
     classNames: classes,
+    variant: customVariant,
     ...rest
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const { deprecated } = devUseWarning('Input');
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+  }
+
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
   // Style
-  const cssVarCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, cssVarCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ===================== Compact Item =====================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -166,6 +182,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+
   return wrapCSSVar(
     <RcInput
       ref={composeRef(ref, inputRef)}
@@ -183,6 +201,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         className,
         rootClassName,
         cssVarCls,
+        rootCls,
         hashId,
         compactItemClassnames,
         input?.className,
@@ -214,7 +233,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-borderless`]: !bordered,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,
@@ -228,7 +247,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           hashId,
