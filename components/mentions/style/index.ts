@@ -53,6 +53,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     colorTextQuaternary,
     colorBgElevated,
     paddingXXS,
+    paddingLG,
     borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
@@ -94,14 +95,23 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         },
 
         [`${componentCls}-suffix`]: {
-          display: 'flex',
-          flex: 'none',
-          alignItems: 'flex-start',
-          insetBlockStart: paddingXXS,
-          paddingTop: paddingInline,
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: paddingInline,
+          bottom: 0,
+          zIndex: 1,
+          display: 'inline-flex',
+          alignItems: 'center',
+          margin: 'auto',
+        },
+
+        [`&:has(${componentCls}-suffix) > ${componentCls} > textarea`]: {
+          paddingInlineEnd: paddingLG,
         },
 
         [`${componentCls}-clear-icon`]: {
+          position: 'absolute',
+          insetInlineEnd: 0,
           insetBlockStart: paddingXXS,
           margin: 0,
           color: colorTextQuaternary,
