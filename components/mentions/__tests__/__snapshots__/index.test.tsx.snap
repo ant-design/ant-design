@@ -6,6 +6,7 @@ exports[`Mentions rtl render component should be rendered correctly in RTL direc
 >
   <textarea
     class="rc-textarea"
+    classes="[object Object]"
     rows="1"
   />
 </div>

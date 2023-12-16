@@ -7,6 +7,7 @@ exports[`renders components/mentions/demo/async.tsx extend context correctly 1`]
 >
   <textarea
     class="rc-textarea"
+    classes="[object Object]"
     rows="1"
   />
 </div>
@@ -21,6 +22,7 @@ exports[`renders components/mentions/demo/autoSize.tsx extend context correctly 
 >
   <textarea
     class="rc-textarea"
+    classes="[object Object]"
     rows="1"
     style="resize: none;"
   />
@@ -40,6 +42,7 @@ exports[`renders components/mentions/demo/basic.tsx extend context correctly 1`]
 >
   <textarea
     class="rc-textarea"
+    classes="[object Object]"
     rows="1"
   >
     @afc163
@@ -59,6 +62,7 @@ exports[`renders components/mentions/demo/component-token.tsx extend context cor
   >
     <textarea
       class="rc-textarea"
+      classes="[object Object]"
       rows="1"
     >
       @
@@ -147,6 +151,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
             >
               <textarea
                 class="rc-textarea"
+                classes="[object Object]"
                 id="coders"
                 rows="1"
               />
@@ -188,6 +193,7 @@ exports[`renders components/mentions/demo/form.tsx extend context correctly 1`] 
               <textarea
                 aria-required="true"
                 class="rc-textarea"
+                classes="[object Object]"
                 id="bio"
                 placeholder="You can use @ to ref user here"
                 rows="3"
@@ -259,6 +265,7 @@ exports[`renders components/mentions/demo/placement.tsx extend context correctly
 >
   <textarea
     class="rc-textarea"
+    classes="[object Object]"
     rows="1"
   />
 </div>
@@ -273,6 +280,7 @@ exports[`renders components/mentions/demo/prefix.tsx extend context correctly 1`
 >
   <textarea
     class="rc-textarea"
+    classes="[object Object]"
     placeholder="input @ to mention people, # to mention tag"
     rows="1"
   />
@@ -292,6 +300,7 @@ Array [
     >
       <textarea
         class="rc-textarea rc-textarea-disabled"
+        classes="[object Object]"
         disabled=""
         placeholder="this is disabled Mentions"
         rows="1"
@@ -304,6 +313,7 @@ Array [
   >
     <textarea
       class="rc-textarea"
+      classes="[object Object]"
       placeholder="this is readOnly Mentions"
       readonly=""
       rows="1"
@@ -324,6 +334,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
   >
     <textarea
       class="rc-textarea"
+      classes="[object Object]"
       rows="1"
     >
       @
@@ -394,6 +405,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
     >
       <textarea
         class="rc-textarea"
+        classes="[object Object]"
         rows="1"
       >
         @afc163
@@ -408,6 +420,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 1`
     >
       <textarea
         class="rc-textarea"
+        classes="[object Object]"
         rows="1"
       >
         @afc163
