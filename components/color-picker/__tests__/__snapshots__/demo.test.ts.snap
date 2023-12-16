@@ -108,43 +108,32 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-row ant-row-middle"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space-item"
       >
         <div
-          class="ant-space-item"
+          class="ant-color-picker-trigger"
         >
           <div
-            class="ant-col"
+            class="ant-color-picker-color-block"
           >
             <div
-              class="ant-color-picker-trigger"
-            >
-              <div
-                class="ant-color-picker-color-block"
-              >
-                <div
-                  class="ant-color-picker-color-block-inner"
-                  style="background:rgb(22, 119, 255)"
-                />
-              </div>
-            </div>
+              class="ant-color-picker-color-block-inner"
+              style="background:rgb(22, 119, 255)"
+            />
           </div>
         </div>
-        <div
-          class="ant-space-item"
-        >
-          <div
-            class="ant-col"
-          >
-            HEX:
-            <span>
-              #1677ff
-            </span>
-          </div>
-        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          HEX:
+          <!-- -->
+          #1677ff
+        </span>
       </div>
     </div>
   </div>
@@ -152,43 +141,32 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-row ant-row-middle"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space-item"
       >
         <div
-          class="ant-space-item"
+          class="ant-color-picker-trigger"
         >
           <div
-            class="ant-col"
+            class="ant-color-picker-color-block"
           >
             <div
-              class="ant-color-picker-trigger"
-            >
-              <div
-                class="ant-color-picker-color-block"
-              >
-                <div
-                  class="ant-color-picker-color-block-inner"
-                  style="background:rgb(23, 120, 255)"
-                />
-              </div>
-            </div>
+              class="ant-color-picker-color-block-inner"
+              style="background:rgb(23, 120, 255)"
+            />
           </div>
         </div>
-        <div
-          class="ant-space-item"
-        >
-          <div
-            class="ant-col"
-          >
-            HSB:
-            <span>
-              hsb(215, 91%, 100%)
-            </span>
-          </div>
-        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          HSB:
+          <!-- -->
+          hsb(215, 91%, 100%)
+        </span>
       </div>
     </div>
   </div>
@@ -196,43 +174,32 @@ exports[`renders components/color-picker/demo/format.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-row ant-row-middle"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space-item"
       >
         <div
-          class="ant-space-item"
+          class="ant-color-picker-trigger"
         >
           <div
-            class="ant-col"
+            class="ant-color-picker-color-block"
           >
             <div
-              class="ant-color-picker-trigger"
-            >
-              <div
-                class="ant-color-picker-color-block"
-              >
-                <div
-                  class="ant-color-picker-color-block-inner"
-                  style="background:rgb(22, 119, 255)"
-                />
-              </div>
-            </div>
+              class="ant-color-picker-color-block-inner"
+              style="background:rgb(22, 119, 255)"
+            />
           </div>
         </div>
-        <div
-          class="ant-space-item"
-        >
-          <div
-            class="ant-col"
-          >
-            RGB:
-            <span>
-              rgb(22, 119, 255)
-            </span>
-          </div>
-        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          RGB:
+          <!-- -->
+          rgb(22, 119, 255)
+        </span>
       </div>
     </div>
   </div>
