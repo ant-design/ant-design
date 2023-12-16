@@ -42,8 +42,6 @@ const useStyles = createStyles(({ token, prefixCls, css }) => {
       ${overwriteAlert('error')}
     `,
     alert: css`
-      border: none;
-
       .${prefixCls}-alert-message {
         font-weight: bold;
       }
