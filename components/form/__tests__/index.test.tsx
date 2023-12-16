@@ -2176,4 +2176,23 @@ describe('Form', () => {
       foo: false,
     });
   });
+
+  it('getValueProps should trigger update', () => {
+    const { container } = render(
+      <Form>
+        <Form.Item
+          name="remember"
+          getValueProps={(val) => ({ checked: val })}
+          getValueFromEvent={(e) => e.target.checked}
+        >
+          <Checkbox />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('input')?.checked).toBeFalsy();
+
+    fireEvent.click(container.querySelector('input')!);
+    expect(container.querySelector('input')?.checked).toBeTruthy();
+  });
 });

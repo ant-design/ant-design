@@ -153,7 +153,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const prefixCls = getPrefixCls('anchor', customPrefixCls);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -273,6 +273,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const wrapperClass = classNames(
     hashId,
+    cssVarCls,
     rootCls,
     rootClassName,
     `${prefixCls}-wrapper`,

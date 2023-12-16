@@ -34,6 +34,9 @@ function parseArgs(cliArgs) {
     }
   }
 
+  assert(filepath, 'filepath is required');
+  assert(refValue, 'refValue is required');
+
   return [filepath, refValue];
 }
 
@@ -85,8 +88,6 @@ async function uploadFile(client, filePath, refValue) {
 
 async function boot() {
   const [filepath, refValue] = parseArgs(args);
-  assert(filepath, 'filepath is required');
-  assert(refValue, 'refValue is required');
 
   const fileOrFolderName = filepath;
   // check if exists

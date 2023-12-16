@@ -567,26 +567,6 @@ Form.Item default bind value to `value` prop, but Switch or Checkbox value prop 
 </Form.Item>
 ```
 
-### Custom validator not working
-
-It may be caused by your `validator` if it has some errors that prevents `callback` to be called. You can use `async` instead or use `try...catch` to catch the error:
-
-```jsx
-validator: async (rule, value) => {
-  throw new Error('Something wrong!');
-}
-
-// or
-
-validator(rule, value, callback) => {
-  try {
-    throw new Error('Something wrong!');
-  } catch (err) {
-    callback(err);
-  }
-}
-```
-
 ### How does `name` fill value when it's an array?
 
 `name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.

@@ -21,6 +21,8 @@ import { assert } from 'console';
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
+const isLocalEnv = process.env.LOCAL;
+
 const compareScreenshots = async (
   baseImgPath: string,
   currentImgPath: string,
@@ -112,16 +114,26 @@ function md2Html(md: string) {
   return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
 }
 
+function parseArgs() {
+  // parse args from -- --pr-id=123 --base_ref=feature
+  const argv = minimist(process.argv.slice(2));
+  const prId = argv['pr-id'];
+  assert(prId, 'Missing --pr-id');
+  const baseRef = argv['base-ref'];
+  assert(baseRef, 'Missing --base-ref');
+  return {
+    prId,
+    baseRef,
+  };
+}
+
 function generateReport(
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
+  prId: string,
 ): [string, string] {
-  // parse args from -- --pr-id=123
-  const argv = minimist(process.argv.slice(2));
-  const prId = argv['pr-id'];
-  assert(prId, 'Missing --pr-id');
-  const publicPath = `${ossDomain}/pr-${prId}`;
+  const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
 
   const commonHeader = `
 ## Visual Regression Report for PR #${prId}
@@ -140,14 +152,14 @@ function generateReport(
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
 
-  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check [Full Report](${htmlReportLink}) for details`;
+  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   // github action pr comment has limit of 65536 4-byte unicode characters
   const limit = 65536 - addonFullReportDesc.length;
 
   let reportMdStr = `
 ${commonHeader}
-> [View Full Report](${htmlReportLink})\n
+> <a href="${htmlReportLink}" target="_blank">View Full Report</a> \n
 ------------------------
 | image name | expected | actual | diff |
 | --- | --- | --- | --- |
@@ -197,15 +209,32 @@ ${commonHeader}
 }
 
 async function boot() {
-  console.log(chalk.green('Preparing image snapshots from latest `master` branch\n'));
-  const baseImgSourceDir = path.resolve(__dirname, '../../imageSnapshots-master');
+  const { prId, baseRef: targetBranch = 'master' } = parseArgs();
+
+  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
+
+  console.log(
+    chalk.green(
+      `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
+    ),
+  );
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetBranch = 'master';
   const targetRef = await getBranchLatestRef(targetBranch);
   assert(targetRef, `Missing ref from ${targetBranch}`);
 
-  await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  if (!isLocalEnv) {
+    await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  } else if (!fse.existsSync(baseImgSourceDir)) {
+    console.log(
+      chalk.yellow(
+        `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
+          baseImgSourceDir,
+        )}\` from latest \`${targetBranch}\` branch`,
+      ),
+    );
+    process.exit(1);
+  }
 
   const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
 
@@ -227,7 +256,11 @@ async function boot() {
 
   const deletedImgs = _.difference(baseImgFileList, currentImgFileList);
   if (deletedImgs.length) {
-    console.log(chalk.red('⛔️ Missing images compare to master:\n'), prettyList(deletedImgs));
+    console.log(
+      chalk.red('⛔️ Missing images compare to %s:\n%s'),
+      targetBranch,
+      prettyList(deletedImgs),
+    );
     console.log('\n');
   }
   // ignore new images
@@ -239,40 +272,57 @@ async function boot() {
 
   const badCases: IBadCase[] = [];
 
-  for (const file of baseImgFileList) {
-    const baseImgPath = path.join(baseImgSourceDir, file);
-    const currentImgPath = path.join(currentImgSourceDir, file);
-    const diffImgPath = path.join(diffImgReportDir, file);
+  // compare cssinjs and css-var png from pr
+  // to the same cssinjs png in `master` branch
+  const cssInJsImgNames = baseImgFileList
+    .filter((i) => !i.endsWith('.css-var.png'))
+    .map((n) => path.basename(n, path.extname(n)));
 
-    const currentImgExists = await fse.exists(currentImgPath);
-    if (!currentImgExists) {
-      console.log(chalk.red(`⛔️ Missing image: ${file}\n`));
-      badCases.push({
-        type: 'removed',
-        filename: file,
-      });
-      await fse.copy(baseImgPath, path.join(baseImgReportDir, file));
-      continue;
-    }
+  for (const basename of cssInJsImgNames) {
+    for (const extname of ['.png', '.css-var.png']) {
+      // baseImg always use cssinjs png
+      const baseImgName = `${basename}.png`;
+      const baseImgPath = path.join(baseImgSourceDir, baseImgName);
 
-    const mismatchedPxPercent = await compareScreenshots(baseImgPath, currentImgPath, diffImgPath);
+      // currentImg use cssinjs png or css-var png
+      const compareImgName = basename + extname;
+      const currentImgPath = path.join(currentImgSourceDir, compareImgName);
+      const diffImgPath = path.join(diffImgReportDir, compareImgName);
 
-    if (mismatchedPxPercent > 0) {
-      console.log(
-        'Mismatched pixels for:',
-        chalk.yellow(file),
-        `${mismatchedPxPercent.toFixed(2)}%\n`,
+      const currentImgExists = await fse.exists(currentImgPath);
+      if (!currentImgExists) {
+        console.log(chalk.red(`⛔️ Missing image: ${compareImgName}\n`));
+        badCases.push({
+          type: 'removed',
+          filename: compareImgName,
+        });
+        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        continue;
+      }
+
+      const mismatchedPxPercent = await compareScreenshots(
+        baseImgPath,
+        currentImgPath,
+        diffImgPath,
       );
-      // copy compare imgs(x2) to report dir
-      await fse.copy(baseImgPath, path.join(baseImgReportDir, file));
-      await fse.copy(currentImgPath, path.join(currentImgReportDir, file));
 
-      badCases.push({
-        type: 'changed',
-        filename: file,
-      });
-    } else {
-      console.log('Passed for: %s\n', chalk.green(file));
+      if (mismatchedPxPercent > 0) {
+        console.log(
+          'Mismatched pixels for:',
+          chalk.yellow(compareImgName),
+          `${mismatchedPxPercent.toFixed(2)}%\n`,
+        );
+        // copy compare imgs(x2) to report dir
+        await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
+        await fse.copy(currentImgPath, path.join(currentImgReportDir, compareImgName));
+
+        badCases.push({
+          type: 'changed',
+          filename: compareImgName,
+        });
+      } else {
+        console.log('Passed for: %s\n', chalk.green(compareImgName));
+      }
     }
   }
 
@@ -284,7 +334,7 @@ async function boot() {
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef);
+  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef, prId);
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
 

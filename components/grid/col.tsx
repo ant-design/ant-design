@@ -68,7 +68,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useColStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useColStyle(prefixCls);
 
   let sizeClassObj = {};
   sizes.forEach((size) => {
@@ -107,6 +107,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     className,
     sizeClassObj,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = {};

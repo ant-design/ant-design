@@ -39,7 +39,7 @@ const GlobalDemoStyles: React.FC = () => {
 
           .code-box-demo {
             background-color: ${token.colorBgContainer};
-            border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
+            border-radius: ${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0;
             > .demo {
               overflow: auto;
             }
@@ -84,10 +84,6 @@ const GlobalDemoStyles: React.FC = () => {
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
             margin-inline-start: 16px;
-
-            ${antCls}-row-rtl & {
-              border-radius: ${token.borderRadius}px 0 0 ${token.borderRadius}px;
-            }
 
             a,
             a:hover {

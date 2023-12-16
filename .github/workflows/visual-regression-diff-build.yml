@@ -88,7 +88,7 @@ jobs:
       # output as visualRegressionReport.tar.gz
       - name: visual regression diff
         run: |
-          npm run visual-regression -- --pr-id=${{ github.event.number }}
+          npm run visual-regression -- --pr-id=${{ github.event.number }} --base-ref=${{ github.base_ref}}
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact

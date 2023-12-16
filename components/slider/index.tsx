@@ -162,7 +162,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const prefixCls = getPrefixCls('slider', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     className,
@@ -172,6 +172,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
+    cssVarCls,
   );
 
   // make reverse default on rtl direction
