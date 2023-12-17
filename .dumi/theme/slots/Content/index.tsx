@@ -84,7 +84,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 )}
               </Space>
               {pathname.startsWith('/components/') && (
-                <Suspense fallback={<Skeleton.Input active size="small" />}>
+                <Suspense fallback={null}>
                   <ComponentChangelog pathname={pathname} />
                 </Suspense>
               )}
