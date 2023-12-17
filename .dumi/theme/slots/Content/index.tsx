@@ -64,7 +64,7 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <Suspense fallback={<Skeleton.Button active size="small" />}>
+        <Suspense fallback={<Skeleton.Input active size="small" />}>
           <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
         </Suspense>
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
@@ -84,29 +84,29 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 )}
               </Space>
               {pathname.startsWith('/components/') && (
-                <Suspense fallback={<Skeleton.Button active size="small" />}>
+                <Suspense fallback={<Skeleton.Input active size="small" />}>
                   <ComponentChangelog pathname={pathname} />
                 </Suspense>
               )}
             </Typography.Title>
           ) : null}
-          <Suspense fallback={<Skeleton.Button active size="small" />}>
+          <Suspense fallback={<Skeleton.Input active size="small" />}>
             <DocMeta />
           </Suspense>
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
-          <Suspense fallback={<Skeleton.Button active size="small" />}>
+          <Suspense fallback={<Skeleton.Input active size="small" />}>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
               juejinLink={meta.frontmatter.juejin_url}
             />
           </Suspense>
-          <Suspense fallback={<Skeleton.Button active size="small" />}>
+          <Suspense fallback={<Skeleton.Input active size="small" />}>
             <Contributors filename={meta.frontmatter.filename} />
           </Suspense>
         </article>
-        <Suspense fallback={<Skeleton.Button active size="small" />}>
+        <Suspense fallback={<Skeleton.Input active size="small" />}>
           <PrevAndNext rtl={isRTL} />
         </Suspense>
         <Suspense fallback={null}>
