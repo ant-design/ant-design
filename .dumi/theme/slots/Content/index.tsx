@@ -6,7 +6,7 @@ import DayJS from 'dayjs';
 import { FormattedMessage, useIntl, useRouteMeta, useTabMeta } from 'dumi';
 import type { ReactNode } from 'react';
 import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
-import { Anchor, Avatar, Col, Skeleton, Space, Tooltip, Typography } from 'antd';
+import { Anchor, Avatar, Col, Skeleton, Space, Typography } from 'antd';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
 import EditButton from '../../common/EditButton';
@@ -17,36 +17,43 @@ import DemoContext from '../DemoContext';
 import Footer from '../Footer';
 import SiteContext from '../SiteContext';
 import ColumnCard from './ColumnCard';
+import ContributorAvatar from './ContributorAvatar';
 
 const useStyle = createStyles(({ token, css }) => {
   const { antCls } = token;
 
   return {
     contributorsList: css`
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 120px !important;
-      clear: both;
-
-      li {
-        height: 24px;
-      }
-
-      li,
-      ${antCls}-avatar + ${antCls}-avatar {
-        transition: all ${token.motionDurationSlow};
-        margin-inline-end: -8px;
-      }
-      &:hover {
-        li,
-        ${antCls}-avatar {
-          margin-inline-end: 0;
-        }
-      }
+    margin-top: 120px !important;
     `,
     listMobile: css`
       margin: 1em 0 !important;
     `,
+    title: css`
+    font-size: 12px;
+    opacity: 0.45;
+  `,
+    list: css`
+  display: flex;
+  flex-wrap: wrap;
+  clear: both;
+
+  li {
+    height: 24px;
+  }
+
+  li,
+  ${antCls}-avatar + ${antCls}-avatar {
+    transition: all ${token.motionDurationSlow};
+    margin-inline-end: -8px;
+  }
+  &:hover {
+    li,
+    ${antCls}-avatar {
+      margin-inline-end: 0;
+    }
+  }
+  `,
     toc: css`
       ${antCls}-anchor {
         ${antCls}-anchor-link-title {
@@ -110,14 +117,6 @@ type AnchorItem = {
   title: string;
   children?: AnchorItem[];
 };
-
-const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 3 }) => (
-  <li>
-    {Array.from({ length: num }).map((_, i) => (
-      <Skeleton.Avatar size="small" active key={i} style={{ marginLeft: i === 0 ? 0 : -8 }} />
-    ))}
-  </li>
-);
 
 const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar }) => {
   const [loading, setLoading] = useState(true);
@@ -286,40 +285,26 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
             />
           )}
           {meta.frontmatter.filename && (
-            <ContributorsList
-              cache
-              repo="ant-design"
-              owner="ant-design"
-              className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}
-              fileName={meta.frontmatter.filename}
-              renderItem={(item, loading) => {
-                if (!item || loading) {
-                  return <AvatarPlaceholder />;
-                }
-                if (item.username?.includes('github-actions')) {
-                  return null;
-                }
-                return (
-                  <Tooltip
-                    mouseEnterDelay={0.3}
-                    title={`${formatMessage({ id: 'app.content.contributors' })}: ${item.username}`}
-                    key={item.username}
-                  >
-                    <li>
-                      <a
-                        href={`https://github.com/${item.username}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Avatar size="small" src={item.url} alt={item.username}>
-                          {item.username}
-                        </Avatar>
-                      </a>
-                    </li>
-                  </Tooltip>
-                );
-              }}
-            />
+            <div className={classNames(styles.contributorsList, { [styles.listMobile]: isMobile })}>
+              <div className={styles.title}>
+                {formatMessage({ id: 'app.content.contributors' })}
+              </div>
+              <ContributorsList
+                cache
+                repo="ant-design"
+                owner="ant-design"
+                fileName={meta.frontmatter.filename}
+                className={styles.list}
+                renderItem={(item, loading) => (
+                  <ContributorAvatar
+                    key={item?.username}
+                    username={item?.username}
+                    url={item?.url}
+                    loading={loading}
+                  />
+                )}
+              />
+            </div>
           )}
         </article>
         <PrevAndNext rtl={isRTL} />
