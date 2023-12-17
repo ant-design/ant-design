@@ -92,7 +92,7 @@ jobs:
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: visual-regression-report
           path: visualRegressionReport.tar.gz
@@ -105,7 +105,7 @@ jobs:
 
       - name: Upload persist key
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: visual-regression-diff-ref
           path: ./visual-regression-pr-id.txt
