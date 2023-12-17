@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 import type { ReactNode } from 'react';
-import React, { useContext, useLayoutEffect, useMemo } from 'react';
-import { Col, Space, Typography } from 'antd';
+import React, { Suspense, useContext, useLayoutEffect, useMemo } from 'react';
+import { Col, Space, Typography, Skeleton } from 'antd';
 import { createStyles } from 'antd-style';
 import useLayoutState from '../../../hooks/useLayoutState';
 import useLocation from '../../../hooks/useLocation';
@@ -64,7 +64,9 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
+        <Suspense fallback={<Skeleton.Button active size="small" />}>
+          <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
+        </Suspense>
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
@@ -73,27 +75,43 @@ const Content: React.FC<{ children: ReactNode }> = ({ children }) => {
                 {meta.frontmatter?.subtitle}
 
                 {!pathname.startsWith('/components/overview') && (
-                  <EditButton
-                    title={<FormattedMessage id="app.content.edit-page" />}
-                    filename={meta.frontmatter.filename}
-                  />
+                  <Suspense fallback={null}>
+                    <EditButton
+                      title={<FormattedMessage id="app.content.edit-page" />}
+                      filename={meta.frontmatter.filename}
+                    />
+                  </Suspense>
                 )}
               </Space>
-              {pathname.startsWith('/components/') && <ComponentChangelog pathname={pathname} />}
+              {pathname.startsWith('/components/') && (
+                <Suspense fallback={<Skeleton.Button active size="small" />}>
+                  <ComponentChangelog pathname={pathname} />
+                </Suspense>
+              )}
             </Typography.Title>
           ) : null}
-          <DocMeta />
+          <Suspense fallback={<Skeleton.Button active size="small" />}>
+            <DocMeta />
+          </Suspense>
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
-          <ColumnCard
-            zhihuLink={meta.frontmatter.zhihu_url}
-            yuqueLink={meta.frontmatter.yuque_url}
-            juejinLink={meta.frontmatter.juejin_url}
-          />
-          <Contributors filename={meta.frontmatter.filename} />
+          <Suspense fallback={<Skeleton.Button active size="small" />}>
+            <ColumnCard
+              zhihuLink={meta.frontmatter.zhihu_url}
+              yuqueLink={meta.frontmatter.yuque_url}
+              juejinLink={meta.frontmatter.juejin_url}
+            />
+          </Suspense>
+          <Suspense fallback={<Skeleton.Button active size="small" />}>
+            <Contributors filename={meta.frontmatter.filename} />
+          </Suspense>
         </article>
-        <PrevAndNext rtl={isRTL} />
-        <Footer />
+        <Suspense fallback={<Skeleton.Button active size="small" />}>
+          <PrevAndNext rtl={isRTL} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Footer />
+        </Suspense>
       </Col>
     </DemoContext.Provider>
   );
