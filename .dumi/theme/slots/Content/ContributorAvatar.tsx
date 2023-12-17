@@ -13,10 +13,9 @@ interface ContributorAvatarProps {
   username?: string;
   url?: string;
   loading?: boolean;
-  title?: string;
 }
 
-const ContributorAvatar: React.FC<ContributorAvatarProps> = ({ username, url, loading, title }) => {
+const ContributorAvatar: React.FC<ContributorAvatarProps> = ({ username, url, loading }) => {
   if (loading) {
     return <AvatarPlaceholder />;
   }
