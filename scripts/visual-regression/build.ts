@@ -357,7 +357,8 @@ async function boot() {
   const newImgs = _.difference(currentImgFileList, baseImgFileList);
   if (newImgs.length) {
     console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
-    console.log(chalk.green('🆕 Added images list:\n'), prettyList(newImgs));
+    console.log(chalk.green('🆕 Added images list:\n'));
+    console.log(prettyList(newImgs));
     console.log('\n');
   }
 
@@ -368,10 +369,8 @@ async function boot() {
   }
 
   const sortedBadCases = badCases.sort((a, b) => b.weight - a.weight);
-  console.log(
-    chalk.red('⛔️ Failed cases:\n'),
-    prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)),
-  );
+  console.log(chalk.red('⛔️ Failed cases:\n'));
+  console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
   console.log('\n');
   // let job failed
   process.exit(1);
