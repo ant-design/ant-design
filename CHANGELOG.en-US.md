@@ -21,7 +21,7 @@ tag: vVERSION
 `2023-12-18`
 
 - 💄 修复 Tag 组件在 SSR 场景下的样式丢失问题。[#46500](https://github.com/ant-design/ant-design/pull/46500) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Table 删除 label 不必要的标题属性。[#46462](https://github.com/ant-design/ant-design/pull/46462) [@sunsunmonkey](https://github.com/sunsunmonkey)
+- 🐞 Form 删除 label 不必要的 title 属性。[#46462](https://github.com/ant-design/ant-design/pull/46462) [@sunsunmonkey](https://github.com/sunsunmonkey)
 - 🐞 Upload 的 `disabled` 属性不再对下载按钮生效。[#46454](https://github.com/ant-design/ant-design/pull/46454)
 - 💄 Upload.Dragger 增加一个水平内边距。[#46457](https://github.com/ant-design/ant-design/pull/46457)
 - 🐞 修复 Upload `actions` 的颜色问题。[#46456](https://github.com/ant-design/ant-design/pull/46456)
