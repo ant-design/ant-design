@@ -122,10 +122,10 @@ interface CountConfig {
 
 #### VisibilityToggle
 
-| Property        | Description          | Type    | Default | Version |
-| --------------- | -------------------- | ------- | ------- | ------- |
-| visible         | 用于手动控制密码显隐 | boolean | false   | 4.24    |
-| onVisibleChange | 显隐密码的回调       | boolean | -       | 4.24    |
+| Property        | Description          | Type              | Default | Version |
+| --------------- | -------------------- | ----------------- | ------- | ------- |
+| visible         | 用于手动控制密码显隐 | boolean           | false   | 4.24    |
+| onVisibleChange | 显隐密码的回调       | (visible) => void | -       | 4.24    |
 
 #### Input Methods
 
