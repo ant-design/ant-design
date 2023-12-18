@@ -139,12 +139,14 @@ function generateReport(
 ): [string, string] {
   const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
 
+  const passed = badCases.length === 0;
+
   const commonHeader = `
-## Visual Regression Report for PR #${prId}
+## Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
 > **Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
-  if (badCases.length === 0) {
+  if (passed) {
     const mdStr = [
       commonHeader,
       '------------------------',
@@ -225,11 +227,11 @@ async function boot() {
   );
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetRef = await getBranchLatestRef(targetBranch);
-  assert(targetRef, `Missing ref from ${targetBranch}`);
+  const targetCommitSha = await getBranchLatestRef(targetBranch);
+  assert(targetCommitSha, `Missing commit sha from ${targetBranch}`);
 
   if (!isLocalEnv) {
-    await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+    await downloadBaseSnapshots(targetCommitSha, baseImgSourceDir);
   } else if (!fse.existsSync(baseImgSourceDir)) {
     console.log(
       chalk.yellow(
@@ -321,7 +323,12 @@ async function boot() {
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef, prId);
+  const [reportMdStr, reportHtmlStr] = generateReport(
+    badCases,
+    targetBranch,
+    targetCommitSha,
+    prId,
+  );
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
 
@@ -343,7 +350,9 @@ async function boot() {
 
   const currentImgFileList = readPngs(currentImgSourceDir);
   /* --- text report stage --- */
-  console.log(chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}\n`));
+  console.log(
+    chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
+  );
   // new images
   const newImgs = _.difference(currentImgFileList, baseImgFileList);
   if (newImgs.length) {
