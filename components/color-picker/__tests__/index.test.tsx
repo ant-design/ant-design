@@ -441,7 +441,8 @@ describe('ColorPicker', () => {
       />,
     );
     expect(componentContainer.querySelector('.custom-panel')).toBeTruthy();
-    expect(componentContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner-content')).not.toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner')).toBeTruthy();
     expect(componentContainer).toMatchSnapshot();
   });
 
