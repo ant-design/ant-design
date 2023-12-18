@@ -79,21 +79,26 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       ...genFilledStyle(token),
       ...genBorderlessStyle(token),
 
+      '&-affix-wrapper': {
+        ...genBasicInputStyle(token),
+        padding: 0,
+
+        [`${componentCls}-suffix`]: {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: paddingInline,
+          bottom: 0,
+          zIndex: 1,
+          display: 'inline-flex',
+          alignItems: 'center',
+          margin: 'auto',
+        },
+      },
+
       '&-disabled': {
         '> textarea': {
           ...genDisabledStyle(token),
         },
-      },
-
-      [`&-affix-wrapper ${componentCls}-suffix`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineEnd: paddingInline,
-        bottom: 0,
-        zIndex: 1,
-        display: 'inline-flex',
-        alignItems: 'center',
-        margin: 'auto',
       },
 
       // ================= Input Area =================

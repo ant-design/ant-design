@@ -202,10 +202,14 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
             [`${prefixCls}-disabled`]: disabled,
             [`${prefixCls}-focused`]: focused,
             [`${prefixCls}-rtl`]: direction === 'rtl',
+          },
+          hashId,
+        ),
+        variant: classNames(
+          {
             [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, mergedStatus),
-          hashId,
         ),
         affixWrapper: hashId,
       }}
