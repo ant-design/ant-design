@@ -291,8 +291,7 @@ Array [
       style="width: 100%;"
     >
       <textarea
-        class="rc-textarea rc-textarea-disabled"
-        disabled=""
+        class="rc-textarea"
         placeholder="this is disabled Mentions"
         rows="1"
       />

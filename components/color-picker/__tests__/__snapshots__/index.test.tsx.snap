@@ -198,7 +198,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     class="ant-color-picker-input"
                   >
                     <span
-                      class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm"
+                      class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                     >
                       <span
                         class="ant-input-prefix"
@@ -213,7 +213,7 @@ exports[`ColorPicker Should panelRender work 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
+                    class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -482,7 +482,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   class="ant-color-picker-input"
                 >
                   <span
-                    class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm"
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                   >
                     <span
                       class="ant-input-prefix"
@@ -497,7 +497,7 @@ exports[`ColorPicker Should panelRender work 2`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
+                  class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
                 >
                   <div
                     class="ant-input-number-handler-wrap"

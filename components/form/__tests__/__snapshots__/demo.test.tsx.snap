@@ -11565,10 +11565,10 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-mentions-affix-wrapper"
+              class="ant-mentions-affix-wrapper ant-mentions-outlined ant-mentions-status-error"
             >
               <div
-                class="ant-mentions ant-mentions-outlined ant-mentions-status-error"
+                class="ant-mentions"
               >
                 <textarea
                   class="rc-textarea"

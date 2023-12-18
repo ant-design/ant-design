@@ -83,7 +83,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input"
+                class="ant-input ant-input-outlined"
                 id="content"
                 placeholder="请输入"
                 type="text"
@@ -404,7 +404,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               class="ant-color-picker-input"
                             >
                               <span
-                                class="ant-input-affix-wrapper ant-color-picker-hex-input ant-input-affix-wrapper-sm"
+                                class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
                               >
                                 <span
                                   class="ant-input-prefix"
@@ -419,7 +419,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               </span>
                             </div>
                             <div
-                              class="ant-input-number ant-input-number-sm ant-color-picker-steppers ant-color-picker-alpha-input"
+                              class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
                             >
                               <div
                                 class="ant-input-number-handler-wrap"
@@ -780,7 +780,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width: 100%;"
                             >
                               <div
@@ -881,7 +881,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width: 100%;"
                             >
                               <div
@@ -1018,7 +1018,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width: 100%;"
                             >
                               <div
@@ -1118,7 +1118,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width: 100%;"
                             >
                               <div
