@@ -333,13 +333,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         style="width: 20%;"
         type="text"
         value="0571"
       />
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
         style="width: 30%;"
         type="text"
         value="26888888"
@@ -353,7 +353,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-sm ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-sm ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="https://ant.design"
@@ -375,7 +375,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="https://ant.design"
@@ -397,7 +397,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         style="width: calc(100% - 200px);"
         type="text"
         value="git@github.com:ant-design/ant-design.git"
@@ -625,7 +625,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
         style="width: 50%;"
         type="text"
         value="Xihu District, Hangzhou"
@@ -872,7 +872,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item"
         style="width: 50%;"
         type="text"
         value="Xihu District, Hangzhou"
@@ -886,14 +886,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value="0571"
           />
@@ -932,14 +932,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
         style="width: 50%;"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <span
-            class="ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-outlined"
           >
             <input
               class="ant-input"
@@ -1012,14 +1012,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-last-item"
         style="width: 20%;"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value="+1"
           />
@@ -1206,13 +1206,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-compact-item"
         style="width: 50%;"
         type="text"
         value="input content"
       />
       <div
-        class="ant-input-number ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -1294,7 +1294,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         style="width: 50%;"
         type="text"
         value="input content"
@@ -3087,7 +3087,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <input
-        class="ant-input ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-compact-item"
         style="width: 30%;"
         type="text"
         value="input content"
@@ -3109,7 +3109,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         style="width: 30%;"
         type="text"
         value="input content"
@@ -4734,14 +4734,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </span>
       </div>
       <input
-        class="ant-input ant-input-compact-item"
+        class="ant-input ant-input-outlined ant-input-compact-item"
         placeholder="Minimum"
         style="width: 100px; text-align: center;"
         type="text"
         value=""
       />
       <input
-        class="ant-input ant-input-disabled site-input-split ant-input-compact-item"
+        class="ant-input ant-input-disabled ant-input-outlined site-input-split ant-input-compact-item"
         disabled=""
         placeholder="~"
         style="width: 30px; border-left: 0; border-right: 0; pointer-events: none;"
@@ -4749,7 +4749,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value=""
       />
       <input
-        class="ant-input site-input-right ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input ant-input-outlined site-input-right ant-input-compact-item ant-input-compact-last-item"
         placeholder="Maximum"
         style="width: 100px; text-align: center;"
         type="text"
@@ -8423,13 +8423,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="input here"
         type="text"
         value=""
       />
       <div
-        class="ant-input-number-group-wrapper ant-input-number-compact-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -8440,7 +8440,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             $
           </div>
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-outlined"
           >
             <div
               class="ant-input-number-handler-wrap"
@@ -8516,13 +8516,13 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-input-number-group-wrapper ant-input-number-compact-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
         >
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-outlined"
           >
             <div
               class="ant-input-number-handler-wrap"
@@ -9827,7 +9827,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -9838,7 +9838,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             http://
           </span>
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value="mysite"
           />
@@ -9866,13 +9866,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="prefix"
         type="text"
         value=""
       />
       <span
-        class="ant-input-group-wrapper ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10022,7 +10022,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
           </span>
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value="mysite"
           />
@@ -10243,13 +10243,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value=""
           />
@@ -10288,13 +10288,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </span>
       <span
-        class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value=""
           />
@@ -10369,13 +10369,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value="mysite"
           />
@@ -10413,13 +10413,13 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-last-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-last-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             placeholder="suffix"
             type="text"
             value=""
@@ -10458,7 +10458,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <span
-        class="ant-input-group-wrapper ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item ant-input-compact-first-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10469,7 +10469,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             http://
           </span>
           <span
-            class="ant-input-affix-wrapper"
+            class="ant-input-affix-wrapper ant-input-outlined"
           >
             <input
               class="ant-input"
@@ -10509,7 +10509,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         </span>
       </button>
       <span
-        class="ant-input-group-wrapper ant-input-compact-item"
+        class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-compact-item"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -10651,7 +10651,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             </div>
           </span>
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             type="text"
             value="mysite"
           />
@@ -10875,7 +10875,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <input
-        class="ant-input ant-input-compact-item ant-input-compact-first-item"
+        class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
         placeholder="Debug Popover context"
         type="text"
         value=""
@@ -10907,7 +10907,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               class="ant-popover-inner-content"
             >
               <input
-                class="ant-input"
+                class="ant-input ant-input-outlined"
                 placeholder="Left Border"
                 type="text"
                 value=""
@@ -11516,7 +11516,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 role="separator"
               />
               <div
-                class="ant-input-number"
+                class="ant-input-number ant-input-number-outlined"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -11720,7 +11720,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number-group-wrapper ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number-group-wrapper ant-input-number-group-wrapper-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-wrapper ant-input-number-group"
@@ -11731,7 +11731,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             +
           </div>
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-outlined"
           >
             <div
               class="ant-input-number-handler-wrap"
@@ -13159,7 +13159,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-input-number ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
+        class="ant-input-number ant-input-number-outlined ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-compact-last-item"
       >
         <div
           class="ant-input-number-handler-wrap"
@@ -13423,7 +13423,7 @@ Array [
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-compact-item ant-input-compact-first-item"
+          class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item"
           placeholder="Typing..."
           style="width: 90px;"
           type="text"
@@ -13462,7 +13462,7 @@ Array [
         class="ant-space-compact"
       >
         <div
-          class="ant-input-number ant-input-number-compact-item"
+          class="ant-input-number ant-input-number-outlined ant-input-number-compact-item"
         >
           <div
             class="ant-input-number-handler-wrap"
@@ -13692,14 +13692,14 @@ Array [
         class="ant-space-compact"
       >
         <span
-          class="ant-input-group-wrapper ant-input-search ant-input-compact-item"
+          class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-compact-item"
           style="width: 110px;"
         >
           <span
             class="ant-input-wrapper ant-input-group"
           >
             <input
-              class="ant-input"
+              class="ant-input ant-input-outlined"
               placeholder="Search"
               type="text"
               value=""
@@ -13751,7 +13751,7 @@ Array [
         class="ant-space-compact"
       >
         <input
-          class="ant-input ant-input-compact-item"
+          class="ant-input ant-input-outlined ant-input-compact-item"
           type="text"
           value="mysite"
         />

@@ -24,7 +24,8 @@ When a numeric value needs to be provided.
 <code src="./demo/digit.tsx">High precision decimals</code>
 <code src="./demo/formatter.tsx">Formatter</code>
 <code src="./demo/keyboard.tsx">Keyboard</code>
-<code src="./demo/variant.tsx">Variants</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/prefix.tsx">Prefix</code>
 <code src="./demo/status.tsx">Status</code>
@@ -60,7 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
 | value | The current value | number | - | - |
-| variant | Variants of Input | `outlined` \| `borderless` | `outlined` | 5.13.0 |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |

@@ -1,9 +1,7 @@
-import type { SharedComponentToken, SharedInputToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genBasicInputStyle,
-  genDisabledStyle,
   genPlaceholderStyle,
-  genStatusStyle,
   initComponentToken,
   initInputToken,
 } from '../../input/style';
@@ -11,6 +9,12 @@ import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
+import {
+  genBorderlessStyle,
+  genDisabledStyle,
+  genFilledStyle,
+  genOutlinedStyle,
+} from '../../input/style/variants';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -70,23 +74,31 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       whiteSpace: 'pre-wrap',
       verticalAlign: 'bottom',
 
-      ...genStatusStyle(token, componentCls),
+      // Variants
+      ...genOutlinedStyle(token),
+      ...genFilledStyle(token),
+      ...genBorderlessStyle(token),
+
+      '&-affix-wrapper': {
+        ...genBasicInputStyle(token),
+        padding: 0,
+
+        [`${componentCls}-suffix`]: {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: paddingInline,
+          bottom: 0,
+          zIndex: 1,
+          display: 'inline-flex',
+          alignItems: 'center',
+          margin: 'auto',
+        },
+      },
 
       '&-disabled': {
         '> textarea': {
           ...genDisabledStyle(token),
         },
-      },
-
-      [`&-affix-wrapper ${componentCls}-suffix`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineEnd: paddingInline,
-        bottom: 0,
-        zIndex: 1,
-        display: 'inline-flex',
-        alignItems: 'center',
-        margin: 'auto',
       },
 
       // ================= Input Area =================
@@ -221,7 +233,7 @@ export const prepareComponentToken: GetDefaultToken<'Mentions'> = (token) => ({
   dropdownHeight: 250,
   controlItemWidth: 100,
   zIndexPopup: token.zIndexPopupBase + 50,
-  itemPaddingVertical: token.controlHeight - token.fontHeight,
+  itemPaddingVertical: (token.controlHeight - token.fontHeight) / 2,
 });
 
 // ============================== Export ==============================

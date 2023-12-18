@@ -15496,7 +15496,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-status-error"
+              class="config-input config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15550,7 +15550,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-disabled config-input-status-error"
+              class="config-input config-input-disabled config-input-outlined config-input-status-error"
               disabled=""
               type="text"
               value=""
@@ -15605,7 +15605,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-lg config-input-status-error"
+              class="config-input config-input-lg config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15659,7 +15659,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-status-error"
+              class="config-input config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15713,7 +15713,7 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-sm config-input-status-error"
+              class="config-input config-input-sm config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15767,7 +15767,7 @@ exports[`ConfigProvider components Form normal 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-status-error"
+              class="ant-input ant-input-outlined ant-input-status-error"
               type="text"
               value=""
             />
@@ -15821,7 +15821,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
             class="prefix-Form-item-control-input-content"
           >
             <input
-              class="prefix-Form prefix-Form-status-error"
+              class="prefix-Form prefix-Form-outlined prefix-Form-status-error"
               type="text"
               value=""
             />
@@ -15931,18 +15931,18 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     class="config-input-group"
   >
     <input
-      class="config-input"
+      class="config-input config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search"
+      class="config-input-group-wrapper config-input-group-wrapper-outlined config-input-search"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input"
+          class="config-input config-input-outlined"
           type="text"
           value=""
         />
@@ -15982,7 +15982,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password"
+    class="config-input-affix-wrapper config-input-outlined config-input-password"
   >
     <input
       class="config-input"
@@ -16018,7 +16018,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <textarea
-    class="config-input"
+    class="config-input config-input-outlined"
   />
 </div>
 `;
@@ -16029,19 +16029,19 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-disabled"
+      class="config-input config-input-disabled config-input-outlined"
       disabled=""
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-group-wrapper-disabled"
+      class="config-input-group-wrapper config-input-group-wrapper-disabled config-input-group-wrapper-outlined config-input-search"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-disabled"
+          class="config-input config-input-disabled config-input-outlined"
           disabled=""
           type="text"
           value=""
@@ -16083,7 +16083,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-affix-wrapper-disabled config-input-password"
+    class="config-input-affix-wrapper config-input-disabled config-input-affix-wrapper-disabled config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-disabled"
@@ -16120,7 +16120,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     </span>
   </span>
   <textarea
-    class="config-input config-input-disabled"
+    class="config-input config-input-outlined config-input-disabled"
     disabled=""
   />
 </div>
@@ -16132,18 +16132,18 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-lg"
+      class="config-input config-input-lg config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-large config-input-group-wrapper-lg"
+      class="config-input-group-wrapper config-input-group-wrapper-lg config-input-group-wrapper-outlined config-input-search config-input-search-large"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-lg"
+          class="config-input config-input-lg config-input-outlined"
           type="text"
           value=""
         />
@@ -16183,7 +16183,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
+    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-lg"
@@ -16219,7 +16219,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-lg"
+    class="config-input config-input-lg config-input-outlined"
   />
 </div>
 `;
@@ -16230,18 +16230,18 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     class="config-input-group"
   >
     <input
-      class="config-input"
+      class="config-input config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-middle"
+      class="config-input-group-wrapper config-input-group-wrapper-outlined config-input-search config-input-search-middle"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input"
+          class="config-input config-input-outlined"
           type="text"
           value=""
         />
@@ -16281,7 +16281,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password"
+    class="config-input-affix-wrapper config-input-outlined config-input-password"
   >
     <input
       class="config-input"
@@ -16317,7 +16317,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <textarea
-    class="config-input"
+    class="config-input config-input-outlined"
   />
 </div>
 `;
@@ -16328,18 +16328,18 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-sm"
+      class="config-input config-input-sm config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-small config-input-group-wrapper-sm"
+      class="config-input-group-wrapper config-input-group-wrapper-sm config-input-group-wrapper-outlined config-input-search config-input-search-small"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-sm"
+          class="config-input config-input-sm config-input-outlined"
           type="text"
           value=""
         />
@@ -16379,7 +16379,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-sm"
+    class="config-input-affix-wrapper config-input-affix-wrapper-sm config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-sm"
@@ -16415,7 +16415,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-sm"
+    class="config-input config-input-sm config-input-outlined"
   />
 </div>
 `;
@@ -16426,18 +16426,18 @@ exports[`ConfigProvider components Input normal 1`] = `
     class="ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="ant-input-group-wrapper ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
     >
       <span
         class="ant-input-wrapper ant-input-group"
       >
         <input
-          class="ant-input"
+          class="ant-input ant-input-outlined"
           type="text"
           value=""
         />
@@ -16477,7 +16477,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-password"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
   >
     <input
       class="ant-input"
@@ -16513,7 +16513,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
 </div>
 `;
@@ -16524,18 +16524,18 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     class="prefix-Input"
   >
     <input
-      class="prefix-Input"
+      class="prefix-Input prefix-Input-outlined"
       type="text"
       value=""
     />
     <span
-      class="ant-input-group-wrapper prefix-Input"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined prefix-Input"
     >
       <span
         class="ant-input-wrapper ant-input-group"
       >
         <input
-          class="ant-input"
+          class="ant-input ant-input-outlined"
           type="text"
           value=""
         />
@@ -16575,7 +16575,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper prefix-Input"
+    class="ant-input-affix-wrapper ant-input-outlined prefix-Input"
   >
     <input
       class="ant-input"
@@ -16611,14 +16611,14 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     </span>
   </span>
   <textarea
-    class="prefix-Input"
+    class="prefix-Input prefix-Input-outlined"
   />
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber configProvider 1`] = `
 <div
-  class="config-input-number"
+  class="config-input-number config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16694,7 +16694,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-disabled"
+  class="config-input-number config-input-number-outlined config-input-number-disabled"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16771,7 +16771,7 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
 
 exports[`ConfigProvider components InputNumber configProvider componentSize large 1`] = `
 <div
-  class="config-input-number config-input-number-lg"
+  class="config-input-number config-input-number-lg config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16847,7 +16847,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
 
 exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
 <div
-  class="config-input-number"
+  class="config-input-number config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16923,7 +16923,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
 
 exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
 <div
-  class="config-input-number config-input-number-sm"
+  class="config-input-number config-input-number-sm config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16999,7 +16999,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
 
 exports[`ConfigProvider components InputNumber normal 1`] = `
 <div
-  class="ant-input-number"
+  class="ant-input-number ant-input-number-outlined"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -17075,7 +17075,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
 
 exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 <div
-  class="prefix-InputNumber"
+  class="prefix-InputNumber prefix-InputNumber-outlined"
 >
   <div
     class="prefix-InputNumber-handler-wrap"
