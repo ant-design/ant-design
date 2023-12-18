@@ -26,7 +26,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const mergedSteps = useMemo(
@@ -40,19 +40,21 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     [steps, type],
   );
 
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: true,
-    autoAdjustOverflow: true,
-    offset: token.marginXXS,
-    arrowWidth: token.sizePopupArrow,
-    borderRadius: token.borderRadius,
-  });
+  const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
+    getPlacements({
+      arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
+      autoAdjustOverflow: true,
+      offset: token.marginXXS,
+      arrowWidth: token.sizePopupArrow,
+      borderRadius: token.borderRadius,
+    });
 
   const customClassName = classNames(
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
+    cssVarCls,
     rootClassName,
   );
 

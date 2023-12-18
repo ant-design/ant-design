@@ -111,7 +111,7 @@ const CheckboxGroup = React.forwardRef(<T extends CheckboxValueType>(
   const groupPrefixCls = `${prefixCls}-group`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const domProps = omit(restProps, ['value', 'disabled']);
 
@@ -152,6 +152,7 @@ const CheckboxGroup = React.forwardRef(<T extends CheckboxValueType>(
     },
     className,
     rootClassName,
+    cssVarCls,
     rootCls,
     hashId,
   );

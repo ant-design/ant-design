@@ -36,6 +36,7 @@ export interface ListItemProps {
     callback: () => void,
     prefixCls: string,
     title?: string,
+    acceptUploadDisabled?: boolean,
   ) => React.ReactNode;
   itemRender?: ItemRender;
   onPreview: (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => void;
@@ -142,6 +143,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           () => onClose(file),
           prefixCls,
           locale.removeFile,
+          // acceptUploadDisabled is true, only remove icon will follow Upload disabled prop
+          // https://github.com/ant-design/ant-design/issues/46171
+          true,
         )
       : null;
 
@@ -195,17 +199,12 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           </span>,
           downloadOrDelete,
         ];
-    const previewStyle: React.CSSProperties = {
-      pointerEvents: 'none',
-      opacity: 0.5,
-    };
 
-    const previewIcon = showPreviewIcon ? (
+    const previewIcon = (showPreviewIcon && (file.url || file.thumbUrl)) ? (
       <a
         href={file.url || file.thumbUrl}
         target="_blank"
         rel="noopener noreferrer"
-        style={file.url || file.thumbUrl ? undefined : previewStyle}
         onClick={(e) => onPreview(file, e)}
         title={locale.previewFile}
       >

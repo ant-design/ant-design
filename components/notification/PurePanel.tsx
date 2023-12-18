@@ -100,10 +100,12 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const noticePrefixCls = `${prefixCls}-notice`;
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   return wrapCSSVar(
-    <div className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, rootCls)}>
+    <div
+      className={classNames(`${noticePrefixCls}-pure-panel`, hashId, className, cssVarCls, rootCls)}
+    >
       <PurePanelStyle prefixCls={prefixCls} />
       <Notice
         {...restProps}

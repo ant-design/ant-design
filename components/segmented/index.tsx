@@ -57,7 +57,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const { getPrefixCls, direction, segmented } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
   // Style
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const mergedSize = useSize(customSize);
@@ -93,6 +93,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...segmented?.style, ...style };

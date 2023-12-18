@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { ColorPicker, theme } from 'antd';
-import type { Color } from 'antd/es/color-picker';
+import { ColorPicker } from 'antd';
+import type { ColorPickerProps } from 'antd/es/color-picker';
 
 const PureRenderColorPicker = ColorPicker._InternalPanelDoNotUseOrYouWillBeFired;
 
 export default () => {
-  const { token } = theme.useToken();
-  const [color, setColor] = useState<Color | string>(token.colorPrimary);
+  const [color, setColor] = useState<ColorPickerProps['value']>('#1677ff');
 
   return (
     <div style={{ paddingLeft: 100 }}>

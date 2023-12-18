@@ -171,7 +171,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, rootCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [, token] = useToken();
 
@@ -210,6 +210,7 @@ const Dropdown: CompoundedComponent = (props) => {
     overlayClassName,
     rootClassName,
     hashId,
+    cssVarCls,
     rootCls,
     dropdown?.className,
     { [`${prefixCls}-rtl`]: direction === 'rtl' },
@@ -253,7 +254,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
-        rootClassName={rootCls}
+        rootClassName={cssVarCls}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />

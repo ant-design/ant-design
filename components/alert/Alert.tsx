@@ -127,7 +127,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   const { getPrefixCls, direction, alert } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
-  const [wrapCSSVar, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -169,6 +169,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     alert?.className,
     className,
     rootClassName,
+    cssVarCls,
     hashId,
   );
 

@@ -4,9 +4,9 @@ import { Select, Space } from 'antd';
 const App: React.FC = () => (
   <Space wrap>
     <Select
-      defaultValue="lucy"
+      placeholder="Borderless"
       style={{ width: 120 }}
-      bordered={false}
+      variant="borderless"
       options={[
         { value: 'jack', label: 'Jack' },
         { value: 'lucy', label: 'Lucy' },
@@ -14,10 +14,10 @@ const App: React.FC = () => (
       ]}
     />
     <Select
-      defaultValue="lucy"
+      placeholder="Borderless"
       style={{ width: 120 }}
       disabled
-      bordered={false}
+      variant="borderless"
       options={[{ value: 'lucy', label: 'Lucy' }]}
     />
   </Space>

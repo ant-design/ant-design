@@ -213,7 +213,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const rootPrefixCls = getPrefixCls();
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapSelectCSSVar, hashId] = useSelectStyle(prefixCls, rootCls);
+  const [wrapSelectCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const cascaderRootCls = useCSSVarCls(cascaderPrefixCls);
   const [wrapCascaderCSSVar] = useStyle(cascaderPrefixCls, cascaderRootCls);
 
@@ -235,6 +235,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     rootCls,
     cascaderRootCls,
     hashId,
+    cssVarCls,
   );
 
   // ==================== Search =====================
@@ -318,6 +319,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
         rootCls,
         cascaderRootCls,
         hashId,
+        cssVarCls,
       )}
       disabled={mergedDisabled}
       style={{ ...cascader?.style, ...style }}

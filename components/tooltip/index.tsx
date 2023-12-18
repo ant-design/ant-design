@@ -274,7 +274,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [wrapCSSVar, hashId] = useStyle(prefixCls, !injectFromPopover);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -292,6 +292,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     colorInfo.className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   // ============================ zIndex ============================
