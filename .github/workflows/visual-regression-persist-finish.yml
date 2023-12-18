@@ -87,8 +87,6 @@ jobs:
 
       - name: Persist Image Snapshot to OSS
         if: github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature')
-        id: persist
-        continue-on-error: true
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
