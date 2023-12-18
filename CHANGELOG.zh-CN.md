@@ -21,7 +21,6 @@ tag: vVERSION
 `2023-12-18`
 
 - 💄 Fix Tag that style would be missing in SSR. [#46500](https://github.com/ant-design/ant-design/pull/46500) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Form remove unnecessary title attributes for label in Form. [#46462](https://github.com/ant-design/ant-design/pull/46462) [@sunsunmonkey](https://github.com/sunsunmonkey)
 - 🐞 Upload `disabled` prop should not affect download icon. [#46454](https://github.com/ant-design/ant-design/pull/46454)
 - 💄 Upload.Dragger add vertical padding style. [#46457](https://github.com/ant-design/ant-design/pull/46457)
 - 🐞 Fix Upload actions color issue. [#46456](https://github.com/ant-design/ant-design/pull/46456)
