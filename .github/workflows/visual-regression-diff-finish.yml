@@ -127,8 +127,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            ## Visual-Regression Diff Failed
-            Visual-diff report job conclusion: ${{ fromJSON(needs.upstream-workflow-summary.outputs.job-status) }}
+            ## Visual Regression Build for PR #${{ steps.pr.outputs.id }} Failed ❌
+            Potential causes:
+              - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.job-status }}
+              - `report upload` status: ${{ steps.report.outcome }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}

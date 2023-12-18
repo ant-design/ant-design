@@ -21,6 +21,8 @@ import { assert } from 'console';
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
+const isLocalEnv = process.env.LOCAL;
+
 const compareScreenshots = async (
   baseImgPath: string,
   currentImgPath: string,
@@ -61,7 +63,7 @@ const compareScreenshots = async (
     diffPng.pack().pipe(fs.createWriteStream(diffImagePath));
   }
 
-  return (mismatchedPixels / (targetWidth * targetHeight)) * 100;
+  return mismatchedPixels / (targetWidth * targetHeight);
 };
 
 const readPngs = (dir: string) => fs.readdirSync(dir).filter((n) => n.endsWith('.png'));
@@ -106,6 +108,10 @@ async function downloadBaseSnapshots(ref: string, targetDir: string) {
 interface IBadCase {
   type: 'removed' | 'changed';
   filename: string;
+  /**
+   * 0 - 1
+   */
+  weight: number;
 }
 
 function md2Html(md: string) {
@@ -131,14 +137,16 @@ function generateReport(
   targetRef: string,
   prId: string,
 ): [string, string] {
-  const publicPath = `${ossDomain}/pr-${prId}`;
+  const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
+
+  const passed = badCases.length === 0;
 
   const commonHeader = `
-## Visual Regression Report for PR #${prId}
+## Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
 > **Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
-  if (badCases.length === 0) {
+  if (passed) {
     const mdStr = [
       commonHeader,
       '------------------------',
@@ -209,20 +217,31 @@ ${commonHeader}
 async function boot() {
   const { prId, baseRef: targetBranch = 'master' } = parseArgs();
 
+  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
+
+  /* --- prepare stage --- */
   console.log(
     chalk.green(
-      'Preparing image snapshots from latest `%s` branch for pr %s\n',
-      targetBranch,
-      prId,
+      `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
     ),
   );
-  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetRef = await getBranchLatestRef(targetBranch);
-  assert(targetRef, `Missing ref from ${targetBranch}`);
+  const targetCommitSha = await getBranchLatestRef(targetBranch);
+  assert(targetCommitSha, `Missing commit sha from ${targetBranch}`);
 
-  await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  if (!isLocalEnv) {
+    await downloadBaseSnapshots(targetCommitSha, baseImgSourceDir);
+  } else if (!fse.existsSync(baseImgSourceDir)) {
+    console.log(
+      chalk.yellow(
+        `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
+          baseImgSourceDir,
+        )}\` from latest \`${targetBranch}\` branch`,
+      ),
+    );
+    process.exit(1);
+  }
 
   const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
 
@@ -240,24 +259,8 @@ async function boot() {
   console.log('\n');
 
   const baseImgFileList = readPngs(baseImgSourceDir);
-  const currentImgFileList = readPngs(currentImgSourceDir);
 
-  const deletedImgs = _.difference(baseImgFileList, currentImgFileList);
-  if (deletedImgs.length) {
-    console.log(
-      chalk.red('⛔️ Missing images compare to %s:\n%s'),
-      targetBranch,
-      prettyList(deletedImgs),
-    );
-    console.log('\n');
-  }
-  // ignore new images
-  const newImgs = _.difference(currentImgFileList, baseImgFileList);
-  if (newImgs.length) {
-    console.log(chalk.green('🆕 Added images:\n'), prettyList(newImgs));
-    console.log('\n');
-  }
-
+  /* --- compare stage --- */
   const badCases: IBadCase[] = [];
 
   // compare cssinjs and css-var png from pr
@@ -283,6 +286,7 @@ async function boot() {
         badCases.push({
           type: 'removed',
           filename: compareImgName,
+          weight: 1,
         });
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
         continue;
@@ -298,7 +302,7 @@ async function boot() {
         console.log(
           'Mismatched pixels for:',
           chalk.yellow(compareImgName),
-          `${mismatchedPxPercent.toFixed(2)}%\n`,
+          `${(mismatchedPxPercent * 100).toFixed(2)}%\n`,
         );
         // copy compare imgs(x2) to report dir
         await fse.copy(baseImgPath, path.join(baseImgReportDir, compareImgName));
@@ -307,6 +311,7 @@ async function boot() {
         badCases.push({
           type: 'changed',
           filename: compareImgName,
+          weight: mismatchedPxPercent,
         });
       } else {
         console.log('Passed for: %s\n', chalk.green(compareImgName));
@@ -314,15 +319,16 @@ async function boot() {
     }
   }
 
-  if (badCases.length) {
-    console.log(chalk.red('⛔️ Failed cases:\n'), prettyList(badCases.map((i) => i.filename)));
-    console.log('\n');
-  }
-
+  /* --- generate report stage --- */
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef, prId);
+  const [reportMdStr, reportHtmlStr] = generateReport(
+    badCases,
+    targetBranch,
+    targetCommitSha,
+    prId,
+  );
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
 
@@ -341,6 +347,33 @@ async function boot() {
     },
     await fse.readdir(reportDir),
   );
+
+  const currentImgFileList = readPngs(currentImgSourceDir);
+  /* --- text report stage --- */
+  console.log(
+    chalk.blue(`📊 Text report from pr #${prId} comparing to ${targetBranch}@${targetCommitSha}\n`),
+  );
+  // new images
+  const newImgs = _.difference(currentImgFileList, baseImgFileList);
+  if (newImgs.length) {
+    console.log(chalk.green(`🆕 ${newImgs.length} images added from this pr`));
+    console.log(chalk.green('🆕 Added images list:\n'));
+    console.log(prettyList(newImgs));
+    console.log('\n');
+  }
+
+  if (!badCases.length) {
+    console.log(chalk.green('🎉 All passed!'));
+    console.log('\n');
+    return;
+  }
+
+  const sortedBadCases = badCases.sort((a, b) => b.weight - a.weight);
+  console.log(chalk.red('⛔️ Failed cases:\n'));
+  console.log(prettyList(sortedBadCases.map((i) => `[${i.type}] ${i.filename}`)));
+  console.log('\n');
+  // let job failed
+  process.exit(1);
 }
 
 boot();

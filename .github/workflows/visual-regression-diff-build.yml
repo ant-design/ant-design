@@ -93,6 +93,7 @@ jobs:
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
         uses: actions/upload-artifact@v3
+        if: ${{ always() }}
         with:
           name: visual-regression-report
           path: visualRegressionReport.tar.gz
@@ -100,7 +101,7 @@ jobs:
       # Upload git ref for next workflow `visual-regression-diff-finish` use
       - name: Save persist key
         if: ${{ always() }}
-      # should be pr id
+        # should be pr id
         run: echo ${{ github.event.number }} > ./visual-regression-pr-id.txt
 
       - name: Upload persist key
