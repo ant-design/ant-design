@@ -20,7 +20,6 @@ import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useVariant from '../_util/hooks/useVariants';
 import { devUseWarning } from '../_util/warning';
-import { hasPrefixSuffix } from './utils';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -104,7 +103,6 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
-  const hasAffix = hasPrefixSuffix(props) || hasFeedback;
 
   return wrapCSSVar(
     <RcTextArea
@@ -116,24 +114,26 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         ...classes,
         textarea: classNames(
           {
-            [`${prefixCls}-${variant}`]: !hasAffix && enableVariantCls,
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },
-          getStatusClassNames(prefixCls, mergedStatus),
           hashId,
           classes?.textarea,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
         ),
         affixWrapper: classNames(
           `${prefixCls}-textarea-affix-wrapper`,
           {
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: enableVariantCls,
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
           },
-          getStatusClassNames(prefixCls, mergedStatus),
           hashId,
         ),
       }}

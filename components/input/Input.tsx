@@ -233,21 +233,23 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: !inputHasPrefixSuffix && enableVariantCls,
           },
-          !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,
           input?.classNames?.input,
           hashId,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
         ),
         affixWrapper: classNames(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
-          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
           hashId,
         ),
         wrapper: classNames(

@@ -15,10 +15,9 @@ import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { InputVariant } from '../input/Input';
+import { InputVariants } from '../input/Input';
 import { devUseWarning } from '../_util/warning';
 import useVariant from '../_util/hooks/useVariants';
-import { InputVariants } from '../input/Input';
-import { hasPrefixSuffix } from '../input/utils';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
@@ -113,17 +112,14 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;
-  const hasAffix = hasPrefixSuffix(props) || hasFeedback;
 
   const inputNumberClass = classNames(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${variant}`]: !hasAffix && enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
-    getStatusClassNames(prefixCls, mergedStatus),
     hashId,
   );
   const wrapperClassName = `${prefixCls}-group`;
@@ -160,13 +156,18 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }
       classNames={{
         input: inputNumberClass,
-        affixWrapper: classNames(
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+
           getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+        ),
+        affixWrapper: classNames(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           hashId,
         ),
