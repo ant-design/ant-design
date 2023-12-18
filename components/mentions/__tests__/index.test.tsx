@@ -94,6 +94,11 @@ describe('Mentions', () => {
     expect(textareaInstance.value).toEqual('');
   });
 
+  it('should support custom clearIcon', () => {
+    const { container } = render(<Mentions allowClear={{ clearIcon: 'clear' }} />);
+    expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
+  });
+
   it('warning if use Mentions.Option', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
