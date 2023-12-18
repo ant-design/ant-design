@@ -1499,7 +1499,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined"
             >
               <input
                 aria-required="true"
@@ -1544,7 +1544,7 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined"
             >
               <input
                 aria-required="true"
@@ -2518,7 +2518,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item ant-input-number-disabled"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined ant-input-number-disabled"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -5159,7 +5159,7 @@ exports[`renders components/form/demo/nest-messages.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -5696,7 +5696,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
             >
               <input
                 aria-required="true"
@@ -5765,7 +5765,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
             >
               <input
                 aria-required="true"
@@ -6134,7 +6134,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 class="ant-input-number-wrapper ant-input-number-group"
               >
                 <div
-                  class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item"
+                  class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -6367,12 +6367,12 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-show-count ant-input-show-count"
+              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined"
               data-count="0 / 100"
             >
               <textarea
                 aria-required="true"
-                class="ant-input ant-input-outlined"
+                class="ant-input"
                 id="register_intro"
                 maxlength="100"
               />
@@ -7388,7 +7388,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -8182,7 +8182,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item"
+                class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -8674,7 +8674,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -10041,7 +10041,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-validating ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-validating"
             >
               <input
                 class="ant-input"
@@ -10109,7 +10109,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success"
             >
               <input
                 class="ant-input"
@@ -10177,7 +10177,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning"
             >
               <input
                 class="ant-input"
@@ -10245,7 +10245,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error"
             >
               <input
                 class="ant-input"
@@ -11130,11 +11130,11 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number-affix-wrapper ant-input-number-status-success ant-input-number-has-feedback ant-input-number-outlined"
+              class="ant-input-number-affix-wrapper ant-input-number-outlined ant-input-number-status-success ant-input-number-has-feedback"
               style="width:100%"
             >
               <div
-                class="ant-input-number ant-input-number-in-form-item ant-input-number-status-success"
+                class="ant-input-number ant-input-number-in-form-item"
               >
                 <div
                   class="ant-input-number-handler-wrap"
@@ -11265,7 +11265,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-success"
             >
               <input
                 class="ant-input"
@@ -11358,7 +11358,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-has-feedback ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-warning ant-input-password"
             >
               <input
                 class="ant-input"
@@ -11448,7 +11448,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-has-feedback ant-input-password"
+              class="ant-input-affix-wrapper ant-input-outlined ant-input-status-error ant-input-password"
             >
               <input
                 class="ant-input"
@@ -11635,11 +11635,11 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-outlined ant-input-textarea-show-count ant-input-status-error ant-input-show-count ant-input-textarea-allow-clear"
+              class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-textarea-allow-clear ant-input-outlined ant-input-status-error"
               data-count="0"
             >
               <textarea
-                class="ant-input ant-input-outlined ant-input-status-error"
+                class="ant-input"
               />
               <span
                 class="ant-input-suffix"
@@ -11762,7 +11762,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined"
             >
               <input
                 class="ant-input"
@@ -11807,7 +11807,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined"
             >
               <input
                 class="ant-input"
@@ -11852,7 +11852,7 @@ exports[`renders components/form/demo/validate-trigger.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-outlined ant-input-has-feedback"
+              class="ant-input-affix-wrapper ant-input-outlined"
             >
               <input
                 class="ant-input"
@@ -11999,7 +11999,7 @@ exports[`renders components/form/demo/without-form-create.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number ant-input-number-outlined ant-input-number-in-form-item"
+              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
             >
               <div
                 class="ant-input-number-handler-wrap"

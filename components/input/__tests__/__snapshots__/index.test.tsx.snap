@@ -410,7 +410,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
     </span>
   </span>
   <input
-    class="rc-input rc-input-outlined custom-input custom-class"
+    class="rc-input custom-input rc-input-outlined custom-class"
     style="color: red; background-color: red;"
     type="text"
     value="123"
@@ -423,7 +423,7 @@ exports[`Input allowClear should support classNames and styles 1`] = `
       class="rc-input-wrapper rc-input-group"
     >
       <input
-        class="rc-input rc-input-outlined custom-input"
+        class="rc-input custom-input rc-input-outlined"
         style="color: red;"
         type="text"
         value="123"

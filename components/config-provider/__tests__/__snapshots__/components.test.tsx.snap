@@ -16219,7 +16219,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-outlined config-input-lg"
+    class="config-input config-input-lg config-input-outlined"
   />
 </div>
 `;
@@ -16415,7 +16415,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-outlined config-input-sm"
+    class="config-input config-input-sm config-input-outlined"
   />
 </div>
 `;
