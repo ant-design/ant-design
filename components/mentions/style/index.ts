@@ -85,28 +85,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
       '&-affix-wrapper': {
         ...genBasicInputStyle(token),
-        padding: 0,
-
-        [`${componentCls}-suffix`]: {
-          position: 'absolute',
-          top: 0,
-          insetInlineEnd: paddingInline,
-          bottom: 0,
-          zIndex: 1,
-          display: 'inline-flex',
-          alignItems: 'center',
-          margin: 'auto',
-        },
-      },
-
-      '&-disabled': {
-        '> textarea': {
-          ...genDisabledStyle(token),
-        },
-      },
-
-      [`&-affix-wrapper`]: {
-        ...genBasicInputStyle(token),
         display: 'inline-flex',
         padding: 0,
 
@@ -156,6 +134,12 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           '&-hidden': {
             visibility: 'hidden',
           },
+        },
+      },
+
+      '&-disabled': {
+        '> textarea': {
+          ...genDisabledStyle(token),
         },
       },
 
