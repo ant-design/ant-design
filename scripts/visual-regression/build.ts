@@ -21,6 +21,8 @@ import { assert } from 'console';
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
+const isLocalEnv = process.env.LOCAL;
+
 const compareScreenshots = async (
   baseImgPath: string,
   currentImgPath: string,
@@ -112,16 +114,26 @@ function md2Html(md: string) {
   return remark().use(remarkGfm).use(remarkHtml).processSync(md).toString();
 }
 
+function parseArgs() {
+  // parse args from -- --pr-id=123 --base_ref=feature
+  const argv = minimist(process.argv.slice(2));
+  const prId = argv['pr-id'];
+  assert(prId, 'Missing --pr-id');
+  const baseRef = argv['base-ref'];
+  assert(baseRef, 'Missing --base-ref');
+  return {
+    prId,
+    baseRef,
+  };
+}
+
 function generateReport(
   badCases: IBadCase[],
   targetBranch: string,
   targetRef: string,
+  prId: string,
 ): [string, string] {
-  // parse args from -- --pr-id=123
-  const argv = minimist(process.argv.slice(2));
-  const prId = argv['pr-id'];
-  assert(prId, 'Missing --pr-id');
-  const publicPath = `${ossDomain}/pr-${prId}`;
+  const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
 
   const commonHeader = `
 ## Visual Regression Report for PR #${prId}
@@ -197,16 +209,32 @@ ${commonHeader}
 }
 
 async function boot() {
-  const targetBranch = 'master';
+  const { prId, baseRef: targetBranch = 'master' } = parseArgs();
 
-  console.log(chalk.green('Preparing image snapshots from latest `%s` branch\n', targetBranch));
   const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
+
+  console.log(
+    chalk.green(
+      `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
+    ),
+  );
   await fse.ensureDir(baseImgSourceDir);
 
   const targetRef = await getBranchLatestRef(targetBranch);
   assert(targetRef, `Missing ref from ${targetBranch}`);
 
-  await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  if (!isLocalEnv) {
+    await downloadBaseSnapshots(targetRef, baseImgSourceDir);
+  } else if (!fse.existsSync(baseImgSourceDir)) {
+    console.log(
+      chalk.yellow(
+        `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
+          baseImgSourceDir,
+        )}\` from latest \`${targetBranch}\` branch`,
+      ),
+    );
+    process.exit(1);
+  }
 
   const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
 
@@ -306,7 +334,7 @@ async function boot() {
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
   await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
-  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef);
+  const [reportMdStr, reportHtmlStr] = generateReport(badCases, targetBranch, targetRef, prId);
   await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
 
