@@ -15,7 +15,7 @@ const genTagStatusStyle = (
 ): CSSInterpolation => {
   const capitalizedCssVariableType = capitalize<CssVariableType>(cssVariableType);
   return {
-    [`${token.componentCls}-${status}`]: {
+    [`${token.componentCls}${token.componentCls}-${status}`]: {
       color: token[`color${cssVariableType}`],
       background: token[`color${capitalizedCssVariableType}Bg`],
       borderColor: token[`color${capitalizedCssVariableType}Border`],

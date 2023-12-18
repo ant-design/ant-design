@@ -1,12 +1,25 @@
-import { RightOutlined, LinkOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import React, { useMemo, useState } from 'react';
+import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
+import { ConfigProvider, Popover, Table, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
-import React, { useMemo, useState } from 'react';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
-import { ConfigProvider, Table, Popover, Typography } from 'antd';
+
 import useLocale from '../../../hooks/useLocale';
 import { useColumns } from '../TokenTable';
+
+const compare = (token1: string, token2: string) => {
+  const hasColor1 = token1.toLowerCase().includes('color');
+  const hasColor2 = token2.toLowerCase().includes('color');
+  if (hasColor1 && !hasColor2) {
+    return -1;
+  }
+  if (!hasColor1 && hasColor2) {
+    return 1;
+  }
+  return token1 < token2 ? -1 : 1;
+};
 
 const defaultToken = getDesignToken();
 
@@ -18,6 +31,8 @@ const locales = {
     value: '默认值',
     componentToken: '组件 Token',
     globalToken: '全局 Token',
+    componentComment: '这里是你的组件 token',
+    globalComment: '这里是你的全局 token',
     help: '如何定制？',
     customizeTokenLink: '/docs/react/customize-theme-cn#修改主题变量',
     customizeComponentTokenLink: '/docs/react/customize-theme-cn#修改组件变量',
@@ -29,6 +44,8 @@ const locales = {
     value: 'Default Value',
     componentToken: 'Component Token',
     globalToken: 'Global Token',
+    componentComment: 'here is your component tokens',
+    globalComment: 'here is your global tokens',
     help: 'How to use?',
     customizeTokenLink: '/docs/react/customize-theme#customize-design-token',
     customizeComponentTokenLink: 'docs/react/customize-theme#customize-component-token',
@@ -46,13 +63,13 @@ const useStyle = createStyles(() => ({
   `,
   arrowIcon: css`
     font-size: 16px;
-    margin-right: 8px;
+    margin-inline-end: 8px;
     & svg {
       transition: all 0.3s;
     }
   `,
   help: css`
-    margin-left: 8px;
+    margin-inline-start: 8px;
     font-size: 12px;
     font-weight: normal;
     color: #999;
@@ -69,16 +86,14 @@ interface SubTokenTableProps {
   helpLink: string;
   tokens: string[];
   component?: string;
+  comment?: {
+    componentComment?: string;
+    globalComment?: string;
+  };
 }
 
-const SubTokenTable: React.FC<SubTokenTableProps> = ({
-  defaultOpen,
-  tokens,
-  title,
-  helpText,
-  helpLink,
-  component,
-}) => {
+const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
+  const { defaultOpen, tokens, title, helpText, helpLink, component, comment } = props;
   const [, lang] = useLocale(locales);
   const token = useTheme();
   const columns = useColumns();
@@ -92,24 +107,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({
   }
 
   const data = tokens
-    .sort(
-      component
-        ? undefined
-        : (token1, token2) => {
-            const hasColor1 = token1.toLowerCase().includes('color');
-            const hasColor2 = token2.toLowerCase().includes('color');
-
-            if (hasColor1 && !hasColor2) {
-              return -1;
-            }
-
-            if (!hasColor1 && hasColor2) {
-              return 1;
-            }
-
-            return token1 < token2 ? -1 : 1;
-          },
-    )
+    .sort(component ? undefined : compare)
     .map((name) => {
       const meta = component
         ? tokenMeta.components[component].find((item) => item.token === name)
@@ -133,7 +131,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({
   theme={{
     components: {
       ${component}: {
-        /* here is your component tokens */
+        /* ${comment?.componentComment} */
       },
     },
   }}
@@ -143,7 +141,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({
     : `<ConfigProvider
   theme={{
     token: {
-      /* here is your global tokens */
+      /* ${comment?.globalComment} */
     },
   }}
 >
@@ -161,16 +159,17 @@ const SubTokenTable: React.FC<SubTokenTableProps> = ({
             popupStyle={{ width: 400 }}
             content={
               <Typography>
+                {/* <SourceCode lang="jsx">{code}</SourceCode> */}
                 <pre style={{ fontSize: 12 }}>{code}</pre>
                 <a href={helpLink} target="_blank" rel="noreferrer">
-                  <LinkOutlined style={{ marginRight: 4 }} />
+                  <LinkOutlined style={{ marginInlineEnd: 4 }} />
                   {helpText}
                 </a>
               </Typography>
             }
           >
             <span className={styles.help}>
-              <QuestionCircleOutlined style={{ marginRight: 3 }} />
+              <QuestionCircleOutlined style={{ marginInlineEnd: 4 }} />
               {helpText}
             </span>
           </Popover>
@@ -217,12 +216,16 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
     <>
       {tokenMeta.components[component] && (
         <SubTokenTable
+          defaultOpen
           title={locale.componentToken}
           helpText={locale.help}
           helpLink={locale.customizeTokenLink}
           tokens={tokenMeta.components[component].map((item) => item.token)}
           component={component}
-          defaultOpen
+          comment={{
+            componentComment: locale.componentComment,
+            globalComment: locale.globalComment,
+          }}
         />
       )}
       <SubTokenTable
@@ -230,6 +233,10 @@ const ComponentTokenTable: React.FC<ComponentTokenTableProps> = ({ component }) 
         helpText={locale.help}
         helpLink={locale.customizeComponentTokenLink}
         tokens={mergedGlobalTokens}
+        comment={{
+          componentComment: locale.componentComment,
+          globalComment: locale.globalComment,
+        }}
       />
     </>
   );
