@@ -1426,7 +1426,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
           class="ant-space-item"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-outlined"
             placeholder="Please enter item"
             type="text"
             value=""
@@ -1796,7 +1796,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       style="width: 100px;"
       type="text"
       value="222"

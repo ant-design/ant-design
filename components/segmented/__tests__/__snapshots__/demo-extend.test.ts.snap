@@ -1266,7 +1266,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       placeholder="default size"
       style="width: 150px;"
       type="text"

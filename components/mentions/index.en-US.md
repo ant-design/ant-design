@@ -35,6 +35,7 @@ return (
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/async.tsx">Asynchronous loading</code>
 <code src="./demo/form.tsx">With Form</code>
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>
@@ -66,6 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |  |
 | value | Set value of mentions | string | - |  |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onBlur | Trigger when mentions lose focus | () => void | - |  |
 | onChange | Trigger when value changed | (text: string) => void | - |  |
 | onFocus | Trigger when mentions get focus | () => void | - |  |

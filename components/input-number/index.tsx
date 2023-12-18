@@ -15,9 +15,9 @@ import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { InputVariant } from '../input/Input';
+import { InputVariants } from '../input/Input';
 import { devUseWarning } from '../_util/warning';
 import useVariant from '../_util/hooks/useVariants';
-import { InputVariants } from '../input/Input';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
@@ -32,7 +32,10 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   bordered?: boolean;
   status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
-  /** @default "outlined" */
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
   variant?: InputVariant;
 }
 
@@ -107,21 +110,19 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
+
   const inputNumberClass = classNames(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
-    getStatusClassNames(prefixCls, mergedStatus),
     hashId,
   );
   const wrapperClassName = `${prefixCls}-group`;
-
-  // eslint-disable-next-line react/jsx-no-useless-fragment
-  const suffixNode = hasFeedback && <>{feedbackIcon}</>;
 
   const element = (
     <RcInputNumber
@@ -155,30 +156,33 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       }
       classNames={{
         input: inputNumberClass,
-      }}
-      classes={{
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+
+          getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+        ),
         affixWrapper: classNames(
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
           },
           hashId,
         ),
         wrapper: classNames(
           {
             [`${wrapperClassName}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
           },
           hashId,
         ),
-        group: classNames(
+        groupWrapper: classNames(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
           hashId,
