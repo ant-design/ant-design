@@ -20,6 +20,7 @@ import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useVariant from '../_util/hooks/useVariants';
 import { devUseWarning } from '../_util/warning';
+import { hasPrefixSuffix } from './utils';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -103,6 +104,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+  const hasAffix = hasPrefixSuffix(props) || hasFeedback;
 
   return wrapCSSVar(
     <RcTextArea
@@ -114,7 +116,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
         ...classes,
         textarea: classNames(
           {
-            [`${prefixCls}-${variant}`]: enableVariantCls,
+            [`${prefixCls}-${variant}`]: !hasAffix && enableVariantCls,
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },

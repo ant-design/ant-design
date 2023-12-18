@@ -195,7 +195,7 @@ const genBaseFilledStyle = (
   borderStyle: token.lineType,
   borderColor: 'transparent',
 
-  [`input&, & > input`]: {
+  [`input&, & > input, textarea&, & > textarea`]: {
     color: options?.inputColor,
   },
 

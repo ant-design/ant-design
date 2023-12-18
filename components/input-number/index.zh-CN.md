@@ -26,6 +26,7 @@ demo:
 <code src="./demo/formatter.tsx">格式化展示</code>
 <code src="./demo/keyboard.tsx">键盘行为</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
 <code src="./demo/prefix.tsx">前缀</code>
 <code src="./demo/status.tsx">自定义状态</code>

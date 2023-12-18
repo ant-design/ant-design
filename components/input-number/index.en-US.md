@@ -25,6 +25,7 @@ When a numeric value needs to be provided.
 <code src="./demo/formatter.tsx">Formatter</code>
 <code src="./demo/keyboard.tsx">Keyboard</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/prefix.tsx">Prefix</code>
 <code src="./demo/status.tsx">Status</code>

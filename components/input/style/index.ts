@@ -794,6 +794,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
           fontSize: 'inherit',
           border: 'none',
           outline: 'none',
+          background: 'transparent',
 
           '&:focus': {
             boxShadow: 'none !important',

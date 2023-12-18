@@ -13,7 +13,6 @@ import type { ComponentToken, InputNumberToken } from './token';
 import { formatComponentToken, prepareComponentToken } from './token';
 import {
   genBorderlessStyle,
-  genDisabledStyle,
   genFilledGroupStyle,
   genFilledStyle,
   genOutlinedGroupStyle,
@@ -175,10 +174,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             // Variants
             ...genOutlinedGroupStyle(token),
             ...genFilledGroupStyle(token),
-
-            [`${componentCls}-wrapper-disabled > ${componentCls}-group-addon`]: {
-              ...genDisabledStyle(token),
-            },
 
             // Fix the issue of using icons in Space Compact mode
             // https://github.com/ant-design/ant-design/issues/45764

@@ -261,7 +261,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-group-wrapper-disabled`]: mergedDisabled,
             [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
