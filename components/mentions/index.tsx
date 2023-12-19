@@ -21,7 +21,7 @@ import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { InputVariant } from '../input/Input';
 import { InputVariants } from '../input/Input';
-import useAllowClear from '../_util/hooks/useAllowClear';
+import getAllowClear from '../_util/hooks/getAllowClear';
 import useVariant from '../_util/hooks/useVariants';
 
 export const { Option } = RcMentions;
@@ -165,7 +165,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
-  const mergedAllowClear = useAllowClear(allowClear);
+  const mergedAllowClear = getAllowClear(allowClear);
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);

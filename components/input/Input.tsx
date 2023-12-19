@@ -17,7 +17,7 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useAllowClear from '../_util/hooks/useAllowClear';
+import getAllowClear from '../_util/hooks/getAllowClear';
 import useVariant from '../_util/hooks/useVariants';
 
 export interface InputFocusOptions extends FocusOptions {
@@ -174,7 +174,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const mergedAllowClear = useAllowClear(allowClear);
+  const mergedAllowClear = getAllowClear(allowClear);
   const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
   return wrapCSSVar(

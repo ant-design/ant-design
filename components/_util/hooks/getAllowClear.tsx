@@ -4,7 +4,7 @@ import type { BaseInputProps } from 'rc-input/lib/interface';
 
 export type AllowClear = BaseInputProps['allowClear'];
 
-const useAllowClear = (allowClear: AllowClear): AllowClear => {
+const getAllowClear = (allowClear: AllowClear): AllowClear => {
   let mergedAllowClear: AllowClear;
   if (typeof allowClear === 'object' && allowClear?.clearIcon) {
     mergedAllowClear = allowClear;
@@ -17,4 +17,4 @@ const useAllowClear = (allowClear: AllowClear): AllowClear => {
   return mergedAllowClear;
 };
 
-export default useAllowClear;
+export default getAllowClear;
