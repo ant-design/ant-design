@@ -1,5 +1,7 @@
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { unit } from '@ant-design/cssinjs';
+
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
 
 export interface ComponentToken {
@@ -23,7 +25,7 @@ export interface ComponentToken {
 export interface DrawerToken extends FullToken<'Drawer'> {}
 
 // =============================== Base ===============================
-const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
+const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
   const {
     componentCls,
     zIndexPopup,
@@ -150,10 +152,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
         display: 'flex',
         flex: 0,
         alignItems: 'center',
-        padding: `${padding}px ${paddingLG}px`,
+        padding: `${unit(padding)} ${unit(paddingLG)}`,
         fontSize: fontSizeLG,
         lineHeight: lineHeightLG,
-        borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+        borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
         '&-title': {
           display: 'flex',
@@ -213,8 +215,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       // Footer
       [`${componentCls}-footer`]: {
         flexShrink: 0,
-        padding: `${footerPaddingBlock}px ${footerPaddingInline}px`,
-        borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
+        padding: `${unit(footerPaddingBlock)} ${unit(footerPaddingInline)}`,
+        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
       },
 
       // ====================== RTL =======================
@@ -225,17 +227,18 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
+  zIndexPopup: token.zIndexPopupBase,
+  footerPaddingBlock: token.paddingXS,
+  footerPaddingInline: token.padding,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Drawer',
   (token) => {
     const drawerToken = mergeToken<DrawerToken>(token, {});
-
     return [genDrawerStyle(drawerToken), genMotionStyle(drawerToken)];
   },
-  (token) => ({
-    zIndexPopup: token.zIndexPopupBase,
-    footerPaddingBlock: token.paddingXS,
-    footerPaddingInline: token.padding,
-  }),
+  prepareComponentToken,
 );

@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -66,17 +66,19 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export const prepareComponentToken: GetDefaultToken<'Statistic'> = (token) => {
+  const { fontSizeHeading3, fontSize } = token;
+  return {
+    titleFontSize: fontSize,
+    contentFontSize: fontSizeHeading3,
+  };
+};
+
+export default genStyleHooks(
   'Statistic',
   (token) => {
     const statisticToken = mergeToken<StatisticToken>(token, {});
     return [genStatisticStyle(statisticToken)];
   },
-  (token) => {
-    const { fontSizeHeading3, fontSize } = token;
-    return {
-      titleFontSize: fontSize,
-      contentFontSize: fontSizeHeading3,
-    };
-  },
+  prepareComponentToken,
 );

@@ -106,11 +106,11 @@ antd 5.0 的主题能力其实由 4.x 的进化而来，同样拥有一套主题
 
 ```css
 :where(.css-hash1).ant-btn {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
 }
 
 :where(.css-hash2).ant-btn {
-  background: var(--color-primary);
+  background-color: var(--color-primary);
 }
 
 .css-hash1 {
@@ -159,48 +159,50 @@ antd 5.0 的主题能力其实由 4.x 的进化而来，同样拥有一套主题
 
 这会成为一个潜在的负担。
 
-### Dynamic Themes with CSS Variables
+### CSS 变量动态主题
 
-Consider the following scenario: users can freely modify the theme color and text font size on the webpage to suit their preferences. This scenario does not align with the research discussed earlier because our previous study was based on a complete set of known themes (such as a dark theme). When users can freely modify the value of a variable, we cannot pre-build the theme; instead, we must rely on runtime capabilities for modifications. This situation can be referred to as a true 'dynamic theme'.
+考虑这样的场景：用户可以在网页中任意修改主题色以及文字字号，以符合自己的喜好。这个场景与上文所研究的就并不适配了，原因是我们之前的研究建立在有一整套已知的主题（如暗色主题）上，但用户可以随意修改某个变量值的时候我们就不能够提前对主题进行构建，只能够依赖运行时的能力进行修改。这种场景可以称为是真正的“动态主题”。
 
-As mentioned earlier, there are two obstacles to implementing dynamic themes based on CSS variables:
+如同上文所说，实现基于 CSS 变量的动态主题有两个阻碍：
 
-1. Changes in hash values will cause components and the DOM to re-render.
-2. Users cannot know the hash value in advance.
+1. hash 值变化会导致组件和 dom 重新渲染；
+2. 用户无法提前得知 hash 值
 
-There are two solutions for these two points, respectively.
+而针对这两点分别有两种解决方案。
 
-#### Random Hash
+#### 随机 hash
 
-For the first issue, the apparent problem to solve is the dynamic hash value caused by token changes. The existence of hash values serves two purposes: style isolation and caching. In the context of dynamic CSS themes, we can discard the caching feature since we have replaced all tokens with CSS variables. The styles themselves do not change; each token change only affects the inserted CSS variables. At this point, the performance impact of serializing CSS has been significantly reduced. Therefore, we can use random hashes to ensure style isolation.
+对于前者，我们需要解决的问题明显是 token 变化带来的动态 hash 值。hash 值存在的原因有两个，样式隔离和缓存。样式隔离需要的是每个主题对应不一样的 hash，缓存需要的是每个主题对应唯一的 hash。在 CSS 动态主题的场景下，我们可以抛弃缓存这一特性，因为我们已经将所有的 token 替换为了 CSS 变量，样式本身并不会改变，每次改变 token 只会改变插入的 CSS 变量，这时**序列化 CSS 带来的性能消耗已经被大幅减小了**。因此我们完全可以采用随机 hash 来保证样式隔离。
 
 ![image](https://github.com/ant-design/ant-design/assets/27722486/c7128e5e-6330-4dd4-939f-312e11f88af3)
 
-At this point, we can see that users can simply modify tokens in the ConfigProvider, just like before, to use dynamic themes without any noticeable changes in usage. An additional point is that we eliminate the performance cost of calculating hashes here. However, as a trade-off, we might generate two sets of CSS variables that are identical, yet their hashes are different. The impact of this depends on the user's specific usage patterns.
+这时我们可以发现用户想要使用动态主题时只要像之前一样在 ConfigProvider 里修改 token 就可以了，不会产生任何使用上的变化。而额外的一点就是，这里我们省去了计算 hash 带来的性能损耗，但相对的我们可能会生产出一模一样的两套 CSS 变量而他们的 hash 并不一致。这一点具体会带来正面还是负面的影响还得具体看用户的使用方法。
 
-#### Custom Hash
+#### 自定义 hash
 
-The above solution can actually address most of the issues in various scenarios. However, let's revisit a problem mentioned from the beginning: the FOUC issue. In a statically compiled web page, all theme changes implemented through React lifecycle methods cannot be reflected in the user's browser immediately. We must provide users with the ability to modify the theme before the browser renders the page.
+上述的方案其实已经可以解决大部分场景下的问题，但我们回过头看还有一个从一开始就提到的问题：FOUC 问题。在一个已经静态编译的网页上，所有利用 react 生命周期实现的主题变化都不能在第一时间反应到用户的浏览器上。我们必须提供给用户能够在浏览器渲染页面前，就能够修改主题的能力。
 
-The implementation of this capability essentially involves allowing users to replace CSS variables in scripts. As mentioned earlier, one method is to directly replace the class or attribute on the HTML in the script to apply statically compiled CSS variables, which is not suitable for dynamic themes. Therefore, users need to directly modify the values of CSS variables in the script, introducing the problem of 'needing to know the hash value in advance.' If the hash value is completely random or calculated based on tokens, users cannot use this hash value outside the React lifecycle, or it is challenging to save this hash value for use in scripts outside the React lifecycle.
+这种能力的实现方式其实就是能够让用户在脚本中替换 CSS 变量。我们在上面提到了一种方法是在脚本中直接替换 html 上的 class 或者属性来套用已经静态编译完成的 CSS 变量，这对于动态主题并不适用。所以用户就需要在脚本中直接修改 CSS 变量的值，所以就引入了“需要提前得知 hash 值”这个问题，因为如果 hash 值完全随机或者根据 token 计算，用户就无法在 react 生命周期之外使用这个 hash 值；或者说很难把这个 hash 值存下来，供在 react 生命周期之外的 script 使用。
 
-In other words, as long as the user knows the hash value, is that sufficient? Therefore, we allow users to customize the hash value, and users do not need to worry about the loss of style isolation due to custom reasons—because we can easily detect if users are using the same hash value in the application. In this way, users only need to override hashed CSS variables in the format of Ant Design (antd)—we can provide a factory function to help users generate CSS variable styles.
+那么换句话讲，只要用户知道 hash 值是不是就可以了呢？
+
+所以我们允许用户 diy hash 值，用户也不需要担心因为自定义的原因导致样式隔离失效——我们很容易就可以检测出用户在应用中使用了相同的 hash 值。如此一来用户只需要按照 antd 的格式来覆盖 hashed CSS 变量就可以了——我们可以提供一个工厂函数来帮助用户生产 CSS 变量样式。
 
 ![image](https://github.com/ant-design/ant-design/assets/27722486/257c5811-bd67-48b3-8ea3-29a428d96bc8)
 
-### Farewell Hash
+### 再见了 hash
 
-After ceasing the active calculation of the hash, two questions arise:
+不再主动计算 hash 后，我们心中冒出了两个问题：
 
-1. Is it still a hash?
-2. Do we still need to add hash to the styles?
+1. hash 它还是 hash 吗？
+2. 我们还需要在样式上添加 hash 吗？
 
-The first question is somewhat philosophical. From a historical perspective, it is still a hash. However, since it is no longer necessary to compute it, it is simply a pure random value or a user-defined string.
+第一个问题其实有点哲学，从发展历程来讲，它就是 hash。但是他已经不再需要计算了，所以就是一个纯粹的随机值或者用户自定义的字符串。
 
-The second question is crucial. Now that all tokens have been replaced, styles under different themes no longer have any differences, and the isolating role played by the hash is no longer significant. We still add the hash class to the DOM as the scope of the theme, which directly affects where the components derive their CSS variable values. However, the styles themselves do not care about these, so we can optimize further:
+第二个问题很重要。在所有 token 都被替换的现在，不同主题下的样式已经不会再有任何区别了，hash 起到的隔离作用也不再重要。我们仍然会在 dom 上添加 hash class 作为主题的 scope，它会直接影响组件所采用的 CSS 变量源于何处。但是样式并不关心这些，所以我们再进行一次优化：
 
 ![image](https://github.com/ant-design/ant-design/assets/27722486/f49c5e57-f17e-4725-b850-43708e9a6235)
 
-Styles can now exist independently! This means that different themes can share the same set of styles—there is no longer a need to generate these styles repeatedly.
+样式居然可以单独存在了！这意味着不同的主题可以共用同一份样式——我们不再需要重复生成这些样式了。
 
-However, we still need to consider micro-application scenarios. Although hash values are isolated between different versions of antd, styles lose their scope without a hash. Without hash, different versions of antd can contaminate each other. Therefore, we will still provide the ability to apply hash to the overall styles of the application—this is the application-level hash. Unlike the theme hash, the entire application can still reuse the same set of styles.
+当然还需要考虑微应用场景，不同版本的 antd 之间虽然 hash 是隔离的，但是样式失去了 hash 之后也就失去了作用域，不同版本的 antd 会相互污染，所以我们仍会提供对应用整体的样式打上 hash 的能力——这就是应用级别的 hash，与主题 hash 不同，整个应用仍然可以复用同一份样式。

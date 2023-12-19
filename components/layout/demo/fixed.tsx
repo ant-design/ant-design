@@ -3,9 +3,14 @@ import { Breadcrumb, Layout, Menu, theme } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
+const items = new Array(3).fill(null).map((_, index) => ({
+  key: String(index + 1),
+  label: `nav ${index + 1}`,
+}));
+
 const App: React.FC = () => {
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
@@ -25,19 +30,26 @@ const App: React.FC = () => {
           theme="dark"
           mode="horizontal"
           defaultSelectedKeys={['2']}
-          items={new Array(3).fill(null).map((_, index) => ({
-            key: String(index + 1),
-            label: `nav ${index + 1}`,
-          }))}
+          items={items}
+          style={{ flex: 1, minWidth: 0 }}
         />
       </Header>
-      <Content className="site-layout" style={{ padding: '0 50px' }}>
+      <Content style={{ padding: '0 48px' }}>
         <Breadcrumb style={{ margin: '16px 0' }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <div style={{ padding: 24, minHeight: 380, background: colorBgContainer }}>Content</div>
+        <div
+          style={{
+            padding: 24,
+            minHeight: 380,
+            background: colorBgContainer,
+            borderRadius: borderRadiusLG,
+          }}
+        >
+          Content
+        </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>

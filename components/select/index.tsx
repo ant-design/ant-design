@@ -25,6 +25,7 @@ import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 type RawValue = string | number;
 
@@ -121,7 +122,8 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -181,12 +183,14 @@ const InternalSelect = <
     'itemIcon',
   ]);
 
-  const rcSelectRtlDropdownClassName = classNames(
+  const mergedPopupClassName = classNames(
     popupClassName || dropdownClassName,
     {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    cssVarCls,
+    rootCls,
     hashId,
   );
 
@@ -209,6 +213,8 @@ const InternalSelect = <
     select?.className,
     className,
     rootClassName,
+    cssVarCls,
+    rootCls,
     hashId,
   );
 
@@ -245,7 +251,7 @@ const InternalSelect = <
   const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
 
   // ====================== Render =======================
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSelect<ValueType, OptionType>
       ref={ref}
       virtual={virtual}
@@ -268,7 +274,7 @@ const InternalSelect = <
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={rcSelectRtlDropdownClassName}
+      dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       dropdownStyle={{
         ...props?.dropdownStyle,

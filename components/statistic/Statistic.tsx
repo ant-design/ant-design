@@ -47,7 +47,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
 
   const prefixCls = getPrefixCls('statistic', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const valueNode: React.ReactNode = (
     <StatisticNumber
@@ -68,9 +68,10 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={cls}
       style={{ ...statistic?.style, ...style }}

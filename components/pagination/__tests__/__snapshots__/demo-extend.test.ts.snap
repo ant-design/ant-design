@@ -4985,7 +4985,7 @@ exports[`renders components/pagination/demo/total.tsx extend context correctly 2
 exports[`renders components/pagination/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination"
+    class="ant-pagination ant-pagination-bordered"
   >
     <li
       aria-disabled="false"
@@ -5323,7 +5323,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-disabled"
+    class="ant-pagination ant-pagination-bordered ant-pagination-disabled"
   >
     <li
       aria-disabled="false"
@@ -5662,7 +5662,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered"
   >
     <li
       aria-disabled="false"
@@ -6000,7 +6000,7 @@ Array [
   </ul>,
   <br />,
   <ul
-    class="ant-pagination ant-pagination-mini ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini ant-pagination-bordered ant-pagination-disabled"
   >
     <li
       aria-disabled="false"

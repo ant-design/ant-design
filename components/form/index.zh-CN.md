@@ -19,7 +19,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
-<code src="./demo/control-ref.tsx">表单方法调用（Class component）</code>
 <code src="./demo/layout.tsx">表单布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
@@ -125,7 +124,7 @@ const validateMessages = {
 | dependencies | 设置依赖字段，说明[见下](#dependencies) | [NamePath](#namepath)\[] | - |  |
 | extra | 额外的提示信息，和 `help` 类似，当需要错误信息和提示文案同时出现时，可以使用这个。 | ReactNode | - |  |
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any\[]) => any | - |  |
-| getValueProps | 为子元素添加额外的属性 | (value: any) => any | - | 4.2.0 |
+| getValueProps | 为子元素添加额外的属性 (不建议通过 `getValueProps` 生成动态函数 prop，请直接将其传递给子组件) | (value: any) => Record<string, any> | - | 4.2.0 |
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 此外，它还可以通过 Icons 属性获取反馈图标。 | boolean \| { icons: [FeedbackIcons](#feedbackicons) } | false | icons: 5.9.0 |
 | help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode | - |  |
 | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
@@ -387,7 +386,9 @@ export default () => {
 
 ### Form.useWatch
 
-`type Form.useWatch = (namePath: NamePath, formInstance?: FormInstance | WatchOptions): Value`
+`type Form.useWatch = (namePath: NamePath | (selector: (values: Store)) => any, formInstance?: FormInstance | WatchOptions): Value`
+
+`5.12.0` 新增 `selector`
 
 用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
@@ -563,26 +564,6 @@ Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件
 <Form.Item name="fieldA" valuePropName="checked">
   <Switch />
 </Form.Item>
-```
-
-### 自定义 validator 没有效果
-
-这是由于你的 `validator` 有错误导致 `callback` 没有执行到。你可以选择通过 `async` 返回一个 promise 或者使用 `try...catch` 进行错误捕获：
-
-```jsx
-validator: async (rule, value) => {
-  throw new Error('Something wrong!');
-}
-
-// or
-
-validator(rule, value, callback) => {
-  try {
-    throw new Error('Something wrong!');
-  } catch (err) {
-    callback(err);
-  }
-}
 ```
 
 ### name 为数组时的转换规则？

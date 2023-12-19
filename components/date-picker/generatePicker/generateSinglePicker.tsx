@@ -29,6 +29,7 @@ import {
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 import { useZIndex } from '../../_util/hooks/useZIndex';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
@@ -79,7 +80,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
-        const [wrapSSR, hashId] = useStyle(prefixCls);
+        const rootCls = useCSSVarCls(prefixCls);
+        const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),
@@ -142,7 +144,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         // ============================ zIndex ============================
         const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-        return wrapSSR(
+        return wrapCSSVar(
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
@@ -171,6 +173,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               compactItemClassnames,
               consumerStyle?.className,
               className,
+              cssVarCls,
+              rootCls,
               rootClassName,
             )}
             style={{ ...consumerStyle?.style, ...style }}
@@ -182,6 +186,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             disabled={mergedDisabled}
             dropdownClassName={classNames(
               hashId,
+              cssVarCls,
+              rootCls,
               rootClassName,
               popupClassName || dropdownClassName,
             )}

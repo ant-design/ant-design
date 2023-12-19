@@ -18,6 +18,7 @@ import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -94,7 +95,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const inputRef = useRef<InputRef>(null);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ===================== Compact Item =====================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -164,7 +166,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcInput
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
@@ -177,7 +179,15 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       styles={{ ...input?.styles, ...styles }}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      className={classNames(className, rootClassName, compactItemClassnames, input?.className)}
+      className={classNames(
+        className,
+        rootClassName,
+        cssVarCls,
+        rootCls,
+        hashId,
+        compactItemClassnames,
+        input?.className,
+      )}
       onChange={handleChange}
       addonAfter={
         addonAfter && (

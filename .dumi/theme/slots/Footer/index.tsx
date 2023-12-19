@@ -366,6 +366,20 @@ const Footer: React.FC = () => {
         {
           icon: (
             <img
+              src="https://mdn.alipayobjects.com/huamei_j9rjmc/afts/img/A*3ittT5OEo2gAAAAAAAAAAAAADvGmAQ/original"
+              width={16}
+              height={16}
+              alt="Galacean"
+            />
+          ),
+          title: <FormattedMessage id="app.footer.galacean" />,
+          description: <FormattedMessage id="app.footer.galacean.slogan" />,
+          url: 'https://galacean.antgroup.com/',
+          openExternal: true,
+        },
+        {
+          icon: (
+            <img
               src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
               width={16}
               height={16}

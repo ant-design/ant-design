@@ -151,7 +151,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -411,6 +411,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
@@ -419,7 +420,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}

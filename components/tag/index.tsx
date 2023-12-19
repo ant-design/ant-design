@@ -79,8 +79,8 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   };
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const tagClassName = classNames(
     prefixCls,
@@ -95,6 +95,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -146,7 +147,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     </span>
   );
 
-  return wrapSSR(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
+  return wrapCSSVar(isNeedWave ? <Wave component="Tag">{tagNode}</Wave> : tagNode);
 };
 
 const Tag = React.forwardRef<HTMLSpanElement, TagProps>(InternalTag) as TagType;

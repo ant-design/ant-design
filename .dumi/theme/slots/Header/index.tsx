@@ -25,10 +25,10 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message: '第十八届 D2 终端技术大会火热来袭，以技术会友，一起分享技术的乐趣。',
-    shortMessage: '第十八届 D2 终端技术大会火热来袭！',
-    more: '点击报名',
-    link: 'https://d2.alibabatech.com/',
+    message: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
+    shortMessage: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
+    more: '前往了解',
+    link: 'https://www.yuque.com/opensource2023',
   },
   en: {
     message: '',
@@ -223,9 +223,11 @@ const Header: React.FC = () => {
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
     if (urlObj.host.includes('antgroup')) {
-      window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
+      urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
+      window.location.href = urlObj.toString();
+    } else {
+      window.location.href = urlObj.href.replace(/\/$/, '');
     }
-    window.location.href = urlObj.href.replace(/\/$/, '');
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -367,7 +369,14 @@ const Header: React.FC = () => {
         </Popover>
       )}
       {isZhCN && bannerVisible && (
-        <ConfigProvider theme={{ token: { colorInfoBg: '#ceebf9', colorTextBase: '#000' } }}>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorInfoBg: 'linear-gradient(90deg, #84fab0, #8fd3f4)',
+              colorTextBase: '#000',
+            },
+          }}
+        >
           <Alert
             className={styles.banner}
             message={

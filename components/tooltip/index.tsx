@@ -274,7 +274,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -292,6 +292,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     colorInfo.className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   // ============================ zIndex ============================
@@ -327,7 +328,9 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     </RcTooltip>
   );
 
-  return wrapSSR(<zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>);
+  return wrapCSSVar(
+    <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
+  );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
 > & {

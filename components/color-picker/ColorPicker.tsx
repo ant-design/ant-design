@@ -12,6 +12,7 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -31,7 +32,7 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
-import useStyle from './style/index';
+import useStyle from './style';
 import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
@@ -135,9 +136,10 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, rtlCls);
+  const mergeRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergeCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {
@@ -149,7 +151,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergePopupCls = classNames(prefixCls, rtlCls);
+  const mergePopupCls = classNames(prefixCls, mergeRootCls);
 
   const popupAllowCloseRef = useRef(true);
 
@@ -234,7 +236,7 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ============================ zIndex ============================
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Popover
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}

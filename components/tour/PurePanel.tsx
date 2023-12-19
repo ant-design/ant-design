@@ -23,13 +23,18 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <PopoverRawPurePanel
       prefixCls={prefixCls}
       hashId={hashId}
-      className={classNames(className, `${prefixCls}-pure`, type && `${prefixCls}-${type}`)}
+      className={classNames(
+        className,
+        `${prefixCls}-pure`,
+        type && `${prefixCls}-${type}`,
+        cssVarCls,
+      )}
       style={style}
     >
       <TourPanel stepProps={{ ...restProps, prefixCls, total }} current={current} type={type} />

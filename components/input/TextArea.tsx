@@ -17,6 +17,7 @@ import { FormItemInputContext } from '../form/context';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   bordered?: boolean;
@@ -83,14 +84,15 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   }
 
   // ===================== Style =====================
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcTextArea
       {...rest}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(className, rootClassName)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName)}
       classes={{
         affixWrapper: classNames(
           `${prefixCls}-textarea-affix-wrapper`,

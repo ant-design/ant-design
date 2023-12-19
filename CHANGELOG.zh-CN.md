@@ -16,6 +16,102 @@ tag: vVERSION
 
 ---
 
+## 5.12.4
+
+`2023-12-19`
+
+- 🐞 修复 DatePicker 组件在 CSS 变量模式下的样式错乱问题。[#46526](https://github.com/ant-design/ant-design/pull/46526)
+
+## 5.12.3
+
+`2023-12-18`
+
+- 💄 修复 Tag 组件在 SSR 场景下的样式丢失问题。[#46500](https://github.com/ant-design/ant-design/pull/46500) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Upload 的 `disabled` 属性不再对下载按钮生效。[#46454](https://github.com/ant-design/ant-design/pull/46454)
+- 💄 Upload.Dragger 增加一个水平内边距。[#46457](https://github.com/ant-design/ant-design/pull/46457)
+- 🐞 修复 Upload `actions` 的颜色问题。[#46456](https://github.com/ant-design/ant-design/pull/46456)
+- 🐞 修复 Form 使用 `getValueProps` 展示值无法更新的问题。[#46445](https://github.com/ant-design/ant-design/pull/46445)
+- 💄 修复 Checkbox 自定义 `token.lineWidth` 时勾选箭头错位问题。[#46431](https://github.com/ant-design/ant-design/pull/46431)
+- 🐞 修复 Select 组件定制 token 会让 padding 失效的问题。[#46427](https://github.com/ant-design/ant-design/pull/46427) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Message 在 `cssVar` 模式下覆盖组件 token 无效的问题。[#46415](https://github.com/ant-design/ant-design/pull/46415) [@MadCcc](https://github.com/MadCcc)
+- 💄 Flex 组件不应该应用额外的样式。[#46404](https://github.com/ant-design/ant-design/pull/46404) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.12.2
+
+`2023-12-11`
+
+- 🐞 MISC: 修复 React 17 以下使用 webpack 构建时报错 `useId` 找不到的问题。[#46261](https://github.com/ant-design/ant-design/pull/46261)
+- Pagination
+  - 🐞 修复 Pagination 在低版本浏览器上报错的问题。[react-component/pagination#545](https://github.com/react-component/pagination/pull/545)
+  - 🐞 修复 Pagination `simple` 模式下 `current` 受控选中分页不生效的问题。[react-component/pagination#546](https://github.com/react-component/pagination/pull/546)
+- 🐞 修复 Table 筛选菜单在 CSS 变量模式下丢失背景色的问题。[#46314](https://github.com/ant-design/ant-design/pull/46314)
+- 🐞 优化 Spin 交互，全屏状态时禁止用户触发鼠标事件。[#46303](https://github.com/ant-design/ant-design/pull/46303) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Form `hideRequiredMark` 属性的优先级低于 ConfigProvider 的 form 配置的问题。[#46299](https://github.com/ant-design/ant-design/pull/46299) [@linhf123](https://github.com/linhf123)
+- TypeScript
+  - 🤖 修复 Descriptions TS 定义不支持 `id` 属性的问题。[#46367](https://github.com/ant-design/ant-design/pull/46367) [@RSS1102](https://github.com/RSS1102)
+
+## 5.12.1
+
+`2023-12-04`
+
+- 🐞 MISC: 修复 token 转换 less 变量丢失的问题。[#46250](https://github.com/ant-design/ant-design/pull/46250)
+- 🐞 修复 Notification 标题太长时会与关闭图标重叠的问题。[#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
+
+## 5.12.0
+
+`2023-12-04`
+
+- 🔥 Component Token 支持 CSS 变量模式，详情见 [使用 CSS 变量](/docs/react/css-variables-cn)。感谢以下同学对此的贡献：[@li-jia-nan](https://github.com/li-jia-nan) [@RedJue](https://github.com/RedJue) [@c0dedance](https://github.com/c0dedance) [@kiner-tang](https://github.com/kiner-tang) [@JarvisArt](https://github.com/JarvisArt) [@cc-hearts](https://github.com/cc-hearts)
+- 🛠 rc-pagination 重构为 FC。[#46204](https://github.com/ant-design/ant-design/pull/46204) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 `Form.useWatch` 支持 selector 函数参数调用。[#46180](https://github.com/ant-design/ant-design/pull/46180) [@crazyair](https://github.com/crazyair)
+- 🆕 Slider 组件支持 `onChangeComplete` 事件，并废弃 `onAfterChange`。[#46182](https://github.com/ant-design/ant-design/pull/46182) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Tabs 配置项 `items` 支持 `icon` 属性。[#46096](https://github.com/ant-design/ant-design/pull/46096) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Tour 支持 `getPopupContainer` 属性。[#45751](https://github.com/ant-design/ant-design/pull/45751) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Switch 支持 `value` and `defaultValue` 属性。[#45747](https://github.com/ant-design/ant-design/pull/45747) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Progress 进度条视觉效果，渐变效果应该随着百分比改变。[#46209](https://github.com/ant-design/ant-design/pull/46209) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复点击 Form `tooltip` 图标会触发 Switch 切换的问题。[#46155](https://github.com/ant-design/ant-design/pull/46155)
+- 🐞 修复 Notification 图标行高为 0 的问题。[#46148](https://github.com/ant-design/ant-design/pull/46148) [@MadCcc](https://github.com/MadCcc)
+- 💄 Button 按钮支持自定义为渐变色风格。[#46192](https://github.com/ant-design/ant-design/pull/46192)
+- 💄 Alert 背景色现在可以通过 `colorInfoBg` token 定义为渐变色。[#46188](https://github.com/ant-design/ant-design/pull/46188)
+- 💄 修复 InputNumber 带有 `addon` 时在 Space.Compact 下使用的样式问题。[#46130](https://github.com/ant-design/ant-design/pull/46130) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 更新 FloatButton 的类型定义，透出原生事件处理函数类型。[#46175](https://github.com/ant-design/ant-design/pull/46175) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.11.5
+
+`2023-11-27`
+
+- 🐞 MISC: 修复打包 `dist` 产物错误。[#46103](https://github.com/ant-design/ant-design/pull/46103) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 DatePicker 禁用状态下悬浮样式。[#45940](https://github.com/ant-design/ant-design/pull/45940) [@crazyair](https://github.com/crazyair)
+
+## 5.11.4
+
+`2023-11-24`
+
+- 🐞 修复 Image 在嵌套 Modal 中设置 `z-index` 异常的问题。[#46035](https://github.com/ant-design/ant-design/pull/46035)
+- 🐞 修复 Button 禁用的链接按钮右键点击时会有打开新链接选项的问题。[#46021](https://github.com/ant-design/ant-design/pull/46021)
+- Card
+  - 🛠 把 Card 内部方法 `getAction` 重构为函数组件。[#46032](https://github.com/ant-design/ant-design/pull/46032)
+  - 🐞 解决 Card 在 Rollup 中会警告 `invalid annotation` 的问题。[#46024](https://github.com/ant-design/ant-design/pull/46024)
+- TypeScript
+  - 🤖 导出 Radio 和 Checkbox 组件的 `required` 属性的类型定义。[#46028](https://github.com/ant-design/ant-design/pull/46028) [@nnmax](https://github.com/nnmax)
+
+## 5.11.3
+
+`2023-11-22`
+
+- 🐞 修复 Modal 静态方法创建 `zIndex` 过高会覆盖其他弹出内容的问题。[#46012](https://github.com/ant-design/ant-design/pull/46012)
+- Image
+  - 🆕 Image 预览支持移动触摸事件交互。[#45989](https://github.com/ant-design/ant-design/pull/45989) [@JarvisArt](https://github.com/JarvisArt)
+  - 🐞 修复 Image 预览在嵌套弹框中 `z-index` 设置不正确的问题。[#45979](https://github.com/ant-design/ant-design/pull/45979) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 修复 Collapse 可折叠区域鼠标 `hover` 样式问题。[#45994](https://github.com/ant-design/ant-design/pull/45994)
+- 🐞 修复 ColorPicker 不支持 Form 组件的禁用问题。[#45978](https://github.com/ant-design/ant-design/pull/45978) [@RedJue](https://github.com/RedJue)
+- 🐞 修复 Typography.Text `code` 在 Layout 下开启 `ellipsis` 时 tooltip 无效的问题。[#45962](https://github.com/ant-design/ant-design/pull/45962)
+- 🐞 修复 Select 搜索框在 Safari 下显示多余的 🔍 图标。[#46008](https://github.com/ant-design/ant-design/pull/46008)
+- 💄 删除 Rate 组件无用样式。 [#45927](https://github.com/ant-design/ant-design/pull/45927) [@JarvisArt](https://github.com/JarvisArt)
+- 🛠 UMD 版本 `antd.js` 现在会优先使用全局的 `@ant-design/cssinjs` 依赖。[#46009](https://github.com/ant-design/ant-design/pull/46009)
+- 🌐 补充 `eu_ES` 国际化内容。[#45928](https://github.com/ant-design/ant-design/pull/45928) [@ionlizarazu](https://github.com/ionlizarazu)
+
 ## 5.11.2
 
 `2023-11-17`

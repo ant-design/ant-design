@@ -363,7 +363,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     delete rcUploadProps.id;
   }
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const wrapperCls = `${prefixCls}-wrapper`;
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, wrapperCls);
 
   const [contextLocale] = useLocale('Upload', defaultLocale.Upload);
 
@@ -411,11 +412,12 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     );
   };
 
-  const wrapperCls = classNames(
-    `${prefixCls}-wrapper`,
+  const mergedCls = classNames(
+    wrapperCls,
     className,
     rootClassName,
     hashId,
+    cssVarCls,
     ctxUpload?.className,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -434,8 +436,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
-    return wrapSSR(
-      <span className={wrapperCls}>
+    return wrapCSSVar(
+      <span className={mergedCls}>
         <div
           className={dragCls}
           style={mergedStyle}
@@ -465,13 +467,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
-    return wrapSSR(
-      <span className={wrapperCls}>{renderUploadList(uploadButton, !!children)}</span>,
+    return wrapCSSVar(
+      <span className={mergedCls}>{renderUploadList(uploadButton, !!children)}</span>,
     );
   }
 
-  return wrapSSR(
-    <span className={wrapperCls}>
+  return wrapCSSVar(
+    <span className={mergedCls}>
       {uploadButton}
       {renderUploadList()}
     </span>,

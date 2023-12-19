@@ -18,6 +18,7 @@ import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const { Option } = RcMentions;
 
@@ -154,7 +155,8 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedClassName = classNames(
     {
@@ -167,6 +169,8 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     !hasFeedback && className,
     rootClassName,
     hashId,
+    cssVarCls,
+    rootCls,
   );
 
   const mentions = (
@@ -181,17 +185,17 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
       filterOption={mentionsfilterOption}
       onFocus={onFocus}
       onBlur={onBlur}
-      dropdownClassName={classNames(popupClassName, rootClassName, hashId)}
+      dropdownClassName={classNames(popupClassName, rootClassName, hashId, cssVarCls, rootCls)}
       ref={mergedRef}
       options={mergedOptions}
       suffix={hasFeedback && feedbackIcon}
-      classes={{ affixWrapper: classNames(hashId, className) }}
+      classes={{ affixWrapper: classNames(hashId, className, cssVarCls, rootCls) }}
     >
       {mentionOptions}
     </RcMentions>
   );
 
-  return wrapSSR(mentions);
+  return wrapCSSVar(mentions);
 };
 
 const Mentions = React.forwardRef<MentionsRef, MentionProps>(

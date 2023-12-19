@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, Select } from 'antd';
+import { Button, Form, Input, Select, Space } from 'antd';
 
 const { Option } = Select;
 
@@ -77,15 +77,17 @@ const App: React.FC = () => {
         }
       </Form.Item>
       <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-        <Button htmlType="button" onClick={onReset}>
-          Reset
-        </Button>
-        <Button type="link" htmlType="button" onClick={onFill}>
-          Fill form
-        </Button>
+        <Space>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+          <Button htmlType="button" onClick={onReset}>
+            Reset
+          </Button>
+          <Button type="link" htmlType="button" onClick={onFill}>
+            Fill form
+          </Button>
+        </Space>
       </Form.Item>
     </Form>
   );

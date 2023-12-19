@@ -26,7 +26,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const mergedSteps = useMemo(
@@ -53,6 +53,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
+    cssVarCls,
     rootClassName,
   );
 
@@ -68,7 +69,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}

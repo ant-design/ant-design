@@ -3,8 +3,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import type { TableToken } from './index';
 
 const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
-  const { componentCls, marginXXS, fontSizeIcon, tableHeaderIconColor, tableHeaderIconColorHover } =
-    token;
+  const { componentCls, marginXXS, fontSizeIcon, headerIconColor, headerIconHoverColor } = token;
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-thead th${componentCls}-column-has-sorters`]: {
@@ -68,7 +67,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`${componentCls}-column-sorter`]: {
         marginInlineStart: marginXXS,
-        color: tableHeaderIconColor,
+        color: headerIconColor,
         fontSize: 0,
         transition: `color ${token.motionDurationSlow}`,
 
@@ -92,7 +91,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-column-sorters:hover ${componentCls}-column-sorter`]: {
-        color: tableHeaderIconColorHover,
+        color: headerIconHoverColor,
       },
     },
   };

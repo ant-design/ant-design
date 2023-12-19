@@ -80,7 +80,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
   const mergedSize = useSize((ctx) => size ?? ctx);
 
   const prefixCls = getPrefixCls('space-compact', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId] = useStyle(prefixCls);
   const clx = classNames(
     prefixCls,
     hashId,
@@ -122,7 +122,7 @@ const Compact: React.FC<SpaceCompactProps> = (props) => {
     return null;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div className={clx} {...restProps}>
       {nodes}
     </div>,
