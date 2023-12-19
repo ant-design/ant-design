@@ -58,12 +58,20 @@ export default function imageTest(
       'Element',
       'File',
       'Blob',
-      'ResizeObserver',
     ].filter((key) => !(global as any)[key]);
 
     keys.forEach((key) => {
       (global as any)[key] = win[key];
     });
+
+    // Fake Resize Observer
+    global.ResizeObserver = function FakeResizeObserver() {
+      return {
+        observe() {},
+        unobserve() {},
+        disconnect() {},
+      };
+    } as any;
 
     // Fill window
     fillWindowEnv(win);
@@ -94,8 +102,10 @@ export default function imageTest(
 
       const cache = createCache();
 
+      const emptyStyleHolder = doc.createElement('div');
+
       const element = (
-        <StyleProvider cache={cache}>
+        <StyleProvider cache={cache} container={emptyStyleHolder}>
           <App>{themedComponent}</App>
         </StyleProvider>
       );
