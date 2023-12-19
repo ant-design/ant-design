@@ -50,18 +50,17 @@ export default function imageTest(
     (global as any).window = win;
 
     // Fill env
-    const keys = Object.keys(win).filter((key) => !(global as any)[key]);
-    const fullKeys = [
-      ...keys,
+    const keys = [
+      ...Object.keys(win),
       'HTMLElement',
       'SVGElement',
       'ShadowRoot',
       'Element',
       'File',
       'Blob',
-    ];
+    ].filter((key) => !(global as any)[key]);
 
-    fullKeys.forEach((key) => {
+    keys.forEach((key) => {
       (global as any)[key] = win[key];
     });
 

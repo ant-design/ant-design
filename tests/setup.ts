@@ -26,6 +26,7 @@ console.error = (...args) => {
 
 type Writeable<T> = { -readonly [P in keyof T]: T[P] };
 
+// This function can not move to external file since jest setup not support
 export function fillWindowEnv(window: Window | DOMWindow) {
   const win = window as Writeable<Window> & typeof globalThis;
 
