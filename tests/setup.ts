@@ -68,10 +68,3 @@ if (typeof window !== 'undefined') {
 
 global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout;
 global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;
-
-// Test env should not deps on the fetch result
-global.fetch =
-  global.fetch ||
-  function mockFetch() {
-    return new Promise(() => {});
-  };

@@ -73,6 +73,21 @@ export default function imageTest(
       };
     } as any;
 
+    // Fake promise not called
+    global.fetch = function mockFetch() {
+      return {
+        then() {
+          return this;
+        },
+        catch() {
+          return this;
+        },
+        finally() {
+          return this;
+        },
+      };
+    } as any;
+
     // Fill window
     fillWindowEnv(win);
   });
