@@ -1,8 +1,6 @@
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import type { BaseInputProps } from 'rc-input/lib/interface';
 import RcMentions from 'rc-mentions';
 import type {
   DataDrivenOptionProps as MentionsOptionProps,
@@ -23,6 +21,7 @@ import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { InputVariant } from '../input/Input';
 import { InputVariants } from '../input/Input';
+import useAllowClear from '../_util/hooks/useAllowClear';
 import useVariant from '../_util/hooks/useVariants';
 
 export const { Option } = RcMentions;
@@ -89,7 +88,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
     notFoundContent,
     options,
     status: customStatus,
-    allowClear,
+    allowClear = false,
     popupClassName,
     style,
     variant: customVariant,
@@ -166,13 +165,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
-  // Allow clear
-  let mergedAllowClear: BaseInputProps['allowClear'];
-  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
-    mergedAllowClear = allowClear;
-  } else if (allowClear) {
-    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
-  }
+  const mergedAllowClear = useAllowClear(allowClear);
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
