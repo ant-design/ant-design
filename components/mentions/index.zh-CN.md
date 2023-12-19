@@ -42,6 +42,7 @@ return (
 <code src="./demo/prefix.tsx">自定义触发字符</code>
 <code src="./demo/readonly.tsx">无效或只读</code>
 <code src="./demo/placement.tsx">向上展开</code>
+<code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>

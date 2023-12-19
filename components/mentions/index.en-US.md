@@ -41,6 +41,7 @@ return (
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>
 <code src="./demo/readonly.tsx">disabled or readOnly</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
