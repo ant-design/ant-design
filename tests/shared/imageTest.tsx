@@ -10,7 +10,7 @@ import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 
 import { App, ConfigProvider, theme } from '../../components';
-import { render } from '../utils';
+import { fillWindowEnv, render } from '../utils';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -50,11 +50,22 @@ export default function imageTest(
 
     // Fill env
     const keys = Object.keys(win).filter((key) => !(global as any)[key]);
-    const fullKeys = [...keys, 'HTMLElement', 'SVGElement', 'ShadowRoot', 'Element'];
+    const fullKeys = [
+      ...keys,
+      'HTMLElement',
+      'SVGElement',
+      'ShadowRoot',
+      'Element',
+      'File',
+      'Blob',
+    ];
 
     fullKeys.forEach((key) => {
       (global as any)[key] = win[key];
     });
+
+    // Fill window
+    fillWindowEnv(win);
   });
 
   beforeEach(() => {
@@ -92,9 +103,9 @@ export default function imageTest(
         container,
       });
       const clientHTML = container.innerHTML;
-      unmount();
-
       const styleStr = extractStyle(cache);
+
+      unmount();
 
       await page.evaluate(
         (innerHTML, ssrStyle) => {

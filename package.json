@@ -93,7 +93,7 @@
     "pretest": "npm run version && npm run component-changelog",
     "test": "jest --config .jest.js --no-cache",
     "test-all": "sh -e ./scripts/test-all.sh",
-    "test-image": "jest --config .jest.image.js --no-cache -i -u",
+    "test-image": "jest --config .jest.image.js --no-cache -i -u --forceExit",
     "test-node": "npm run version && jest --config .jest.node.js --no-cache",
     "test:update": "jest --config .jest.js --no-cache -u",
     "token-meta": "tsx scripts/generate-token-meta.ts",
