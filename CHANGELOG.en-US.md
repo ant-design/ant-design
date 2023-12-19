@@ -16,6 +16,12 @@ tag: vVERSION
 
 ---
 
+## 5.12.4
+
+`2023-12-19`
+
+- 🐞 Fix DatePicker style in `cssVar` mode. [#46526](https://github.com/ant-design/ant-design/pull/46526)
+
 ## 5.12.3
 
 `2023-12-18`
