@@ -36,14 +36,15 @@ export default function imageTest(
   identifier: string,
   options: ImageTestOptions,
 ) {
+  let doc: Document;
   let container: HTMLDivElement;
 
   beforeAll(() => {
-    const dom = new JSDOM('<!DOCTYPE html><body><div id="root"></div></body></p>', {
+    const dom = new JSDOM('<!DOCTYPE html><body></body></p>', {
       url: 'http://localhost/',
     });
     const win = dom.window;
-    const doc = win.document;
+    doc = win.document;
 
     (global as any).window = win;
 
@@ -54,12 +55,11 @@ export default function imageTest(
     fullKeys.forEach((key) => {
       (global as any)[key] = win[key];
     });
-
-    container = doc.querySelector<HTMLDivElement>('#root')!;
   });
 
-  afterEach(() => {
-    container.innerHTML = '';
+  beforeEach(() => {
+    doc.body.innerHTML = `<div id="root"></div>`;
+    container = doc.querySelector<HTMLDivElement>('#root')!;
   });
 
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
