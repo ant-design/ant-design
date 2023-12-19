@@ -10,7 +10,8 @@ import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 
 import { App, ConfigProvider, theme } from '../../components';
-import { fillWindowEnv, render } from '../utils';
+import { fillWindowEnv } from '../setup';
+import { render } from '../utils';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
