@@ -17,7 +17,7 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import getAllowClear from '../_util/hooks/getAllowClear';
+import getAllowClear from '../_util/getAllowClear';
 import useVariant from '../_util/hooks/useVariants';
 
 export interface InputFocusOptions extends FocusOptions {

@@ -21,7 +21,7 @@ import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { InputVariant } from '../input/Input';
 import { InputVariants } from '../input/Input';
-import getAllowClear from '../_util/hooks/getAllowClear';
+import getAllowClear from '../_util/getAllowClear';
 import useVariant from '../_util/hooks/useVariants';
 
 export const { Option } = RcMentions;
