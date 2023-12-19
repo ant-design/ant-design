@@ -180,9 +180,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           },
         },
 
-        [`&-active ${treeCls}-node-content-wrapper`]: {
-          ...genFocusOutline(token),
-        },
+        // [`&-active ${treeCls}-node-content-wrapper`]: {
+        //   ...genFocusOutline(token),
+        // },
 
         [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
           color: 'inherit',
@@ -315,6 +315,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
         [`&${treeCls}-node-selected`]: {
           backgroundColor: nodeSelectedBg,
+          '&:focus-visible': {
+            ...genFocusOutline(token),
+          },
         },
 
         // Icon
