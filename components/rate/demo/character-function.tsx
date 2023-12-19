@@ -12,9 +12,9 @@ const customIcons: Record<number, React.ReactNode> = {
 
 const App: React.FC = () => (
   <>
-    <Rate defaultValue={2} character={({ index }) => (index || 0) + 1} />
+    <Rate defaultValue={2} character={({ index = 0 }) => index + 1} />
     <br />
-    <Rate defaultValue={3} character={({ index }) => customIcons[(index || 0) + 1]} />
+    <Rate defaultValue={3} character={({ index = 0 }) => customIcons[index + 1]} />
   </>
 );
 
