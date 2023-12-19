@@ -187,6 +187,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             dropdownClassName={classNames(
               hashId,
               cssVarCls,
+              rootCls,
               rootClassName,
               popupClassName || dropdownClassName,
             )}
