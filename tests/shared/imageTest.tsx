@@ -58,6 +58,7 @@ export default function imageTest(
       'Element',
       'File',
       'Blob',
+      'ResizeObserver',
     ].filter((key) => !(global as any)[key]);
 
     keys.forEach((key) => {
