@@ -1,7 +1,7 @@
 ## zh-CN
 
-自定义清除按钮
+自定义清除按钮。
 
 ## en-US
 
-Customize clear button
+Customize clear button.
