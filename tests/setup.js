@@ -52,3 +52,6 @@ if (typeof window !== 'undefined') {
   Object.defineProperty(window, 'TextEncoder', { writable: true, value: util.TextEncoder });
   Object.defineProperty(window, 'TextDecoder', { writable: true, value: util.TextDecoder });
 }
+
+global.requestAnimationFrame = global.requestAnimationFrame || global.setTimeout;
+global.cancelAnimationFrame = global.cancelAnimationFrame || global.clearTimeout;

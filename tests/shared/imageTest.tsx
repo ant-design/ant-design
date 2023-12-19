@@ -1,15 +1,16 @@
+import path from 'path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 // eslint-disable-next-line import/no-unresolved
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
-import path from 'path';
 import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
+import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
-import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
+import { render } from '../utils';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -35,6 +36,32 @@ export default function imageTest(
   identifier: string,
   options: ImageTestOptions,
 ) {
+  let container: HTMLDivElement;
+
+  beforeAll(() => {
+    const dom = new JSDOM('<!DOCTYPE html><body><div id="root"></div></body></p>', {
+      url: 'http://localhost/',
+    });
+    const win = dom.window;
+    const doc = win.document;
+
+    (global as any).window = win;
+
+    // Fill env
+    const keys = Object.keys(win).filter((key) => !(global as any)[key]);
+    const fullKeys = [...keys, 'HTMLElement', 'SVGElement', 'ShadowRoot', 'Element'];
+
+    fullKeys.forEach((key) => {
+      (global as any)[key] = win[key];
+    });
+
+    container = doc.querySelector<HTMLDivElement>('#root')!;
+  });
+
+  afterEach(() => {
+    container.innerHTML = '';
+  });
+
   function test(name: string, suffix: string, themedComponent: React.ReactElement) {
     it(name, async () => {
       await jestPuppeteer.resetPage();
@@ -61,7 +88,12 @@ export default function imageTest(
         </StyleProvider>
       );
 
-      const html = ReactDOMServer.renderToString(element);
+      const { unmount } = render(element, {
+        container,
+      });
+      const clientHTML = container.innerHTML;
+      unmount();
+
       const styleStr = extractStyle(cache);
 
       await page.evaluate(
@@ -71,7 +103,7 @@ export default function imageTest(
           const head = document.querySelector('head')!;
           head.innerHTML += ssrStyle;
         },
-        html,
+        clientHTML,
         styleStr,
       );
 
