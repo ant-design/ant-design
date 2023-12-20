@@ -8,6 +8,7 @@ import { globSync } from 'glob';
 import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
+import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
@@ -29,6 +30,7 @@ const themes = {
 interface ImageTestOptions {
   onlyViewport?: boolean;
   splitTheme?: boolean;
+  ssr?: boolean;
 }
 
 // eslint-disable-next-line jest/no-export
@@ -125,13 +127,23 @@ export default function imageTest(
         </StyleProvider>
       );
 
-      const { unmount } = render(element, {
-        container,
-      });
-      const clientHTML = container.innerHTML;
-      const styleStr = extractStyle(cache);
+      let html: string;
 
-      unmount();
+      if (options.ssr) {
+        html = ReactDOMServer.renderToString(element);
+      } else {
+        const { unmount } = render(element, {
+          container,
+        });
+        html = container.innerHTML;
+
+        // console.log(clientHTML);
+        // console.log(styleStr);
+
+        unmount();
+      }
+
+      const styleStr = extractStyle(cache);
 
       await page.evaluate(
         (innerHTML, ssrStyle) => {
@@ -140,7 +152,7 @@ export default function imageTest(
           const head = document.querySelector('head')!;
           head.innerHTML += ssrStyle;
         },
-        clientHTML,
+        html,
         styleStr,
       );
 
@@ -210,6 +222,8 @@ type Options = {
   skip?: boolean | string[];
   onlyViewport?: boolean | string[];
   splitTheme?: boolean | string[];
+  /** Use SSR render instead. Only used when the third part deps component */
+  ssr?: boolean;
 };
 
 // eslint-disable-next-line jest/no-export
@@ -237,6 +251,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
         splitTheme:
           options.splitTheme === true ||
           (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
+        ssr: options.ssr,
       });
     });
   });
