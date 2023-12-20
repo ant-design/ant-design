@@ -76,7 +76,7 @@ jobs:
       # Download report artifact
       - name: download report artifact
         id: download_report
-        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-status) == 'success' || fromJSON(needs.upstream-workflow-summary.outputs.build-status) == 'failure' }}
+        if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
@@ -127,7 +127,7 @@ jobs:
           body: |
             ## Visual Regression Build for PR #${{ steps.pr.outputs.id }} Failed ❌
             Potential causes:
-              - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.job-status }}
+              - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.build-status }}
               - `download report artifact` status: ${{ steps.download_report.outcome }}
               - `report upload` status: ${{ steps.report.outcome }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
