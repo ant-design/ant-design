@@ -130,22 +130,21 @@ export default function imageTest(
       );
 
       let html: string;
+      let styleStr: string;
 
       if (options.ssr) {
         html = ReactDOMServer.renderToString(element);
+        styleStr = extractStyle(cache);
       } else {
         const { unmount } = render(element, {
           container,
         });
         html = container.innerHTML;
+        styleStr = extractStyle(cache);
 
-        // console.log(clientHTML);
-        // console.log(styleStr);
-
+        // We should extract style before unmount
         unmount();
       }
-
-      const styleStr = extractStyle(cache);
 
       await page.evaluate(
         (innerHTML, ssrStyle) => {
