@@ -170,9 +170,9 @@ ${commonHeader}
 
   let fullVersionMd = reportMdStr;
 
-  const sliceBadCases = badCases.slice(0, 10);
+  let diffCount = 0;
 
-  for (const badCase of sliceBadCases) {
+  for (const badCase of badCases) {
     const { filename, type } = badCase;
     let lineReportMdStr = '';
     if (type === 'changed') {
@@ -195,11 +195,15 @@ ${commonHeader}
       lineReportMdStr += ' |\n';
     }
 
-    if (lineReportMdStr) {
-      reportMdStr += addonFullReportDesc;
-      fullVersionMd += lineReportMdStr;
+    diffCount += 1;
+    if (diffCount <= 10) {
+      reportMdStr += lineReportMdStr;
     }
+
+    fullVersionMd += lineReportMdStr;
   }
+
+  reportMdStr += addonFullReportDesc;
 
   // convert fullVersionMd to html
   return [reportMdStr, md2Html(fullVersionMd)];
