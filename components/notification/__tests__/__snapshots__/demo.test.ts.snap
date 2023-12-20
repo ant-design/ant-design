@@ -589,7 +589,7 @@ exports[`renders components/notification/demo/stack.tsx correctly 1`] = `
           class="ant-space-item"
         >
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-outlined"
           >
             <div
               class="ant-input-number-handler-wrap"

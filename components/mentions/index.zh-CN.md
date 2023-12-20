@@ -36,6 +36,7 @@ return (
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/async.tsx">异步加载</code>
 <code src="./demo/form.tsx">配合 Form 使用</code>
 <code src="./demo/prefix.tsx">自定义触发字符</code>
@@ -66,6 +67,7 @@ return (
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  |
 | value | 设置值 | string | - |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  |
 | onChange | 值改变时触发 | (text: string) => void | - |  |
 | onFocus | 获得焦点时触发 | () => void | - |  |

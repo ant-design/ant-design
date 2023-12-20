@@ -2,14 +2,14 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import type { SharedComponentToken, SharedInputToken } from '../../input/style';
+import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import {
   genActiveStyle,
   genBasicInputStyle,
-  genHoverStyle,
   initComponentToken,
   initInputToken,
 } from '../../input/style';
+import { genHoverStyle } from '../../input/style/variants';
 import { resetComponent, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import {

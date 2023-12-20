@@ -27,7 +27,10 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   size?: SizeType;
   status?: InputStatus;
   rootClassName?: string;
-  /** @default "outlined" */
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
   variant?: InputVariant;
 }
 
@@ -107,31 +110,31 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
       className={classNames(cssVarCls, rootCls, className, rootClassName)}
-      classes={{
-        affixWrapper: classNames(
-          `${prefixCls}-textarea-affix-wrapper`,
-          {
-            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
-            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
-          },
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
-          hashId,
-        ),
-      }}
       classNames={{
         ...classes,
         textarea: classNames(
           {
-            [`${prefixCls}-${variant}`]: enableVariantCls,
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },
-          getStatusClassNames(prefixCls, mergedStatus),
           hashId,
           classes?.textarea,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
+        affixWrapper: classNames(
+          `${prefixCls}-textarea-affix-wrapper`,
+          {
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+          },
+          hashId,
         ),
       }}
       prefixCls={prefixCls}

@@ -59,7 +59,10 @@ export interface InternalSelectProps<
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
-  /** @default "outlined" */
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
   variant?: SelectVariant;
 }
 
@@ -132,7 +135,9 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants);
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants, {
+    omitOutlined: true,
+  });
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);

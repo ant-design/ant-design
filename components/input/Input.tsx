@@ -56,7 +56,7 @@ export function triggerFocus(
   }
 }
 
-export const InputVariants = ['outlined', 'borderless'] as const;
+export const InputVariants = ['outlined', 'borderless', 'filled'] as const;
 export type InputVariant = (typeof InputVariants)[number];
 
 export interface InputProps
@@ -71,6 +71,7 @@ export interface InputProps
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean;
   /**
+   * @since 5.13.0
    * @default "outlined"
    */
   variant?: InputVariant;
@@ -202,7 +203,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         rootClassName,
         cssVarCls,
         rootCls,
-        hashId,
         compactItemClassnames,
         input?.className,
       )}
@@ -233,23 +233,23 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-rtl`]: direction === 'rtl',
-            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
-          !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
           classes?.input,
           input?.classNames?.input,
           hashId,
         ),
-      }}
-      classes={{
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
         affixWrapper: classNames(
           {
             [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-${variant}`]: enableVariantCls,
           },
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           hashId,
         ),
         wrapper: classNames(
@@ -258,12 +258,12 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           },
           hashId,
         ),
-        group: classNames(
+        groupWrapper: classNames(
           {
             [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
             [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
             [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-group-wrapper-disabled`]: mergedDisabled,
+            [`${prefixCls}-group-wrapper-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
           hashId,
