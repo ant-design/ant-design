@@ -92,6 +92,14 @@ export default function imageTest(
       };
     } as any;
 
+    // Fake matchMedia
+    win.matchMedia = () =>
+      ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      }) as any;
+
     // Fill window
     fillWindowEnv(win);
   });
