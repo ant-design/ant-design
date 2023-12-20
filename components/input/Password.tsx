@@ -67,7 +67,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   };
 
   const getIcon = (prefixCls: string) => {
-    const { action = 'click', iconRender = defaultIconRender } = props;
+    const { action = 'click', iconRender = defaultIconRender, disabled } = props;
     const iconTrigger = ActionMap[action] || '';
     const icon = iconRender(visible);
     const iconProps = {
@@ -84,8 +84,9 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
         // https://github.com/ant-design/ant-design/issues/23524
         e.preventDefault();
       },
+      disabled,
     };
-    return React.cloneElement(React.isValidElement(icon) ? icon : <span>{icon}</span>, iconProps);
+    return React.cloneElement(<span>{icon}</span>, iconProps);
   };
 
   const {
