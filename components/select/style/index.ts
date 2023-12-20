@@ -8,7 +8,7 @@ import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
 import type { ComponentToken, SelectToken } from './token';
 import { prepareComponentToken } from './token';
-import genVariantsStyle from 'antd/es/select/style/variants';
+import genVariantsStyle from './variants';
 
 export { ComponentToken };
 
