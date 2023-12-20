@@ -113,7 +113,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         [`${componentCls}-clear-icon`]: {
           position: 'absolute',
           insetInlineEnd: 0,
-          insetBlockStart: paddingXXS,
           margin: 0,
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
