@@ -1015,7 +1015,7 @@ Array [
                           >
                             <div
                               aria-required="true"
-                              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
                               <div
                                 class="ant-select-selector"
@@ -1192,7 +1192,7 @@ Array [
                           >
                             <div
                               aria-required="true"
-                              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
                               <div
                                 class="ant-select-selector"
@@ -1374,7 +1374,7 @@ Array [
                           >
                             <div
                               aria-required="true"
-                              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                             >
                               <div
                                 class="ant-select-selector"

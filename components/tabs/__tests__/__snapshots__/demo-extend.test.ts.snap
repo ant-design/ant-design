@@ -3450,7 +3450,7 @@ exports[`renders components/tabs/demo/icon.tsx extend context correctly 2`] = `[
 exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -3616,7 +3616,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -3782,7 +3782,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div
@@ -3937,7 +3937,7 @@ exports[`renders components/tabs/demo/nest.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 200px;"
   >
     <div

@@ -2,7 +2,7 @@
 
 exports[`renders components/select/demo/automatic-tokenization.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -416,7 +416,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -595,7 +595,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
       style="width: 120px;"
     >
       <div
@@ -716,7 +716,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-loading"
       style="width: 120px;"
     >
       <div
@@ -836,7 +836,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -993,7 +993,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -1138,7 +1138,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -1303,7 +1303,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
 
 exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 300px;"
 >
   <div
@@ -1506,7 +1506,7 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
 
 exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1806,7 +1806,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
       style="width: 120px;"
     >
       <div
@@ -1998,7 +1998,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 120px;"
     >
       <div
@@ -2265,7 +2265,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 2`] =
 
 exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   style="width: 120px; margin-top: 50vh;"
 >
   <div
@@ -4071,9 +4071,1113 @@ exports[`renders components/select/demo/debug-flip-shift.tsx extend context corr
 
 exports[`renders components/select/demo/debug-flip-shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/select/demo/filled-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 12px;"
+>
+  <div
+    class="ant-flex"
+    style="gap: 8px;"
+  >
+    <div
+      class="ant-select ant-select-filled ant-select-single ant-select-show-arrow ant-select-disabled"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            disabled=""
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="Lucy"
+        >
+          Lucy
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-filled ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item"
+            style="opacity: 1;"
+          >
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                Lucy
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity: 1;"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width: 0px;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+    style="gap: 8px;"
+  >
+    <div
+      class="ant-select ant-select-filled ant-select-status-error ant-select-single ant-select-show-arrow"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="Lucy"
+        >
+          Lucy
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-filled ant-select-status-error ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item"
+            style="opacity: 1;"
+          >
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                Lucy
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity: 1;"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width: 0px;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+    style="gap: 8px;"
+  >
+    <div
+      class="ant-select ant-select-filled ant-select-status-error ant-select-single ant-select-show-arrow ant-select-disabled"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            disabled=""
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+          title="Lucy"
+        >
+          Lucy
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-filled ant-select-status-error ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item"
+            style="opacity: 1;"
+          >
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                Lucy
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity: 1;"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width: 0px;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                disabled=""
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/select/demo/filled-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: \`value\` should be array when \`mode\` is \`multiple\` or \`tags\`",
+]
+`;
+
 exports[`renders components/select/demo/hide-selected.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -4243,7 +5347,7 @@ exports[`renders components/select/demo/hide-selected.tsx extend context correct
 
 exports[`renders components/select/demo/label-in-value.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 120px;"
 >
   <div
@@ -4396,7 +5500,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -4965,7 +6069,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -5457,7 +6561,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 2`
 
 exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 200px;"
 >
   <div
@@ -5644,7 +6748,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -5838,7 +6942,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px; height: 60px;"
     >
       <div
@@ -6004,7 +7108,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -6199,7 +7303,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 120px;"
     >
       <div
@@ -6453,7 +7557,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 120px; height: 60px;"
     >
       <div
@@ -6992,7 +8096,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
 
 exports[`renders components/select/demo/option-label-prop.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -7381,7 +8485,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 120px;"
   >
     <div
@@ -7664,7 +8768,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
     </div>
   </div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 120px;"
   >
     <div
@@ -7832,7 +8936,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -8384,7 +9488,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-disabled ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -8940,7 +10044,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
 
 exports[`renders components/select/demo/search.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -9098,7 +10202,7 @@ exports[`renders components/select/demo/search.tsx extend context correctly 2`] 
 
 exports[`renders components/select/demo/search-box.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-search"
   style="width: 200px;"
 >
   <div
@@ -9146,7 +10250,7 @@ exports[`renders components/select/demo/search-box.tsx extend context correctly 
 
 exports[`renders components/select/demo/search-sort.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-show-search"
   style="width: 200px;"
 >
   <div
@@ -9356,7 +10460,7 @@ exports[`renders components/select/demo/search-sort.tsx extend context correctly
 
 exports[`renders components/select/demo/select-users.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -9520,7 +10624,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -10073,7 +11177,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width: 100%;"
       >
         <div
@@ -10615,7 +11719,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
         style="width: 100%;"
       >
         <div
@@ -11165,7 +12269,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-status-error ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-status-error ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -11285,7 +12389,7 @@ exports[`renders components/select/demo/status.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-status-warning ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-status-warning ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -11415,7 +12519,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 120px;"
     >
       <div
@@ -11594,7 +12698,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
       style="width: 120px;"
     >
       <div
@@ -11718,7 +12822,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 2`] 
 
 exports[`renders components/select/demo/tags.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -12127,15 +13231,774 @@ exports[`renders components/select/demo/tags.tsx extend context correctly 2`] = 
 
 exports[`renders components/select/demo/variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
-  style="flex-wrap: wrap;"
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 12px;"
 >
   <div
-    class="ant-space-item"
+    class="ant-flex"
+    style="gap: 8px;"
+  >
+    <div
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Outlined
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item"
+            style="opacity: 1;"
+          >
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                Lucy
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity: 1;"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width: 0px;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+    style="gap: 8px;"
+  >
+    <div
+      class="ant-select ant-select-filled ant-select-single ant-select-show-arrow"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="rc_select_TEST_OR_SSR_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
+            readonly=""
+            role="combobox"
+            style="opacity: 0;"
+            type="search"
+            unselectable="on"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Filled
+        </span>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-select ant-select-filled ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      style="flex: 1;"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <div
+          class="ant-select-selection-overflow"
+        >
+          <div
+            class="ant-select-selection-overflow-item"
+            style="opacity: 1;"
+          >
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                Lucy
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity: 1;"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width: 0px;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="rc_select_TEST_OR_SSR_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select: none;"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down ant-select-suffix"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+    style="gap: 8px;"
   >
     <div
       class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
-      style="width: 120px;"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
@@ -12290,43 +14153,90 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
         </span>
       </span>
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
     <div
-      class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow ant-select-disabled"
-      style="width: 120px;"
+      class="ant-select ant-select-borderless ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      style="flex: 1;"
     >
       <div
         class="ant-select-selector"
       >
-        <span
-          class="ant-select-selection-search"
+        <div
+          class="ant-select-selection-overflow"
         >
-          <input
-            aria-autocomplete="list"
-            aria-controls="rc_select_TEST_OR_SSR_list"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-owns="rc_select_TEST_OR_SSR_list"
-            autocomplete="off"
-            class="ant-select-selection-search-input"
-            disabled=""
-            id="rc_select_TEST_OR_SSR"
-            readonly=""
-            role="combobox"
-            style="opacity: 0;"
-            type="search"
-            unselectable="on"
-            value=""
-          />
-        </span>
-        <span
-          class="ant-select-selection-placeholder"
-        >
-          Borderless
-        </span>
+          <div
+            class="ant-select-selection-overflow-item"
+            style="opacity: 1;"
+          >
+            <span
+              class="ant-select-selection-item"
+              title="Lucy"
+            >
+              <span
+                class="ant-select-selection-item-content"
+              >
+                Lucy
+              </span>
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-item-remove"
+                style="user-select: none;"
+                unselectable="on"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+            style="opacity: 1;"
+          >
+            <div
+              class="ant-select-selection-search"
+              style="width: 0px;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                aria-owns="rc_select_TEST_OR_SSR_list"
+                autocomplete="off"
+                class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
+                readonly=""
+                role="combobox"
+                style="opacity: 0;"
+                type="search"
+                unselectable="on"
+                value=""
+              />
+              <span
+                aria-hidden="true"
+                class="ant-select-selection-search-mirror"
+              >
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
@@ -12339,9 +14249,17 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
             style="height: 0px; width: 0px; overflow: hidden;"
           >
             <div
-              aria-label="Lucy"
+              aria-label="Jack"
               aria-selected="false"
               id="rc_select_TEST_OR_SSR_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="true"
+              id="rc_select_TEST_OR_SSR_list_1"
               role="option"
             >
               lucy
@@ -12363,6 +14281,17 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                  </div>
+                  <div
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Lucy"
                   >
                     <div
@@ -12375,7 +14304,38 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                       class="ant-select-item-option-state"
                       style="user-select: none;"
                       unselectable="on"
-                    />
+                    >
+                      <span
+                        aria-label="check"
+                        class="anticon anticon-check"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="check"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                  <div
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
                   </div>
                 </div>
               </div>

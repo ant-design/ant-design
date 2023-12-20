@@ -57625,7 +57625,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
