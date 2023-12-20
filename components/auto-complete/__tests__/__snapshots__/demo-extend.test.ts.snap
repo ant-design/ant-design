@@ -755,7 +755,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -902,7 +902,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
@@ -1188,7 +1188,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
@@ -1404,7 +1404,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 30%;"
               >
                 <div
@@ -1633,7 +1633,7 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               class="ant-input-group ant-input-group-compact"
             >
               <div
-                class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
                 style="width: 20%;"
               >
                 <div

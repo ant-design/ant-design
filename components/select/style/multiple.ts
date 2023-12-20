@@ -104,8 +104,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         lineHeight: unit(
           token.calc(selectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
         ),
-        background: token.multipleItemBg,
-        border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
         borderRadius: token.borderRadiusSM,
         cursor: 'default',
         transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,

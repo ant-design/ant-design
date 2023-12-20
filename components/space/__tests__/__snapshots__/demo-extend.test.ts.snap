@@ -6425,7 +6425,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-select ant-cascader ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
         style="width: 70%;"
       >
         <div
@@ -8039,7 +8039,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         </div>
       </div>
       <div
-        class="ant-select ant-tree-select ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 60%;"
       >
         <div
@@ -10518,7 +10518,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             class="ant-input-group-addon"
           >
             <div
-              class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="width: 150px;"
             >
               <div
@@ -13241,7 +13241,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-cascader ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
         style="width: 70%;"
       >
         <div
@@ -15215,7 +15215,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-cascader ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+        class="ant-select ant-cascader ant-select-outlined ant-select-compact-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"

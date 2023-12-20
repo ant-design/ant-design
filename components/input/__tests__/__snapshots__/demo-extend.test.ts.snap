@@ -454,7 +454,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="width: 150px;"
           >
             <div
@@ -3308,7 +3308,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3423,7 +3423,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -9777,7 +9777,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 70%;"
     >
       <div

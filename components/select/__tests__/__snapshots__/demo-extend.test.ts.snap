@@ -7720,7 +7720,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 120px; height: 60px;"
     >
       <div
@@ -7846,7 +7846,7 @@ exports[`renders components/select/demo/option-label-center.tsx extend context c
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
       style="width: 120px; height: 60px;"
     >
       <div

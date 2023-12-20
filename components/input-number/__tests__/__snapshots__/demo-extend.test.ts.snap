@@ -632,7 +632,7 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="width: 150px;"
           >
             <div

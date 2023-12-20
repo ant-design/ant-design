@@ -82,6 +82,11 @@ const genOutlinedStyle = (token: SelectToken): CSSObject => ({
         color: token.colorTextDisabled,
       },
     },
+
+    [`&${token.componentCls}-multiple ${token.componentCls}-selection-item`]: {
+      background: token.multipleItemBg,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+    },
   },
 });
 
@@ -94,6 +99,7 @@ const genBaseFilledStyle = (
     bg: string;
     hoverBg: string;
     activeBorderColor: string;
+    color: string;
   },
 ): CSSObject => {
   const { componentCls, antCls } = token;
@@ -102,6 +108,7 @@ const genBaseFilledStyle = (
     [`&:not(${componentCls}-customize-input) ${componentCls}-selector`]: {
       background: options.bg,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
+      color: options.color,
     },
     [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${antCls}-pagination-size-changer)`]:
       {
@@ -125,6 +132,7 @@ const genFilledStatusStyle = (
     bg: string;
     hoverBg: string;
     activeBorderColor: string;
+    color: string;
   },
 ): CSSObject => ({
   [`&${token.componentCls}-status-${options.status}`]: {
@@ -138,6 +146,7 @@ const genFilledStyle = (token: SelectToken): CSSObject => ({
       bg: token.colorFillTertiary,
       hoverBg: token.colorFillSecondary,
       activeBorderColor: token.colorPrimary,
+      color: token.colorText,
     }),
 
     ...genFilledStatusStyle(token, {
@@ -145,6 +154,7 @@ const genFilledStyle = (token: SelectToken): CSSObject => ({
       bg: token.colorErrorBg,
       hoverBg: token.colorErrorBgHover,
       activeBorderColor: token.colorError,
+      color: token.colorError,
     }),
 
     ...genFilledStatusStyle(token, {
@@ -152,6 +162,7 @@ const genFilledStyle = (token: SelectToken): CSSObject => ({
       bg: token.colorWarningBg,
       hoverBg: token.colorWarningBgHover,
       activeBorderColor: token.colorWarning,
+      color: token.colorWarning,
     }),
 
     [`&${token.componentCls}-disabled`]: {
@@ -160,6 +171,11 @@ const genFilledStyle = (token: SelectToken): CSSObject => ({
         background: token.colorBgContainerDisabled,
         color: token.colorTextDisabled,
       },
+    },
+
+    [`&${token.componentCls}-multiple ${token.componentCls}-selection-item`]: {
+      background: token.colorBgContainer,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
     },
   },
 });
@@ -178,6 +194,11 @@ const genBorderlessStyle = (token: SelectToken): CSSObject => ({
       [`&:not(${token.componentCls}-customize-input) ${token.componentCls}-selector`]: {
         color: token.colorTextDisabled,
       },
+    },
+
+    [`&${token.componentCls}-multiple ${token.componentCls}-selection-item`]: {
+      background: token.multipleItemBg,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
     },
   },
 });
