@@ -92,6 +92,7 @@ jobs:
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}
+          PR_ID: ${{ steps.pr.outputs.id }}
         run: |
           mkdir ./visualRegressionReport
           tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
@@ -102,7 +103,7 @@ jobs:
           echo "✅ Install `ali-oss` Finished"
 
           echo "🤖 Uploading"
-          node scripts/visual-regression/upload.js ./visualRegressionReport --ref=pr-${{ steps.pr.outputs.id }}
+          node scripts/visual-regression/upload.js ./visualRegressionReport --ref=pr-$PR_ID
           echo "✅ Uploaded"
 
           delimiter="$(openssl rand -hex 8)"
@@ -127,8 +128,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-            ## Visual-Regression Diff Failed
-            Visual-diff report job conclusion: ${{ fromJSON(needs.upstream-workflow-summary.outputs.job-status) }}
+            ## Visual Regression Build for PR #${{ steps.pr.outputs.id }} Failed ❌
+            Potential causes:
+              - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.job-status }}
+              - `report upload` status: ${{ steps.report.outcome }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
           body-include: '<!-- VISUAL_DIFF_REGRESSION_HOOK -->'
           number: ${{ steps.pr.outputs.id }}

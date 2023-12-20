@@ -87,12 +87,16 @@ jobs:
       # Execute visual regression diff task and zip then
       # output as visualRegressionReport.tar.gz
       - name: visual regression diff
+        env:
+          EVENT_NUMBER: ${{ github.event.number }}
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          npm run visual-regression -- --pr-id=${{ github.event.number }} --base-ref=${{ github.base_ref}}
+          npm run visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
         uses: actions/upload-artifact@v3
+        if: ${{ always() }}
         with:
           name: visual-regression-report
           path: visualRegressionReport.tar.gz
@@ -100,7 +104,7 @@ jobs:
       # Upload git ref for next workflow `visual-regression-diff-finish` use
       - name: Save persist key
         if: ${{ always() }}
-      # should be pr id
+        # should be pr id
         run: echo ${{ github.event.number }} > ./visual-regression-pr-id.txt
 
       - name: Upload persist key
