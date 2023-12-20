@@ -14,6 +14,8 @@ import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
 
+jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
+
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
   customDiffDir: `${process.cwd()}/imageDiffSnapshots`,
