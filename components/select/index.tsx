@@ -40,7 +40,7 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
-const SelectVariants = ['outlined', 'borderless', 'filled'] as const;
+export const SelectVariants = ['outlined', 'borderless', 'filled'] as const;
 export type SelectVariant = (typeof SelectVariants)[number];
 
 export interface InternalSelectProps<
