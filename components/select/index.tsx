@@ -40,7 +40,7 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
-const SelectVariants = ['outlined', 'borderless'] as const;
+const SelectVariants = ['outlined', 'borderless', 'filled'] as const;
 export type SelectVariant = (typeof SelectVariants)[number];
 
 export interface InternalSelectProps<
@@ -135,9 +135,7 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants, {
-    omitOutlined: true,
-  });
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);

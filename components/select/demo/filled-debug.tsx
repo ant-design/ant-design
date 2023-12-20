@@ -5,7 +5,9 @@ const App: React.FC = () => (
   <Flex gap={12} vertical>
     <Flex gap={8}>
       <Select
-        placeholder="Outlined"
+        value="lucy"
+        disabled
+        variant="filled"
         style={{ flex: 1 }}
         options={[
           { value: 'jack', label: 'Jack' },
@@ -14,8 +16,10 @@ const App: React.FC = () => (
         ]}
       />
       <Select
+        value="lucy"
+        disabled
         mode="multiple"
-        defaultValue={['lucy']}
+        variant="filled"
         placeholder="Outlined"
         style={{ flex: 1 }}
         options={[
@@ -27,7 +31,8 @@ const App: React.FC = () => (
     </Flex>
     <Flex gap={8}>
       <Select
-        placeholder="Filled"
+        value="lucy"
+        status="error"
         variant="filled"
         style={{ flex: 1 }}
         options={[
@@ -37,10 +42,11 @@ const App: React.FC = () => (
         ]}
       />
       <Select
+        value="lucy"
+        status="error"
         mode="multiple"
-        defaultValue={['lucy']}
-        placeholder="Filled"
         variant="filled"
+        placeholder="Outlined"
         style={{ flex: 1 }}
         options={[
           { value: 'jack', label: 'Jack' },
@@ -51,8 +57,10 @@ const App: React.FC = () => (
     </Flex>
     <Flex gap={8}>
       <Select
-        placeholder="Borderless"
-        variant="borderless"
+        disabled
+        value="lucy"
+        status="error"
+        variant="filled"
         style={{ flex: 1 }}
         options={[
           { value: 'jack', label: 'Jack' },
@@ -61,10 +69,12 @@ const App: React.FC = () => (
         ]}
       />
       <Select
+        disabled
+        value="lucy"
+        status="error"
         mode="multiple"
-        defaultValue={['lucy']}
-        placeholder="Borderless"
-        variant="borderless"
+        variant="filled"
+        placeholder="Outlined"
         style={{ flex: 1 }}
         options={[
           { value: 'jack', label: 'Jack' },

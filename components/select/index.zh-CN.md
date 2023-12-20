@@ -36,7 +36,8 @@ demo:
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
-<code src="./demo/variant.tsx">形态变体</code>
+<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
+<code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">自定义选择标签</code>
 <code src="./demo/responsive.tsx">响应式 maxTagCount</code>
 <code src="./demo/big-data.tsx">大数据</code>
@@ -97,7 +98,7 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string\[] | - |  |
 | value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` | `outlined` | 5.13.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
