@@ -27,7 +27,6 @@ const App: React.FC = () => (
     </Flex>
     <Flex gap={8}>
       <Select
-        allowClear
         placeholder="Filled"
         variant="filled"
         style={{ flex: 1 }}
