@@ -1,23 +1,22 @@
 /* eslint-disable compat/compat */
 /* eslint-disable no-console, no-await-in-loop, import/no-extraneous-dependencies, lodash/import-scope, no-restricted-syntax */
-import path from 'path';
+import { assert } from 'console';
 import fs from 'fs';
 import os from 'os';
+import path from 'path';
 import { Readable } from 'stream';
 import { finished } from 'stream/promises';
-
-import { remark } from 'remark';
-import remarkHtml from 'remark-html';
-import remarkGfm from 'remark-gfm';
-import minimist from 'minimist';
-import tar from 'tar';
-import fse from 'fs-extra';
 import chalk from 'chalk';
+import fse from 'fs-extra';
 import _ from 'lodash';
+import minimist from 'minimist';
 import pixelmatch from 'pixelmatch';
 import { PNG } from 'pngjs';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkHtml from 'remark-html';
 import sharp from 'sharp';
-import { assert } from 'console';
+import tar from 'tar';
 
 const ALI_OSS_BUCKET = 'antd-visual-diff';
 
@@ -158,10 +157,7 @@ function generateReport(
 
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
 
-  const addonFullReportDesc = `\n\nToo many visual-regression diffs found, please check <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
-
-  // github action pr comment has limit of 65536 4-byte unicode characters
-  const limit = 65536 - addonFullReportDesc.length;
+  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
   let reportMdStr = `
 ${commonHeader}
@@ -174,7 +170,7 @@ ${commonHeader}
 
   let fullVersionMd = reportMdStr;
 
-  let addonFullReportDescAdded = false;
+  let diffCount = 0;
 
   for (const badCase of badCases) {
     const { filename, type } = badCase;
@@ -199,16 +195,15 @@ ${commonHeader}
       lineReportMdStr += ' |\n';
     }
 
-    if (lineReportMdStr) {
-      if (reportMdStr.length + lineReportMdStr.length < limit) {
-        reportMdStr += lineReportMdStr;
-      } else if (!addonFullReportDescAdded) {
-        reportMdStr += addonFullReportDesc;
-        addonFullReportDescAdded = true;
-      }
-      fullVersionMd += lineReportMdStr;
+    diffCount += 1;
+    if (diffCount <= 10) {
+      reportMdStr += lineReportMdStr;
     }
+
+    fullVersionMd += lineReportMdStr;
   }
+
+  reportMdStr += addonFullReportDesc;
 
   // convert fullVersionMd to html
   return [reportMdStr, md2Html(fullVersionMd)];

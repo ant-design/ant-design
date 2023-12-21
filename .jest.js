@@ -32,7 +32,7 @@ function getTestRegex(libDir) {
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
-  setupFiles: ['./tests/setup.js', 'jest-canvas-mock'],
+  setupFiles: ['./tests/setup.ts', 'jest-canvas-mock'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],
