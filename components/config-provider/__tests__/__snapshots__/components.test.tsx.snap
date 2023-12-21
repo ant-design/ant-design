@@ -12543,6 +12543,111 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components ColorPicker configProvider 1`] = `
+<div
+  class="config-color-picker-trigger"
+>
+  <div
+    class="config-color-picker-color-block"
+  >
+    <div
+      class="config-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentDisabled 1`] = `
+<div
+  class="config-color-picker-trigger config-color-picker-trigger-disabled"
+>
+  <div
+    class="config-color-picker-color-block"
+  >
+    <div
+      class="config-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentSize large 1`] = `
+<div
+  class="config-color-picker-trigger config-color-picker-lg"
+>
+  <div
+    class="config-color-picker-color-block"
+  >
+    <div
+      class="config-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
+<div
+  class="config-color-picker-trigger"
+>
+  <div
+    class="config-color-picker-color-block"
+  >
+    <div
+      class="config-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentSize small 1`] = `
+<div
+  class="config-color-picker-trigger config-color-picker-sm"
+>
+  <div
+    class="config-color-picker-color-block"
+  >
+    <div
+      class="config-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker normal 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-color-block"
+  >
+    <div
+      class="ant-color-picker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker prefixCls 1`] = `
+<div
+  class="prefix-ColorPicker-trigger"
+>
+  <div
+    class="prefix-ColorPicker-color-block"
+  >
+    <div
+      class="prefix-ColorPicker-color-block-inner"
+      style="background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
 exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
 <div>
   <div

@@ -16,6 +16,26 @@ tag: vVERSION
 
 ---
 
+## 5.12.4
+
+`2023-12-19`
+
+- 🐞 修复 DatePicker 组件在 CSS 变量模式下的样式错乱问题。[#46526](https://github.com/ant-design/ant-design/pull/46526)
+
+## 5.12.3
+
+`2023-12-18`
+
+- 💄 修复 Tag 组件在 SSR 场景下的样式丢失问题。[#46500](https://github.com/ant-design/ant-design/pull/46500) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Upload 的 `disabled` 属性不再对下载按钮生效。[#46454](https://github.com/ant-design/ant-design/pull/46454)
+- 💄 Upload.Dragger 增加一个水平内边距。[#46457](https://github.com/ant-design/ant-design/pull/46457)
+- 🐞 修复 Upload `actions` 的颜色问题。[#46456](https://github.com/ant-design/ant-design/pull/46456)
+- 🐞 修复 Form 使用 `getValueProps` 展示值无法更新的问题。[#46445](https://github.com/ant-design/ant-design/pull/46445)
+- 💄 修复 Checkbox 自定义 `token.lineWidth` 时勾选箭头错位问题。[#46431](https://github.com/ant-design/ant-design/pull/46431)
+- 🐞 修复 Select 组件定制 token 会让 padding 失效的问题。[#46427](https://github.com/ant-design/ant-design/pull/46427) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Message 在 `cssVar` 模式下覆盖组件 token 无效的问题。[#46415](https://github.com/ant-design/ant-design/pull/46415) [@MadCcc](https://github.com/MadCcc)
+- 💄 Flex 组件不应该应用额外的样式。[#46404](https://github.com/ant-design/ant-design/pull/46404) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.12.2
 
 `2023-12-11`
