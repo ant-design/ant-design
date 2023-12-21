@@ -12,6 +12,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
 
+import isEllipsisActive from '../../_util/isEllipsisActive';
 import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
@@ -307,11 +308,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>> Native ellipsis
   React.useEffect(() => {
     const textEle = typographyRef.current;
-
     if (enableEllipsis && cssEllipsis && textEle) {
       const currentEllipsis = cssLineClamp
         ? textEle.offsetHeight < textEle.scrollHeight
-        : textEle.offsetWidth < textEle.scrollWidth;
+        : isEllipsisActive(textEle);
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
       }
