@@ -884,7 +884,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
     style="width: 100px;"
   >
     <div
@@ -1480,7 +1480,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
     style="width: 100px;"
   >
     <div
@@ -3598,7 +3598,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
       class="ant-picker-input ant-picker-input-active"
@@ -4780,7 +4780,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -7141,7 +7141,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="input content"
     />
     <div
-      class="ant-picker"
+      class="ant-picker ant-picker-outlined"
       style="width: 50%;"
     >
       <div
@@ -7748,7 +7748,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range"
+      class="ant-picker ant-picker-range ant-picker-outlined"
       style="width: 70%;"
     >
       <div

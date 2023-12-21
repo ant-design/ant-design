@@ -30,6 +30,8 @@ import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import useVariant from '../../_util/hooks/useVariants';
+import { InputVariants } from '../../input/Input';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
@@ -55,7 +57,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           className,
           rootClassName,
           size: customizeSize,
-          bordered = true,
+          bordered,
           placement,
           placeholder,
           popupClassName,
@@ -64,6 +66,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           status: customStatus,
           clearIcon,
           allowClear,
+          variant: customVariant,
           ...restProps
         } = props;
 
@@ -79,6 +82,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
+
+        const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
 
         const rootCls = useCSSVarCls(prefixCls);
         const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -118,6 +123,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           );
 
           warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+
+          warning.deprecated(!('bordered' in props), 'bordered', 'variant');
         }
 
         // ===================== Size =====================
@@ -162,7 +169,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             className={classNames(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
-                [`${prefixCls}-borderless`]: !bordered,
+                [`${prefixCls}-${variant}`]: enableVariantCls,
               },
               getStatusClassNames(
                 prefixCls,
@@ -187,6 +194,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             dropdownClassName={classNames(
               hashId,
               cssVarCls,
+              rootCls,
               rootClassName,
               popupClassName || dropdownClassName,
             )}

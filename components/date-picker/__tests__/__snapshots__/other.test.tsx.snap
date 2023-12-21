@@ -3,7 +3,7 @@
 exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 <div>
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -264,7 +264,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
 exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 <div>
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -948,7 +948,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
 
 exports[`Picker format by locale date 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined"
 >
   <div
     class="ant-picker-input"
@@ -1015,7 +1015,7 @@ exports[`Picker format by locale date 1`] = `
 
 exports[`Picker format by locale dateTime 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined"
 >
   <div
     class="ant-picker-input"
@@ -1082,7 +1082,7 @@ exports[`Picker format by locale dateTime 1`] = `
 
 exports[`Picker format by locale month 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined"
 >
   <div
     class="ant-picker-input"
@@ -1149,7 +1149,7 @@ exports[`Picker format by locale month 1`] = `
 
 exports[`Picker format by locale week 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined"
 >
   <div
     class="ant-picker-input"
