@@ -43,6 +43,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   React.useEffect(() => {
     if (visibilityControlled) {
       setVisible(visibilityToggle.visible!);
+      visibilityToggle.onVisibleChange?.(visibilityToggle.visible!);
     }
   }, [visibilityControlled, visibilityToggle]);
 
@@ -59,14 +60,12 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     }
     setVisible((prevState) => {
       const newState = !prevState;
+      if (typeof visibilityToggle === 'object') {
+        visibilityToggle.onVisibleChange?.(newState);
+      }
       return newState;
     });
   };
-  React.useEffect(() => {
-    if (typeof visibilityToggle === 'object') {
-      visibilityToggle.onVisibleChange?.(visible);
-    }
-  }, [visible]);
 
   const getIcon = (prefixCls: string) => {
     const { action = 'click', iconRender = defaultIconRender } = props;
