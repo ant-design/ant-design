@@ -121,6 +121,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         pointerEvents: 'none',
         display: 'flex',
         alignItems: 'center',
+        transition: `opacity ${token.motionDurationSlow} ease`,
 
         [iconCls]: {
           verticalAlign: 'top',
@@ -161,7 +162,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
-        background: token.clearBg,
         cursor: 'pointer',
         opacity: 0,
         transition: `color ${token.motionDurationMid} ease, opacity ${token.motionDurationSlow} ease`,
@@ -179,6 +179,12 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       '&:hover': {
         [`${componentCls}-clear`]: {
           opacity: 1,
+        },
+        // Should use the following selector, but since `:has` has poor compatibility,
+        // we use `:not(:last-child)` instead, which may cause some problems in some cases.
+        // [`${componentCls}-arrow:has(+ ${componentCls}-clear)`]: {
+        [`${componentCls}-arrow:not(:last-child)`]: {
+          opacity: 0,
         },
       },
     },

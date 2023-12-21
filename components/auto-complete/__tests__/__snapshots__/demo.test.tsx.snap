@@ -1360,33 +1360,98 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
 
 exports[`renders components/auto-complete/demo/variant.tsx correctly 1`] = `
 <div
-  class="ant-select ant-select-borderless ant-select-auto-complete ant-select-single ant-select-show-search"
-  style="width:200px"
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap:12px"
 >
   <div
-    class="ant-select-selector"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
+    style="width:200px"
   >
-    <span
-      class="ant-select-selection-search"
+    <div
+      class="ant-select-selector"
     >
-      <input
-        aria-autocomplete="list"
-        aria-controls="undefined_list"
-        aria-expanded="false"
-        aria-haspopup="listbox"
-        aria-owns="undefined_list"
-        autocomplete="off"
-        class="ant-select-selection-search-input"
-        role="combobox"
-        type="search"
-        value=""
-      />
-    </span>
-    <span
-      class="ant-select-selection-placeholder"
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      >
+        Outlined
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-filled ant-select-auto-complete ant-select-single ant-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="ant-select-selector"
     >
-      Borderless
-    </span>
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      >
+        Filled
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-borderless ant-select-auto-complete ant-select-single ant-select-show-search"
+    style="width:200px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      >
+        Borderless
+      </span>
+    </div>
   </div>
 </div>
 `;
