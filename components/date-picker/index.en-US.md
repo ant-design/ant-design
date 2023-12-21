@@ -29,7 +29,8 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/size.tsx">Three Sizes</code>
 <code src="./demo/cell-render.tsx">Customized Cell Rendering</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
