@@ -1300,7 +1300,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="input content"
       />
       <div
-        class="ant-picker ant-picker-compact-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
         style="width: 50%;"
       >
         <div
@@ -1904,7 +1904,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
         style="width: 70%;"
       >
         <div
@@ -3115,7 +3115,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         value="input content"
       />
       <div
-        class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-last-item"
         style="width: 70%;"
       >
         <div
@@ -5015,7 +5015,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
         style="width: 70%;"
       >
         <div
@@ -6581,7 +6581,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
       class="ant-space-compact ant-space-compact-block"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
       >
         <div
           class="ant-picker-input ant-picker-input-active"
@@ -10917,7 +10917,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 role="separator"
               />
               <div
-                class="ant-picker"
+                class="ant-picker ant-picker-outlined"
               >
                 <div
                   class="ant-picker-input"
@@ -11968,7 +11968,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-range ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item"
+        class="ant-picker ant-picker-range ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item ant-picker-compact-last-item"
         style="width: 70%;"
       >
         <div
@@ -13794,7 +13794,7 @@ Array [
       class="ant-space-compact"
     >
       <div
-        class="ant-picker ant-picker-compact-item ant-picker-compact-first-item"
+        class="ant-picker ant-picker-outlined ant-picker-compact-item ant-picker-compact-first-item"
       >
         <div
           class="ant-picker-input"

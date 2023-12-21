@@ -552,7 +552,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-disabled"
+              class="ant-picker ant-picker-outlined ant-picker-disabled"
             >
               <div
                 class="ant-picker-input"
@@ -622,7 +622,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-disabled"
+              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"

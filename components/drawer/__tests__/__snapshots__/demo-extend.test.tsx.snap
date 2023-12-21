@@ -1551,7 +1551,7 @@ Array [
                           >
                             <div
                               aria-required="true"
-                              class="ant-picker ant-picker-range"
+                              class="ant-picker ant-picker-range ant-picker-outlined"
                               style="width: 100%;"
                             >
                               <div

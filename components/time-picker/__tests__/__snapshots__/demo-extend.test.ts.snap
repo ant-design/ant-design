@@ -9,7 +9,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-picker"
+      class="ant-picker ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
@@ -1337,7 +1337,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-picker"
+      class="ant-picker ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
@@ -2665,7 +2665,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
     class="ant-space-item"
   >
     <div
-      class="ant-picker"
+      class="ant-picker ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
@@ -3452,7 +3452,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
 exports[`renders components/time-picker/demo/addon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -4880,7 +4880,7 @@ exports[`renders components/time-picker/demo/addon.tsx extend context correctly 
 exports[`renders components/time-picker/demo/basic.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -9168,12 +9168,17 @@ Array [
 ]
 `;
 
-exports[`renders components/time-picker/demo/bordered.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/time-picker/demo/bordered.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: DatePicker.RangePicker] \`bordered\` is deprecated. Please use \`variant\` instead.",
+  "Warning: [antd: TimePicker] \`bordered\` is deprecated. Please use \`variant\` instead.",
+]
+`;
 
 exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -10592,7 +10597,7 @@ exports[`renders components/time-picker/demo/colored-popup.tsx extend context co
 exports[`renders components/time-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-disabled"
+    class="ant-picker ant-picker-outlined ant-picker-disabled"
   >
     <div
       class="ant-picker-input"
@@ -12008,7 +12013,7 @@ exports[`renders components/time-picker/demo/disabled.tsx extend context correct
 exports[`renders components/time-picker/demo/hide-column.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -12903,7 +12908,7 @@ exports[`renders components/time-picker/demo/hide-column.tsx extend context corr
 exports[`renders components/time-picker/demo/interval-options.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -13329,7 +13334,7 @@ exports[`renders components/time-picker/demo/interval-options.tsx extend context
 exports[`renders components/time-picker/demo/range-picker.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
       class="ant-picker-input ant-picker-input-active"
@@ -14796,7 +14801,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
     style="margin: 0px;"
   >
     <div
@@ -16219,7 +16224,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-large"
+      class="ant-picker ant-picker-large ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
@@ -17656,7 +17661,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker"
+      class="ant-picker ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
@@ -19093,7 +19098,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-small"
+      class="ant-picker ant-picker-small ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
@@ -20539,7 +20544,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-status-error"
+      class="ant-picker ant-picker-outlined ant-picker-status-error"
     >
       <div
         class="ant-picker-input"
@@ -21952,7 +21957,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-status-warning"
+      class="ant-picker ant-picker-outlined ant-picker-status-warning"
     >
       <div
         class="ant-picker-input"
@@ -23365,7 +23370,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-status-error"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error"
     >
       <div
         class="ant-picker-input ant-picker-input-active"
@@ -24827,7 +24832,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-status-warning"
+      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning"
     >
       <div
         class="ant-picker-input ant-picker-input-active"
@@ -26293,7 +26298,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
 exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -27709,7 +27714,7 @@ exports[`renders components/time-picker/demo/suffix.tsx extend context correctly
 exports[`renders components/time-picker/demo/value.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"

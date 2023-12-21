@@ -3144,7 +3144,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-disabled"
+                class="ant-picker ant-picker-outlined ant-picker-disabled"
               >
                 <div
                   class="ant-picker-input"
@@ -3770,7 +3770,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-range ant-picker-disabled"
+                class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
               >
                 <div
                   class="ant-picker-input ant-picker-input-active"
@@ -10982,7 +10982,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-default"
+              class="ant-picker ant-picker-default ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
@@ -11810,7 +11810,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
@@ -12438,7 +12438,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
@@ -14418,7 +14418,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
@@ -14683,7 +14683,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
           >
             <div
               aria-required="true"
-              class="ant-picker ant-picker-range"
+              class="ant-picker ant-picker-range ant-picker-outlined"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"
@@ -15898,7 +15898,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
           >
             <div
               aria-required="true"
-              class="ant-picker ant-picker-range"
+              class="ant-picker ant-picker-range ant-picker-outlined"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"
@@ -17926,7 +17926,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker"
+              class="ant-picker ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
@@ -22194,7 +22194,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-status-success ant-picker-has-feedback"
+              class="ant-picker ant-picker-outlined ant-picker-status-success ant-picker-has-feedback"
               style="width: 100%;"
             >
               <div
@@ -22843,7 +22843,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-status-warning ant-picker-has-feedback"
+              class="ant-picker ant-picker-outlined ant-picker-status-warning ant-picker-has-feedback"
               style="width: 100%;"
             >
               <div
@@ -24306,7 +24306,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-status-error ant-picker-has-feedback"
+              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error ant-picker-has-feedback"
               style="width: 100%;"
             >
               <div
@@ -26143,7 +26143,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker ant-picker-status-error"
+                        class="ant-picker ant-picker-outlined ant-picker-status-error"
                       >
                         <div
                           class="ant-picker-input"
@@ -26786,7 +26786,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       class="ant-form-item-control-input-content"
                     >
                       <div
-                        class="ant-picker"
+                        class="ant-picker ant-picker-outlined"
                       >
                         <div
                           class="ant-picker-input"
