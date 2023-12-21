@@ -87,7 +87,7 @@ Array [
                 >
                   <div
                     aria-required="true"
-                    class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -273,7 +273,7 @@ Array [
                 >
                   <div
                     aria-required="true"
-                    class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                   >
                     <div
                       class="ant-select-selector"
@@ -785,7 +785,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width:70%"
               >
                 <div
@@ -1110,7 +1110,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
                 style="width:70%"
               >
                 <div
@@ -1339,7 +1339,7 @@ exports[`renders components/form/demo/control-hooks.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -1632,7 +1632,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
                 value="0"
               />
               <div
-                class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
                 style="width:80px;margin:0 8px"
               >
                 <div
@@ -2074,7 +2074,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2161,7 +2161,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -2248,7 +2248,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
+                class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
               >
                 <div
                   class="ant-select-selector"
@@ -5896,7 +5896,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -6025,7 +6025,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   class="ant-input-group-addon"
                 >
                   <div
-                    class="ant-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
                     style="width:70px"
                   >
                     <div
@@ -6212,7 +6212,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   class="ant-input-number-group-addon"
                 >
                   <div
-                    class="ant-select ant-select-single ant-select-show-arrow"
+                    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
                     style="width:70px"
                   >
                     <div
@@ -6305,7 +6305,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -6419,7 +6419,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7061,7 +7061,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7147,7 +7147,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -7233,7 +7233,7 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -8477,7 +8477,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-has-feedback ant-select-single ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback ant-select-single ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -8569,7 +8569,7 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
           >
             <div
               aria-required="true"
-              class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -10639,7 +10639,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10751,7 +10751,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"
@@ -10863,7 +10863,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-status-warning ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-status-warning ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
                 class="ant-select-selector"

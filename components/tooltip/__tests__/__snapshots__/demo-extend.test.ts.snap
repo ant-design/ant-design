@@ -1534,7 +1534,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
         class="ant-select-selector"

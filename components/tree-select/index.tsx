@@ -30,6 +30,9 @@ import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useZIndex } from '../_util/hooks/useZIndex';
+import type { SelectVariant } from '../select';
+import { SelectVariants } from '../select';
+import useVariant from '../_util/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -61,6 +64,7 @@ export interface TreeSelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -75,6 +79,11 @@ export interface TreeSelectProps<
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: SelectVariant;
 }
 
 const InternalTreeSelect = <
@@ -108,6 +117,7 @@ const InternalTreeSelect = <
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     allowClear,
+    variant: customVariant,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -144,6 +154,8 @@ const InternalTreeSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -156,6 +168,8 @@ const InternalTreeSelect = <
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered, SelectVariants);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -237,7 +251,7 @@ const InternalTreeSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),

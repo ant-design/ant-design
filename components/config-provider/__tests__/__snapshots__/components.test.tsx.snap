@@ -352,7 +352,7 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -383,7 +383,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-disabled config-select-show-search"
+  class="config-select config-select-outlined config-select-auto-complete config-select-single config-select-disabled config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -415,7 +415,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-lg config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -446,7 +446,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -477,7 +477,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize small 1`] = `
 <div
-  class="config-select config-select-sm config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-sm config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -508,7 +508,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
 
 exports[`ConfigProvider components AutoComplete normal 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -539,7 +539,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
 
 exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 <div
-  class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
+  class="prefix-AutoComplete prefix-AutoComplete-outlined prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
 >
   <div
     class="prefix-AutoComplete-selector"
@@ -1588,7 +1588,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -1648,7 +1648,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -2529,7 +2529,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -2876,7 +2876,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
           class="config-select-selector"
@@ -2937,7 +2937,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
           class="config-select-selector"
@@ -3821,7 +3821,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
           class="config-select-selector"
@@ -4171,7 +4171,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-lg config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -4231,7 +4231,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         </span>
       </div>
       <div
-        class="config-select config-select-lg config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -5112,7 +5112,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-lg config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -5459,7 +5459,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -5519,7 +5519,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -6400,7 +6400,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -6747,7 +6747,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-sm config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -6807,7 +6807,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         </span>
       </div>
       <div
-        class="config-select config-select-sm config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -7688,7 +7688,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-sm config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -8035,7 +8035,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -8095,7 +8095,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -8976,7 +8976,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -9323,7 +9323,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       class="prefix-Calendar-calendar-header"
     >
       <div
-        class="ant-select prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -9383,7 +9383,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         </span>
       </div>
       <div
-        class="ant-select prefix-Calendar-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined prefix-Calendar-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -10264,7 +10264,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       class="prefix-Calendar-calendar-header"
     >
       <div
-        class="ant-select prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -11640,7 +11640,7 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
 
 exports[`ConfigProvider components Cascader configProvider 1`] = `
 <div
-  class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11697,7 +11697,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
 
 exports[`ConfigProvider components Cascader configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11755,7 +11755,7 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Cascader configProvider componentSize large 1`] = `
 <div
-  class="config-select config-cascader config-select-lg config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-lg config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11812,7 +11812,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
 
 exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11869,7 +11869,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
 
 exports[`ConfigProvider components Cascader configProvider componentSize small 1`] = `
 <div
-  class="config-select config-cascader config-select-sm config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-sm config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11926,7 +11926,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
 
 exports[`ConfigProvider components Cascader normal 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -11983,7 +11983,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
 
 exports[`ConfigProvider components Cascader prefixCls 1`] = `
 <div
-  class="prefix-Cascader prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
+  class="prefix-Cascader prefix-Cascader-outlined prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
 >
   <div
     class="prefix-Cascader-selector"
@@ -18986,7 +18986,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19128,7 +19128,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19275,7 +19275,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19418,7 +19418,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19566,7 +19566,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19708,7 +19708,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19855,7 +19855,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19997,7 +19997,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20144,7 +20144,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20286,7 +20286,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20433,7 +20433,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20575,7 +20575,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20722,7 +20722,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20864,7 +20864,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -24369,7 +24369,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
 
 exports[`ConfigProvider components Select configProvider 1`] = `
 <div
-  class="config-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24496,7 +24496,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
 
 exports[`ConfigProvider components Select configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-select-single config-select-show-arrow config-select-disabled"
+  class="config-select config-select-outlined config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
     class="config-select-selector"
@@ -24557,7 +24557,7 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
 
 exports[`ConfigProvider components Select configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-lg config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-lg config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24684,7 +24684,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
 
 exports[`ConfigProvider components Select configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24811,7 +24811,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Select configProvider componentSize small 1`] = `
 <div
-  class="config-select config-select-sm config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-sm config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24938,7 +24938,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
 
 exports[`ConfigProvider components Select normal 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -25065,7 +25065,7 @@ exports[`ConfigProvider components Select normal 1`] = `
 
 exports[`ConfigProvider components Select prefixCls 1`] = `
 <div
-  class="prefix-Select prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
+  class="prefix-Select prefix-Select-outlined prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
 >
   <div
     class="prefix-Select-selector"
@@ -41287,7 +41287,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
 
 exports[`ConfigProvider components TreeSelect configProvider 1`] = `
 <div
-  class="config-select config-tree-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41422,7 +41422,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
 
 exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-tree-select config-select-single config-select-show-arrow config-select-disabled"
+  class="config-select config-tree-select config-select-outlined config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
     class="config-select-selector"
@@ -41483,7 +41483,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
 
 exports[`ConfigProvider components TreeSelect configProvider componentSize large 1`] = `
 <div
-  class="config-select config-tree-select config-select-lg config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-lg config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41618,7 +41618,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
 
 exports[`ConfigProvider components TreeSelect configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-tree-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41753,7 +41753,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
 
 exports[`ConfigProvider components TreeSelect configProvider componentSize small 1`] = `
 <div
-  class="config-select config-tree-select config-select-sm config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-sm config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41888,7 +41888,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
 
 exports[`ConfigProvider components TreeSelect normal 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -42023,7 +42023,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
 
 exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
 <div
-  class="prefix-TreeSelect prefix-TreeSelect-single prefix-TreeSelect-show-arrow prefix-TreeSelect-open"
+  class="prefix-TreeSelect prefix-TreeSelect-outlined prefix-TreeSelect-single prefix-TreeSelect-show-arrow prefix-TreeSelect-open"
 >
   <div
     class="prefix-TreeSelect-selector"

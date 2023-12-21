@@ -7,9 +7,6 @@ const useVariant = <T extends string>(
   variant: T | undefined,
   legacyBordered: boolean | undefined,
   variants: readonly (T | DefaultVariant)[],
-  options?: {
-    omitOutlined?: boolean;
-  },
 ): [T | DefaultVariant, boolean] => {
   let mergedVariant: T | DefaultVariant;
   if (typeof variant !== 'undefined') {
@@ -20,8 +17,7 @@ const useVariant = <T extends string>(
     mergedVariant = 'outlined';
   }
 
-  const enableVariantCls =
-    variants.includes(mergedVariant) && (!options?.omitOutlined || mergedVariant !== 'outlined');
+  const enableVariantCls = variants.includes(mergedVariant);
   return [mergedVariant, enableVariantCls];
 };
 

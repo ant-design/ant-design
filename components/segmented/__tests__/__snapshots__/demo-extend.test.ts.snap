@@ -1327,7 +1327,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 150px;"
     >
       <div
