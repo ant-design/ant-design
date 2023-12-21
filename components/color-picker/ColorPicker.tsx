@@ -12,8 +12,8 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
@@ -33,7 +33,7 @@ import type {
   TriggerType,
 } from './interface';
 import useStyle from './style';
-import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
+import { genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -92,6 +92,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     size: customizeSize,
     rootClassName,
+    prefixCls: customizePrefixCls,
     styles,
     disabledAlpha = false,
     onFormatChange,
