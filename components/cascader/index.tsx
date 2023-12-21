@@ -5,8 +5,8 @@ import type {
   DefaultOptionType,
   FieldNames,
   MultipleCascaderProps as RcMultipleCascaderProps,
-  SingleCascaderProps as RcSingleCascaderProps,
   ShowSearchType,
+  SingleCascaderProps as RcSingleCascaderProps,
 } from 'rc-cascader';
 import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
@@ -36,9 +36,8 @@ import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
-import type { SelectVariant } from '../select';
-import useVariant from '../_util/hooks/useVariants';
-import { SelectVariants } from '../select';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -146,7 +145,7 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
      * @since 5.13.0
      * @default "outlined"
      */
-    variant?: SelectVariant;
+    variant?: Variant;
   };
 
 export interface CascaderRef {
@@ -231,7 +230,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered, SelectVariants);
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (

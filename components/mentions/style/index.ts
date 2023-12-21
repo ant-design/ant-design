@@ -134,7 +134,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         border: 'none',
         outline: 'none',
         resize: 'none',
-        backgroundColor: 'inherit',
+        backgroundColor: 'transparent',
         ...genPlaceholderStyle(token.colorTextPlaceholder),
       },
 

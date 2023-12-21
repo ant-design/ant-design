@@ -19,9 +19,8 @@ import { FormItemInputContext } from '../form/context';
 import Spin from '../spin';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { InputVariant } from '../input/Input';
-import { InputVariants } from '../input/Input';
-import useVariant from '../_util/hooks/useVariants';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 
 export const { Option } = RcMentions;
 
@@ -49,7 +48,7 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix'> {
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: InputVariant;
+  variant?: Variant;
 }
 
 export interface MentionsRef extends RcMentionsRef {}
@@ -167,7 +166,7 @@ const InternalMentions: React.ForwardRefRenderFunction<MentionsRef, MentionProps
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, undefined, InputVariants);
+  const [variant, enableVariantCls] = useVariant(customVariant);
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;

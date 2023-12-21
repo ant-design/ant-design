@@ -30,8 +30,7 @@ import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useVariant from '../../_util/hooks/useVariants';
-import { InputVariants } from '../../input/Input';
+import useVariant from '../../form/hooks/useVariants';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
@@ -83,7 +82,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
-        const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+        const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
         const rootCls = useCSSVarCls(prefixCls);
         const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
