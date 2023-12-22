@@ -14,10 +14,9 @@ import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { NoCompactStyle, useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { InputVariant } from '../input/Input';
-import { InputVariants } from '../input/Input';
 import { devUseWarning } from '../_util/warning';
-import useVariant from '../_util/hooks/useVariants';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 
 export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
@@ -36,7 +35,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: InputVariant;
+  variant?: Variant;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
@@ -108,7 +107,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   // eslint-disable-next-line react/jsx-no-useless-fragment
   const suffixNode = hasFeedback && <>{feedbackIcon}</>;

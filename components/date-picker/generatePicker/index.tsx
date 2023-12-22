@@ -15,7 +15,7 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
-import type { InputVariant } from '../../input/Input';
+import type { Variant } from '../../form/hooks/useVariants';
 
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 type DataPickerPlacement = (typeof DataPickerPlacements)[number];
@@ -34,7 +34,7 @@ type InjectDefaultProps<Props> = Omit<
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: InputVariant;
+  variant?: Variant;
 };
 
 export type PickerLocale = {
