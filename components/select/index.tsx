@@ -26,7 +26,8 @@ import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useVariants from '../_util/hooks/useVariants';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariants from '../form/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -39,9 +40,6 @@ export interface LabeledValue {
 }
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
-
-export const SelectVariants = ['outlined', 'borderless', 'filled'] as const;
-export type SelectVariant = (typeof SelectVariants)[number];
 
 export interface InternalSelectProps<
   ValueType = any,
@@ -63,7 +61,7 @@ export interface InternalSelectProps<
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: SelectVariant;
+  variant?: Variant;
 }
 
 export interface SelectProps<
@@ -95,7 +93,7 @@ const InternalSelect = <
 ) => {
   const {
     prefixCls: customizePrefixCls,
-    bordered = true,
+    bordered,
     className,
     rootClassName,
     getPopupContainer,
@@ -135,7 +133,7 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered, SelectVariants);
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);

@@ -19,7 +19,8 @@ import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import useStyle from './style';
 import { hasPrefixSuffix } from './utils';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useVariant from '../_util/hooks/useVariants';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -56,9 +57,6 @@ export function triggerFocus(
   }
 }
 
-export const InputVariants = ['outlined', 'borderless', 'filled'] as const;
-export type InputVariant = (typeof InputVariants)[number];
-
 export interface InputProps
   extends Omit<
     RcInputProps,
@@ -74,7 +72,7 @@ export interface InputProps
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: InputVariant;
+  variant?: Variant;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -183,7 +181,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   return wrapCSSVar(
     <RcInput

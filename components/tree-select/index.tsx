@@ -30,9 +30,8 @@ import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useZIndex } from '../_util/hooks/useZIndex';
-import type { SelectVariant } from '../select';
-import { SelectVariants } from '../select';
-import useVariant from '../_util/hooks/useVariants';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -83,7 +82,7 @@ export interface TreeSelectProps<
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: SelectVariant;
+  variant?: Variant;
 }
 
 const InternalTreeSelect = <
@@ -169,7 +168,7 @@ const InternalTreeSelect = <
   const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered, SelectVariants);
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
