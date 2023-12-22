@@ -108,14 +108,16 @@ const Line: React.FC<LineProps> = (props) => {
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
+  const percentBorderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : '100px';
+
   const percentStyle: React.CSSProperties = {
     width: `100%`,
     height,
     borderRadius,
     clipPath:
       direction === 'rtl'
-        ? `inset(0 0 0 ${100 - validProgress(percent)}% round 100px)`
-        : `inset(0 ${100 - validProgress(percent)}% 0 0 round 100px)`,
+        ? `inset(0 0 0 ${100 - validProgress(percent)}% round ${percentBorderRadius})`
+        : `inset(0 ${100 - validProgress(percent)}% 0 0 round ${percentBorderRadius})`,
     ...backgroundProps,
   };
 
@@ -127,8 +129,8 @@ const Line: React.FC<LineProps> = (props) => {
     borderRadius,
     clipPath:
       direction === 'rtl'
-        ? `inset(0 0 0 ${100 - validProgress(successPercent)}% round 100px)`
-        : `inset(0 ${100 - validProgress(successPercent)}% 0 0 round 100px)`,
+        ? `inset(0 0 0 ${100 - validProgress(successPercent)}% round ${percentBorderRadius})`
+        : `inset(0 ${100 - validProgress(successPercent)}% 0 0 round ${percentBorderRadius})`,
     backgroundColor: success?.strokeColor,
   };
 
