@@ -271,6 +271,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         fontSize: tableFontSize,
         background: tableBg,
         borderRadius: `${unit(tableRadius)} ${unit(tableRadius)} 0 0`,
+        overflow: 'hidden',
       },
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
