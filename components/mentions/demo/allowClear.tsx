@@ -14,6 +14,9 @@ const App: React.FC = () => {
         onChange={setValue}
         allowClear={{ clearIcon: <CloseSquareFilled /> }}
       />
+      <br />
+      <br />
+      <Mentions value={value} onChange={setValue} allowClear rows={3} />
     </>
   );
 };

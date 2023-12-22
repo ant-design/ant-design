@@ -62,6 +62,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     borderRadiusLG,
     boxShadowSecondary,
     itemPaddingVertical,
+    calc,
   } = token;
 
   return {
@@ -113,6 +114,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         [`${componentCls}-clear-icon`]: {
           position: 'absolute',
           insetInlineEnd: 0,
+          insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
+          transform: `translateY(-50%)`,
           margin: 0,
           color: colorTextQuaternary,
           fontSize: fontSizeIcon,
