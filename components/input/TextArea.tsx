@@ -14,11 +14,12 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import type { InputFocusOptions, InputVariant } from './Input';
-import { InputVariants, triggerFocus } from './Input';
+import type { InputFocusOptions } from './Input';
+import { triggerFocus } from './Input';
 import useStyle from './style';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useVariant from '../_util/hooks/useVariants';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 import { devUseWarning } from '../_util/warning';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
@@ -31,7 +32,7 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
    * @since 5.13.0
    * @default "outlined"
    */
-  variant?: InputVariant;
+  variant?: Variant;
 }
 
 export interface TextAreaRef {
@@ -102,7 +103,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [variant, enableVariantCls] = useVariant(customVariant, bordered, InputVariants);
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   return wrapCSSVar(
     <RcTextArea

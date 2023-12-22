@@ -44,7 +44,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -193,7 +193,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -454,7 +454,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="width: 150px;"
           >
             <div
@@ -884,7 +884,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
     style="width: 100px;"
   >
     <div
@@ -1480,7 +1480,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
     style="width: 100px;"
   >
     <div
@@ -2890,7 +2890,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3031,7 +3031,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3170,7 +3170,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3308,7 +3308,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="width: 100px;"
   >
     <div
@@ -3423,7 +3423,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3598,7 +3598,7 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
       class="ant-picker-input ant-picker-input-active"
@@ -4780,7 +4780,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -5054,7 +5054,7 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+    class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width: 100px;"
   >
     <div
@@ -5635,7 +5635,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       class="ant-space-compact"
     >
       <div
-        class="ant-select ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -6586,7 +6586,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -6902,7 +6902,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -7141,7 +7141,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="input content"
     />
     <div
-      class="ant-picker"
+      class="ant-picker ant-picker-outlined"
       style="width: 50%;"
     >
       <div
@@ -7748,7 +7748,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       value="input content"
     />
     <div
-      class="ant-picker ant-picker-range"
+      class="ant-picker ant-picker-range ant-picker-outlined"
       style="width: 70%;"
     >
       <div
@@ -8936,7 +8936,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9076,7 +9076,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9221,7 +9221,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9388,7 +9388,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 30%;"
     >
       <div
@@ -9529,7 +9529,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+      class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
       style="width: 70%;"
     >
       <div
@@ -9636,7 +9636,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 30%;"
     >
       <div
@@ -9777,7 +9777,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       </span>
     </div>
     <div
-      class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
       style="width: 70%;"
     >
       <div

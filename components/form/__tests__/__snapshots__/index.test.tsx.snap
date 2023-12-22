@@ -288,7 +288,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+              class="ant-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
             >
               <div
                 class="ant-select-selector"
@@ -376,7 +376,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
+              class="ant-select ant-tree-select ant-select-outlined ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
             >
               <div
                 class="ant-select-selector"
@@ -464,7 +464,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
+              class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
             >
               <div
                 class="ant-select-selector"
@@ -552,7 +552,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-disabled"
+              class="ant-picker ant-picker-outlined ant-picker-disabled"
             >
               <div
                 class="ant-picker-input"
@@ -622,7 +622,7 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-disabled"
+              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
             >
               <div
                 class="ant-picker-input ant-picker-input-active"

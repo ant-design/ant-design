@@ -113,7 +113,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
             style="width:60px"
           >
             <div
@@ -251,7 +251,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
             style="width:60px"
           >
             <div
@@ -436,7 +436,7 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
           class="ant-input-number-group-addon"
         >
           <div
-            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="width:150px"
           >
             <div

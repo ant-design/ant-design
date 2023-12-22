@@ -2,7 +2,7 @@
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker ant-picker-rtl"
+  class="ant-picker ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input"
@@ -44,7 +44,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-picker ant-picker-rtl"
+  class="ant-picker ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input"
@@ -86,7 +86,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 3`] = `
 <div
-  class="ant-picker ant-picker-rtl"
+  class="ant-picker ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input"
@@ -128,7 +128,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 4`] = `
 <div
-  class="ant-picker ant-picker-range ant-picker-rtl"
+  class="ant-picker ant-picker-range ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input ant-picker-input-active"
