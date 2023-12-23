@@ -1,5 +1,6 @@
-import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import * as React from 'react';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+
 import warning from '../_util/warning';
 import { globalConfig, warnContext } from '../config-provider';
 import ConfirmDialog from './ConfirmDialog';
@@ -66,7 +67,12 @@ export default function confirm(config: ModalFuncProps) {
      */
     timeoutId = setTimeout(() => {
       const runtimeLocale = getConfirmLocale();
-      const { getPrefixCls, getIconPrefixCls, getTheme } = globalConfig();
+      const {
+        getPrefixCls,
+        getIconPrefixCls,
+        getTheme,
+        container: globalContainer,
+      } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
@@ -96,6 +102,7 @@ export default function confirm(config: ModalFuncProps) {
           okText={okText}
           locale={runtimeLocale}
           theme={theme}
+          container={globalContainer}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
         container,

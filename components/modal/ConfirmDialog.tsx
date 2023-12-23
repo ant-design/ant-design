@@ -46,6 +46,7 @@ export interface ConfirmDialogProps extends ModalFuncProps {
    * Do not throw if is await mode
    */
   isSilent?: () => boolean;
+  container?: (children: React.ReactNode) => React.ReactNode;
 }
 
 export function ConfirmContent(
@@ -274,8 +275,8 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 };
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
-  const { rootPrefixCls, iconPrefixCls, direction, theme } = props;
-
+  const { rootPrefixCls, iconPrefixCls, direction, theme, container } = props;
+  const dom = <ConfirmDialog {...props} />;
   return (
     <ConfigProvider
       prefixCls={rootPrefixCls}
@@ -283,7 +284,7 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
       direction={direction}
       theme={theme}
     >
-      <ConfirmDialog {...props} />
+      {container ? container(dom) : dom}
     </ConfigProvider>
   );
 };

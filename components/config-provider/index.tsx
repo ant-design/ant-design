@@ -212,10 +212,13 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   legacyLocale: Locale;
 }
 
+type containerType = (children: React.ReactNode) => React.ReactNode;
+
 export const defaultPrefixCls = 'ant';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
+let globalContainer: containerType = (children) => children;
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
@@ -233,12 +236,19 @@ const setGlobalConfig = ({
   prefixCls,
   iconPrefixCls,
   theme,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme | ThemeConfig }) => {
+  container,
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & {
+  theme?: Theme | ThemeConfig;
+  container?: containerType;
+}) => {
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
   if (iconPrefixCls !== undefined) {
     globalIconPrefixCls = iconPrefixCls;
+  }
+  if (container) {
+    globalContainer = container;
   }
 
   if (theme) {
@@ -273,6 +283,7 @@ export const globalConfig = () => ({
     return getGlobalPrefixCls();
   },
   getTheme: () => globalTheme,
+  container: (children: React.ReactNode) => globalContainer(children),
 });
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {

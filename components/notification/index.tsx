@@ -94,7 +94,7 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
-      {holder}
+      {global.container(holder)}
     </ConfigProvider>
   );
 });
