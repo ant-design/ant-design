@@ -125,7 +125,7 @@ Supports all props of `Input`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | visible | Whether the password is show or hide | boolean | false | 4.24.0 |
-| onVisibleChange | Callback executed when visibility of the password is changed | boolean | - | 4.24.0 |
+| onVisibleChange | Callback executed when visibility of the password is changed | (visible) => void | - | 4.24.0 |
 
 #### Input Methods
 
