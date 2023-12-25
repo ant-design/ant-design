@@ -1,8 +1,16 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 
 import warning from '../_util/warning';
-import { globalConfig, warnContext } from '../config-provider';
+import {
+  ConfigContext,
+  defaultIconPrefixCls,
+  defaultPrefixCls,
+  globalConfig,
+  warnContext,
+} from '../config-provider';
+import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
 import type { ModalFuncProps } from './interface';
@@ -22,6 +30,37 @@ export type ModalFunc = (props: ModalFuncProps) => {
 };
 
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
+
+const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
+  const { prefixCls: customizePrefixCls, okText, cancelText } = props;
+
+  const runtimeLocale = getConfirmLocale();
+  const global = globalConfig();
+  const iconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
+  const configContext = useContext(ConfigContext);
+  const getPrefixCls =
+    defaultPrefixCls === global.getPrefixCls() ? configContext.getPrefixCls : global.getPrefixCls;
+
+  // because Modal.config  set rootPrefixCls, which is different from other components
+  const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
+  const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+
+  return (
+    <ConfirmDialog
+      {...props}
+      rootPrefixCls={rootPrefixCls}
+      prefixCls={prefixCls}
+      iconPrefixCls={
+        defaultIconPrefixCls === iconPrefixCls ? configContext.iconPrefixCls : iconPrefixCls
+      }
+      okText={okText}
+      locale={runtimeLocale}
+      theme={theme}
+      cancelText={cancelText || runtimeLocale.cancelText}
+    />
+  );
+};
 
 export default function confirm(config: ModalFuncProps) {
   // Warning if exist theme
@@ -51,13 +90,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount(container);
   }
 
-  function render({
-    okText,
-    cancelText,
-    prefixCls: customizePrefixCls,
-    getContainer,
-    ...props
-  }: any) {
+  function render({ getContainer, ...props }: any) {
     clearTimeout(timeoutId);
 
     /**
@@ -66,18 +99,7 @@ export default function confirm(config: ModalFuncProps) {
      * Sync render blocks React event. Let's make this async.
      */
     timeoutId = setTimeout(() => {
-      const runtimeLocale = getConfirmLocale();
-      const {
-        getPrefixCls,
-        getIconPrefixCls,
-        getTheme,
-        container: globalContainer,
-      } = globalConfig();
-      // because Modal.config  set rootPrefixCls, which is different from other components
-      const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
-      const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
-      const iconPrefixCls = getIconPrefixCls();
-      const theme = getTheme();
+      const { container: globalContainer } = globalConfig();
 
       let mergedGetContainer = getContainer;
       if (mergedGetContainer === false) {
@@ -93,18 +115,9 @@ export default function confirm(config: ModalFuncProps) {
       }
 
       reactRender(
-        <ConfirmDialog
-          {...props}
-          getContainer={mergedGetContainer}
-          prefixCls={prefixCls}
-          rootPrefixCls={rootPrefixCls}
-          iconPrefixCls={iconPrefixCls}
-          okText={okText}
-          locale={runtimeLocale}
-          theme={theme}
-          container={globalContainer}
-          cancelText={cancelText || runtimeLocale.cancelText}
-        />,
+        <>
+          {globalContainer(<ConfirmDialogWrapper {...props} getContainer={mergedGetContainer} />)}
+        </>,
         container,
       );
     });
