@@ -1,8 +1,8 @@
-import React, { useState, useLayoutEffect, useMemo } from 'react';
-import { Typography, Space, Skeleton, Avatar } from 'antd';
-import { useRouteMeta } from 'dumi';
-import DayJS from 'dayjs';
+import React, { useLayoutEffect, useMemo, useState } from 'react';
 import { CalendarOutlined } from '@ant-design/icons';
+import { Avatar, Skeleton, Space, Typography } from 'antd';
+import DayJS from 'dayjs';
+import { useRouteMeta } from 'dumi';
 
 const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar }) => {
   const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ const AuthorAvatar: React.FC<{ name: string; avatar: string }> = ({ name, avatar
   );
 };
 
-const DocMeta: React.FC<{}> = () => {
+const DocMeta: React.FC = () => {
   const meta = useRouteMeta();
 
   const mergedAuthorInfos = useMemo(() => {
