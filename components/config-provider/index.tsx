@@ -212,10 +212,13 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   legacyLocale: Locale;
 }
 
+type containerType = (children: React.ReactNode) => React.ReactNode;
+
 export const defaultPrefixCls = 'ant';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
+let globalContainer: containerType | undefined;
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
@@ -229,16 +232,25 @@ function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
   return Object.keys(theme).some((key) => key.endsWith('Color'));
 }
 
-const setGlobalConfig = ({
-  prefixCls,
-  iconPrefixCls,
-  theme,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme | ThemeConfig }) => {
+interface GlobalConfigProps {
+  /** @deprecated Please use `ConfigProvider.config({ container })` instead */
+  prefixCls?: string;
+  /** @deprecated Please use `ConfigProvider.config({ container })` instead */
+  iconPrefixCls?: string;
+  /** @deprecated Please use `ConfigProvider.config({ container })` instead */
+  theme?: Theme | ThemeConfig;
+  container?: containerType;
+}
+
+const setGlobalConfig = ({ prefixCls, iconPrefixCls, theme, container }: GlobalConfigProps) => {
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
   if (iconPrefixCls !== undefined) {
     globalIconPrefixCls = iconPrefixCls;
+  }
+  if (container) {
+    globalContainer = container;
   }
 
   if (theme) {
@@ -273,6 +285,7 @@ export const globalConfig = () => ({
     return getGlobalPrefixCls();
   },
   getTheme: () => globalTheme,
+  container: globalContainer,
 });
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {

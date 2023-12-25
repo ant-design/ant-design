@@ -1,3 +1,5 @@
+import React from 'react';
+
 import message, { actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
@@ -217,5 +219,17 @@ describe('message.config', () => {
 
     removeContainer1();
     removeContainer2();
+    message.config({ getContainer: undefined });
+  });
+  it('should be able to config container', async () => {
+    ConfigProvider.config({
+      container: (children) => <ConfigProvider prefixCls="test">{children}</ConfigProvider>,
+    });
+
+    message.info('last');
+    await awaitPromise();
+
+    expect(document.querySelector('.test-message')).toBeTruthy();
+    ConfigProvider.config({ container: (children) => children });
   });
 });

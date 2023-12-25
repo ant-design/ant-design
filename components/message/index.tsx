@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 
-import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
+import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -121,6 +121,39 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   );
 });
 
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+  const config = React.useContext(ConfigContext);
+  const prefixCls = config.getPrefixCls('message');
+
+  const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
+
+  const [api, holder] = useInternalMessage({ ...messageConfig, prefixCls });
+
+  const sync = () => {
+    setMessageConfig(getGlobalContext);
+  };
+
+  React.useEffect(sync, []);
+
+  React.useImperativeHandle(ref, () => {
+    const instance: MessageInstance = { ...api };
+
+    Object.keys(instance).forEach((method: keyof MessageInstance) => {
+      instance[method] = (...args: any[]) => {
+        sync();
+        return (api as any)[method](...args);
+      };
+    });
+
+    return {
+      instance,
+      sync,
+    };
+  });
+
+  return holder;
+});
+
 function flushNotice() {
   if (!message) {
     const holderFragment = document.createDocumentFragment();
@@ -131,25 +164,45 @@ function flushNotice() {
 
     message = newMessage;
 
+    const global = globalConfig();
+
+    const dom = (
+      <GlobalHolder
+        ref={(node) => {
+          const { instance, sync } = node || {};
+
+          // React 18 test env will throw if call immediately in ref
+          Promise.resolve().then(() => {
+            if (!newMessage.instance && instance) {
+              newMessage.instance = instance;
+              newMessage.sync = sync;
+              flushNotice();
+            }
+          });
+        }}
+      />
+    );
+    const domWrapper = (
+      <GlobalHolderWrapper
+        ref={(node) => {
+          const { instance, sync } = node || {};
+
+          // React 18 test env will throw if call immediately in ref
+          Promise.resolve().then(() => {
+            if (!newMessage.instance && instance) {
+              newMessage.instance = instance;
+              newMessage.sync = sync;
+              flushNotice();
+            }
+          });
+        }}
+      />
+    );
+
     // Delay render to avoid sync issue
     act(() => {
-      render(
-        <GlobalHolder
-          ref={(node) => {
-            const { instance, sync } = node || {};
-
-            // React 18 test env will throw if call immediately in ref
-            Promise.resolve().then(() => {
-              if (!newMessage.instance && instance) {
-                newMessage.instance = instance;
-                newMessage.sync = sync;
-                flushNotice();
-              }
-            });
-          }}
-        />,
-        holderFragment,
-      );
+      // eslint-disable-next-line react/jsx-no-useless-fragment
+      render(<>{global.container ? global.container(domWrapper) : dom}</>, holderFragment);
     });
 
     return;
