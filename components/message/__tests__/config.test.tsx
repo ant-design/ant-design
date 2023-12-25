@@ -219,14 +219,19 @@ describe('message.config', () => {
 
     removeContainer1();
     removeContainer2();
+    message.config({
+      getContainer: undefined,
+    });
   });
   it('should be able to config container', async () => {
-    ConfigProvider.config({ container: (children) => <div className="test">{children}</div> });
+    ConfigProvider.config({
+      container: (children) => <ConfigProvider prefixCls="test">{children}</ConfigProvider>,
+    });
 
     message.info('last');
     await awaitPromise();
 
-    expect(document.querySelector('.test')).toBeTruthy();
+    expect(document.querySelector('.test-message')).toBeTruthy();
     ConfigProvider.config({ container: (children) => children });
   });
 });
