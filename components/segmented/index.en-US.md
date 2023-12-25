@@ -20,7 +20,7 @@ Segmented Controls. This component is available since `antd@4.20.0`.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/block.tsx">Block Segmented</code>
-<code src="./demo/disabled.tsx">Basic</code>
+<code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/controlled.tsx">Controlled mode</code>
 <code src="./demo/custom.tsx">Custom Render</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>

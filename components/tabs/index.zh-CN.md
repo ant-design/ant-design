@@ -55,6 +55,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
+| indicatorAlign | 自定义指示条对齐方式 | `start` \| `center` \| `end` | `center` | 5.13.0 |
 | indicatorSize | 自定义指示条长度，默认与 tab 等宽 | number \| (origin: number) => number | - | 5.9.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
@@ -84,7 +85,9 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
 | key | 对应 activeKey | string | - |  |
 | label | 选项卡头显示文字 | ReactNode | - |  |
+| icon | 选项卡头显示图标 | ReactNode | - | 5.12.0 |
 | children | 选项卡头显示内容 | ReactNode | - |  |
+| closable | 是否显示选项卡的关闭按钮，在 `type="editable-card"` 时有效 | boolean | true |  |
 
 ## 主题变量（Design Token）
 

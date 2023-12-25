@@ -44,6 +44,28 @@ export const ignore: {
   motionUnit: true,
 };
 
+const preserve: {
+  [key in keyof AliasToken]?: boolean;
+} = {
+  screenXS: true,
+  screenXSMin: true,
+  screenXSMax: true,
+  screenSM: true,
+  screenSMMin: true,
+  screenSMMax: true,
+  screenMD: true,
+  screenMDMin: true,
+  screenMDMax: true,
+  screenLG: true,
+  screenLGMin: true,
+  screenLGMax: true,
+  screenXL: true,
+  screenXLMin: true,
+  screenXLMax: true,
+  screenXXL: true,
+  screenXXLMin: true,
+};
+
 export const getComputedToken = (
   originToken: SeedToken,
   overrideToken: DesignTokenProviderProps['components'] & {
@@ -122,6 +144,7 @@ export default function useToken(): [
         key: cssVar.key,
         unitless,
         ignore,
+        preserve,
       },
     },
   );

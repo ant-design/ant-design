@@ -6,7 +6,6 @@ import { ConfigContext } from '../config-provider';
 
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 export const getOverlay = (
   prefixCls: string,
@@ -62,14 +61,20 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
 };
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
-  const { prefixCls: customizePrefixCls, ...restProps } = props;
+  const { prefixCls: customizePrefixCls, className, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  return wrapCSSVar(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
+  return wrapCSSVar(
+    <RawPurePanel
+      {...restProps}
+      prefixCls={prefixCls}
+      hashId={hashId}
+      className={classNames(className, cssVarCls)}
+    />,
+  );
 };
 
 export default PurePanel;

@@ -22,11 +22,12 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariants from '../form/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -49,12 +50,18 @@ export interface InternalSelectProps<
   size?: SizeType;
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 export interface SelectProps<
@@ -81,9 +88,12 @@ const InternalSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  {
+  props: SelectProps<ValueType, OptionType>,
+  ref: React.Ref<BaseSelectRef>,
+) => {
+  const {
     prefixCls: customizePrefixCls,
-    bordered = true,
+    bordered,
     className,
     rootClassName,
     getPopupContainer,
@@ -102,10 +112,10 @@ const InternalSelect = <
     direction: propDirection,
     style,
     allowClear,
-    ...props
-  }: SelectProps<ValueType, OptionType>,
-  ref: React.Ref<BaseSelectRef>,
-) => {
+    variant: customizeVariant,
+    ...rest
+  } = props;
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -123,9 +133,10 @@ const InternalSelect = <
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [, hashId] = useStyle(prefixCls);
-  const rootCls = useCSSVarCls(rootPrefixCls);
-  const wrapCSSVar = useCSSVar(rootCls);
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered);
+
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -168,19 +179,18 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
-    ...props,
+    ...rest,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
     prefixCls,
-    showArrow: props.showArrow,
     componentName: 'Select',
   });
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
-  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
+  const selectProps = omit(rest as typeof rest & { itemIcon: React.ReactNode }, [
     'suffixIcon',
     'itemIcon',
   ]);
@@ -191,6 +201,7 @@ const InternalSelect = <
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     },
     rootClassName,
+    cssVarCls,
     rootCls,
     hashId,
   );
@@ -206,7 +217,7 @@ const InternalSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
@@ -214,6 +225,7 @@ const InternalSelect = <
     select?.className,
     className,
     rootClassName,
+    cssVarCls,
     rootCls,
     hashId,
   );
@@ -245,6 +257,8 @@ const InternalSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   // ====================== zIndex =========================

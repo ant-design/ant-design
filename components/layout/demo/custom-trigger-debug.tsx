@@ -67,7 +67,7 @@ const items: MenuProps['items'] = [
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
   return (
@@ -101,6 +101,7 @@ const App: React.FC = () => {
             padding: 24,
             minHeight: 280,
             background: colorBgContainer,
+            borderRadius: borderRadiusLG,
           }}
         >
           Content

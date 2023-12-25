@@ -5,7 +5,7 @@ import type AbstractCalculator from './calculator';
 const genCalc = (type: 'css' | 'js') => {
   const Calculator = type === 'css' ? CSSCalculator : NumCalculator;
 
-  return (num: number | AbstractCalculator) => new Calculator(num);
+  return (num: number | string | AbstractCalculator) => new Calculator(num);
 };
 
 export default genCalc;

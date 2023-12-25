@@ -36,6 +36,7 @@ tag: New
 | --- | --- | --- | --- | --- |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
 | closeIcon | 自定义关闭按钮 | `React.ReactNode` | `true` | 5.9.0 |
+| disabledInteraction | 禁用高亮区域交互 | `boolean` | `false` | 5.13.0 |
 | placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | onFinish | 引导完成时的回调 | `Function` | - |  |
@@ -47,6 +48,7 @@ tag: New
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数 | `boolean \| ScrollIntoViewOptions` | `true` | 5.2.0 |
 | indicatorsRender | 自定义指示器 | `(current: number, total: number) => ReactNode` | - | 5.2.0 |
 | zIndex | Tour 的层级 | number | 1001 | 5.3.0 |
+| getPopupContainer | 设置 Tour 浮层的渲染节点，默认是 body | `(node: HTMLElement) => HTMLElement` | body | 5.12.0 |
 
 ### TourStep 引导步骤卡片
 

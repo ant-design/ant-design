@@ -10,10 +10,14 @@ import type {
 } from './interface';
 import { PresetColors } from './interface';
 import useToken from './useToken';
-import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
+import type {
+  FullToken,
+  GetDefaultToken,
+  FormatComponentToken,
+} from './util/genComponentStyleHook';
 import genComponentStyleHook, {
   genSubStyleComponent,
-  genCSSVarRegister,
+  genStyleHooks,
 } from './util/genComponentStyleHook';
 import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
@@ -25,8 +29,8 @@ export {
   PresetColors,
   genComponentStyleHook,
   genSubStyleComponent,
-  genCSSVarRegister,
   genPresetColor,
+  genStyleHooks,
   mergeToken,
   statisticToken,
   calc,
@@ -46,4 +50,5 @@ export type {
   SeedToken,
   UseComponentStyleResult,
   GetDefaultToken,
+  FormatComponentToken,
 };

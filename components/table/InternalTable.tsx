@@ -16,6 +16,7 @@ import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -201,6 +202,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
+  const [, token] = useToken();
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
   const mergedExpandable: ExpandableConfig<RecordType> = {
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
@@ -348,6 +353,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     mergedColumns,
     onFilterChange,
     getPopupContainer: getPopupContainer || getContextPopupContainer,
+    rootClassName: classNames(rootClassName, rootCls),
   });
   const mergedData = getFilterData(sortedData, filterStates);
 
@@ -537,11 +543,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     };
   }
 
-  // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const [, token] = useToken();
-
   const wrapperClassNames = classNames(
+    cssVarCls,
+    rootCls,
     `${prefixCls}-wrapper`,
     table?.className,
     {
@@ -584,7 +588,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     virtualProps.listItemHeight = listItemHeight;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div ref={rootRef} className={wrapperClassNames} style={mergedStyle}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
@@ -596,12 +600,17 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames({
-            [`${prefixCls}-middle`]: mergedSize === 'middle',
-            [`${prefixCls}-small`]: mergedSize === 'small',
-            [`${prefixCls}-bordered`]: bordered,
-            [`${prefixCls}-empty`]: rawData.length === 0,
-          })}
+          className={classNames(
+            {
+              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-small`]: mergedSize === 'small',
+              [`${prefixCls}-bordered`]: bordered,
+              [`${prefixCls}-empty`]: rawData.length === 0,
+            },
+            cssVarCls,
+            rootCls,
+            hashId,
+          )}
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
@@ -618,4 +627,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default React.forwardRef(InternalTable) as RefInternalTable;
+export default (React.forwardRef(InternalTable) as RefInternalTable);

@@ -7,7 +7,7 @@ import getArrowStyle, {
   MAX_VERTICAL_CONTENT_RADIUS,
 } from '../../style/placementArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 import { unit } from '@ant-design/cssinjs';
@@ -33,6 +33,8 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
    * @descEN Hover background color of next button in primary type
    */
   primaryNextBtnHoverBg: string;
+  /** @internal */
+  closeBtnHoverBg: string;
 }
 
 interface TourToken extends FullToken<'Tour'> {
@@ -127,7 +129,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
             '&:hover': {
               color: token.colorIconHover,
-              backgroundColor: token.wireframe ? 'transparent' : token.colorFillContent,
+              backgroundColor: token.closeBtnHoverBg,
             },
           },
 
@@ -269,6 +271,7 @@ export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
   closeBtnSize: token.fontSize * token.lineHeight,
   primaryPrevBtnBg: new TinyColor(token.colorTextLightSolid).setAlpha(0.15).toRgbString(),
+  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
   primaryNextBtnHoverBg: new TinyColor(token.colorBgTextHover)
     .onBackground(token.colorWhite)
     .toRgbString(),
@@ -279,7 +282,7 @@ export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   ...getArrowToken(token),
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Tour',
   (token) => {
     const { borderRadiusLG } = token;

@@ -9,6 +9,7 @@ import { supportRef } from 'rc-util/lib/ref';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormInstance } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
@@ -30,7 +31,7 @@ interface FieldError {
 }
 
 const ValidateStatuses = ['success', 'warning', 'error', 'validating', ''] as const;
-export type ValidateStatus = typeof ValidateStatuses[number];
+export type ValidateStatus = (typeof ValidateStatuses)[number];
 
 type RenderChildren<Values = any> = (form: FormInstance<Values>) => React.ReactNode;
 type RcFieldProps<Values = any> = Omit<FieldProps<Values>, 'children'>;
@@ -43,16 +44,38 @@ export type FeedbackIcons = (itemStatus: {
 }) => { [key in ValidateStatus]?: React.ReactNode };
 
 interface MemoInputProps {
-  value: any;
+  control: object;
   update: any;
   children: React.ReactNode;
   childProps: any[];
 }
 
+// https://github.com/ant-design/ant-design/issues/46417
+// `getValueProps` may modify the value props name,
+// we should check if the control is similar.
+function isSimilarControl(a: object, b: object) {
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+
+  return (
+    keysA.length === keysB.length &&
+    keysA.every((key) => {
+      const propValueA = (a as any)[key];
+      const propValueB = (b as any)[key];
+
+      return (
+        propValueA === propValueB ||
+        typeof propValueA === 'function' ||
+        typeof propValueB === 'function'
+      );
+    })
+  );
+}
+
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
   (prev, next) =>
-    prev.value === next.value &&
+    isSimilarControl(prev.control, next.control) &&
     prev.update === next.update &&
     prev.childProps.length === next.childProps.length &&
     prev.childProps.every((value, index) => value === next.childProps[index]),
@@ -126,7 +149,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');
@@ -240,7 +264,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, hashId)}
+        className={classNames(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -255,7 +279,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapSSR(renderLayout(mergedChildren) as JSX.Element);
+    return wrapCSSVar(renderLayout(mergedChildren) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -269,7 +293,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // >>>>> With Field
-  return wrapSSR(
+  return wrapCSSVar(
     <Field
       {...props}
       messageVariables={variables}
@@ -391,7 +415,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
           childNode = (
             <MemoInput
-              value={mergedControl[props.valuePropName || 'value']}
+              control={mergedControl}
               update={mergedChildren}
               childProps={watchingChildProps}
             >

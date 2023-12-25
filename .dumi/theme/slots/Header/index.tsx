@@ -25,15 +25,16 @@ const RESPONSIVE_SM = 1200;
 
 const locales = {
   cn: {
-    message:
-      '语雀公益计划：大学生认证教育邮箱，即可免费获得语雀会员。语雀，支付宝匠心打造的在线文档平台。',
-    shortMessage: '支付宝语雀 · 大学生公益计划火热进行中！',
-    more: '了解更多',
+    message: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
+    shortMessage: '语雀征文 · 说说你和开源的故事，赢取 Ant Design 精美周边 🎁',
+    more: '前往了解',
+    link: 'https://www.yuque.com/opensource2023',
   },
   en: {
     message: '',
     shortMessage: '',
     more: '',
+    link: '',
   },
 };
 
@@ -222,9 +223,11 @@ const Header: React.FC = () => {
     // Mirror url must have `/`, we add this for compatible
     const urlObj = new URL(currentUrl.replace(window.location.origin, url));
     if (urlObj.host.includes('antgroup')) {
-      window.location.href = `${urlObj.href.replace(/\/$/, '')}/`;
+      urlObj.pathname = `${urlObj.pathname.replace(/\/$/, '')}/`;
+      window.location.href = urlObj.toString();
+    } else {
+      window.location.href = urlObj.href.replace(/\/$/, '');
     }
-    window.location.href = urlObj.href.replace(/\/$/, '');
   }, []);
 
   const onLangChange = useCallback(() => {
@@ -366,26 +369,28 @@ const Header: React.FC = () => {
         </Popover>
       )}
       {isZhCN && bannerVisible && (
-        <ConfigProvider theme={{ token: { colorInfoBg: '#daf5eb', colorTextBase: '#000' } }}>
+        <ConfigProvider
+          theme={{
+            token: {
+              colorInfoBg: 'linear-gradient(90deg, #84fab0, #8fd3f4)',
+              colorTextBase: '#000',
+            },
+          }}
+        >
           <Alert
             className={styles.banner}
             message={
               <>
-                <img
-                  className={styles.icon}
-                  src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
-                  alt="yuque"
-                />
                 <span>{isMobile ? locale.shortMessage : locale.message}</span>
                 <a
                   className={styles.link}
-                  href="https://www.yuque.com/yuque/blog/welfare-edu?source=antd"
+                  href={locale.link}
                   target="_blank"
                   rel="noreferrer"
                   onClick={() => {
                     window.gtag?.('event', '点击', {
                       event_category: 'top_banner',
-                      event_label: 'https://www.yuque.com/yuque/blog/welfare-edu?source=antd',
+                      event_label: locale.link,
                     });
                   }}
                 >

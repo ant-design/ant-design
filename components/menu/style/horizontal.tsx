@@ -1,3 +1,4 @@
+import { unit } from '@ant-design/cssinjs';
 import type { MenuToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -16,7 +17,7 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
     [`${componentCls}-horizontal`]: {
       lineHeight: horizontalLineHeight,
       border: 0,
-      borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+      borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
       boxShadow: 'none',
 
       '&::after': {

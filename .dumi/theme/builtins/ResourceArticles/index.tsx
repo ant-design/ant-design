@@ -1,11 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import { Suspense } from 'react';
 import dayjs from 'dayjs';
 import { FormattedMessage } from 'dumi';
 import { createStyles } from 'antd-style';
 import { Avatar, Divider, Empty, Skeleton, Tabs } from 'antd';
-import type { Article, Authors } from '../../../pages/index/components/util';
+import type { Article, Authors, SiteData } from '../../../pages/index/components/util';
 import { useSiteData } from '../../../pages/index/components/util';
 import useLocale from '../../../hooks/useLocale';
 
@@ -97,10 +96,11 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
   );
 };
 
-const Articles: React.FC = () => {
+const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
-  const { articles = { cn: [], en: [] }, authors = [] } = useSiteData();
+
+  const { articles = { cn: [], en: [] }, authors = [] } = data;
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {
@@ -149,11 +149,13 @@ const Articles: React.FC = () => {
 
 export default () => {
   const { styles } = useStyle();
+  const data = useSiteData();
+
+  const articles = data ? <Articles data={data} /> : <Skeleton active />;
+
   return (
     <div id="articles" className={styles.articles}>
-      <Suspense fallback={<Skeleton active />}>
-        <Articles />
-      </Suspense>
+      {articles}
     </div>
   );
 };

@@ -24,7 +24,6 @@ import { NoCompactStyle } from '../space/Compact';
 import { useToken } from '../theme/internal';
 import PurePanel from './PurePanel';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
@@ -275,8 +274,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [, hashId] = useStyle(prefixCls, !injectFromPopover);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -294,6 +292,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     colorInfo.className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   // ============================ zIndex ============================
@@ -302,7 +301,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const content = (
     <RcTooltip
       {...otherProps}
-      zIndex={injectFromPopover ? otherProps.zIndex : zIndex}
+      zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}

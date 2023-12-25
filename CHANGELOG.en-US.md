@@ -16,6 +16,137 @@ tag: vVERSION
 
 ---
 
+## 5.12.5
+
+`2023-12-22`
+
+- 💄 Fix Tabs style issue of editable mode when there is only "new" button left. [#46585](https://github.com/ant-design/ant-design/pull/46585) [@hzyhbk](https://github.com/hzyhbk)
+- 💄 Fix Progress style issue of `line` mode with `strokeLinecap`. [#46551](https://github.com/ant-design/ant-design/pull/46551) [@ZN1996](https://github.com/ZN1996)
+- 🐞 Fix ColorPicker not support `prefixCls`. [#46561](https://github.com/ant-design/ant-design/pull/46561)
+
+## 5.12.4
+
+`2023-12-19`
+
+- 🐞 Fix DatePicker style in `cssVar` mode. [#46526](https://github.com/ant-design/ant-design/pull/46526)
+
+## 5.12.3
+
+`2023-12-18`
+
+- 💄 Fix Tag that style would be missing in SSR. [#46500](https://github.com/ant-design/ant-design/pull/46500) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Upload `disabled` prop should not affect download icon. [#46454](https://github.com/ant-design/ant-design/pull/46454)
+- 💄 Upload.Dragger add vertical padding style. [#46457](https://github.com/ant-design/ant-design/pull/46457)
+- 🐞 Fix Upload actions color issue. [#46456](https://github.com/ant-design/ant-design/pull/46456)
+- 🐞 Fix Form with `getValueProps` not working with value update. [#46445](https://github.com/ant-design/ant-design/pull/46445)
+- 💄 Fix Checkbox style when customize `token.lineWidth`. [#46431](https://github.com/ant-design/ant-design/pull/46431)
+- 🐞 Fix Select that custom token make `padding` broken. [#46427](https://github.com/ant-design/ant-design/pull/46427) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Message that token overrides not work in `cssVar` mode. [#46415](https://github.com/ant-design/ant-design/pull/46415) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Flex component don't apply extra style. [#46404](https://github.com/ant-design/ant-design/pull/46404) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.12.2
+
+`2023-12-11`
+
+- 🐞 MISC: Fix `useId` error when webpack build with React 17. [#46261](https://github.com/ant-design/ant-design/pull/46261)
+- Pagination
+  - 🐞 Fix Pagination throws error in legacy browsers. [react-component/pagination#545](https://github.com/react-component/pagination/pull/545)
+  - 🐞 Fix Pagination `current` not working in `simple` mode. [react-component/pagination#546](https://github.com/react-component/pagination/pull/546)
+- 🐞 Fix Table filter dropdown lost background color in CSS variables mode. [#46314](https://github.com/ant-design/ant-design/pull/46314)
+- 🐞 Prevent interaction when Spin component enable `fullscreen` prop. [#46303](https://github.com/ant-design/ant-design/pull/46303) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Form `hideRequiredMark` prop's priority compared with ConfigProvider `form` prop. [#46299](https://github.com/ant-design/ant-design/pull/46299) [@linhf123](https://github.com/linhf123)
+- TypeScript
+  - 🤖 Fix Descriptions `id` type. [#46367](https://github.com/ant-design/ant-design/pull/46367) [@RSS1102](https://github.com/RSS1102)
+
+## 5.12.1
+
+`2023-12-04`
+
+- 🐞 MISC: Fix missing color less variables converted from token. [#46250](https://github.com/ant-design/ant-design/pull/46250)
+- 🐞 Fix Notification title overlaps with the close icon when it is too long。 [#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
+
+## 5.12.0
+
+`2023-12-04`
+
+- 🔥 Component Token support CSS variables mode. For more detail, see [CSS Variables](/docs/react/css-variables). Special thank for contributors of this feature: [@li-jia-nan](https://github.com/li-jia-nan) [@RedJue](https://github.com/RedJue) [@c0dedance](https://github.com/c0dedance) [@kiner-tang](https://github.com/kiner-tang) [@JarvisArt](https://github.com/JarvisArt) [@cc-hearts](https://github.com/cc-hearts)
+- 🛠 Refactor rc-pagination from class component to FC. [#46204](https://github.com/ant-design/ant-design/pull/46204) [@Wxh16144](https://github.com/Wxh16144)
+- 🆕 Alert could support linear-gradient background by `colorInfoBg` token. [#46188](https://github.com/ant-design/ant-design/pull/46188)
+- 🆕 `Form.useWatch` support selector function param. [#46180](https://github.com/ant-design/ant-design/pull/46180) [@crazyair](https://github.com/crazyair)
+- 🆕 Slider support `onChangeComplete` and deprecate `onAfterChange`. [#46182](https://github.com/ant-design/ant-design/pull/46182) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Tabs `items` support `icon` prop. [#46096](https://github.com/ant-design/ant-design/pull/46096) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Tour supports `getPopupContainer` property. [#45751](https://github.com/ant-design/ant-design/pull/45751) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Switch support for `value` and `defaultValue` props. [#45747](https://github.com/ant-design/ant-design/pull/45747) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 Fix that clicking Form `tooltip` icon should not trigger Switch. [#46155](https://github.com/ant-design/ant-design/pull/46155)
+- 🐞 Fix Notification that icon should have line-height. [#46148](https://github.com/ant-design/ant-design/pull/46148) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Progress that gradient in line should follow percent. [#46209](https://github.com/ant-design/ant-design/pull/46209) [@MadCcc](https://github.com/MadCcc)
+- 💄 Button could be customized to gradient style. [#46192](https://github.com/ant-design/ant-design/pull/46192)
+- 💄 Fix style of InputNumber with `addon` inside Space.Compact. [#46130](https://github.com/ant-design/ant-design/pull/46130) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 Update `FloatButtonProps` type with `React.DOMAttributes` in FloatButton. [#46175](https://github.com/ant-design/ant-design/pull/46175) [@li-jia-nan](https://github.com/li-jia-nan)
+
+## 5.11.5
+
+`2023-11-27`
+
+- 🐞 MISC: Fix error in `dist` artifact. [#46103](https://github.com/ant-design/ant-design/pull/46103) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix DatePicker style when disabled and hovered. [#45940](https://github.com/ant-design/ant-design/pull/45940) [@crazyair](https://github.com/crazyair)
+
+## 5.11.4
+
+`2023-11-24`
+
+- 🐞 Fix where Image sets `z-index` abnormally in nested Modal. [#46035](https://github.com/ant-design/ant-design/pull/46035)
+- 🐞 Fix Button that disabled link button should not have navigate options when right click. [#46021](https://github.com/ant-design/ant-design/pull/46021)
+- Card
+  - 🛠 Refactor the Card internal method `getAction` into a function component. [#46032](https://github.com/ant-design/ant-design/pull/46032)
+  - 🐞 Fix the problem of Card warning `invalid annotation` in Rollup. [#46024](https://github.com/ant-design/ant-design/pull/46024)
+- TypeScript
+  - 🤖 Export the type definition for the `required` property of the Radio and Checkbox components. [#46028](https://github.com/ant-design/ant-design/pull/46028) [@nnmax](https://github.com/nnmax)
+
+## 5.11.3
+
+`2023-11-22`
+
+- 🐞 Fix Modal static method create `zIndex` too high will cover other popup content. [#46012](https://github.com/ant-design/ant-design/pull/46012)
+- Image
+  - 🆕 Image preview support mobile touch interactive. [#45989](https://github.com/ant-design/ant-design/pull/45989) [@JarvisArt](https://github.com/JarvisArt)
+  - 🐞 Fixed Image preview `z-index` conflict when in a nested pop-up. [#45979](https://github.com/ant-design/ant-design/pull/45979) [@kiner-tang](https://github.com/kiner-tang)
+- 🐞 Fix Collapse header cursor style. [#45994](https://github.com/ant-design/ant-design/pull/45994)
+- 🐞 Fix ColorPicker not support Form disabled config. [#45978](https://github.com/ant-design/ant-design/pull/45978) [@RedJue](https://github.com/RedJue)
+- 🐞 Fix Typography.Text `ellipsis.tooltip` cannot open under Layout component. [#45962](https://github.com/ant-design/ant-design/pull/45962)
+- 🐞 Remove Select native 🔍 icon from search input in Safari. [#46008](https://github.com/ant-design/ant-design/pull/46008)
+- 💄 Remove Rate useless style.[#45927](https://github.com/ant-design/ant-design/pull/45927) [@JarvisArt](https://github.com/JarvisArt)
+- 🛠 UMD `antd.js` will try to reuse global `@ant-design/cssinjs` first now. [#46009](https://github.com/ant-design/ant-design/pull/46009)
+- 🌐 Improve `eu_ES` localization. [#45928](https://github.com/ant-design/ant-design/pull/45928) [@ionlizarazu](https://github.com/ionlizarazu)
+
+## 5.11.2
+
+`2023-11-17`
+
+- 🆕 Table with `virtual` can now customize `components` except the `components.body`. [#45857](https://github.com/ant-design/ant-design/pull/45857)
+- 🐞 Fix Button with href and disabled that could be focused. [#45910](https://github.com/ant-design/ant-design/pull/45910) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix `zIndex` logic problem that message and notification are covered when multiple Modal are opened. [#45911](https://github.com/ant-design/ant-design/pull/45911) [#45864](https://github.com/ant-design/ant-design/pull/45864) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix QRCode `style.padding` is not working. [#45815](https://github.com/ant-design/ant-design/pull/45815)
+- 💄 Optimize Carousel dots border radius style. [#45817](https://github.com/ant-design/ant-design/pull/45817)
+- TypeScript
+  - 🤖 Optimize List `gutter` property type definition. [#45791](https://github.com/ant-design/ant-design/pull/45791) [@Asanio06](https://github.com/Asanio06)
+
+## 5.11.1
+
+`2023-11-09`
+
+- 🐞 Fix Dropdown use wrong `zIndex` when nest items. [#45761](https://github.com/ant-design/ant-design/pull/45761)
+- 🐞 Fix Upload should show remove icon when `showRemoveIcon` is specified to true explicitly. [#45752](https://github.com/ant-design/ant-design/pull/45752)
+- 🐞 Fix Descriptions use `children` structure missing the Descriptions.Item `key` prop. [#45757](https://github.com/ant-design/ant-design/pull/45757)
+- 🐞 Fix Message that token specified in component scope not work. [#45721](https://github.com/ant-design/ant-design/pull/45721) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Popconfirm not compatible with `visible` prop. [#45702](https://github.com/ant-design/ant-design/pull/45702) [@linhf123](https://github.com/linhf123)
+- 🐞 Fix Tag default background color not correct. [#45711](https://github.com/ant-design/ant-design/pull/45711) [@kiner-tang](https://github.com/kiner-tang)
+- 💄 Fix Notification that `style.width` not work. [#45681](https://github.com/ant-design/ant-design/pull/45681) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix App console unexpected attr warning when set `component=false`. [#45671](https://github.com/ant-design/ant-design/pull/45671) [@li-jia-nan](https://github.com/li-jia-nan)
+- TypeScript
+  - 🤖 App support generic type definition. [#45669](https://github.com/ant-design/ant-design/pull/45669) [@JexLau](https://github.com/JexLau)
+
 ## 5.11.0
 
 `2023-11-03`

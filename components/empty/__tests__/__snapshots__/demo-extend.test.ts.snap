@@ -122,7 +122,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -231,7 +231,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -339,7 +339,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 200px;"
       >
         <div
@@ -503,11 +503,11 @@ Array [
               </svg>
             </span>
             <div
-              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-root ant-dropdown-placement-bottomLeft"
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -526,7 +526,7 @@ Array [
                 </li>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -555,7 +555,7 @@ Array [
                 </li>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -577,7 +577,7 @@ Array [
               >
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -594,7 +594,7 @@ Array [
                 </div>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -760,11 +760,11 @@ Array [
               </svg>
             </span>
             <div
-              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-root ant-dropdown-placement-bottomLeft"
+              class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
               style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
             >
               <ul
-                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -783,7 +783,7 @@ Array [
                 </li>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -812,7 +812,7 @@ Array [
                 </li>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -834,7 +834,7 @@ Array [
               >
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
@@ -851,7 +851,7 @@ Array [
                 </div>
                 <div
                   class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-dropdown-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"

@@ -12,13 +12,15 @@ import SizeContext from '../config-provider/SizeContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
-import { FormContext, FormProvider } from './context';
+import { FormContext, FormProvider, VariantContext } from './context';
 import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
 import type { FeedbackIcons } from './FormItem';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { Variant } from './hooks/useVariants';
 
 export type RequiredMark =
   | boolean
@@ -44,6 +46,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
   hideRequiredMark?: boolean;
   rootClassName?: string;
+  variant?: Variant;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
@@ -70,6 +73,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     name,
     style,
     feedbackIcons,
+    variant,
     ...restFormProps
   } = props;
 
@@ -87,12 +91,12 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       return requiredMark;
     }
 
-    if (contextForm && contextForm.requiredMark !== undefined) {
-      return contextForm.requiredMark;
-    }
-
     if (hideRequiredMark) {
       return false;
+    }
+
+    if (contextForm && contextForm.requiredMark !== undefined) {
+      return contextForm.requiredMark;
     }
 
     return true;
@@ -103,7 +107,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const formClassName = classNames(
     prefixCls,
@@ -113,6 +118,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
     },
+    cssVarCls,
+    rootCls,
     hashId,
     contextForm?.className,
     className,
@@ -177,29 +184,31 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     }
   };
 
-  return wrapSSR(
-    <DisabledContextProvider disabled={disabled}>
-      <SizeContext.Provider value={mergedSize}>
-        <FormProvider
-          {...{
-            // This is not list in API, we pass with spread
-            validateMessages: contextValidateMessages,
-          }}
-        >
-          <FormContext.Provider value={formContextValue}>
-            <FieldForm
-              id={name}
-              {...restFormProps}
-              name={name}
-              onFinishFailed={onInternalFinishFailed}
-              form={wrapForm}
-              style={{ ...contextForm?.style, ...style }}
-              className={formClassName}
-            />
-          </FormContext.Provider>
-        </FormProvider>
-      </SizeContext.Provider>
-    </DisabledContextProvider>,
+  return wrapCSSVar(
+    <VariantContext.Provider value={variant}>
+      <DisabledContextProvider disabled={disabled}>
+        <SizeContext.Provider value={mergedSize}>
+          <FormProvider
+            {...{
+              // This is not list in API, we pass with spread
+              validateMessages: contextValidateMessages,
+            }}
+          >
+            <FormContext.Provider value={formContextValue}>
+              <FieldForm
+                id={name}
+                {...restFormProps}
+                name={name}
+                onFinishFailed={onInternalFinishFailed}
+                form={wrapForm}
+                style={{ ...contextForm?.style, ...style }}
+                className={formClassName}
+              />
+            </FormContext.Provider>
+          </FormProvider>
+        </SizeContext.Provider>
+      </DisabledContextProvider>
+    </VariantContext.Provider>,
   );
 };
 

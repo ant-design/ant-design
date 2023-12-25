@@ -352,7 +352,7 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -383,7 +383,7 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-disabled config-select-show-search"
+  class="config-select config-select-outlined config-select-auto-complete config-select-single config-select-disabled config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -415,7 +415,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-lg config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-lg config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -446,7 +446,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -477,7 +477,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
 
 exports[`ConfigProvider components AutoComplete configProvider componentSize small 1`] = `
 <div
-  class="config-select config-select-sm config-select-auto-complete config-select-single config-select-show-search"
+  class="config-select config-select-sm config-select-outlined config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -508,7 +508,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
 
 exports[`ConfigProvider components AutoComplete normal 1`] = `
 <div
-  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
+  class="ant-select ant-select-outlined ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -539,7 +539,7 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
 
 exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 <div
-  class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
+  class="prefix-AutoComplete prefix-AutoComplete-outlined prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
 >
   <div
     class="prefix-AutoComplete-selector"
@@ -1588,7 +1588,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -1648,7 +1648,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -2529,7 +2529,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -2876,7 +2876,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
           class="config-select-selector"
@@ -2937,7 +2937,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
           class="config-select-selector"
@@ -3821,7 +3821,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
           class="config-select-selector"
@@ -4171,7 +4171,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-lg config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -4231,7 +4231,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         </span>
       </div>
       <div
-        class="config-select config-select-lg config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -5112,7 +5112,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-lg config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -5459,7 +5459,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -5519,7 +5519,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         </span>
       </div>
       <div
-        class="config-select config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -6400,7 +6400,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -6747,7 +6747,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-sm config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -6807,7 +6807,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         </span>
       </div>
       <div
-        class="config-select config-select-sm config-picker-calendar-month-select config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-select-outlined config-picker-calendar-month-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -7688,7 +7688,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       class="config-picker-calendar-header"
     >
       <div
-        class="config-select config-select-sm config-picker-calendar-year-select config-select-single config-select-show-arrow"
+        class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
@@ -8035,7 +8035,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -8095,7 +8095,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -8976,7 +8976,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -9323,7 +9323,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       class="prefix-Calendar-calendar-header"
     >
       <div
-        class="ant-select prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -9383,7 +9383,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         </span>
       </div>
       <div
-        class="ant-select prefix-Calendar-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined prefix-Calendar-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -10264,7 +10264,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       class="prefix-Calendar-calendar-header"
     >
       <div
-        class="ant-select prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -11640,7 +11640,7 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
 
 exports[`ConfigProvider components Cascader configProvider 1`] = `
 <div
-  class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11697,7 +11697,7 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
 
 exports[`ConfigProvider components Cascader configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-disabled config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11755,7 +11755,7 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Cascader configProvider componentSize large 1`] = `
 <div
-  class="config-select config-cascader config-select-lg config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-lg config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11812,7 +11812,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
 
 exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-cascader config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11869,7 +11869,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
 
 exports[`ConfigProvider components Cascader configProvider componentSize small 1`] = `
 <div
-  class="config-select config-cascader config-select-sm config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
+  class="config-select config-cascader config-select-sm config-select-outlined config-select-single config-select-allow-clear config-select-show-arrow config-select-show-search"
 >
   <div
     class="config-select-selector"
@@ -11926,7 +11926,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
 
 exports[`ConfigProvider components Cascader normal 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -11983,7 +11983,7 @@ exports[`ConfigProvider components Cascader normal 1`] = `
 
 exports[`ConfigProvider components Cascader prefixCls 1`] = `
 <div
-  class="prefix-Cascader prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
+  class="prefix-Cascader prefix-Cascader-outlined prefix-Cascader-single prefix-Cascader-allow-clear prefix-Cascader-show-arrow prefix-Cascader-show-search"
 >
   <div
     class="prefix-Cascader-selector"
@@ -12543,10 +12543,80 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components ColorPicker configProvider 1`] = `
+<div
+  class="config-color-picker-trigger"
+>
+  <div
+    class="config-color-picker-clear"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentDisabled 1`] = `
+<div
+  class="config-color-picker-trigger config-color-picker-trigger-disabled"
+>
+  <div
+    class="config-color-picker-clear"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentSize large 1`] = `
+<div
+  class="config-color-picker-trigger config-color-picker-lg"
+>
+  <div
+    class="config-color-picker-clear"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
+<div
+  class="config-color-picker-trigger"
+>
+  <div
+    class="config-color-picker-clear"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker configProvider componentSize small 1`] = `
+<div
+  class="config-color-picker-trigger config-color-picker-sm"
+>
+  <div
+    class="config-color-picker-clear"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker normal 1`] = `
+<div
+  class="ant-color-picker-trigger"
+>
+  <div
+    class="ant-color-picker-clear"
+  />
+</div>
+`;
+
+exports[`ConfigProvider components ColorPicker prefixCls 1`] = `
+<div
+  class="prefix-ColorPicker-trigger"
+>
+  <div
+    class="prefix-ColorPicker-clear"
+  />
+</div>
+`;
+
 exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
 <div>
   <div
-    class="config-picker"
+    class="config-picker config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12590,7 +12660,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker DatePicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-disabled"
+    class="config-picker config-picker-outlined config-picker-disabled"
   >
     <div
       class="config-picker-input"
@@ -12635,7 +12705,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize large 1`] = `
 <div>
   <div
-    class="config-picker config-picker-large"
+    class="config-picker config-picker-large config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12679,7 +12749,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle"
+    class="config-picker config-picker-middle config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12723,7 +12793,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize small 1`] = `
 <div>
   <div
-    class="config-picker config-picker-small"
+    class="config-picker config-picker-small config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12767,7 +12837,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
 <div>
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -12811,7 +12881,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
 exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
 <div>
   <div
-    class="prefix-DatePicker"
+    class="prefix-DatePicker prefix-DatePicker-outlined"
   >
     <div
       class="prefix-DatePicker-input"
@@ -12855,7 +12925,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
 exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
 <div>
   <div
-    class="config-picker"
+    class="config-picker config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12899,7 +12969,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker MonthPicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-disabled"
+    class="config-picker config-picker-outlined config-picker-disabled"
   >
     <div
       class="config-picker-input"
@@ -12944,7 +13014,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize large 1`] = `
 <div>
   <div
-    class="config-picker config-picker-large"
+    class="config-picker config-picker-large config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12988,7 +13058,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle"
+    class="config-picker config-picker-middle config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13032,7 +13102,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize small 1`] = `
 <div>
   <div
-    class="config-picker config-picker-small"
+    class="config-picker config-picker-small config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13076,7 +13146,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
 <div>
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -13120,7 +13190,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
 exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
 <div>
   <div
-    class="prefix-MonthPicker"
+    class="prefix-MonthPicker prefix-MonthPicker-outlined"
   >
     <div
       class="prefix-MonthPicker-input"
@@ -13164,7 +13234,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
 exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range"
+    class="config-picker config-picker-range config-picker-outlined"
   >
     <div
       class="config-picker-input config-picker-input-active"
@@ -13250,7 +13320,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker RangePicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-disabled"
+    class="config-picker config-picker-range config-picker-outlined config-picker-disabled"
   >
     <div
       class="config-picker-input config-picker-input-active"
@@ -13338,7 +13408,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize large 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-large"
+    class="config-picker config-picker-range config-picker-large config-picker-outlined"
   >
     <div
       class="config-picker-input config-picker-input-active"
@@ -13424,7 +13494,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-middle"
+    class="config-picker config-picker-range config-picker-middle config-picker-outlined"
   >
     <div
       class="config-picker-input config-picker-input-active"
@@ -13510,7 +13580,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize small 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-small"
+    class="config-picker config-picker-range config-picker-small config-picker-outlined"
   >
     <div
       class="config-picker-input config-picker-input-active"
@@ -13596,7 +13666,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
 <div>
   <div
-    class="ant-picker ant-picker-range"
+    class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
       class="ant-picker-input ant-picker-input-active"
@@ -13682,7 +13752,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
 exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
 <div>
   <div
-    class="prefix-RangePicker prefix-RangePicker-range"
+    class="prefix-RangePicker prefix-RangePicker-range prefix-RangePicker-outlined"
   >
     <div
       class="prefix-RangePicker-input prefix-RangePicker-input-active"
@@ -13768,7 +13838,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
 exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
 <div>
   <div
-    class="config-picker"
+    class="config-picker config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13812,7 +13882,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker WeekPicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-disabled"
+    class="config-picker config-picker-outlined config-picker-disabled"
   >
     <div
       class="config-picker-input"
@@ -13857,7 +13927,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize large 1`] = `
 <div>
   <div
-    class="config-picker config-picker-large"
+    class="config-picker config-picker-large config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13901,7 +13971,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle"
+    class="config-picker config-picker-middle config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13945,7 +14015,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize small 1`] = `
 <div>
   <div
-    class="config-picker config-picker-small"
+    class="config-picker config-picker-small config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13989,7 +14059,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
 <div>
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -14033,7 +14103,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
 exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
 <div>
   <div
-    class="prefix-WeekPicker"
+    class="prefix-WeekPicker prefix-WeekPicker-outlined"
   >
     <div
       class="prefix-WeekPicker-input"
@@ -15496,7 +15566,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-status-error"
+              class="config-input config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15550,7 +15620,7 @@ exports[`ConfigProvider components Form configProvider componentDisabled 1`] = `
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-disabled config-input-status-error"
+              class="config-input config-input-disabled config-input-outlined config-input-status-error"
               disabled=""
               type="text"
               value=""
@@ -15605,7 +15675,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-lg config-input-status-error"
+              class="config-input config-input-lg config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15659,7 +15729,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-status-error"
+              class="config-input config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15713,7 +15783,7 @@ exports[`ConfigProvider components Form configProvider componentSize small 1`] =
             class="config-form-item-control-input-content"
           >
             <input
-              class="config-input config-input-sm config-input-status-error"
+              class="config-input config-input-sm config-input-outlined config-input-status-error"
               type="text"
               value=""
             />
@@ -15767,7 +15837,7 @@ exports[`ConfigProvider components Form normal 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
-              class="ant-input ant-input-status-error"
+              class="ant-input ant-input-outlined ant-input-status-error"
               type="text"
               value=""
             />
@@ -15821,7 +15891,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
             class="prefix-Form-item-control-input-content"
           >
             <input
-              class="prefix-Form prefix-Form-status-error"
+              class="prefix-Form prefix-Form-outlined prefix-Form-status-error"
               type="text"
               value=""
             />
@@ -15931,18 +16001,18 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     class="config-input-group"
   >
     <input
-      class="config-input"
+      class="config-input config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search"
+      class="config-input-group-wrapper config-input-group-wrapper-outlined config-input-search"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input"
+          class="config-input config-input-outlined"
           type="text"
           value=""
         />
@@ -15982,7 +16052,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password"
+    class="config-input-affix-wrapper config-input-outlined config-input-password"
   >
     <input
       class="config-input"
@@ -16018,7 +16088,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     </span>
   </span>
   <textarea
-    class="config-input"
+    class="config-input config-input-outlined"
   />
 </div>
 `;
@@ -16029,19 +16099,19 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-disabled"
+      class="config-input config-input-disabled config-input-outlined"
       disabled=""
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-group-wrapper-disabled"
+      class="config-input-group-wrapper config-input-group-wrapper-disabled config-input-group-wrapper-outlined config-input-search"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-disabled"
+          class="config-input config-input-disabled config-input-outlined"
           disabled=""
           type="text"
           value=""
@@ -16083,7 +16153,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-affix-wrapper-disabled config-input-password"
+    class="config-input-affix-wrapper config-input-disabled config-input-affix-wrapper-disabled config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-disabled"
@@ -16120,7 +16190,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     </span>
   </span>
   <textarea
-    class="config-input config-input-disabled"
+    class="config-input config-input-outlined config-input-disabled"
     disabled=""
   />
 </div>
@@ -16132,18 +16202,18 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-lg"
+      class="config-input config-input-lg config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-large config-input-group-wrapper-lg"
+      class="config-input-group-wrapper config-input-group-wrapper-lg config-input-group-wrapper-outlined config-input-search config-input-search-large"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-lg"
+          class="config-input config-input-lg config-input-outlined"
           type="text"
           value=""
         />
@@ -16183,7 +16253,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
+    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-lg"
@@ -16219,7 +16289,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-lg"
+    class="config-input config-input-lg config-input-outlined"
   />
 </div>
 `;
@@ -16230,18 +16300,18 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     class="config-input-group"
   >
     <input
-      class="config-input"
+      class="config-input config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-middle"
+      class="config-input-group-wrapper config-input-group-wrapper-outlined config-input-search config-input-search-middle"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input"
+          class="config-input config-input-outlined"
           type="text"
           value=""
         />
@@ -16281,7 +16351,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password"
+    class="config-input-affix-wrapper config-input-outlined config-input-password"
   >
     <input
       class="config-input"
@@ -16317,7 +16387,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
     </span>
   </span>
   <textarea
-    class="config-input"
+    class="config-input config-input-outlined"
   />
 </div>
 `;
@@ -16328,18 +16398,18 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     class="config-input-group"
   >
     <input
-      class="config-input config-input-sm"
+      class="config-input config-input-sm config-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-search config-input-search-small config-input-group-wrapper-sm"
+      class="config-input-group-wrapper config-input-group-wrapper-sm config-input-group-wrapper-outlined config-input-search config-input-search-small"
     >
       <span
         class="config-input-wrapper config-input-group"
       >
         <input
-          class="config-input config-input-sm"
+          class="config-input config-input-sm config-input-outlined"
           type="text"
           value=""
         />
@@ -16379,7 +16449,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-sm"
+    class="config-input-affix-wrapper config-input-affix-wrapper-sm config-input-outlined config-input-password"
   >
     <input
       class="config-input config-input-sm"
@@ -16415,7 +16485,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     </span>
   </span>
   <textarea
-    class="config-input config-input-sm"
+    class="config-input config-input-sm config-input-outlined"
   />
 </div>
 `;
@@ -16426,18 +16496,18 @@ exports[`ConfigProvider components Input normal 1`] = `
     class="ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
     <span
-      class="ant-input-group-wrapper ant-input-search"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
     >
       <span
         class="ant-input-wrapper ant-input-group"
       >
         <input
-          class="ant-input"
+          class="ant-input ant-input-outlined"
           type="text"
           value=""
         />
@@ -16477,7 +16547,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-password"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password"
   >
     <input
       class="ant-input"
@@ -16513,7 +16583,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     </span>
   </span>
   <textarea
-    class="ant-input"
+    class="ant-input ant-input-outlined"
   />
 </div>
 `;
@@ -16524,18 +16594,18 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     class="prefix-Input"
   >
     <input
-      class="prefix-Input"
+      class="prefix-Input prefix-Input-outlined"
       type="text"
       value=""
     />
     <span
-      class="ant-input-group-wrapper prefix-Input"
+      class="ant-input-group-wrapper ant-input-group-wrapper-outlined prefix-Input"
     >
       <span
         class="ant-input-wrapper ant-input-group"
       >
         <input
-          class="ant-input"
+          class="ant-input ant-input-outlined"
           type="text"
           value=""
         />
@@ -16575,7 +16645,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper prefix-Input"
+    class="ant-input-affix-wrapper ant-input-outlined prefix-Input"
   >
     <input
       class="ant-input"
@@ -16611,14 +16681,14 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     </span>
   </span>
   <textarea
-    class="prefix-Input"
+    class="prefix-Input prefix-Input-outlined"
   />
 </div>
 `;
 
 exports[`ConfigProvider components InputNumber configProvider 1`] = `
 <div
-  class="config-input-number"
+  class="config-input-number config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16694,7 +16764,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-disabled"
+  class="config-input-number config-input-number-outlined config-input-number-disabled"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16771,7 +16841,7 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
 
 exports[`ConfigProvider components InputNumber configProvider componentSize large 1`] = `
 <div
-  class="config-input-number config-input-number-lg"
+  class="config-input-number config-input-number-lg config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16847,7 +16917,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
 
 exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
 <div
-  class="config-input-number"
+  class="config-input-number config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16923,7 +16993,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize midd
 
 exports[`ConfigProvider components InputNumber configProvider componentSize small 1`] = `
 <div
-  class="config-input-number config-input-number-sm"
+  class="config-input-number config-input-number-sm config-input-number-outlined"
 >
   <div
     class="config-input-number-handler-wrap"
@@ -16999,7 +17069,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize smal
 
 exports[`ConfigProvider components InputNumber normal 1`] = `
 <div
-  class="ant-input-number"
+  class="ant-input-number ant-input-number-outlined"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -17075,7 +17145,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
 
 exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 <div
-  class="prefix-InputNumber"
+  class="prefix-InputNumber prefix-InputNumber-outlined"
 >
   <div
     class="prefix-InputNumber-handler-wrap"
@@ -18986,7 +19056,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19128,7 +19198,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19275,7 +19345,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19418,7 +19488,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19566,7 +19636,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19708,7 +19778,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19855,7 +19925,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     >
       <div
         aria-label="Page Size"
-        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -19997,7 +20067,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20144,7 +20214,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20286,7 +20356,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-sm config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-selector"
@@ -20433,7 +20503,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20575,7 +20645,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20722,7 +20792,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-outlined prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -20864,7 +20934,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <div
         aria-label="Page Size"
-        class="ant-select ant-select-sm prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
           class="ant-select-selector"
@@ -21734,7 +21804,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
     >
       <div
         class="config-progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -21762,7 +21832,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
     >
       <div
         class="config-progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -21790,7 +21860,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
     >
       <div
         class="config-progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -21818,7 +21888,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
     >
       <div
         class="config-progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -21846,7 +21916,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
     >
       <div
         class="config-progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -21874,7 +21944,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -21902,7 +21972,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
     >
       <div
         class="prefix-Progress-bg"
-        style="width: 0%; height: 8px;"
+        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
       />
     </div>
   </div>
@@ -24369,7 +24439,7 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
 
 exports[`ConfigProvider components Select configProvider 1`] = `
 <div
-  class="config-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24496,7 +24566,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
 
 exports[`ConfigProvider components Select configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-select-single config-select-show-arrow config-select-disabled"
+  class="config-select config-select-outlined config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
     class="config-select-selector"
@@ -24557,7 +24627,7 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
 
 exports[`ConfigProvider components Select configProvider componentSize large 1`] = `
 <div
-  class="config-select config-select-lg config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-lg config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24684,7 +24754,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
 
 exports[`ConfigProvider components Select configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24811,7 +24881,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Select configProvider componentSize small 1`] = `
 <div
-  class="config-select config-select-sm config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-select-sm config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -24938,7 +25008,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
 
 exports[`ConfigProvider components Select normal 1`] = `
 <div
-  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -25065,7 +25135,7 @@ exports[`ConfigProvider components Select normal 1`] = `
 
 exports[`ConfigProvider components Select prefixCls 1`] = `
 <div
-  class="prefix-Select prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
+  class="prefix-Select prefix-Select-outlined prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
 >
   <div
     class="prefix-Select-selector"
@@ -26600,14 +26670,14 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         </span>
                       </span>
                       <div
-                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-root config-dropdown-placement-bottomRight"
+                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="config-table-filter-dropdown"
                         >
                           <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light config-dropdown-root"
+                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -26904,14 +26974,14 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         </span>
                       </span>
                       <div
-                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-root config-dropdown-placement-bottomRight"
+                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="config-table-filter-dropdown"
                         >
                           <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light config-dropdown-root"
+                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -27210,14 +27280,14 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         </span>
                       </span>
                       <div
-                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-root config-dropdown-placement-bottomRight"
+                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="config-table-filter-dropdown"
                         >
                           <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light config-dropdown-root"
+                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -27514,14 +27584,14 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         </span>
                       </span>
                       <div
-                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-root config-dropdown-placement-bottomRight"
+                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="config-table-filter-dropdown"
                         >
                           <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light config-dropdown-root"
+                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -27818,14 +27888,14 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         </span>
                       </span>
                       <div
-                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-root config-dropdown-placement-bottomRight"
+                        class="config-dropdown config-slide-up-appear config-slide-up-appear-prepare config-slide-up config-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="config-table-filter-dropdown"
                         >
                           <ul
-                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light config-dropdown-root"
+                            class="config-dropdown-menu config-dropdown-menu-root config-dropdown-menu-vertical config-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -28122,14 +28192,14 @@ exports[`ConfigProvider components Table normal 1`] = `
                         </span>
                       </span>
                       <div
-                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-root ant-dropdown-placement-bottomRight"
+                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="ant-table-filter-dropdown"
                         >
                           <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -28426,14 +28496,14 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         </span>
                       </span>
                       <div
-                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-root ant-dropdown-placement-bottomRight"
+                        class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomRight"
                         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                       >
                         <div
                           class="prefix-Table-filter-dropdown"
                         >
                           <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-root"
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
@@ -29346,7 +29416,7 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 exports[`ConfigProvider components TimePicker configProvider 1`] = `
 Array [
   <div
-    class="config-picker"
+    class="config-picker config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -30759,7 +30829,7 @@ Array [
 exports[`ConfigProvider components TimePicker configProvider componentDisabled 1`] = `
 Array [
   <div
-    class="config-picker config-picker-disabled"
+    class="config-picker config-picker-outlined config-picker-disabled"
   >
     <div
       class="config-picker-input"
@@ -30807,7 +30877,7 @@ Array [
 exports[`ConfigProvider components TimePicker configProvider componentSize large 1`] = `
 Array [
   <div
-    class="config-picker config-picker-large"
+    class="config-picker config-picker-large config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -32220,7 +32290,7 @@ Array [
 exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
 Array [
   <div
-    class="config-picker config-picker-middle"
+    class="config-picker config-picker-middle config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -33633,7 +33703,7 @@ Array [
 exports[`ConfigProvider components TimePicker configProvider componentSize small 1`] = `
 Array [
   <div
-    class="config-picker config-picker-small"
+    class="config-picker config-picker-small config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -35046,7 +35116,7 @@ Array [
 exports[`ConfigProvider components TimePicker normal 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -36459,7 +36529,7 @@ Array [
 exports[`ConfigProvider components TimePicker prefixCls 1`] = `
 Array [
   <div
-    class="prefix-TimePicker"
+    class="prefix-TimePicker prefix-TimePicker-outlined"
   >
     <div
       class="prefix-TimePicker-input"
@@ -41287,7 +41357,7 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
 
 exports[`ConfigProvider components TreeSelect configProvider 1`] = `
 <div
-  class="config-select config-tree-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41422,7 +41492,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
 
 exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1`] = `
 <div
-  class="config-select config-tree-select config-select-single config-select-show-arrow config-select-disabled"
+  class="config-select config-tree-select config-select-outlined config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
     class="config-select-selector"
@@ -41483,7 +41553,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
 
 exports[`ConfigProvider components TreeSelect configProvider componentSize large 1`] = `
 <div
-  class="config-select config-tree-select config-select-lg config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-lg config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41618,7 +41688,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
 
 exports[`ConfigProvider components TreeSelect configProvider componentSize middle 1`] = `
 <div
-  class="config-select config-tree-select config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41753,7 +41823,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
 
 exports[`ConfigProvider components TreeSelect configProvider componentSize small 1`] = `
 <div
-  class="config-select config-tree-select config-select-sm config-select-single config-select-show-arrow config-select-open"
+  class="config-select config-tree-select config-select-sm config-select-outlined config-select-single config-select-show-arrow config-select-open"
 >
   <div
     class="config-select-selector"
@@ -41888,7 +41958,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
 
 exports[`ConfigProvider components TreeSelect normal 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -42023,7 +42093,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
 
 exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
 <div
-  class="prefix-TreeSelect prefix-TreeSelect-single prefix-TreeSelect-show-arrow prefix-TreeSelect-open"
+  class="prefix-TreeSelect prefix-TreeSelect-outlined prefix-TreeSelect-single prefix-TreeSelect-show-arrow prefix-TreeSelect-open"
 >
   <div
     class="prefix-TreeSelect-selector"

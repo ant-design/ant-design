@@ -17,12 +17,22 @@ import { FormItemInputContext } from '../form/context';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
+import { devUseWarning } from '../_util/warning';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
+  /** @deprecated Use `variant` instead */
   bordered?: boolean;
   size?: SizeType;
   status?: InputStatus;
   rootClassName?: string;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 export interface TextAreaRef {
@@ -42,8 +52,15 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     classNames: classes,
     rootClassName,
     className,
+    variant: customVariant,
     ...rest
   } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const { deprecated } = devUseWarning('TextArea');
+    deprecated(!('bordered' in props), 'bordered', 'variant');
+  }
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   // ===================== Size =====================
@@ -83,39 +100,42 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   }
 
   // ===================== Style =====================
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  return wrapSSR(
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+
+  return wrapCSSVar(
     <RcTextArea
       {...rest}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(className, rootClassName)}
-      classes={{
-        affixWrapper: classNames(
-          `${prefixCls}-textarea-affix-wrapper`,
-          {
-            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-            [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
-            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
-            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
-          },
-          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus),
-          hashId,
-        ),
-      }}
+      className={classNames(cssVarCls, rootCls, className, rootClassName)}
       classNames={{
         ...classes,
         textarea: classNames(
           {
-            [`${prefixCls}-borderless`]: !bordered,
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-lg`]: mergedSize === 'large',
           },
-          getStatusClassNames(prefixCls, mergedStatus),
           hashId,
           classes?.textarea,
+        ),
+        variant: classNames(
+          {
+            [`${prefixCls}-${variant}`]: enableVariantCls,
+          },
+          getStatusClassNames(prefixCls, mergedStatus),
+        ),
+        affixWrapper: classNames(
+          `${prefixCls}-textarea-affix-wrapper`,
+          {
+            [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+            [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+            [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+            [`${prefixCls}-textarea-show-count`]: props.showCount || props.count?.show,
+          },
+          hashId,
         ),
       }}
       prefixCls={prefixCls}

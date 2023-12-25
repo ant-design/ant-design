@@ -28,7 +28,10 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useZIndex } from '../_util/hooks/useZIndex';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -60,6 +63,7 @@ export interface TreeSelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -74,6 +78,11 @@ export interface TreeSelectProps<
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 const InternalTreeSelect = <
@@ -107,6 +116,7 @@ const InternalTreeSelect = <
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     allowClear,
+    variant: customVariant,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -143,6 +153,8 @@ const InternalTreeSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -151,8 +163,12 @@ const InternalTreeSelect = <
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
-  const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
+  const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -161,6 +177,9 @@ const InternalTreeSelect = <
       [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
     },
     rootClassName,
+    cssVarCls,
+    rootCls,
+    treeSelectRootCls,
     hashId,
   );
 
@@ -231,13 +250,16 @@ const InternalTreeSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
     className,
     rootClassName,
+    cssVarCls,
+    rootCls,
+    treeSelectRootCls,
     hashId,
   );
 
@@ -290,7 +312,7 @@ const InternalTreeSelect = <
     />
   );
 
-  return wrapSelectSSR(wrapTreeSelectSSR(returnNode));
+  return wrapCSSVar(treeSelectWrapCSSVar(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <

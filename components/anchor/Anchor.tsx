@@ -9,6 +9,7 @@ import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { AnchorLinkBaseProps } from './AnchorLink';
 import AnchorLink from './AnchorLink';
 import AnchorContext from './context';
@@ -79,11 +80,6 @@ export interface AnchorProps {
   replace?: boolean;
 }
 
-interface InternalAnchorProps extends AnchorProps {
-  anchorPrefixCls: string;
-  rootClassName: string;
-}
-
 export interface AnchorState {
   activeLink: null | string;
 }
@@ -109,10 +105,10 @@ export interface AntAnchor {
   direction: AnchorDirection;
 }
 
-const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
+const Anchor: React.FC<AnchorProps> = (props) => {
   const {
     rootClassName,
-    anchorPrefixCls: prefixCls,
+    prefixCls: customPrefixCls,
     className,
     style,
     offsetTop,
@@ -151,8 +147,13 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   const spanLinkNode = React.useRef<HTMLSpanElement>(null);
   const animating = React.useRef<boolean>(false);
 
-  const { direction, getTargetContainer, anchor } =
+  const { direction, anchor, getTargetContainer, getPrefixCls } =
     React.useContext<ConfigConsumerProps>(ConfigContext);
+
+  const prefixCls = getPrefixCls('anchor', customPrefixCls);
+
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const getCurrentContainer = getContainer ?? getTargetContainer ?? getDefaultContainer;
 
@@ -182,10 +183,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       inkStyle.left = horizontalAnchor ? `${linkNode.offsetLeft}px` : '';
       inkStyle.width = horizontalAnchor ? `${linkNode.clientWidth}px` : '';
       if (horizontalAnchor) {
-        scrollIntoView(linkNode, {
-          scrollMode: 'if-needed',
-          block: 'nearest',
-        });
+        scrollIntoView(linkNode, { scrollMode: 'if-needed', block: 'nearest' });
       }
     }
   };
@@ -274,6 +272,9 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
   );
 
   const wrapperClass = classNames(
+    hashId,
+    cssVarCls,
+    rootCls,
     rootClassName,
     `${prefixCls}-wrapper`,
     {
@@ -347,7 +348,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
     [activeLink, onClick, handleScrollTo, anchorDirection],
   );
 
-  return (
+  return wrapCSSVar(
     <AnchorContext.Provider value={memoizedContextValue}>
       {affix ? (
         <Affix offsetTop={offsetTop} target={getCurrentContainer}>
@@ -356,23 +357,7 @@ const AnchorContent: React.FC<InternalAnchorProps> = (props) => {
       ) : (
         anchorContent
       )}
-    </AnchorContext.Provider>
-  );
-};
-
-const Anchor: React.FC<AnchorProps> = (props) => {
-  const { prefixCls: customizePrefixCls, rootClassName } = props;
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
-  const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
-
-  const [wrapSSR, hashId] = useStyle(anchorPrefixCls);
-
-  return wrapSSR(
-    <AnchorContent
-      {...props}
-      rootClassName={classNames(hashId, rootClassName)}
-      anchorPrefixCls={anchorPrefixCls}
-    />,
+    </AnchorContext.Provider>,
   );
 };
 

@@ -1,13 +1,13 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
-import { prepareComponentToken, prepareToken, type BadgeToken } from '.';
+import { type BadgeToken, prepareComponentToken, prepareToken } from '.';
 import { resetComponent } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor } from '../../theme/internal';
+import { genPresetColor, genStyleHooks } from '../../theme/internal';
 
 // ============================== Ribbon ==============================
-const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject => {
-  const { antCls, badgeFontHeight, marginXS, badgeRibbonOffset } = token;
+const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
+  const { antCls, badgeFontHeight, marginXS, badgeRibbonOffset, calc } = token;
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
@@ -19,32 +19,36 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject
   }));
 
   return {
-    [`${ribbonWrapperPrefixCls}`]: { position: 'relative' },
+    [`${ribbonWrapperPrefixCls}`]: {
+      position: 'relative',
+    },
     [`${ribbonPrefixCls}`]: {
       ...resetComponent(token),
       position: 'absolute',
       top: marginXS,
-      padding: `0 ${token.paddingXS}px`,
+      padding: `0 ${unit(token.paddingXS)}`,
       color: token.colorPrimary,
-      lineHeight: `${badgeFontHeight}px`,
+      lineHeight: unit(badgeFontHeight),
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadiusSM,
-      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
+      [`${ribbonPrefixCls}-text`]: {
+        color: token.colorTextLightSolid,
+      },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
         width: badgeRibbonOffset,
         height: badgeRibbonOffset,
         color: 'currentcolor',
-        border: `${badgeRibbonOffset / 2}px solid`,
+        border: `${unit(calc(badgeRibbonOffset).div(2).equal())} solid`,
         transform: token.badgeRibbonCornerTransform,
         transformOrigin: 'top',
         filter: token.badgeRibbonCornerFilter,
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbonOffset,
+        insetInlineEnd: calc(badgeRibbonOffset).mul(-1).equal(),
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
@@ -53,7 +57,7 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject
         },
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbonOffset,
+        insetInlineStart: calc(badgeRibbonOffset).mul(-1).equal(),
         borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
@@ -71,12 +75,11 @@ const genRibbonStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   ['Badge', 'Ribbon'],
   (token) => {
     const badgeToken = prepareToken(token);
-
-    return [genRibbonStyle(badgeToken)];
+    return genRibbonStyle(badgeToken);
   },
   prepareComponentToken,
 );

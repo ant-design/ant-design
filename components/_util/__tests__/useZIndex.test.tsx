@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-import type { MenuProps } from 'antd';
+import type { ImageProps, MenuProps } from 'antd';
 import {
   AutoComplete,
   Cascader,
@@ -9,6 +9,7 @@ import {
   DatePicker,
   Drawer,
   Dropdown,
+  Image,
   Menu,
   Modal,
   Popconfirm,
@@ -150,6 +151,7 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
         options={options}
         open
       />
+      <ColorPicker {...props} open rootClassName={`${rootClassName} comp-item comp-ColorPicker`} />
     </>
   ),
   Dropdown: (props) => (
@@ -166,7 +168,6 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
       <button type="button">test</button>
     </Dropdown>
   ),
-  ColorPicker: (props) => <ColorPicker {...props} open />,
   DatePicker: ({ rootClassName, ...props }) => (
     <>
       <DatePicker {...props} rootClassName={`${rootClassName} comp-item comp-DatePicker`} open />
@@ -178,13 +179,36 @@ const consumerComponent: Record<ZIndexConsumer, React.FC<{ rootClassName: string
     </>
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
+  ImagePreview: ({ rootClassName }: ImageProps) => (
+    <>
+      <Image
+        src="xxx"
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreview`,
+        }}
+      />
+      <Image.PreviewGroup
+        preview={{
+          visible: true,
+          rootClassName: `${rootClassName} comp-item comp-ImagePreviewGroup`,
+        }}
+      >
+        <Image src="xxx" />
+      </Image.PreviewGroup>
+    </>
+  ),
 };
 
 function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): string {
   let selector = baseSelector;
   if (consumer === 'SelectLike') {
-    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete']
-      .map((item) => `${baseSelector}.comp-${item}.ant-slide-up`)
+    selector = ['Select', 'Cascader', 'TreeSelect', 'AutoComplete', 'ColorPicker']
+      .map((item) =>
+        item === 'ColorPicker'
+          ? `${baseSelector}.ant-popover-placement-bottomLeft`
+          : `${baseSelector}.comp-${item}.ant-slide-up`,
+      )
       .join(',');
   } else if (consumer === 'DatePicker') {
     selector = ['DatePicker', 'TimePicker']
@@ -192,8 +216,13 @@ function getConsumerSelector(baseSelector: string, consumer: ZIndexConsumer): st
       .join(',');
   } else if (['Menu'].includes(consumer)) {
     selector = `${baseSelector}.ant-menu-submenu-placement-rightTop`;
-  } else if (consumer === 'ColorPicker') {
-    selector = `${baseSelector}.ant-popover-placement-bottomLeft`;
+  } else if (consumer === 'ImagePreview') {
+    selector = ['ImagePreview', 'ImagePreviewGroup']
+      .map(
+        (item) =>
+          `${baseSelector}.comp-${item} .ant-image-preview-wrap, ${baseSelector}.comp-${item}.ant-image-preview-operations-wrapper`,
+      )
+      .join(',');
   }
   return selector;
 }
@@ -232,7 +261,8 @@ describe('Test useZIndex hooks', () => {
           );
           render(<App />);
           expect(fn).toHaveBeenLastCalledWith(
-            (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 3 +
+            1000 +
+              containerBaseZIndexOffset[containerKey as ZIndexContainer] * 3 +
               consumerBaseZIndexOffset[key as ZIndexConsumer],
           );
         });
@@ -261,28 +291,45 @@ describe('Test useZIndex hooks', () => {
           const selector2 = getConsumerSelector('.consumer2', key as ZIndexConsumer);
           const selector3 = getConsumerSelector('.consumer3', key as ZIndexConsumer);
 
-          if (['SelectLike', 'DatePicker'].includes(key)) {
+          if (['SelectLike', 'DatePicker', 'ImagePreview'].includes(key)) {
             let comps = document.querySelectorAll(selector1);
             comps.forEach((comp) => {
               expect((comp as HTMLDivElement).style.zIndex).toBeFalsy();
             });
             comps = document.querySelectorAll(selector2);
             comps.forEach((comp) => {
+              const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
+              const consumerOffset = isColorPicker
+                ? containerBaseZIndexOffset.Popover
+                : consumerBaseZIndexOffset[key as ZIndexConsumer];
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
                   1000 +
                     containerBaseZIndexOffset[containerKey as ZIndexContainer] +
-                    consumerBaseZIndexOffset[key as ZIndexConsumer],
+                    consumerOffset +
+                    operOffset,
                 ),
               );
             });
 
             comps = document.querySelectorAll(selector3);
             comps.forEach((comp) => {
+              const isColorPicker = (comp as HTMLDivElement).className.includes('comp-ColorPicker');
+              const consumerOffset = isColorPicker
+                ? containerBaseZIndexOffset.Popover
+                : consumerBaseZIndexOffset[key as ZIndexConsumer];
+              const operOffset = comp.classList.contains('ant-image-preview-operations-wrapper')
+                ? 1
+                : 0;
               expect((comp as HTMLDivElement).style.zIndex).toBe(
                 String(
-                  (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
-                    consumerBaseZIndexOffset[key as ZIndexConsumer],
+                  1000 +
+                    containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
+                    consumerOffset +
+                    operOffset,
                 ),
               );
             });
@@ -296,6 +343,7 @@ describe('Test useZIndex hooks', () => {
                 (document.querySelector(selector1) as HTMLDivElement).style.zIndex,
               ).toBeFalsy();
             }
+
             expect((document.querySelector(selector2) as HTMLDivElement).style.zIndex).toBe(
               String(
                 1000 +
@@ -306,15 +354,44 @@ describe('Test useZIndex hooks', () => {
 
             expect((document.querySelector(selector3) as HTMLDivElement).style.zIndex).toBe(
               String(
-                (1000 + containerBaseZIndexOffset[containerKey as ZIndexContainer]) * 2 +
+                1000 +
+                  containerBaseZIndexOffset[containerKey as ZIndexContainer] * 2 +
                   consumerBaseZIndexOffset[key as ZIndexConsumer],
               ),
             );
           }
 
           unmount();
-        }, 15000);
+        }, 20000);
       });
     });
+  });
+
+  it('Modal static func should always use max zIndex', async () => {
+    jest.useFakeTimers();
+
+    const instance = Modal.confirm({
+      title: 'bamboo',
+      content: <Select open />,
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
+      zIndex: '2000',
+    });
+
+    expect(document.querySelector('.ant-select-dropdown')).toHaveStyle({
+      zIndex: '2050',
+    });
+
+    instance.destroy();
+
+    await waitFakeTimer();
+
+    // Clean up for static method
+    document.body.innerHTML = '';
+
+    jest.useRealTimers();
   });
 });

@@ -26,7 +26,6 @@ import IconWrapper from './IconWrapper';
 import LoadingIcon from './LoadingIcon';
 import useStyle from './style';
 import CompactCmp from './style/compactCmp';
-import useCSSVar from './style/cssVar';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
@@ -119,8 +118,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -217,6 +215,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const classes = classNames(
     prefixCls,
     hashId,
+    cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       [`${prefixCls}-${type}`]: type,
@@ -262,9 +261,11 @@ const InternalButton: React.ForwardRefRenderFunction<
         className={classNames(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
+        href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
         {kids}

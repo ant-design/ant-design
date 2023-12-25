@@ -12,7 +12,6 @@ import type { TourProps, TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
-import useCSSVar from './style/cssVar';
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -27,8 +26,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   } = props;
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
-  const [, hashId] = useStyle(prefixCls);
-  const wrapCSSVar = useCSSVar(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
   const mergedSteps = useMemo(
@@ -42,19 +40,21 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     [steps, type],
   );
 
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: true,
-    autoAdjustOverflow: true,
-    offset: token.marginXXS,
-    arrowWidth: token.sizePopupArrow,
-    borderRadius: token.borderRadius,
-  });
+  const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
+    getPlacements({
+      arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
+      autoAdjustOverflow: true,
+      offset: token.marginXXS,
+      arrowWidth: token.sizePopupArrow,
+      borderRadius: token.borderRadius,
+    });
 
   const customClassName = classNames(
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
+    cssVarCls,
     rootClassName,
   );
 

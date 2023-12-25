@@ -4,12 +4,13 @@ import classNames from 'classnames';
 import RcImage from 'rc-image';
 import type { ImageProps } from 'rc-image';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import defaultLocale from '../locale/en_US';
-// CSSINJS
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -36,11 +37,17 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const imageLocale = contextLocale.Image || defaultLocale.Image;
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const mergedRootClassName = classNames(rootClassName, hashId);
+  const mergedRootClassName = classNames(rootClassName, hashId, cssVarCls, rootCls);
 
   const mergedClassName = classNames(className, hashId, image?.className);
+
+  const [zIndex] = useZIndex(
+    'ImagePreview',
+    typeof preview === 'object' ? preview.zIndex : undefined,
+  );
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -60,12 +67,13 @@ const Image: CompositionImage<ImageProps> = (props) => {
       getContainer: getContainer || getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
+      zIndex,
     };
   }, [preview, imageLocale]);
 
   const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreview}

@@ -640,31 +640,60 @@ exports[`renders components/modal/demo/modal-render.tsx correctly 1`] = `
 `;
 
 exports[`renders components/modal/demo/nested.tsx correctly 1`] = `
-<button
-  aria-checked="false"
-  class="ant-switch"
-  role="switch"
-  style="position:relative;z-index:4000"
-  type="button"
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
 >
   <div
-    class="ant-switch-handle"
-  />
-  <span
-    class="ant-switch-inner"
+    class="ant-space-item"
   >
-    <span
-      class="ant-switch-inner-checked"
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      style="position:relative;z-index:0"
+      type="button"
     >
-      Open
-    </span>
-    <span
-      class="ant-switch-inner-unchecked"
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          Open
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          Close
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
     >
-      Close
-    </span>
-  </span>
-</button>
+      <span>
+        Static
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  />
+</div>
 `;
 
 exports[`renders components/modal/demo/position.tsx correctly 1`] = `

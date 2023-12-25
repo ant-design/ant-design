@@ -29,7 +29,8 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/size.tsx">Three Sizes</code>
 <code src="./demo/cell-render.tsx">Customized Cell Rendering</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
 <code src="./demo/start-end.tsx" debug>Customized Range Picker</code>
@@ -55,6 +56,11 @@ There are five kinds of picker:
 The default locale is en-US, if you need to use other languages, recommend to use internationalized components provided by us at the entrance. Look at: [ConfigProvider](https://ant.design/components/config-provider/).
 
 If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
+
+<!-- prettier-ignore -->
+:::warning
+When use with Nextjs App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+:::
 
 ```jsx
 import locale from 'antd/es/date-picker/locale/zh_CN';
@@ -84,7 +90,6 @@ The following APIs are shared by DatePicker, RangePicker.
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
-| bordered | Whether has border style | boolean | true |  |
 | className | The picker className | string | - |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | changeOnBlur | Trigger `change` when blur. e.g. datetime picker no need click confirm button | boolean | false | 5.5.0 |
@@ -112,6 +117,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 

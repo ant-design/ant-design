@@ -5,6 +5,8 @@ import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { getSize, getSuccessPercent, validProgress } from './utils';
+import { useContext } from 'react';
+import { ConfigContext } from '../config-provider';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -82,6 +84,8 @@ const Line: React.FC<LineProps> = (props) => {
     success,
   } = props;
 
+  const { direction } = useContext(ConfigContext);
+
   const backgroundProps: React.CSSProperties =
     strokeColor && typeof strokeColor !== 'string'
       ? handleGradient(strokeColor, directionConfig)
@@ -104,19 +108,29 @@ const Line: React.FC<LineProps> = (props) => {
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
+  const percentBorderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : '100px';
+
   const percentStyle: React.CSSProperties = {
-    width: `${validProgress(percent)}%`,
+    width: `100%`,
     height,
     borderRadius,
+    clipPath:
+      direction === 'rtl'
+        ? `inset(0 0 0 ${100 - validProgress(percent)}% round ${percentBorderRadius})`
+        : `inset(0 ${100 - validProgress(percent)}% 0 0 round ${percentBorderRadius})`,
     ...backgroundProps,
   };
 
   const successPercent = getSuccessPercent(props);
 
   const successPercentStyle: React.CSSProperties = {
-    width: `${validProgress(successPercent)}%`,
+    width: `100%`,
     height,
     borderRadius,
+    clipPath:
+      direction === 'rtl'
+        ? `inset(0 0 0 ${100 - validProgress(successPercent)}% round ${percentBorderRadius})`
+        : `inset(0 ${100 - validProgress(successPercent)}% 0 0 round ${percentBorderRadius})`,
     backgroundColor: success?.strokeColor,
   };
 

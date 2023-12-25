@@ -52,7 +52,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
 | autoFocus | If get focus when component mounted | boolean | false |  |
-| bordered | Whether has border style | boolean | true |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
@@ -80,6 +79,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | The selected value | string\[] \| number\[] | - |  |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |

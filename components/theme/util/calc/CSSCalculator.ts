@@ -1,5 +1,13 @@
 import AbstractCalculator from './calculator';
-import { unit } from '@ant-design/cssinjs';
+
+const CALC_UNIT = 'CALC_UNIT';
+
+function unit(value: string | number) {
+  if (typeof value === 'number') {
+    return `${value}${CALC_UNIT}`;
+  }
+  return value;
+}
 
 export default class CSSCalculator extends AbstractCalculator {
   result: string = '';
@@ -67,7 +75,10 @@ export default class CSSCalculator extends AbstractCalculator {
     return this.lowPriority || force ? `(${this.result})` : this.result;
   }
 
-  equal(): string {
+  equal(options?: { unit?: boolean }): string {
+    const { unit: cssUnit = true } = options || {};
+    const regexp = new RegExp(`${CALC_UNIT}`, 'g');
+    this.result = this.result.replace(regexp, cssUnit ? 'px' : '');
     if (typeof this.lowPriority !== 'undefined') {
       return `calc(${this.result})`;
     }

@@ -29,6 +29,8 @@ import {
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 import { useZIndex } from '../../_util/hooks/useZIndex';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import useVariant from '../../form/hooks/useVariants';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type CustomPickerProps = {
@@ -54,7 +56,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           className,
           rootClassName,
           size: customizeSize,
-          bordered = true,
+          bordered,
           placement,
           placeholder,
           popupClassName,
@@ -63,6 +65,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           status: customStatus,
           clearIcon,
           allowClear,
+          variant: customVariant,
           ...restProps
         } = props;
 
@@ -79,7 +82,10 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
 
-        const [wrapSSR, hashId] = useStyle(prefixCls);
+        const [variant, enableVariantCls] = useVariant(customVariant, bordered);
+
+        const rootCls = useCSSVarCls(prefixCls);
+        const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),
@@ -116,6 +122,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           );
 
           warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+
+          warning.deprecated(!('bordered' in props), 'bordered', 'variant');
         }
 
         // ===================== Size =====================
@@ -142,7 +150,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         // ============================ zIndex ============================
         const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
-        return wrapSSR(
+        return wrapCSSVar(
           <RCPicker<DateType>
             ref={innerRef}
             placeholder={getPlaceholder(locale, mergedPicker, placeholder)}
@@ -160,7 +168,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             className={classNames(
               {
                 [`${prefixCls}-${mergedSize}`]: mergedSize,
-                [`${prefixCls}-borderless`]: !bordered,
+                [`${prefixCls}-${variant}`]: enableVariantCls,
               },
               getStatusClassNames(
                 prefixCls,
@@ -171,6 +179,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               compactItemClassnames,
               consumerStyle?.className,
               className,
+              cssVarCls,
+              rootCls,
               rootClassName,
             )}
             style={{ ...consumerStyle?.style, ...style }}
@@ -182,6 +192,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             disabled={mergedDisabled}
             dropdownClassName={classNames(
               hashId,
+              cssVarCls,
+              rootCls,
               rootClassName,
               popupClassName || dropdownClassName,
             )}
