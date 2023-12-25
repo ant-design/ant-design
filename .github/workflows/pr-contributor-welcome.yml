@@ -2,7 +2,8 @@
 name: PullRequest Contributor Welcome
 
 on:
-  pull_request:
+  # 注意：不要在 prt 下写任何会执行 repo 代码的逻辑！！！
+  pull_request_target:
     types:
       - closed
     paths:
