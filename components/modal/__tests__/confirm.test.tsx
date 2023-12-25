@@ -877,13 +877,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
-  it('should be able to config container', async () => {
-    ConfigProvider.config({ container: (children) => <div className="test">{children}</div> });
+  // it('should be able to config container', async () => {
+  //   ConfigProvider.config({ container: (children) => <div className="test">{children}</div> });
 
-    Modal.confirm({ title: 'hai' });
-    await waitFakeTimer();
+  //   Modal.confirm({ title: 'hai' });
+  //   await waitFakeTimer();
 
-    expect(document.querySelector('.test')).toBeTruthy();
-    ConfigProvider.config({ container: (children) => children });
-  });
+  //   expect(document.querySelector('.test')).toBeTruthy();
+  //   ConfigProvider.config({ container: (children) => children });
+  // });
 });

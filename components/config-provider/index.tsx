@@ -232,15 +232,17 @@ function isLegacyTheme(theme: Theme | ThemeConfig): theme is Theme {
   return Object.keys(theme).some((key) => key.endsWith('Color'));
 }
 
-const setGlobalConfig = ({
-  prefixCls,
-  iconPrefixCls,
-  theme,
-  container,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & {
+interface GlobalConfigProps {
+  /** @deprecated Please use `ConfigProvider.config({ container })` instead */
+  prefixCls?: string;
+  /** @deprecated Please use `ConfigProvider.config({ container })` instead */
+  iconPrefixCls?: string;
+  /** @deprecated Please use `ConfigProvider.config({ container })` instead */
   theme?: Theme | ThemeConfig;
   container?: containerType;
-}) => {
+}
+
+const setGlobalConfig = ({ prefixCls, iconPrefixCls, theme, container }: GlobalConfigProps) => {
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }

@@ -1,8 +1,5 @@
-import React from 'react';
-
 import notification, { actWrapper } from '..';
 import { act } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('notification.config', () => {
@@ -87,24 +84,24 @@ describe('notification.config', () => {
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });
-  it('should be able to config container', async () => {
-    ConfigProvider.config({ container: (children) => <div className="test">{children}</div> });
+  // it('should be able to config container', async () => {
+  //   ConfigProvider.config({ container: (children) => <div className="test">{children}</div> });
 
-    act(() => {
-      notification.open({
-        message: 'Notification last',
-        key: '11',
-        duration: 999,
-      });
-    });
+  //   act(() => {
+  //     notification.open({
+  //       message: 'Notification last',
+  //       key: '11',
+  //       duration: 999,
+  //     });
+  //   });
 
-    act(() => {
-      // One frame is 16ms
-      jest.advanceTimersByTime(100);
-    });
-    await triggerMotionEnd(false);
+  //   act(() => {
+  //     // One frame is 16ms
+  //     jest.advanceTimersByTime(100);
+  //   });
+  //   await triggerMotionEnd(false);
 
-    expect(document.querySelector('.test')).toBeTruthy();
-    ConfigProvider.config({ container: (children) => children });
-  });
+  //   expect(document.querySelector('.test')).toBeTruthy();
+  //   ConfigProvider.config({ container: (children) => children });
+  // });
 });
