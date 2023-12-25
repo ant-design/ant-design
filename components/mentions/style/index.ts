@@ -52,12 +52,17 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
     paddingInline,
     paddingBlock,
     fontSize,
+    fontSizeIcon,
+    colorTextTertiary,
+    colorTextQuaternary,
     colorBgElevated,
     paddingXXS,
+    paddingLG,
     borderRadius,
     borderRadiusLG,
     boxShadowSecondary,
     itemPaddingVertical,
+    calc,
   } = token;
 
   return {
@@ -81,7 +86,15 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
       '&-affix-wrapper': {
         ...genBasicInputStyle(token),
+        display: 'inline-flex',
         padding: 0,
+
+        '&::before': {
+          display: 'inline-block',
+          width: 0,
+          visibility: 'hidden',
+          content: '"\\a0"',
+        },
 
         [`${componentCls}-suffix`]: {
           position: 'absolute',
@@ -93,6 +106,37 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           alignItems: 'center',
           margin: 'auto',
         },
+
+        [`&:has(${componentCls}-suffix) > ${componentCls} > textarea`]: {
+          paddingInlineEnd: paddingLG,
+        },
+
+        [`${componentCls}-clear-icon`]: {
+          position: 'absolute',
+          insetInlineEnd: 0,
+          insetBlockStart: calc(fontSize).mul(lineHeight).mul(0.5).add(paddingBlock).equal(),
+          transform: `translateY(-50%)`,
+          margin: 0,
+          color: colorTextQuaternary,
+          fontSize: fontSizeIcon,
+          verticalAlign: -1,
+          // https://github.com/ant-design/ant-design/pull/18151
+          // https://codesandbox.io/s/wizardly-sun-u10br
+          cursor: 'pointer',
+          transition: `color ${motionDurationSlow}`,
+
+          '&:hover': {
+            color: colorTextTertiary,
+          },
+
+          '&:active': {
+            color: colorText,
+          },
+
+          '&-hidden': {
+            visibility: 'hidden',
+          },
+        },
       },
 
       '&-disabled': {
@@ -102,55 +146,57 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       },
 
       // ================= Input Area =================
-      [`> textarea, ${componentCls}-measure`]: {
-        color: colorText,
-        boxSizing: 'border-box',
-        minHeight: token.calc(controlHeight).sub(2),
-        margin: 0,
-        padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
-        overflow: 'inherit',
-        overflowX: 'hidden',
-        overflowY: 'auto',
-        fontWeight: 'inherit',
-        fontSize: 'inherit',
-        fontFamily: 'inherit',
-        fontStyle: 'inherit',
-        fontVariant: 'inherit',
-        fontSizeAdjust: 'inherit',
-        fontStretch: 'inherit',
-        lineHeight: 'inherit',
-        direction: 'inherit',
-        letterSpacing: 'inherit',
-        whiteSpace: 'inherit',
-        textAlign: 'inherit',
-        verticalAlign: 'top',
-        wordWrap: 'break-word',
-        wordBreak: 'inherit',
-        tabSize: 'inherit',
-      },
+      [`&, &-affix-wrapper > ${componentCls}`]: {
+        [`> textarea, ${componentCls}-measure`]: {
+          color: colorText,
+          boxSizing: 'border-box',
+          minHeight: token.calc(controlHeight).sub(2),
+          margin: 0,
+          padding: `${unit(paddingBlock)} ${unit(paddingInline)}`,
+          overflow: 'inherit',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+          fontWeight: 'inherit',
+          fontSize: 'inherit',
+          fontFamily: 'inherit',
+          fontStyle: 'inherit',
+          fontVariant: 'inherit',
+          fontSizeAdjust: 'inherit',
+          fontStretch: 'inherit',
+          lineHeight: 'inherit',
+          direction: 'inherit',
+          letterSpacing: 'inherit',
+          whiteSpace: 'inherit',
+          textAlign: 'inherit',
+          verticalAlign: 'top',
+          wordWrap: 'break-word',
+          wordBreak: 'inherit',
+          tabSize: 'inherit',
+        },
 
-      '> textarea': {
-        width: '100%',
-        border: 'none',
-        outline: 'none',
-        resize: 'none',
-        backgroundColor: 'transparent',
-        ...genPlaceholderStyle(token.colorTextPlaceholder),
-      },
+        '> textarea': {
+          width: '100%',
+          border: 'none',
+          outline: 'none',
+          resize: 'none',
+          backgroundColor: 'transparent',
+          ...genPlaceholderStyle(token.colorTextPlaceholder),
+        },
 
-      [`${componentCls}-measure`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineEnd: 0,
-        bottom: 0,
-        insetInlineStart: 0,
-        zIndex: -1,
-        color: 'transparent',
-        pointerEvents: 'none',
+        [`${componentCls}-measure`]: {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: 0,
+          bottom: 0,
+          insetInlineStart: 0,
+          zIndex: -1,
+          color: 'transparent',
+          pointerEvents: 'none',
 
-        '> span': {
-          display: 'inline-block',
-          minHeight: '1em',
+          '> span': {
+            display: 'inline-block',
+            minHeight: '1em',
+          },
         },
       },
 

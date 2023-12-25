@@ -16,6 +16,34 @@ tag: vVERSION
 
 ---
 
+## 5.12.5
+
+`2023-12-22`
+
+- 💄 Fix Tabs style issue of editable mode when there is only "new" button left. [#46585](https://github.com/ant-design/ant-design/pull/46585) [@hzyhbk](https://github.com/hzyhbk)
+- 💄 Fix Progress style issue of `line` mode with `strokeLinecap`. [#46551](https://github.com/ant-design/ant-design/pull/46551) [@ZN1996](https://github.com/ZN1996)
+- 🐞 Fix ColorPicker not support `prefixCls`. [#46561](https://github.com/ant-design/ant-design/pull/46561)
+
+## 5.12.4
+
+`2023-12-19`
+
+- 🐞 Fix DatePicker style in `cssVar` mode. [#46526](https://github.com/ant-design/ant-design/pull/46526)
+
+## 5.12.3
+
+`2023-12-18`
+
+- 💄 Fix Tag that style would be missing in SSR. [#46500](https://github.com/ant-design/ant-design/pull/46500) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Upload `disabled` prop should not affect download icon. [#46454](https://github.com/ant-design/ant-design/pull/46454)
+- 💄 Upload.Dragger add vertical padding style. [#46457](https://github.com/ant-design/ant-design/pull/46457)
+- 🐞 Fix Upload actions color issue. [#46456](https://github.com/ant-design/ant-design/pull/46456)
+- 🐞 Fix Form with `getValueProps` not working with value update. [#46445](https://github.com/ant-design/ant-design/pull/46445)
+- 💄 Fix Checkbox style when customize `token.lineWidth`. [#46431](https://github.com/ant-design/ant-design/pull/46431)
+- 🐞 Fix Select that custom token make `padding` broken. [#46427](https://github.com/ant-design/ant-design/pull/46427) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Message that token overrides not work in `cssVar` mode. [#46415](https://github.com/ant-design/ant-design/pull/46415) [@MadCcc](https://github.com/MadCcc)
+- 💄 Fix Flex component don't apply extra style. [#46404](https://github.com/ant-design/ant-design/pull/46404) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.12.2
 
 `2023-12-11`

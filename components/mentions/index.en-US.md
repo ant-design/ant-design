@@ -41,6 +41,7 @@ return (
 <code src="./demo/prefix.tsx">Customize Trigger Token</code>
 <code src="./demo/readonly.tsx">disabled or readOnly</code>
 <code src="./demo/placement.tsx">Placement</code>
+<code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/autoSize.tsx">autoSize</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -54,6 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | Auto get focus when component mounted | boolean | false |  |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | defaultValue | Default value | string | - |  |

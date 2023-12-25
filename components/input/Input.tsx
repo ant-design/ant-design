@@ -1,9 +1,7 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import type { InputProps as RcInputProps, InputRef } from 'rc-input';
 import RcInput from 'rc-input';
-import type { BaseInputProps } from 'rc-input/lib/interface';
 import { composeRef } from 'rc-util/lib/ref';
 
 import type { InputStatus } from '../_util/statusUtils';
@@ -21,6 +19,7 @@ import { hasPrefixSuffix } from './utils';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
+import getAllowClear from '../_util/getAllowClear';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -173,14 +172,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  // Allow clear
-  let mergedAllowClear: BaseInputProps['allowClear'];
-  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
-    mergedAllowClear = allowClear;
-  } else if (allowClear) {
-    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
-  }
-
+  const mergedAllowClear = getAllowClear(allowClear);
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   return wrapCSSVar(

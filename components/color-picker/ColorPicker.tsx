@@ -32,7 +32,7 @@ import type {
   TriggerType,
 } from './interface';
 import useStyle from './style';
-import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
+import { genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -91,6 +91,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     size: customizeSize,
     rootClassName,
+    prefixCls: customizePrefixCls,
     styles,
     disabledAlpha = false,
     onFormatChange,
