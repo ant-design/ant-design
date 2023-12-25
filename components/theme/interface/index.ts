@@ -1,4 +1,5 @@
 import type { CSSInterpolation, DerivativeFunc } from '@ant-design/cssinjs';
+
 import type { AliasToken } from './alias';
 import type { ComponentTokenMap } from './components';
 import type { MapToken } from './maps';
