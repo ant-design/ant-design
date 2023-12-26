@@ -514,6 +514,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   if (iconPrefixCls || csp) {
+    // https://github.com/ant-design/ant-design/issues/46628
     childNode = <IconProvider value={memoIconContextValue}>{childNode}</IconProvider>;
   }
 
