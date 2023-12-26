@@ -1,21 +1,9 @@
 import React from 'react';
-import { Button, ConfigProvider, message } from 'antd';
+import { Button, message } from 'antd';
 
 const info = () => {
-  // message.info('This is a normal message', 50);
+  message.info('This is a normal message');
 };
-
-ConfigProvider.config({
-  container: (children) => (
-    <ConfigProvider prefixCls="test" iconPrefixCls="aaa">
-      {children}
-    </ConfigProvider>
-  ),
-});
-// ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
-// message.config({ prefixCls: 'config' });
-
-message.info('This is a normal message', 0);
 
 const App: React.FC = () => (
   <Button type="primary" onClick={info}>
