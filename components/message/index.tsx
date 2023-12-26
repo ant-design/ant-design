@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 
+import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type {
   ArgsProps,
@@ -13,7 +14,6 @@ import type {
 import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
-import { AppConfigContext } from '../app/context';
 
 export type { ArgsProps };
 
@@ -125,8 +125,8 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const [, setUpdate] = React.useState({});
   const config = React.useContext(ConfigContext);
-  const appConfig = React.useContext(AppConfigContext);
   const prefixCls = config.getPrefixCls('message');
+  const appConfig = React.useContext(AppConfigContext);
 
   const [api, holder] = useInternalMessage({ prefixCls, ...appConfig.message });
 

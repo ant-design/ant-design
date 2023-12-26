@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 
+import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
@@ -100,16 +101,15 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 });
 
 const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+  const [, setUpdate] = React.useState({});
   const config = React.useContext(ConfigContext);
   const prefixCls = config.getPrefixCls('notification');
+  const appConfig = React.useContext(AppConfigContext);
 
-  const [notificationConfig, setNotificationConfig] =
-    React.useState<GlobalConfigProps>(getGlobalContext);
-
-  const [api, holder] = useInternalNotification({ ...notificationConfig, prefixCls });
+  const [api, holder] = useInternalNotification({ ...appConfig.notification, prefixCls });
 
   const sync = () => {
-    setNotificationConfig(getGlobalContext);
+    setUpdate({});
   };
 
   React.useEffect(sync, []);
