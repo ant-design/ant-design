@@ -75,12 +75,8 @@ Setting `Modal`、`Message`、`Notification` static config. Not work on hooks.
 
 ```ts
 ConfigProvider.config({
-  prefixCls: 'ant',
-  iconPrefixCls: 'anticon',
-
-  // 5.6.0+
-  // Please use hooks version first
-  theme: { token: { colorPrimary: 'red' } },
+// 5.13.0+
+  container: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
 });
 ```
 
