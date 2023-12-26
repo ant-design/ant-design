@@ -877,4 +877,33 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
+  it('should be able to config container', async () => {
+    // actDestroy();
+    ConfigProvider.config({
+      container: (children) => (
+        <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
+          {children}
+        </ConfigProvider>
+      ),
+    });
+
+    Modal.confirm({
+      content: 'hai',
+      footer: (_, { OkBtn, CancelBtn }) => (
+        <>
+          <OkBtn />
+          <CancelBtn />
+          <div className="custom-footer-ele">footer-ele</div>
+        </>
+      ),
+    });
+
+    await waitFakeTimer();
+
+    expect(document.querySelectorAll('.ant-modal-root')).toHaveLength(0);
+    expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
+    expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
+    expect(document.querySelectorAll('.aaa-exclamation-circle')).toHaveLength(1);
+    ConfigProvider.config({ container: undefined });
+  });
 });
