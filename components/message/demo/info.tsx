@@ -1,14 +1,12 @@
 import React from 'react';
-import { Button, message } from 'antd';
-
-const info = () => {
-  message.info('This is a normal message');
-};
+import { ExclamationCircleFilled } from '@ant-design/icons';
+import { Button, ConfigProvider } from 'antd';
 
 const App: React.FC = () => (
-  <Button type="primary" onClick={info}>
-    Static Method
-  </Button>
+  <ConfigProvider iconPrefixCls="aaaa" prefixCls="bbb">
+    <ExclamationCircleFilled />
+    <Button>aaaa</Button>
+  </ConfigProvider>
 );
 
 export default App;
