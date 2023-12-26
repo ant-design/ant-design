@@ -79,6 +79,19 @@ export default function confirm(config: ModalFuncProps) {
     clearTimeout(timeoutId);
     const global = globalConfig();
 
+    let mergedGetContainer = getContainer;
+    if (mergedGetContainer === false) {
+      mergedGetContainer = undefined;
+
+      if (process.env.NODE_ENV !== 'production') {
+        warning(
+          false,
+          'Modal',
+          'Static method not support `getContainer` to be `false` since it do not have context env.',
+        );
+      }
+    }
+
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
@@ -90,7 +103,13 @@ export default function confirm(config: ModalFuncProps) {
           // eslint-disable-next-line react/jsx-no-useless-fragment
           <>
             {global.container?.(
-              <ConfirmDialogWrapper {...props} okText={okText} cancelText={cancelText} />,
+              <ConfirmDialogWrapper
+                {...props}
+                prefixCls={customizePrefixCls}
+                okText={okText}
+                cancelText={cancelText}
+                getContainer={mergedGetContainer}
+              />,
             )}
           </>,
           container,
@@ -105,19 +124,6 @@ export default function confirm(config: ModalFuncProps) {
         const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
         const iconPrefixCls = getIconPrefixCls();
         const theme = getTheme();
-
-        let mergedGetContainer = getContainer;
-        if (mergedGetContainer === false) {
-          mergedGetContainer = undefined;
-
-          if (process.env.NODE_ENV !== 'production') {
-            warning(
-              false,
-              'Modal',
-              'Static method not support `getContainer` to be `false` since it do not have context env.',
-            );
-          }
-        }
 
         reactRender(
           <ConfirmDialog
