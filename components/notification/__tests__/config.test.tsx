@@ -1,4 +1,7 @@
-import notification, { actWrapper } from '..';
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+import notification, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -83,5 +86,23 @@ describe('notification.config', () => {
     await triggerMotionEnd(false);
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+  });
+  it('should be able to config container', async () => {
+    actDestroy();
+    ConfigProvider.config({
+      container: (children) => (
+        <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
+          {children}
+        </ConfigProvider>
+      ),
+    });
+
+    notification.open({ message: 'Notification message' });
+    await awaitPromise();
+    expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
+    expect(document.querySelectorAll('.anticon-close')).toHaveLength(0);
+    expect(document.querySelectorAll('.test-notification')).toHaveLength(1);
+    expect(document.querySelectorAll('.aaa-close')).toHaveLength(1);
+    ConfigProvider.config({ container: undefined });
   });
 });
