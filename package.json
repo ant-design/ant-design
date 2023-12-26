@@ -296,6 +296,7 @@
     "react-fast-marquee": "^1.6.2",
     "react-highlight-words": "^0.20.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-intersection-observer": "^9.5.3",
     "react-resizable": "^3.0.5",
     "react-router-dom": "^6.21.1",
     "react-sticky-box": "^2.0.5",
