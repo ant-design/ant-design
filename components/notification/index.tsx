@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 
-import ConfigProvider, { globalConfig, warnContext } from '../config-provider';
+import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
@@ -94,9 +94,43 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
-      {global.container(holder)}
+      {holder}
     </ConfigProvider>
   );
+});
+
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+  const config = React.useContext(ConfigContext);
+  const prefixCls = config.getPrefixCls('notification');
+
+  const [notificationConfig, setNotificationConfig] =
+    React.useState<GlobalConfigProps>(getGlobalContext);
+
+  const [api, holder] = useInternalNotification({ ...notificationConfig, prefixCls });
+
+  const sync = () => {
+    setNotificationConfig(getGlobalContext);
+  };
+
+  React.useEffect(sync, []);
+
+  React.useImperativeHandle(ref, () => {
+    const instance: NotificationInstance = { ...api };
+
+    Object.keys(instance).forEach((method: keyof NotificationInstance) => {
+      instance[method] = (...args: any[]) => {
+        sync();
+        return (api as any)[method](...args);
+      };
+    });
+
+    return {
+      instance,
+      sync,
+    };
+  });
+
+  return holder;
 });
 
 function flushNotice() {
@@ -108,25 +142,43 @@ function flushNotice() {
     };
 
     notification = newNotification;
+    const global = globalConfig();
+
+    const dom = (
+      <GlobalHolder
+        ref={(node) => {
+          const { instance, sync } = node || {};
+
+          Promise.resolve().then(() => {
+            if (!newNotification.instance && instance) {
+              newNotification.instance = instance;
+              newNotification.sync = sync;
+              flushNotice();
+            }
+          });
+        }}
+      />
+    );
+    const domWrapper = (
+      <GlobalHolderWrapper
+        ref={(node) => {
+          const { instance, sync } = node || {};
+
+          Promise.resolve().then(() => {
+            if (!newNotification.instance && instance) {
+              newNotification.instance = instance;
+              newNotification.sync = sync;
+              flushNotice();
+            }
+          });
+        }}
+      />
+    );
 
     // Delay render to avoid sync issue
     act(() => {
-      render(
-        <GlobalHolder
-          ref={(node) => {
-            const { instance, sync } = node || {};
-
-            Promise.resolve().then(() => {
-              if (!newNotification.instance && instance) {
-                newNotification.instance = instance;
-                newNotification.sync = sync;
-                flushNotice();
-              }
-            });
-          }}
-        />,
-        holderFragment,
-      );
+      // eslint-disable-next-line react/jsx-no-useless-fragment
+      render(<>{global.container ? global.container(domWrapper) : dom}</>, holderFragment);
     });
 
     return;
@@ -246,6 +298,16 @@ export let actWrapper: (wrapper: any) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   actWrapper = (wrapper) => {
     act = wrapper;
+  };
+}
+
+/** @internal Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actDestroy = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actDestroy = () => {
+    notification = null;
   };
 }
 

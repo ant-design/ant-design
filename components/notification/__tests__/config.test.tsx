@@ -1,4 +1,7 @@
-import notification, { actWrapper } from '..';
+import React from 'react';
+import { ConfigProvider } from 'antd';
+
+import notification, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -84,24 +87,22 @@ describe('notification.config', () => {
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });
-  // it('should be able to config container', async () => {
-  //   ConfigProvider.config({ container: (children) => <div className="test">{children}</div> });
+  it('should be able to config container', async () => {
+    actDestroy();
+    ConfigProvider.config({
+      container: (children) => (
+        <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
+          {children}
+        </ConfigProvider>
+      ),
+    });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification last',
-  //       key: '11',
-  //       duration: 999,
-  //     });
-  //   });
-
-  //   act(() => {
-  //     // One frame is 16ms
-  //     jest.advanceTimersByTime(100);
-  //   });
-  //   await triggerMotionEnd(false);
-
-  //   expect(document.querySelector('.test')).toBeTruthy();
-  //   ConfigProvider.config({ container: (children) => children });
-  // });
+    notification.open({ message: 'Notification message' });
+    await awaitPromise();
+    expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
+    expect(document.querySelectorAll('.anticon-close')).toHaveLength(0);
+    expect(document.querySelectorAll('.test-notification')).toHaveLength(1);
+    expect(document.querySelectorAll('.aaa-close')).toHaveLength(1);
+    ConfigProvider.config({ container: undefined });
+  });
 });

@@ -218,7 +218,7 @@ export const defaultPrefixCls = 'ant';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
-let globalContainer: containerType = (children) => children;
+let globalContainer: containerType | undefined;
 
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
@@ -285,7 +285,7 @@ export const globalConfig = () => ({
     return getGlobalPrefixCls();
   },
   getTheme: () => globalTheme,
-  container: (children: React.ReactNode) => globalContainer(children),
+  container: globalContainer,
 });
 
 const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {

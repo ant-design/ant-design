@@ -1,15 +1,8 @@
 import * as React from 'react';
-import { useContext } from 'react';
 import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 
 import warning from '../_util/warning';
-import {
-  ConfigContext,
-  defaultIconPrefixCls,
-  defaultPrefixCls,
-  globalConfig,
-  warnContext,
-} from '../config-provider';
+import { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -32,32 +25,18 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
-  const { prefixCls: customizePrefixCls, okText, cancelText } = props;
-
-  const runtimeLocale = getConfirmLocale();
-  const global = globalConfig();
-  const iconPrefixCls = global.getIconPrefixCls();
-  const theme = global.getTheme();
-  const configContext = useContext(ConfigContext);
-  const getPrefixCls =
-    defaultPrefixCls === global.getPrefixCls() ? configContext.getPrefixCls : global.getPrefixCls;
-
-  // because Modal.config  set rootPrefixCls, which is different from other components
-  const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
-  const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
-
+  const { prefixCls: customizePrefixCls } = props;
+  const config = React.useContext(ConfigContext);
+  const rootPrefixCls = config.getPrefixCls();
+  const prefixCls = config.getPrefixCls('modal', customizePrefixCls);
   return (
     <ConfirmDialog
       {...props}
       rootPrefixCls={rootPrefixCls}
       prefixCls={prefixCls}
-      iconPrefixCls={
-        defaultIconPrefixCls === iconPrefixCls ? configContext.iconPrefixCls : iconPrefixCls
-      }
-      okText={okText}
-      locale={runtimeLocale}
-      theme={theme}
-      cancelText={cancelText || runtimeLocale.cancelText}
+      iconPrefixCls={config.iconPrefixCls}
+      direction={config.direction}
+      theme={config.theme}
     />
   );
 };
@@ -90,37 +69,72 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount(container);
   }
 
-  function render({ getContainer, ...props }: any) {
+  function render({
+    okText,
+    cancelText,
+    prefixCls: customizePrefixCls,
+    getContainer,
+    ...props
+  }: any) {
     clearTimeout(timeoutId);
+    const global = globalConfig();
 
     /**
      * https://github.com/ant-design/ant-design/issues/23623
      *
      * Sync render blocks React event. Let's make this async.
      */
-    timeoutId = setTimeout(() => {
-      const { container: globalContainer } = globalConfig();
+    if (global.container) {
+      timeoutId = setTimeout(() => {
+        reactRender(
+          // eslint-disable-next-line react/jsx-no-useless-fragment
+          <>
+            {global.container?.(
+              <ConfirmDialogWrapper {...props} okText={okText} cancelText={cancelText} />,
+            )}
+          </>,
+          container,
+        );
+      });
+    } else {
+      timeoutId = setTimeout(() => {
+        const runtimeLocale = getConfirmLocale();
+        const { getPrefixCls, getIconPrefixCls, getTheme } = globalConfig();
+        // because Modal.config  set rootPrefixCls, which is different from other components
+        const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
+        const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
+        const iconPrefixCls = getIconPrefixCls();
+        const theme = getTheme();
 
-      let mergedGetContainer = getContainer;
-      if (mergedGetContainer === false) {
-        mergedGetContainer = undefined;
+        let mergedGetContainer = getContainer;
+        if (mergedGetContainer === false) {
+          mergedGetContainer = undefined;
 
-        if (process.env.NODE_ENV !== 'production') {
-          warning(
-            false,
-            'Modal',
-            'Static method not support `getContainer` to be `false` since it do not have context env.',
-          );
+          if (process.env.NODE_ENV !== 'production') {
+            warning(
+              false,
+              'Modal',
+              'Static method not support `getContainer` to be `false` since it do not have context env.',
+            );
+          }
         }
-      }
 
-      reactRender(
-        <>
-          {globalContainer(<ConfirmDialogWrapper {...props} getContainer={mergedGetContainer} />)}
-        </>,
-        container,
-      );
-    });
+        reactRender(
+          <ConfirmDialog
+            {...props}
+            getContainer={mergedGetContainer}
+            prefixCls={prefixCls}
+            rootPrefixCls={rootPrefixCls}
+            iconPrefixCls={iconPrefixCls}
+            okText={okText}
+            locale={runtimeLocale}
+            theme={theme}
+            cancelText={cancelText || runtimeLocale.cancelText}
+          />,
+          container,
+        );
+      });
+    }
   }
 
   function close(...args: any[]) {
