@@ -1,8 +1,9 @@
 import React from 'react';
-import { ConfigProvider } from 'antd';
 
 import notification, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
+import App from '../../app';
+import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('notification.config', () => {
@@ -103,6 +104,25 @@ describe('notification.config', () => {
     expect(document.querySelectorAll('.anticon-close')).toHaveLength(0);
     expect(document.querySelectorAll('.test-notification')).toHaveLength(1);
     expect(document.querySelectorAll('.aaa-close')).toHaveLength(1);
+    ConfigProvider.config({ container: undefined });
+  });
+  it('should be able to config container use App', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      container: (children) => <App notification={{ maxCount: 1 }}>{children}</App>,
+    });
+
+    notification.open({ message: 'Notification message' });
+    notification.open({ message: 'Notification message' });
+
+    await awaitPromise();
+    const noticeWithoutLeaving = Array.from(
+      document.querySelectorAll('.ant-notification-notice-wrapper'),
+    ).filter((ele) => !ele.classList.contains('ant-notification-fade-leave'));
+
+    expect(noticeWithoutLeaving).toHaveLength(1);
+
     ConfigProvider.config({ container: undefined });
   });
 });
