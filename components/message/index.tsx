@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useContext } from 'react';
 import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
@@ -57,19 +58,10 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: ConfigOptions = {};
 
 function getGlobalContext() {
-  const {
-    prefixCls: globalPrefixCls,
-    getContainer: globalGetContainer,
-    duration,
-    rtl,
-    maxCount,
-    top,
-  } = defaultGlobalConfig;
-  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('message');
+  const { getContainer: globalGetContainer, duration, rtl, maxCount, top } = defaultGlobalConfig;
   const mergedContainer = globalGetContainer?.() || document.body;
 
   return {
-    prefixCls: mergedPrefixCls,
     getContainer: () => mergedContainer!,
     duration,
     rtl,
@@ -83,15 +75,38 @@ interface GlobalHolderRef {
   sync: () => void;
 }
 
-const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+const GlobalHolder = React.forwardRef<
+  GlobalHolderRef,
+  { messageConfig: ConfigOptions; sync: () => void }
+>((props, ref) => {
+  const { messageConfig, sync } = props;
+
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('message', defaultGlobalConfig.prefixCls);
+  const appConfig = useContext(AppConfigContext);
+
+  const [api, holder] = useInternalMessage({ ...messageConfig, prefixCls, ...appConfig.message });
+
+  React.useImperativeHandle(ref, () => {
+    const instance: MessageInstance = { ...api };
+
+    Object.keys(instance).forEach((method: keyof MessageInstance) => {
+      instance[method] = (...args: any[]) => {
+        sync();
+        return (api as any)[method](...args);
+      };
+    });
+
+    return {
+      instance,
+      sync,
+    };
+  });
+  return holder;
+});
+
+const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
   const [messageConfig, setMessageConfig] = React.useState<ConfigOptions>(getGlobalContext);
-
-  const [api, holder] = useInternalMessage(messageConfig);
-
-  const global = globalConfig();
-  const rootPrefixCls = global.getRootPrefixCls();
-  const rootIconPrefixCls = global.getIconPrefixCls();
-  const theme = global.getTheme();
 
   const sync = () => {
     setMessageConfig(getGlobalContext);
@@ -99,60 +114,17 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 
   React.useEffect(sync, []);
 
-  React.useImperativeHandle(ref, () => {
-    const instance: MessageInstance = { ...api };
+  const global = globalConfig();
+  const rootPrefixCls = global.getRootPrefixCls();
+  const rootIconPrefixCls = global.getIconPrefixCls();
+  const theme = global.getTheme();
 
-    Object.keys(instance).forEach((method: keyof MessageInstance) => {
-      instance[method] = (...args: any[]) => {
-        sync();
-        return (api as any)[method](...args);
-      };
-    });
-
-    return {
-      instance,
-      sync,
-    };
-  });
-
+  const dom = <GlobalHolder ref={ref} sync={sync} messageConfig={messageConfig} />;
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls} theme={theme}>
-      {holder}
+      {global.holderRender ? global.holderRender(dom) : dom}
     </ConfigProvider>
   );
-});
-
-const GlobalHolderWrapper = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [, setUpdate] = React.useState({});
-  const config = React.useContext(ConfigContext);
-  const prefixCls = config.getPrefixCls('message');
-  const appConfig = React.useContext(AppConfigContext);
-
-  const [api, holder] = useInternalMessage({ prefixCls, ...appConfig.message });
-
-  const sync = () => {
-    setUpdate({});
-  };
-
-  React.useEffect(sync, []);
-
-  React.useImperativeHandle(ref, () => {
-    const instance: MessageInstance = { ...api };
-
-    Object.keys(instance).forEach((method: keyof MessageInstance) => {
-      instance[method] = (...args: any[]) => {
-        sync();
-        return (api as any)[method](...args);
-      };
-    });
-
-    return {
-      instance,
-      sync,
-    };
-  });
-
-  return holder;
 });
 
 function flushNotice() {
@@ -165,45 +137,25 @@ function flushNotice() {
 
     message = newMessage;
 
-    const global = globalConfig();
-
-    const dom = (
-      <GlobalHolder
-        ref={(node) => {
-          const { instance, sync } = node || {};
-
-          // React 18 test env will throw if call immediately in ref
-          Promise.resolve().then(() => {
-            if (!newMessage.instance && instance) {
-              newMessage.instance = instance;
-              newMessage.sync = sync;
-              flushNotice();
-            }
-          });
-        }}
-      />
-    );
-    const domWrapper = (
-      <GlobalHolderWrapper
-        ref={(node) => {
-          const { instance, sync } = node || {};
-
-          // React 18 test env will throw if call immediately in ref
-          Promise.resolve().then(() => {
-            if (!newMessage.instance && instance) {
-              newMessage.instance = instance;
-              newMessage.sync = sync;
-              flushNotice();
-            }
-          });
-        }}
-      />
-    );
-
     // Delay render to avoid sync issue
     act(() => {
-      // eslint-disable-next-line react/jsx-no-useless-fragment
-      render(<>{global.holderRender ? global.holderRender(domWrapper) : dom}</>, holderFragment);
+      render(
+        <GlobalHolderWrapper
+          ref={(node) => {
+            const { instance, sync } = node || {};
+
+            // React 18 test env will throw if call immediately in ref
+            Promise.resolve().then(() => {
+              if (!newMessage.instance && instance) {
+                newMessage.instance = instance;
+                newMessage.sync = sync;
+                flushNotice();
+              }
+            });
+          }}
+        />,
+        holderFragment,
+      );
     });
 
     return;
