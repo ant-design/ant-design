@@ -91,7 +91,7 @@ describe('notification.config', () => {
   it('should be able to config container', async () => {
     actDestroy();
     ConfigProvider.config({
-      container: (children) => (
+      holderRender: (children) => (
         <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
           {children}
         </ConfigProvider>
@@ -104,13 +104,13 @@ describe('notification.config', () => {
     expect(document.querySelectorAll('.anticon-close')).toHaveLength(0);
     expect(document.querySelectorAll('.test-notification')).toHaveLength(1);
     expect(document.querySelectorAll('.aaa-close')).toHaveLength(1);
-    ConfigProvider.config({ container: undefined });
+    ConfigProvider.config({ holderRender: undefined });
   });
   it('should be able to config container use App', async () => {
     document.body.innerHTML = '';
     actDestroy();
     ConfigProvider.config({
-      container: (children) => <App notification={{ maxCount: 1 }}>{children}</App>,
+      holderRender: (children) => <App notification={{ maxCount: 1 }}>{children}</App>,
     });
 
     notification.open({ message: 'Notification message' });
@@ -123,6 +123,6 @@ describe('notification.config', () => {
 
     expect(noticeWithoutLeaving).toHaveLength(1);
 
-    ConfigProvider.config({ container: undefined });
+    ConfigProvider.config({ holderRender: undefined });
   });
 });

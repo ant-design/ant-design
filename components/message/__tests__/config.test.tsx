@@ -223,7 +223,7 @@ describe('message.config', () => {
   it('should be able to config container', async () => {
     actDestroy();
     ConfigProvider.config({
-      container: (children) => (
+      holderRender: (children) => (
         <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
           {children}
         </ConfigProvider>
@@ -237,13 +237,13 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.anticon-info-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-message')).toHaveLength(1);
     expect(document.querySelectorAll('.aaa-info-circle')).toHaveLength(1);
-    ConfigProvider.config({ container: undefined });
+    ConfigProvider.config({ holderRender: undefined });
   });
   it('should be able to config container use App', async () => {
     document.body.innerHTML = '';
     actDestroy();
     ConfigProvider.config({
-      container: (children) => <App message={{ maxCount: 1 }}>{children}</App>,
+      holderRender: (children) => <App message={{ maxCount: 1 }}>{children}</App>,
     });
 
     message.info('last');
@@ -254,6 +254,6 @@ describe('message.config', () => {
     ).filter((ele) => !ele.classList.contains('ant-message-move-up-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(1);
-    ConfigProvider.config({ container: undefined });
+    ConfigProvider.config({ holderRender: undefined });
   });
 });

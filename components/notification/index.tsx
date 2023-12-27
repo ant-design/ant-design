@@ -178,7 +178,7 @@ function flushNotice() {
     // Delay render to avoid sync issue
     act(() => {
       // eslint-disable-next-line react/jsx-no-useless-fragment
-      render(<>{global.container ? global.container(domWrapper) : dom}</>, holderFragment);
+      render(<>{global.holderRender ? global.holderRender(domWrapper) : dom}</>, holderFragment);
     });
 
     return;
@@ -234,7 +234,7 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 function open(config: ArgsProps) {
   const global = globalConfig();
 
-  if (process.env.NODE_ENV !== 'production' && !global.container) {
+  if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
     warnContext('notification');
   }
 

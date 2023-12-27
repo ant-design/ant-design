@@ -37,7 +37,7 @@ const warning = () => {
 const Demo: React.FC = () => {
   useLayoutEffect(() => {
     ConfigProvider.config({
-      container: (children) => (
+      holderRender: (children) => (
         <ConfigProvider prefixCls="test" iconPrefixCls="icon">
           {children}
         </ConfigProvider>

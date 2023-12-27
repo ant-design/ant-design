@@ -14,7 +14,7 @@ const openNotification = () => {
 const Demo: React.FC = () => {
   useLayoutEffect(() => {
     ConfigProvider.config({
-      container: (children) => (
+      holderRender: (children) => (
         <ConfigProvider prefixCls="test" iconPrefixCls="icon">
           <App notification={{ maxCount: 1 }}>{children}</App>
         </ConfigProvider>

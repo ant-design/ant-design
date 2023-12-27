@@ -77,7 +77,7 @@ export default Demo;
 ```ts | pure
 ConfigProvider.config({
   // 5.13.0+
-  container: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
+  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
 });
 ```
 

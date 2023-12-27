@@ -880,7 +880,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   it('should be able to config container', async () => {
     // actDestroy();
     ConfigProvider.config({
-      container: (children) => (
+      holderRender: (children) => (
         <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
           {children}
         </ConfigProvider>
@@ -904,6 +904,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
     expect(document.querySelectorAll('.aaa-exclamation-circle')).toHaveLength(1);
-    ConfigProvider.config({ container: undefined });
+    ConfigProvider.config({ holderRender: undefined });
   });
 });
