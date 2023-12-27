@@ -1,6 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { Button, ConfigProvider, Modal, Space } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 
 const { confirm } = Modal;
 
@@ -73,7 +74,7 @@ const App: React.FC = () => {
   useLayoutEffect(() => {
     ConfigProvider.config({
       holderRender: (children) => (
-        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon" locale={zhCN}>
           {children}
         </ConfigProvider>
       ),
