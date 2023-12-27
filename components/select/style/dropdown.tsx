@@ -131,6 +131,16 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               [`${selectItemCls}-option-state`]: {
                 color: token.colorPrimary,
               },
+
+              [`&:has(+ ${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled))`]: {
+                borderEndStartRadius: 0,
+                borderEndEndRadius: 0,
+
+                [`& + ${selectItemCls}-option-selected:not(${selectItemCls}-option-disabled)`]: {
+                  borderStartStartRadius: 0,
+                  borderStartEndRadius: 0,
+                },
+              },
             },
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
