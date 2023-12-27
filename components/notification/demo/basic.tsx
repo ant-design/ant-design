@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, notification } from 'antd';
+import React, { useLayoutEffect } from 'react';
+import { App, Button, ConfigProvider, notification } from 'antd';
 
 const openNotification = () => {
   notification.open({
@@ -11,10 +11,21 @@ const openNotification = () => {
     },
   });
 };
-const App: React.FC = () => (
-  <Button type="primary" onClick={openNotification}>
-    Open the notification box
-  </Button>
-);
+const Demo: React.FC = () => {
+  useLayoutEffect(() => {
+    ConfigProvider.config({
+      container: (children) => (
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
+          <App notification={{ maxCount: 1 }}>{children}</App>
+        </ConfigProvider>
+      ),
+    });
+  }, []);
+  return (
+    <Button type="primary" onClick={openNotification}>
+      Open the notification box
+    </Button>
+  );
+};
 
-export default App;
+export default Demo;

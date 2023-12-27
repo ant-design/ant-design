@@ -42,8 +42,9 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
 };
 
 export default function confirm(config: ModalFuncProps) {
-  // Warning if exist theme
-  if (process.env.NODE_ENV !== 'production') {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.container) {
     warnContext('Modal');
   }
 
@@ -77,7 +78,6 @@ export default function confirm(config: ModalFuncProps) {
     ...props
   }: any) {
     clearTimeout(timeoutId);
-    const global = globalConfig();
 
     let mergedGetContainer = getContainer;
     if (mergedGetContainer === false) {

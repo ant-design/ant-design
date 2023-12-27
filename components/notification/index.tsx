@@ -232,8 +232,9 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
 }
 
 function open(config: ArgsProps) {
-  // Warning if exist theme
-  if (process.env.NODE_ENV !== 'production') {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.container) {
     warnContext('notification');
   }
 

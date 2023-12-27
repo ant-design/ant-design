@@ -305,8 +305,9 @@ function open(config: ArgsProps): MessageType {
 }
 
 function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
-  // Warning if exist theme
-  if (process.env.NODE_ENV !== 'production') {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.container) {
     warnContext('message');
   }
 
