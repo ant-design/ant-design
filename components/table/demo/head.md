@@ -6,7 +6,7 @@
 
 对某一列数据进行排序，通过指定列的 `sorter` 函数即可启动排序按钮。`sorter: function(rowA, rowB) { ... }`， rowA、rowB 为比较的两个行数据。
 
-`sortDirections: ['ascend' | 'descend']`改变每列可用的排序方式，切换排序时按数组内容依次切换，设置在 table props 上时对所有列生效。你可以通过设置 `['ascend', 'descend', 'ascend']` 禁止排序恢复到默认状态。
+`sortDirections: ['ascend', 'descend']` 改变每列可用的排序方式，切换排序时按数组内容依次切换，设置在 table props 上时对所有列生效。你可以通过设置 `['ascend', 'descend', 'ascend']` 禁止排序恢复到默认状态。
 
 使用 `defaultSortOrder` 属性，设置列的默认排序顺序。
 
@@ -20,7 +20,7 @@ Use `defaultFilteredValue` to make a column filtered by default.
 
 Use `sorter` to make a column sortable. `sorter` can be a function of the type `sorter: function(rowA, rowB) { ... }` for sorting data locally.
 
-`sortDirections: ['ascend' | 'descend']` defines available sort methods for each columns, effective for all columns when set on table props. You can set as `['ascend', 'descend', 'ascend']` to prevent sorter back to default status.
+`sortDirections: ['ascend', 'descend']` defines available sort methods for each columns, effective for all columns when set on table props. You can set as `['ascend', 'descend', 'ascend']` to prevent sorter back to default status.
 
 Use `defaultSortOrder` to make a column sorted by default.
 
