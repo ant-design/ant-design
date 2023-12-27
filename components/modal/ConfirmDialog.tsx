@@ -293,4 +293,6 @@ if (process.env.NODE_ENV !== 'production') {
   ConfirmDialogWrapper.displayName = 'ConfirmDialogWrapper';
 }
 
+export { ConfirmDialog };
+
 export default ConfirmDialogWrapper;

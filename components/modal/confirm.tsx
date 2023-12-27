@@ -5,7 +5,7 @@ import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/Reac
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ConfirmDialogProps } from './ConfirmDialog';
-import ConfirmDialog from './ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 import destroyFns from './destroyFns';
 import type { ModalFuncProps } from './interface';
 import { getConfirmLocale } from './locale';
@@ -26,12 +26,26 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
-  const { prefixCls: customizePrefixCls } = props;
+  const { prefixCls: customizePrefixCls, getContainer } = props;
   const runtimeLocale = getConfirmLocale();
 
   const config = useContext(ConfigContext);
   const rootPrefixCls = config.getPrefixCls('', customizePrefixCls) ?? defaultRootPrefixCls;
   const prefixCls = config.getPrefixCls('modal', customizePrefixCls);
+
+  let mergedGetContainer = getContainer;
+  if (mergedGetContainer === false) {
+    mergedGetContainer = undefined;
+
+    if (process.env.NODE_ENV !== 'production') {
+      warning(
+        false,
+        'Modal',
+        'Static method not support `getContainer` to be `false` since it do not have context env.',
+      );
+    }
+  }
+
   return (
     <ConfirmDialog
       {...props}
@@ -41,13 +55,15 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
       direction={config.direction}
       theme={config.theme}
       locale={config.locale?.Modal ?? runtimeLocale}
+      getContainer={mergedGetContainer}
     />
   );
 };
 
 export default function confirm(config: ModalFuncProps) {
-  // Warning if exist theme
-  if (process.env.NODE_ENV !== 'production') {
+  const global = globalConfig();
+
+  if (process.env.NODE_ENV !== 'production' && !global.holderRender) {
     warnContext('Modal');
   }
 
@@ -73,7 +89,7 @@ export default function confirm(config: ModalFuncProps) {
     reactUnmount(container);
   }
 
-  function render({ getContainer, ...props }: any) {
+  function render(props: any) {
     clearTimeout(timeoutId);
 
     /**
@@ -88,19 +104,7 @@ export default function confirm(config: ModalFuncProps) {
       const iconPrefixCls = getIconPrefixCls();
       const theme = getTheme();
 
-      let mergedGetContainer = getContainer;
-      if (mergedGetContainer === false) {
-        mergedGetContainer = undefined;
-
-        if (process.env.NODE_ENV !== 'production') {
-          warning(
-            false,
-            'Modal',
-            'Static method not support `getContainer` to be `false` since it do not have context env.',
-          );
-        }
-      }
-      const dom = <ConfirmDialogWrapper {...props} getContainer={mergedGetContainer} />;
+      const dom = <ConfirmDialogWrapper {...props} />;
 
       reactRender(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>

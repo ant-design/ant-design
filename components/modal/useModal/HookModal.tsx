@@ -1,8 +1,9 @@
 import * as React from 'react';
+
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
 import useLocale from '../../locale/useLocale';
-import ConfirmDialog from '../ConfirmDialog';
+import ConfirmDialogWrapper from '../ConfirmDialog';
 import type { ModalFuncProps } from '../interface';
 
 export interface HookModalProps {
@@ -59,7 +60,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
   const [contextLocale] = useLocale('Modal', defaultLocale.Modal);
 
   return (
-    <ConfirmDialog
+    <ConfirmDialogWrapper
       prefixCls={prefixCls}
       rootPrefixCls={rootPrefixCls}
       {...innerConfig}
