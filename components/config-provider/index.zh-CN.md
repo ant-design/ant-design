@@ -74,7 +74,7 @@ export default Demo;
 
 设置 `Modal`、`Message`、`Notification` 静态方法配置，只会对非 hooks 的静态方法调用生效。
 
-```ts | pure
+```ts
 ConfigProvider.config({
   // 5.13.0+
   holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
