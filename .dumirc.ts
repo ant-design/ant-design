@@ -35,6 +35,8 @@ export default defineConfig({
     'antd/es': path.join(__dirname, 'components'),
     'antd/locale': path.join(__dirname, 'components/locale'),
     antd: path.join(__dirname, 'components'),
+    '@ant-design/icons': '@ant-design/icons/lib/icons',
+    '@ant-design/icons/lib': '@ant-design/icons/lib',
   },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
