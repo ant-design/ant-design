@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { render } from 'rc-util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
@@ -58,16 +57,10 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: ConfigOptions = {};
 
 function getGlobalContext() {
-  const { getContainer: globalGetContainer, duration, rtl, maxCount, top } = defaultGlobalConfig;
-  const mergedContainer = globalGetContainer?.() || document.body;
+  const { getContainer, duration, rtl, maxCount, top } = defaultGlobalConfig;
+  const mergedContainer = getContainer?.() || document.body;
 
-  return {
-    getContainer: () => mergedContainer!,
-    duration,
-    rtl,
-    maxCount,
-    top,
-  };
+  return { getContainer: () => mergedContainer, duration, rtl, maxCount, top };
 }
 
 interface GlobalHolderRef {
