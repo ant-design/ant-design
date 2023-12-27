@@ -180,12 +180,12 @@ const RoutesPlugin = (api: IApi) => {
         file.content = addLinkStyle(file.content, cssFile, true);
 
         // Insert antd cssVar to head
-        const cssVarMatchRegex = /<style data-type="antd-css-var">[\S\s]+?<\/style>/;
+        const cssVarMatchRegex = /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
         const cssVarMatchList = file.content.match(cssVarMatchRegex) || [];
 
         cssVarMatchList.forEach((text) => {
           file.content = file.content.replace(text, '');
-          file.content = file.content.replace('</head>', `${text}</head>`);
+          file.content = file.content.replace('<head>', `<head>${text}`);
         });
 
         return file;

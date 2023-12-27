@@ -146,12 +146,19 @@ const GlobalLayout: React.FC = () => {
       plain: true,
       types: ['cssVar', 'token'],
     });
-    return <style data-type="antd-css-var" dangerouslySetInnerHTML={{ __html: styleText }} />;
+    return (
+      <style
+        data-type="antd-css-var"
+        data-rc-order="prepend"
+        data-rc-priority="-9999"
+        dangerouslySetInnerHTML={{ __html: styleText }}
+      />
+    );
   });
 
-  useEffect(() => {
-    document.head.querySelectorAll('[data-type="antd-css-var"]')?.forEach((node) => node.remove());
-  }, []);
+  // useEffect(() => {
+  //   document.head.querySelectorAll('[data-type="antd-css-var"]')?.forEach((node) => node.remove());
+  // }, []);
 
   useServerInsertedHTML(() => (
     <style
