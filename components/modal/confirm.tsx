@@ -30,7 +30,7 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const runtimeLocale = getConfirmLocale();
 
   const config = useContext(ConfigContext);
-  const rootPrefixCls = config.getPrefixCls('', customizePrefixCls) ?? defaultRootPrefixCls;
+  const rootPrefixCls = config.getPrefixCls('', customizePrefixCls);
   const prefixCls = config.getPrefixCls('modal', customizePrefixCls);
 
   let mergedGetContainer = getContainer;
