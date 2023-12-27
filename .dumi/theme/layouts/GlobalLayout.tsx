@@ -156,10 +156,6 @@ const GlobalLayout: React.FC = () => {
     );
   });
 
-  // useEffect(() => {
-  //   document.head.querySelectorAll('[data-type="antd-css-var"]')?.forEach((node) => node.remove());
-  // }, []);
-
   useServerInsertedHTML(() => (
     <style
       data-sandpack="true"
