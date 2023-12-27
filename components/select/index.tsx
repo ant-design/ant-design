@@ -116,6 +116,7 @@ const InternalSelect = <
     dropdownStyle,
     transitionName,
     tagRender,
+    maxCount,
     ...rest
   } = props;
 
@@ -260,6 +261,12 @@ const InternalSelect = <
     );
 
     warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+
+    warning(
+      !(typeof maxCount !== 'undefined' && !isMultiple),
+      'usage',
+      'the `maxCount` prop only valid in multiple mode or tags mode',
+    );
   }
 
   // ====================== zIndex =========================
@@ -292,7 +299,8 @@ const InternalSelect = <
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       dropdownStyle={{ ...dropdownStyle, zIndex }}
-      tagRender={tagRender}
+      maxCount={isMultiple ? maxCount : undefined}
+      tagRender={isMultiple ? tagRender : undefined}
     />,
   );
 };
