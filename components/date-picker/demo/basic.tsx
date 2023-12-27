@@ -8,11 +8,11 @@ const onChange: DatePickerProps['onChange'] = (date, dateString) => {
 
 const App: React.FC = () => (
   <Space direction="vertical">
-    <DatePicker onChange={onChange} />
-    <DatePicker onChange={onChange} picker="week" />
+    <DatePicker onChange={onChange} open popupClassName="good" />
+    {/* <DatePicker onChange={onChange} picker="week" />
     <DatePicker onChange={onChange} picker="month" />
     <DatePicker onChange={onChange} picker="quarter" />
-    <DatePicker onChange={onChange} picker="year" />
+    <DatePicker onChange={onChange} picker="year" /> */}
   </Space>
 );
 

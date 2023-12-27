@@ -4,18 +4,21 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import RCPicker from 'rc-picker';
+import RCPicker, { type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
 import type { PickerProps, PickerTimeProps } from '.';
+import { useZIndex } from '../../_util/hooks/useZIndex';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
+import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
@@ -28,11 +31,10 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
-import { useZIndex } from '../../_util/hooks/useZIndex';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useVariant from '../../form/hooks/useVariants';
 
-export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
+export default function generatePicker<DateType extends object>(
+  generateConfig: GenerateConfig<DateType>,
+) {
   type CustomPickerProps = {
     status?: InputStatus;
     hashId?: string;
@@ -79,7 +81,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-        const innerRef = React.useRef<RCPicker<DateType>>(null);
+        const innerRef = React.useRef<PickerRef>(null);
         const { format, showTime } = props as any;
 
         const [variant, enableVariantCls] = useVariant(customVariant, bordered);
@@ -190,13 +192,15 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
             components={Components}
             direction={direction}
             disabled={mergedDisabled}
-            dropdownClassName={classNames(
-              hashId,
-              cssVarCls,
-              rootCls,
-              rootClassName,
-              popupClassName || dropdownClassName,
-            )}
+            classNames={{
+              popup: classNames(
+                hashId,
+                cssVarCls,
+                rootCls,
+                rootClassName,
+                popupClassName || dropdownClassName,
+              ),
+            }}
             popupStyle={{
               ...props.popupStyle,
               zIndex,

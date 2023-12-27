@@ -5,16 +5,19 @@ import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
-import { RangePicker as RCRangePicker } from 'rc-picker';
+import { RangePicker as RCRangePicker, type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
 import type { RangePickerProps } from '.';
+import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
+import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
@@ -27,11 +30,10 @@ import {
 } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
-import { useZIndex } from '../../_util/hooks/useZIndex';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useVariant from '../../form/hooks/useVariants';
 
-export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
+export default function generateRangePicker<DateType extends object>(
+  generateConfig: GenerateConfig<DateType>,
+) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
   type DateRangePickerProps = RangePickerProps<DateType> & {
     /**
@@ -67,7 +69,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       ...restProps
     } = props;
 
-    const innerRef = React.useRef<RCRangePicker<DateType>>(null);
+    const innerRef = React.useRef<PickerRef>(null);
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -163,13 +165,15 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         generateConfig={generateConfig}
         components={Components}
         direction={direction}
-        dropdownClassName={classNames(
-          hashId,
-          popupClassName || dropdownClassName,
-          cssVarCls,
-          rootCls,
-          rootClassName,
-        )}
+        classNames={{
+          popup: classNames(
+            hashId,
+            popupClassName || dropdownClassName,
+            cssVarCls,
+            rootCls,
+            rootClassName,
+          ),
+        }}
         popupStyle={{
           ...props.popupStyle,
           zIndex,
