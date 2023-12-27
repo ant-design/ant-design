@@ -1,12 +1,14 @@
 import * as React from 'react';
+
 import type { KeyWise, TransferProps } from '..';
 import { groupKeysMap } from '../../_util/transKeys';
+import type { AnyObject } from '../../_util/type';
 
-function useData<RecordType extends object>(
+const useData = <RecordType extends AnyObject>(
   dataSource?: RecordType[],
   rowKey?: TransferProps<RecordType>['rowKey'],
   targetKeys?: string[],
-) {
+) => {
   const mergedDataSource = React.useMemo(
     () =>
       (dataSource || []).map((record: KeyWise<RecordType>) => {
@@ -35,6 +37,6 @@ function useData<RecordType extends object>(
   }, [mergedDataSource, targetKeys, rowKey]);
 
   return [mergedDataSource, leftDataSource, rightDataSource];
-}
+};
 
 export default useData;

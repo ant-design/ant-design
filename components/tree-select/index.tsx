@@ -7,6 +7,7 @@ import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tr
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -16,22 +17,21 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 import useSelectStyle from '../select/style';
 import useBuiltinPlacements from '../select/useBuiltinPlacements';
-import useShowArrow from '../select/useShowArrow';
 import useIcons from '../select/useIcons';
+import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import SwitcherIconCom from '../tree/utils/iconUtil';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useZIndex } from '../_util/hooks/useZIndex';
-import type { Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -319,9 +319,8 @@ const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  props: React.PropsWithChildren<TreeSelectProps<ValueType, OptionType>> & {
-    ref?: React.Ref<BaseSelectRef>;
-  },
+  props: React.PropsWithChildren<TreeSelectProps<ValueType, OptionType>> &
+    React.RefAttributes<BaseSelectRef>,
 ) => React.ReactElement;
 
 type InternalTreeSelectType = typeof TreeSelectRef;
