@@ -1,26 +1,27 @@
+import * as React from 'react';
+import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import type { InternalNamePath, ValidateErrorEntity } from 'rc-field-form/lib/interface';
-import * as React from 'react';
-import { useMemo } from 'react';
 import type { Options } from 'scroll-into-view-if-needed';
+
 import { ConfigContext } from '../config-provider';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import useSize from '../config-provider/hooks/useSize';
 import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
 import { FormContext, FormProvider, VariantContext } from './context';
+import type { FeedbackIcons } from './FormItem';
 import useForm, { type FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
+import type { Variant } from './hooks/useVariants';
 import type { FormLabelAlign } from './interface';
 import useStyle from './style';
 import ValidateMessagesContext from './validateMessagesContext';
-import type { FeedbackIcons } from './FormItem';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { Variant } from './hooks/useVariants';
 
 export type RequiredMark =
   | boolean
@@ -213,7 +214,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 };
 
 const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
-  props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
+  props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormInstance<Values>>,
 ) => React.ReactElement) & { displayName?: string };
 
 if (process.env.NODE_ENV !== 'production') {
