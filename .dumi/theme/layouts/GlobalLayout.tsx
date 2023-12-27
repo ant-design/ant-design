@@ -134,8 +134,26 @@ const GlobalLayout: React.FC = () => {
   const [styleCache] = React.useState(() => createCache());
 
   useServerInsertedHTML(() => {
-    const styleText = extractStyle(styleCache, true);
+    const styleText = extractStyle(styleCache, {
+      plain: true,
+      types: 'style',
+    });
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
+  });
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, {
+      plain: true,
+      types: ['cssVar', 'token'],
+    });
+    return (
+      <style
+        data-type="antd-css-var"
+        data-rc-order="prepend"
+        data-rc-priority="-9999"
+        dangerouslySetInnerHTML={{ __html: styleText }}
+      />
+    );
   });
 
   useServerInsertedHTML(() => (
