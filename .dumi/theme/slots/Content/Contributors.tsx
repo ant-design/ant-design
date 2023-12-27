@@ -1,48 +1,40 @@
 import React, { useContext } from 'react';
+import ContributorsList from '@qixian.cs/github-contributors-list';
+import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { useIntl } from 'dumi';
-import { createStyles } from 'antd-style';
-import ContributorsList from '@qixian.cs/github-contributors-list';
-import ContributorAvatar from './ContributorAvatar';
+
 import SiteContext from '../SiteContext';
+import ContributorAvatar from './ContributorAvatar';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { antCls } = token;
-
-  return {
-    contributorsList: css`
+const useStyle = createStyles(({ token, css }) => ({
+  contributorsList: css`
     margin-top: 120px !important;
-    `,
-    listMobile: css`
-      margin: 1em 0 !important;
-    `,
-    title: css`
+  `,
+  listMobile: css`
+    margin: 1em 0 !important;
+  `,
+  title: css`
     font-size: 12px;
-    opacity: 0.45;
+    opacity: 0.5;
+    margin-bottom: 8px;
   `,
-    list: css`
-  display: flex;
-  flex-wrap: wrap;
-  clear: both;
-
-  li {
-    height: 24px;
-  }
-
-  li,
-  ${antCls}-avatar + ${antCls}-avatar {
-    transition: all ${token.motionDurationSlow};
-    margin-inline-end: -8px;
-  }
-  &:hover {
-    li,
-    ${antCls}-avatar {
-      margin-inline-end: 0;
+  list: css`
+    display: flex;
+    flex-wrap: wrap;
+    clear: both;
+    li {
+      height: 24px;
+      transition: all ${token.motionDurationSlow};
+      margin-inline-end: -8px;
     }
-  }
+    &:hover {
+      li {
+        margin-inline-end: 0;
+      }
+    }
   `,
-  };
-});
+}));
 
 interface ContributorsProps {
   filename?: string;
@@ -67,12 +59,7 @@ const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
         fileName={filename}
         className={styles.list}
         renderItem={(item, loading) => (
-          <ContributorAvatar
-            key={item?.username}
-            username={item?.username}
-            url={item?.url}
-            loading={loading}
-          />
+          <ContributorAvatar item={item} loading={loading} key={item?.url} />
         )}
       />
     </div>

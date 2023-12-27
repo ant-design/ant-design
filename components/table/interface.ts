@@ -17,13 +17,11 @@ import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
 
 export type RefTable = <RecordType extends AnyObject = AnyObject>(
-  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<Reference> },
+  props: React.PropsWithChildren<TableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
 export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
-  props: React.PropsWithChildren<InternalTableProps<RecordType>> & {
-    ref?: React.Ref<Reference>;
-  },
+  props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
 export { ExpandableConfig, GetRowKey };
