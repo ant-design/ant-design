@@ -117,6 +117,8 @@ const InternalTreeSelect = <
     popupMatchSelectWidth,
     allowClear,
     variant: customVariant,
+    dropdownStyle,
+    tagRender,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -220,12 +222,12 @@ const InternalTreeSelect = <
   }
 
   // ==================== Render =====================
-  const selectProps = omit(props as typeof props & { itemIcon: any; switcherIcon: any }, [
+  const selectProps = omit(props, [
     'suffixIcon',
-    'itemIcon',
     'removeIcon',
     'clearIcon',
-    'switcherIcon',
+    'itemIcon' as any,
+    'switcherIcon' as any,
   ]);
 
   // ===================== Placement =====================
@@ -273,7 +275,7 @@ const InternalTreeSelect = <
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   const returnNode = (
     <RcTreeSelect
@@ -302,13 +304,11 @@ const InternalTreeSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...dropdownStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
+      tagRender={tagRender}
     />
   );
 
