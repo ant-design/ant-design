@@ -22,8 +22,8 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import { useCompactItemContext } from '../space/Compact';
+import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
-import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
 
@@ -226,8 +226,6 @@ const InternalSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
@@ -259,7 +257,7 @@ const InternalSelect = <
       {...selectProps}
       style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}

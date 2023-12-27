@@ -21,8 +21,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
-import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
@@ -223,8 +223,6 @@ const InternalTreeSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
@@ -268,7 +266,7 @@ const InternalTreeSelect = <
       disabled={mergedDisabled}
       {...selectProps}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
