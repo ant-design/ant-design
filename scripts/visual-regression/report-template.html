@@ -16,6 +16,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed;
     }
 
     th,
@@ -24,6 +25,20 @@
       text-align: left;
       border-bottom: 1px solid #ddd;
       vertical-align: top;
+    }
+
+    td img {
+      max-width: 100%;
+    }
+
+    th,
+    td {
+      width: 10%;
+    }
+
+    th+th,
+    td+td {
+      width: 30%;
     }
 
     th {

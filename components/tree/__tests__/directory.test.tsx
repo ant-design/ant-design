@@ -1,7 +1,8 @@
+import React from 'react';
 import debounce from 'lodash/debounce';
 import type RcTree from 'rc-tree';
 import type { Key } from 'rc-tree/lib/interface';
-import React from 'react';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -30,7 +31,7 @@ describe('Directory Tree', () => {
     (debounce as any).mockRestore();
   });
 
-  function createTree(props?: TreeProps & { ref?: React.Ref<RcTree> }) {
+  function createTree(props?: TreeProps & React.RefAttributes<RcTree>) {
     return (
       <DirectoryTree {...props}>
         <TreeNode key="0-0">

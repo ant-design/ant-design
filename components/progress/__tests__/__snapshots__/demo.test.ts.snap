@@ -2318,7 +2318,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:100%;height:8px;border-radius:0;clip-path:inset(0 25% 0 0 round 100px)"
+          style="width:100%;height:8px;border-radius:0;clip-path:inset(0 25% 0 0 round 0)"
         />
       </div>
     </div>
