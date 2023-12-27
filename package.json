@@ -121,7 +121,7 @@
     "@ctrl/tinycolor": "^3.6.1",
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
-    "@rc-component/tour": "~1.11.1",
+    "@rc-component/tour": "~1.12.0",
     "@rc-component/trigger": "^1.18.2",
     "classnames": "^2.3.2",
     "copy-to-clipboard": "^3.3.3",
