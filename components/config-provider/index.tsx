@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
-import { IconProvider } from '@ant-design/icons';
+import IconContext from '@ant-design/icons/lib/components/Context';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
@@ -514,8 +514,9 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   }
 
   if (iconPrefixCls || csp) {
-    // https://github.com/ant-design/ant-design/issues/46628
-    childNode = <IconProvider value={memoIconContextValue}>{childNode}</IconProvider>;
+    childNode = (
+      <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
+    );
   }
 
   if (componentSize) {
