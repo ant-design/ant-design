@@ -350,7 +350,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   return wrapCascaderCSSVar(wrapSelectCSSVar(renderNode));
 }) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
-  props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
+  props: React.PropsWithChildren<CascaderProps<OptionType>> & React.RefAttributes<CascaderRef>,
 ) => React.ReactElement) & {
   displayName: string;
   SHOW_PARENT: typeof SHOW_PARENT;
