@@ -1,6 +1,7 @@
-import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React from 'react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { act } from 'react-dom/test-utils';
+
 import { fireEvent, render, triggerResize, waitFakeTimer, waitFor } from '../../../tests/utils';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
@@ -17,6 +18,8 @@ describe('Typography.Ellipsis', () => {
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
   let getWidthTimes = 0;
   let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
+  let offsetWidth: number;
+  let scrollWidth: number;
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -32,8 +35,11 @@ describe('Typography.Ellipsis', () => {
       offsetWidth: {
         get: () => {
           getWidthTimes += 1;
-          return 100;
+          return offsetWidth;
         },
+      },
+      scrollWidth: {
+        get: () => scrollWidth,
       },
       getBoundingClientRect() {
         let html = this.innerHTML;
@@ -46,6 +52,11 @@ describe('Typography.Ellipsis', () => {
     computeSpy = jest
       .spyOn(window, 'getComputedStyle')
       .mockImplementation(() => ({ fontSize: 12 }) as unknown as CSSStyleDeclaration);
+  });
+
+  beforeEach(() => {
+    offsetWidth = 100;
+    scrollWidth = 0;
   });
 
   afterEach(() => {
@@ -506,5 +517,26 @@ describe('Typography.Ellipsis', () => {
     // reset
     mockRectSpy.mockRestore();
     Math.ceil = originalCeil;
+  });
+
+  // https://github.com/ant-design/ant-design/issues/46580
+  it('dynamic to be ellipsis should show tooltip', async () => {
+    const ref = React.createRef<HTMLElement>();
+    render(
+      <Base ellipsis={{ tooltip: 'bamboo' }} component="p" ref={ref}>
+        less
+      </Base>,
+    );
+
+    // Force to narrow
+    offsetWidth = 1;
+    scrollWidth = 100;
+    triggerResize(ref.current!);
+
+    await waitFakeTimer();
+
+    fireEvent.mouseEnter(ref.current!);
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-tooltip')).toBeTruthy();
   });
 });
