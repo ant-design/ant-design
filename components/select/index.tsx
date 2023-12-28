@@ -299,8 +299,8 @@ const InternalSelect = <
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       dropdownStyle={{ ...dropdownStyle, zIndex }}
-      maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
+      maxCount={isMultiple ? maxCount : undefined}
     />,
   );
 };
