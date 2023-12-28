@@ -83,10 +83,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     motionDurationSlow,
     zIndexPopup,
     paddingXXS,
-    paddingSM,
-    textHeight,
-    cellActiveWithRangeBg,
-    colorPrimaryBorder,
     sizePopupArrow,
     colorBgElevated,
     borderRadiusLG,
@@ -441,9 +437,9 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
               flexWrap: 'nowrap',
               direction: 'ltr',
 
-              [`${componentCls}-panel`]: {
-                borderWidth: `0 0 ${unit(lineWidth)}`,
-              },
+              // [`${componentCls}-panel`]: {
+              //   borderWidth: `0 0 ${unit(lineWidth)}`,
+              // },
 
               '&:last-child': {
                 [`${componentCls}-panel`]: {

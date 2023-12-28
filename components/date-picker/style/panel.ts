@@ -301,7 +301,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         flexDirection: 'column',
         textAlign: 'center',
         background: colorBgContainer,
-        border: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+        // border: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
         borderRadius: borderRadiusLG,
         outline: 'none',
 
@@ -549,47 +549,47 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       },
 
       // ======================== Footer ========================
-      [`&-panel ${componentCls}-footer`]: {
-        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-      },
+      // [`&-panel ${componentCls}-footer`]: {
+      //   borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      // },
 
-      '&-footer': {
-        width: 'min-content',
-        minWidth: '100%',
-        lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-        textAlign: 'center',
+      // '&-footer': {
+      //   width: 'min-content',
+      //   minWidth: '100%',
+      //   lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
+      //   textAlign: 'center',
 
-        '&-extra': {
-          padding: `0 ${unit(paddingSM)}`,
-          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-          textAlign: 'start',
+      //   '&-extra': {
+      //     padding: `0 ${unit(paddingSM)}`,
+      //     lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
+      //     textAlign: 'start',
 
-          '&:not(:last-child)': {
-            borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-          },
-        },
-      },
+      //     '&:not(:last-child)': {
+      //       borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      //     },
+      //   },
+      // },
 
-      '&-now': {
-        textAlign: 'start',
-      },
+      // '&-now': {
+      //   textAlign: 'start',
+      // },
 
-      '&-today-btn': {
-        color: colorLink,
+      // '&-today-btn': {
+      //   color: colorLink,
 
-        '&:hover': {
-          color: colorLinkHover,
-        },
+      //   '&:hover': {
+      //     color: colorLinkHover,
+      //   },
 
-        '&:active': {
-          color: colorLinkActive,
-        },
+      //   '&:active': {
+      //     color: colorLinkActive,
+      //   },
 
-        [`&${componentCls}-today-btn-disabled`]: {
-          color: colorTextDisabled,
-          cursor: 'not-allowed',
-        },
-      },
+      //   [`&${componentCls}-today-btn-disabled`]: {
+      //     color: colorTextDisabled,
+      //     cursor: 'not-allowed',
+      //   },
+      // },
 
       // ========================================================
       // =                       Special                        =
@@ -897,11 +897,22 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
     colorPrimary,
     cellActiveWithRangeBg,
     colorPrimaryBorder,
+    lineType,
+    colorSplit,
   } = token;
 
   return {
     [`${componentCls}-dropdown`]: {
-      // ======================== Ranges ========================
+      // ======================== Footer ========================
+      [`${componentCls}-footer`]: {
+        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      },
+
+      // ==================== Footer > Ranges ===================
+      [`${componentCls}-panels + ${componentCls}-footer ${componentCls}-ranges`]: {
+        justifyContent: 'space-between',
+      },
+
       [`${componentCls}-ranges`]: {
         marginBlock: 0,
         padding: `${unit(paddingXXS)} ${unit(paddingSM)}`,
@@ -916,7 +927,8 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
         textAlign: 'start',
         listStyle: 'none',
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        // justifyContent: 'space-between',
 
         '> li': {
           display: 'inline-block',
