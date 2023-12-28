@@ -1,21 +1,27 @@
 import type {
-  PickerBaseProps as RCPickerBaseProps,
-  PickerDateProps as RCPickerDateProps,
-  PickerTimeProps as RCPickerTimeProps,
-} from 'rc-picker/lib/Picker';
-import type {
-  RangePickerBaseProps as RCRangePickerBaseProps,
-  RangePickerDateProps as RCRangePickerDateProps,
-  RangePickerTimeProps as RCRangePickerTimeProps,
-} from 'rc-picker/lib/RangePicker';
+  PickerProps as RcPickerProps,
+  RangePickerProps as RcRangePickerProps,
+} from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+
+// import type {
+//   PickerBaseProps as RCPickerBaseProps,
+//   PickerDateProps as RCPickerDateProps,
+//   PickerTimeProps as RCPickerTimeProps,
+// } from 'rc-picker/lib/Picker';
+// import type {
+//   RangePickerBaseProps as RCRangePickerBaseProps,
+//   RangePickerDateProps as RCRangePickerDateProps,
+//   RangePickerTimeProps as RCRangePickerTimeProps,
+// } from 'rc-picker/lib/RangePicker';
+
 import type { InputStatus } from '../../_util/statusUtils';
 import type { SizeType } from '../../config-provider/SizeContext';
+import type { Variant } from '../../form/hooks/useVariants';
 import type { TimePickerLocale } from '../../time-picker';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
-import type { Variant } from '../../form/hooks/useVariants';
 
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 type DataPickerPlacement = (typeof DataPickerPlacements)[number];
@@ -63,26 +69,28 @@ export type AdditionalPickerLocaleLangProps = {
 };
 
 // Picker Props
-export type PickerBaseProps<DateType> = InjectDefaultProps<RCPickerBaseProps<DateType>>;
-export type PickerDateProps<DateType> = InjectDefaultProps<RCPickerDateProps<DateType>>;
-export type PickerTimeProps<DateType> = InjectDefaultProps<RCPickerTimeProps<DateType>>;
+// export type PickerBaseProps<DateType> = InjectDefaultProps<RCPickerBaseProps<DateType>>;
+// export type PickerDateProps<DateType> = InjectDefaultProps<RCPickerDateProps<DateType>>;
+// export type PickerTimeProps<DateType> = InjectDefaultProps<RCPickerTimeProps<DateType>>;
 
-export type PickerProps<DateType> =
-  | PickerBaseProps<DateType>
-  | PickerDateProps<DateType>
-  | PickerTimeProps<DateType>;
+export type PickerProps<DateType extends object> = InjectDefaultProps<RcPickerProps<DateType>>;
+// | PickerBaseProps<DateType>
+// | PickerDateProps<DateType>
+// | PickerTimeProps<DateType>;
 
 // Range Picker Props
-export type RangePickerBaseProps<DateType> = InjectDefaultProps<RCRangePickerBaseProps<DateType>>;
-export type RangePickerDateProps<DateType> = InjectDefaultProps<RCRangePickerDateProps<DateType>>;
-export type RangePickerTimeProps<DateType> = InjectDefaultProps<RCRangePickerTimeProps<DateType>>;
+// export type RangePickerBaseProps<DateType> = InjectDefaultProps<RCRangePickerBaseProps<DateType>>;
+// export type RangePickerDateProps<DateType> = InjectDefaultProps<RCRangePickerDateProps<DateType>>;
+// export type RangePickerTimeProps<DateType> = InjectDefaultProps<RCRangePickerTimeProps<DateType>>;
 
-export type RangePickerProps<DateType> =
-  | RangePickerBaseProps<DateType>
-  | RangePickerDateProps<DateType>
-  | RangePickerTimeProps<DateType>;
+export type RangePickerProps<DateType extends object> = InjectDefaultProps<
+  RcRangePickerProps<DateType>
+>;
+// | RangePickerBaseProps<DateType>
+// | RangePickerDateProps<DateType>
+// | RangePickerTimeProps<DateType>;
 
-function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
+function generatePicker<DateType extends object>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
   const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker } =
     generateSinglePicker(generateConfig);
