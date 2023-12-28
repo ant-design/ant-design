@@ -1,7 +1,6 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import { ExclamationCircleFilled } from '@ant-design/icons';
-import { Button, ConfigProvider, Modal, Space } from 'antd';
-import zhCN from 'antd/es/locale/zh_CN';
+import { Button, Modal, Space } from 'antd';
 
 const { confirm } = Modal;
 
@@ -70,29 +69,17 @@ const showPropsConfirm = () => {
   });
 };
 
-const App: React.FC = () => {
-  useLayoutEffect(() => {
-    ConfigProvider.config({
-      holderRender: (children) => (
-        <ConfigProvider prefixCls="test" iconPrefixCls="icon" locale={zhCN}>
-          {children}
-        </ConfigProvider>
-      ),
-    });
-  }, []);
-
-  return (
-    <Space wrap>
-      <Button onClick={showConfirm}>Confirm</Button>
-      <Button onClick={showPromiseConfirm}>With promise</Button>
-      <Button onClick={showDeleteConfirm} type="dashed">
-        Delete
-      </Button>
-      <Button onClick={showPropsConfirm} type="dashed">
-        With extra props
-      </Button>
-    </Space>
-  );
-};
+const App: React.FC = () => (
+  <Space wrap>
+    <Button onClick={showConfirm}>Confirm</Button>
+    <Button onClick={showPromiseConfirm}>With promise</Button>
+    <Button onClick={showDeleteConfirm} type="dashed">
+      Delete
+    </Button>
+    <Button onClick={showPropsConfirm} type="dashed">
+      With extra props
+    </Button>
+  </Space>
+);
 
 export default App;

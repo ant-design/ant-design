@@ -45,6 +45,7 @@ export default Demo;
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/wave.tsx">自定义波纹</code>
+<code src="./demo/holderRender.tsx">静态方法</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
 <code src="./demo/useConfig.tsx" debug>获取配置</code>
 <code src="./demo/warning.tsx" debug>警告</code>
