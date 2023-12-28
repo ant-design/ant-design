@@ -409,7 +409,7 @@ describe('DatePicker', () => {
     const { container } = render(
       <DatePicker defaultValue={dayjs()} format="kk:mm" showTime open />,
     );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
+    expect(container.querySelectorAll('.ant-picker-time-panel-column')).toHaveLength(2);
     expect(
       container
         .querySelectorAll('.ant-picker-time-panel-column')?.[0]
