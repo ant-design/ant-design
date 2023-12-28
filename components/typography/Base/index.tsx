@@ -1,3 +1,4 @@
+import * as React from 'react';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import EditOutlined from '@ant-design/icons/EditOutlined';
@@ -10,7 +11,7 @@ import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+
 import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
 import { ConfigContext } from '../../config-provider';
@@ -18,10 +19,10 @@ import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import Editable from '../Editable';
-import type { TypographyProps } from '../Typography';
-import Typography from '../Typography';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
+import type { TypographyProps } from '../Typography';
+import Typography from '../Typography';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
 
@@ -315,7 +316,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         setIsNativeEllipsis(currentEllipsis);
       }
     }
-  }, [enableEllipsis, cssEllipsis, children, cssLineClamp, isNativeVisible]);
+  }, [enableEllipsis, cssEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
 
   // https://github.com/ant-design/ant-design/issues/36786
   // Use IntersectionObserver to check if element is invisible
@@ -495,7 +496,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   ];
 
   return (
-    <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis || cssEllipsis}>
+    <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
         <EllipsisTooltip
           tooltipProps={tooltipProps}

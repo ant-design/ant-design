@@ -17,17 +17,17 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { Variant } from '../form/hooks/useVariants';
-import useVariants from '../form/hooks/useVariants';
 
 type RawValue = string | number;
 
@@ -113,6 +113,9 @@ const InternalSelect = <
     style,
     allowClear,
     variant: customizeVariant,
+    dropdownStyle,
+    transitionName,
+    tagRender,
     ...rest
   } = props;
 
@@ -153,6 +156,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
+
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
@@ -190,10 +194,7 @@ const InternalSelect = <
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
-  const selectProps = omit(rest as typeof rest & { itemIcon: React.ReactNode }, [
-    'suffixIcon',
-    'itemIcon',
-  ]);
+  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = classNames(
     popupClassName || dropdownClassName,
@@ -262,7 +263,7 @@ const InternalSelect = <
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   // ====================== Render =======================
   return wrapCSSVar(
@@ -274,7 +275,7 @@ const InternalSelect = <
       style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
       builtinPlacements={mergedBuiltinPlacements}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
@@ -290,10 +291,8 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{
-        ...props?.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      tagRender={tagRender}
     />,
   );
 };
@@ -306,9 +305,8 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  props: React.PropsWithChildren<SelectProps<ValueType, OptionType>> & {
-    ref?: React.Ref<BaseSelectRef>;
-  },
+  props: React.PropsWithChildren<SelectProps<ValueType, OptionType>> &
+    React.RefAttributes<BaseSelectRef>,
 ) => React.ReactElement) & {
   displayName?: string;
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;

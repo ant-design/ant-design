@@ -366,7 +366,7 @@ Array [
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
-            src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+            src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
           />
         </span>
         <span
@@ -557,7 +557,7 @@ Array [
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
-        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+        src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
       />
     </span>
     <a
@@ -635,7 +635,7 @@ Array [
       class="ant-avatar ant-avatar-circle ant-avatar-image"
     >
       <img
-        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+        src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
       />
     </span>
     <span
@@ -672,7 +672,7 @@ Array [
       class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
     >
       <img
-        src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+        src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
       />
     </span>
     <span
