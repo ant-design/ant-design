@@ -123,7 +123,7 @@
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.11.1",
     "@rc-component/trigger": "^1.18.2",
-    "classnames": "^2.4.0",
+    "classnames": "^2.5.0",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.10",
     "qrcode.react": "^3.1.0",
