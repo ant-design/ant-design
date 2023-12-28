@@ -37,15 +37,15 @@ export interface ComponentToken {
    */
   itemSelectedColor: string;
   /**
-   * @desc Segmented 控件的 padding
-   * @descEN Padding of Segmented control
+   * @desc Segmented 控件容器的 padding
+   * @descEN Padding of Segmented container
    */
-  controlPadding: string | number;
+  trackPadding: string | number;
   /**
-   * @desc Segmented 控件的 padding
-   * @descEN Padding of Segmented control
+   * @desc Segmented 控件容器背景色
+   * @descEN Background of Segmented container
    */
-  controlBg: string;
+  trackBg: string;
 }
 
 interface SegmentedToken extends FullToken<'Segmented'> {
@@ -82,15 +82,15 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
   const labelHeight = token
     .calc(token.controlHeight)
-    .sub(token.calc(token.controlPadding).mul(2))
+    .sub(token.calc(token.trackPadding).mul(2))
     .equal();
   const labelHeightLG = token
     .calc(token.controlHeightLG)
-    .sub(token.calc(token.controlPadding).mul(2))
+    .sub(token.calc(token.trackPadding).mul(2))
     .equal();
   const labelHeightSM = token
     .calc(token.controlHeightSM)
-    .sub(token.calc(token.controlPadding).mul(2))
+    .sub(token.calc(token.trackPadding).mul(2))
     .equal();
 
   return {
@@ -98,9 +98,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       ...resetComponent(token),
 
       display: 'inline-block',
-      padding: token.controlPadding,
+      padding: token.trackPadding,
       color: token.itemColor,
-      backgroundColor: token.controlBg,
+      background: token.trackBg,
       borderRadius: token.borderRadius,
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
@@ -262,8 +262,8 @@ export const prepareComponentToken: GetDefaultToken<'Segmented'> = (token) => {
     colorBgLayout,
   } = token;
   return {
-    controlPadding: lineWidthBold,
-    controlBg: colorBgLayout,
+    trackPadding: lineWidthBold,
+    trackBg: colorBgLayout,
     itemColor: colorTextLabel,
     itemHoverColor: colorText,
     itemHoverBg: colorFillSecondary,
@@ -278,8 +278,8 @@ export default genStyleHooks(
   (token) => {
     const { lineWidth, calc } = token;
     const segmentedToken = mergeToken<SegmentedToken>(token, {
-      segmentedPaddingHorizontal: calc(token.controlPaddingHorizontal).sub(lineWidth).equal(),
-      segmentedPaddingHorizontalSM: calc(token.controlPaddingHorizontalSM).sub(lineWidth).equal(),
+      segmentedPaddingHorizontal: calc(token.trackPaddingHorizontal).sub(lineWidth).equal(),
+      segmentedPaddingHorizontalSM: calc(token.trackPaddingHorizontalSM).sub(lineWidth).equal(),
     });
     return [genSegmentedStyle(segmentedToken)];
   },
