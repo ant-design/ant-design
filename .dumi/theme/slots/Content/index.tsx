@@ -108,9 +108,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         <InViewSuspense fallback={null}>
           <PrevAndNext rtl={isRTL} />
         </InViewSuspense>
-        <InViewSuspense fallback={null}>
-          <Footer />
-        </InViewSuspense>
+        <Footer />
       </Col>
     </DemoContext.Provider>
   );
