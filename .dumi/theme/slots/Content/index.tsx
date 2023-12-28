@@ -105,10 +105,10 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
             <Contributors filename={meta.frontmatter.filename} />
           </InViewSuspense>
         </article>
-        <InViewSuspense>
+        <InViewSuspense fallback={null}>
           <PrevAndNext rtl={isRTL} />
         </InViewSuspense>
-        <InViewSuspense>
+        <InViewSuspense fallback={null}>
           <Footer />
         </InViewSuspense>
       </Col>
