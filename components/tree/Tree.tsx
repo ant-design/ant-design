@@ -12,6 +12,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import dropIndicatorRender from './utils/dropIndicator';
 import SwitcherIconCom from './utils/iconUtil';
+import { useToken } from '../theme/internal';
 
 export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 export type TreeLeafIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
@@ -194,6 +195,9 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   };
 
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [, token] = useToken();
+
+  const itemHeight = (token.paddingXS / 2) + (token.Tree?.titleHeight || token.controlHeightSM);
 
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {
@@ -231,7 +235,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   return wrapCSSVar(
     <RcTree
-      itemHeight={28}
+      itemHeight={itemHeight}
       ref={ref}
       virtual={virtual}
       {...newProps}
