@@ -1,5 +1,5 @@
-import React, { Suspense, useContext, useLayoutEffect, useMemo } from 'react';
-import { Col, Skeleton, Space, Typography } from 'antd';
+import React, { useContext, useLayoutEffect, useMemo } from 'react';
+import { Col, Space, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
