@@ -1,5 +1,5 @@
-import React, { useLayoutEffect } from 'react';
-import { Button, ConfigProvider, Modal, Space } from 'antd';
+import React from 'react';
+import { Button, Modal, Space } from 'antd';
 
 const info = () => {
   Modal.info({
@@ -34,24 +34,13 @@ const warning = () => {
   });
 };
 
-const Demo: React.FC = () => {
-  useLayoutEffect(() => {
-    ConfigProvider.config({
-      holderRender: (children) => (
-        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
-          {children}
-        </ConfigProvider>
-      ),
-    });
-  }, []);
-  return (
-    <Space wrap>
-      <Button onClick={info}>Info</Button>
-      <Button onClick={success}>Success</Button>
-      <Button onClick={error}>Error</Button>
-      <Button onClick={warning}>Warning</Button>
-    </Space>
-  );
-};
+const App: React.FC = () => (
+  <Space wrap>
+    <Button onClick={info}>Info</Button>
+    <Button onClick={success}>Success</Button>
+    <Button onClick={error}>Error</Button>
+    <Button onClick={warning}>Warning</Button>
+  </Space>
+);
 
-export default Demo;
+export default App;
