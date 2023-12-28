@@ -231,7 +231,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   return wrapCSSVar(
     <RcTree
-      itemHeight={20}
+      itemHeight={28}
       ref={ref}
       virtual={virtual}
       {...newProps}
