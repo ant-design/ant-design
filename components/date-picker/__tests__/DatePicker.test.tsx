@@ -256,7 +256,7 @@ describe('DatePicker', () => {
     const { container } = render(
       <DatePicker defaultValue={dayjs()} showTime={{}} format="YYYY-MM-DD" open />,
     );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(0);
+    expect(container.querySelectorAll('.ant-picker-time-panel-column')).toHaveLength(3);
   });
 
   it('showTime should work correctly when format is custom function', () => {

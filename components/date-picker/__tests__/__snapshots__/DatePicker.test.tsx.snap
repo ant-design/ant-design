@@ -1245,11 +1245,9 @@ exports[`DatePicker support DatePicker.generatePicker 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select date"
-      readonly=""
-      size="12"
-      title=""
       value=""
     />
     <span
