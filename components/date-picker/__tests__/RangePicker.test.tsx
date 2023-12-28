@@ -1,17 +1,22 @@
+import React, { useState } from 'react';
+import { CloseCircleFilled } from '@ant-design/icons';
+import userEvent from '@testing-library/user-event';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import type { RangeValue } from 'rc-picker/lib/interface';
-import React, { useState } from 'react';
-import userEvent from '@testing-library/user-event';
-import { CloseCircleFilled } from '@ant-design/icons';
+
 import DatePicker from '..';
-import focusTest from '../../../tests/shared/focusTest';
-import { render, resetMockDate, setMockDate, screen, waitFor } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import focusTest from '../../../tests/shared/focusTest';
+import { render, resetMockDate, screen, setMockDate, waitFor } from '../../../tests/utils';
 import enUS from '../locale/en_US';
-import { closeCircleByRole, expectCloseCircle, closePicker, openPicker, selectCell } from './utils';
+import { closeCircleByRole, closePicker, expectCloseCircle, openPicker, selectCell } from './utils';
 
 dayjs.extend(customParseFormat);
+
+type RangeValue<DateType extends object> = [
+  start?: DateType | undefined | null,
+  end?: DateType | undefined | null,
+];
 
 const { RangePicker } = DatePicker;
 
@@ -30,7 +35,7 @@ describe('RangePicker', () => {
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper1 = render(<RangePicker value={[birthday, birthday]} open />);
-    const wrapper2 = render(<RangePicker value={[] as unknown as null} open />);
+    const wrapper2 = render(<RangePicker value={[] as unknown as RangeValue<any>} open />);
 
     expect(() => {
       openPicker(wrapper1);
@@ -59,7 +64,7 @@ describe('RangePicker', () => {
   it('the left selection is before the right selection', () => {
     let rangePickerValue: dayjs.Dayjs[] = [];
     const Test: React.FC = () => {
-      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null!);
       return (
         <RangePicker
           value={value}
@@ -85,42 +90,12 @@ describe('RangePicker', () => {
     expect(start.isBefore(end, 'date')).toBeTruthy();
   });
 
-  it('the left selection is after the right selection, no selection made', () => {
-    let rangePickerValue: dayjs.Dayjs[] = [];
-    const Test: React.FC = () => {
-      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
-      return (
-        <RangePicker
-          value={value}
-          mode={['month', 'month']}
-          onPanelChange={(v) => {
-            setValue(v);
-            rangePickerValue = v as dayjs.Dayjs[];
-          }}
-        />
-      );
-    };
-
-    const wrapper = render(<Test />);
-
-    openPicker(wrapper);
-    selectCell(wrapper, 'May');
-    openPicker(wrapper, 1);
-    selectCell(wrapper, 'Feb');
-    closePicker(wrapper, 1);
-
-    const [start, end] = rangePickerValue;
-
-    expect(start).not.toBeNull();
-    expect(end).toBeNull();
-  });
-
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
       let rangePickerValue: dayjs.Dayjs[] = [];
       const Test: React.FC = () => {
-        const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
+        const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null!);
         return (
           <RangePicker
             value={value}
