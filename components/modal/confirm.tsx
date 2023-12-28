@@ -29,8 +29,8 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const runtimeLocale = getConfirmLocale();
 
   const config = useContext(ConfigContext);
-  const rootPrefixCls = config.getPrefixCls('', customizePrefixCls || getRootPrefixCls());
-  const prefixCls = customizePrefixCls || config.getPrefixCls('modal', `${rootPrefixCls}-modal`);
+  const rootPrefixCls = customizePrefixCls || getRootPrefixCls() || config.getPrefixCls();
+  const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
 
   let mergedGetContainer = getContainer;
   if (mergedGetContainer === false) {
@@ -97,17 +97,16 @@ export default function confirm(config: ModalFuncProps) {
      * Sync render blocks React event. Let's make this async.
      */
     timeoutId = setTimeout(() => {
-      const { getPrefixCls, getIconPrefixCls, getTheme, holderRender } = globalConfig();
       // because Modal.config  set rootPrefixCls, which is different from other components
-      const rootPrefixCls = getPrefixCls(undefined, getRootPrefixCls());
-      const iconPrefixCls = getIconPrefixCls();
-      const theme = getTheme();
+      const rootPrefixCls = global.getRootPrefixCls();
+      const iconPrefixCls = global.getIconPrefixCls();
+      const theme = global.getTheme();
 
       const dom = <ConfirmDialogWrapper {...props} />;
 
       reactRender(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
-          {holderRender ? holderRender(dom) : dom}
+          {global.holderRender ? global.holderRender(dom) : dom}
         </ConfigProvider>,
         container,
       );
