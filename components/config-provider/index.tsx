@@ -239,14 +239,15 @@ interface GlobalConfigProps {
   holderRender?: holderRenderType;
 }
 
-const setGlobalConfig = ({ prefixCls, iconPrefixCls, theme, holderRender }: GlobalConfigProps) => {
+const setGlobalConfig = (props: GlobalConfigProps) => {
+  const { prefixCls, iconPrefixCls, theme, holderRender } = props;
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
   if (iconPrefixCls !== undefined) {
     globalIconPrefixCls = iconPrefixCls;
   }
-  if (holderRender) {
+  if ('holderRender' in props) {
     globalHolderRender = holderRender;
   }
 

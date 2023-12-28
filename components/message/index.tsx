@@ -75,7 +75,7 @@ const GlobalHolder = React.forwardRef<
   const { messageConfig, sync } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('message', defaultGlobalConfig.prefixCls);
+  const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('message');
   const appConfig = useContext(AppConfigContext);
 
   const [api, holder] = useInternalMessage({ ...messageConfig, prefixCls, ...appConfig.message });

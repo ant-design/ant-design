@@ -196,3 +196,9 @@ antd will dynamic create React instance by `ReactDOM.render` when call message m
 Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
+
+#### `prefixCls` priority
+
+1. `ConfigProvider.config({ prefixCls: 'a' })`
+2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="b">{children}</ConfigProvider> })`
+3. `message.config({ prefixCls: 'c' })`

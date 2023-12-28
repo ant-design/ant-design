@@ -52,7 +52,7 @@ const GlobalHolder = React.forwardRef<
   const { notificationConfig, sync } = props;
 
   const { getPrefixCls } = useContext(ConfigContext);
-  const prefixCls = getPrefixCls('notification', defaultGlobalConfig.prefixCls);
+  const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('notification');
   const appConfig = useContext(AppConfigContext);
 
   const [api, holder] = useInternalNotification({

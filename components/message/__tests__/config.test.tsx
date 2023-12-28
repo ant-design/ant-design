@@ -220,11 +220,11 @@ describe('message.config', () => {
     removeContainer2();
     message.config({ getContainer: undefined });
   });
-  it('should be able to config container', async () => {
+  it('should be able to config holderRender', async () => {
     actDestroy();
     ConfigProvider.config({
       holderRender: (children) => (
-        <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
           {children}
         </ConfigProvider>
       ),
@@ -236,10 +236,44 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
     expect(document.querySelectorAll('.anticon-info-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-message')).toHaveLength(1);
-    expect(document.querySelectorAll('.aaa-info-circle')).toHaveLength(1);
+    expect(document.querySelectorAll('.icon-info-circle')).toHaveLength(1);
     ConfigProvider.config({ holderRender: undefined });
   });
-  it('should be able to config container use App', async () => {
+
+  it('should be able to config holderRender and static config', async () => {
+    // level 1
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({ prefixCls: 'prefix-1' });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-1-message')).toHaveLength(1);
+
+    // level 2
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      prefixCls: 'prefix-1',
+      holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
+    });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-2-message')).toHaveLength(1);
+
+    // level 3
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ prefixCls: 'prefix-3-message' });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-3-message')).toHaveLength(1);
+
+    // clear config
+    message.config({ prefixCls: '' });
+    ConfigProvider.config({ prefixCls: '', iconPrefixCls: '', holderRender: undefined });
+  });
+
+  it('should be able to config holderRender use App', async () => {
     document.body.innerHTML = '';
     actDestroy();
     ConfigProvider.config({

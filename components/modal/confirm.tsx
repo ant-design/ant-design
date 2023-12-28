@@ -4,7 +4,7 @@ import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/Reac
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ConfirmDialogProps } from './ConfirmDialog';
-import { ConfirmDialog } from './ConfirmDialog';
+import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
 import type { ModalFuncProps } from './interface';
 import { getConfirmLocale } from './locale';
@@ -29,8 +29,8 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const runtimeLocale = getConfirmLocale();
 
   const config = useContext(ConfigContext);
-  const rootPrefixCls = config.getPrefixCls('', customizePrefixCls);
-  const prefixCls = config.getPrefixCls('modal', customizePrefixCls);
+  const rootPrefixCls = config.getPrefixCls('', customizePrefixCls || getRootPrefixCls());
+  const prefixCls = customizePrefixCls || config.getPrefixCls('modal', `${rootPrefixCls}-modal`);
 
   let mergedGetContainer = getContainer;
   if (mergedGetContainer === false) {

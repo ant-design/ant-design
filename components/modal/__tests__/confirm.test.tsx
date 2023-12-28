@@ -877,11 +877,10 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
-  it('should be able to config container', async () => {
-    // actDestroy();
+  it('should be able to config holderRender', async () => {
     ConfigProvider.config({
       holderRender: (children) => (
-        <ConfigProvider iconPrefixCls="aaa" prefixCls="test">
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
           {children}
         </ConfigProvider>
       ),
@@ -903,7 +902,32 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.ant-modal-root')).toHaveLength(0);
     expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
-    expect(document.querySelectorAll('.aaa-exclamation-circle')).toHaveLength(1);
+    expect(document.querySelectorAll('.icon-exclamation-circle')).toHaveLength(1);
     ConfigProvider.config({ holderRender: undefined });
+  });
+  it('should be able to config holderRender and static config', async () => {
+    // level 1
+    ConfigProvider.config({ prefixCls: 'prefix-1' });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.prefix-1-modal-root')).toHaveLength(1);
+    // level 2
+    document.body.innerHTML = '';
+    ConfigProvider.config({
+      prefixCls: 'prefix-1',
+      holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
+    });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.prefix-2-modal-root')).toHaveLength(1);
+    // level 3
+    document.body.innerHTML = '';
+    Modal.config({ rootPrefixCls: 'prefix-3' });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.prefix-3-modal-root')).toHaveLength(1);
+    // clear
+    Modal.config({ rootPrefixCls: '' });
+    ConfigProvider.config({ prefixCls: '', holderRender: undefined });
   });
 });
