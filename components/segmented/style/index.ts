@@ -278,8 +278,8 @@ export default genStyleHooks(
   (token) => {
     const { lineWidth, calc } = token;
     const segmentedToken = mergeToken<SegmentedToken>(token, {
-      segmentedPaddingHorizontal: calc(token.trackPaddingHorizontal).sub(lineWidth).equal(),
-      segmentedPaddingHorizontalSM: calc(token.trackPaddingHorizontalSM).sub(lineWidth).equal(),
+      segmentedPaddingHorizontal: calc(token.controlPaddingHorizontal).sub(lineWidth).equal(),
+      segmentedPaddingHorizontalSM: calc(token.controlPaddingHorizontalSM).sub(lineWidth).equal(),
     });
     return [genSegmentedStyle(segmentedToken)];
   },
