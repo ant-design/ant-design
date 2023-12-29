@@ -50,8 +50,9 @@ export interface Locale {
     preview: string;
   };
   QRCode?: {
-    expired: string;
-    refresh: string;
+    expired?: string;
+    refresh?: string;
+    scanned?: string;
   };
   ColorPicker?: {
     presetEmpty: string;

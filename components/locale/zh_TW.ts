@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_TW';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/zh_TW';
 import DatePicker from '../date-picker/locale/zh_TW';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/zh_TW';
 
 const typeTemplate = '${label}不是一個有效的${type}';
@@ -132,6 +133,11 @@ const localeValues: Locale = {
   },
   Image: {
     preview: '預覽',
+  },
+  QRCode: {
+    expired: '二維碼過期',
+    refresh: '點擊刷新',
+    scanned: '已掃描',
   },
 };
 
