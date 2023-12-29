@@ -3,6 +3,7 @@ group:
   title: Basic Usage
 order: 2
 title: Usage with Next.js
+tag: Updated
 ---
 
 [Next.js](https://nextjs.org/) is currently the most popular React server-side isomorphic framework in the world. This article will try to use `antd` components in projects created by Next.js.
