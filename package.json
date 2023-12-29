@@ -114,18 +114,18 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.0",
-    "@ant-design/cssinjs": "^1.18.1",
+    "@ant-design/cssinjs": "^1.18.2",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
-    "@babel/runtime": "^7.23.4",
+    "@babel/runtime": "^7.23.6",
     "@ctrl/tinycolor": "^3.6.1",
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.12.0",
     "@rc-component/trigger": "^1.18.2",
-    "classnames": "^2.3.2",
+    "classnames": "^2.4.0",
     "copy-to-clipboard": "^3.3.3",
-    "dayjs": "^1.11.1",
+    "dayjs": "^1.11.10",
     "qrcode.react": "^3.1.0",
     "rc-cascader": "~3.20.0",
     "rc-checkbox": "~3.1.0",
@@ -135,13 +135,13 @@
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.41.0",
     "rc-image": "~7.5.1",
-    "rc-input": "~1.4.2",
+    "rc-input": "~1.4.3",
     "rc-input-number": "~8.6.1",
     "rc-mentions": "~2.10.1",
     "rc-menu": "~9.12.4",
     "rc-motion": "^2.9.0",
     "rc-notification": "~5.3.0",
-    "rc-pagination": "~4.0.3",
+    "rc-pagination": "~4.0.4",
     "rc-picker": "~3.14.6",
     "rc-progress": "~3.5.1",
     "rc-rate": "~2.12.0",
@@ -314,7 +314,7 @@
     "size-limit": "^11.0.0",
     "stylelint": "^16.0.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^35.0.0",
+    "stylelint-config-standard": "^36.0.0",
     "stylelint-prettier": "^5.0.0",
     "sylvanas": "^0.6.1",
     "tar": "^6.2.0",
@@ -345,11 +345,11 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "330 KiB"
+      "limit": "331 KiB"
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "376 KiB"
+      "limit": "377 KiB"
     }
   ],
   "title": "Ant Design",

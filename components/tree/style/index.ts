@@ -182,7 +182,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         [`&-active ${treeCls}-node-content-wrapper`]: {
-          ...genFocusOutline(token),
+          background: token.controlItemBgHover,
         },
 
         [`&:not(${treeNodeCls}-disabled).filter-node ${treeCls}-title`]: {
