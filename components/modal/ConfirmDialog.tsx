@@ -18,7 +18,7 @@ import type { ModalContextProps } from './context';
 import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
 import Modal from './Modal';
-import ConfirmCmp from './style/confirmCmp';
+import Confirm from './style/confirm';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
   prefixCls: string;
@@ -164,7 +164,7 @@ export function ConfirmContent(
         footer
       )}
 
-      <ConfirmCmp prefixCls={prefixCls} />
+      <Confirm prefixCls={prefixCls} />
     </div>
   );
 }
