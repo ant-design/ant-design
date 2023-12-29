@@ -886,20 +886,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         </ConfigProvider>
       ),
     });
-
-    Modal.confirm({
-      content: 'hai',
-      footer: (_, { OkBtn, CancelBtn }) => (
-        <>
-          <OkBtn />
-          <CancelBtn />
-          <div className="custom-footer-ele">footer-ele</div>
-        </>
-      ),
-    });
-
+    Modal.confirm({ content: 'hai' });
     await waitFakeTimer();
-
     expect(document.querySelectorAll('.ant-modal-root')).toHaveLength(0);
     expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
