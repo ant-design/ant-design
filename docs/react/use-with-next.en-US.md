@@ -50,7 +50,7 @@ OK, you should now see a blue primary button displayed on the page. Next you can
 
 You could find that components of antd do not have styles in the first screen. Next, you need to choose different SSR style processing methods according to the mode of Next.js.
 
-## Using App Router
+## Using App Router <Badge>Updated</Badge>
 
 If you are using the App Router in Next.js and using antd as your component library, to make the antd component library work better in your Next.js application and provide a better user experience, you can try using the following method to extract and inject antd's first-screen styles into HTML to avoid page flicker.
 
