@@ -2,6 +2,7 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import { DisabledContextProvider } from '../config-provider/DisabledContext';
+import Space from '../space';
 import { useLocale } from '../locale';
 import NormalCancelBtn from './components/NormalCancelBtn';
 import NormalOkBtn from './components/NormalOkBtn';
