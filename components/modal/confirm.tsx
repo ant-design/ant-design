@@ -30,6 +30,7 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
 
   const config = useContext(ConfigContext);
   const rootPrefixCls = customizePrefixCls || getRootPrefixCls() || config.getPrefixCls();
+  // because Modal.config set rootPrefixCls, which is different from other components
   const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
 
   let mergedGetContainer = getContainer;
@@ -97,7 +98,6 @@ export default function confirm(config: ModalFuncProps) {
      * Sync render blocks React event. Let's make this async.
      */
     timeoutId = setTimeout(() => {
-      // because Modal.config  set rootPrefixCls, which is different from other components
       const rootPrefixCls = global.getRootPrefixCls();
       const iconPrefixCls = global.getIconPrefixCls();
       const theme = global.getTheme();
