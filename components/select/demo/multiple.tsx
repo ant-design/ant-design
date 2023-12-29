@@ -4,7 +4,7 @@ import type { SelectProps } from 'antd';
 
 const options: SelectProps['options'] = [];
 
-for (let i = 10; i < 20; i++) {
+for (let i = 10; i < 36; i++) {
   options.push({
     label: i.toString(36) + i,
     value: i.toString(36) + i,
