@@ -239,6 +239,33 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.icon-info-circle')).toHaveLength(1);
     ConfigProvider.config({ holderRender: undefined });
   });
+  it('should be able to config holderRender config rtl', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ rtl: true });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ rtl: false });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeFalsy();
+
+    message.config({ rtl: undefined });
+    ConfigProvider.config({ holderRender: undefined });
+  });
 
   it('should be able to config holderRender and static config', async () => {
     // level 1
@@ -272,7 +299,6 @@ describe('message.config', () => {
     message.config({ prefixCls: '' });
     ConfigProvider.config({ prefixCls: '', iconPrefixCls: '', holderRender: undefined });
   });
-
   it('should be able to config holderRender use App', async () => {
     document.body.innerHTML = '';
     actDestroy();

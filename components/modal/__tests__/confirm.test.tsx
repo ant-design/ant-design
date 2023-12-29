@@ -906,6 +906,26 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(document.querySelectorAll('.icon-exclamation-circle')).toHaveLength(1);
     ConfigProvider.config({ holderRender: undefined });
   });
+  it('should be able to config holderRender config rtl', async () => {
+    document.body.innerHTML = '';
+    ConfigProvider.config({
+      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-confirm-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    Modal.confirm({ content: 'hai', direction: 'rtl' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-confirm-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    Modal.confirm({ content: 'hai', direction: 'ltr' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-confirm-rtl')).toBeFalsy();
+    ConfigProvider.config({ holderRender: undefined });
+  });
   it('should be able to config holderRender and static config', async () => {
     // level 1
     ConfigProvider.config({ prefixCls: 'prefix-1' });

@@ -25,7 +25,7 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
-  const { prefixCls: customizePrefixCls, getContainer } = props;
+  const { prefixCls: customizePrefixCls, getContainer, direction } = props;
   const runtimeLocale = getConfirmLocale();
 
   const config = useContext(ConfigContext);
@@ -51,8 +51,8 @@ const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
       rootPrefixCls={rootPrefixCls}
       prefixCls={prefixCls}
       iconPrefixCls={config.iconPrefixCls}
-      direction={config.direction}
       theme={config.theme}
+      direction={direction ?? config.direction}
       locale={config.locale?.Modal ?? runtimeLocale}
       getContainer={mergedGetContainer}
     />

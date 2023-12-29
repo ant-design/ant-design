@@ -107,7 +107,33 @@ describe('notification.config', () => {
     expect(document.querySelectorAll('.icon-close')).toHaveLength(1);
     ConfigProvider.config({ holderRender: undefined });
   });
+  it('should be able to config holderRender config rtl', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    });
+    notification.open({ message: 'Notification message' });
+    await awaitPromise();
+    expect(document.querySelector('.ant-notification-rtl')).toBeTruthy();
 
+    document.body.innerHTML = '';
+    actDestroy();
+    notification.config({ rtl: true });
+    notification.open({ message: 'Notification message' });
+    await awaitPromise();
+    expect(document.querySelector('.ant-notification-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    notification.config({ rtl: false });
+    notification.open({ message: 'Notification message' });
+    await awaitPromise();
+    expect(document.querySelector('.ant-notification-rtl')).toBeFalsy();
+
+    notification.config({ rtl: undefined });
+    ConfigProvider.config({ holderRender: undefined });
+  });
   it('should be able to config holderRender and static config', async () => {
     // level 1
     document.body.innerHTML = '';
