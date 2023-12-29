@@ -76,7 +76,7 @@ export default RootLayout;
 
 <!-- prettier-ignore -->
 :::warning
-注意: Next.js App Router 当前不支持直接引入使用 `.` 引入的子组件，如 `<Select.Option />`、`<Typography.Text />` 等，可在页面第一行加上 `"use client"` 来避免错误。
+注意: Next.js App Router 当前不支持直接使用 `.` 引入的子组件，如 `<Select.Option />`、`<Typography.Text />` 等，需要从路径引入这些子组件来避免错误。
 :::
 
 更多详细的细节可以参考 [with-nextjs-app-router-inline-style](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-app-router-inline-style)。
