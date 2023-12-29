@@ -118,7 +118,7 @@
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.23.6",
-    "@ctrl/tinycolor": "^3.6.1",
+    "@ctrl/tinycolor": "^4.0.2",
     "@rc-component/color-picker": "~1.4.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.11.1",
