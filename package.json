@@ -219,7 +219,7 @@
     "antd-img-crop": "^4.18.0",
     "antd-style": "^3.6.1",
     "antd-token-previewer": "^2.0.5",
-    "chalk": "^5.3.0",
+    "chalk": "^4.1.0",
     "cheerio": "1.0.0-rc.12",
     "circular-dependency-plugin": "^5.2.2",
     "cross-env": "^7.0.3",
