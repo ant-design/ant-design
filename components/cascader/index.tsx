@@ -26,8 +26,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
-import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
@@ -304,8 +304,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ============================ zIndex ============================
@@ -337,7 +335,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       disabled={mergedDisabled}
       style={{ ...cascader?.style, ...style }}
       {...(restProps as any)}
-      builtinPlacements={mergedBuiltinPlacements}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}

@@ -290,8 +290,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           borderTop: token.footerBorderTop,
           borderRadius: token.footerBorderRadius,
 
-          [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
-            marginBottom: 0,
+          [`> ${token.antCls}-btn + ${token.antCls}-btn`]: {
             marginInlineStart: token.marginXS,
           },
         },
