@@ -39,9 +39,11 @@ const getBuiltInPlacements = (popupOverflow?: PopupOverflow): Record<string, Ali
   };
 };
 
-export default function useBuiltinPlacements(
+function mergedBuiltinPlacements(
   buildInPlacements?: BuildInPlacements,
   popupOverflow?: PopupOverflow,
 ) {
   return buildInPlacements || getBuiltInPlacements(popupOverflow);
 }
+
+export default mergedBuiltinPlacements;

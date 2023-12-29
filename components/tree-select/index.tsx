@@ -23,8 +23,8 @@ import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariant from '../form/hooks/useVariants';
+import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
-import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
@@ -186,6 +186,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
+
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
@@ -238,8 +239,6 @@ const InternalTreeSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   // ===================== Disabled =====================
@@ -283,7 +282,7 @@ const InternalTreeSelect = <
       disabled={mergedDisabled}
       {...selectProps}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       ref={ref}
       prefixCls={prefixCls}
       className={mergedClassName}
@@ -308,7 +307,7 @@ const InternalTreeSelect = <
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
-      tagRender={tagRender}
+      tagRender={isMultiple ? tagRender : undefined}
     />
   );
 
