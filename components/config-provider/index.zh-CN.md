@@ -199,8 +199,8 @@ const {
 
 由于 Vite 生产模式下打包与开发模式不同，cjs 格式的文件会多一层，需要 `zhCN.default` 来获取。推荐 Vite 用户直接从 `antd/es/locale` 目录下引入 esm 格式的 locale 文件。
 
-#### prefixCls 优先级
+#### prefixCls 优先级(前者被后者覆盖)
 
-1. `ConfigProvider.config({ prefixCls: 'a' })`
-2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="b">{children}</ConfigProvider> })`
-3. `message.config({ prefixCls: 'c' })`
+1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
+2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`
+3. `message.config({ prefixCls: 'prefix-3' })`
