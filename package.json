@@ -113,7 +113,7 @@
     "not dead"
   ],
   "dependencies": {
-    "@ant-design/colors": "7.0.1-0",
+    "@ant-design/colors": "^7.0.1",
     "@ant-design/cssinjs": "^1.18.2",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
