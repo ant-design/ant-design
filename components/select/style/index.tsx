@@ -254,6 +254,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         fontWeight: 'normal',
         position: 'relative',
         userSelect: 'none',
+        display: 'inline-flex', // <-- try to fix: https://github.com/ant-design/ant-design/issues/46636
         ...textEllipsis,
 
         // https://github.com/ant-design/ant-design/issues/40421
