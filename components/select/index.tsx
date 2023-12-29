@@ -26,6 +26,7 @@ import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
+import { useToken } from '../theme/internal';
 
 type RawValue = string | number;
 
@@ -90,7 +91,7 @@ const InternalSelect = <
     dropdownClassName,
     listHeight = 256,
     placement,
-    listItemHeight = 24,
+    listItemHeight: customListItemHeight,
     size: customizeSize,
     disabled: customDisabled,
     notFoundContent,
@@ -115,6 +116,10 @@ const InternalSelect = <
     popupOverflow,
     select,
   } = React.useContext(ConfigContext);
+
+  const [, token] = useToken();
+
+  const listItemHeight = customListItemHeight ?? token?.controlHeight;
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
