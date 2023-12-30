@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.12.6
 
-`2023-12-31`
+`2023-12-30`
 
 - 🐞 Fix Upload accessibility issue of tabbing twicely. [#46432](https://github.com/ant-design/ant-design/pull/46432)
 - 🐞 Fix Modal `footer` Button duplicated gap style. [#46702](https://github.com/ant-design/ant-design/pull/46702)

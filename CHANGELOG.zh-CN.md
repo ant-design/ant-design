@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.12.6
 
-`2023-12-31`
+`2023-12-30`
 
 - 🐞 修复 Upload 组件包裹 Button 时 Tab 键会聚焦两次的问题。[#46432](https://github.com/ant-design/ant-design/pull/46432)
 - 🐞 修复 Modal `footer` 内 Button 可能重复的边距样式问题。[#46702](https://github.com/ant-design/ant-design/pull/46702)
