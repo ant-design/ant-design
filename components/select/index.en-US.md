@@ -76,7 +76,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to { value: string, label: ReactNode } | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loading | Indicate loading state | boolean | false |  |
-| maxCount | The max number of items can be selected | number | - | 5.13.0 |
+| maxCount | The max number of items can be selected, only applies when `mode` is `multiple` or `tags` | number | - | 5.13.0 |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
