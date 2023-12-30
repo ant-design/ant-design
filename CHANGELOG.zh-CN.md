@@ -34,7 +34,7 @@ tag: vVERSION
 - 🐞 修复 Typography.Text 省略模式下修改宽度 Tooltip 不会触发的问题。[#46613](https://github.com/ant-design/ant-design/pull/46613) [@linxianxi](https://github.com/linxianxi)
 - 🐞 修复 Tooltip、Popover 等弹出组件嵌套使用时，箭头样式问题。[#46294](https://github.com/ant-design/ant-design/pull/46294) [@bestlyg](https://github.com/bestlyg)
 - TypeScript
-  - 🤖 type: 导出 ConfigProviderProps 类型。[#46605](https://github.com/ant-design/ant-design/pull/46605) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 ConfigProvider 导出 `ConfigProviderProps` 类型。[#46605](https://github.com/ant-design/ant-design/pull/46605) [@li-jia-nan](https://github.com/li-jia-nan)
 
 ## 5.12.5
 

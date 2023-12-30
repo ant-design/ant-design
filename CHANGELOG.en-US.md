@@ -29,12 +29,12 @@ tag: vVERSION
   - 🐞 Fix Tree that scrollbar do not display in some case. [#46672](https://github.com/ant-design/ant-design/pull/46672) [@yyz945947732](https://github.com/yyz945947732)
   - 💄 Optimize Tree the TreeNode style when focused. [#46608](https://github.com/ant-design/ant-design/pull/46608) [@MadCcc](https://github.com/MadCcc)
 - 🐞 Fix Layout.Sider will collapse when trigger printer. [#46650](https://github.com/ant-design/ant-design/pull/46650) [@anilpixel](https://github.com/anilpixel)
-- 🐞 Fix the issue of table component edge shadow overflows. [#46644](https://github.com/ant-design/ant-design/pull/46644) [@Fatpandac](https://github.com/Fatpandac)
+- 🐞 Fix Table style with edge shadow overflow. [#46644](https://github.com/ant-design/ant-design/pull/46644) [@Fatpandac](https://github.com/Fatpandac)
 - 🐞 Fix ConfigProvider `iconPrefixCls` not working in some case. [#46627](https://github.com/ant-design/ant-design/pull/46627) [@crazyair](https://github.com/crazyair)
 - 🐞 Typography.Text should update the Tooltip when the width changes. [#46613](https://github.com/ant-design/ant-design/pull/46613) [@linxianxi](https://github.com/linxianxi)
 - 🐞 Fix Tooltip, Popover or other popup like component arrow issue when in nest case. [#46294](https://github.com/ant-design/ant-design/pull/46294) [@bestlyg](https://github.com/bestlyg)
 - TypeScript
-  - 🤖 type: export ConfigProviderProps type. [#46605](https://github.com/ant-design/ant-design/pull/46605) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🤖 Export ConfigProvider `ConfigProviderProps` type. [#46605](https://github.com/ant-design/ant-design/pull/46605) [@li-jia-nan](https://github.com/li-jia-nan)
 
 ## 5.12.5
 
