@@ -187,6 +187,14 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/compatible-style) part.
 
+## CSS-in-JS css priority conflict with tailwindcss?
+
+Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## How to let CSS-in-JS work with shadow DOM?
+
+Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
+
 ## How to disable motion?
 
 Config with SeedToken:
@@ -198,14 +206,6 @@ import { ConfigProvider } from 'antd';
   <App />
 </ConfigProvider>;
 ```
-
-## CSS-in-JS css priority conflict with tailwindcss?
-
-Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
-
-## How to let CSS-in-JS work with shadow DOM?
-
-Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
 
 ## How to support SSR？
 
