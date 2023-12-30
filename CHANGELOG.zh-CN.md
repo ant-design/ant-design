@@ -30,7 +30,6 @@ tag: vVERSION
   - 💄 优化 Tree 组件 TreeNode 节点聚焦样式。[#46608](https://github.com/ant-design/ant-design/pull/46608) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复触发打印时，Layout.Sider 会收起的问题。[#46650](https://github.com/ant-design/ant-design/pull/46650) [@anilpixel](https://github.com/anilpixel)
 - 🐞 修复 Table 边缘阴影会超出 Table 高度。[#46644](https://github.com/ant-design/ant-design/pull/46644) [@Fatpandac](https://github.com/Fatpandac)
-- 🐞 修复 ConfigProvider 设置 `iconPrefixCls` 失效。[#46627](https://github.com/ant-design/ant-design/pull/46627) [@crazyair](https://github.com/crazyair)
 - 🐞 修复 Typography.Text 省略模式下修改宽度 Tooltip 不会触发的问题。[#46613](https://github.com/ant-design/ant-design/pull/46613) [@linxianxi](https://github.com/linxianxi)
 - 🐞 修复 Tooltip、Popover 等弹出组件嵌套使用时，箭头样式问题。[#46294](https://github.com/ant-design/ant-design/pull/46294) [@bestlyg](https://github.com/bestlyg)
 - TypeScript
