@@ -337,7 +337,7 @@ Text.displayName = "ClientText";
 export { Title, Link, Text, Paragraph };
 ```
 
-- 您也可以在页面源代码的开头添加 "use client "标签，使页面完全由客户端渲染：
+- 你也可以在组件的开头添加 "use client" 指令，使页面完全由客户端渲染：
 
 ```tsx
 'use client';
