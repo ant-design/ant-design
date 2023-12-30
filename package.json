@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.12.5",
+  "version": "5.12.6",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -157,7 +157,7 @@
     "rc-tooltip": "~6.1.3",
     "rc-tree": "~5.8.2",
     "rc-tree-select": "~5.17.0",
-    "rc-upload": "~4.3.6",
+    "rc-upload": "~4.5.2",
     "rc-util": "^5.38.1",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.0"
@@ -198,6 +198,7 @@
     "@types/jquery": "^3.5.29",
     "@types/jsdom": "^21.1.6",
     "@types/lodash": "^4.14.202",
+    "@types/minimist": "^1.2.5",
     "@types/node": "^20.10.5",
     "@types/nprogress": "^0.2.3",
     "@types/pixelmatch": "^5.2.6",
@@ -210,6 +211,7 @@
     "@types/react-dom": "^18.2.18",
     "@types/react-highlight-words": "^0.16.7",
     "@types/react-resizable": "^3.0.7",
+    "@types/semver": "^7.5.6",
     "@types/tar": "^6.1.10",
     "@types/throttle-debounce": "^5.0.2",
     "@types/warning": "^3.0.3",

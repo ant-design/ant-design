@@ -16,6 +16,25 @@ tag: vVERSION
 
 ---
 
+## 5.12.6
+
+`2023-12-30`
+
+- 🐞 修复 Upload 组件包裹 Button 时 Tab 键会聚焦两次的问题。[#46432](https://github.com/ant-design/ant-design/pull/46432)
+- 🐞 修复 Modal `footer` 内 Button 可能重复的边距样式问题。[#46702](https://github.com/ant-design/ant-design/pull/46702)
+- Select
+  - 🐞 修复 Select 组件滚动条在某些条件下不会显示的问题。[#46696](https://github.com/ant-design/ant-design/pull/46696) [@MadCcc](https://github.com/MadCcc)
+  - 💄 优化 Select 组件多选时选项样式。[#46646](https://github.com/ant-design/ant-design/pull/46646) [@MadCcc](https://github.com/MadCcc)
+- Tree
+  - 🐞 修复 Tree 组件滚动条在某些条件下不会显示的问题。[#46672](https://github.com/ant-design/ant-design/pull/46672) [@yyz945947732](https://github.com/yyz945947732)
+  - 💄 优化 Tree 组件 TreeNode 节点聚焦样式。[#46608](https://github.com/ant-design/ant-design/pull/46608) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复触发打印时，Layout.Sider 会收起的问题。[#46650](https://github.com/ant-design/ant-design/pull/46650) [@anilpixel](https://github.com/anilpixel)
+- 🐞 修复 Table 边缘阴影会超出 Table 高度。[#46644](https://github.com/ant-design/ant-design/pull/46644) [@Fatpandac](https://github.com/Fatpandac)
+- 🐞 修复 Typography.Text 省略模式下修改宽度 Tooltip 不会触发的问题。[#46613](https://github.com/ant-design/ant-design/pull/46613) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复 Tooltip、Popover 等弹出组件嵌套使用时，箭头样式问题。[#46294](https://github.com/ant-design/ant-design/pull/46294) [@bestlyg](https://github.com/bestlyg)
+- TypeScript
+  - 🤖 ConfigProvider 导出 `ConfigProviderProps` 类型。[#46605](https://github.com/ant-design/ant-design/pull/46605) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.12.5
 
 `2023-12-22`
