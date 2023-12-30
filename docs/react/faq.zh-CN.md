@@ -215,6 +215,14 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style-cn) 部分内容。
 
+## CSS-in-JS 与 tailwindcss 优先级冲突？
+
+同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## CSS-in-JS 如何与 Shadow DOM 一同使用？
+
+请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+
 ## 如何关闭组件动画
 
 通过 SeedToken 可以很方便的实现：
@@ -226,14 +234,6 @@ import { ConfigProvider } from 'antd';
   <App />
 </ConfigProvider>;
 ```
-
-## CSS-in-JS 与 tailwindcss 优先级冲突？
-
-同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
-
-## CSS-in-JS 如何与 Shadow DOM 一同使用？
-
-请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何支持 SSR？
 
