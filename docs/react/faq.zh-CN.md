@@ -297,18 +297,52 @@ export default () => {
 
 ## 使用 Next.js 的 App Router 时 antd 组件报错
 
-如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item` 等，可能会出现如下报错：
+如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item`、`Typography.Title` 等，可能会出现如下报错：
 
 ```bash
 Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
 ```
 
-目前这个问题等待 Next.js 给出官方的解决方案，在此之前，如果在你的页面中有使用子组件的话，可以尝试在页面顶部增加如下客户端标签解决这个问题：
+[目前这个问题等待 Next.js 给出官方的解决方案](https://github.com/vercel/next.js/issues/51593). 如果您需要在使用应用程序路由器的页面中使用子组件，目前有两种变通方法：
+
+- 创建一个封装组件，提取所需的子组件并重新导出。以排版组件为例。包装组件的外观是这样的
+
+```tsx
+"use client";
+import { Typography as _Typography } from "antd";
+import { forwardRef, ForwardRefExoticComponent, RefAttributes } from "react";
+import { TitleProps } from "antd/lib/typography/Title";
+import { ParagraphProps } from "antd/lib/typography/Paragraph";
+import { LinkProps } from "antd/lib/typography/Link";
+import { TextProps } from "antd/lib/typography/Text";
+
+const Title: ForwardRefExoticComponent<
+  TitleProps & RefAttributes<HTMLElement>
+> = forwardRef((props, ref) => <_Typography.Title ref={ref} {...props} />);
+Title.displayName = "ClientTitle";
+
+const Paragraph: ForwardRefExoticComponent<
+  ParagraphProps & RefAttributes<HTMLElement>
+> = forwardRef((props, ref) => <_Typography.Paragraph ref={ref} {...props} />);
+Paragraph.displayName = "ClientParagraph";
+
+const Link: ForwardRefExoticComponent<LinkProps & RefAttributes<HTMLElement>> =
+  forwardRef((props, ref) => <_Typography.Link ref={ref} {...props} />);
+Link.displayName = "ClientLink";
+
+const Text: ForwardRefExoticComponent<TextProps & RefAttributes<HTMLElement>> =
+  forwardRef((props, ref) => <_Typography.Text ref={ref} {...props} />);
+Text.displayName = "ClientText";
+
+export { Title, Link, Text, Paragraph };
+```
+
+- 您也可以在页面源代码的开头添加 "use client "标签，使页面完全由客户端渲染：
 
 ```tsx
 'use client';
 
-// This is not real world code, just for explain
+// 非真实代码，仅供解释
 export default () => (
   <div className="App">
     <Form>
