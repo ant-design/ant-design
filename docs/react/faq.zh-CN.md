@@ -303,7 +303,7 @@ export default () => {
 Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
 ```
 
-目前这个问题[等待 Next.js 给出官方的解决方案](https://github.com/vercel/next.js/issues/51593). 如果您需要在使用应用程序路由器的页面中使用子组件，目前有两种变通方法：
+目前这个问题需要[等待 Next.js 官方给出解决方案](https://github.com/vercel/next.js/issues/51593)，如果你需要在使用 App router 的页面中使用子组件，目前有两种变通方法：
 
 - 创建一个包装组件，提取所需的子组件并重新导出。以 `Typography` 组件为例。包装组件的代码大概像这样
 
