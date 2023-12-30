@@ -6,8 +6,14 @@ import type { UploadProps } from './interface';
 export type DraggerProps = UploadProps & { height?: number };
 
 const Dragger = React.forwardRef<UploadRef, DraggerProps>(
-  ({ style, height, ...restProps }, ref) => (
-    <Upload ref={ref} {...restProps} type="drag" style={{ ...style, height }} />
+  ({ style, height, hasControlInside = false, ...restProps }, ref) => (
+    <Upload
+      ref={ref}
+      hasControlInside={hasControlInside}
+      {...restProps}
+      type="drag"
+      style={{ ...style, height }}
+    />
   ),
 );
 

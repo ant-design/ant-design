@@ -215,6 +215,14 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 请参考动态主题文档 [兼容旧版浏览器](/docs/react/compatible-style-cn) 部分内容。
 
+## CSS-in-JS 与 tailwindcss 优先级冲突？
+
+同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## CSS-in-JS 如何与 Shadow DOM 一同使用？
+
+请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+
 ## 如何关闭组件动画
 
 通过 SeedToken 可以很方便的实现：
@@ -226,14 +234,6 @@ import { ConfigProvider } from 'antd';
   <App />
 </ConfigProvider>;
 ```
-
-## CSS-in-JS 与 tailwindcss 优先级冲突？
-
-同上，你可以调整 antd 样式优先级以覆盖。相关 issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
-
-## CSS-in-JS 如何与 Shadow DOM 一同使用？
-
-请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何支持 SSR？
 
@@ -297,18 +297,51 @@ export default () => {
 
 ## 使用 Next.js 的 App Router 时 antd 组件报错
 
-如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item` 等，可能会出现如下报错：
+如果你在使用 Next.js 的 App Router，当你使用 antd 中某些组件提供的子组件，如：`Select.Option`、`Form.Item`、`Typography.Title` 等，可能会出现如下报错：
 
 ```bash
 Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
 ```
 
-目前这个问题等待 Next.js 给出官方的解决方案，在此之前，如果在你的页面中有使用子组件的话，可以尝试在页面顶部增加如下客户端标签解决这个问题：
+目前这个问题需要[等待 Next.js 官方给出解决方案](https://github.com/vercel/next.js/issues/51593)，在此之前，如果你需要在使用 App router 的页面中使用子组件，目前有两种变通方法：
+
+- 创建一个包裹组件，提取所需的子组件并重新导出。以 `Typography` 组件为例，代码大概像这样：
 
 ```tsx
 'use client';
 
-// This is not real world code, just for explain
+import React from 'react';
+import { Typography as OriginTypography } from 'antd';
+import type { LinkProps } from 'antd/es/typography/Link';
+import type { ParagraphProps } from 'antd/es/typography/Paragraph';
+import type { TextProps } from 'antd/es/typography/Text';
+import type { TitleProps } from 'antd/es/typography/Title';
+
+const Title = React.forwardRef<HTMLElement, TitleProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Title ref={ref} {...props} />,
+);
+
+const Paragraph = React.forwardRef<HTMLElement, ParagraphProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Paragraph ref={ref} {...props} />,
+);
+
+const Link = React.forwardRef<HTMLElement, LinkProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Link ref={ref} {...props} />,
+);
+
+const Text = React.forwardRef<HTMLElement, TextProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Text ref={ref} {...props} />,
+);
+
+export { Title, Link, Text, Paragraph };
+```
+
+- 你也可以在组件的开头添加 "use client" 指令，使页面完全由客户端渲染：
+
+```tsx
+'use client';
+
+// 非真实代码，仅做逻辑说明
 export default () => (
   <div className="App">
     <Form>
