@@ -8,7 +8,7 @@ import sylvanas from 'sylvanas';
 
 import localPackage from '../../package.json';
 
-const chalk = import('chalk').then((mod) => mod.default);
+const chalk = await import('chalk').then((mod) => mod.default);
 
 function extractEmotionStyle(html: string) {
   // copy from emotion ssr
@@ -76,13 +76,13 @@ const resolve = (p: string): string => require.resolve(p);
 const RoutesPlugin = (api: IApi) => {
   // const ssrCssFileName = `ssr-${Date.now()}.css`;
 
-  const writeCSSFile = async (key: string, hashKey: string, cssString: string) => {
+  const writeCSSFile = (key: string, hashKey: string, cssString: string) => {
     const fileName = `style-${key}.${getHash(hashKey)}.css`;
 
     const filePath = path.join(api.paths.absOutputPath, fileName);
 
     if (!fs.existsSync(filePath)) {
-      api.logger.event((await chalk).grey(`write to: ${filePath}`));
+      api.logger.event(chalk.grey(`write to: ${filePath}`));
       fs.writeFileSync(filePath, cssString, 'utf8');
     }
 
@@ -157,12 +157,15 @@ const RoutesPlugin = (api: IApi) => {
         const styles = extractEmotionStyle(file.content);
 
         // 2. 提取每个样式到独立 css 文件
-        styles.forEach(async (result) => {
-          const message1 = (await chalk).yellow(file.path);
-          const message2 = (await chalk).blue`[${result!.key}]`;
-          const message3 = (await chalk).yellow(result!.ids.length);
-          api.logger.event(`${message1} include ${message2} ${message3} styles`);
-          const cssFile = await writeCSSFile(result!.key, result!.ids.join(''), result!.css);
+        styles.forEach((result) => {
+          api.logger.event(
+            `${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(
+              result!.ids.length,
+            )} styles`,
+          );
+
+          const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
+
           file.content = addLinkStyle(file.content, cssFile);
         });
 
@@ -177,15 +180,16 @@ const RoutesPlugin = (api: IApi) => {
           antdStyle += text.replace(matchRegex, '$1');
         });
 
-        writeCSSFile('antd', antdStyle, antdStyle).then((cssFileName) => {
-          file.content = addLinkStyle(file.content, cssFileName, true);
-          // Insert antd cssVar to head
-          const cssVarMatchRegex = /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
-          const cssVarMatchList = file.content.match(cssVarMatchRegex) || [];
-          cssVarMatchList.forEach((text) => {
-            file.content = file.content.replace(text, '');
-            file.content = file.content.replace('<head>', `<head>${text}`);
-          });
+        const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
+        file.content = addLinkStyle(file.content, cssFile, true);
+
+        // Insert antd cssVar to head
+        const cssVarMatchRegex = /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
+        const cssVarMatchList = file.content.match(cssVarMatchRegex) || [];
+
+        cssVarMatchList.forEach((text) => {
+          file.content = file.content.replace(text, '');
+          file.content = file.content.replace('<head>', `<head>${text}`);
         });
 
         return file;

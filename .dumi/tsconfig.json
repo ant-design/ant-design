@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "target": "ESNext",
     "resolveJsonModule": true
   },
   "include": ["**/*"]
