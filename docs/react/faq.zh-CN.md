@@ -342,7 +342,7 @@ export { Title, Link, Text, Paragraph };
 ```tsx
 'use client';
 
-// 非真实代码，仅供解释
+// 非真实代码，仅做逻辑说明
 export default () => (
   <div className="App">
     <Form>
