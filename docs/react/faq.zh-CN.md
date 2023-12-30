@@ -308,31 +308,30 @@ Error: Cannot access .Option on the server. You cannot dot into a client module 
 - 创建一个包裹组件，提取所需的子组件并重新导出。以 `Typography` 组件为例，代码大概像这样：
 
 ```tsx
-"use client";
-import { Typography as _Typography } from "antd";
-import { forwardRef, ForwardRefExoticComponent, RefAttributes } from "react";
-import { TitleProps } from "antd/lib/typography/Title";
-import { ParagraphProps } from "antd/lib/typography/Paragraph";
-import { LinkProps } from "antd/lib/typography/Link";
-import { TextProps } from "antd/lib/typography/Text";
+'use client';
 
-const Title: ForwardRefExoticComponent<
-  TitleProps & RefAttributes<HTMLElement>
-> = forwardRef((props, ref) => <_Typography.Title ref={ref} {...props} />);
-Title.displayName = "ClientTitle";
+import React from 'react';
+import { Typography as OriginTypography } from 'antd';
+import type { LinkProps } from 'antd/es/typography/Link';
+import type { ParagraphProps } from 'antd/es/typography/Paragraph';
+import type { TextProps } from 'antd/es/typography/Text';
+import type { TitleProps } from 'antd/es/typography/Title';
 
-const Paragraph: ForwardRefExoticComponent<
-  ParagraphProps & RefAttributes<HTMLElement>
-> = forwardRef((props, ref) => <_Typography.Paragraph ref={ref} {...props} />);
-Paragraph.displayName = "ClientParagraph";
+const Title = React.forwardRef<HTMLElement, TitleProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Title ref={ref} {...props} />,
+);
 
-const Link: ForwardRefExoticComponent<LinkProps & RefAttributes<HTMLElement>> =
-  forwardRef((props, ref) => <_Typography.Link ref={ref} {...props} />);
-Link.displayName = "ClientLink";
+const Paragraph = React.forwardRef<HTMLElement, ParagraphProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Paragraph ref={ref} {...props} />,
+);
 
-const Text: ForwardRefExoticComponent<TextProps & RefAttributes<HTMLElement>> =
-  forwardRef((props, ref) => <_Typography.Text ref={ref} {...props} />);
-Text.displayName = "ClientText";
+const Link = React.forwardRef<HTMLElement, LinkProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Link ref={ref} {...props} />,
+);
+
+const Text = React.forwardRef<HTMLElement, TextProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Text ref={ref} {...props} />,
+);
 
 export { Title, Link, Text, Paragraph };
 ```
