@@ -96,6 +96,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
               )}
             </>
           )}
+          {status === 'scanned' && <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>}
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}
