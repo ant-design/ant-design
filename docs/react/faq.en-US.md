@@ -268,13 +268,48 @@ The above problem occurs if `strictNullChecks` is set to `true`, If you can dete
 
 ## The antd component reported an error when using the App Router of Next.js
 
-If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, etc., you may get the following error:
+If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, `Typography.Title`, etc., you may get the following error:
 
 ```bash
 Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
 ```
 
-At present, this problem is waiting for Next.js to give an official solution, before this, if you use sub-components in your page, you can try to add the following client tag at the top of the page to solve this problem:
+Currently, this problem is [waiting for Next.js to give an official solution](https://github.com/vercel/next.js/issues/51593). There are two workarounds as of now if you need to use sub-components in your page with the App Router:
+
+
+- Create a wrapper component that extracts the sub-components that you need, and re-exports them. Take the `Typography` component as an example. A wrapper component would look something like this:
+
+```tsx
+"use client";
+import { Typography as _Typography } from "antd";
+import { forwardRef, ForwardRefExoticComponent, RefAttributes } from "react";
+import { TitleProps } from "antd/lib/typography/Title";
+import { ParagraphProps } from "antd/lib/typography/Paragraph";
+import { LinkProps } from "antd/lib/typography/Link";
+import { TextProps } from "antd/lib/typography/Text";
+
+const Title: ForwardRefExoticComponent<
+  TitleProps & RefAttributes<HTMLElement>
+> = forwardRef((props, ref) => <_Typography.Title ref={ref} {...props} />);
+Title.displayName = "ClientTitle";
+
+const Paragraph: ForwardRefExoticComponent<
+  ParagraphProps & RefAttributes<HTMLElement>
+> = forwardRef((props, ref) => <_Typography.Paragraph ref={ref} {...props} />);
+Paragraph.displayName = "ClientParagraph";
+
+const Link: ForwardRefExoticComponent<LinkProps & RefAttributes<HTMLElement>> =
+  forwardRef((props, ref) => <_Typography.Link ref={ref} {...props} />);
+Link.displayName = "ClientLink";
+
+const Text: ForwardRefExoticComponent<TextProps & RefAttributes<HTMLElement>> =
+  forwardRef((props, ref) => <_Typography.Text ref={ref} {...props} />);
+Text.displayName = "ClientText";
+
+export { Title, Link, Text, Paragraph };
+```
+
+- You can also make the page fully client-rendered by adding `use client` tag at the beginning of your page's source:
 
 ```tsx
 'use client';
@@ -292,3 +327,5 @@ export default () => {
   );
 };
 ```
+
+
