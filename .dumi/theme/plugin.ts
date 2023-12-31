@@ -7,7 +7,7 @@ import ReactTechStack from 'dumi/dist/techStacks/react';
 import sylvanas from 'sylvanas';
 
 import localPackage from '../../package.json';
-import use from '.dumi/hooks/use';
+import use from '../hooks/use';
 
 const chalk = use(import('chalk')).default;
 
