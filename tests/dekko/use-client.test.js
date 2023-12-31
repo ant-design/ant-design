@@ -1,7 +1,9 @@
 const $ = require('dekko');
 const fs = require('fs');
 
-const chalk = await import('chalk').then((mod) => mod.default);
+const use = require('./use');
+
+const chalk = use(import('chalk')).default;
 
 const includeUseClient = (filename) =>
   fs.readFileSync(filename).toString().includes('"use client"');

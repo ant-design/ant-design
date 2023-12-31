@@ -7,8 +7,9 @@ import ReactTechStack from 'dumi/dist/techStacks/react';
 import sylvanas from 'sylvanas';
 
 import localPackage from '../../package.json';
+import use from '.dumi/hooks/use';
 
-const chalk = await import('chalk').then((mod) => mod.default);
+const chalk = use(import('chalk')).default;
 
 function extractEmotionStyle(html: string) {
   // copy from emotion ssr

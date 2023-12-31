@@ -1,6 +1,7 @@
 const $ = require('dekko');
+const use = require('./use');
 
-const chalk = await import('chalk').then((mod) => mod.default);
+const chalk = use(import('chalk')).default;
 
 $('lib').isDirectory().hasFile('index.js').hasFile('index.d.ts');
 

@@ -1,6 +1,7 @@
 const $ = require('dekko');
+const use = require('./use');
 
-const chalk = await import('chalk').then((mod) => mod.default);
+const chalk = use(import('chalk')).default;
 
 $('dist')
   .isDirectory()

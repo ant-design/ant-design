@@ -1,11 +1,7 @@
-const use = <T>(promise: PromiseLike<T>): T => {
-  const internal: PromiseLike<T> & {
-    status?: 'pending' | 'fulfilled' | 'rejected';
-    value?: T;
-    reason?: any;
-  } = promise;
+const use = (promise) => {
+  const internal = promise;
   if (internal.status === 'fulfilled') {
-    return internal.value as T;
+    return internal.value;
   }
   if (internal.status === 'rejected') {
     throw internal.reason;
@@ -27,4 +23,4 @@ const use = <T>(promise: PromiseLike<T>): T => {
   }
 };
 
-export default use;
+module.exports = use;
