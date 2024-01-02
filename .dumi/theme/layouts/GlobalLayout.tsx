@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo, Suspense } from 'react';
 import dayjs from 'dayjs';
 import {
   createCache,
@@ -18,10 +18,11 @@ import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
-import ThemeSwitch from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+
+const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -174,10 +175,12 @@ const GlobalLayout: React.FC = () => {
     content = (
       <App>
         {outlet}
-        <ThemeSwitch
-          value={theme}
-          onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-        />
+        <Suspense>
+          <ThemeSwitch
+            value={theme}
+            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+          />
+        </Suspense>
       </App>
     );
   }
