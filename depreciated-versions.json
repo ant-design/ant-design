@@ -1,4 +1,13 @@
 {
+  "3.9.3": [
+    "https://github.com/ant-design/ant-design/commit/6550df34b639ab0b3bf2c1cbf9b9828735c1fd41"
+  ],
+  ">= 3.10.0 <=3.10.9": [
+    "https://github.com/ant-design/ant-design/commit/6550df34b639ab0b3bf2c1cbf9b9828735c1fd41"
+  ],
+  ">= 3.11.0 <=3.11.5": [
+    "https://github.com/ant-design/ant-design/commit/6550df34b639ab0b3bf2c1cbf9b9828735c1fd41"
+  ],
   ">= 4.21.6 < 4.22.0": ["https://github.com/ant-design/ant-design/pull/36682"],
   ">=4.22.2 <=4.22.5": [
     "https://github.com/ant-design/ant-design/issues/36932",
