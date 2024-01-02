@@ -105,6 +105,16 @@ jobs:
           jq '.config."bug-versions".antd |= input' package.json ./antd/bug-versions.json > package.json.tmp \
           && mv package.json.tmp package.json
 
+      - name: set output
+        id: show-bug-versions
+        run: |
+          if [ -s ./antd/bug-versions.json ]; then
+            cat ./antd/bug-versions.json
+            echo "json<<EOF" >> $GITHUB_OUTPUT
+            cat ./antd/bug-versions.json >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
       - name: create PR
         id: cpr
         uses: peter-evans/create-pull-request@v5
@@ -121,7 +131,7 @@ jobs:
             <summary>bug-versions.json</summary>
 
             ```
-            ${{ cat ./antd/bug-versions.json }}
+            ${{ steps.show-bug-versions.outputs.json }}
             ```
             </details>
 
