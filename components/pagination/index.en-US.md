@@ -51,6 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton: ReactNode } | false |  |
 | showSizeChanger | Determine whether to show `pageSize` select, it will be true when `total > 50` | boolean | - |  |
+| showSizeOptionsSearch | Check if it is possible to activate the showSearch feature for the pageSize select component. Enable it only when the select component permits searching; otherwise, disable the search option | boolean | true |  |
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
 | simple | Whether to use simple mode | boolean | - |  |
