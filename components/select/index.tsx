@@ -268,7 +268,7 @@ const InternalSelect = <
     warning(
       !(typeof maxCount !== 'undefined' && !isMultiple),
       'usage',
-      'the `maxCount` prop only valid in multiple mode or tags mode',
+      '`maxCount` only works with mode `multiple` or `tags`',
     );
   }
 
