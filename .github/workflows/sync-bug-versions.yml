@@ -1,0 +1,131 @@
+# https://github.com/ant-design/ant-design/pull/46746#issuecomment-1873837066
+name: 🔀 Sync bug-versions to cnpm
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "depreciated-versions.json"
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: sync-bug-version-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: cache package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only --ignore-scripts
+
+      - name: hack for single file
+        run: |
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
+          cp package-lock.json package-temp-dir
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
+
+  gen-depreciated-versions:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: gen-depreciated-versions
+        run: npm run bug-version
+
+      - name: Save bug-versions
+        uses: actions/upload-artifact@v3
+        with:
+          name: bug-versions
+          path: .tmp/bug-versions.json
+
+  cpr:
+    runs-on: ubuntu-latest
+    needs: gen-depreciated-versions
+    steps:
+      - name: clone cnpm/bug-versions
+        uses: actions/checkout@v4
+        with:
+          repository: cnpm/bug-versions
+
+      - name: download bug-versions artifact
+        uses: ctions/download-artifact@v3
+        with:
+          name: bug-versions
+          path: antd
+
+      - name: assign to package.json
+        run: |
+          jq '.config."bug-versions".antd |= input' package.json ./antd/bug-versions.json > package.json.tmp \
+          && mv package.json.tmp package.json
+
+      - name: create PR
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.CNPM_BUG_VERSIONS_GITHUB_TOKEN }} # 这里需要 cnpm/bug-versions 的 token 用于推送分支以创建 PR
+          commit-message: "chore: add antd bug-versions"
+          assignees: 'afc163, zombieJ, xrkffgg, MadCcc'
+          reviewers: 'afc163, Wxh16144'
+          title: "chore: sync antd bug-versions"
+          body: |
+            **Background:** [${{ github.event.head_commit.message }}](${{ github.event.head_commit.url }})
+
+            <details>
+            <summary>bug-versions.json</summary>
+
+            ```
+            ${{ cat ./antd/bug-versions.json }}
+            ```
+            </details>
+
+          branch: auto-sync-bug-versions
+          delete-branch: true
+          add-paths: |
+            package.json
