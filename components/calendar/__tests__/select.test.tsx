@@ -1,23 +1,21 @@
 import Dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
-import MockDate from 'mockdate';
-import { resetWarned } from 'rc-util/lib/warning';
+
 import React from 'react';
+import { resetWarned } from 'rc-util/lib/warning';
+
 import Calendar from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 
 describe('Calendar.onSelect', () => {
-  beforeAll(() => {
-    MockDate.set(Dayjs('2000-01-01').valueOf());
-  });
-
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers();
-    jest.clearAllTimers();
+    jest.useFakeTimers().setSystemTime(new Date('2000-02-01'));
   });
 
   afterEach(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 
