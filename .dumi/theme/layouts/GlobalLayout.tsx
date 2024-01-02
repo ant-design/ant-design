@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useMemo, Suspense } from 'react';
-import dayjs from 'dayjs';
 import {
   createCache,
   extractStyle,
