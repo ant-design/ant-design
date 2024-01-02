@@ -8,11 +8,13 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export const getOverlay = (
-  prefixCls: string,
+  prefixCls?: string,
   title?: PopoverProps['title'],
   content?: PopoverProps['content'],
 ) => {
-  if (!title && !content) return null;
+  if (!title && !content) {
+    return null;
+  }
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
@@ -54,7 +56,7 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
     >
       <div className={`${prefixCls}-arrow`} />
       <Popup {...props} className={hashId} prefixCls={prefixCls}>
-        {children || getOverlay(prefixCls!, title, content)}
+        {children || getOverlay(prefixCls, title, content)}
       </Popup>
     </div>
   );
