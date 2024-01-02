@@ -22,9 +22,9 @@ function matchDeprecated(v: string) {
     semver.satisfies(v, depreciated),
   );
 
-  const reason = DEPRECIATED_VERSION[match] || [];
+  const reason = DEPRECIATED_VERSION[match as keyof typeof DEPRECIATED_VERSION] || [];
 
-  return { match, reason: Array.isArray(reason) ? reason : [reason] };
+  return { match: match!, reason: Array.isArray(reason) ? reason : [reason] };
 }
 
 class ListNode {
@@ -37,11 +37,11 @@ class ListNode {
     this.next = null;
   }
 
-  findMaxSatisfyingVersion(versionList: string[]) {
+  findMaxSatisfyingVersion(versionList: string[]): string {
     const { match } = matchDeprecated(this.value);
-    const maxSatisfyingVersion = semver.maxSatisfying(versionList, match);
+    const maxSatisfyingVersion = semver.maxSatisfying(versionList, match)!;
 
-    const maxSatisfyingVersionNext = this.findNext(maxSatisfyingVersion).value;
+    const maxSatisfyingVersionNext = this.findNext(maxSatisfyingVersion)!.value;
 
     // 如果下一个版本已经是 major 版本，那么就不需要再往下找了
     if (semver.major(maxSatisfyingVersionNext) > semver.major(maxSatisfyingVersion)) {
@@ -50,7 +50,7 @@ class ListNode {
 
     const { match: nextMatch } = matchDeprecated(maxSatisfyingVersionNext);
     if (nextMatch) {
-      return this.next?.findMaxSatisfyingVersion(versionList);
+      return this.next?.findMaxSatisfyingVersion(versionList) ?? pkg.version;
     }
 
     return maxSatisfyingVersionNext;
@@ -97,6 +97,8 @@ async function run() {
   if (!versionList.includes(pkg.version)) versionList.push(pkg.version);
 
   const linkedList = arrayToLinkedList(versionList);
+
+  if (!linkedList) throw new Error('versionList is empty');
 
   let current = linkedList;
   let { next } = linkedList;
