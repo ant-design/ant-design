@@ -1,10 +1,10 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { Popup } from 'rc-tooltip';
-import * as React from 'react';
-import type { PopoverProps } from '.';
-import { ConfigContext } from '../config-provider';
 
+import type { PopoverProps } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export const getOverlay = (
@@ -12,7 +12,9 @@ export const getOverlay = (
   title?: PopoverProps['title'],
   content?: PopoverProps['content'],
 ) => {
-  if (!title && !content) return undefined;
+  if (!title && !content) {
+    return null;
+  }
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
