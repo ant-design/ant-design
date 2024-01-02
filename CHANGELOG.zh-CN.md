@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.12.7
+
+`2024-01-02`
+
+- 🐞 MISC: 修复升级 `@ctrl/tinycolor@4.0.2` 导致的错误。[#46744](https://github.com/ant-design/ant-design/pull/46744) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Mentions 选项高度偏大的问题。[#46737](https://github.com/ant-design/ant-design/pull/46737)
+
 ## 5.12.6
 
 `2023-12-30`
