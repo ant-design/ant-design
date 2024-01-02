@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
-import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeConfig } from 'antd';
+import { theme as antdTheme, ConfigProvider } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
+
 import SiteContext from './slots/SiteContext';
 
 interface NewToken {
@@ -36,7 +37,11 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
   const { token } = antdTheme.useToken();
   const { bannerVisible } = useContext(SiteContext);
   React.useEffect(() => {
-    ConfigProvider.config({ theme: theme as ThemeConfig });
+    ConfigProvider.config({
+      holderRender: (holder) => (
+        <ConfigProvider theme={theme as ThemeConfig}>{holder}</ConfigProvider>
+      ),
+    });
   }, [theme]);
 
   return (
