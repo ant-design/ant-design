@@ -8,7 +8,7 @@ import RCPicker, { type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
-import type { PickerProps, PickerTimeProps } from '.';
+import type { PickerProps } from '.';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
@@ -38,11 +38,18 @@ export default function generatePicker<DateType extends object>(
   type CustomPickerProps = {
     status?: InputStatus;
     hashId?: string;
+    /**
+     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+     *   version.Please use `popupClassName` instead.
+     */
+    dropdownClassName?: string;
     popupClassName?: string;
     rootClassName?: string;
+
+    popupStyle?: React.CSSProperties;
   };
   type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
-  type TimePickerProps = PickerTimeProps<DateType> & CustomPickerProps;
+  type TimePickerProps = Omit<PickerProps<DateType>, 'picker' | 'showTime'> & CustomPickerProps;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
