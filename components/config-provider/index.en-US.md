@@ -44,6 +44,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 <code src="./demo/size.tsx">Component size</code>
 <code src="./demo/theme.tsx">Theme</code>
 <code src="./demo/wave.tsx">Custom Wave</code>
+<code src="./demo/holderRender.tsx">Static function</code>
 <code src="./demo/prefixCls.tsx" debug>prefixCls</code>
 <code src="./demo/useConfig.tsx" debug>useConfig</code>
 <code src="./demo/warning.tsx" debug>warning</code>
@@ -75,12 +76,8 @@ Setting `Modal`、`Message`、`Notification` static config. Not work on hooks.
 
 ```ts
 ConfigProvider.config({
-  prefixCls: 'ant',
-  iconPrefixCls: 'anticon',
-
-  // 5.6.0+
-  // Please use hooks version first
-  theme: { token: { colorPrimary: 'red' } },
+// 5.13.0+
+  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
 });
 ```
 
@@ -199,3 +196,9 @@ antd will dynamic create React instance by `ReactDOM.render` when call message m
 Related issue: [#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 In production mode of Vite, default exports from cjs file should be used like this: `enUS.default`. So you can directly import locale from `es/` directory like `import enUS from 'antd/es/locale/en_US'` to make dev and production have the same behavior.
+
+#### `prefixCls` priority(The former is covered by the latter)
+
+1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
+2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`
+3. `message.config({ prefixCls: 'prefix-3' })`
