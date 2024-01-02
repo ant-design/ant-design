@@ -6,8 +6,7 @@ import type { Dayjs } from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
-// type RangeValue = [Dayjs | null | undefined, Dayjs | null | undefined] | null;
-type RangeValue = [start: Dayjs | null | undefined, end: Dayjs | null | undefined] | null;
+type RangeValue = [Dayjs | null | undefined, Dayjs | null | undefined] | null;
 
 const ControlledDatePicker = () => {
   const [mode, setMode] = useState<DatePickerProps['mode']>('time');

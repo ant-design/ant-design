@@ -5,7 +5,17 @@ import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
-import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import type { PickerProps, RangePickerProps } from '../date-picker/generatePicker';
+
+export type PickerTimeProps<DateType extends object> = Omit<
+  PickerProps<DateType>,
+  'showTime' | 'picker'
+>;
+
+export type RangePickerTimeProps<DateType extends object> = Omit<
+  RangePickerProps<DateType>,
+  'showTime' | 'picker'
+>;
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -76,4 +86,4 @@ type MergedTimePicker = typeof TimePicker & {
 (TimePicker as MergedTimePicker).RangePicker = RangePicker;
 (TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
-export default TimePicker as MergedTimePicker;
+export default (TimePicker as MergedTimePicker);
