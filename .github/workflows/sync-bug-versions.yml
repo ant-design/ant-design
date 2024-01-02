@@ -96,7 +96,7 @@ jobs:
           repository: cnpm/bug-versions
 
       - name: download bug-versions artifact
-        uses: ctions/download-artifact@v3
+        uses: actions/download-artifact@v3
         with:
           name: bug-versions
           path: antd
