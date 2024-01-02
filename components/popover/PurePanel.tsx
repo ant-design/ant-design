@@ -12,9 +12,7 @@ export const getOverlay = (
   title?: PopoverProps['title'],
   content?: PopoverProps['content'],
 ) => {
-  if (!title && !content) {
-    return null;
-  }
+  if (!title && !content) return null;
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
