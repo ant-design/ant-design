@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import type { ThemeConfig } from 'antd';
 import { theme as antdTheme, ConfigProvider } from 'antd';
+import type { ThemeConfig } from 'antd';
 import type { ThemeProviderProps } from 'antd-style';
 import { ThemeProvider } from 'antd-style';
 
@@ -37,11 +37,8 @@ const SiteThemeProvider: React.FC<ThemeProviderProps<any>> = ({ children, theme,
   const { token } = antdTheme.useToken();
   const { bannerVisible } = useContext(SiteContext);
   React.useEffect(() => {
-    ConfigProvider.config({
-      holderRender: (holder) => (
-        <ConfigProvider theme={theme as ThemeConfig}>{holder}</ConfigProvider>
-      ),
-    });
+    // 需要注意与 components/config-provider/demo/holderRender.tsx 配置冲突
+    ConfigProvider.config({ theme: theme as ThemeConfig });
   }, [theme]);
 
   return (
