@@ -10,7 +10,7 @@ const output = path.resolve(__dirname, '../.tmp/bug-versions.json');
 /**
  * @see https://github.com/cnpm/npminstall/blob/e208db4c01b310564513323d1894f6e30f1bbbbd/lib/download/npm.js#L97-L106
  */
-type IBugVersion = {
+type IBugVersions = {
   [bugVersion: string]: {
     version: string;
     reason: string;
@@ -84,7 +84,7 @@ function arrayToLinkedList(arr: string[]) {
 }
 
 async function run() {
-  const bugVersion: IBugVersion = {};
+  const bugVersions: IBugVersions = {};
 
   const { time } = await fetch('http://registry.npmjs.org/antd').then((res) => res.json());
   // curl -l -o .tmp/antd.json https://registry.npmjs.org/antd // download antd.json
@@ -108,7 +108,7 @@ async function run() {
     if (match) {
       const find = current.findMaxSatisfyingVersion(versionList);
 
-      bugVersion[current.value] = {
+      bugVersions[current.value] = {
         version: find ?? pkg.version,
         reason: reason.join(', '),
       };
@@ -119,7 +119,7 @@ async function run() {
   }
 
   if (!fs.existsSync(output)) fs.mkdirpSync(path.dirname(output));
-  fs.writeJSONSync(output, bugVersion, { spaces: 2 });
+  fs.writeJSONSync(output, bugVersions, { spaces: 2 });
 }
 
 run()
