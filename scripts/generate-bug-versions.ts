@@ -5,7 +5,7 @@ import fetch from 'isomorphic-fetch';
 import DEPRECIATED_VERSION from '../depreciated-versions.json';
 import pkg from '../package.json';
 
-const output = path.resolve(__dirname, '../.tmp/bug-version.json');
+const output = path.resolve(__dirname, '../.tmp/bug-versions.json');
 
 /**
  * @see https://github.com/cnpm/npminstall/blob/e208db4c01b310564513323d1894f6e30f1bbbbd/lib/download/npm.js#L97-L106

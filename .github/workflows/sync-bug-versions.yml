@@ -11,7 +11,7 @@ on:
 
 # Cancel prev CI if new commit come
 concurrency:
-  group: sync-bug-version-${{ github.ref }}
+  group: sync-bug-versions-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -78,7 +78,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: gen-depreciated-versions
-        run: npm run bug-version
+        run: npm run bug-versions
 
       - name: Save bug-versions
         uses: actions/upload-artifact@v3
