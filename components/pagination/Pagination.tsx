@@ -23,6 +23,7 @@ export interface PaginationProps extends RcPaginationProps {
   role?: string;
   totalBoundaryShowSizeChanger?: number;
   rootClassName?: string;
+  showSizeOptionsSearch?: boolean;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
