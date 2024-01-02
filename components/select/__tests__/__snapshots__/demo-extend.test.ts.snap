@@ -5508,12 +5508,12 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
       >
         <span
           class="ant-select-selection-item"
-          title="Jack"
+          title="Ava Swift"
         >
           <span
             class="ant-select-selection-item-content"
           >
-            Jack
+            Ava Swift
           </span>
           <span
             aria-hidden="true"
@@ -5588,20 +5588,20 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
         style="height: 0px; width: 0px; overflow: hidden;"
       >
         <div
-          aria-label="Jack"
+          aria-label="Ava Swift"
           aria-selected="true"
           id="rc_select_TEST_OR_SSR_list_0"
           role="option"
         >
-          jack
+          Ava Swift
         </div>
         <div
-          aria-label="Lucy"
+          aria-label="Cole Reed"
           aria-selected="false"
           id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
-          lucy
+          Cole Reed
         </div>
       </div>
       <div
@@ -5620,12 +5620,12 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
               <div
                 aria-selected="true"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                title="Jack"
+                title="Ava Swift"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Jack
+                  Ava Swift
                 </div>
                 <span
                   aria-hidden="true"
@@ -5657,78 +5657,89 @@ exports[`renders components/select/demo/maxCount.tsx extend context correctly 1`
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="Lucy"
+                title="Cole Reed"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Lucy
+                  Cole Reed
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="yiminghe"
+                title="Mia Blake"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  yiminghe
+                  Mia Blake
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="afc163"
+                title="Jake Stone"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  afc163
+                  Jake Stone
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="zombie"
+                title="Lily Lane"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  zombie
+                  Lily Lane
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="MadCcc"
+                title="Ryan Chase"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  MadCcc
+                  Ryan Chase
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="chenshuai2144"
+                title="Zoe Fox"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  chenshuai2144
+                  Zoe Fox
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="lijianan"
+                title="Alex Grey"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  lijianan
+                  Alex Grey
+                </div>
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="Elle Blair"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Elle Blair
                 </div>
               </div>
             </div>

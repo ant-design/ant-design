@@ -192,7 +192,7 @@ describe('Select', () => {
       const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
       render(<Select maxCount={10} />);
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Select] the `maxCount` prop only valid in multiple mode or tags mode',
+        'Warning: [antd: Select] `maxCount` only works with mode `multiple` or `tags`',
       );
       errSpy.mockRestore();
     });

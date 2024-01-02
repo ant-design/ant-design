@@ -5,7 +5,7 @@ import { Select } from 'antd';
 const MAX_COUNT = 3;
 
 const App: React.FC = () => {
-  const [value, setValue] = React.useState<string[]>(['jack']);
+  const [value, setValue] = React.useState<string[]>(['Ava Swift']);
 
   const suffix = (
     <>
@@ -26,14 +26,15 @@ const App: React.FC = () => {
       suffixIcon={suffix}
       placeholder="Please select"
       options={[
-        { value: 'jack', label: 'Jack' },
-        { value: 'lucy', label: 'Lucy' },
-        { value: 'Yiminghe', label: 'yiminghe' },
-        { value: 'afc163', label: 'afc163' },
-        { value: 'zombie', label: 'zombie' },
-        { value: 'MadCcc', label: 'MadCcc' },
-        { value: 'chenshuai2144', label: 'chenshuai2144' },
-        { value: 'lijianan', label: 'lijianan' },
+        { value: 'Ava Swift', label: 'Ava Swift' },
+        { value: 'Cole Reed', label: 'Cole Reed' },
+        { value: 'Mia Blake', label: 'Mia Blake' },
+        { value: 'Jake Stone', label: 'Jake Stone' },
+        { value: 'Lily Lane', label: 'Lily Lane' },
+        { value: 'Ryan Chase', label: 'Ryan Chase' },
+        { value: 'Zoe Fox', label: 'Zoe Fox' },
+        { value: 'Alex Grey', label: 'Alex Grey' },
+        { value: 'Elle Blair', label: 'Elle Blair' },
       ]}
     />
   );

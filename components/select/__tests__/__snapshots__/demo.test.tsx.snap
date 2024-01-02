@@ -1757,12 +1757,12 @@ exports[`renders components/select/demo/maxCount.tsx correctly 1`] = `
       >
         <span
           class="ant-select-selection-item"
-          title="Jack"
+          title="Ava Swift"
         >
           <span
             class="ant-select-selection-item-content"
           >
-            Jack
+            Ava Swift
           </span>
           <span
             aria-hidden="true"
