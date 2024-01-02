@@ -1,4 +1,5 @@
 import type { Component, ComponentClass, ForwardedRef } from 'react';
+
 import type { PickerProps, RangePickerProps } from '.';
 
 export interface CommonPickerMethods {
@@ -13,6 +14,6 @@ export interface PickerComponentClass<P = {}, S = unknown> extends ComponentClas
 
 export type PickerRef<P> = ForwardedRef<Component<P> & CommonPickerMethods>;
 
-export type DatePickRef<DateType> = PickerRef<PickerProps<DateType>>;
+export type DatePickRef<DateType extends object> = PickerRef<PickerProps<DateType>>;
 
-export type RangePickerRef<DateType> = PickerRef<RangePickerProps<DateType>>;
+export type RangePickerRef<DateType extends object> = PickerRef<RangePickerProps<DateType>>;
