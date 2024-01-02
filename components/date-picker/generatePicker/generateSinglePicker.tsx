@@ -23,12 +23,7 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import {
-  getPlaceholder,
-  getTimeProps,
-  mergeAllowClear,
-  transPlacement2DropdownAlign,
-} from '../util';
+import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
@@ -89,7 +84,7 @@ export default function generatePicker<DateType extends object>(
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
         const innerRef = React.useRef<PickerRef>(null);
-        const { format, showTime } = props as any;
+        // const { format, showTime } = props as any;
 
         const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
@@ -105,19 +100,19 @@ export default function generatePicker<DateType extends object>(
           showToday: true,
         };
 
-        let additionalOverrideProps: any = {};
-        if (picker) {
-          additionalOverrideProps.picker = picker;
-        }
+        // let additionalOverrideProps: any = {};
+        // if (picker) {
+        //   additionalOverrideProps.picker = picker;
+        // }
         const mergedPicker = picker || props.picker;
 
-        additionalOverrideProps = {
-          ...additionalOverrideProps,
-          ...(showTime ? getTimeProps({ format, picker: mergedPicker, ...showTime }) : {}),
-          ...(mergedPicker === 'time'
-            ? getTimeProps({ format, ...props, picker: mergedPicker })
-            : {}),
-        };
+        // additionalOverrideProps = {
+        //   ...additionalOverrideProps,
+        //   ...(showTime ? getTimeProps({ format, picker: mergedPicker, ...showTime }) : {}),
+        //   ...(mergedPicker === 'time'
+        //     ? getTimeProps({ format, ...props, picker: mergedPicker })
+        //     : {}),
+        // };
         const rootPrefixCls = getPrefixCls();
 
         // =================== Warning =====================
@@ -170,9 +165,10 @@ export default function generatePicker<DateType extends object>(
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
             transitionName={`${rootPrefixCls}-slide-up`}
+            picker={picker}
             {...additionalProps}
             {...restProps}
-            {...additionalOverrideProps}
+            // {...additionalOverrideProps}
             locale={locale!.lang}
             className={classNames(
               {

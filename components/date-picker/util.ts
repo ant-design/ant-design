@@ -1,6 +1,8 @@
 import type { AlignType } from '@rc-component/trigger';
 import type { PickerMode } from 'rc-picker/lib/interface';
-import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
+
+// import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
+
 import type { SelectCommonPlacement } from '../_util/motion';
 import type { DirectionType } from '../config-provider';
 import type { PickerLocale, PickerProps } from './generatePicker';
@@ -106,68 +108,68 @@ export function transPlacement2DropdownAlign(
   }
 }
 
-function toArray<T>(list: T | T[]): T[] {
-  if (!list) {
-    return [];
-  }
-  return Array.isArray(list) ? list : [list];
-}
+// function toArray<T>(list: T | T[]): T[] {
+//   if (!list) {
+//     return [];
+//   }
+//   return Array.isArray(list) ? list : [list];
+// }
 
-export function getTimeProps<DateType, DisabledTime>(
-  props: { format?: string; picker?: PickerMode } & Omit<
-    SharedTimeProps<DateType>,
-    'disabledTime'
-  > & {
-      disabledTime?: DisabledTime;
-    },
-) {
-  const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
+// export function getTimeProps<DateType, DisabledTime>(
+//   props: { format?: string; picker?: PickerMode } & Omit<
+//     SharedTimeProps<DateType>,
+//     'disabledTime'
+//   > & {
+//       disabledTime?: DisabledTime;
+//     },
+// ) {
+//   const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
 
-  const firstFormat = toArray(format)[0];
-  const showTimeObj = { ...props };
+//   const firstFormat = toArray(format)[0];
+//   const showTimeObj = { ...props };
 
-  // https://github.com/ant-design/ant-design/issues/44275
-  if (format && Array.isArray(format)) {
-    showTimeObj.format = firstFormat;
-  }
+//   // https://github.com/ant-design/ant-design/issues/44275
+//   if (format && Array.isArray(format)) {
+//     showTimeObj.format = firstFormat;
+//   }
 
-  if (firstFormat && typeof firstFormat === 'string') {
-    if (!firstFormat.includes('s') && showSecond === undefined) {
-      showTimeObj.showSecond = false;
-    }
-    if (!firstFormat.includes('m') && showMinute === undefined) {
-      showTimeObj.showMinute = false;
-    }
-    if (
-      !firstFormat.includes('H') &&
-      !firstFormat.includes('h') &&
-      !firstFormat.includes('K') &&
-      !firstFormat.includes('k') &&
-      showHour === undefined
-    ) {
-      showTimeObj.showHour = false;
-    }
-    if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
-      showTimeObj.use12Hours = true;
-    }
-  }
+//   if (firstFormat && typeof firstFormat === 'string') {
+//     if (!firstFormat.includes('s') && showSecond === undefined) {
+//       showTimeObj.showSecond = false;
+//     }
+//     if (!firstFormat.includes('m') && showMinute === undefined) {
+//       showTimeObj.showMinute = false;
+//     }
+//     if (
+//       !firstFormat.includes('H') &&
+//       !firstFormat.includes('h') &&
+//       !firstFormat.includes('K') &&
+//       !firstFormat.includes('k') &&
+//       showHour === undefined
+//     ) {
+//       showTimeObj.showHour = false;
+//     }
+//     if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
+//       showTimeObj.use12Hours = true;
+//     }
+//   }
 
-  if (picker === 'time') {
-    return showTimeObj;
-  }
+//   if (picker === 'time') {
+//     return showTimeObj;
+//   }
 
-  if (typeof firstFormat === 'function') {
-    // format of showTime should use default when format is custom format function
-    delete showTimeObj.format;
-  }
+//   if (typeof firstFormat === 'function') {
+//     // format of showTime should use default when format is custom format function
+//     delete showTimeObj.format;
+//   }
 
-  return {
-    showTime: showTimeObj,
-  };
-}
+//   return {
+//     showTime: showTimeObj,
+//   };
+// }
 
-type AllowClear = PickerProps<unknown>['allowClear'];
-type ClearIcon = PickerProps<unknown>['clearIcon'];
+type AllowClear = PickerProps<any>['allowClear'];
+type ClearIcon = PickerProps<any>['clearIcon'];
 
 export function mergeAllowClear(
   allowClear: AllowClear,

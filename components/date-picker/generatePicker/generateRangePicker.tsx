@@ -22,12 +22,7 @@ import { useLocale } from '../../locale';
 import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import {
-  getRangePlaceholder,
-  getTimeProps,
-  mergeAllowClear,
-  transPlacement2DropdownAlign,
-} from '../util';
+import { getRangePlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
@@ -75,7 +70,7 @@ export default function generateRangePicker<DateType extends object>(
     const { getPrefixCls, direction, getPopupContainer, rangePicker } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-    const { format, showTime, picker } = props as any;
+    const { picker } = props;
     const rootPrefixCls = getPrefixCls();
 
     const [variant, enableVariantCls] = useVariant(customVariant, bordered);
@@ -83,10 +78,10 @@ export default function generateRangePicker<DateType extends object>(
     const rootCls = useCSSVarCls(prefixCls);
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-    const additionalOverrideProps: any = {
-      ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
-      ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
-    };
+    // const additionalOverrideProps: any = {
+    //   ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
+    //   ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
+    // };
 
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
@@ -136,7 +131,7 @@ export default function generateRangePicker<DateType extends object>(
         }
         disabled={mergedDisabled}
         ref={innerRef}
-        dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+        popupAlign={transPlacement2DropdownAlign(direction, placement)}
         placeholder={getRangePlaceholder(locale, picker, placeholder)}
         suffixIcon={suffixNode}
         prevIcon={<span className={`${prefixCls}-prev-icon`} />}
@@ -145,7 +140,7 @@ export default function generateRangePicker<DateType extends object>(
         superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
         transitionName={`${rootPrefixCls}-slide-up`}
         {...restProps}
-        {...additionalOverrideProps}
+        // {...additionalOverrideProps}
         className={classNames(
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize,
@@ -176,9 +171,11 @@ export default function generateRangePicker<DateType extends object>(
             rootClassName,
           ),
         }}
-        popupStyle={{
-          ...props.popupStyle,
-          zIndex,
+        styles={{
+          popup: {
+            ...props.popupStyle,
+            zIndex,
+          },
         }}
         allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
       />,
