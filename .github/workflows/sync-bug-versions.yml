@@ -93,7 +93,8 @@ jobs:
       - name: clone cnpm/bug-versions
         uses: actions/checkout@v4
         with:
-          repository: cnpm/bug-versions
+          # repository: cnpm/bug-versions # TODO: 临时使用 template-pro/bug-versions
+          repository: template-pro/bug-versions
 
       - name: download bug-versions artifact
         uses: actions/download-artifact@v3
@@ -131,7 +132,7 @@ jobs:
             <details>
             <summary>bug-versions.json</summary>
 
-            ```
+            ```json
             ${{ steps.show-bug-versions.outputs.json }}
             ```
             </details>
