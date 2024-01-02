@@ -117,6 +117,7 @@ const InternalSelect = <
     dropdownStyle,
     transitionName,
     tagRender,
+    maxCount,
     ...rest
   } = props;
 
@@ -263,6 +264,12 @@ const InternalSelect = <
     );
 
     warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+
+    warning(
+      !(typeof maxCount !== 'undefined' && !isMultiple),
+      'usage',
+      '`maxCount` only works with mode `multiple` or `tags`',
+    );
   }
 
   // ====================== zIndex =========================
@@ -282,6 +289,7 @@ const InternalSelect = <
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
+      maxCount={isMultiple ? maxCount : undefined}
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
