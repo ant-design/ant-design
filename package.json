@@ -97,6 +97,7 @@
     "test-node": "npm run version && jest --config .jest.node.js --no-cache",
     "test:update": "jest --config .jest.js --no-cache -u",
     "token-meta": "tsx scripts/generate-token-meta.ts",
+    "bug-version": "tsx scripts/generate-bug-version.ts",
     "tsc": "tsc --noEmit",
     "version": "tsx scripts/generate-version.ts",
     "visual-regression": "tsx scripts/visual-regression/build.ts",

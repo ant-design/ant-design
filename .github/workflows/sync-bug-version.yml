@@ -1,0 +1,30 @@
+# https://github.com/ant-design/ant-design/pull/46746#issuecomment-1873837066
+name: 🔀 Sync bug-version to cnpm
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "depreciated-versions.json"
+
+permissions:
+  contents: read
+
+jobs:
+  cpr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          path: source
+          sparse-checkout: |
+            .github
+            package.json
+
+      # clone cnpm/bug-versions
+      - name: clone cnpm/bug-versions
+        uses: actions/checkout@v4
+        with:
+          repository: cnpm/bug-versions
