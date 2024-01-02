@@ -10,15 +10,16 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -46,7 +47,7 @@ Array [
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </span>,
@@ -58,15 +59,16 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -94,7 +96,7 @@ Array [
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </span>,
@@ -112,8 +114,6 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -170,8 +170,6 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -470,8 +468,6 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -534,7 +530,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
       >
         <span
           class="ant-upload ant-upload-disabled"
-          role="button"
         >
           <input
             accept=""
@@ -561,7 +556,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
       >
         <span
           class="ant-upload ant-upload-disabled"
-          role="button"
         >
           <input
             accept=""
@@ -837,7 +831,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         >
           <span
             class="ant-upload ant-upload-disabled"
-            role="button"
           >
             <input
               accept=""
@@ -845,7 +838,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               style="display: none;"
               type="file"
             />
-            <div>
+            <button
+              style="border: 0px; background: none;"
+              type="button"
+            >
               <span
                 aria-label="plus"
                 class="anticon anticon-plus"
@@ -873,7 +869,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               >
                 Upload
               </div>
-            </div>
+            </button>
           </span>
         </div>
       </div>
@@ -1109,7 +1105,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         >
           <span
             class="ant-upload ant-upload-disabled"
-            role="button"
           >
             <input
               accept=""
@@ -1117,7 +1112,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               style="display: none;"
               type="file"
             />
-            <div>
+            <button
+              style="border: 0px; background: none;"
+              type="button"
+            >
               <span
                 aria-label="plus"
                 class="anticon anticon-plus"
@@ -1145,7 +1143,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               >
                 Upload
               </div>
-            </div>
+            </button>
           </span>
         </div>
       </div>
@@ -1228,8 +1226,6 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -1528,8 +1524,6 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -1654,8 +1648,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -2713,15 +2705,16 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -2749,7 +2742,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </div>
@@ -2767,8 +2760,6 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -2908,8 +2899,6 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
       >
         <span
           class="ant-upload"
-          role="button"
-          tabindex="0"
         >
           <input
             accept=""
@@ -2965,8 +2954,6 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
       >
         <span
           class="ant-upload"
-          role="button"
-          tabindex="0"
         >
           <input
             accept=""
@@ -3514,15 +3501,16 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -3550,7 +3538,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </div>
@@ -3789,15 +3777,16 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -3825,7 +3814,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </div>
@@ -3844,8 +3833,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -4141,8 +4128,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -4442,8 +4427,6 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -4500,8 +4483,6 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -4558,8 +4539,6 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -4877,8 +4856,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -4946,8 +4923,6 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -5033,8 +5008,6 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
               >
                 <span
                   class="ant-upload"
-                  role="button"
-                  tabindex="0"
                 >
                   <input
                     accept=""

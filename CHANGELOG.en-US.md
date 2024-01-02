@@ -16,6 +16,25 @@ tag: vVERSION
 
 ---
 
+## 5.12.6
+
+`2023-12-30`
+
+- 🐞 Fix Upload accessibility issue of tabbing twicely. [#46432](https://github.com/ant-design/ant-design/pull/46432)
+- 🐞 Fix Modal `footer` Button duplicated gap style. [#46702](https://github.com/ant-design/ant-design/pull/46702)
+- Select
+  - 🐞 Fix Select that scrollbar do not display in some case. [#46696](https://github.com/ant-design/ant-design/pull/46696) [@MadCcc](https://github.com/MadCcc)
+  - 💄 Optimize Select style of multiple selection. [#46646](https://github.com/ant-design/ant-design/pull/46646) [@MadCcc](https://github.com/MadCcc)
+- Tree
+  - 🐞 Fix Tree that scrollbar do not display in some case. [#46672](https://github.com/ant-design/ant-design/pull/46672) [@yyz945947732](https://github.com/yyz945947732)
+  - 💄 Optimize Tree the TreeNode style when focused. [#46608](https://github.com/ant-design/ant-design/pull/46608) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Layout.Sider will collapse when trigger printer. [#46650](https://github.com/ant-design/ant-design/pull/46650) [@anilpixel](https://github.com/anilpixel)
+- 🐞 Fix Table style with edge shadow overflow. [#46644](https://github.com/ant-design/ant-design/pull/46644) [@Fatpandac](https://github.com/Fatpandac)
+- 🐞 Typography.Text should update the Tooltip when the width changes. [#46613](https://github.com/ant-design/ant-design/pull/46613) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix Tooltip, Popover or other popup like component arrow issue when in nest case. [#46294](https://github.com/ant-design/ant-design/pull/46294) [@bestlyg](https://github.com/bestlyg)
+- TypeScript
+  - 🤖 Export ConfigProvider `ConfigProviderProps` type. [#46605](https://github.com/ant-design/ant-design/pull/46605) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.12.5
 
 `2023-12-22`

@@ -5184,7 +5184,6 @@ Array [
                   >
                     <span
                       class="ant-upload ant-upload-disabled"
-                      role="button"
                     >
                       <input
                         accept=""
@@ -5192,7 +5191,10 @@ Array [
                         style="display: none;"
                         type="file"
                       />
-                      <div>
+                      <button
+                        style="border: 0px; background: none;"
+                        type="button"
+                      >
                         <span
                           aria-label="plus"
                           class="anticon anticon-plus"
@@ -5220,7 +5222,7 @@ Array [
                         >
                           Upload
                         </div>
-                      </div>
+                      </button>
                     </span>
                   </div>
                 </div>
@@ -21115,8 +21117,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               >
                 <span
                   class="ant-upload"
-                  role="button"
-                  tabindex="0"
                 >
                   <input
                     accept=""
