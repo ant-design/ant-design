@@ -6,13 +6,17 @@ import type { CssUtil } from 'antd-style';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type {
+  FormatComponentToken,
+  FullToken,
+  GenerateStyle,
+  GetDefaultToken,
+} from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
-import type { FormatComponentToken } from 'antd/es/theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -292,6 +296,11 @@ export interface ComponentToken {
 
   // Dark
   /**
+   * @desc 暗色模式下的浮层菜单的背景颜色
+   * @descEN The background color of the overlay menu in dark mode.
+   */
+  darkPopupBg: string;
+  /**
    * @desc 暗色模式下的菜单项文字颜色
    * @descEN Color of menu item text in dark mode
    */
@@ -371,6 +380,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuArrowOffset: number | string;
   menuPanelMaskInset: number;
   menuSubMenuBg: string;
+  darkPopupBg: string;
 }
 
 const genMenuItemStyle = (token: MenuToken): CSSObject => {
@@ -962,6 +972,8 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         darkDangerItemHoverColor,
         darkDangerItemSelectedColor,
         darkDangerItemActiveBg,
+        popupBg,
+        darkPopupBg,
       } = token;
 
       const menuArrowSize = token.calc(fontSize).div(7).mul(5).equal();
@@ -974,6 +986,7 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
         calc: token.calc,
+        popupBg,
       });
 
       const menuDarkToken = mergeToken<MenuToken>(menuToken, {
@@ -982,7 +995,7 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         groupTitleColor: darkGroupTitleColor,
         itemSelectedColor: darkItemSelectedColor,
         itemBg: darkItemBg,
-        popupBg: darkItemBg,
+        popupBg: darkPopupBg,
         subMenuItemBg: darkSubMenuItemBg,
         itemActiveBg: 'transparent',
         itemSelectedBg: darkItemSelectedBg,

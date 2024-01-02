@@ -34,10 +34,10 @@ const fileList: UploadFile[] = [
 
 const App: React.FC = () => {
   const uploadButton = (
-    <div>
+    <button style={{ border: 0, background: 'none' }} type="button">
       <PlusOutlined />
       <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
+    </button>
   );
 
   return (

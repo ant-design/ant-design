@@ -1,5 +1,6 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/zh_CN';
+
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/zh_CN';
 import DatePicker from '../date-picker/locale/zh_CN';
@@ -139,6 +140,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: '二维码过期',
     refresh: '点击刷新',
+    scanned: '已扫描',
   },
   ColorPicker: {
     presetEmpty: '暂无',
