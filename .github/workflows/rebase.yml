@@ -1,0 +1,25 @@
+name: Automatic Rebase
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: read
+
+jobs:
+  rebase:
+    permissions:
+      contents: write  # for cirrus-actions/rebase to push code to rebase
+      pull-requests: read  # for cirrus-actions/rebase to get info about PR
+    name: Rebase
+    if: github.event.issue.pull_request != '' && (contains(github.event.comment.body, '/rebase') || contains(github.event.comment.body, '\rebase'))
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Automatic Rebase
+      uses: cirrus-actions/rebase@1.8
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

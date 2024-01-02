@@ -1,0 +1,111 @@
+# Each PR will build preview site that help to check code is work as expect.
+
+name: Preview Deploy
+
+on:
+  workflow_run:
+    workflows: ["Preview Build"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+
+jobs:
+  upstream-workflow-summary:
+    name: upstream workflow summary
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run.event == 'pull_request'
+    outputs:
+      jobs: ${{ steps.prep-summary.outputs.result }}
+      build-success: ${{ steps.prep-summary.outputs.build-success }}
+      build-failure: ${{ steps.prep-summary.outputs.build-failure }}
+    steps:
+      - name: summary jobs status
+        uses: actions/github-script@v6
+        id: prep-summary
+        with:
+          script: |
+            const response = await github.rest.actions.listJobsForWorkflowRun({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: ${{ github.event.workflow_run.id }},
+            });
+
+            // { [name]: [conclusion] }, e.g. { 'build preview': 'success' }
+            const jobs = (response.data?.jobs ?? []).reduce((acc, job) => {
+              if(job?.status === 'completed' && 'name' in job && 'conclusion' in job) {
+                acc[job.name] = job.conclusion;
+              }
+              return acc;
+            }, {});
+
+            const total = Object.keys(jobs).length;
+            if(total === 0) core.setFailed('no jobs found');
+
+            // the name here must be the same as `jobs.xxx.{name}` in preview-build.yml
+            // set output
+            core.setOutput('build-success', jobs['build preview'] === 'success');
+            core.setOutput('build-failure', jobs['build preview'] === 'failure');
+            return jobs;
+
+  deploy-preview:
+    name: deploy preview
+    permissions:
+      actions: read # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
+    runs-on: ubuntu-latest
+    needs: upstream-workflow-summary
+    if: github.event.workflow_run.event == 'pull_request'
+    steps:
+      # We need get PR id first
+      - name: download pr artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: pr
+
+      # Save PR id to output
+      - name: save PR id
+        id: pr
+        run: echo "id=$(<pr-id.txt)" >> $GITHUB_OUTPUT
+
+      # Download site artifact
+      - name: download site artifact
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
+          name: site
+
+      - name: upload surge service
+        id: deploy
+        continue-on-error: true
+        run: |
+          export DEPLOY_DOMAIN=https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: success comment
+        uses: actions-cool/maintain-one-comment@v3
+        if: ${{ steps.deploy.outcome == 'success' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            [<img width="306" alt="Preview Is ready" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">](https://preview-${{ steps.pr.outputs.id }}-ant-design.surge.sh)
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}
+
+      - name: failed comment
+        if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
+        uses: actions-cool/maintain-one-comment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body: |
+            <img width="534" alt="Preview Failed" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">
+            <!-- AUTO_PREVIEW_HOOK -->
+          body-include: '<!-- AUTO_PREVIEW_HOOK -->'
+          number: ${{ steps.pr.outputs.id }}

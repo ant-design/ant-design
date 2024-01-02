@@ -1,0 +1,46 @@
+name: Verify Files modify
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    permissions:
+      pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: verify-version
+        uses: actions-cool/verify-files-modify@v1
+        with:
+          forbid-paths: '.github/, scripts/'
+          forbid-files: 'CHANGELOG.zh-CN.md, CHANGELOG.en-US.md, LICENSE'
+          skip-verify-authority: 'write'
+          skip-label: 'skip-verify-files'
+          assignees: 'afc163, zombieJ, xrkffgg, MadCcc'
+          comment-mark: 'version'
+          comment: |
+            Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution. The path `.github/` or `scripts/` and `CHANGELOG` is only maintained by team members. This current PR will be closed and team members will help on this.
+          close: true
+          set-failed: false
+
+  readme:
+    permissions:
+      pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
+    runs-on: ubuntu-latest
+    steps:
+      - name: verify-version
+        uses: actions-cool/verify-files-modify@v1
+        with:
+          forbid-files: 'README.md'
+          skip-verify-authority: 'write'
+          skip-label: 'skip-verify-files'
+          assignees: 'afc163, zombieJ, xrkffgg, MadCcc'
+          comment-mark: 'readmeCheck'
+          comment: |
+            Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution. But, we don't have plan to add README of more languages. This current PR will be closed and team members will help on this.
+          close: true
+          set-failed: false

@@ -1,0 +1,60 @@
+name: Upgrade Dependencies
+
+on:
+  schedule:
+    - cron: "0 18 * * *" # every day at 18:00 UTC
+    # - timezone: Asia/Shanghai # not supported yet https://github.com/orgs/community/discussions/13454
+
+jobs:
+  upgrade-deps:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    permissions:
+      pull-requests: write # for peter-evans/create-pull-request to create PRs
+      contents: write # for git push
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            .github
+            .ncurc.js
+            package.json
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: upgrade deps
+        id: upgrade
+        run: |
+          if [ ! -d .tmp ] ; then
+            mkdir .tmp
+          fi
+          $(npx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
+          if [ -s .tmp/upgrade-deps-logs.txt ]; then
+            cat .tmp/upgrade-deps-logs.txt
+            echo "logs<<EOF" >> $GITHUB_OUTPUT
+            cat .tmp/upgrade-deps-logs.txt >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+          fi
+
+      - name: create pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
+          assignees: 'afc163, zombieJ, xrkffgg, MadCcc'
+          title: "chore: upgrade deps"
+          commit-message: "chore: upgrade deps"
+          body: |
+            Upgrade dependencies
+
+            ```
+            ${{ steps.upgrade.outputs.logs }}
+            ```
+          branch: auto-upgrade-deps
+          delete-branch: true
+          add-paths: |
+            package.json
