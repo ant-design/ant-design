@@ -4,12 +4,12 @@ import { ExclamationCircleFilled } from '@ant-design/icons';
 import { App, Button, ConfigProvider, message, Modal, notification, Space } from 'antd';
 
 const Demo: React.FC = () => {
-  const { locale } = useContext(ConfigProvider.ConfigContext);
+  const { locale, theme } = useContext(ConfigProvider.ConfigContext);
   useLayoutEffect(() => {
     ConfigProvider.config({
       holderRender: (children) => (
         <StyleProvider hashPriority="high">
-          <ConfigProvider prefixCls="static" iconPrefixCls="icon" locale={locale}>
+          <ConfigProvider prefixCls="static" iconPrefixCls="icon" locale={locale} theme={theme}>
             <App message={{ maxCount: 1 }} notification={{ maxCount: 1 }}>
               {children}
             </App>
@@ -17,7 +17,7 @@ const Demo: React.FC = () => {
         </StyleProvider>
       ),
     });
-  }, []);
+  }, [locale, theme]);
 
   return (
     <div>
