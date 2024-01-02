@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
-import { CheckOutlined, HighlightOutlined, SmileFilled, SmileOutlined } from '@ant-design/icons';
-import { Divider, Radio, Typography } from 'antd';
+import { CheckOutlined, HighlightOutlined } from '@ant-design/icons';
+import { Radio, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 
@@ -136,18 +136,6 @@ const App: React.FC = () => {
       <Typography.Title editable level={5} style={{ margin: 0 }}>
         h5. Ant Design
       </Typography.Title>
-      <Divider />
-      <Paragraph copyable>This is a copyable text.</Paragraph>
-      <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
-      <Paragraph
-        copyable={{
-          icon: [<SmileOutlined key="copy-icon" />, <SmileFilled key="copied-icon" />],
-          tooltips: ['click here', 'you clicked!!'],
-        }}
-      >
-        Custom Copy icon and replace tooltips text.
-      </Paragraph>
-      <Paragraph copyable={{ tooltips: false }}>Hide Copy tooltips.</Paragraph>
     </>
   );
 };
