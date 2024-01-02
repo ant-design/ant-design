@@ -732,11 +732,7 @@ exports[`renders components/layout/demo/fixed.tsx correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©
-    <!-- -->
-    2016
-    <!-- -->
-     Created by Ant UED
+    Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
 `;
@@ -1240,11 +1236,7 @@ exports[`renders components/layout/demo/fixed-sider.tsx correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©
-      <!-- -->
-      2016
-      <!-- -->
-       Created by Ant UED
+      Ant Design ©2023 Created by Ant UED
     </footer>
   </div>
 </div>
@@ -1422,11 +1414,7 @@ exports[`renders components/layout/demo/responsive.tsx correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©
-      <!-- -->
-      2016
-      <!-- -->
-       Created by Ant UED
+      Ant Design ©2023 Created by Ant UED
     </footer>
   </div>
 </div>
@@ -1707,11 +1695,7 @@ exports[`renders components/layout/demo/side.tsx correctly 1`] = `
       class="ant-layout-footer"
       style="text-align:center"
     >
-      Ant Design ©
-      <!-- -->
-      2016
-      <!-- -->
-       Created by Ant UED
+      Ant Design ©2023 Created by Ant UED
     </footer>
   </div>
 </div>
@@ -2012,11 +1996,7 @@ exports[`renders components/layout/demo/top.tsx correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©
-    <!-- -->
-    2016
-    <!-- -->
-     Created by Ant UED
+    Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
 `;
@@ -2376,11 +2356,7 @@ exports[`renders components/layout/demo/top-side.tsx correctly 1`] = `
     class="ant-layout-footer"
     style="text-align:center"
   >
-    Ant Design ©
-    <!-- -->
-    2016
-    <!-- -->
-     Created by Ant UED
+    Ant Design ©2023 Created by Ant UED
   </footer>
 </div>
 `;

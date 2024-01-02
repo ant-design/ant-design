@@ -37,7 +37,14 @@ const App: React.FC = () => {
   return (
     <Layout hasSider>
       <Sider
-        style={{ overflow: 'auto', height: '100vh', position: 'fixed', left: 0, top: 0, bottom: 0 }}
+        style={{
+          overflow: 'auto',
+          height: '100vh',
+          position: 'fixed',
+          left: 0,
+          top: 0,
+          bottom: 0,
+        }}
       >
         <div className="demo-logo-vertical" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
@@ -65,9 +72,7 @@ const App: React.FC = () => {
             }
           </div>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+        <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
       </Layout>
     </Layout>
   );

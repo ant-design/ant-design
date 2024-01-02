@@ -68,9 +68,7 @@ const App: React.FC = () => {
           <Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
         </Layout>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
-      </Footer>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©2023 Created by Ant UED</Footer>
     </Layout>
   );
 };
