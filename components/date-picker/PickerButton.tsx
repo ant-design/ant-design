@@ -1,9 +1,13 @@
 import * as React from 'react';
-import type { ButtonProps } from '../button';
+import { useContext } from 'react';
 import Button from '../button';
+import type { ButtonProps } from '../button';
+import { ConfigContext } from '../config-provider';
 
 export default function PickerButton(props: ButtonProps) {
-  // add unCompact class to the button to ensure it's un-compacted
-  // when used with Space.Compact
-  return <Button size="small" type="primary" className="unCompact" {...props} />;
+  const { getPrefixCls } = useContext(ConfigContext);
+  const prefixCls = getPrefixCls('btn');
+  const compactCls = `${prefixCls}-compact`;
+
+  return <Button size="small" type="primary" className={`${compactCls}-last-item`} {...props} />;
 }
