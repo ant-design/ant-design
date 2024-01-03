@@ -56,10 +56,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     <span
       {...restProps}
       ref={ref}
-      style={{
-        ...style,
-        ...tag?.style,
-      }}
+      style={{ ...style, ...tag?.style }}
       className={cls}
       onClick={handleClick}
     />,

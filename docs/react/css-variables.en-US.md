@@ -71,4 +71,4 @@ With CSS variable mode, the method of modifying the theme is the same as before,
 | Properties | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | prefix | Prefix of CSS Variables | string | `ant` | 5.12.0 |
-| key | The unique key of theme. Automaticly set by `useId` in React 18, but need to be set manually in React 17 or 16 | string | `useId` in React 18 | 5.12.0 |
+| key | The unique key of theme. Automatically set by `useId` in React 18, but need to be set manually in React 17 or 16 | string | `useId` in React 18 | 5.12.0 |

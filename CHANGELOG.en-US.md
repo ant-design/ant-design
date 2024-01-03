@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.12.7
+
+`2024-01-02`
+
+- 🐞 MISC: Fix error caused by upgrading `@ctrl/tinycolor@4.0.2`. [#46744](https://github.com/ant-design/ant-design/pull/46744) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Mentions item height bug. [#46737](https://github.com/ant-design/ant-design/pull/46737)
+
 ## 5.12.6
 
 `2023-12-30`
