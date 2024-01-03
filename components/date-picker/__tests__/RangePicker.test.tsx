@@ -13,10 +13,9 @@ import { closeCircleByRole, closePicker, expectCloseCircle, openPicker, selectCe
 
 dayjs.extend(customParseFormat);
 
-type RangeValue<DateType extends object> = [
-  DateType | undefined | null,
-  DateType | undefined | null,
-];
+type RangeValue<DateType extends object> =
+  | [DateType | undefined | null, DateType | undefined | null]
+  | null;
 
 const { RangePicker } = DatePicker;
 
@@ -35,7 +34,7 @@ describe('RangePicker', () => {
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper1 = render(<RangePicker value={[birthday, birthday]} open />);
-    const wrapper2 = render(<RangePicker value={[] as unknown as RangeValue<any>} open />);
+    const wrapper2 = render(<RangePicker value={[] as unknown as RangeValue<dayjs.Dayjs>} open />);
 
     expect(() => {
       openPicker(wrapper1);
@@ -64,7 +63,7 @@ describe('RangePicker', () => {
   it('the left selection is before the right selection', () => {
     let rangePickerValue: dayjs.Dayjs[] = [];
     const Test: React.FC = () => {
-      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null!);
+      const [value, setValue] = useState<RangeValue<dayjs.Dayjs>>(null);
       return (
         <RangePicker
           value={value}
