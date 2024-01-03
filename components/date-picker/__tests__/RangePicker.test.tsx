@@ -14,8 +14,8 @@ import { closeCircleByRole, closePicker, expectCloseCircle, openPicker, selectCe
 dayjs.extend(customParseFormat);
 
 type RangeValue<DateType extends object> = [
-  start?: DateType | undefined | null,
-  end?: DateType | undefined | null,
+  DateType | undefined | null,
+  DateType | undefined | null,
 ];
 
 const { RangePicker } = DatePicker;
