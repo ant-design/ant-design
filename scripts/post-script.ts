@@ -6,18 +6,18 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
 import semver from 'semver';
-import DEPRECIATED_VERSION from '../depreciated-versions.json';
+import deprecatedVersions from '../deprecated-versions.json';
 
 dayjs.extend(relativeTime);
 
 const CONCH_TAG = 'conch-v5';
 
 function matchDeprecated(v: string) {
-  const match = Object.keys(DEPRECIATED_VERSION).find((depreciated) =>
+  const match = Object.keys(deprecatedVersions).find((depreciated) =>
     semver.satisfies(v, depreciated),
   );
 
-  const reason = DEPRECIATED_VERSION[match as keyof typeof DEPRECIATED_VERSION] || [];
+  const reason = deprecatedVersions[match as keyof typeof deprecatedVersions] || [];
 
   return {
     match,
