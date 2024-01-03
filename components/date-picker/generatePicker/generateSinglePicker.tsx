@@ -94,19 +94,8 @@ export default function generatePicker<DateType extends AnyObject>(
         showToday: true,
       };
 
-      // let additionalOverrideProps: any = {};
-      // if (picker) {
-      //   additionalOverrideProps.picker = picker;
-      // }
       const mergedPicker = picker || props.picker;
 
-      // additionalOverrideProps = {
-      //   ...additionalOverrideProps,
-      //   ...(showTime ? getTimeProps({ format, picker: mergedPicker, ...showTime }) : {}),
-      //   ...(mergedPicker === 'time'
-      //     ? getTimeProps({ format, ...props, picker: mergedPicker })
-      //     : {}),
-      // };
       const rootPrefixCls = getPrefixCls();
 
       // =================== Warning =====================

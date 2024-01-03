@@ -73,11 +73,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const rootCls = useCSSVarCls(prefixCls);
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-    // const additionalOverrideProps: any = {
-    //   ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
-    //   ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
-    // };
-
     // =================== Warning =====================
     if (process.env.NODE_ENV !== 'production') {
       const warning = devUseWarning('DatePicker.RangePicker');
