@@ -24,12 +24,10 @@ import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
-import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType extends object>(
   generateConfig: GenerateConfig<DateType>,
 ) {
-  type InternalRangePickerProps = RangePickerProps<DateType> & {};
   type DateRangePickerProps = RangePickerProps<DateType> & {
     /**
      * @deprecated `dropdownClassName` is deprecated which will be removed in next major
@@ -42,10 +40,7 @@ export default function generateRangePicker<DateType extends object>(
     popupStyle?: React.CSSProperties;
   };
 
-  const RangePicker = forwardRef<
-    InternalRangePickerProps | CommonPickerMethods,
-    DateRangePickerProps
-  >((props, ref) => {
+  const RangePicker = forwardRef<PickerRef, DateRangePickerProps>((props, ref) => {
     const {
       prefixCls: customizePrefixCls,
       getPopupContainer: customGetPopupContainer,
@@ -110,10 +105,7 @@ export default function generateRangePicker<DateType extends object>(
       </>
     );
 
-    useImperativeHandle(ref, () => ({
-      focus: () => innerRef.current?.focus(),
-      blur: () => innerRef.current?.blur(),
-    }));
+    useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
 
@@ -186,5 +178,5 @@ export default function generateRangePicker<DateType extends object>(
     RangePicker.displayName = 'RangePicker';
   }
 
-  return RangePicker as unknown as PickerComponentClass<DateRangePickerProps>;
+  return RangePicker;
 }
