@@ -58,9 +58,11 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-export type PickerProps<DateType extends AnyObject> = InjectDefaultProps<RcPickerProps<DateType>>;
+export type PickerProps<DateType extends AnyObject = any> = InjectDefaultProps<
+  RcPickerProps<DateType>
+>;
 
-export type RangePickerProps<DateType extends AnyObject> = InjectDefaultProps<
+export type RangePickerProps<DateType extends AnyObject = any> = InjectDefaultProps<
   RcRangePickerProps<DateType>
 >;
 
