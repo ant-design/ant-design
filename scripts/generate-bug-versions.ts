@@ -37,13 +37,13 @@ class ListNode {
     this.next = null;
   }
 
-  findMaxSatisfyingVersion(versionList: string[]): string {
+  findMaxSatisfyingVersion(versionList: string[]): string | undefined {
     const { match } = matchDeprecated(this.value);
     const maxSatisfyingVersion = semver.maxSatisfying(versionList, match)!;
 
     const maxSatisfyingVersionNext = this.findNext(maxSatisfyingVersion)?.value;
 
-    if (!maxSatisfyingVersionNext) return null;
+    if (!maxSatisfyingVersionNext) return undefined;
 
     if (semver.major(maxSatisfyingVersionNext) > semver.major(maxSatisfyingVersion)) {
       return maxSatisfyingVersion;
