@@ -37,7 +37,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
     dropdownClassName?: string;
     popupClassName?: string;
     rootClassName?: string;
-
     popupStyle?: React.CSSProperties;
   };
 

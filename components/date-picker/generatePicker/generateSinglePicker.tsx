@@ -40,7 +40,6 @@ export default function generatePicker<DateType extends AnyObject>(
     dropdownClassName?: string;
     popupClassName?: string;
     rootClassName?: string;
-
     popupStyle?: React.CSSProperties;
   };
   type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
