@@ -289,7 +289,6 @@ const InternalSelect = <
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
-      maxCount={isMultiple ? maxCount : undefined}
       prefixCls={prefixCls}
       placement={memoPlacement}
       direction={direction}
@@ -303,6 +302,7 @@ const InternalSelect = <
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       dropdownStyle={{ ...dropdownStyle, zIndex }}
+      maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
     />,
   );

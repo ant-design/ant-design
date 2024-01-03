@@ -451,7 +451,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // Copy
   const renderCopy = () => {
-    if (!enableCopy) return;
+    if (!enableCopy) {
+      return null;
+    }
 
     const { tooltips, icon } = copyConfig;
 
@@ -467,7 +469,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <Tooltip key="copy" title={copyTitle}>
         <TransButton
-          className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
+          className={classNames(`${prefixCls}-copy`, {
+            [`${prefixCls}-copy-success`]: copied,
+            [`${prefixCls}-copy-icon-only`]: children === null || children === undefined,
+          })}
           onClick={onCopyClick}
           aria-label={ariaLabel}
         >
