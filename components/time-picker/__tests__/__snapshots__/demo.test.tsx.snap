@@ -15,11 +15,9 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="12"
-          title=""
           value=""
         />
         <span
@@ -61,11 +59,9 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="11"
-          title=""
           value=""
         />
         <span
@@ -107,11 +103,9 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="10"
-          title=""
           value=""
         />
         <span
@@ -154,11 +148,9 @@ exports[`renders components/time-picker/demo/addon.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
       value=""
     />
     <span
@@ -199,11 +191,9 @@ exports[`renders components/time-picker/demo/basic.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
       value=""
     />
     <span
@@ -244,11 +234,9 @@ exports[`renders components/time-picker/demo/colored-popup.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
       value=""
     />
     <span
@@ -283,19 +271,17 @@ exports[`renders components/time-picker/demo/colored-popup.tsx correctly 1`] = `
 
 exports[`renders components/time-picker/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-picker ant-picker-outlined ant-picker-disabled"
+  class="ant-picker ant-picker-outlined"
 >
   <div
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       disabled=""
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
-      value=""
+      value="12:08:23"
     />
     <span
       class="ant-picker-suffix"
@@ -335,12 +321,10 @@ exports[`renders components/time-picker/demo/hide-column.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
-      value=""
+      value="12:08"
     />
     <span
       class="ant-picker-suffix"
@@ -405,11 +389,9 @@ exports[`renders components/time-picker/demo/interval-options.tsx correctly 1`] 
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
       value=""
     />
     <span
@@ -447,13 +429,13 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
   class="ant-picker ant-picker-range ant-picker-outlined"
 >
   <div
-    class="ant-picker-input ant-picker-input-active"
+    class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="start"
       placeholder="Start time"
-      readonly=""
-      size="10"
       value=""
     />
   </div>
@@ -489,16 +471,16 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="end"
       placeholder="End time"
-      readonly=""
-      size="10"
       value=""
     />
   </div>
   <div
     class="ant-picker-active-bar"
-    style="left:0;width:0;position:absolute"
+    style="position:absolute;width:0;left:0"
   />
   <span
     class="ant-picker-suffix"
@@ -541,11 +523,9 @@ exports[`renders components/time-picker/demo/render-panel.tsx correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
-        readonly=""
-        size="10"
-        title=""
         value=""
       />
       <span
@@ -594,12 +574,10 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="10"
-          title=""
-          value=""
+          value="12:08:23"
         />
         <span
           class="ant-picker-suffix"
@@ -665,12 +643,10 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="10"
-          title=""
-          value=""
+          value="12:08:23"
         />
         <span
           class="ant-picker-suffix"
@@ -736,12 +712,10 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="10"
-          title=""
-          value=""
+          value="12:08:23"
         />
         <span
           class="ant-picker-suffix"
@@ -814,11 +788,9 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="10"
-          title=""
           value=""
         />
         <span
@@ -860,11 +832,9 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
-          size="10"
-          title=""
           value=""
         />
         <span
@@ -903,13 +873,13 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-error"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start time"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
@@ -945,16 +915,16 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End time"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -991,13 +961,13 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined ant-picker-status-warning"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start time"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
@@ -1033,16 +1003,16 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End time"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1083,11 +1053,9 @@ exports[`renders components/time-picker/demo/suffix.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
       value=""
     />
     <span
@@ -1125,11 +1093,9 @@ exports[`renders components/time-picker/demo/value.tsx correctly 1`] = `
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
-      readonly=""
-      size="10"
-      title=""
       value=""
     />
     <span
@@ -1178,11 +1144,9 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
-          readonly=""
-          size="10"
-          title=""
           value=""
         />
         <span
@@ -1217,13 +1181,13 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Filled"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
@@ -1259,16 +1223,16 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder=""
-          readonly=""
-          size="10"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1309,11 +1273,9 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
-          readonly=""
-          size="10"
-          title=""
           value=""
         />
         <span
@@ -1348,13 +1310,13 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-filled"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Filled"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
@@ -1390,16 +1352,16 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder=""
-          readonly=""
-          size="10"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1440,11 +1402,9 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Borderless"
-          readonly=""
-          size="10"
-          title=""
           value=""
         />
         <span
@@ -1479,13 +1439,13 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-borderless"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Borderless"
-          readonly=""
-          size="10"
           value=""
         />
       </div>
@@ -1521,16 +1481,16 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder=""
-          readonly=""
-          size="10"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
