@@ -3,16 +3,17 @@ import type { Dayjs } from 'dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
+import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
 import type { PickerProps, RangePickerProps } from '../date-picker/generatePicker';
 
-export type PickerTimeProps<DateType extends object> = Omit<
+export type PickerTimeProps<DateType extends AnyObject> = Omit<
   PickerProps<DateType>,
   'showTime' | 'picker'
 >;
 
-export type RangePickerTimeProps<DateType extends object> = Omit<
+export type RangePickerTimeProps<DateType extends AnyObject> = Omit<
   RangePickerProps<DateType>,
   'showTime' | 'picker'
 >;

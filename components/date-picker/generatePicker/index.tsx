@@ -6,6 +6,7 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 
 import type { InputStatus } from '../../_util/statusUtils';
+import type { AnyObject } from '../../_util/type';
 import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../form/hooks/useVariants';
 import type { TimePickerLocale } from '../../time-picker';
@@ -57,13 +58,13 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-export type PickerProps<DateType extends object> = InjectDefaultProps<RcPickerProps<DateType>>;
+export type PickerProps<DateType extends AnyObject> = InjectDefaultProps<RcPickerProps<DateType>>;
 
-export type RangePickerProps<DateType extends object> = InjectDefaultProps<
+export type RangePickerProps<DateType extends AnyObject> = InjectDefaultProps<
   RcRangePickerProps<DateType>
 >;
 
-function generatePicker<DateType extends object>(generateConfig: GenerateConfig<DateType>) {
+function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
   const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker } =
     generateSinglePicker(generateConfig);

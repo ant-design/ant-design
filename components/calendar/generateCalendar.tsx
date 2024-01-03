@@ -5,6 +5,7 @@ import type { GenerateConfig } from 'rc-picker/lib/generate';
 import type { CellRenderInfo } from 'rc-picker/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
+import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
@@ -52,7 +53,7 @@ export interface CalendarProps<DateType> {
   onSelect?: (date: DateType, selectInfo: SelectInfo) => void;
 }
 
-function generateCalendar<DateType extends object>(generateConfig: GenerateConfig<DateType>) {
+function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
   function isSameYear(date1: DateType, date2: DateType) {
     return date1 && date2 && generateConfig.getYear(date1) === generateConfig.getYear(date2);
   }

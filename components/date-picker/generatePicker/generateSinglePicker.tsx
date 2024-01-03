@@ -12,6 +12,7 @@ import type { PickerProps } from '.';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import DisabledContext from '../../config-provider/DisabledContext';
@@ -26,7 +27,7 @@ import useStyle from '../style';
 import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
 
-export default function generatePicker<DateType extends object>(
+export default function generatePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) {
   type CustomPickerProps = {
