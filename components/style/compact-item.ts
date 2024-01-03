@@ -64,11 +64,12 @@ function compactItemBorderRadius(
   const childCombinator = borderElCls ? `> ${borderElCls}` : '';
 
   return {
-    [`&-item:not(${parentCls}-first-item):not(${parentCls}-last-item) ${childCombinator}`]: {
-      borderRadius: 0,
-    },
+    [`&-item:not(.unCompact):not(${parentCls}-first-item):not(${parentCls}-last-item) ${childCombinator}`]:
+      {
+        borderRadius: 0,
+      },
 
-    [`&-item:not(${parentCls}-last-item)${parentCls}-first-item`]: {
+    [`&-item:not(.unCompact):not(${parentCls}-last-item)${parentCls}-first-item`]: {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartEndRadius: 0,
@@ -76,7 +77,7 @@ function compactItemBorderRadius(
         },
     },
 
-    [`&-item:not(${parentCls}-first-item)${parentCls}-last-item`]: {
+    [`&-item:not(.unCompact):not(${parentCls}-first-item)${parentCls}-last-item`]: {
       [`& ${childCombinator}, &${prefixCls}-sm ${childCombinator}, &${prefixCls}-lg ${childCombinator}`]:
         {
           borderStartStartRadius: 0,
