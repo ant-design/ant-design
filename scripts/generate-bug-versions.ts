@@ -41,16 +41,17 @@ class ListNode {
     const { match } = matchDeprecated(this.value);
     const maxSatisfyingVersion = semver.maxSatisfying(versionList, match)!;
 
-    const maxSatisfyingVersionNext = this.findNext(maxSatisfyingVersion)!.value;
+    const maxSatisfyingVersionNext = this.findNext(maxSatisfyingVersion)?.value;
 
-    // 如果下一个版本已经是 major 版本，那么就不需要再往下找了
+    if (!maxSatisfyingVersionNext) return null;
+
     if (semver.major(maxSatisfyingVersionNext) > semver.major(maxSatisfyingVersion)) {
       return maxSatisfyingVersion;
     }
 
     const { match: nextMatch } = matchDeprecated(maxSatisfyingVersionNext);
     if (nextMatch) {
-      return this.next?.findMaxSatisfyingVersion(versionList) ?? pkg.version;
+      return this.next?.findMaxSatisfyingVersion(versionList);
     }
 
     return maxSatisfyingVersionNext;
@@ -108,10 +109,11 @@ async function run() {
     if (match) {
       const find = current.findMaxSatisfyingVersion(versionList);
 
-      bugVersions[current.value] = {
-        version: find ?? pkg.version,
-        reason: reason.join(', '),
-      };
+      if (find)
+        bugVersions[current.value] = {
+          version: find,
+          reason: reason.join(', '),
+        };
     }
 
     current = next;
