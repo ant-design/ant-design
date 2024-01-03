@@ -4,18 +4,32 @@ const path = require('path');
 const restCssPath = path.join(process.cwd(), 'components', 'style', 'reset.css');
 const tokenStatisticPath = path.join(process.cwd(), 'components', 'version', 'token.json');
 const tokenMetaPath = path.join(process.cwd(), 'components', 'version', 'token-meta.json');
+const depreciatedVersionsPath = path.join(
+  process.cwd(),
+  'components',
+  'version',
+  'depreciated-version.json',
+);
 
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './es'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'es', 'style', 'reset.css'));
     fs.copyFileSync(tokenStatisticPath, path.join(process.cwd(), 'es', 'version', 'token.json'));
     fs.copyFileSync(tokenMetaPath, path.join(process.cwd(), 'es', 'version', 'token-meta.json'));
+    fs.copyFileSync(
+      depreciatedVersionsPath,
+      path.join(process.cwd(), 'es', 'version', 'depreciated-version.json'),
+    );
   }
 
   if (fs.existsSync(path.join(__dirname, './lib'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'lib', 'style', 'reset.css'));
     fs.copyFileSync(tokenStatisticPath, path.join(process.cwd(), 'lib', 'version', 'token.json'));
     fs.copyFileSync(tokenMetaPath, path.join(process.cwd(), 'lib', 'version', 'token-meta.json'));
+    fs.copyFileSync(
+      depreciatedVersionsPath,
+      path.join(process.cwd(), 'lib', 'version', 'depreciated-version.json'),
+    );
   }
 }
 

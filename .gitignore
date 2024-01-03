@@ -51,6 +51,7 @@ components/version/version.ts
 components/version/version.tsx
 components/version/token.json
 components/version/token-meta.json
+components/version/depreciated-version.json
 .dumi/tmp
 .dumi/tmp-test
 .dumi/tmp-production
