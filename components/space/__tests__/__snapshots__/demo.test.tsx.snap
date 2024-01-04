@@ -175,6 +175,8 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
       >
         <span
           class="ant-upload"
+          role="button"
+          tabindex="0"
         >
           <input
             accept=""
