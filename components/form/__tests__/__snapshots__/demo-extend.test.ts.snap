@@ -5195,7 +5195,6 @@ Array [
                   >
                     <span
                       class="ant-upload ant-upload-disabled"
-                      role="button"
                     >
                       <input
                         accept=""
@@ -21600,8 +21599,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               >
                 <span
                   class="ant-upload"
-                  role="button"
-                  tabindex="0"
                 >
                   <input
                     accept=""
@@ -31428,11 +31425,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
 </form>
 `;
 
-exports[`renders components/form/demo/variant.tsx extend context correctly 2`] = `
-[
-  "Warning: React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.%s",
-]
-`;
+exports[`renders components/form/demo/variant.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/warning-only.tsx extend context correctly 1`] = `
 <form
