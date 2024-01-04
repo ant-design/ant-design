@@ -13,7 +13,7 @@ tag: New
 
 Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
 
-<!--prettier-ignore-->
+<!-- prettier-ignore -->
 :::info
 If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels.
 You can configure the QR code to be larger through size, or shorten the link through short link services.

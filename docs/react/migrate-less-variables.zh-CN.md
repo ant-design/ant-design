@@ -7,7 +7,7 @@ title: 从 Less 变量到 Design Token
 
 本文档包含了所有 4.x 版本中组件相关的 less 变量与 5.x 版本的 Component Token 的对照关系。如果你是从 4.x 版本升级到 5.x 版本，可以通过这份对照表快速找到对应的 Component Token。
 
-<!--prettier-ignore-->
+<!-- prettier-ignore -->
 :::info{title=注意}
 仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。
 :::
