@@ -552,18 +552,16 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-outlined ant-picker-disabled"
+              class="ant-picker ant-picker-outlined"
             >
               <div
                 class="ant-picker-input"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
                   disabled=""
                   placeholder="Select date"
-                  readonly=""
-                  size="12"
-                  title=""
                   value=""
                 />
                 <span
@@ -622,17 +620,17 @@ exports[`Form form should support disabled 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
+              class="ant-picker ant-picker-range ant-picker-outlined"
             >
               <div
-                class="ant-picker-input ant-picker-input-active"
+                class="ant-picker-input"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
+                  date-range="start"
                   disabled=""
                   placeholder="Start date"
-                  readonly=""
-                  size="12"
                   value=""
                 />
               </div>
@@ -668,17 +666,17 @@ exports[`Form form should support disabled 1`] = `
                 class="ant-picker-input"
               >
                 <input
+                  aria-invalid="false"
                   autocomplete="off"
+                  date-range="end"
                   disabled=""
                   placeholder="End date"
-                  readonly=""
-                  size="12"
                   value=""
                 />
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="left: 0px; width: 0px; position: absolute;"
+                style="position: absolute; width: 0px; left: 0px;"
               />
               <span
                 class="ant-picker-suffix"
@@ -933,6 +931,7 @@ exports[`Form form should support disabled 1`] = `
               >
                 <span
                   class="ant-upload ant-upload-disabled"
+                  role="button"
                 >
                   <input
                     accept=""
