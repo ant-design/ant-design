@@ -56,7 +56,6 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
 | indicator | 自定义指示条`长度`和`对齐方式`，默认与 tab 等宽，居中对齐 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
-| indicatorSize（已废弃） | 自定义指示条长度，默认与 tab 等宽 | number \| (origin: number) => number | - | 5.9.0 - 5.13.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |

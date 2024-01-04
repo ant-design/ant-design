@@ -54,7 +54,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | indicator | Customize `length` and `align` of indicator, which is the same as tab by default | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
-| indicatorSize (deprecated) | Customize length of indicator, which is the same as tab by default | number \| (origin: number) => number | - | 5.9.0 - 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
