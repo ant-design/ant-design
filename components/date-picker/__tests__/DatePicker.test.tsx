@@ -268,13 +268,13 @@ describe('DatePicker', () => {
         open
       />,
     );
-    const fuousEvent = () => {
+    const focusEvent = () => {
       fireEvent.focus(container.querySelector('input')!);
     };
     const mouseDownEvent = () => {
       fireEvent.mouseDown(container.querySelector('input')!);
     };
-    expect(fuousEvent).not.toThrow();
+    expect(focusEvent).not.toThrow();
     expect(mouseDownEvent).not.toThrow();
   });
 
