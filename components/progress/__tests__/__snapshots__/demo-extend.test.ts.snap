@@ -533,7 +533,7 @@ Array [
           >
             <div
               class="ant-progress-bg"
-              style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+              style="width: 50%; height: 8px; --progress-percent: 0.5;"
             />
           </div>
         </div>
@@ -562,7 +562,7 @@ Array [
           >
             <div
               class="ant-progress-bg"
-              style="width: 100%; height: 6px; clip-path: inset(0 50% 0 0 round 100px);"
+              style="width: 50%; height: 6px; --progress-percent: 0.5;"
             />
           </div>
         </div>
@@ -591,7 +591,7 @@ Array [
           >
             <div
               class="ant-progress-bg"
-              style="width: 100%; height: 20px; clip-path: inset(0 50% 0 0 round 100px);"
+              style="width: 50%; height: 20px; --progress-percent: 0.5;"
             />
           </div>
         </div>
@@ -1275,7 +1275,7 @@ Array [
         >
           <div
             class="ant-progress-bg"
-            style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+            style="width: 0%; height: 8px; --progress-percent: 0;"
           />
         </div>
       </div>
@@ -1547,7 +1547,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 0.09999999999999432% 0 0 round 100px);"
+          style="width: 99.9%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9 0%, #87d068 100%); --progress-percent: 0.9990000000000001;"
         />
       </div>
     </div>
@@ -1572,7 +1572,7 @@ exports[`renders components/progress/demo/gradient-line.tsx extend context corre
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+          style="width: 50%; height: 8px; --progress-line-stroke-color: linear-gradient(to right, #108ee9, #87d068); --progress-percent: 0.5;"
         />
       </div>
     </div>
@@ -2104,7 +2104,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 70% 0 0 round 100px);"
+          style="width: 30%; height: 8px; --progress-percent: 0.3;"
         />
       </div>
     </div>
@@ -2129,7 +2129,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+          style="width: 50%; height: 8px; --progress-percent: 0.5;"
         />
       </div>
     </div>
@@ -2154,7 +2154,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 30% 0 0 round 100px);"
+          style="width: 70%; height: 8px; --progress-percent: 0.7;"
         />
       </div>
     </div>
@@ -2197,7 +2197,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 0% 0 0 round 100px);"
+          style="width: 100%; height: 8px; --progress-percent: 1;"
         />
       </div>
     </div>
@@ -2239,7 +2239,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+          style="width: 50%; height: 8px; --progress-percent: 0.5;"
         />
       </div>
     </div>
@@ -2267,7 +2267,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 6px; clip-path: inset(0 70% 0 0 round 100px);"
+          style="width: 30%; height: 6px; --progress-percent: 0.3;"
         />
       </div>
     </div>
@@ -2292,7 +2292,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 6px; clip-path: inset(0 50% 0 0 round 100px);"
+          style="width: 50%; height: 6px; --progress-percent: 0.5;"
         />
       </div>
     </div>
@@ -2317,7 +2317,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 6px; clip-path: inset(0 30% 0 0 round 100px);"
+          style="width: 70%; height: 6px; --progress-percent: 0.7;"
         />
       </div>
     </div>
@@ -2360,7 +2360,7 @@ exports[`renders components/progress/demo/line-mini.tsx extend context correctly
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 6px; clip-path: inset(0 0% 0 0 round 100px);"
+          style="width: 100%; height: 6px; --progress-percent: 1;"
         />
       </div>
     </div>
@@ -2410,7 +2410,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; border-radius: 0; clip-path: inset(0 25% 0 0 round 0);"
+          style="width: 75%; height: 8px; border-radius: 0; --progress-percent: 0.75;"
         />
       </div>
     </div>
@@ -2559,11 +2559,11 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 40% 0 0 round 100px);"
+          style="width: 60%; height: 8px; --progress-percent: 0.6;"
         />
         <div
           class="ant-progress-success-bg"
-          style="width: 100%; height: 8px; clip-path: inset(0 70% 0 0 round 100px);"
+          style="width: 30%; height: 8px;"
         />
       </div>
     </div>
@@ -2775,7 +2775,7 @@ Array [
           >
             <div
               class="ant-progress-bg"
-              style="width: 100%; height: 8px; clip-path: inset(0 50% 0 0 round 100px);"
+              style="width: 50%; height: 8px; --progress-percent: 0.5;"
             />
           </div>
         </div>
@@ -2804,7 +2804,7 @@ Array [
           >
             <div
               class="ant-progress-bg"
-              style="width: 100%; height: 6px; clip-path: inset(0 50% 0 0 round 100px);"
+              style="width: 50%; height: 6px; --progress-percent: 0.5;"
             />
           </div>
         </div>
@@ -2833,7 +2833,7 @@ Array [
           >
             <div
               class="ant-progress-bg"
-              style="width: 100%; height: 20px; clip-path: inset(0 50% 0 0 round 100px);"
+              style="width: 50%; height: 20px; --progress-percent: 0.5;"
             />
           </div>
         </div>

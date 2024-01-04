@@ -37,6 +37,9 @@ export interface ComponentToken {
   circleIconFontSize: string;
 }
 
+export const LineStrokeColorVar = '--progress-line-stroke-color';
+export const Percent = '--progress-percent';
+
 interface ProgressToken extends FullToken<'Progress'> {
   progressStepMinWidth: number | string;
   progressStepMarginInlineEnd: number | string;
@@ -111,10 +114,24 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
       },
 
       [`${progressCls}-success-bg, ${progressCls}-bg`]: {
-        position: 'relative',
-        backgroundColor: token.defaultColor,
+        background: token.defaultColor,
         borderRadius: token.lineBorderRadius,
         transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
+      },
+
+      [`${progressCls}-bg`]: {
+        overflow: 'hidden',
+
+        '&::after': {
+          content: '""',
+          background: {
+            _multi_value_: true,
+            value: ['inherit', `var(${LineStrokeColorVar})`],
+          },
+          height: '100%',
+          width: `calc(1 / var(${Percent}) * 100%)`,
+          display: 'block',
+        },
       },
 
       [`${progressCls}-success-bg`]: {
