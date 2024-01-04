@@ -127,7 +127,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
         superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
         transitionName={`${rootPrefixCls}-slide-up`}
         {...restProps}
-        // {...additionalOverrideProps}
         className={classNames(
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize,

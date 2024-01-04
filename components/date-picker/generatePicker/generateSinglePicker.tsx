@@ -151,7 +151,6 @@ export default function generatePicker<DateType extends AnyObject>(
           picker={picker}
           {...additionalProps}
           {...restProps}
-          // {...additionalOverrideProps}
           locale={locale!.lang}
           className={classNames(
             {
@@ -187,9 +186,11 @@ export default function generatePicker<DateType extends AnyObject>(
               popupClassName || dropdownClassName,
             ),
           }}
-          popupStyle={{
-            ...props.popupStyle,
-            zIndex,
+          styles={{
+            popup: {
+              ...props.popupStyle,
+              zIndex,
+            },
           }}
           allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
         />,
