@@ -24,8 +24,9 @@ import { FormItemInputContext } from '../form/context';
 import type { Variant } from '../form/hooks/useVariants';
 import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
+import { useToken } from '../theme/internal';
+import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
-import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
 
@@ -101,7 +102,7 @@ const InternalSelect = <
     dropdownClassName,
     listHeight = 256,
     placement,
-    listItemHeight = 24,
+    listItemHeight: customListItemHeight,
     size: customizeSize,
     disabled: customDisabled,
     notFoundContent,
@@ -116,6 +117,7 @@ const InternalSelect = <
     dropdownStyle,
     transitionName,
     tagRender,
+    maxCount,
     ...rest
   } = props;
 
@@ -129,6 +131,10 @@ const InternalSelect = <
     popupOverflow,
     select,
   } = React.useContext(ConfigContext);
+
+  const [, token] = useToken();
+
+  const listItemHeight = customListItemHeight ?? token?.controlHeight;
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
@@ -239,8 +245,6 @@ const InternalSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
@@ -260,6 +264,12 @@ const InternalSelect = <
     );
 
     warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+
+    warning(
+      !(typeof maxCount !== 'undefined' && !isMultiple),
+      'usage',
+      '`maxCount` only works with mode `multiple` or `tags`',
+    );
   }
 
   // ====================== zIndex =========================
@@ -274,8 +284,8 @@ const InternalSelect = <
       {...selectProps}
       style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
@@ -292,7 +302,8 @@ const InternalSelect = <
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       dropdownStyle={{ ...dropdownStyle, zIndex }}
-      tagRender={tagRender}
+      maxCount={isMultiple ? maxCount : undefined}
+      tagRender={isMultiple ? tagRender : undefined}
     />,
   );
 };

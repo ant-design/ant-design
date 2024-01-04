@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import React, { useMemo } from 'react';
 import { HistoryOutlined } from '@ant-design/icons';
-import { Button, Drawer, Timeline, Typography } from 'antd';
+import { Button, Drawer, Timeline, Typography, Grid } from 'antd';
 import { createStyles } from 'antd-style';
 
 import useFetch from '../../../hooks/useFetch';
@@ -158,6 +158,9 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
     });
   }, [list]);
 
+  const screens = Grid.useBreakpoint();
+  const width = screens.md ? '48vw' : '90vw';
+
   if (!list || !list.length) {
     return null;
   }
@@ -181,7 +184,7 @@ export default function ComponentChangelog(props: ComponentChangelogProps) {
           </Link>
         }
         open={show}
-        width="40vw"
+        width={width}
         onClose={() => {
           setShow(false);
         }}

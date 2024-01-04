@@ -5,8 +5,8 @@ import type {
   DefaultOptionType,
   FieldNames,
   MultipleCascaderProps as RcMultipleCascaderProps,
-  ShowSearchType,
   SingleCascaderProps as RcSingleCascaderProps,
+  ShowSearchType,
 } from 'rc-cascader';
 import RcCascader from 'rc-cascader';
 import type { Placement } from 'rc-select/lib/BaseSelect';
@@ -26,8 +26,10 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
+import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
-import useBuiltinPlacements from '../select/useBuiltinPlacements';
 import useIcons from '../select/useIcons';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
@@ -36,8 +38,6 @@ import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
-import type { Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -304,8 +304,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   // ============================ zIndex ============================
@@ -337,7 +335,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       disabled={mergedDisabled}
       style={{ ...cascader?.style, ...style }}
       {...(restProps as any)}
-      builtinPlacements={mergedBuiltinPlacements}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       direction={mergedDirection}
       placement={memoPlacement}
       notFoundContent={mergedNotFoundContent}
@@ -350,10 +348,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
-      dropdownStyle={{
-        ...restProps.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...restProps.dropdownStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
