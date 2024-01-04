@@ -99,9 +99,6 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
 
-  const mergedIndicatorSize =
-    indicator?.size || indicatorSize || tabs?.indicator?.size || tabs?.indicatorSize;
-
   return wrapCSSVar(
     <RcTabs
       direction={direction}
@@ -129,7 +126,10 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       moreIcon={moreIcon}
       prefixCls={prefixCls}
       animated={mergedAnimated}
-      indicator={{ ...tabs?.indicator, ...indicator, size: mergedIndicatorSize }}
+      indicator={{
+        align: indicator?.align || tabs?.indicator?.align,
+        size: indicator?.size || indicatorSize || tabs?.indicator?.size || tabs?.indicatorSize,
+      }}
     />,
   );
 };
