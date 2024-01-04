@@ -84,7 +84,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     warning(
       !(legacyIndicatorSize || tabs?.indicatorSize),
       'deprecated',
-      '`indicatorSize` has deprecated. Please use `indicator={ size: ... }` instead.',
+      '`indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
     );
   }
 
