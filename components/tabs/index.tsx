@@ -9,13 +9,14 @@ import type { EditableConfig } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useAnimateConfig from './hooks/useAnimateConfig';
 import useLegacyItems from './hooks/useLegacyItems';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import TabPane, { type TabPaneProps } from './TabPane';
+import TabPane from './TabPane';
+import type { TabPaneProps } from './TabPane';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -48,7 +49,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     items,
     animated,
     style,
-    indicatorSize,
+    indicatorSize: legacyIndicatorSize,
+    indicator,
     ...otherProps
   } = props;
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
@@ -77,6 +79,12 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       !('onPrevClick' in props) && !('onNextClick' in props),
       'breaking',
       '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
+    );
+
+    warning(
+      !(legacyIndicatorSize || tabs?.indicatorSize),
+      'deprecated',
+      '`indicatorSize` has deprecated. Please use `indicator={ size: ... }` instead.',
     );
   }
 
@@ -115,7 +123,8 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       moreIcon={moreIcon}
       prefixCls={prefixCls}
       animated={mergedAnimated}
-      indicatorSize={indicatorSize ?? tabs?.indicatorSize}
+      indicatorSize={legacyIndicatorSize || tabs?.indicatorSize}
+      indicator={{ ...indicator, ...tabs?.indicator }}
     />,
   );
 };
