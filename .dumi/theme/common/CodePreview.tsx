@@ -1,4 +1,4 @@
-import React, { ComponentProps, useEffect, useMemo } from 'react';
+import React, { type ComponentProps, useEffect, useMemo } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
