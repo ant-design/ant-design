@@ -5,6 +5,7 @@ import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs from 'rc-tabs';
+import type { GetIndicatorSize } from 'rc-tabs/lib/hooks/useIndicator';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
@@ -32,6 +33,8 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   addIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
+  /** @deprecated Please use `indicator={{ size: ... }}` instead */
+  indicatorSize?: GetIndicatorSize;
 }
 
 const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
@@ -49,7 +52,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     items,
     animated,
     style,
-    indicatorSize: legacyIndicatorSize,
+    indicatorSize,
     indicator,
     ...otherProps
   } = props;
@@ -82,7 +85,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     );
 
     warning(
-      !(legacyIndicatorSize || tabs?.indicatorSize),
+      !(indicatorSize || tabs?.indicatorSize),
       'deprecated',
       '`indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
     );
@@ -95,6 +98,9 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
   const size = useSize(customSize);
 
   const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
+
+  const mergedIndicatorSize =
+    indicator?.size || indicatorSize || tabs?.indicator?.size || tabs?.indicatorSize;
 
   return wrapCSSVar(
     <RcTabs
@@ -123,8 +129,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       moreIcon={moreIcon}
       prefixCls={prefixCls}
       animated={mergedAnimated}
-      indicatorSize={legacyIndicatorSize || tabs?.indicatorSize}
-      indicator={{ ...indicator, ...tabs?.indicator }}
+      indicator={{ ...tabs?.indicator, ...indicator, size: mergedIndicatorSize }}
     />,
   );
 };
