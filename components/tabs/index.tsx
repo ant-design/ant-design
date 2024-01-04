@@ -91,13 +91,18 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     );
   }
 
+  const size = useSize(customSize);
+
   const mergedItems = useLegacyItems(items, children);
 
   const mergedAnimated = useAnimateConfig(prefixCls, animated);
 
-  const size = useSize(customSize);
-
   const mergedStyle: React.CSSProperties = { ...tabs?.style, ...style };
+
+  const mergedIndicator: TabsProps['indicator'] = {
+    align: indicator?.align || tabs?.indicator?.align,
+    size: indicator?.size || indicatorSize || tabs?.indicator?.size || tabs?.indicatorSize,
+  };
 
   return wrapCSSVar(
     <RcTabs
@@ -126,10 +131,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       moreIcon={moreIcon}
       prefixCls={prefixCls}
       animated={mergedAnimated}
-      indicator={{
-        align: indicator?.align || tabs?.indicator?.align,
-        size: indicator?.size || indicatorSize || tabs?.indicator?.size || tabs?.indicatorSize,
-      }}
+      indicator={mergedIndicator}
     />,
   );
 };

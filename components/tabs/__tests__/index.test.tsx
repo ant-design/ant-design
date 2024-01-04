@@ -141,4 +141,13 @@ describe('Tabs', () => {
     expect(container.querySelector('.Tabs_2 .ant-tabs-ink-bar')).toHaveStyle({ width: 12 });
     expect(container.querySelector('.Tabs_3 .ant-tabs-ink-bar')).toHaveStyle({ width: 4 });
   });
+
+  it('warning for indicatorSize', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Tabs indicatorSize={10} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `indicatorSize` has been deprecated. Please use `indicator={{ size: ... }}` instead.',
+    );
+    errorSpy.mockRestore();
+  });
 });
