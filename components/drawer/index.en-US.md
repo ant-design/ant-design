@@ -41,7 +41,10 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 Common props ref：[Common props](/docs/react/common-props)
 
-**🚨 Note:** v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `className` & `style` in v4 to align the API with Modal.
+<!-- prettier-ignore -->
+:::info{title=注意}
+v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `className` & `style` in v4 to align the API with Modal.
+:::
 
 | Props | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
