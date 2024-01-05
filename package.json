@@ -339,6 +339,11 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "overrides": {
+    "dumi-plugin-color-chunk": {
+      "dumi": "^2.3.0-beta.2"
+    }
+  },
   "packageManager": "npm@10.2.5",
   "size-limit": [
     {
