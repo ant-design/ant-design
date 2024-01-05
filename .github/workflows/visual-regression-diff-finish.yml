@@ -3,10 +3,7 @@
 name: 👀 Visual Regression Diff Finish
 
 on:
-  workflow_run:
-    workflows: ["👀 Visual Regression Diff Build"]
-    types:
-      - completed
+  pull_request
 
 permissions:
   contents: read
@@ -94,6 +91,7 @@ jobs:
           mkdir ./visualRegressionReport
           tar -xzvf visualRegressionReport.tar.gz -C ./visualRegressionReport
           echo "✅ Uncompress Finished"
+          echo $ALI_OSS_AK_ID
 
           rm package.json
           npm i ali-oss --no-save
