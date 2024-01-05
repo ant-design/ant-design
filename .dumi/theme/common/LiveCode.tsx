@@ -42,6 +42,14 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-source-code-copy {
           display: none;
         }
+
+        &-textarea:hover {
+          box-shadow: 0 0 0 1px ${token.colorPrimaryBorderHover} inset;
+        }
+
+        &-textarea:focus {
+          box-shadow: 0 0 0 1px ${token.colorPrimary} inset;
+        }
       }
     `,
 
