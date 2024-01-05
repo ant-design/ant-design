@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
 
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
@@ -119,6 +120,17 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
 
   const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
 
+  // =================Warning===================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Card');
+    [
+      ['headStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
+
   const onTabChange = (key: string) => {
     props.onTabChange?.(key);
   };
@@ -176,8 +188,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     const titleClasses = classNames(`${prefixCls}-head-title`, moduleClass('title'));
     const extraClasses = classNames(`${prefixCls}-extra`, moduleClass('extra'));
     const mergedHeadStyle: React.CSSProperties = {
-      ...moduleStyle('header'),
       ...headStyle,
+      ...moduleStyle('header'),
     };
     head = (
       <div className={headClasses} style={mergedHeadStyle}>
@@ -205,8 +217,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   ) : null;
   const bodyClasses = classNames(`${prefixCls}-body`, moduleClass('body'));
   const mergedBodyStyle: React.CSSProperties = {
-    ...moduleStyle('body'),
     ...bodyStyle,
+    ...moduleStyle('body'),
   };
   const body = (
     <div className={bodyClasses} style={mergedBodyStyle}>
