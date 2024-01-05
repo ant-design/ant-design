@@ -7,7 +7,10 @@ title: Less variables to Component Token
 
 This document contains the correspondence between all the less variables related to components in version 4.x and the Component Token in version 5.x. If you are upgrading from version 4.x to version 5.x, you can quickly find the corresponding Component Token through this comparison table.
 
-<Alert message="Note: There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x."></Alert>
+<!-- prettier-ignore -->
+:::info{title=Note}
+There are still some less variables that do not have a corresponding Component Token, and these variables have been deprecated in version 5.x.
+:::
 
 ## How to use Component Token
 
