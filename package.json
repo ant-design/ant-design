@@ -40,7 +40,8 @@
     "dist",
     "es",
     "lib",
-    "locale"
+    "locale",
+    "BUG_VERSIONS.json"
   ],
   "scripts": {
     "api-collection": "antd-tools run api-collection",
