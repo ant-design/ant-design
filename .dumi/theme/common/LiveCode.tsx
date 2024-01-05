@@ -74,11 +74,11 @@ const HIDE_LIVE_DEMO_TIP = 'hide-live-demo-tip';
 const LiveCode: FC<{
   lang: ComponentProps<typeof SourceCodeEditor>['lang'];
   initialValue: ComponentProps<typeof SourceCodeEditor>['initialValue'];
-  liveError?: string;
+  liveError?: Error;
   onTranspile?: (code: string) => void;
 }> = (props) => {
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<Error>();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
 
@@ -104,7 +104,7 @@ const LiveCode: FC<{
           initialValue={props.initialValue}
           onTranspile={({ err, code }) => {
             if (err) {
-              setError(err.toString());
+              setError(err);
             } else {
               setError(undefined);
               props.onTranspile?.(code);

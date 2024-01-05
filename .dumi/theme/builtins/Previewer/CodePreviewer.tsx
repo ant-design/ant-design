@@ -117,7 +117,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
     node: liveDemoNode,
     error: liveDemoError,
-    setSources: setLiveDemoSources,
+    setSource: setLiveDemoSource,
   } = useLiveDemo(asset.id);
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
@@ -517,7 +517,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
             liveError={liveDemoError}
             entryName={entryName}
             onCodeTypeChange={setCodeType}
-            onSourcesTranspile={setLiveDemoSources}
+            onSourceTranspile={setLiveDemoSource}
           />
           <div
             tabIndex={0}

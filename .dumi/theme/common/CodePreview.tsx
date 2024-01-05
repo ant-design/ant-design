@@ -67,7 +67,7 @@ interface CodePreviewProps extends Omit<ComponentProps<typeof LiveCode>, 'initia
   styleCode?: string;
   entryName: string;
   onCodeTypeChange?: (activeKey: string) => void;
-  onSourcesTranspile?: (sources: Record<string, string>) => void;
+  onSourceTranspile?: (source: Record<string, string>) => void;
 }
 
 function toReactComponent(jsonML: any[]) {
@@ -92,7 +92,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   styleCode = '',
   entryName,
   onCodeTypeChange,
-  onSourcesTranspile,
+  onSourceTranspile,
 }) => {
   // 避免 Tabs 数量不稳定的闪动问题
   const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
@@ -143,7 +143,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
                 lang={lang}
                 initialValue={sourceCodes[lang]}
                 onTranspile={(code) => {
-                  onSourcesTranspile?.({ [entryName]: code });
+                  onSourceTranspile?.({ [entryName]: code });
                 }}
               />
             ) : (
@@ -168,7 +168,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
         lang={langList[0]}
         initialValue={sourceCodes[langList[0]]}
         onTranspile={(code) => {
-          onSourcesTranspile?.({ [entryName]: code });
+          onSourceTranspile?.({ [entryName]: code });
         }}
       />
     );
