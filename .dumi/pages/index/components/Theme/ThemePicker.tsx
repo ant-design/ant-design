@@ -88,7 +88,7 @@ export default function ThemePicker(props: ThemePickerProps) {
   const [locale] = useLocale(locales);
 
   return (
-    <Space size={token.paddingLG}>
+    <Space size={token.paddingLG} style={{ flexWrap: 'wrap' }}>
       {Object.keys(THEMES).map((theme, index) => {
         const url = THEMES[theme as THEME];
 
