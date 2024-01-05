@@ -4,7 +4,7 @@ const path = require('path');
 const restCssPath = path.join(process.cwd(), 'components', 'style', 'reset.css');
 const tokenStatisticPath = path.join(process.cwd(), 'components', 'version', 'token.json');
 const tokenMetaPath = path.join(process.cwd(), 'components', 'version', 'token-meta.json');
-const deprecatedVersionsPath = path.join(process.cwd(), 'components', 'version', 'deprecated.json');
+const deprecatedVersionsPath = path.join(__dirname, 'BUG_VERSIONS.json');
 
 function finalizeCompile() {
   if (fs.existsSync(path.join(__dirname, './es'))) {

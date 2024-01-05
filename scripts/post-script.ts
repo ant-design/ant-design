@@ -6,7 +6,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
 import semver from 'semver';
-import deprecatedVersions from '../components/version/deprecated.json';
+import deprecatedVersions from '../BUG_VERSIONS.json';
 
 dayjs.extend(relativeTime);
 
