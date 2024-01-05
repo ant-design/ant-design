@@ -12659,7 +12659,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker DatePicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-outlined"
+    class="config-picker config-picker-disabled config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -12961,7 +12961,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker MonthPicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-outlined"
+    class="config-picker config-picker-disabled config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13308,7 +13308,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker RangePicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-outlined"
+    class="config-picker config-picker-range config-picker-disabled config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -13881,7 +13881,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
 exports[`ConfigProvider components DatePicker WeekPicker configProvider componentDisabled 1`] = `
 <div>
   <div
-    class="config-picker config-picker-outlined"
+    class="config-picker config-picker-disabled config-picker-outlined"
   >
     <div
       class="config-picker-input"
@@ -30978,7 +30978,7 @@ Array [
 exports[`ConfigProvider components TimePicker configProvider componentDisabled 1`] = `
 Array [
   <div
-    class="config-picker config-picker-outlined"
+    class="config-picker config-picker-disabled config-picker-outlined"
   >
     <div
       class="config-picker-input"

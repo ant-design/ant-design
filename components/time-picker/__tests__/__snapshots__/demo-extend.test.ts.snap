@@ -8556,7 +8556,7 @@ exports[`renders components/time-picker/demo/colored-popup.tsx extend context co
 exports[`renders components/time-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-picker ant-picker-outlined"
+    class="ant-picker ant-picker-disabled ant-picker-outlined"
   >
     <div
       class="ant-picker-input"

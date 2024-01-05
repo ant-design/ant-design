@@ -277,7 +277,7 @@ exports[`renders components/time-picker/demo/colored-popup.tsx correctly 1`] = `
 
 exports[`renders components/time-picker/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-picker ant-picker-outlined"
+  class="ant-picker ant-picker-disabled ant-picker-outlined"
 >
   <div
     class="ant-picker-input"

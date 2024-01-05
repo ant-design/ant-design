@@ -3144,7 +3144,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-outlined"
+                class="ant-picker ant-picker-disabled ant-picker-outlined"
               >
                 <div
                   class="ant-picker-input"
@@ -3782,7 +3782,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-range ant-picker-outlined"
+                class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined"
               >
                 <div
                   class="ant-picker-input"
