@@ -59,7 +59,7 @@ export interface TableLocale {
 export type SortOrder = 'descend' | 'ascend' | null;
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = typeof TableActions[number];
+export type TableAction = (typeof TableActions)[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 

@@ -170,7 +170,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
         >
           <span
             class="ant-input-prefix"
@@ -736,7 +736,7 @@ exports[`renders components/transfer/demo/advanced.tsx extend context correctly 
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
         >
           <span
             class="ant-input-prefix"
@@ -3554,7 +3554,7 @@ Array [
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
           >
             <span
               class="ant-input-prefix"
@@ -3896,7 +3896,7 @@ Array [
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-transfer-list-search"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
           >
             <span
               class="ant-input-prefix"
@@ -9398,7 +9398,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
         >
           <span
             class="ant-input-prefix"
@@ -9944,7 +9944,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 1`
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-transfer-list-search"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
         >
           <span
             class="ant-input-prefix"
@@ -10940,7 +10940,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             class="ant-transfer-list-body-search-wrapper"
           >
             <span
-              class="ant-input-affix-wrapper ant-transfer-list-search"
+              class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
             >
               <span
                 class="ant-input-prefix"
@@ -11282,7 +11282,7 @@ exports[`renders components/transfer/demo/status.tsx extend context correctly 1`
             class="ant-transfer-list-body-search-wrapper"
           >
             <span
-              class="ant-input-affix-wrapper ant-transfer-list-search"
+              class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search"
             >
               <span
                 class="ant-input-prefix"

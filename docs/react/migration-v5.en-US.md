@@ -280,7 +280,7 @@ module.exports = {
 };
 ```
 
-### Switch to theme of v4 <Badge>Updated</Badge>
+### Switch to theme of v4
 
 If you don't want the style to change after upgrade, we have provided a v4 theme in `@ant-design/compatible` that can restore v4 style.
 

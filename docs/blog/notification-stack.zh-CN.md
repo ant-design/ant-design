@@ -18,7 +18,7 @@ author: MadCcc
 
 - 堆叠的默认触发阈值是**三个以上**的 Notification 同时出现，也就是说当第四个 Notification 出现时，整个 Notification 组就会呈现收起的状态。这个阈值可以通过 `stack: { threshold: 3 }` 来调整。
 - 收起状态时藏在背后可见的 Notification 是**两个**，并且我们为其增加了毛玻璃背景，更加淡化他们的存在。值得一提的是我们同样为暗色模式优化了这个效果，大家可以点击右下角切换主题来试一试。
-- 收起时所有未被展示的 Notification 并没有消失，使用鼠标悬浮在收起的 Notification 组上时，会使所有没有自动关闭的 Notification 展开并按顺序排列，同时所有 Notificaiton 的持续时间将会刷新。
+- 收起时所有未被展示的 Notification 并没有消失，使用鼠标悬浮在收起的 Notification 组上时，会使所有没有自动关闭的 Notification 展开并按顺序排列，同时所有 Notification 的持续时间将会刷新。
 - 在不同的 `placement` 下收起的方向会有差异，但仅会分为两种：向上或者向下。展开时的排列顺序也会是从上到下或者从下到上两种顺序。
 
 ### 实现细节

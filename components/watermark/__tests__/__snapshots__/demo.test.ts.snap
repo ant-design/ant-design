@@ -75,7 +75,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input"
+                class="ant-input ant-input-outlined"
                 id="content"
                 placeholder="请输入"
                 type="text"
@@ -347,7 +347,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width:100%"
                             >
                               <div
@@ -448,7 +448,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width:100%"
                             >
                               <div
@@ -585,7 +585,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width:100%"
                             >
                               <div
@@ -685,7 +685,7 @@ exports[`renders components/watermark/demo/custom.tsx correctly 1`] = `
                             class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-input-number ant-input-number-in-form-item"
+                              class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
                               style="width:100%"
                             >
                               <div

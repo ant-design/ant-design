@@ -12,7 +12,7 @@ export interface SiteContextProps {
 
 const SiteContext = React.createContext<SiteContextProps>({
   isMobile: false,
-  bannerVisible: true,
+  bannerVisible: false,
   direction: 'ltr',
   theme: ['light'],
   updateSiteConfig: () => {},

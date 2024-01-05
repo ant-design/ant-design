@@ -21,7 +21,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/title.tsx">标题组件</code>
 <code src="./demo/paragraph-debug.tsx" debug>标题与段落</code>
 <code src="./demo/text.tsx">文本与超链接组件</code>
-<code src="./demo/interactive.tsx">可交互</code>
+<code src="./demo/editable.tsx">可编辑</code>
+<code src="./demo/copyable.tsx">可复制</code>
 <code src="./demo/ellipsis.tsx">省略号</code>
 <code src="./demo/ellipsis-middle.tsx">省略中间</code>
 <code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>

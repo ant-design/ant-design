@@ -60,6 +60,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     maxCount,
     data = {},
     multiple = false,
+    hasControlInside = true,
     action = '',
     accept = '',
     supportServerRender = true,
@@ -350,6 +351,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
+    hasControlInside,
   } as RcUploadProps;
 
   delete rcUploadProps.className;

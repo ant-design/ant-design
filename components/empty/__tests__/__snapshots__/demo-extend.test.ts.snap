@@ -122,7 +122,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -231,7 +231,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -339,7 +339,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 200px;"
       >
         <div

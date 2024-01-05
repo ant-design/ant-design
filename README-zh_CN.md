@@ -6,20 +6,11 @@
 
 一套企业级 UI 设计语言和 React 组件库。
 
-[![CI status][github-action-image]][github-action-url]
-[![codecov][codecov-image]][codecov-url]
-[![NPM version][npm-image]][npm-url]
-[![NPM downloads][download-image]][download-url]
+[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![][bundlephobia-image]][bundlephobia-url]
-[![][bundlesize-js-image]][unpkg-js-url]
-[![FOSSA Status][fossa-image]][fossa-url]
+[![][bundlephobia-image]][bundlephobia-url] [![][bundlesize-js-image]][unpkg-js-url] [![FOSSA Status][fossa-image]][fossa-url]
 
-[![Follow Twitter][twitter-image]][twitter-url]
-[![Renovate status][renovate-image]][renovate-dashboard-url]
-[![][issues-helper-image]][issues-helper-url]
-[![dumi][dumi-image]][dumi-url]
-[![Issues need help][help-wanted-image]][help-wanted-url]
+[![Follow Twitter][twitter-image]][twitter-url] [![Renovate status][renovate-image]][renovate-dashboard-url] [![][issues-helper-image]][issues-helper-url] [![dumi][dumi-image]][dumi-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [更新日志](./CHANGELOG-zh-CN.md) · [报告问题][github-issues-url] · [特性需求][github-issues-url] · [English](./README.md) · 中文
 
