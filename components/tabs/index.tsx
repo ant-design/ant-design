@@ -101,7 +101,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
 
   const mergedIndicator: TabsProps['indicator'] = {
     align: indicator?.align || tabs?.indicator?.align,
-    size: indicator?.size || indicatorSize || tabs?.indicator?.size || tabs?.indicatorSize,
+    size: indicator?.size ?? indicatorSize ?? tabs?.indicator?.size ?? tabs?.indicatorSize,
   };
 
   return wrapCSSVar(
