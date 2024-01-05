@@ -12,6 +12,7 @@ exports[`WeekPicker should support style prop 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select week"
+      size="12"
       value=""
     />
     <span

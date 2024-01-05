@@ -562,6 +562,7 @@ exports[`Form form should support disabled 1`] = `
                   autocomplete="off"
                   disabled=""
                   placeholder="Select date"
+                  size="12"
                   value=""
                 />
                 <span
@@ -631,6 +632,7 @@ exports[`Form form should support disabled 1`] = `
                   date-range="start"
                   disabled=""
                   placeholder="Start date"
+                  size="12"
                   value=""
                 />
               </div>
@@ -671,6 +673,7 @@ exports[`Form form should support disabled 1`] = `
                   date-range="end"
                   disabled=""
                   placeholder="End date"
+                  size="12"
                   value=""
                 />
               </div>

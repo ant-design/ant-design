@@ -12,6 +12,7 @@ exports[`MonthPicker and WeekPicker render MonthPicker 1`] = `
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select month"
+        size="12"
         value="2000-01"
       />
       <span
@@ -276,6 +277,7 @@ exports[`MonthPicker and WeekPicker render WeekPicker 1`] = `
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select week"
+        size="12"
         value="2000-1st"
       />
       <span
@@ -962,6 +964,7 @@ exports[`Picker format by locale date 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="请选择日期"
+      size="12"
       value="2000-01-01"
     />
     <span
@@ -1027,6 +1030,7 @@ exports[`Picker format by locale dateTime 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="请选择日期"
+      size="21"
       value="2000-01-01 00:00:00"
     />
     <span
@@ -1092,6 +1096,7 @@ exports[`Picker format by locale month 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="请选择月份"
+      size="12"
       value="2000-01"
     />
     <span
@@ -1157,6 +1162,7 @@ exports[`Picker format by locale week 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="请选择周"
+      size="12"
       value="1999-52周"
     />
     <span

@@ -3154,6 +3154,7 @@ Array [
                     autocomplete="off"
                     disabled=""
                     placeholder="Select date"
+                    size="12"
                     value=""
                   />
                   <span
@@ -3792,6 +3793,7 @@ Array [
                     date-range="start"
                     disabled=""
                     placeholder="Start date"
+                    size="12"
                     value=""
                   />
                 </div>
@@ -3832,6 +3834,7 @@ Array [
                     date-range="end"
                     disabled=""
                     placeholder="End date"
+                    size="12"
                     value=""
                   />
                 </div>
@@ -11008,6 +11011,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   aria-invalid="false"
                   autocomplete="off"
                   placeholder="Select date"
+                  size="12"
                   value=""
                 />
                 <span
@@ -11849,6 +11853,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   autocomplete="off"
                   id="time_related_controls_date-picker"
                   placeholder="Select date"
+                  size="12"
                   value=""
                 />
                 <span
@@ -12488,6 +12493,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   autocomplete="off"
                   id="time_related_controls_date-time-picker"
                   placeholder="Select date"
+                  size="21"
                   value=""
                 />
                 <span
@@ -14615,6 +14621,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   autocomplete="off"
                   id="time_related_controls_month-picker"
                   placeholder="Select month"
+                  size="12"
                   value=""
                 />
                 <span
@@ -14883,6 +14890,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   date-range="start"
                   id="time_related_controls_range-picker"
                   placeholder="Start date"
+                  size="12"
                   value=""
                 />
               </div>
@@ -14923,6 +14931,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   autocomplete="off"
                   date-range="end"
                   placeholder="End date"
+                  size="12"
                   value=""
                 />
               </div>
@@ -16099,6 +16108,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   date-range="start"
                   id="time_related_controls_range-time-picker"
                   placeholder="Start date"
+                  size="21"
                   value=""
                 />
               </div>
@@ -16139,6 +16149,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   autocomplete="off"
                   date-range="end"
                   placeholder="End date"
+                  size="21"
                   value=""
                 />
               </div>
@@ -18268,6 +18279,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   autocomplete="off"
                   id="time_related_controls_time-picker"
                   placeholder="Select time"
+                  size="10"
                   value=""
                 />
                 <span
@@ -22687,6 +22699,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   aria-invalid="false"
                   autocomplete="off"
                   placeholder="Select date"
+                  size="12"
                   value=""
                 />
                 <span
@@ -23347,6 +23360,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   aria-invalid="false"
                   autocomplete="off"
                   placeholder="Select time"
+                  size="10"
                   value=""
                 />
                 <span
@@ -24965,6 +24979,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   autocomplete="off"
                   date-range="start"
                   placeholder="Start date"
+                  size="12"
                   value=""
                 />
               </div>
@@ -25004,6 +25019,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   autocomplete="off"
                   date-range="end"
                   placeholder="End date"
+                  size="12"
                   value=""
                 />
               </div>
@@ -26800,6 +26816,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             aria-invalid="false"
                             autocomplete="off"
                             placeholder="Select date"
+                            size="12"
                             value=""
                           />
                           <span
@@ -27454,6 +27471,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             aria-invalid="false"
                             autocomplete="off"
                             placeholder="Select date"
+                            size="12"
                             value=""
                           />
                           <span
@@ -29577,6 +29595,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   autocomplete="off"
                   id="DatePicker"
                   placeholder="Select date"
+                  size="12"
                   value=""
                 />
                 <span
@@ -30217,6 +30236,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   date-range="start"
                   id="RangePicker"
                   placeholder="Start date"
+                  size="12"
                   value=""
                 />
               </div>
@@ -30257,6 +30277,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   autocomplete="off"
                   date-range="end"
                   placeholder="End date"
+                  size="12"
                   value=""
                 />
               </div>

@@ -11,6 +11,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select date"
+      size="12"
       value=""
     />
     <span
@@ -51,6 +52,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select month"
+      size="12"
       value=""
     />
     <span
@@ -91,6 +93,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select week"
+      size="12"
       value=""
     />
     <span
@@ -132,6 +135,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       autocomplete="off"
       date-range="start"
       placeholder="Start date"
+      size="12"
       value=""
     />
   </div>
@@ -171,6 +175,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       autocomplete="off"
       date-range="end"
       placeholder="End date"
+      size="12"
       value=""
     />
   </div>

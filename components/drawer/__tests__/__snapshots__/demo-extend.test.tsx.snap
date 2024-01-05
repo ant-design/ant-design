@@ -1563,6 +1563,7 @@ Array [
                                   date-range="start"
                                   id="dateTime"
                                   placeholder="Start date"
+                                  size="12"
                                   value=""
                                 />
                               </div>
@@ -1603,6 +1604,7 @@ Array [
                                   autocomplete="off"
                                   date-range="end"
                                   placeholder="End date"
+                                  size="12"
                                   value=""
                                 />
                               </div>

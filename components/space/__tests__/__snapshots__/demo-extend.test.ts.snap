@@ -1308,6 +1308,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-invalid="false"
             autocomplete="off"
             placeholder="Select date"
+            size="12"
             value=""
           />
           <span
@@ -1924,6 +1925,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             autocomplete="off"
             date-range="start"
             placeholder="Start date"
+            size="12"
             value=""
           />
         </div>
@@ -1963,6 +1965,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             autocomplete="off"
             date-range="end"
             placeholder="End date"
+            size="12"
             value=""
           />
         </div>
@@ -3135,6 +3138,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             autocomplete="off"
             date-range="start"
             placeholder="Start date"
+            size="12"
             value=""
           />
         </div>
@@ -3174,6 +3178,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             autocomplete="off"
             date-range="end"
             placeholder="End date"
+            size="12"
             value=""
           />
         </div>
@@ -5034,6 +5039,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             aria-invalid="false"
             autocomplete="off"
             placeholder="Select time"
+            size="10"
             value=""
           />
           <span
@@ -6754,6 +6760,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             autocomplete="off"
             date-range="start"
             placeholder="Start time"
+            size="10"
             value=""
           />
         </div>
@@ -6793,6 +6800,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             autocomplete="off"
             date-range="end"
             placeholder="End time"
+            size="10"
             value=""
           />
         </div>
@@ -11236,6 +11244,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     aria-invalid="false"
                     autocomplete="off"
                     placeholder="Select date"
+                    size="12"
                     value=""
                   />
                   <span
@@ -12300,6 +12309,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             autocomplete="off"
             date-range="start"
             placeholder="Start date"
+            size="12"
             value=""
           />
         </div>
@@ -12339,6 +12349,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
             autocomplete="off"
             date-range="end"
             placeholder="End date"
+            size="12"
             value=""
           />
         </div>
@@ -14124,6 +14135,7 @@ Array [
             aria-invalid="false"
             autocomplete="off"
             placeholder="Select time"
+            size="10"
             value=""
           />
           <span

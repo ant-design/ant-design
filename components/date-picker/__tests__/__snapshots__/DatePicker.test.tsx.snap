@@ -12,6 +12,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Избери дата"
+        size="12"
         value="2000-01-01"
       />
       <span
@@ -647,6 +648,7 @@ exports[`DatePicker support DatePicker.generatePicker 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select date"
+      size="12"
       value=""
     />
     <span

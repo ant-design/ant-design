@@ -602,6 +602,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select date"
+        size="12"
         value=""
       />
       <span
@@ -640,6 +641,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -999,6 +1001,7 @@ Array [
         autocomplete="off"
         date-range="start"
         placeholder="Start date"
+        size="12"
         value=""
       />
     </div>
@@ -1038,6 +1041,7 @@ Array [
         autocomplete="off"
         date-range="end"
         placeholder="End date"
+        size="12"
         value=""
       />
     </div>
@@ -1079,6 +1083,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select month"
+        size="12"
         value=""
       />
       <span
@@ -2951,6 +2956,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -3001,6 +3007,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -3040,6 +3047,7 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>

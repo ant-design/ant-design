@@ -11,6 +11,7 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value="00:00:00"
     />
     <span
@@ -55,6 +56,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value="00:00:00"
       />
       <span
@@ -1648,6 +1650,7 @@ exports[`TimePicker rtl render component should be rendered correctly in RTL dir
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -1691,6 +1694,7 @@ exports[`TimePicker should support bordered 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value="00:00:00"
     />
     <span

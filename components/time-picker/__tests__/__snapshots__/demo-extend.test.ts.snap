@@ -18,6 +18,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -1490,6 +1491,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="11"
           value=""
         />
         <span
@@ -2962,6 +2964,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -3833,6 +3836,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -5411,6 +5415,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -6985,6 +6990,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -8560,6 +8566,7 @@ Array [
         autocomplete="off"
         disabled=""
         placeholder="Select time"
+        size="10"
         value="12:08:23"
       />
       <span
@@ -10131,6 +10138,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value="12:08"
       />
       <span
@@ -11122,6 +11130,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -11593,6 +11602,7 @@ Array [
         autocomplete="off"
         date-range="start"
         placeholder="Start time"
+        size="10"
         value=""
       />
     </div>
@@ -11632,6 +11642,7 @@ Array [
         autocomplete="off"
         date-range="end"
         placeholder="End time"
+        size="10"
         value=""
       />
     </div>
@@ -13207,6 +13218,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -14783,6 +14795,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value="12:08:23"
         />
         <span
@@ -16376,6 +16389,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value="12:08:23"
         />
         <span
@@ -17969,6 +17983,7 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value="12:08:23"
         />
         <span
@@ -19571,6 +19586,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -21138,6 +21154,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -22706,6 +22723,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start time"
+          size="10"
           value=""
         />
       </div>
@@ -22745,6 +22763,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End time"
+          size="10"
           value=""
         />
       </div>
@@ -24315,6 +24334,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start time"
+          size="10"
           value=""
         />
       </div>
@@ -24354,6 +24374,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End time"
+          size="10"
           value=""
         />
       </div>
@@ -25927,6 +25948,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -27498,6 +27520,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -29075,6 +29098,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
+          size="10"
           value=""
         />
         <span
@@ -30639,6 +30663,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="start"
           placeholder="Filled"
+          size="10"
           value=""
         />
       </div>
@@ -30678,6 +30703,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="10"
           value=""
         />
       </div>
@@ -32248,6 +32274,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
+          size="10"
           value=""
         />
         <span
@@ -33812,6 +33839,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="start"
           placeholder="Filled"
+          size="10"
           value=""
         />
       </div>
@@ -33851,6 +33879,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="10"
           value=""
         />
       </div>
@@ -35421,6 +35450,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Borderless"
+          size="10"
           value=""
         />
         <span
@@ -36985,6 +37015,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="start"
           placeholder="Borderless"
+          size="10"
           value=""
         />
       </div>
@@ -37024,6 +37055,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="10"
           value=""
         />
       </div>

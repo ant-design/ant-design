@@ -17,6 +17,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -627,6 +628,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
+          size="12"
           value=""
         />
         <span
@@ -1288,6 +1290,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value=""
         />
         <span
@@ -1526,6 +1529,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select quarter"
+          size="12"
           value=""
         />
         <span
@@ -1678,6 +1682,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select year"
+          size="12"
           value=""
         />
         <span
@@ -1926,6 +1931,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -2539,6 +2545,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -2578,6 +2585,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -3739,6 +3747,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           autocomplete="off"
           disabled=""
           placeholder="Select date"
+          size="12"
           value="2015-06-06"
         />
         <span
@@ -4350,6 +4359,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           autocomplete="off"
           disabled=""
           placeholder="Select month"
+          size="12"
           value="2015-06"
         />
         <span
@@ -4590,6 +4600,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           date-range="start"
           disabled=""
           placeholder="Start date"
+          size="12"
           value="2015-06-06"
         />
       </div>
@@ -4630,6 +4641,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           date-range="end"
           disabled=""
           placeholder="End date"
+          size="12"
           value="2015-06-06"
         />
       </div>
@@ -5777,6 +5789,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value="2019-09-03"
         />
       </div>
@@ -5817,6 +5830,7 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
           date-range="end"
           disabled=""
           placeholder="End date"
+          size="12"
           value="2019-11-22"
         />
       </div>
@@ -6998,6 +7012,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="21"
           value=""
         />
         <span
@@ -9096,6 +9111,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value=""
         />
         <span
@@ -9335,6 +9351,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -9374,6 +9391,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -10521,6 +10539,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="21"
           value=""
         />
       </div>
@@ -10560,6 +10579,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="21"
           value=""
         />
       </div>
@@ -12670,6 +12690,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -13281,6 +13302,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="21"
           value=""
         />
         <span
@@ -15381,6 +15403,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -15420,6 +15443,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -16572,6 +16596,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="21"
           value=""
         />
       </div>
@@ -16611,6 +16636,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="21"
           value=""
         />
       </div>
@@ -18712,6 +18738,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value=""
         />
         <span
@@ -18966,6 +18993,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           disabled=""
           placeholder="Select date"
+          size="12"
           value="2015-06-06"
         />
         <span
@@ -19577,6 +19605,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           disabled=""
           placeholder="Select month"
+          size="12"
           value="2015-06"
         />
         <span
@@ -19817,6 +19846,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           date-range="start"
           disabled=""
           placeholder="Start date"
+          size="12"
           value="2015-06-06"
         />
       </div>
@@ -19857,6 +19887,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           date-range="end"
           disabled=""
           placeholder="End date"
+          size="12"
           value="2015-06-06"
         />
       </div>
@@ -21004,6 +21035,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value="2019-09-03"
         />
       </div>
@@ -21044,6 +21076,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           date-range="end"
           disabled=""
           placeholder="End date"
+          size="12"
           value="2019-11-22"
         />
       </div>
@@ -22216,6 +22249,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value="2023-12-25"
         />
         <span
@@ -22852,6 +22886,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -23464,6 +23499,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -23503,6 +23539,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -24651,6 +24688,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -24690,6 +24728,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -25846,6 +25885,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value="2015/01/01"
         />
         <span
@@ -26481,6 +26521,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value="01/01/2015"
         />
         <span
@@ -27116,6 +27157,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value="2015/01"
         />
         <span
@@ -27380,6 +27422,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           autocomplete="off"
           placeholder="Select week"
           readonly=""
+          size="15"
           value="11/20 ~ 11/26"
         />
         <span
@@ -28067,6 +28110,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value="2015/01/01"
         />
       </div>
@@ -28106,6 +28150,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value="2015/01/01"
         />
       </div>
@@ -29278,6 +29323,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
           autocomplete="off"
           placeholder="Select date"
           readonly=""
+          size="27"
           value="custom format: 2015/01/01"
         />
         <span
@@ -29923,6 +29969,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="21"
           value=""
         />
         <span
@@ -31489,6 +31536,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
           autocomplete="off"
           date-range="start"
           placeholder="Start month"
+          size="12"
           value=""
         />
       </div>
@@ -31528,6 +31576,7 @@ exports[`renders components/date-picker/demo/mode.tsx extend context correctly 1
           autocomplete="off"
           date-range="end"
           placeholder="End month"
+          size="12"
           value=""
         />
       </div>
@@ -31865,6 +31914,7 @@ Array [
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select date"
+        size="12"
         value=""
       />
       <span
@@ -32474,6 +32524,7 @@ Array [
         autocomplete="off"
         date-range="start"
         placeholder="Start date"
+        size="12"
         value=""
       />
     </div>
@@ -32513,6 +32564,7 @@ Array [
         autocomplete="off"
         date-range="end"
         placeholder="End date"
+        size="12"
         value=""
       />
     </div>
@@ -33668,6 +33720,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -34294,6 +34347,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -34333,6 +34387,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -35498,6 +35553,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="21"
           value=""
         />
       </div>
@@ -35537,6 +35593,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="21"
           value=""
         />
       </div>
@@ -37673,6 +37730,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -37712,6 +37770,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -38859,6 +38918,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="21"
           value=""
         />
       </div>
@@ -38898,6 +38958,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="21"
           value=""
         />
       </div>
@@ -40999,6 +41060,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start week"
+          size="12"
           value=""
         />
       </div>
@@ -41038,6 +41100,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End week"
+          size="12"
           value=""
         />
       </div>
@@ -42323,6 +42386,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start month"
+          size="12"
           value=""
         />
       </div>
@@ -42362,6 +42426,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End month"
+          size="12"
           value=""
         />
       </div>
@@ -42799,6 +42864,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start quarter"
+          size="12"
           value=""
         />
       </div>
@@ -42838,6 +42904,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End quarter"
+          size="12"
           value=""
         />
       </div>
@@ -43103,6 +43170,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="start"
           placeholder="Start year"
+          size="12"
           value=""
         />
       </div>
@@ -43142,6 +43210,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
           autocomplete="off"
           date-range="end"
           placeholder="End year"
+          size="12"
           value=""
         />
       </div>
@@ -43585,6 +43654,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select date"
+        size="12"
         value=""
       />
       <span
@@ -44199,6 +44269,7 @@ Array [
         autocomplete="off"
         date-range="start"
         placeholder="Start date"
+        size="12"
         value=""
       />
     </div>
@@ -44238,6 +44309,7 @@ Array [
         autocomplete="off"
         date-range="end"
         placeholder="End date"
+        size="12"
         value=""
       />
     </div>
@@ -45459,6 +45531,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -46069,6 +46142,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value=""
         />
         <span
@@ -46308,6 +46382,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -46347,6 +46422,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -47493,6 +47569,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
+          size="12"
           value=""
         />
         <span
@@ -48163,6 +48240,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
           aria-invalid="false"
           autocomplete="off"
           placeholder="Start"
+          size="21"
           value=""
         />
         <span
@@ -50261,6 +50339,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
           aria-invalid="false"
           autocomplete="off"
           placeholder="End"
+          size="21"
           value=""
         />
         <span
@@ -52370,6 +52449,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -52981,6 +53061,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -53593,6 +53674,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -53632,6 +53714,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -54780,6 +54863,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -54819,6 +54903,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -55975,6 +56060,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -56585,6 +56671,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value=""
         />
         <span
@@ -56824,6 +56911,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -56863,6 +56951,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -58009,6 +58098,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
+          size="12"
           value=""
         />
         <span
@@ -58670,6 +58760,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="12"
           value=""
         />
         <span
@@ -59262,6 +59353,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
+          size="12"
           value=""
         />
         <span
@@ -59483,6 +59575,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="12"
           value=""
         />
       </div>
@@ -59522,6 +59615,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="12"
           value=""
         />
       </div>
@@ -60650,6 +60744,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
+          size="12"
           value=""
         />
         <span
@@ -61514,6 +61609,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -63091,6 +63187,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
+          size="21"
           value=""
         />
         <span
@@ -65190,6 +65287,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
           autocomplete="off"
           date-range="start"
           placeholder="Start date"
+          size="18"
           value=""
         />
       </div>
@@ -65229,6 +65327,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
           autocomplete="off"
           date-range="end"
           placeholder="End date"
+          size="18"
           value=""
         />
       </div>
@@ -66735,6 +66834,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Outlined"
+          size="12"
           value=""
         />
         <span
@@ -67342,6 +67442,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="start"
           placeholder="Outlined"
+          size="12"
           value=""
         />
       </div>
@@ -67381,6 +67482,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="12"
           value=""
         />
       </div>
@@ -68528,6 +68630,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
+          size="12"
           value=""
         />
         <span
@@ -69135,6 +69238,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="start"
           placeholder="Filled"
+          size="12"
           value=""
         />
       </div>
@@ -69174,6 +69278,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="12"
           value=""
         />
       </div>
@@ -70321,6 +70426,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           aria-invalid="false"
           autocomplete="off"
           placeholder="Borderless"
+          size="12"
           value=""
         />
         <span
@@ -70928,6 +71034,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="start"
           placeholder="Borderless"
+          size="12"
           value=""
         />
       </div>
@@ -70967,6 +71074,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="12"
           value=""
         />
       </div>

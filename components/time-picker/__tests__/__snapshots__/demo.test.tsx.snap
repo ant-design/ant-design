@@ -18,6 +18,7 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -62,6 +63,7 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="11"
           value=""
         />
         <span
@@ -106,6 +108,7 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -151,6 +154,7 @@ exports[`renders components/time-picker/demo/addon.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -194,6 +198,7 @@ exports[`renders components/time-picker/demo/basic.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -237,6 +242,7 @@ exports[`renders components/time-picker/demo/colored-popup.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -281,6 +287,7 @@ exports[`renders components/time-picker/demo/disabled.tsx correctly 1`] = `
       autocomplete="off"
       disabled=""
       placeholder="Select time"
+      size="10"
       value="12:08:23"
     />
     <span
@@ -324,6 +331,7 @@ exports[`renders components/time-picker/demo/hide-column.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value="12:08"
     />
     <span
@@ -392,6 +400,7 @@ exports[`renders components/time-picker/demo/interval-options.tsx correctly 1`] 
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -436,6 +445,7 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
       autocomplete="off"
       date-range="start"
       placeholder="Start time"
+      size="10"
       value=""
     />
   </div>
@@ -475,6 +485,7 @@ exports[`renders components/time-picker/demo/range-picker.tsx correctly 1`] = `
       autocomplete="off"
       date-range="end"
       placeholder="End time"
+      size="10"
       value=""
     />
   </div>
@@ -526,6 +537,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx correctly 1`] = `
         aria-invalid="false"
         autocomplete="off"
         placeholder="Select time"
+        size="10"
         value=""
       />
       <span
@@ -577,6 +589,7 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value="12:08:23"
         />
         <span
@@ -646,6 +659,7 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value="12:08:23"
         />
         <span
@@ -715,6 +729,7 @@ exports[`renders components/time-picker/demo/size.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value="12:08:23"
         />
         <span
@@ -791,6 +806,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -835,6 +851,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
+          size="10"
           value=""
         />
         <span
@@ -880,6 +897,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
           autocomplete="off"
           date-range="start"
           placeholder="Start time"
+          size="10"
           value=""
         />
       </div>
@@ -919,6 +937,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
           autocomplete="off"
           date-range="end"
           placeholder="End time"
+          size="10"
           value=""
         />
       </div>
@@ -968,6 +987,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
           autocomplete="off"
           date-range="start"
           placeholder="Start time"
+          size="10"
           value=""
         />
       </div>
@@ -1007,6 +1027,7 @@ exports[`renders components/time-picker/demo/status.tsx correctly 1`] = `
           autocomplete="off"
           date-range="end"
           placeholder="End time"
+          size="10"
           value=""
         />
       </div>
@@ -1056,6 +1077,7 @@ exports[`renders components/time-picker/demo/suffix.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -1096,6 +1118,7 @@ exports[`renders components/time-picker/demo/value.tsx correctly 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select time"
+      size="10"
       value=""
     />
     <span
@@ -1147,6 +1170,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
+          size="10"
           value=""
         />
         <span
@@ -1188,6 +1212,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           autocomplete="off"
           date-range="start"
           placeholder="Filled"
+          size="10"
           value=""
         />
       </div>
@@ -1227,6 +1252,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="10"
           value=""
         />
       </div>
@@ -1276,6 +1302,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
+          size="10"
           value=""
         />
         <span
@@ -1317,6 +1344,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           autocomplete="off"
           date-range="start"
           placeholder="Filled"
+          size="10"
           value=""
         />
       </div>
@@ -1356,6 +1384,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="10"
           value=""
         />
       </div>
@@ -1405,6 +1434,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Borderless"
+          size="10"
           value=""
         />
         <span
@@ -1446,6 +1476,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           autocomplete="off"
           date-range="start"
           placeholder="Borderless"
+          size="10"
           value=""
         />
       </div>
@@ -1485,6 +1516,7 @@ exports[`renders components/time-picker/demo/variant.tsx correctly 1`] = `
           autocomplete="off"
           date-range="end"
           placeholder=""
+          size="10"
           value=""
         />
       </div>

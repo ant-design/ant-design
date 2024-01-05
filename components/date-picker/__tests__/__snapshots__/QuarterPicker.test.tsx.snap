@@ -12,6 +12,7 @@ exports[`QuarterPicker should support style prop 1`] = `
       aria-invalid="false"
       autocomplete="off"
       placeholder="Select quarter"
+      size="12"
       value=""
     />
     <span

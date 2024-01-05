@@ -12,6 +12,7 @@ exports[`RangePicker customize separator 1`] = `
       autocomplete="off"
       date-range="start"
       placeholder="Start date"
+      size="12"
       value=""
     />
   </div>
@@ -28,6 +29,7 @@ exports[`RangePicker customize separator 1`] = `
       autocomplete="off"
       date-range="end"
       placeholder="End date"
+      size="12"
       value=""
     />
   </div>
@@ -74,6 +76,7 @@ Array [
         autocomplete="off"
         date-range="start"
         placeholder="Start date"
+        size="12"
         value=""
       />
     </div>
@@ -113,6 +116,7 @@ Array [
         autocomplete="off"
         date-range="end"
         placeholder="End date"
+        size="12"
         value=""
       />
     </div>
