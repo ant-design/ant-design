@@ -16,6 +16,15 @@ tag: vVERSION
 
 ---
 
+## 5.12.8
+
+`2024-01-05`
+
+- 🐞 Fix Upload.Dragger not align center and focus ring style. [#46810](https://github.com/ant-design/ant-design/pull/46810)
+- 🐞 Fix Progress that line border-radius cannot be overrided. [#46789](https://github.com/ant-design/ant-design/pull/46789)
+- 🐞 Fix Typography without `children` has extra `margin-left` when `copyable` is true. [#46748](https://github.com/ant-design/ant-design/pull/46748)
+- 🐞 Fix Typography copied icon color. [#46748](https://github.com/ant-design/ant-design/pull/46748)
+
 ## 5.12.7
 
 `2024-01-02`
