@@ -189,7 +189,7 @@ const useStyle = createStyles(({ token, cx }) => {
     `,
 
     form: css`
-      width: 800px;
+      width: 100%;
       margin: 0 auto;
     `,
     carousel,
