@@ -71,6 +71,11 @@ describe('InputNumber', () => {
     ).toBe(true);
   });
 
+  it('should support classNames', () => {
+    const { container } = render(<InputNumber classNames={{ input: 'my-class-name' }} />);
+    expect(container.querySelector('.ant-input-number')).toHaveClass('my-class-name');
+  });
+
   it('renders correctly when the controlled mode number is out of range', () => {
     const App: React.FC = () => {
       const [value, setValue] = React.useState<number | null>(1);
