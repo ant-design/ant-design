@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, Flex, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, LiveContext, useSiteData } from 'dumi';
+import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
 import LZString from 'lz-string';
 
-import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -21,7 +21,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
+import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
 
@@ -386,7 +386,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         {description && (
           <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
         )}
-        <Space wrap size="middle" className="code-box-actions">
+        <Flex wrap="wrap" gap="middle" className="code-box-actions">
           {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
               <a
@@ -505,7 +505,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               />
             </div>
           </Tooltip>
-        </Space>
+        </Flex>
       </section>
       {codeExpand && (
         <section className={highlightClass} key="code">
