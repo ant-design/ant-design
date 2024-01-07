@@ -9,6 +9,8 @@ interface DataType {
   address: string;
 }
 
+const filterOptions = Array.from({ length: 500 }, (_, i) => `Name-${i}`);
+
 const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
@@ -46,6 +48,7 @@ const columns: ColumnsType<DataType> = [
           },
         ],
       },
+      ...filterOptions.map((value) => ({ text: value, value })),
     ],
     filterMode: 'tree',
     filterSearch: true,
