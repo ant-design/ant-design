@@ -1,10 +1,9 @@
 import React from 'react';
+import { Flex, Skeleton, Spin } from 'antd';
 import { useLocation } from 'dumi';
-import { Skeleton, Space, Spin } from 'antd';
 
 const Loading: React.FC = () => {
   const { pathname } = useLocation();
-
   if (
     pathname.startsWith('/components') ||
     pathname.startsWith('/docs') ||
@@ -25,9 +24,9 @@ const Loading: React.FC = () => {
   }
 
   return (
-    <Space style={{ width: '100%', margin: '120px 0', justifyContent: 'center' }} align="center">
+    <Flex justify="center" align="center" gap="small" style={{ width: '100%', margin: '120px 0' }}>
       <Spin size="large" />
-    </Space>
+    </Flex>
   );
 };
 
