@@ -15,7 +15,11 @@ Vertical display timeline.
 - When a series of information needs to be ordered by time (ascending or descending).
 - When you need a timeline to make a visual connection.
 
-<Alert message="After version 5.2.0, we provide a simpler usage &lt;Timeline items={[...]} /&gt; with better performance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0."></Alert>
+<!-- prettier-ignore -->
+:::info
+After version 5.2.0, we provide a simpler usage `<Timeline items={[...]} />` with better performance and potential of writing simpler code style in your applications.
+Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
+:::
 
 ```jsx
 // works when >=5.2.0, recommended ✅
