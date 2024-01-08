@@ -115,7 +115,7 @@ export default App;
 
 ## 谁在使用
 
-如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
+Ant Design 广泛用于国内外的企业级网站搭建，可以查看 [wappalyzer](https://www.wappalyzer.com/technologies/ui-frameworks/ant-design) 作为参考数据。如果你的公司和产品使用了 Ant Design，欢迎到 [这里](https://github.com/ant-design/ant-design/issues/477) 留言。
 
 ## 如何贡献
 

@@ -114,7 +114,7 @@ React is used to encapsulate a library of components which embody our design lan
 
 ## Companies using antd
 
-If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
+Ant Design is widely used for building enterprise-level websites both domestically and internationally. You can refer to wappalyzer for reference data. If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
 
 ## Contributing
 
