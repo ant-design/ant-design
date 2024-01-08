@@ -84,11 +84,6 @@ Array [
             Some contents...
           </p>
         </div>
-        <div
-          class="ant-drawer-footer"
-        >
-          123
-        </div>
       </div>
     </div>
     <div
