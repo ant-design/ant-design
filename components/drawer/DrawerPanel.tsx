@@ -46,6 +46,8 @@ export interface DrawerPanelProps {
   footerStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.wrapper` instead */
   contentWrapperStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.mask` instead */
+  maskStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   drawerStyle?: React.CSSProperties;
 }
