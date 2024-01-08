@@ -105,6 +105,9 @@ const Drawer: React.FC<DrawerProps> & {
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
+      ['contentWrapperStyle', 'styles.wrapper'],
+      ['maskStyle', 'styles.mask'],
+      ['drawerStyle', 'styles.content'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
