@@ -5,8 +5,7 @@ import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { getSize, getSuccessPercent, validProgress } from './utils';
-import { useContext } from 'react';
-import { ConfigContext } from '../config-provider';
+import { LineStrokeColorVar, Percent } from './style';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -65,9 +64,11 @@ export const handleGradient = (
   } = strokeColor;
   if (Object.keys(rest).length !== 0) {
     const sortedGradients = sortGradient(rest as StringGradients);
-    return { backgroundImage: `linear-gradient(${direction}, ${sortedGradients})` };
+    const background = `linear-gradient(${direction}, ${sortedGradients})`;
+    return { background, [LineStrokeColorVar]: background } as React.CSSProperties;
   }
-  return { backgroundImage: `linear-gradient(${direction}, ${from}, ${to})` };
+  const background = `linear-gradient(${direction}, ${from}, ${to})`;
+  return { background, [LineStrokeColorVar]: background } as React.CSSProperties;
 };
 
 const Line: React.FC<LineProps> = (props) => {
@@ -84,19 +85,12 @@ const Line: React.FC<LineProps> = (props) => {
     success,
   } = props;
 
-  const { direction } = useContext(ConfigContext);
-
-  const backgroundProps: React.CSSProperties =
+  const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
       ? handleGradient(strokeColor, directionConfig)
-      : { backgroundColor: strokeColor };
+      : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
 
   const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-
-  const trailStyle: React.CSSProperties = {
-    backgroundColor: trailColor || undefined,
-    borderRadius,
-  };
 
   const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
 
@@ -108,31 +102,27 @@ const Line: React.FC<LineProps> = (props) => {
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
-  const percentBorderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : '100px';
+  const trailStyle: React.CSSProperties = {
+    backgroundColor: trailColor || undefined,
+    borderRadius,
+  };
 
-  const percentStyle: React.CSSProperties = {
-    width: `100%`,
+  const percentStyle = {
+    width: `${validProgress(percent)}%`,
     height,
     borderRadius,
-    clipPath:
-      direction === 'rtl'
-        ? `inset(0 0 0 ${100 - validProgress(percent)}% round ${percentBorderRadius})`
-        : `inset(0 ${100 - validProgress(percent)}% 0 0 round ${percentBorderRadius})`,
     ...backgroundProps,
+    [Percent]: validProgress(percent) / 100,
   };
 
   const successPercent = getSuccessPercent(props);
 
-  const successPercentStyle: React.CSSProperties = {
-    width: `100%`,
+  const successPercentStyle = {
+    width: `${validProgress(successPercent)}%`,
     height,
     borderRadius,
-    clipPath:
-      direction === 'rtl'
-        ? `inset(0 0 0 ${100 - validProgress(successPercent)}% round ${percentBorderRadius})`
-        : `inset(0 ${100 - validProgress(successPercent)}% 0 0 round ${percentBorderRadius})`,
     backgroundColor: success?.strokeColor,
-  };
+  } as React.CSSProperties;
 
   const outerStyle: React.CSSProperties = {
     width: width < 0 ? '100%' : width,
