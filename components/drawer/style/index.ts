@@ -61,6 +61,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       '&-pure': {
         position: 'relative',
         background: colorBgElevated,
+        display: 'flex',
+        flexDirection: 'column',
 
         [`&${componentCls}-left`]: {
           boxShadow: token.boxShadowDrawerLeft,
