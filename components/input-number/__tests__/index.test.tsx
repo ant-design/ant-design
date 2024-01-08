@@ -1,6 +1,5 @@
-import React from 'react';
 import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
-
+import React from 'react';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -70,23 +69,6 @@ describe('InputNumber', () => {
     expect(
       container.querySelector('.anticon-arrow-down')?.className.includes('my-class-name'),
     ).toBe(true);
-  });
-
-  it('should support classNames', () => {
-    const { container } = render(
-      <InputNumber
-        prefix="$"
-        suffix="%"
-        classNames={{
-          input: 'my-class-name-input',
-          prefix: 'my-class-name-prefix',
-          suffix: 'my-class-name-suffix',
-        }}
-      />,
-    );
-    expect(container.querySelector('.ant-input-number')).toHaveClass('my-class-name-input');
-    expect(container.querySelector('.ant-input-number-prefix')).toHaveClass('my-class-name-prefix');
-    expect(container.querySelector('.ant-input-number-suffix')).toHaveClass('my-class-name-suffix');
   });
 
   it('renders correctly when the controlled mode number is out of range', () => {

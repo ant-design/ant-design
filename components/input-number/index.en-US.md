@@ -42,7 +42,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | autoFocus | If get focus when component mounted | boolean | false | - |
-| classNames | Semantic DOM class | Record<[SemanticDOM](#inputnumber), string> | - | 5.13.0 |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
 | controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
@@ -66,16 +65,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
-
-### Semantic DOM
-
-#### InputNumber
-
-| Property | Description                | Version |
-| -------- | -------------------------- | ------- |
-| input    | Wrapper of `input` element | 5.13.0  |
-| prefix   | Wrapper of prefix          | 5.13.0  |
-| suffix   | Wrapper of suffix          | 5.13.0  |
 
 ## Methods
 
