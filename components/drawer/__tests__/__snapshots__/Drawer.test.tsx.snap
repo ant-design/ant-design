@@ -596,7 +596,7 @@ exports[`Drawer style migrate match between styles and deprecated style prop 2`]
     />
     <div
       class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-enter ant-drawer-panel-motion-right-enter-start ant-drawer-panel-motion-right"
-      style="width: 378px; font-size: 12px;"
+      style="width: 378px; font-size: 16px;"
     >
       <div
         aria-modal="true"
@@ -606,7 +606,7 @@ exports[`Drawer style migrate match between styles and deprecated style prop 2`]
       >
         <div
           class="ant-drawer-header ant-drawer-header-close-only"
-          style="font-size: 14px;"
+          style="font-size: 12px;"
         >
           <div
             class="ant-drawer-header-title"
@@ -641,7 +641,7 @@ exports[`Drawer style migrate match between styles and deprecated style prop 2`]
         </div>
         <div
           class="ant-drawer-body"
-          style="font-size: 15px;"
+          style="font-size: 13px;"
         >
           <p>
             Some contents...

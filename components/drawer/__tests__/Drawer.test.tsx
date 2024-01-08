@@ -341,11 +341,11 @@ describe('Drawer', () => {
           getContainer={false}
           style={getStyle2()}
           rootStyle={getStyle2()}
-          contentWrapperStyle={getStyle2()}
-          drawerStyle={getStyle2()}
           headerStyle={getStyle2()}
           bodyStyle={getStyle2()}
           footerStyle={getStyle2()}
+          drawerStyle={getStyle2()}
+          contentWrapperStyle={getStyle2()}
           maskStyle={getStyle2()}
         >
           <p>Some contents...</p>
