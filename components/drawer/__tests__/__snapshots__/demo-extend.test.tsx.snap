@@ -2992,7 +2992,11 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Drawer] \`contentWrapperStyle\` is deprecated. Please use \`styles.wrapper\` instead.",
+]
+`;
 
 exports[`renders components/drawer/demo/placement.tsx extend context correctly 1`] = `
 Array [
