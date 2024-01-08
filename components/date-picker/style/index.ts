@@ -268,7 +268,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           [`${componentCls}-active-bar`]: {
             bottom: token.calc(lineWidth).mul(-1).equal(),
             height: lineWidthBold,
-            marginInlineStart: paddingInline,
             background: colorPrimary,
             opacity: 0,
             transition: `all ${motionDurationSlow} ease-out`,
@@ -290,10 +289,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           [`&${componentCls}-small`]: {
             [`${componentCls}-clear`]: {
               insetInlineEnd: paddingInlineSM,
-            },
-
-            [`${componentCls}-active-bar`]: {
-              marginInlineStart: paddingInlineSM,
             },
           },
         },
