@@ -311,8 +311,9 @@ describe('Drawer', () => {
     });
 
     it('match between styles and deprecated style prop', async () => {
-      let fontSize1 = 10;
-      let fontSize2 = 10;
+      const initialFontSize = 10;
+      let fontSize1 = initialFontSize;
+      let fontSize2 = initialFontSize;
       const getStyle1 = () => ({ fontSize: fontSize1++ });
       const getStyle2 = () => ({ fontSize: fontSize2++ });
       const { container: container1 } = render(
@@ -320,8 +321,7 @@ describe('Drawer', () => {
           open
           forceRender
           getContainer={false}
-          style={getStyle1()}
-          rootStyle={getStyle1()}
+          footer="footer"
           styles={{
             header: getStyle1(),
             body: getStyle1(),
@@ -339,8 +339,7 @@ describe('Drawer', () => {
           open
           forceRender
           getContainer={false}
-          style={getStyle2()}
-          rootStyle={getStyle2()}
+          footer="footer"
           headerStyle={getStyle2()}
           bodyStyle={getStyle2()}
           footerStyle={getStyle2()}
@@ -353,6 +352,12 @@ describe('Drawer', () => {
       );
       expect(container1).toMatchSnapshot();
       expect(container2).toMatchSnapshot();
+      for (let i = initialFontSize; i < fontSize1; i += 1) {
+        expect(container1.outerHTML).toContain(`font-size: ${i}px`);
+      }
+      for (let j = initialFontSize; j < fontSize2; j += 1) {
+        expect(container2.outerHTML).toContain(`font-size: ${j}px`);
+      }
       expect(container1.outerHTML).toEqual(container2.outerHTML);
     });
   });

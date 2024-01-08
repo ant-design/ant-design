@@ -499,12 +499,11 @@ exports[`Drawer style migrate match between styles and deprecated style prop 1`]
 <div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
-    style="font-size: 11px;"
     tabindex="-1"
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-motion-enter ant-drawer-mask-motion-enter-start ant-drawer-mask-motion"
-      style="font-size: 17px;"
+      style="font-size: 15px;"
     />
     <div
       aria-hidden="true"
@@ -514,17 +513,17 @@ exports[`Drawer style migrate match between styles and deprecated style prop 1`]
     />
     <div
       class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-enter ant-drawer-panel-motion-right-enter-start ant-drawer-panel-motion-right"
-      style="width: 378px;"
+      style="width: 378px; font-size: 14px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="font-size: 15px;"
+        style="font-size: 13px;"
       >
         <div
           class="ant-drawer-header ant-drawer-header-close-only"
-          style="font-size: 12px;"
+          style="font-size: 10px;"
         >
           <div
             class="ant-drawer-header-title"
@@ -559,11 +558,17 @@ exports[`Drawer style migrate match between styles and deprecated style prop 1`]
         </div>
         <div
           class="ant-drawer-body"
-          style="font-size: 13px;"
+          style="font-size: 11px;"
         >
           <p>
             Some contents...
           </p>
+        </div>
+        <div
+          class="ant-drawer-footer"
+          style="font-size: 12px;"
+        >
+          footer
         </div>
       </div>
     </div>
@@ -581,12 +586,11 @@ exports[`Drawer style migrate match between styles and deprecated style prop 2`]
 <div>
   <div
     class="ant-drawer ant-drawer-right ant-drawer-open ant-drawer-inline"
-    style="font-size: 11px;"
     tabindex="-1"
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-motion-enter ant-drawer-mask-motion-enter-start ant-drawer-mask-motion"
-      style="font-size: 17px;"
+      style="font-size: 15px;"
     />
     <div
       aria-hidden="true"
@@ -596,17 +600,17 @@ exports[`Drawer style migrate match between styles and deprecated style prop 2`]
     />
     <div
       class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-enter ant-drawer-panel-motion-right-enter-start ant-drawer-panel-motion-right"
-      style="width: 378px; font-size: 16px;"
+      style="width: 378px; font-size: 14px;"
     >
       <div
         aria-modal="true"
         class="ant-drawer-content"
         role="dialog"
-        style="font-size: 10px;"
+        style="font-size: 13px;"
       >
         <div
           class="ant-drawer-header ant-drawer-header-close-only"
-          style="font-size: 12px;"
+          style="font-size: 10px;"
         >
           <div
             class="ant-drawer-header-title"
@@ -641,11 +645,17 @@ exports[`Drawer style migrate match between styles and deprecated style prop 2`]
         </div>
         <div
           class="ant-drawer-body"
-          style="font-size: 13px;"
+          style="font-size: 11px;"
         >
           <p>
             Some contents...
           </p>
+        </div>
+        <div
+          class="ant-drawer-footer"
+          style="font-size: 12px;"
+        >
+          footer
         </div>
       </div>
     </div>
@@ -682,6 +692,7 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
       aria-modal="true"
       class="ant-drawer-content"
       role="dialog"
+      style="background-color: rgb(0, 136, 204);"
     >
       <div
         class="ant-drawer-header ant-drawer-header-close-only"

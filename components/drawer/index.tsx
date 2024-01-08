@@ -66,6 +66,9 @@ const Drawer: React.FC<DrawerProps> & {
     // Deprecated
     visible,
     afterVisibleChange,
+    maskStyle,
+    drawerStyle,
+    contentWrapperStyle,
 
     ...rest
   } = props;
@@ -168,11 +171,18 @@ const Drawer: React.FC<DrawerProps> & {
             styles={{
               mask: {
                 ...rest.styles?.mask,
+                ...maskStyle,
                 ...drawer?.styles?.mask,
               },
               content: {
                 ...rest.styles?.content,
+                ...drawerStyle,
                 ...drawer?.styles?.content,
+              },
+              wrapper: {
+                ...rest.styles?.wrapper,
+                ...contentWrapperStyle,
+                ...drawer?.styles?.wrapper,
               },
             }}
             open={open ?? visible}
