@@ -28,6 +28,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/extra-footer.tsx">Extra Footer</code>
 <code src="./demo/size.tsx">Three Sizes</code>
 <code src="./demo/cell-render.tsx">Customized Cell Rendering</code>
+<code src="./demo/buddhist-era.tsx">Buddhist Era</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>

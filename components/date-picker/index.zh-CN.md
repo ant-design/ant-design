@@ -29,6 +29,7 @@ demo:
 <code src="./demo/extra-footer.tsx">额外的页脚</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/cell-render.tsx">定制单元格</code>
+<code src="./demo/buddhist-era.tsx">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
