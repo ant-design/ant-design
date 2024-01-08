@@ -310,7 +310,7 @@ describe('Drawer', () => {
       expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
     });
 
-    fit('match between styles and deprecated style prop', async () => {
+    it('match between styles and deprecated style prop', async () => {
       let fontSize1 = 10;
       let fontSize2 = 10;
       const getStyle1 = () => ({ fontSize: fontSize1++ });
