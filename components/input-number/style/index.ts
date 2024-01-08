@@ -97,12 +97,15 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     controlHeightLG,
     controlHeightSM,
     colorError,
-    paddingInlineSM,
     colorTextDescription,
     motionDurationMid,
     handleHoverColor,
     paddingInline,
     paddingBlock,
+    paddingInlineLG,
+    paddingBlockLG,
+    paddingInlineSM,
+    paddingBlockSM,
     handleBg,
     handleActiveBg,
     colorTextDisabled,
@@ -143,6 +146,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`input${componentCls}-input`]: {
             height: calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal(),
+            padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
           },
         },
 
@@ -152,7 +156,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`input${componentCls}-input`]: {
             height: calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal(),
-            padding: `0 ${unit(paddingInlineSM)}`,
+            padding: `${unit(paddingBlockSM)} ${unit(paddingInlineSM)}`,
           },
         },
 
