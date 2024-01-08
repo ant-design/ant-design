@@ -141,14 +141,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         pointerEvents: 'auto',
       },
 
-      // ===================== Panel ======================
-      [`${componentCls}-wrapper-body`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
-      },
-
       // Header
       [`${componentCls}-header`]: {
         display: 'flex',
