@@ -2921,7 +2921,7 @@ Array [
     />
     <div
       class="ant-drawer-content-wrapper"
-      style="width: 333px; background: red; border-radius: 20px; box-shadow: -5px 0 5px green; overflow: hidden;"
+      style="width: 378px;"
     >
       <div
         aria-modal="true"
@@ -2992,11 +2992,7 @@ Array [
 ]
 `;
 
-exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Drawer] \`contentWrapperStyle\` is deprecated. Please use \`styles.wrapper\` instead.",
-]
-`;
+exports[`renders components/drawer/demo/no-mask.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/drawer/demo/placement.tsx extend context correctly 1`] = `
 Array [
@@ -3165,7 +3161,7 @@ exports[`renders components/drawer/demo/placement.tsx extend context correctly 2
 
 exports[`renders components/drawer/demo/render-in-current.tsx extend context correctly 1`] = `
 <div
-  style="position: relative; height: 200px; padding: 48px; overflow: hidden; text-align: center; background: rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; border-radius: 8px;"
+  style="position: relative; height: 200px; padding: 48px; overflow: hidden; background: rgba(0, 0, 0, 0.02); border: 1px solid #f0f0f0; border-radius: 8px;"
 >
   Render in this
   <div
