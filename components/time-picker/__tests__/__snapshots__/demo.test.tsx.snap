@@ -18,7 +18,7 @@ exports[`renders components/time-picker/demo/12hours.tsx correctly 1`] = `
           aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          size="10"
+          size="12"
           value=""
         />
         <span
