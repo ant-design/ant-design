@@ -309,5 +309,51 @@ describe('Drawer', () => {
       );
       expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
     });
+
+    fit('match between styles and deprecated style prop', async () => {
+      let fontSize1 = 10;
+      let fontSize2 = 10;
+      const getStyle1 = () => ({ fontSize: fontSize1++ });
+      const getStyle2 = () => ({ fontSize: fontSize2++ });
+      const { container: container1 } = render(
+        <Drawer
+          open
+          forceRender
+          getContainer={false}
+          style={getStyle1()}
+          rootStyle={getStyle1()}
+          styles={{
+            header: getStyle1(),
+            body: getStyle1(),
+            footer: getStyle1(),
+            content: getStyle1(),
+            wrapper: getStyle1(),
+            mask: getStyle1(),
+          }}
+        >
+          <p>Some contents...</p>
+        </Drawer>,
+      );
+      const { container: container2 } = render(
+        <Drawer
+          open
+          forceRender
+          getContainer={false}
+          style={getStyle2()}
+          rootStyle={getStyle2()}
+          contentWrapperStyle={getStyle2()}
+          drawerStyle={getStyle2()}
+          headerStyle={getStyle2()}
+          bodyStyle={getStyle2()}
+          footerStyle={getStyle2()}
+          maskStyle={getStyle2()}
+        >
+          <p>Some contents...</p>
+        </Drawer>,
+      );
+      expect(container1).toMatchSnapshot();
+      expect(container2).toMatchSnapshot();
+      expect(container1.outerHTML).toEqual(container2.outerHTML);
+    });
   });
 });
