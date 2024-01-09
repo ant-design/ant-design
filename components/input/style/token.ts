@@ -73,35 +73,20 @@ export interface SharedComponentToken {
    */
   activeBg: string;
   /**
-   * @desc 内容字体大小
-   * @descEN Font size of content
+   * @desc 字体大小
+   * @descEN Font size
    */
-  contentFontSize: number;
+  inputFontSize: number;
   /**
-   * @desc 大号内容字体大小
-   * @descEN Font size of large content
+   * @desc 大号字体大小
+   * @descEN Font size of large
    */
-  contentFontSizeLG: number;
+  inputFontSizeLG: number;
   /**
-   * @desc 小号内容字体大小
-   * @descEN Font size of small content
+   * @desc 小号字体大小
+   * @descEN Font size of small
    */
-  contentFontSizeSM: number;
-  /**
-   * @desc 内容字体行高
-   * @descEN Line height of content
-   */
-  contentLineHeight: number;
-  /**
-   * @desc 大号内容字体行高
-   * @descEN Line height of large content
-   */
-  contentLineHeightLG: number;
-  /**
-   * @desc 小号内容字体行高
-   * @descEN Line height of small content
-   */
-  contentLineHeightSM: number;
+  inputFontSizeSM: number;
 }
 
 export interface ComponentToken extends SharedComponentToken {}
@@ -162,11 +147,8 @@ export const initComponentToken = (token: AliasToken): SharedComponentToken => {
     warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
     hoverBg: '',
     activeBg: '',
-    contentFontSize: fontSize,
-    contentFontSizeLG: fontSizeLG,
-    contentFontSizeSM: fontSize,
-    contentLineHeight: lineHeight,
-    contentLineHeightLG: lineHeightLG,
-    contentLineHeightSM: lineHeight,
+    inputFontSize: fontSize,
+    inputFontSizeLG: fontSizeLG,
+    inputFontSizeSM: fontSize,
   };
 };

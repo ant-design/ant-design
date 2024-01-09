@@ -40,20 +40,19 @@ export const genActiveStyle = (token: InputToken) => ({
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { paddingBlockLG, borderRadiusLG, paddingInlineLG } = token;
+  const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
 
   return {
     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-    fontSize: token.contentFontSizeLG,
-    lineHeight: token.contentLineHeightLG,
+    fontSize: token.inputFontSizeLG,
+    lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
   };
 };
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
-  fontSize: token.contentFontSizeSM,
-  lineHeight: token.contentLineHeightSM,
+  fontSize: token.inputFontSizeSM,
   borderRadius: token.borderRadiusSM,
 });
 
@@ -64,8 +63,8 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   minWidth: 0,
   padding: `${unit(token.paddingBlock)} ${unit(token.paddingInline)}`,
   color: token.colorText,
-  fontSize: token.contentFontSize,
-  lineHeight: token.contentLineHeight,
+  fontSize: token.inputFontSize,
+  lineHeight: token.lineHeight,
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
@@ -75,7 +74,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     maxWidth: '100%', // prevent textarea resize from coming out of its container
     height: 'auto',
     minHeight: token.controlHeight,
-    lineHeight: token.contentLineHeight,
+    lineHeight: token.lineHeight,
     verticalAlign: 'bottom',
     transition: `all ${token.motionDurationSlow}, height 0s`,
     resize: 'vertical',
@@ -165,7 +164,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         padding: `0 ${unit(token.paddingInline)}`,
         color: token.colorText,
         fontWeight: 'normal',
-        fontSize: token.contentFontSize,
+        fontSize: token.inputFontSize,
         textAlign: 'center',
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -592,7 +591,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-lg': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusLG,
-            fontSize: token.contentFontSizeLG,
+            fontSize: token.inputFontSizeLG,
           },
         },
         '&-sm': {
@@ -660,7 +659,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       // fix slight height diff in Firefox:
       // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
       [`${componentCls}-lg`]: {
-        lineHeight: token.calc(token.contentLineHeightLG).sub(0.0002).equal({ unit: false }),
+        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal({ unit: false }),
       },
 
       [`> ${componentCls}-group`]: {
