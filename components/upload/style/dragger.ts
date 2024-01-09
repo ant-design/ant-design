@@ -23,12 +23,13 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
         },
 
         [`${componentCls}-btn`]: {
-          display: 'flex',
-          placeContent: 'center',
+          display: 'table',
+          width: '100%',
+          height: '100%',
           outline: 'none',
           borderRadius: token.borderRadiusLG,
 
-          '&:focus': {
+          '&:focus-visible': {
             outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
           },
         },

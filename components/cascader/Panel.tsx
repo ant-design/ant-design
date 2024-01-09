@@ -16,7 +16,7 @@ export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootC
 
 export type CascaderPanelProps = Pick<CascaderProps, PanelPickType>;
 
-export default function CascaderPanel(props: CascaderPanelProps) {
+const CascaderPanel: React.FC<CascaderPanelProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -63,4 +63,6 @@ export default function CascaderPanel(props: CascaderPanelProps) {
       loadingIcon={loadingIcon}
     />,
   );
-}
+};
+
+export default CascaderPanel;
