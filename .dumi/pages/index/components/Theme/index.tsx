@@ -13,11 +13,11 @@ import {
   Button,
   Card,
   ConfigProvider,
+  Flex,
   Form,
   Layout,
   Menu,
   Radio,
-  Space,
   theme,
   Typography,
 } from 'antd';
@@ -31,7 +31,7 @@ import useDark from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import Link from '../../../../theme/common/Link';
 import SiteContext from '../../../../theme/slots/SiteContext';
-import * as utils from '../../../../theme/utils';
+import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
 import { getCarouselStyle } from '../util';
 import BackgroundImage from './BackgroundImage';
@@ -154,6 +154,8 @@ const useStyle = createStyles(({ token, cx }) => {
       height: ${token.controlHeight}px;
       border-radius: 100%;
       background: rgba(240, 240, 240, 0.75);
+      background-size: cover;
+      box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
     `,
 
     avatarDark: css`
@@ -189,7 +191,7 @@ const useStyle = createStyles(({ token, cx }) => {
     `,
 
     form: css`
-      width: 800px;
+      width: 100%;
       margin: 0 auto;
     `,
     carousel,
@@ -458,8 +460,7 @@ export default function Theme() {
               </div>
               <h1>Ant Design 5.0</h1>
             </div>
-
-            <Space className={styles.menu} size="middle">
+            <Flex className={styles.menu} gap="middle">
               <BellOutlined />
               <QuestionCircleOutlined />
               <div
@@ -467,11 +468,9 @@ export default function Theme() {
                 style={{
                   backgroundColor: avatarColor,
                   backgroundImage: `url(${getAvatarURL(closestColor)})`,
-                  backgroundSize: 'cover',
-                  boxShadow: `0 0 2px rgba(0, 0, 0, 0.2)`,
                 }}
               />
-            </Space>
+            </Flex>
           </Header>
           <Layout className={styles.transBg} hasSider>
             <Sider className={classNames(styles.transBg, 'site-layout-background')} width={200}>
@@ -499,20 +498,16 @@ export default function Theme() {
                 <Card
                   title={locale.myTheme}
                   extra={
-                    <Space>
-                      <Link to={utils.getLocalizedPathname('/theme-editor', isZhCN, search)}>
+                    <Flex gap="small">
+                      <Link to={getLocalizedPathname('/theme-editor', isZhCN, search)}>
                         <Button type="default">{locale.toDef}</Button>
                       </Link>
                       <Link
-                        to={utils.getLocalizedPathname(
-                          '/docs/react/customize-theme',
-                          isZhCN,
-                          search,
-                        )}
+                        to={getLocalizedPathname('/docs/react/customize-theme', isZhCN, search)}
                       >
                         <Button type="primary">{locale.toUse}</Button>
                       </Link>
-                    </Space>
+                    </Flex>
                   }
                 >
                   <Form
@@ -536,15 +531,8 @@ export default function Theme() {
                     <Form.Item label={locale.titleCompact} name="compact" htmlFor="compact_default">
                       <Radio.Group
                         options={[
-                          {
-                            label: locale.default,
-                            value: 'default',
-                            id: 'compact_default',
-                          },
-                          {
-                            label: locale.compact,
-                            value: 'compact',
-                          },
+                          { label: locale.default, value: 'default', id: 'compact_default' },
+                          { label: locale.compact, value: 'compact' },
                         ]}
                       />
                     </Form.Item>

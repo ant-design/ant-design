@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-import { Button, ConfigProvider, Space, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { Button, ConfigProvider, Flex, Typography } from 'antd';
+import { createStyles } from 'antd-style';
 import { Link, useLocation } from 'dumi';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -97,21 +97,18 @@ const useStyle = () => {
         width: 100%;
         z-index: 1;
       `,
+      btnWrap: css`
+        margin-bottom: ${token.marginXL}px;
+      `,
     };
   })();
 };
 
-export interface PreviewBannerProps {
-  children?: React.ReactNode;
-}
-
-const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
+const PreviewBanner: React.FC<React.PropsWithChildren> = (props) => {
   const { children } = props;
-
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
   const { isMobile } = React.useContext(SiteContext);
-  const token = useTheme();
   const { pathname, search } = useLocation();
   const isZhCN = utils.isZhCN(pathname);
 
@@ -140,13 +137,11 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
           )}
         </Suspense>
         <div className={styles.mask} />
-
         <Typography className={styles.typography}>
           <h1>Ant Design 5.0</h1>
           <p>{locale.slogan}</p>
         </Typography>
-
-        <Space size="middle" style={{ marginBottom: token.marginXL }}>
+        <Flex gap="middle" className={styles.btnWrap}>
           <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, search)}>
             <Button size="large" type="primary">
               {locale.start}
@@ -155,7 +150,7 @@ const PreviewBanner: React.FC<PreviewBannerProps> = (props) => {
           <Link to={utils.getLocalizedPathname('/docs/spec/introduce/', isZhCN, search)}>
             <Button size="large">{locale.designLanguage}</Button>
           </Link>
-        </Space>
+        </Flex>
         <div className={styles.child}>{children}</div>
       </div>
     </GroupMask>

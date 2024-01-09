@@ -45,7 +45,7 @@ const App: React.FC = () => {
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');
-    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]); // the drop position relative to the drop node, inside 0, top -1, bottom 1
 
     const loop = (
       data: DataNode[],
@@ -77,18 +77,6 @@ const App: React.FC = () => {
         // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
         item.children.unshift(dragObj);
       });
-    } else if (
-      ((info.node as any).props.children || []).length > 0 && // Has children
-      (info.node as any).props.expanded && // Is expanded
-      dropPosition === 1 // On the bottom gap
-    ) {
-      loop(data, dropKey, (item) => {
-        item.children = item.children || [];
-        // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
-        item.children.unshift(dragObj);
-        // in previous version, we use item.children.push(dragObj) to insert the
-        // item to the tail of the children
-      });
     } else {
       let ar: DataNode[] = [];
       let i: number;
@@ -97,8 +85,10 @@ const App: React.FC = () => {
         i = index;
       });
       if (dropPosition === -1) {
+        // Drop on the top of the drop node
         ar.splice(i!, 0, dragObj!);
       } else {
+        // Drop on the bottom of the drop node
         ar.splice(i! + 1, 0, dragObj!);
       }
     }

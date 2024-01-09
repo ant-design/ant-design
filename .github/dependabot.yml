@@ -25,4 +25,4 @@ updates:
         update-types: ["major", "minor"]
       dev-dependencies:
         dependency-type: "development"
-        update-types: ["major", "minor"]
+        update-types: ["major"]

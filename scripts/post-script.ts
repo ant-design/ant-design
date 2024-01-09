@@ -6,62 +6,18 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import inquirer from 'inquirer';
 import fetch from 'isomorphic-fetch';
 import semver from 'semver';
+import deprecatedVersions from '../BUG_VERSIONS.json';
 
 dayjs.extend(relativeTime);
 
 const CONCH_TAG = 'conch-v5';
 
-const DEPRECIATED_VERSION = {
-  '>= 4.21.6 < 4.22.0': ['https://github.com/ant-design/ant-design/pull/36682'],
-  '>=4.22.2 <=4.22.5': [
-    'https://github.com/ant-design/ant-design/issues/36932',
-    'https://github.com/ant-design/ant-design/pull/36800',
-    'https://github.com/ant-design/ant-design/issues/37024',
-  ],
-  '4.23.0': ['https://github.com/ant-design/ant-design/issues/37461'],
-  '4.23.5': [
-    'https://github.com/ant-design/ant-design/issues/37929',
-    'https://github.com/ant-design/ant-design/issues/37931',
-  ],
-  '4.24.0': ['https://github.com/ant-design/ant-design/issues/38371'],
-  '5.0.4': ['https://github.com/ant-design/ant-design/issues/39284'],
-  '5.0.6': ['https://github.com/ant-design/ant-design/issues/39807'],
-  '5.1.0': ['https://github.com/react-component/drawer/pull/370'],
-  '5.1.2': ['https://github.com/ant-design/ant-design/issues/39949'],
-  '5.1.3': ['https://github.com/ant-design/ant-design/issues/40113'],
-  '5.1.4': ['https://github.com/ant-design/ant-design/issues/40186'],
-  '>= 5.2.3 <= 5.3.0': [
-    'https://github.com/ant-design/ant-design/pull/40719#issuecomment-1453418135',
-  ],
-  '5.4.1': ['https://github.com/ant-design/ant-design/issues/41751'],
-  '>= 5.4.3 <= 5.4.5': [
-    'https://github.com/ant-design/cssinjs/pull/108',
-    'https://github.com/ant-design/ant-design/pull/41993',
-  ],
-  '5.6.2': ['https://github.com/ant-design/ant-design/issues/43113'],
-  '5.6.3': ['https://github.com/ant-design/ant-design/issues/43190'],
-  '5.7.0': ['https://github.com/ant-design/ant-design/issues/43684'],
-  '5.7.1': [
-    'https://github.com/ant-design/ant-design/issues/43654',
-    'https://github.com/ant-design/ant-design/issues/43684',
-  ],
-  '5.8.0': ['https://github.com/ant-design/ant-design/issues/43943'],
-  '5.9.1': ['https://github.com/ant-design/ant-design/issues/44907'],
-  '5.10.0': ['https://github.com/ant-design/ant-design/issues/45289'],
-  '5.11.0': ['https://github.com/ant-design/ant-design/issues/45742'],
-  '5.11.1': ['https://github.com/ant-design/ant-design/issues/45883'],
-  '5.11.2': ['https://github.com/ant-design/ant-design/issues/46005'],
-  '5.11.4': ['https://github.com/ant-design/ant-design/pull/46103'],
-  '5.12.3': ['https://github.com/ant-design/ant-design/issues/46525'],
-  '5.12.6': ['https://github.com/ant-design/ant-design/issues/46719'],
-} as const;
-
 function matchDeprecated(v: string) {
-  const match = Object.keys(DEPRECIATED_VERSION).find((depreciated) =>
+  const match = Object.keys(deprecatedVersions).find((depreciated) =>
     semver.satisfies(v, depreciated),
   );
 
-  const reason = DEPRECIATED_VERSION[match as keyof typeof DEPRECIATED_VERSION] || [];
+  const reason = deprecatedVersions[match as keyof typeof deprecatedVersions] || [];
 
   return {
     match,
