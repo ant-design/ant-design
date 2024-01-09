@@ -19,6 +19,21 @@ const getMoveTranslate = (direction: Direction) => {
   }
 };
 
+const fadeStyle = {
+  '&-enter, &-appear': {
+    opacity: 0,
+    '&-active': {
+      opacity: 1,
+    },
+  },
+  '&-leave': {
+    opacity: 1,
+    '&-active': {
+      opacity: 0,
+    },
+  },
+};
+
 const getPanelMotionStyles = (direction: Direction, duration: string) => {
   const transform = getMoveTranslate(direction);
   return [
@@ -31,24 +46,21 @@ const getPanelMotionStyles = (direction: Direction, duration: string) => {
           transition: `all ${duration}`,
         },
       },
+      ...fadeStyle,
     },
     {
       '&-enter, &-appear': {
         '&-start': {
           transform,
-          opacity: 0,
         },
         '&-active': {
           transform: 'translateX(0)',
-          opacity: 1,
         },
       },
       '&-leave': {
         transform: 'translateX(0)',
-        opacity: 1,
         '&-active': {
           transform,
-          opacity: 0,
         },
       },
     },
@@ -75,18 +87,7 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
             transition: `all ${motionDurationMid}`,
           },
         },
-        '&-enter, &-appear': {
-          opacity: 0,
-          '&-active': {
-            opacity: 1,
-          },
-        },
-        '&-leave': {
-          opacity: 1,
-          '&-active': {
-            opacity: 0,
-          },
-        },
+        ...fadeStyle,
       },
 
       // ======================= Panel ========================
