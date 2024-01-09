@@ -4,7 +4,7 @@ import type { GenerateStyle } from '../../theme/internal';
 type Direction = 'left' | 'right' | 'top' | 'bottom';
 
 const getMoveTranslate = (direction: Direction) => {
-  const value = '100%';
+  const value = '8%';
   switch (direction) {
     case 'left':
       return `translateX(-${value}) !important`;
@@ -36,15 +36,19 @@ const getPanelMotionStyles = (direction: Direction, duration: string) => {
       '&-enter, &-appear': {
         '&-start': {
           transform,
+          opacity: 0,
         },
         '&-active': {
           transform: 'translateX(0)',
+          opacity: 1,
         },
       },
       '&-leave': {
         transform: 'translateX(0)',
+        opacity: 1,
         '&-active': {
           transform,
+          opacity: 0,
         },
       },
     },
@@ -52,12 +56,12 @@ const getPanelMotionStyles = (direction: Direction, duration: string) => {
 };
 
 const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
-  const { componentCls, motionDurationSlow } = token;
+  const { componentCls, motionDurationMid } = token;
 
   const styles = ['left', 'right', 'top', 'bottom'].reduce(
     (obj, direction: Direction) => ({
       ...obj,
-      [`&-${direction}`]: getPanelMotionStyles(direction, motionDurationSlow),
+      [`&-${direction}`]: getPanelMotionStyles(direction, motionDurationMid),
     }),
     {},
   );
@@ -68,7 +72,7 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${componentCls}-mask-motion`]: {
         '&-enter, &-appear, &-leave': {
           '&-active': {
-            transition: `all ${motionDurationSlow}`,
+            transition: `all ${motionDurationMid}`,
           },
         },
         '&-enter, &-appear': {
