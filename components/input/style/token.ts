@@ -72,6 +72,21 @@ export interface SharedComponentToken {
    * @descEN Background color when the input box is activated
    */
   activeBg: string;
+  /**
+   * @desc 字体大小
+   * @descEN Font size
+   */
+  inputFontSize: number;
+  /**
+   * @desc 大号字体大小
+   * @descEN Font size of large
+   */
+  inputFontSizeLG: number;
+  /**
+   * @desc 小号字体大小
+   * @descEN Font size of small
+   */
+  inputFontSizeSM: number;
 }
 
 export interface ComponentToken extends SharedComponentToken {}
@@ -132,5 +147,8 @@ export const initComponentToken = (token: AliasToken): SharedComponentToken => {
     warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
     hoverBg: '',
     activeBg: '',
+    inputFontSize: fontSize,
+    inputFontSizeLG: fontSizeLG,
+    inputFontSizeSM: fontSize,
   };
 };
