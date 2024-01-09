@@ -375,7 +375,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       [`input${componentCls}-input`]: {
         paddingBlock,
         paddingInlineStart: 0,
-        paddingInlineEnd: paddingInline,
       },
 
       ...genBasicInputStyle(token),
@@ -392,7 +391,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
         [`input${componentCls}-input`]: {
           paddingBlock: paddingBlockLG,
-          paddingInlineEnd: paddingInlineLG,
         },
       },
 
@@ -402,7 +400,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
         [`input${componentCls}-input`]: {
           paddingBlock: paddingBlockSM,
-          paddingInlineEnd: paddingInlineSM,
         },
       },
 
