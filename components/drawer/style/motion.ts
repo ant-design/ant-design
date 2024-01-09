@@ -50,7 +50,7 @@ const getPanelMotionStyles = (direction: Direction, duration: string) => [
       transform: getMoveTranslate(direction),
     },
     {
-      transform: 'translateX(0)',
+      transform: 'none',
     },
   ),
 ];
