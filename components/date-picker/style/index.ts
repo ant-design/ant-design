@@ -298,6 +298,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         '&-dropdown': {
           ...resetComponent(token),
           ...genPanelStyle(token),
+          pointerEvents: 'none',
           position: 'absolute',
           // Fix incorrect position of picker popup
           // https://github.com/ant-design/ant-design/issues/35590
@@ -385,6 +386,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             boxShadow: boxShadowSecondary,
             transition: `margin ${motionDurationSlow}`,
             display: 'inline-block',
+            pointerEvents: 'auto',
 
             // ======================== Layout ========================
             [`${componentCls}-panel-layout`]: {

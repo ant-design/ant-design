@@ -1,24 +1,65 @@
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+
 import { genSelectionStyle } from '../../select/style/multiple';
-import type { GenerateStyle } from '../../theme/internal';
+import { mergeToken, type GenerateStyle } from '../../theme/internal';
 import type { PickerToken } from './token';
 
-const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
-  const { componentCls, controlHeight, fontHeight, lineWidth, calc } = token;
+const genSize = (token: PickerToken, suffix?: string): CSSInterpolation => {
+  const { componentCls, selectHeight, fontHeight, lineWidth, calc } = token;
+
+  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   const height = token.calc(fontHeight).add(2).equal();
-  const restHeight = () => calc(controlHeight).sub(height).sub(calc(lineWidth).mul(2));
+  const restHeight = () => calc(selectHeight).sub(height).sub(calc(lineWidth).mul(2));
 
   const paddingTop = token.max(restHeight().div(2).equal(), 0);
   const paddingBottom = token.max(restHeight().sub(paddingTop).equal(), 0);
 
   return [
-    genSelectionStyle(token),
+    genSelectionStyle(token, suffix),
     {
-      [`${componentCls}-multiple`]: {
-        width: '100%',
+      [`${componentCls}-multiple${suffixCls}`]: {
         paddingTop,
         paddingBottom,
         paddingInlineStart: paddingTop,
+      },
+    },
+  ];
+};
+
+const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
+  const { componentCls, calc, lineWidth } = token;
+
+  const smallToken = mergeToken<PickerToken>(token, {
+    fontHeight: token.fontSize,
+    selectHeight: token.controlHeightSM,
+    multipleSelectItemHeight: token.controlHeightXS,
+    borderRadius: token.borderRadiusSM,
+    borderRadiusSM: token.borderRadiusXS,
+  });
+
+  const largeToken = mergeToken<PickerToken>(token, {
+    fontHeight: calc(token.multipleItemHeightLG)
+      .sub(calc(lineWidth).mul(2).equal())
+      .equal() as number,
+    fontSize: token.fontSizeLG,
+    selectHeight: token.controlHeightLG,
+    multipleSelectItemHeight: token.multipleItemHeightLG,
+    borderRadius: token.borderRadiusLG,
+    borderRadiusSM: token.borderRadius,
+  });
+
+  return [
+    // ======================== Size ========================
+    genSize(smallToken, 'small'),
+    genSize(token),
+    genSize(largeToken, 'large'),
+
+    // ====================== Selection ======================
+    genSelectionStyle(token),
+    {
+      [`${componentCls}${componentCls}-multiple`]: {
+        width: '100%',
 
         // ==================== Selector =====================
         [`${componentCls}-selector`]: {
@@ -51,5 +92,3 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
 };
 
 export default genPickerMultipleStyle;
-
-// calc((var(--ant-control-height) - calc(var(--ant-font-height) + 2px) - var(--ant-line-width) * 2) / 2)
