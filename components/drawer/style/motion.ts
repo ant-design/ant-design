@@ -6,10 +6,10 @@ type Direction = 'left' | 'right' | 'top' | 'bottom';
 const getMoveTranslate = (direction: Direction) => {
   const value = '10%';
   return {
-    left: `translateX(-${value}) !important`,
-    right: `translateX(${value}) !important`,
-    top: `translateY(-${value}) !important`,
-    bottom: `translateY(${value}) !important`,
+    left: `translateX(-${value})`,
+    right: `translateX(${value})`,
+    top: `translateY(-${value})`,
+    bottom: `translateY(${value})`,
   }[direction];
 };
 
