@@ -15,6 +15,7 @@ import {
 import { genRoundedArrow } from '../../style/roundedArrow';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import genPickerMultipleStyle from './multiple';
 import genPickerPanelStyle, { genPanelStyle } from './panel';
 import type { ComponentToken, PanelComponentToken, PickerPanelToken, PickerToken } from './token';
 import { initPanelComponentToken, initPickerPanelToken, prepareComponentToken } from './token';
@@ -503,6 +504,7 @@ export default genStyleHooks(
       genPickerStyle(pickerToken),
       genVariantsStyle(pickerToken),
       genPickerStatusStyle(pickerToken),
+      genPickerMultipleStyle(pickerToken),
       // =====================================================
       // ==             Space Compact                       ==
       // =====================================================
