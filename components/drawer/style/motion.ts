@@ -13,6 +13,17 @@ const getMoveTranslate = (direction: Direction) => {
   }[direction];
 };
 
+const getEnterLeaveStyles = (startStyle: React.CSSProperties, endStyle: React.CSSProperties) => ({
+  '&-enter, &-appear': {
+    ...startStyle,
+    '&-active': endStyle,
+  },
+  '&-leave': {
+    ...endStyle,
+    '&-active': startStyle,
+  },
+});
+
 const getFadeStyle = (duration: string) => ({
   '&-enter, &-appear, &-leave': {
     '&-start': {
@@ -22,56 +33,41 @@ const getFadeStyle = (duration: string) => ({
       transition: `all ${duration}`,
     },
   },
-  '&-enter, &-appear': {
-    opacity: 0,
-    '&-active': {
-      opacity: 1,
-    },
-  },
-  '&-leave': {
-    opacity: 1,
-    '&-active': {
+  ...getEnterLeaveStyles(
+    {
       opacity: 0,
     },
-  },
+    {
+      opacity: 1,
+    },
+  ),
 });
 
-const getPanelMotionStyles = (direction: Direction, duration: string) => {
-  const transform = getMoveTranslate(direction);
-  return [
-    getFadeStyle(duration),
+const getPanelMotionStyles = (direction: Direction, duration: string) => [
+  getFadeStyle(duration),
+  getEnterLeaveStyles(
     {
-      '&-enter, &-appear': {
-        '&-start': {
-          transform,
-        },
-        '&-active': {
-          transform: 'translateX(0)',
-        },
-      },
-      '&-leave': {
-        transform: 'translateX(0)',
-        '&-active': {
-          transform,
-        },
-      },
+      transform: getMoveTranslate(direction),
     },
-  ];
-};
+    {
+      transform: 'translateX(0)',
+    },
+  ),
+];
 
 const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
-  const { componentCls, motionDurationMid } = token;
+  const { componentCls, motionDurationSlow } = token;
 
   return {
     [componentCls]: {
       // ======================== Mask ========================
-      [`${componentCls}-mask-motion`]: getFadeStyle(motionDurationMid),
+      [`${componentCls}-mask-motion`]: getFadeStyle(motionDurationSlow),
 
       // ======================= Panel ========================
       [`${componentCls}-panel-motion`]: ['left', 'right', 'top', 'bottom'].reduce(
         (obj, direction: Direction) => ({
           ...obj,
-          [`&-${direction}`]: getPanelMotionStyles(direction, motionDurationMid),
+          [`&-${direction}`]: getPanelMotionStyles(direction, motionDurationSlow),
         }),
         {},
       ),
