@@ -13,7 +13,7 @@ const getMoveTranslate = (direction: Direction) => {
   }[direction];
 };
 
-const getEnterLeaveStyles = (startStyle: React.CSSProperties, endStyle: React.CSSProperties) => ({
+const getEnterLeaveStyle = (startStyle: React.CSSProperties, endStyle: React.CSSProperties) => ({
   '&-enter, &-appear': {
     ...startStyle,
     '&-active': endStyle,
@@ -33,7 +33,7 @@ const getFadeStyle = (duration: string) => ({
       transition: `all ${duration}`,
     },
   },
-  ...getEnterLeaveStyles(
+  ...getEnterLeaveStyle(
     {
       opacity: 0,
     },
@@ -45,7 +45,7 @@ const getFadeStyle = (duration: string) => ({
 
 const getPanelMotionStyles = (direction: Direction, duration: string) => [
   getFadeStyle(duration),
-  getEnterLeaveStyles(
+  getEnterLeaveStyle(
     {
       transform: getMoveTranslate(direction),
     },
