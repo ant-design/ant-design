@@ -372,13 +372,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 
   return {
     [`${componentCls}-affix-wrapper`]: {
-      // or number handler will cover form status
-      position: 'relative',
-      display: 'inline-flex',
-      width: controlWidth,
-      padding: 0,
-      paddingInlineStart: paddingInline,
-
       [`input${componentCls}-input`]: {
         paddingBlock,
         paddingInlineStart: 0,
@@ -386,6 +379,12 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       ...genBasicInputStyle(token),
+      // or number handler will cover form status
+      position: 'relative',
+      display: 'inline-flex',
+      width: controlWidth,
+      padding: 0,
+      paddingInlineStart: paddingInline,
 
       '&-lg': {
         borderRadius: borderRadiusLG,
