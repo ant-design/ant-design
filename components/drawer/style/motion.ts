@@ -15,7 +15,6 @@ const getMoveTranslate = (direction: Direction) => {
     case 'bottom':
       return `translateY(${value}) !important`;
     default:
-      return '';
   }
 };
 
