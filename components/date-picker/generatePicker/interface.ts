@@ -1,4 +1,5 @@
 import type {
+  PickerRef,
   PickerProps as RcPickerProps,
   RangePickerProps as RcRangePickerProps,
 } from 'rc-picker';
@@ -54,12 +55,39 @@ type InjectDefaultProps<Props> = Omit<
    * @default "outlined"
    */
   variant?: Variant;
+
+  /**
+   * @deprecated `dropdownClassName` is deprecated which will be removed in next major
+   *   version.Please use `popupClassName` instead.
+   */
+  dropdownClassName?: string;
+  popupClassName?: string;
+  rootClassName?: string;
+  popupStyle?: React.CSSProperties;
 };
 
+/** Base Single Picker props */
 export type PickerProps<DateType extends AnyObject = any> = InjectDefaultProps<
   RcPickerProps<DateType>
 >;
 
+/** Base Range Picker props */
 export type RangePickerProps<DateType extends AnyObject = any> = InjectDefaultProps<
   RcRangePickerProps<DateType>
 >;
+
+/**
+ * Single Picker has the `multiple` prop,
+ * which will make the `value` be `DateType[]` type.
+ * Here to be a generic which accept the `ValueType` for developer usage.
+ */
+export type PickerPropsWithMultiple<
+  DateType extends AnyObject = any,
+  InnerPickerProps extends PickerProps<DateType> = PickerProps<DateType>,
+  ValueType = DateType,
+> = Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange'> &
+  React.RefAttributes<PickerRef> & {
+    defaultValue?: ValueType | null;
+    value?: ValueType | null;
+    onChange?: (date: ValueType, dates: string | string[]) => void;
+  };

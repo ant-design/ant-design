@@ -6,12 +6,20 @@ import generatePicker from './generatePicker';
 import type {
   RangePickerProps as BaseRangePickerProps,
   PickerProps,
+  PickerPropsWithMultiple,
 } from './generatePicker/interface';
 import { transPlacement2DropdownAlign } from './util';
 
-export type DatePickerProps = PickerProps<Dayjs>;
-export type MonthPickerProps = Omit<PickerProps<Dayjs>, 'picker'>;
-export type WeekPickerProps = Omit<PickerProps<Dayjs>, 'picker'>;
+export type DatePickerProps<ValueType = Dayjs | Dayjs> = PickerPropsWithMultiple<
+  Dayjs,
+  PickerProps<Dayjs>,
+  ValueType
+>;
+export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
+  DatePickerProps<ValueType>,
+  'picker'
+>;
+export type WeekPickerProps<ValueType = Dayjs | Dayjs> = Omit<DatePickerProps<ValueType>, 'picker'>;
 export type RangePickerProps = BaseRangePickerProps<Dayjs>;
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);

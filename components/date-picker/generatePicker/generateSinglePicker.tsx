@@ -9,7 +9,6 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
 import { useZIndex } from '../../_util/hooks/useZIndex';
-import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -25,25 +24,13 @@ import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
-import type { PickerProps } from './interface';
+import type { PickerProps, PickerPropsWithMultiple } from './interface';
 
 export default function generatePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) {
-  type CustomPickerProps = {
-    status?: InputStatus;
-    hashId?: string;
-    /**
-     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-     *   version.Please use `popupClassName` instead.
-     */
-    dropdownClassName?: string;
-    popupClassName?: string;
-    rootClassName?: string;
-    popupStyle?: React.CSSProperties;
-  };
-  type DatePickerProps = PickerProps<DateType> & CustomPickerProps;
-  type TimePickerProps = Omit<PickerProps<DateType>, 'picker' | 'showTime'> & CustomPickerProps;
+  type DatePickerProps = PickerProps<DateType>;
+  type TimePickerProps = Omit<PickerProps<DateType>, 'picker' | 'showTime'>;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -202,14 +189,7 @@ export default function generatePicker<DateType extends AnyObject>(
     }
 
     return Picker as unknown as (<ValueType = DateType>(
-      props: React.PropsWithChildren<
-        Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange'>
-      > &
-        React.RefAttributes<PickerRef> & {
-          defaultValue?: ValueType | null;
-          value?: ValueType | null;
-          onChange?: (date: ValueType, dates: string | string[]) => void;
-        },
+      props: PickerPropsWithMultiple<DateType, InnerPickerProps, ValueType>,
     ) => React.ReactElement) & { displayName?: string };
   }
 

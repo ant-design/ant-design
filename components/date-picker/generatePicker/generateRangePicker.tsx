@@ -29,16 +29,7 @@ import type { RangePickerProps } from './interface';
 export default function generateRangePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) {
-  type DateRangePickerProps = RangePickerProps<DateType> & {
-    /**
-     * @deprecated `dropdownClassName` is deprecated which will be removed in next major
-     *   version.Please use `popupClassName` instead.
-     */
-    dropdownClassName?: string;
-    popupClassName?: string;
-    rootClassName?: string;
-    popupStyle?: React.CSSProperties;
-  };
+  type DateRangePickerProps = RangePickerProps<DateType>;
 
   const RangePicker = forwardRef<PickerRef, DateRangePickerProps>((props, ref) => {
     const {
