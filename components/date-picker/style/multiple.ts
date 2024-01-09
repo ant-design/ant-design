@@ -8,7 +8,9 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
   const { componentCls } = token;
 
   return {
-    [componentCls]: {
+    [`${componentCls}-multiple`]: {
+      width: '100%',
+
       // ====================== Input ======================
       // Input is `readonly`, which is used for a11y only
       [`${componentCls}-multiple-input`]: {
