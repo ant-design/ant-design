@@ -8,7 +8,6 @@ import classNames from 'classnames';
 import { RangePicker as RCRangePicker, type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 
-import type { RangePickerProps } from '.';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
@@ -25,6 +24,7 @@ import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
+import type { RangePickerProps } from './interface';
 
 export default function generateRangePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,

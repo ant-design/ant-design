@@ -2,8 +2,11 @@ import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 
 import genPurePanel from '../_util/PurePanel';
-import type { RangePickerProps as BaseRangePickerProps, PickerProps } from './generatePicker';
 import generatePicker from './generatePicker';
+import type {
+  RangePickerProps as BaseRangePickerProps,
+  PickerProps,
+} from './generatePicker/interface';
 import { transPlacement2DropdownAlign } from './util';
 
 export type DatePickerProps = PickerProps<Dayjs>;

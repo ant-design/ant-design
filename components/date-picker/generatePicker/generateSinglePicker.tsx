@@ -8,7 +8,6 @@ import RCPicker, { type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
-import type { PickerProps } from '.';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
@@ -26,6 +25,7 @@ import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
 import Components from './Components';
+import type { PickerProps } from './interface';
 
 export default function generatePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -201,7 +201,7 @@ export default function generatePicker<DateType extends AnyObject>(
       Picker.displayName = displayName;
     }
 
-    return Picker as unknown as (<ValueType>(
+    return Picker as unknown as (<ValueType = DateType>(
       props: React.PropsWithChildren<
         Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange'>
       > &
