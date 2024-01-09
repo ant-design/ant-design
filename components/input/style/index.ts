@@ -5,6 +5,8 @@ import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { ComponentToken, InputToken } from './token';
+import { initComponentToken, initInputToken } from './token';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
@@ -12,8 +14,6 @@ import {
   genOutlinedGroupStyle,
   genOutlinedStyle,
 } from './variants';
-import type { ComponentToken, InputToken } from './token';
-import { initComponentToken, initInputToken } from './token';
 
 export type { ComponentToken };
 export { initComponentToken, initInputToken };
@@ -40,18 +40,20 @@ export const genActiveStyle = (token: InputToken) => ({
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { paddingBlockLG, fontSizeLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
+  const { paddingBlockLG, borderRadiusLG, paddingInlineLG } = token;
 
   return {
     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-    fontSize: fontSizeLG,
-    lineHeight: lineHeightLG,
+    fontSize: token.contentFontSizeLG,
+    lineHeight: token.contentLineHeightLG,
     borderRadius: borderRadiusLG,
   };
 };
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
+  fontSize: token.contentFontSizeSM,
+  lineHeight: token.contentLineHeightSM,
   borderRadius: token.borderRadiusSM,
 });
 
@@ -62,8 +64,8 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   minWidth: 0,
   padding: `${unit(token.paddingBlock)} ${unit(token.paddingInline)}`,
   color: token.colorText,
-  fontSize: token.fontSize,
-  lineHeight: token.lineHeight,
+  fontSize: token.contentFontSize,
+  lineHeight: token.contentLineHeight,
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
   ...genPlaceholderStyle(token.colorTextPlaceholder),
@@ -73,7 +75,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     maxWidth: '100%', // prevent textarea resize from coming out of its container
     height: 'auto',
     minHeight: token.controlHeight,
-    lineHeight: token.lineHeight,
+    lineHeight: token.contentLineHeight,
     verticalAlign: 'bottom',
     transition: `all ${token.motionDurationSlow}, height 0s`,
     resize: 'vertical',
@@ -163,7 +165,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         padding: `0 ${unit(token.paddingInline)}`,
         color: token.colorText,
         fontWeight: 'normal',
-        fontSize: token.fontSize,
+        fontSize: token.contentFontSize,
         textAlign: 'center',
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -590,7 +592,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-lg': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusLG,
-            fontSize: token.fontSizeLG,
+            fontSize: token.contentFontSizeLG,
           },
         },
         '&-sm': {
@@ -658,7 +660,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       // fix slight height diff in Firefox:
       // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
       [`${componentCls}-lg`]: {
-        lineHeight: token.calc(token.lineHeightLG).sub(0.0002).equal({ unit: false }),
+        lineHeight: token.calc(token.contentLineHeightLG).sub(0.0002).equal({ unit: false }),
       },
 
       [`> ${componentCls}-group`]: {
