@@ -4,18 +4,13 @@ import type { GenerateStyle } from '../../theme/internal';
 type Direction = 'left' | 'right' | 'top' | 'bottom';
 
 const getMoveTranslate = (direction: Direction) => {
-  const value = '8%';
-  switch (direction) {
-    case 'left':
-      return `translateX(-${value}) !important`;
-    case 'right':
-      return `translateX(${value}) !important`;
-    case 'top':
-      return `translateY(-${value}) !important`;
-    case 'bottom':
-      return `translateY(${value}) !important`;
-    default:
-  }
+  const value = '10%';
+  return {
+    left: `translateX(-${value}) !important`,
+    right: `translateX(${value}) !important`,
+    top: `translateY(-${value}) !important`,
+    bottom: `translateY(${value}) !important`,
+  }[direction];
 };
 
 const fadeStyle = {
