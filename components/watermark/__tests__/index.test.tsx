@@ -144,7 +144,7 @@ describe('Watermark', () => {
       await waitFakeTimer();
 
       expect(document.body.querySelector('.ant-drawer-content')!.lastChild).toHaveClass(
-        'ant-drawer-wrapper-body',
+        'ant-drawer-body',
       );
     });
   });

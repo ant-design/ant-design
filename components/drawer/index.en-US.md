@@ -51,10 +51,9 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top dom style | string | - |  |
-| classNames | Config Drawer build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
-| styles | Config Drawer build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
+| classNames | Config Drawer build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; content?: string; wrapper?: string;` | - |  |
+| styles | Config Drawer build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties; content?: CSSProperties; wrapper?: CSSProperties;` | - | 5.10.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
-| contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
