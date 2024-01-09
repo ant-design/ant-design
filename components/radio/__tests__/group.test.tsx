@@ -260,4 +260,17 @@ describe('Radio Group', () => {
     );
     expect(container.querySelector('#bamboo')).toBeTruthy();
   });
+
+  it('options support title', () => {
+    const { container } = render(
+      <Radio.Group options={[{ label: 'bamboo', title: 'bamboo', value: 'bamboo' }]} />,
+    );
+
+    const select = container.querySelector('.ant-radio-group label > span');
+    expect(select).toBeTruthy();
+    // https://github.com/ant-design/ant-design/issues/46739
+    expect(select!.getAttribute('title')).toBeFalsy();
+    // fix 46739 solution
+    expect(container.querySelector('.ant-radio-group label')).toHaveAttribute('title', 'bamboo');
+  });
 });
