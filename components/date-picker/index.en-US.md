@@ -18,6 +18,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/range-picker.tsx">Range Picker</code>
+<code src="./demo/multiple.tsx" version="5.13.0">Multiple</code>
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
 <code src="./demo/time.tsx">Choose Time</code>
@@ -28,7 +29,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/extra-footer.tsx">Extra Footer</code>
 <code src="./demo/size.tsx">Three Sizes</code>
 <code src="./demo/cell-render.tsx">Customized Cell Rendering</code>
-<code src="./demo/buddhist-era.tsx">Buddhist Era</code>
+<code src="./demo/buddhist-era.tsx" version="5.13.0">Buddhist Era</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>

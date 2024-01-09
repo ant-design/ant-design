@@ -19,6 +19,7 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
+<code src="./demo/multiple.tsx" version="5.13.0">多选</code>
 <code src="./demo/switchable.tsx">切换不同的选择器</code>
 <code src="./demo/format.tsx">日期格式</code>
 <code src="./demo/time.tsx">日期时间选择</code>
@@ -29,7 +30,7 @@ demo:
 <code src="./demo/extra-footer.tsx">额外的页脚</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/cell-render.tsx">定制单元格</code>
-<code src="./demo/buddhist-era.tsx">佛历格式</code>
+<code src="./demo/buddhist-era.tsx" version="5.13.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
