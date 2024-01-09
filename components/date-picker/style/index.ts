@@ -384,6 +384,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             borderRadius: borderRadiusLG,
             boxShadow: boxShadowSecondary,
             transition: `margin ${motionDurationSlow}`,
+            display: 'inline-block',
 
             // ======================== Layout ========================
             [`${componentCls}-panel-layout`]: {
