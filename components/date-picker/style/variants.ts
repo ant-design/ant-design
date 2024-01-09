@@ -13,11 +13,25 @@ const genVariantsStyle = (token: PickerToken): CSSObject => {
         ...genFilledStyle(token),
         ...genBorderlessStyle(token),
       },
-      // Multiple
+      // ========================= Multiple =========================
       {
-        [`&${componentCls}-multiple ${componentCls}-selection-item`]: {
-          background: token.multipleItemBg,
-          border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+        '&-outlined': {
+          [`&${componentCls}-multiple ${componentCls}-selection-item`]: {
+            background: token.multipleItemBg,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+          },
+        },
+        '&-filled': {
+          [`&${componentCls}-multiple ${componentCls}-selection-item`]: {
+            background: token.colorBgContainer,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+          },
+        },
+        '&-borderless': {
+          [`&${componentCls}-multiple ${componentCls}-selection-item`]: {
+            background: token.multipleItemBg,
+            border: `${unit(token.lineWidth)} ${token.lineType} ${token.multipleItemBorderColor}`,
+          },
         },
       },
     ],
