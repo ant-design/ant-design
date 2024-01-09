@@ -498,7 +498,15 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 export default genStyleHooks(
   'DatePicker',
   (token) => {
-    const pickerToken = mergeToken<PickerToken>(initInputToken(token), initPickerPanelToken(token));
+    const pickerToken = mergeToken<PickerToken>(
+      initInputToken(token),
+      initPickerPanelToken(token),
+      {
+        inputPaddingHorizontalBase: token.calc(token.paddingSM).sub(1).equal(),
+        multipleSelectItemHeight: token.multipleItemHeight,
+        selectHeight: token.controlHeight,
+      },
+    );
     return [
       genPickerPanelStyle(pickerToken),
       genPickerStyle(pickerToken),

@@ -10,8 +10,8 @@ const onChange: DatePickerProps<Dayjs[]>['onChange'] = (date, dateString) => {
 
 const App: React.FC = () => (
   <Flex vertical gap="small">
-    <DatePicker multiple onChange={onChange} defaultValue={[dayjs('2024-01-01')]} />
-    <DatePicker multiple onChange={onChange} picker="week" />
+    <DatePicker multiple onChange={onChange} placeholder="hello" />
+    <DatePicker multiple onChange={onChange} picker="week" defaultValue={[dayjs('2024-01-01')]} />
     <DatePicker multiple onChange={onChange} picker="month" />
     <DatePicker multiple onChange={onChange} picker="quarter" />
     <DatePicker multiple onChange={onChange} picker="year" />
