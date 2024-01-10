@@ -6,7 +6,7 @@ import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
-import type { PickerProps, RangePickerProps } from '../date-picker/generatePicker';
+import type { PickerProps, RangePickerProps } from '../date-picker/generatePicker/interface';
 
 export type PickerTimeProps<DateType extends AnyObject> = Omit<
   PickerProps<DateType>,
@@ -87,4 +87,4 @@ type MergedTimePicker = typeof TimePicker & {
 (TimePicker as MergedTimePicker).RangePicker = RangePicker;
 (TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
-export default (TimePicker as MergedTimePicker);
+export default TimePicker as MergedTimePicker;
