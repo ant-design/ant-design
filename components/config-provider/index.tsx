@@ -34,6 +34,7 @@ import type {
   PopupOverflow,
   Theme,
   ThemeConfig,
+  TourConfig,
   WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
@@ -205,6 +206,7 @@ export interface ConfigProviderProps {
    * Wave is special component which only patch on the effect of component interaction.
    */
   wave?: WaveConfig;
+  tour?: TourConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -351,6 +353,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
+    tour,
   } = props;
 
   // =================================== Context ===================================
@@ -444,6 +447,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
+    tour,
   };
 
   const config = {

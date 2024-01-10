@@ -22,9 +22,10 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
     indicatorsRender,
     steps,
+    closeIcon,
     ...restProps
   } = props;
-  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
@@ -81,6 +82,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         renderPanel={mergedRenderPanel}
         builtinPlacements={builtinPlacements}
         steps={mergedSteps}
+        closeIcon={closeIcon ?? tour?.closeIcon}
       />
     </zIndexContext.Provider>,
   );
