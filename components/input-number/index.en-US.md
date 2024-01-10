@@ -71,11 +71,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### InputNumber
 
-| Property | Description                | Version |
-| -------- | -------------------------- | ------- |
-| input    | Wrapper of `input` element | 5.13.0  |
-| prefix   | Wrapper of prefix          | 5.13.0  |
-| suffix   | Wrapper of suffix          | 5.13.0  |
+| Property       | Description                | Version |
+| -------------- | -------------------------- | ------- |
+| input          | Wrapper of `input` element | 5.13.0  |
+| prefix         | Wrapper of prefix          | 5.13.0  |
+| handlerWrapper | Wrapper of `+-` controls   | 5.13.0  |
+| upHandler      | `+` control                | 5.13.0  |
+| downHandler    | `-` control                | 5.13.0  |
 
 ## Methods
 

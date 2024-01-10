@@ -156,7 +156,10 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         )
       }
       classNames={{
-        ...classes,
+        prefix: classes?.prefix,
+        handlerWrapper: classes?.handlerWrapper,
+        upHandler: classes?.upHandler,
+        downHandler: classes?.downHandler,
         input: classNames(inputNumberClass, classes?.input),
         variant: classNames(
           {
