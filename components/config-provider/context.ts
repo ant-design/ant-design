@@ -84,6 +84,7 @@ export interface ButtonConfig extends ComponentStyleConfig {
 export interface DrawerConfig extends ComponentStyleConfig {
   classNames?: DrawerProps['classNames'];
   styles?: DrawerProps['styles'];
+  closeIcon?: DrawerProps['closeIcon'];
 }
 
 export interface FlexConfig extends ComponentStyleConfig {
