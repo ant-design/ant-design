@@ -1,5 +1,4 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
-
 import type { MenuToken } from '.';
 import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
