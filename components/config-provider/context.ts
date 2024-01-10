@@ -13,6 +13,7 @@ import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { ModalProps } from '../modal';
 import type { SpaceProps } from '../space';
+import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -84,6 +85,10 @@ export interface ButtonConfig extends ComponentStyleConfig {
 export interface DrawerConfig extends ComponentStyleConfig {
   classNames?: DrawerProps['classNames'];
   styles?: DrawerProps['styles'];
+}
+
+export interface TableConfig<RecordType = any> extends ComponentStyleConfig {
+  expandIcon?: NonNullable<TableProps<RecordType>['expandable']>['expandIcon'];
 }
 
 export interface FlexConfig extends ComponentStyleConfig {
@@ -173,7 +178,7 @@ export interface ConfigConsumerProps {
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
-  table?: ComponentStyleConfig;
+  table?: TableConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
