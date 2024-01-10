@@ -233,7 +233,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
         // disable margin collapsed
         // https://github.com/ant-design/ant-design/issues/46886
         [`${componentCls}-submenu`]: {
-          paddingBottom: '.02px',
+          paddingBottom: unit(0.02),
         },
       },
     },
