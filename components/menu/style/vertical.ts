@@ -225,6 +225,15 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
         },
       },
     },
+
+    // Inline & Vertical
+    {
+      [`${componentCls}-inline, ${componentCls}-vertical`]: {
+        [`${componentCls}-submenu`]: {
+          paddingBottom: '.02px',
+        },
+      },
+    },
   ];
 };
 
