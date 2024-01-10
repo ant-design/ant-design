@@ -27,6 +27,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/sub-menu.tsx">Cascading menu</code>
+<code src="./demo/sub-menu-debug.tsx" debug>Cascading menu</code>
 <code src="./demo/overlay-open.tsx">The way of hiding menu.</code>
 <code src="./demo/context-menu.tsx">Context Menu</code>
 <code src="./demo/loading.tsx">Loading</code>
