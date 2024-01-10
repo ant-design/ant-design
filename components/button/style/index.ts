@@ -5,6 +5,7 @@ import { unit } from '@ant-design/cssinjs';
 import { genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import genFontMapToken from '../../theme/themes/shared/genFontMapToken';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genGroupStyle from './group';
 
@@ -547,6 +548,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     componentCls,
     controlHeight,
     fontSize,
+    lineHeight,
     borderRadius,
     buttonPaddingHorizontal,
     iconCls,
@@ -560,6 +562,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
     {
       [`${componentCls}${sizePrefixCls}`]: {
         fontSize,
+        lineHeight,
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
@@ -606,9 +609,11 @@ const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) =>
   );
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+  const { lineHeight } = genFontMapToken(token.contentFontSizeSM);
   const smallToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     fontSize: token.contentFontSizeSM,
+    lineHeight,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
     buttonPaddingVertical: token.paddingBlockSM,
@@ -620,9 +625,11 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+  const { lineHeight } = genFontMapToken(token.contentFontSizeLG);
   const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
+    lineHeight,
     buttonPaddingHorizontal: token.paddingInlineLG,
     buttonPaddingVertical: token.paddingBlockLG,
     borderRadius: token.borderRadiusLG,

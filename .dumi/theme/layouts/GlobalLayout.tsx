@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, Suspense } from 'react';
+import React, { Suspense, useCallback, useEffect, useMemo } from 'react';
 import {
   createCache,
   extractStyle,
@@ -9,7 +9,7 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { App, theme as antdTheme } from 'antd';
+import { theme as antdTheme, App } from 'antd';
 import type { DirectionType } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
@@ -197,7 +197,7 @@ const GlobalLayout: React.FC = () => {
               token: {
                 motion: !theme.includes('motion-off'),
               },
-              cssVar: true,
+              // cssVar: true,
             }}
           >
             <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
