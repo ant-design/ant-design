@@ -492,7 +492,6 @@ export const prepareComponentToken: GetDefaultToken<'InputNumber'> = (token) => 
 });
 
 export const formatComponentToken: FormatComponentToken<'InputNumber'> = (token) => ({
-  ...token,
   handleOpacity: token.handleVisible === true ? 1 : 0,
 });
 
