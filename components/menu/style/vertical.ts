@@ -1,4 +1,5 @@
 import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import type { MenuToken } from '.';
 import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
@@ -229,6 +230,8 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     // Inline & Vertical
     {
       [`${componentCls}-inline, ${componentCls}-vertical`]: {
+        // disable margin collapsed
+        // https://github.com/ant-design/ant-design/issues/46886
         [`${componentCls}-submenu`]: {
           paddingBottom: '.02px',
         },
