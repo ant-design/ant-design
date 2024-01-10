@@ -17,6 +17,7 @@ import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
+import type { TagProps } from '../tag';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -64,6 +65,10 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface TagConfig extends ComponentStyleConfig {
+  closeIcon?: TagProps['closeIcon'];
 }
 
 export interface ModalConfig extends ComponentStyleConfig {
@@ -172,7 +177,7 @@ export interface ConfigConsumerProps {
   transfer?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
-  tag?: ComponentStyleConfig;
+  tag?: TagConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
