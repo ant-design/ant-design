@@ -22,6 +22,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
 <code src="./demo/time.tsx">Choose Time</code>
+<code src="./demo/align.tsx" version="5.13.0">Align Format</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-date.tsx">Disabled Date & Time</code>
 <code src="./demo/select-in-range.tsx">Select range dates in 7 days</code>
@@ -100,6 +101,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs) => boolean | - |  |
 | format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | popupClassName | To customize the className of the popup calendar | string | - | 4.23.0 |
+| preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | 5.13.0 |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
@@ -134,9 +136,11 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/) | - | 5.13.0 |
 | defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD` |  |
+| pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/) | - | 5.13.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Whether to show 'Now' button on panel when `showTime` is set | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
@@ -194,12 +198,14 @@ Added in `4.1.0`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
-| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
+| defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/) | - | 5.13.0 |
 | defaultValue | To set default date | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
 | disabled | If disable start or end | \[boolean, boolean] | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` |  |
+| pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/) | - | 5.13.0 |
 | presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: React.ReactNode, value: (Dayjs \| (() => Dayjs))\[] }\[] | - |  |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | separator | Set separator between inputs | React.ReactNode | `<SwapRightOutlined />` |  |
@@ -217,8 +223,17 @@ import type { Dayjs } from 'dayjs';
 type Generic = string;
 type GenericFn = (value: Dayjs) => string;
 
-export type FormatType = Generic | GenericFn | Array<Generic | GenericFn>;
+export type FormatType =
+  | Generic
+  | GenericFn
+  | Array<Generic | GenericFn>
+  | {
+      format: string;
+      align?: boolean;
+    };
 ```
+
+Note: `align` is new come from `5.13.0`.
 
 ## Design Token
 
