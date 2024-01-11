@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { ColorPicker, Form, Input, InputNumber, Slider, Space, Typography, Watermark } from 'antd';
-import type { ColorPickerProps } from 'antd';
+import type { ColorPickerProps, GetProp } from 'antd';
 
-type Color = ColorPickerProps['color'];
+type Color = GetProp<ColorPickerProps, 'color'>;
 
 const { Paragraph } = Typography;
 
