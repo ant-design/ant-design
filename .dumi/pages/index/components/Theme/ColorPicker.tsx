@@ -91,7 +91,7 @@ const ThemeColorPicker: React.FC<ColorPickerProps> = ({ value, onChange, id }) =
   }, [value]);
 
   return (
-    <Flex gap="large" align="center">
+    <Flex gap="large" align="center" wrap="wrap">
       <Input
         value={typeof value === 'string' ? value : value?.toHexString()}
         onChange={(event) => onChange?.(event.target.value)}

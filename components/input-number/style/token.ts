@@ -1,7 +1,8 @@
+import { TinyColor } from '@ctrl/tinycolor';
+
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import { initComponentToken } from '../../input/style/token';
-import type { FullToken, GetDefaultToken, FormatComponentToken } from '../../theme/internal';
-import { TinyColor } from '@ctrl/tinycolor';
+import type { FormatComponentToken, FullToken, GetDefaultToken } from '../../theme/internal';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -75,6 +76,5 @@ export const prepareComponentToken: GetDefaultToken<'InputNumber'> = (token) => 
 });
 
 export const formatComponentToken: FormatComponentToken<'InputNumber'> = (token) => ({
-  ...token,
   handleOpacity: token.handleVisible === true ? 1 : 0,
 });
