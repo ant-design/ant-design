@@ -148,6 +148,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | showNow | Show the fast access of current datetime | boolean | - | 4.4.0 |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) |  |
 | showTime.defaultValue | To set default time of selected date, [demo](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| showWeek | Show week info when in DatePicker | boolean | false | 5.13.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
 | onOk | Callback when click ok button | function() | - |  |

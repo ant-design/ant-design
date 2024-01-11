@@ -149,6 +149,7 @@ import 'dayjs/locale/zh-cn';
 | showNow | 显示当前日期时间的快捷选择 | boolean | - |  |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
+| showWeek | DatePicker 下展示当前周 | boolean | false | 5.13.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调 | function(date: dayjs, dateString: string) | - |  |
 | onOk | 点击确定按钮的回调 | function() | - |  |
