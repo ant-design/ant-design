@@ -3,8 +3,8 @@ import { DownOutlined } from '@ant-design/icons';
 import type { GetProp, RadioChangeEvent, TableProps } from 'antd';
 import { Form, Radio, Space, Switch, Table } from 'antd';
 
-type SizeType = GetProp<typeof Table, 'size'>;
-type ColumnsType<T extends object> = GetProp<typeof Table<T>, 'columns'>;
+type SizeType = TableProps['size'];
+type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
 type TablePagination<T extends object> = NonNullable<Exclude<TableProps<T>['pagination'], boolean>>;
 type TablePaginationPosition = NonNullable<TablePagination<any>['position']>[number];
 type ExpandableConfig<T extends object> = TableProps<T>['expandable'];

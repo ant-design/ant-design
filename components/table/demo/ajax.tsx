@@ -4,7 +4,7 @@ import type { GetProp, TableProps } from 'antd';
 import qs from 'qs';
 
 type ColumnsType<T> = TableProps<T>['columns'];
-type TablePaginationConfig = Exclude<GetProp<typeof Table, 'pagination'>, boolean>;
+type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
 interface DataType {
   name: {
@@ -22,7 +22,7 @@ interface TableParams {
   pagination?: TablePaginationConfig;
   sortField?: string;
   sortOrder?: string;
-  filters?: Parameters<GetProp<typeof Table, 'onChange'>>[1];
+  filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
 }
 
 const columns: ColumnsType<DataType> = [

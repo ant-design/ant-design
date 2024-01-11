@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { GetProp, RadioChangeEvent, TableProps } from 'antd';
+import type { ConfigProviderProps, GetProp, RadioChangeEvent, TableProps } from 'antd';
 import { ConfigProvider, Form, Radio, Space, Switch, Table } from 'antd';
 
-type SizeType = GetProp<typeof ConfigProvider, 'componentSize'>;
-type ColumnsType<T extends object> = GetProp<typeof Table<T>, 'columns'>;
-type TablePagination = Exclude<GetProp<typeof Table, 'pagination'>, boolean>;
+type SizeType = ConfigProviderProps['componentSize'];
+type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
+type TablePagination = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 type TablePaginationPosition = NonNullable<TablePagination['position']>[number];
-type ExpandableConfig<T extends object> = GetProp<typeof Table<T>, 'expandable'>;
-type TableRowSelection<T extends object> = GetProp<typeof Table<T>, 'rowSelection'>;
+type ExpandableConfig<T extends object> = GetProp<TableProps<T>, 'expandable'>;
+type TableRowSelection<T extends object> = GetProp<TableProps<T>, 'rowSelection'>;
 
 interface DataType {
   key: number;

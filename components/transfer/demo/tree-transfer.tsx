@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { theme, Transfer, Tree } from 'antd';
 import type { GetProp, TransferProps, TreeDataNode } from 'antd';
 
-type TransferItem = GetProp<typeof Transfer, 'dataSource'>[number];
+type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 
 interface TreeTransferProps {
   dataSource: TreeDataNode[];

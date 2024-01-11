@@ -5,7 +5,7 @@ import difference from 'lodash/difference';
 
 type TableRowSelection<T> = TableProps<T>['rowSelection'];
 
-type TransferItem = GetProp<typeof Transfer, 'dataSource'>[number];
+type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 
 interface RecordType {
   key: string;

@@ -7,10 +7,10 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { Divider, Menu, Switch } from 'antd';
-import type { GetProp } from 'antd';
+import type { GetProp, MenuProps } from 'antd';
 
-type MenuTheme = GetProp<typeof Menu, 'theme'>;
-type MenuItem = GetProp<typeof Menu, 'items'>[number];
+type MenuTheme = GetProp<MenuProps, 'theme'>;
+type MenuItem = GetProp<MenuProps, 'items'>[number];
 
 function getItem(
   label: React.ReactNode,

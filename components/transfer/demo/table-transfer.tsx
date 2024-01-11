@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Space, Switch, Table, Tag, Transfer } from 'antd';
-import type { GetProp, TableColumnsType, TransferProps } from 'antd';
+import type { GetProp, TableColumnsType, TableProps, TransferProps } from 'antd';
 import difference from 'lodash/difference';
 
-type TransferItem = GetProp<typeof Transfer, 'dataSource'>[number];
-type TableRowSelection<T extends object> = GetProp<typeof Table<T>, 'rowSelection'>;
+type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
+type TableRowSelection<T extends object> = TableProps<T>['rowSelection'];
 
 interface RecordType {
   key: string;
