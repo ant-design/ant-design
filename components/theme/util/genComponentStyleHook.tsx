@@ -8,6 +8,7 @@ import { warning } from 'rc-util';
 import { ConfigContext } from '../../config-provider/context';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
+  AliasToken,
   ComponentTokenMap,
   GlobalToken,
   OverrideToken,
@@ -64,11 +65,11 @@ export type GenStyleFn<C extends OverrideComponent> = (
 export type GetDefaultToken<C extends OverrideComponent> =
   | null
   | OverrideTokenWithoutDerivative[C]
-  | ((token: GlobalToken) => OverrideTokenWithoutDerivative[C]);
+  | ((token: AliasToken) => OverrideTokenWithoutDerivative[C]);
 
 export type FormatComponentToken<C extends OverrideComponent> = (
-  token: NonNullable<OverrideTokenWithoutDerivative[C]>,
-) => NonNullable<OverrideTokenWithoutDerivative[C]>;
+  token: NonNullable<OverrideTokenWithoutDerivative[C]> & AliasToken,
+) => Partial<OverrideTokenWithoutDerivative[C]>;
 
 const getDefaultComponentToken = <C extends OverrideComponent>(
   component: C,
@@ -76,7 +77,7 @@ const getDefaultComponentToken = <C extends OverrideComponent>(
   getDefaultToken: GetDefaultToken<C>,
 ) => {
   if (typeof getDefaultToken === 'function') {
-    return getDefaultToken(mergeToken<GlobalToken>(token, token[component] ?? {}));
+    return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
   }
   return getDefaultToken ?? {};
 };
@@ -97,9 +98,9 @@ const getComponentToken = <C extends OverrideComponent>(
       if (process.env.NODE_ENV !== 'production') {
         warning(
           !customToken?.[oldTokenKey],
-          `The token '${String(oldTokenKey)}' of ${component} had deprecated, use '${String(
-            newTokenKey,
-          )}' instead.`,
+          `Component Token \`${String(
+            oldTokenKey,
+          )}\` of ${component} is deprecated. Please use \`${String(newTokenKey)}\` instead.`,
         );
       }
 
@@ -111,7 +112,7 @@ const getComponentToken = <C extends OverrideComponent>(
   }
   let mergedToken: any = { ...defaultToken, ...customToken };
   if (options?.format) {
-    mergedToken = options.format(mergedToken);
+    mergedToken = { ...mergedToken, ...options.format(mergeToken<any>(token, mergedToken)) };
   }
 
   // Remove same value as global token to minimize size
@@ -135,10 +136,7 @@ const getCompVarPrefix = (component: string, prefix?: string) =>
 export default function genComponentStyleHook<C extends OverrideComponent>(
   componentName: C | [C, string],
   styleFn: GenStyleFn<C>,
-  getDefaultToken?:
-    | null
-    | OverrideTokenWithoutDerivative[C]
-    | ((token: GlobalToken) => OverrideTokenWithoutDerivative[C]),
+  getDefaultToken?: GetDefaultToken<C>,
   options: {
     resetStyle?: boolean;
     // Deprecated token key map [["oldTokenKey", "newTokenKey"], ["oldTokenKey", "newTokenKey"]]

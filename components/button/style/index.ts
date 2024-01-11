@@ -658,52 +658,37 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => Butto
   return buttonToken;
 };
 
-export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
-  const contentFontSize = token.fontSize;
-  const contentFontSizeSM = token.fontSize;
-  const contentFontSizeLG = token.fontSizeLG;
-
-  return {
-    fontWeight: 400,
-    defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
-    primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
-    dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
-    primaryColor: token.colorTextLightSolid,
-    dangerColor: token.colorTextLightSolid,
-    borderColorDisabled: token.colorBorder,
-    defaultGhostColor: token.colorBgContainer,
-    ghostBg: 'transparent',
-    defaultGhostBorderColor: token.colorBgContainer,
-    paddingInline: token.paddingContentHorizontal - token.lineWidth,
-    paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
-    paddingInlineSM: 8 - token.lineWidth,
-    paddingBlock: Math.max(
-      (token.controlHeight - contentFontSize * token.lineHeight) / 2 - token.lineWidth,
-      0,
-    ),
-    paddingBlockSM: Math.max(
-      (token.controlHeightSM - contentFontSizeSM * token.lineHeight) / 2 - token.lineWidth,
-      0,
-    ),
-    paddingBlockLG: Math.max(
-      (token.controlHeightLG - contentFontSizeLG * token.lineHeight) / 2 - token.lineWidth,
-      0,
-    ),
-    onlyIconSize: token.fontSizeLG,
-    onlyIconSizeSM: token.fontSizeLG - 2,
-    onlyIconSizeLG: token.fontSizeLG + 2,
-    groupBorderColor: token.colorPrimaryHover,
-    linkHoverBg: 'transparent',
-    textHoverBg: token.colorBgTextHover,
-    defaultColor: token.colorText,
-    defaultBg: token.colorBgContainer,
-    defaultBorderColor: token.colorBorder,
-    defaultBorderColorDisabled: token.colorBorder,
-    contentFontSize,
-    contentFontSizeSM,
-    contentFontSizeLG,
-  };
-};
+export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => ({
+  fontWeight: 400,
+  defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
+  primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
+  dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
+  primaryColor: token.colorTextLightSolid,
+  dangerColor: token.colorTextLightSolid,
+  borderColorDisabled: token.colorBorder,
+  defaultGhostColor: token.colorBgContainer,
+  ghostBg: 'transparent',
+  defaultGhostBorderColor: token.colorBgContainer,
+  paddingInline: token.paddingContentHorizontal - token.lineWidth,
+  paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
+  paddingInlineSM: 8 - token.lineWidth,
+  paddingBlock: 0,
+  paddingBlockSM: 0,
+  paddingBlockLG: 0,
+  onlyIconSize: token.fontSizeLG,
+  onlyIconSizeSM: token.fontSizeLG - 2,
+  onlyIconSizeLG: token.fontSizeLG + 2,
+  groupBorderColor: token.colorPrimaryHover,
+  linkHoverBg: 'transparent',
+  textHoverBg: token.colorBgTextHover,
+  defaultColor: token.colorText,
+  defaultBg: token.colorBgContainer,
+  defaultBorderColor: token.colorBorder,
+  defaultBorderColorDisabled: token.colorBorder,
+  contentFontSize: token.fontSize,
+  contentFontSizeSM: token.fontSize,
+  contentFontSizeLG: token.fontSizeLG,
+});
 
 export default genStyleHooks(
   'Button',
@@ -734,5 +719,19 @@ export default genStyleHooks(
     unitless: {
       fontWeight: true,
     },
+    format: (token) => ({
+      paddingBlock: Math.max(
+        (token.controlHeight - token.contentFontSize * token.lineHeight) / 2 - token.lineWidth,
+        0,
+      ),
+      paddingBlockSM: Math.max(
+        (token.controlHeightSM - token.contentFontSizeSM * token.lineHeight) / 2 - token.lineWidth,
+        0,
+      ),
+      paddingBlockLG: Math.max(
+        (token.controlHeightLG - token.contentFontSizeLG * token.lineHeight) / 2 - token.lineWidth,
+        0,
+      ),
+    }),
   },
 );
