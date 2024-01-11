@@ -1,5 +1,5 @@
 ---
-title: 工具类型
+title: antd 里常用的 TypeScript 工具方法
 date: 2024-01-11
 author: zombieJ
 ---
