@@ -138,6 +138,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         '&::after': {
           content: '""',
           position: 'absolute',
+          zIndex: -1,
           width: '100%',
           height: '100%',
           top: 0,
