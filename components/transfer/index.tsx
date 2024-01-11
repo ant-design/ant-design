@@ -73,7 +73,7 @@ export interface TransferLocale {
   removeCurrent?: string;
 }
 
-export interface TransferProps<RecordType> {
+export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;

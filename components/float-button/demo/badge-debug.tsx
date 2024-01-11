@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ConfigProvider, FloatButton, Slider } from 'antd';
-import type { AliasToken } from 'antd/es/theme/interface';
+import type { GetProp } from 'antd';
+
+type AliasToken = GetProp<typeof ConfigProvider, 'theme'>['token'];
 
 const App: React.FC = () => {
   const [radius, setRadius] = useState<number>(0);
