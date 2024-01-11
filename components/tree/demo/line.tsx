@@ -71,7 +71,7 @@ const treeData: DataNode[] = [
 const App: React.FC = () => {
   const [showLine, setShowLine] = useState<boolean>(true);
   const [showIcon, setShowIcon] = useState<boolean>(false);
-  const [showLeafIcon, setShowLeafIcon] = useState<boolean | React.ReactNode>(true);
+  const [showLeafIcon, setShowLeafIcon] = useState<React.ReactNode>(true);
 
   const onSelect = (selectedKeys: React.Key[], info: any) => {
     console.log('selected', selectedKeys, info);

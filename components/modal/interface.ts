@@ -1,8 +1,8 @@
 import type { FC } from 'react';
+import type { DialogProps } from 'rc-dialog';
 
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
-import type { DialogProps } from 'rc-dialog';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
@@ -63,7 +63,7 @@ export interface ModalProps extends ModalCommonProps {
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
