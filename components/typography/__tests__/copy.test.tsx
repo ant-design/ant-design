@@ -1,8 +1,8 @@
+import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
-import React from 'react';
-import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 
+import { fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import Base from '../Base';
 
 describe('Typography copy', () => {
@@ -24,8 +24,8 @@ describe('Typography copy', () => {
         tooltipLength,
       }: {
         name: string;
-        icon?: boolean | React.ReactNode;
-        tooltips?: boolean | React.ReactNode;
+        icon?: React.ReactNode;
+        tooltips?: React.ReactNode;
         iconClassNames?: string[];
         iconTexts?: string[];
         tooltipTexts?: string[];

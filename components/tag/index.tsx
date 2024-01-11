@@ -23,7 +23,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
   closable?: boolean;
   /** Advised to use closeIcon instead. */
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
