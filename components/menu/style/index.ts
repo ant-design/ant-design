@@ -931,7 +931,6 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
 };
 
 export const formatComponentToken: FormatComponentToken<'Menu'> = (token) => ({
-  ...token,
   itemWidth: token.activeBarWidth
     ? `calc(100% + ${token.activeBarBorderWidth}px)`
     : `calc(100% - ${token.itemMarginInline * 2}px)`,
