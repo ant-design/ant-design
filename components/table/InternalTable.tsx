@@ -82,7 +82,7 @@ export interface InternalTableProps<RecordType> extends TableProps<RecordType> {
   _renderTimes: number;
 }
 
-export interface TableProps<RecordType>
+export interface TableProps<RecordType = any>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'

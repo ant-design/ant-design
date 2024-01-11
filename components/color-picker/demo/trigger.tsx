@@ -1,9 +1,11 @@
 import React, { useMemo, useState } from 'react';
 import { Button, ColorPicker } from 'antd';
-import type { ColorPickerProps } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const Demo: React.FC = () => {
-  const [color, setColor] = useState<ColorPickerProps['value']>('#1677ff');
+  const [color, setColor] = useState<Color>('#1677ff');
 
   const bgColor = useMemo<string>(
     () => (typeof color === 'string' ? color : color!.toHexString()),
