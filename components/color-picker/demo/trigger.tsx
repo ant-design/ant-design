@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { Button, ColorPicker, theme } from 'antd';
-import type { Color } from 'antd/es/color-picker';
+import type { GetProp, ColorPickerProps } from 'antd';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const Demo: React.FC = () => {
   const { token } = theme.useToken();

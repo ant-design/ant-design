@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from 'react';
 import { ColorPicker, Space } from 'antd';
-import type { Color, ColorPickerProps } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const HexCase = () => {
   const [colorHex, setColorHex] = useState<Color | string>('#1677ff');

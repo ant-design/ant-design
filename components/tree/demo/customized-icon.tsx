@@ -7,9 +7,9 @@ import {
   SmileOutlined,
 } from '@ant-design/icons';
 import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import type { TreeDataNode } from 'antd';
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   {
     title: 'parent 1',
     key: '0-0',

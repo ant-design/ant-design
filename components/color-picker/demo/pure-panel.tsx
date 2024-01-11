@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ColorPicker, theme } from 'antd';
-import type { Color } from 'antd/es/color-picker';
+import type { GetProp, ColorPickerProps } from 'antd';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const PureRenderColorPicker = ColorPicker._InternalPanelDoNotUseOrYouWillBeFired;
 

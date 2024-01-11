@@ -1,9 +1,9 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
+import type { TreeDataNode, TreeProps } from 'antd';
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   {
     title: 'parent 1',
     key: '0-0',
