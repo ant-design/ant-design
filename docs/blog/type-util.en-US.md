@@ -35,9 +35,9 @@ It's not a difficult task for developer who are familiar with TypeScript. But fo
 
 We now provide 3 additional utility types in antd:
 
-- GetProps<ComponentType>
-- GetProp<ComponentTypeOrComponentPropsType, PropName>
-- GetRef<ComponentType>
+- `GetProps<ComponentType>`
+- `GetProp<ComponentTypeOrComponentPropsType, PropName>`
+- `GetRef<ComponentType>`
 
 Previous two are used to help developers extract the props type of the component, and the last one is used to extract the ref type of the component. We can understand the usage of these types through the following examples:
 

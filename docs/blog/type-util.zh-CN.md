@@ -35,9 +35,9 @@ type SelectOption<T> = NonNullable<SelectProps<T>['options']>[number];
 
 现在在 antd 中，我们额外提供了 3 个工具类型：
 
-- GetProps<ComponentType>
-- GetProp<ComponentTypeOrComponentPropsType, PropName>
-- GetRef<ComponentType>
+- `GetProps<ComponentType>`
+- `GetProp<ComponentTypeOrComponentPropsType, PropName>`
+- `GetRef<ComponentType>`
 
 前两者用户帮助开发者抽取组件的 props 类型，最后一个用于抽取组件的 ref 类型。我们可以通过下面的例子来理解这些类型的用法：
 
