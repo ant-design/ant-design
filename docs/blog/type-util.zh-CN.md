@@ -1,5 +1,5 @@
 ---
-title: 工具类型
+title: antd 里常用的 TypeScript 工具方法
 date: 2024-01-11
 author: zombieJ
 ---
@@ -77,6 +77,6 @@ const Div = forwardRef<HTMLDivElement>((_, ref) => <div ref={ref} />);
 type DomRefType = GetRef<typeof Div>; // HTMLDivElement
 ```
 
-### 以上
+### 最后
 
 以上就是我们推出的工具类型，希望能够帮助到大家。如果你有更好的想法，欢迎在 Github 上提出 issue 或者 PR。
