@@ -4,6 +4,8 @@ import type { AnyObject } from '../../_util/type';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
+export type { PickerLocale } from './interface';
+
 function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
   const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker } =
