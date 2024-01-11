@@ -26,7 +26,7 @@ const buddhistLocale: typeof en = {
 const globalBuddhistLocale: typeof enUS = {
   ...enUS,
   DatePicker: {
-    ...enUS.DatePicker,
+    ...enUS.DatePicker!,
     lang: buddhistLocale.lang,
   },
 };
