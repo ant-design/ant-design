@@ -82,9 +82,10 @@ export type PickerPropsWithMultiple<
   DateType extends AnyObject = any,
   InnerPickerProps extends PickerProps<DateType> = PickerProps<DateType>,
   ValueType = DateType,
-> = Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange'> &
+> = Omit<InnerPickerProps, 'defaultValue' | 'value' | 'onChange' | 'onOk'> &
   React.RefAttributes<PickerRef> & {
     defaultValue?: ValueType | null;
     value?: ValueType | null;
     onChange?: (date: ValueType, dates: string | string[]) => void;
+    onOk?: (date: ValueType) => void;
   };
