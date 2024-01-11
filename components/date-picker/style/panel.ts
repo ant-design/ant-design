@@ -491,6 +491,12 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             padding: 0,
           },
         },
+
+        [`&:not(${componentCls}-date-panel-show-week)`]: {
+          [`${componentCls}-content th`]: {
+            width: cellWidth,
+          },
+        },
       },
 
       // ==================== Datetime Panel ====================

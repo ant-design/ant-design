@@ -23,8 +23,8 @@ import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
-import Components from './Components';
 import type { PickerProps, PickerPropsWithMultiple } from './interface';
+import useComponents from './useComponents';
 
 export default function generatePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -41,6 +41,7 @@ export default function generatePicker<DateType extends AnyObject>(
       const {
         prefixCls: customizePrefixCls,
         getPopupContainer: customizeGetPopupContainer,
+        components,
         style,
         className,
         rootClassName,
@@ -99,6 +100,9 @@ export default function generatePicker<DateType extends AnyObject>(
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
       }
+
+      // ================== components ==================
+      const mergedComponents = useComponents(components);
 
       // ===================== Size =====================
       const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
@@ -161,7 +165,7 @@ export default function generatePicker<DateType extends AnyObject>(
           prefixCls={prefixCls}
           getPopupContainer={customizeGetPopupContainer || getPopupContainer}
           generateConfig={generateConfig}
-          components={Components}
+          components={mergedComponents}
           direction={direction}
           disabled={mergedDisabled}
           classNames={{

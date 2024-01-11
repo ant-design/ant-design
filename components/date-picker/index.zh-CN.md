@@ -26,11 +26,13 @@ demo:
 <code src="./demo/align.tsx" version="5.13.0">格式对齐</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-date.tsx">不可选择日期和时间</code>
+<code src="./demo/allow-empty.tsx">允许留空</code>
 <code src="./demo/select-in-range.tsx">选择不超过七天的范围</code>
 <code src="./demo/preset-ranges.tsx">预设范围</code>
 <code src="./demo/extra-footer.tsx">额外的页脚</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/cell-render.tsx">定制单元格</code>
+<code src="./demo/components.tsx" version="5.13.0">定制面板</code>
 <code src="./demo/buddhist-era.tsx" version="5.13.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
@@ -97,8 +99,9 @@ import 'dayjs/locale/zh-cn';
 | className | 选择器 className | string | - |  |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
+| components | 自定义面板 | Record<Panel \| 'input', React.ComponentType> | - | 5.13.0 |
 | disabled | 禁用 | boolean | false |  |
-| disabledDate | 不可选择的日期 | (currentDate: dayjs) => boolean | - |  |
+| disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs }) => boolean | - | `info`: 5.13.0 |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#components-date-picker-demo-format) | [formatType](#formattype) | [rc-picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | preserveInvalidOnBlur | 失去焦点是否要清空输入框内无效内容 | boolean | false | 5.13.0 |
 | popupClassName | 额外的弹出日历 className | string | - | 4.23.0 |
@@ -143,10 +146,9 @@ import 'dayjs/locale/zh-cn';
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD` |  |
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/) | - | 5.13.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
-| showNow | 当设定了 `showTime` 的时候，面板是否显示“此刻”按钮 | boolean | - | 4.4.0 |
+| showNow | 显示当前日期时间的快捷选择 | boolean | - |  |
 | showTime | 增加时间选择功能 | Object \| boolean | [TimePicker Options](/components/time-picker-cn#api) |  |
 | showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](#components-date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
-| showToday | 是否展示“今天”按钮 | boolean | true |  |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调 | function(date: dayjs, dateString: string) | - |  |
 | onOk | 点击确定按钮的回调 | function() | - |  |
@@ -197,7 +199,7 @@ import 'dayjs/locale/zh-cn';
 ### RangePicker
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
 | cellRender | 自定义单元格的内容。 | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
@@ -216,8 +218,8 @@ import 'dayjs/locale/zh-cn';
 | value | 日期 | [dayjs](https://day.js.org/)\[] | - |  |
 | onCalendarChange | 待选日期发生变化的回调。`info` 参数自 4.4.0 添加 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string]) | - |  |
-| onFocus | 聚焦时回调 | function(event, { range: 'start' | 'end' }) | - | `range`: 5.13.0 |
-| onBlur | 失焦时回调 | function(event, { range: 'start' | 'end' }) | - | `range`: 5.13.0 |
+| onFocus | 聚焦时回调 | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.13.0 |
+| onBlur | 失焦时回调 | function(event, { range: 'start' \| 'end' }) | - | `range`: 5.13.0 |
 
 #### formatType
 

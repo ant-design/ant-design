@@ -40,10 +40,7 @@ export type AdditionalPickerLocaleLangProps = {
   rangePlaceholder?: [string, string];
 };
 
-type InjectDefaultProps<Props> = Omit<
-  Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'components'
-> & {
+type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig' | 'hideHeader'> & {
   locale?: PickerLocale;
   size?: SizeType;
   placement?: DataPickerPlacement;

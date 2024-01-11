@@ -90,8 +90,15 @@ type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledMilliseconds?: (
+    selectedHour: number,
+    selectedMinute: number,
+    selectedSecond: number,
+  ) => number[];
 };
 ```
+
+Note: `disabledMilliseconds` is added in `5.13.0`.
 
 ## Methods
 

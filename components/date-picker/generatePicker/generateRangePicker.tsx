@@ -23,8 +23,8 @@ import { useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
-import Components from './Components';
 import type { RangePickerProps } from './interface';
+import useComponents from './useComponents';
 
 export default function generateRangePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -35,6 +35,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
     const {
       prefixCls: customizePrefixCls,
       getPopupContainer: customGetPopupContainer,
+      components,
       className,
       style,
       placement,
@@ -72,6 +73,9 @@ export default function generateRangePicker<DateType extends AnyObject>(
 
       warning.deprecated(!('bordered' in props), 'bordered', 'variant');
     }
+
+    // ================== components ==================
+    const mergedComponents = useComponents(components);
 
     // ===================== Size =====================
     const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
@@ -137,7 +141,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
         prefixCls={prefixCls}
         getPopupContainer={customGetPopupContainer || getPopupContainer}
         generateConfig={generateConfig}
-        components={Components}
+        components={mergedComponents}
         direction={direction}
         classNames={{
           popup: classNames(

@@ -89,8 +89,15 @@ type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledMilliseconds?: (
+    selectedHour: number,
+    selectedMinute: number,
+    selectedSecond: number,
+  ) => number[];
 };
 ```
+
+注意：`disabledMilliseconds` 为 `5.13.0` 新增。
 
 ## 方法
 
