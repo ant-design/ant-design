@@ -4,7 +4,7 @@ import type { AnyObject } from '../../_util/type';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
-export type { PickerLocale } from './interface';
+export type { PickerLocale, PickerProps } from './interface';
 
 function generatePicker<DateType extends AnyObject>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
