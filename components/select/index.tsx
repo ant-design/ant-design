@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from 'rc-select';
 import RcSelect, { OptGroup, Option } from 'rc-select';
 import type { OptionProps } from 'rc-select/lib/Option';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import type { BaseOptionType, DefaultOptionType as _DefaultOptionType } from 'rc-select/lib/Select';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -29,6 +29,11 @@ import useShowArrow from './useShowArrow';
 import { useToken } from '../theme/internal';
 
 type RawValue = string | number;
+
+interface DefaultOptionType extends _DefaultOptionType {
+  title?: string;
+  className?: string;
+}
 
 export type { BaseOptionType, DefaultOptionType, OptionProps, BaseSelectRef as RefSelectProps };
 
