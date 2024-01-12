@@ -45,6 +45,7 @@ tag: vVERSION
 - 🐞 Fix the problem of Segmented content being obscured in `hover` and `active`. [#46925](https://github.com/ant-design/ant-design/pull/46925) [@madocto](https://github.com/madocto)
 - 🐞 Fixed the problem that the customized font size of Checkbox does not take effect under Form. [#46904](https://github.com/ant-design/ant-design/pull/46904)
 - 🐞 Fixed the issue where the Radio component configuration `title` did not take effect. [#46809](https://github.com/ant-design/ant-design/pull/46809)
+- 🐞 Fixed Input hover style in css var mode. [#46946](https://github.com/ant-design/ant-design/pull/46946)
 - 💄 Fixed the problem of abnormal display of Dropdown style under multi-level menu. [#46888](https://github.com/ant-design/ant-design/pull/46888)
 - 🛠 Refactor the popup panel logic of the ColorPicker component to avoid style conflicts when customizing using `panelRender`. [#46327](https://github.com/ant-design/ant-design/pull/46327)
 - TypeScript

@@ -45,6 +45,7 @@ tag: vVERSION
 - 🐞 修复 Segmented 在 `hover` 和 `active` 内容被遮挡的问题。[#46925](https://github.com/ant-design/ant-design/pull/46925) [@madocto](https://github.com/madocto)
 - 🐞 修复 Checkbox 定制字体大小在 Form 下不生效的问题。[#46904](https://github.com/ant-design/ant-design/pull/46904)
 - 🐞 修复 Radio 组件配置 `title` 未生效的问题。[#46809](https://github.com/ant-design/ant-design/pull/46809)
+- 🐞 修复 Input 组件在 css 变量模式下的悬浮态样式问题。[#46946](https://github.com/ant-design/ant-design/pull/46946)
 - 💄 修复 Dropdown 在多级菜单下样式显示异常的问题。[#46888](https://github.com/ant-design/ant-design/pull/46888)
 - 🛠 重构 ColorPicker 组件弹出面板逻辑，避免使用 `panelRender` 自定义时样式冲突的问题。[#46327](https://github.com/ant-design/ant-design/pull/46327)
 - TypeScript
