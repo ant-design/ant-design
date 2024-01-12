@@ -157,21 +157,14 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-divider'))?.toHaveStyle({ color: 'red', height: '80px' });
   });
 
-  it('Should Drawer className & closeIcon works', () => {
+  it('Should Drawer className works', () => {
     render(
-      <ConfigProvider
-        drawer={{
-          className: 'test-class',
-          closeIcon: <span className="cp-test-close-icon">close</span>,
-        }}
-      >
+      <ConfigProvider drawer={{ className: 'test-class' }}>
         <Drawer title="Test Drawer" open />
       </ConfigProvider>,
     );
 
-    const selectors = '.ant-drawer-content .ant-drawer-close .cp-test-close-icon';
     expect(document.querySelector('.ant-drawer-content')).toHaveClass('test-class');
-    expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
   });
 
   it('Should Drawer style works', () => {

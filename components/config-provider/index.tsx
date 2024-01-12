@@ -8,7 +8,8 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
 import type { Options } from 'scroll-into-view-if-needed';
 
-import warning, { WarningContext, type WarningContextProps } from '../_util/warning';
+import warning, { WarningContext } from '../_util/warning';
+import type { WarningContextProps } from '../_util/warning';
 import type { RequiredMark } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { InputProps } from '../input';
@@ -205,6 +206,7 @@ export interface ConfigProviderProps {
    * Wave is special component which only patch on the effect of component interaction.
    */
   wave?: WaveConfig;
+  icons?: ConfigConsumerProps['icons'];
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -351,6 +353,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
+    icons,
   } = props;
 
   // =================================== Context ===================================
@@ -444,9 +447,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
+    icons,
   };
 
-  const config = {
+  const config: ConfigConsumerProps = {
     ...parentContext,
   };
 
