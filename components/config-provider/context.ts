@@ -15,7 +15,6 @@ import type { ModalProps } from '../modal';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
-import type { TourProps } from '../tour/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
 
@@ -89,10 +88,6 @@ export interface DrawerConfig extends ComponentStyleConfig {
 
 export interface FlexConfig extends ComponentStyleConfig {
   vertical?: FlexProps['vertical'];
-}
-
-export interface TourConfig {
-  closeIcon?: TourProps['closeIcon'];
 }
 
 export type PopupOverflow = 'viewport' | 'scroll';
@@ -193,7 +188,6 @@ export interface ConfigConsumerProps {
   flex?: FlexConfig;
   wave?: WaveConfig;
   warning?: WarningContextProps;
-  tour?: TourConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

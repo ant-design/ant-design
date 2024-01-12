@@ -149,7 +149,6 @@ const {
 | table | Set Table common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tabs | Set Tabs common props | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }} | - | 5.7.0 |
 | tag | Set Tag common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| tour | Set Tour common props | { closeIcon?: ReactNode } | - | 5.14.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
