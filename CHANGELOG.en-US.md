@@ -39,7 +39,7 @@ tag: vVERSION
   - 🆕 Tabs support the `indicator: { align: xxx }` attribute, which is used to set the alignment of the Tabs indicator bar. [#46786](https://github.com/ant-design/ant-design/pull/46786)
   - 🛠 Tabs deprecated the `indicatorSize` attribute and replaced it with `indicator: { size: xxx }`. [#46786](https://github.com/ant-design/ant-design/pull/46786)
 - ConfigProvider
-  - 🆕 ConfigProvider support the indicator: { align: xxx } attribute. [#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🆕 ConfigProvider support the `indicator: { align: xxx }` attribute. [#46786](https://github.com/ant-design/ant-design/pull/46786)
   - 🆕 ConfigProvider adds `ConfigProvider.config` to support `holderRender` for `message` `modal` `notification` static method setting `Provider`. [#46596](https://github.com/ant-design/ant-design/pull/46596)
   - 🛠 ConfigProvider deprecated the `indicatorSize` attribute and replaced it with `indicator: { size: xxx }`. [#46786](https://github.com/ant-design/ant-design/pull/46786)
 - 🐞 Fix the problem of Segmented content being obscured in `hover` and `active`. [#46925](https://github.com/ant-design/ant-design/pull/46925) [@madocto](https://github.com/madocto)
