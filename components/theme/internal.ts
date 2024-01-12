@@ -23,6 +23,7 @@ import genPresetColor from './util/genPresetColor';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import useResetIconStyle from './util/useResetIconStyle';
 import calc from './util/calc';
+import { getLineHeight } from './themes/shared/genFontSizes';
 
 export { DesignTokenContext, defaultConfig } from './context';
 export {
@@ -34,6 +35,7 @@ export {
   mergeToken,
   statisticToken,
   calc,
+  getLineHeight,
   // hooks
   useResetIconStyle,
   useStyleRegister,
