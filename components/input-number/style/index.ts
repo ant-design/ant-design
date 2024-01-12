@@ -18,7 +18,7 @@ import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { ComponentToken, InputNumberToken } from './token';
-import { formatComponentToken, prepareComponentToken } from './token';
+import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
@@ -479,7 +479,6 @@ export default genStyleHooks(
   },
   prepareComponentToken,
   {
-    format: formatComponentToken,
     unitless: {
       handleOpacity: true,
     },
