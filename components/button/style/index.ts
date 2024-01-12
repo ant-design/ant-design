@@ -6,7 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
 import type { ButtonToken, ComponentToken } from './token';
-import { formatComponentToken, prepareComponentToken, prepareToken } from './token';
+import { prepareComponentToken, prepareToken } from './token';
 
 export type { ComponentToken };
 
@@ -532,6 +532,5 @@ export default genStyleHooks(
       contentLineHeightSM: true,
       contentLineHeightLG: true,
     },
-    format: formatComponentToken,
   },
 );

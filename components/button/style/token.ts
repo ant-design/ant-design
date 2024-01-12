@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import type { FormatComponentToken, FullToken, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GetDefaultToken } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 
@@ -182,57 +182,54 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => Butto
   return buttonToken;
 };
 
-export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => ({
-  fontWeight: 400,
-  defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
-  primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
-  dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
-  primaryColor: token.colorTextLightSolid,
-  dangerColor: token.colorTextLightSolid,
-  borderColorDisabled: token.colorBorder,
-  defaultGhostColor: token.colorBgContainer,
-  ghostBg: 'transparent',
-  defaultGhostBorderColor: token.colorBgContainer,
-  paddingInline: token.paddingContentHorizontal - token.lineWidth,
-  paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
-  paddingInlineSM: 8 - token.lineWidth,
-  paddingBlock: 0,
-  paddingBlockSM: 0,
-  paddingBlockLG: 0,
-  onlyIconSize: token.fontSizeLG,
-  onlyIconSizeSM: token.fontSizeLG - 2,
-  onlyIconSizeLG: token.fontSizeLG + 2,
-  groupBorderColor: token.colorPrimaryHover,
-  linkHoverBg: 'transparent',
-  textHoverBg: token.colorBgTextHover,
-  defaultColor: token.colorText,
-  defaultBg: token.colorBgContainer,
-  defaultBorderColor: token.colorBorder,
-  defaultBorderColorDisabled: token.colorBorder,
-  contentFontSize: token.fontSize,
-  contentFontSizeSM: token.fontSize,
-  contentFontSizeLG: token.fontSizeLG,
-  contentLineHeight: token.lineHeight,
-  contentLineHeightSM: token.lineHeightSM,
-  contentLineHeightLG: token.lineHeightLG,
-});
-
-export const formatComponentToken: FormatComponentToken<'Button'> = (token) => {
-  const contentLineHeight = token.contentLineHeight ?? getLineHeight(token.contentFontSize);
-  const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(token.contentFontSizeSM);
-  const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(token.contentFontSizeLG);
+export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
+  const contentFontSize = token.contentFontSize ?? token.fontSize;
+  const contentFontSizeSM = token.contentFontSizeSM ?? token.fontSize;
+  const contentFontSizeLG = token.contentFontSizeLG ?? token.fontSizeLG;
+  const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
+  const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
+  const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);
 
   return {
+    fontWeight: 400,
+    defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
+    primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
+    dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
+    primaryColor: token.colorTextLightSolid,
+    dangerColor: token.colorTextLightSolid,
+    borderColorDisabled: token.colorBorder,
+    defaultGhostColor: token.colorBgContainer,
+    ghostBg: 'transparent',
+    defaultGhostBorderColor: token.colorBgContainer,
+    paddingInline: token.paddingContentHorizontal - token.lineWidth,
+    paddingInlineLG: token.paddingContentHorizontal - token.lineWidth,
+    paddingInlineSM: 8 - token.lineWidth,
+    onlyIconSize: token.fontSizeLG,
+    onlyIconSizeSM: token.fontSizeLG - 2,
+    onlyIconSizeLG: token.fontSizeLG + 2,
+    groupBorderColor: token.colorPrimaryHover,
+    linkHoverBg: 'transparent',
+    textHoverBg: token.colorBgTextHover,
+    defaultColor: token.colorText,
+    defaultBg: token.colorBgContainer,
+    defaultBorderColor: token.colorBorder,
+    defaultBorderColorDisabled: token.colorBorder,
+    contentFontSize,
+    contentFontSizeSM,
+    contentFontSizeLG,
+    contentLineHeight,
+    contentLineHeightSM,
+    contentLineHeightLG,
     paddingBlock: Math.max(
-      (token.controlHeight - token.contentFontSize * contentLineHeight) / 2 - token.lineWidth,
+      (token.controlHeight - contentFontSize * contentLineHeight) / 2 - token.lineWidth,
       0,
     ),
     paddingBlockSM: Math.max(
-      (token.controlHeightSM - token.contentFontSizeSM * contentLineHeightSM) / 2 - token.lineWidth,
+      (token.controlHeightSM - contentFontSizeSM * contentLineHeightSM) / 2 - token.lineWidth,
       0,
     ),
     paddingBlockLG: Math.max(
-      (token.controlHeightLG - token.contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
+      (token.controlHeightLG - contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
       0,
     ),
   };

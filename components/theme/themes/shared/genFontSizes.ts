@@ -1,8 +1,8 @@
-// https://zhuanlan.zhihu.com/p/32746810
 export function getLineHeight(fontSize: number) {
   return (fontSize + 8) / fontSize;
 }
 
+// https://zhuanlan.zhihu.com/p/32746810
 export default function getFontSizes(base: number) {
   const fontSizes = new Array(10).fill(null).map((_, index) => {
     const i = index - 1;
