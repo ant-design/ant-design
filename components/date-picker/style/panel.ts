@@ -417,12 +417,20 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
       },
 
-      // ====================== Week Panel ======================
-      '&-week-panel': {
+      // ====================== Date Panel ======================
+      '&-date-panel': {
         [`${componentCls}-body`]: {
-          padding: `${unit(paddingXS)} ${unit(paddingSM)}`,
+          padding: `${unit(paddingXS)} ${unit(pickerDatePanelPaddingHorizontal)}`,
         },
 
+        [`${componentCls}-content th`]: {
+          boxSizing: 'border-box',
+          padding: 0,
+        },
+      },
+
+      // ====================== Week Panel ======================
+      '&-week-panel': {
         // Clear cell style
         [`${componentCls}-cell`]: {
           [`&:hover ${pickerCellInnerCls},
@@ -476,26 +484,14 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         },
       },
 
-      // ====================== Date Panel ======================
-      '&-date-panel': {
+      // >>> ShowWeek
+      [`&-week-panel, &-date-panel-show-week`]: {
         [`${componentCls}-body`]: {
-          padding: `${unit(paddingXS)} ${unit(pickerDatePanelPaddingHorizontal)}`,
+          padding: `${unit(paddingXS)} ${unit(paddingSM)}`,
         },
 
-        [`${componentCls}-content`]: {
-          width: token.calc(cellWidth).mul(7).equal(),
-
-          th: {
-            width: cellWidth,
-            boxSizing: 'border-box',
-            padding: 0,
-          },
-        },
-
-        [`&:not(${componentCls}-date-panel-show-week)`]: {
-          [`${componentCls}-content th`]: {
-            width: cellWidth,
-          },
+        [`${componentCls}-content th`]: {
+          width: 'auto',
         },
       },
 
