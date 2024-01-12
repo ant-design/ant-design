@@ -10,11 +10,7 @@ import type {
 } from './interface';
 import { PresetColors } from './interface';
 import useToken from './useToken';
-import type {
-  FullToken,
-  GetDefaultToken,
-  FormatComponentToken,
-} from './util/genComponentStyleHook';
+import type { FullToken, GetDefaultToken } from './util/genComponentStyleHook';
 import genComponentStyleHook, {
   genSubStyleComponent,
   genStyleHooks,
@@ -52,5 +48,4 @@ export type {
   SeedToken,
   UseComponentStyleResult,
   GetDefaultToken,
-  FormatComponentToken,
 };
