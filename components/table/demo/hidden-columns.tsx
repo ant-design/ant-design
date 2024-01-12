@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Divider, Space, Table } from 'antd';
-import type { TableColumnsType } from 'antd';
-import CheckboxGroup, { CheckboxGroupProps } from 'antd/es/checkbox/Group';
+import { Divider, Table, Checkbox } from 'antd';
+import type { CheckboxOptionType, TableColumnsType } from 'antd';
 
 interface DataType {
   key: React.Key;
@@ -54,9 +53,9 @@ const App: React.FC = () => {
   return (
     <>
       <Divider>Columns displayed</Divider>
-      <CheckboxGroup
+      <Checkbox.Group
         value={checkedList}
-        options={options as CheckboxGroupProps['options']}
+        options={options as CheckboxOptionType[]}
         onChange={(value) => {
           setCheckedList(value as string[]);
         }}
