@@ -481,6 +481,10 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
               },
             },
           },
+
+          [`&-range-hover td:before`]: {
+            background: controlItemBgActive,
+          },
         },
       },
 
