@@ -146,18 +146,18 @@ export interface ComponentToken {
    */
   contentFontSizeSM: number;
   /**
-   * @desc 按钮内容字体大小
-   * @descEN Font size of button content
+   * @desc 按钮内容字体行高
+   * @descEN Line height of button content
    */
   contentLineHeight: number;
   /**
-   * @desc 大号按钮内容字体大小
-   * @descEN Font size of large button content
+   * @desc 大号按钮内容字体行高
+   * @descEN Line height of large button content
    */
   contentLineHeightLG: number;
   /**
-   * @desc 小号按钮内容字体大小
-   * @descEN Font size of small button content
+   * @desc 小号按钮内容字体行高
+   * @descEN Line height of small button content
    */
   contentLineHeightSM: number;
 }
