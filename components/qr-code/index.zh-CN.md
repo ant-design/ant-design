@@ -53,7 +53,7 @@ tag: New
 | bgColor | 二维码背景颜色 | string | `transparent` | 5.5.0 |
 | bordered | 是否有边框 | boolean | `true` |
 | errorLevel | 二维码纠错等级 | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
-| status | 二维码状态 | `active \| expired \| loading ` | `active` |
+| status | 二维码状态 | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | onRefresh | 点击"点击刷新"的回调 | `() => void` | - |
 
 ## 主题变量（Design Token）

@@ -1,131 +1,23 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
-import type { CSSProperties } from 'react';
 import { resetComponent, resetIcon, textEllipsis } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
+import type { ComponentToken, SelectToken } from './token';
+import { prepareComponentToken } from './token';
+import genVariantsStyle from './variants';
 
-export interface ComponentToken {
-  /**
-   * @desc 下拉菜单 z-index
-   * @descEN z-index of dropdown
-   */
-  zIndexPopup: number;
-  /**
-   * @desc 选项选中时文本颜色
-   * @descEN Text color when option is selected
-   */
-  optionSelectedColor: string;
-  /**
-   * @desc 选项选中时文本字重
-   * @descEN Font weight when option is selected
-   */
-  optionSelectedFontWeight: CSSProperties['fontWeight'];
-  /**
-   * @desc 选项选中时背景色
-   * @descEN Background color when option is selected
-   */
-  optionSelectedBg: string;
-  /**
-   * @desc 选项激活态时背景色
-   * @descEN Background color when option is active
-   */
-  optionActiveBg: string;
-  /**
-   * @desc 选项内间距
-   * @descEN Padding of option
-   */
-  optionPadding: CSSProperties['padding'];
-  /**
-   * @desc 选项字体大小
-   * @descEN Font size of option
-   */
-  optionFontSize: number;
-  /**
-   * @desc 选项行高
-   * @descEN Line height of option
-   */
-  optionLineHeight: CSSProperties['lineHeight'];
-  /**
-   * @desc 选项高度
-   * @descEN Height of option
-   */
-  optionHeight: number;
-  /**
-   * @desc 选框背景色
-   * @descEN Background color of selector
-   */
-  selectorBg: string;
-  /**
-   * @desc 清空按钮背景色
-   * @descEN Background color of clear button
-   */
-  clearBg: string;
-  /**
-   * @desc 单选大号回填项高度
-   * @descEN Height of single selected item with large size
-   */
-  singleItemHeightLG: number;
-  /**
-   * @desc 多选标签背景色
-   * @descEN Background color of multiple tag
-   */
-  multipleItemBg: string;
-  /**
-   * @desc 多选标签边框色
-   * @descEN Border color of multiple tag
-   */
-  multipleItemBorderColor: string;
-  /**
-   * @desc 多选标签高度
-   * @descEN Height of multiple tag
-   */
-  multipleItemHeight: number;
-  /**
-   * @desc 大号多选标签高度
-   * @descEN Height of multiple tag with large size
-   */
-  multipleItemHeightLG: number;
-  /**
-   * @desc 多选框禁用背景
-   * @descEN Background color of multiple selector when disabled
-   */
-  multipleSelectorBgDisabled: string;
-  /**
-   * @desc 多选标签禁用文本颜色
-   * @descEN Text color of multiple tag when disabled
-   */
-  multipleItemColorDisabled: string;
-  /**
-   * @desc 多选标签禁用边框色
-   * @descEN Border color of multiple tag when disabled
-   */
-  multipleItemBorderColorDisabled: string;
-  /**
-   * @internal
-   */
-  showArrowPaddingInlineEnd: number;
-}
-
-export interface SelectToken extends FullToken<'Select'> {
-  rootPrefixCls: string;
-  inputPaddingHorizontalBase: number | string;
-  multipleSelectItemHeight: number;
-  selectHeight: number;
-}
+export { ComponentToken };
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls, selectorBg } = token;
+  const { componentCls } = token;
 
   return {
     position: 'relative',
-    backgroundColor: selectorBg,
-    border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
     transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
 
     input: {
@@ -143,64 +35,11 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
     },
 
     [`${componentCls}-disabled&`]: {
-      color: token.colorTextDisabled,
-      background: token.colorBgContainerDisabled,
       cursor: 'not-allowed',
-
-      [`${componentCls}-multiple&`]: {
-        background: token.multipleSelectorBgDisabled,
-      },
 
       input: {
         cursor: 'not-allowed',
       },
-    },
-  };
-};
-
-// ============================== Status ==============================
-const genStatusStyle = (
-  rootSelectCls: string,
-  token: SelectToken & {
-    borderHoverColor: string;
-    borderActiveColor: string;
-    outlineColor: string;
-  },
-  overwriteDefaultBorder: boolean = false,
-): CSSObject => {
-  const {
-    componentCls,
-    borderHoverColor,
-    antCls,
-    borderActiveColor,
-    outlineColor,
-    controlOutlineWidth,
-  } = token;
-
-  const overwriteStyle: CSSObject = overwriteDefaultBorder
-    ? {
-        [`${componentCls}-selector`]: {
-          borderColor: borderActiveColor,
-        },
-      }
-    : {};
-
-  return {
-    [rootSelectCls]: {
-      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input):not(${antCls}-pagination-size-changer)`]:
-        {
-          ...overwriteStyle,
-
-          [`&:hover ${componentCls}-selector`]: {
-            borderColor: borderHoverColor,
-          },
-
-          [`${componentCls}-focused& ${componentCls}-selector`]: {
-            borderColor: borderActiveColor,
-            boxShadow: `0 0 0 ${unit(controlOutlineWidth)} ${outlineColor}`,
-            outline: 0,
-          },
-        },
     },
   };
 };
@@ -244,10 +83,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         ...getSearchInputWithoutBorderStyle(token),
       },
 
-      // [`&:not(&-disabled):hover ${selectCls}-selector`]: {
-      //   ...genHoverStyle(token),
-      // },
-
       // ======================== Selection ========================
       [`${componentCls}-selection-item`]: {
         flex: 1,
@@ -286,6 +121,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         pointerEvents: 'none',
         display: 'flex',
         alignItems: 'center',
+        transition: `opacity ${token.motionDurationSlow} ease`,
 
         [iconCls]: {
           verticalAlign: 'top',
@@ -326,7 +162,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
-        background: token.clearBg,
         cursor: 'pointer',
         opacity: 0,
         transition: `color ${token.motionDurationMid} ease, opacity ${token.motionDurationSlow} ease`,
@@ -344,6 +179,12 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
       '&:hover': {
         [`${componentCls}-clear`]: {
           opacity: 1,
+        },
+        // Should use the following selector, but since `:has` has poor compatibility,
+        // we use `:not(:last-child)` instead, which may cause some problems in some cases.
+        // [`${componentCls}-arrow:has(+ ${componentCls}-clear)`]: {
+        [`${componentCls}-arrow:not(:last-child)`]: {
+          opacity: 0,
         },
       },
     },
@@ -368,13 +209,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
   return [
     {
       [componentCls]: {
-        // ==================== BorderLess ====================
-        [`&-borderless ${componentCls}-selector`]: {
-          backgroundColor: `transparent !important`,
-          borderColor: `transparent !important`,
-          boxShadow: `none !important`,
-        },
-
         // ==================== In Form ====================
         [`&${componentCls}-in-form-item`]: {
           width: '100%',
@@ -407,35 +241,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
     },
 
     // =====================================================
-    // ==                     Status                      ==
-    // =====================================================
-    genStatusStyle(
-      componentCls,
-      mergeToken<any>(token, {
-        borderHoverColor: token.colorPrimaryHover,
-        borderActiveColor: token.colorPrimary,
-        outlineColor: token.controlOutline,
-      }),
-    ),
-    genStatusStyle(
-      `${componentCls}-status-error`,
-      mergeToken<any>(token, {
-        borderHoverColor: token.colorErrorHover,
-        borderActiveColor: token.colorError,
-        outlineColor: token.colorErrorOutline,
-      }),
-      true,
-    ),
-    genStatusStyle(
-      `${componentCls}-status-warning`,
-      mergeToken<any>(token, {
-        borderHoverColor: token.colorWarningHover,
-        borderActiveColor: token.colorWarning,
-        outlineColor: token.colorWarningOutline,
-      }),
-      true,
-    ),
-    // =====================================================
     // ==             Space Compact                       ==
     // =====================================================
     genCompactItemStyle(token, {
@@ -446,49 +251,6 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
-  const {
-    fontSize,
-    lineHeight,
-    controlHeight,
-    controlPaddingHorizontal,
-    zIndexPopupBase,
-    colorText,
-    fontWeightStrong,
-    controlItemBgActive,
-    controlItemBgHover,
-    colorBgContainer,
-    colorFillSecondary,
-    controlHeightLG,
-    controlHeightSM,
-    colorBgContainerDisabled,
-    colorTextDisabled,
-  } = token;
-
-  return {
-    zIndexPopup: zIndexPopupBase + 50,
-    optionSelectedColor: colorText,
-    optionSelectedFontWeight: fontWeightStrong,
-    optionSelectedBg: controlItemBgActive,
-    optionActiveBg: controlItemBgHover,
-    optionPadding: `${(controlHeight - fontSize * lineHeight) / 2}px ${controlPaddingHorizontal}px`,
-    optionFontSize: fontSize,
-    optionLineHeight: lineHeight,
-    optionHeight: controlHeight,
-    selectorBg: colorBgContainer,
-    clearBg: colorBgContainer,
-    singleItemHeightLG: controlHeightLG,
-    multipleItemBg: colorFillSecondary,
-    multipleItemBorderColor: 'transparent',
-    multipleItemHeight: controlHeightSM,
-    multipleItemHeightLG: controlHeight,
-    multipleSelectorBgDisabled: colorBgContainerDisabled,
-    multipleItemColorDisabled: colorTextDisabled,
-    multipleItemBorderColorDisabled: 'transparent',
-    showArrowPaddingInlineEnd: Math.ceil(token.fontSize * 1.25),
-  };
-};
-
 export default genStyleHooks(
   'Select',
   (token, { rootPrefixCls }) => {
@@ -499,7 +261,7 @@ export default genStyleHooks(
       selectHeight: token.controlHeight,
     });
 
-    return [genSelectStyle(selectToken)];
+    return [genSelectStyle(selectToken), genVariantsStyle(selectToken)];
   },
   prepareComponentToken,
   {

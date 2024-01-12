@@ -3,7 +3,7 @@
 exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is false 1`] = `
 <div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -61,7 +61,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -118,7 +118,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -180,7 +180,7 @@ exports[`ConfigProvider.Popup disable virtual if dropdownMatchSelectWidth is fal
 exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
 <div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -238,7 +238,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -295,7 +295,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -357,7 +357,7 @@ exports[`ConfigProvider.Popup disable virtual if is false 1`] = `
 exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 1`] = `
 <div>
   <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -415,7 +415,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     </span>
   </div>
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"
@@ -472,7 +472,7 @@ exports[`ConfigProvider.Popup disable virtual if popupMatchSelectWidth is false 
     </span>
   </div>
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
   >
     <div
       class="ant-select-selector"

@@ -2,7 +2,7 @@
 
 exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -154,7 +154,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 2`]
 
 exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -304,7 +304,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
 
 exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -468,7 +468,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 
 exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -759,7 +759,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 
 exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -939,7 +939,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
 
 exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1089,7 +1089,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
 
 exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1241,7 +1241,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
 
 exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1391,7 +1391,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 2`]
 
 exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1541,7 +1541,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 2`] 
 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -2047,7 +2047,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2203,7 +2203,7 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
     style="margin: 0px;"
   >
     <div
@@ -2365,7 +2365,7 @@ If you used to conditionally omit it with %s={condition && value}, pass %s={cond
 
 exports[`renders components/cascader/demo/search.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -2515,7 +2515,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 2`
 exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     style="width: 100%;"
   >
     <div
@@ -2732,7 +2732,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     style="width: 100%;"
   >
     <div
@@ -2954,7 +2954,7 @@ exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context
 exports[`renders components/cascader/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-lg ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-lg ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3101,7 +3101,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3248,7 +3248,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-sm ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3407,7 +3407,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3542,7 +3542,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-status-warning ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-status-warning ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3696,7 +3696,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 2`
 exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3845,7 +3845,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3976,7 +3976,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -4125,7 +4125,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"

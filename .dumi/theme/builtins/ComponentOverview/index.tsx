@@ -171,7 +171,7 @@ const Overview: React.FC = () => {
               }
             }}
             onKeyDown={onKeyDown}
-            bordered={false}
+            variant="borderless"
             suffix={<SearchOutlined />}
             style={{ fontSize: searchBarAffixed ? fontSizeXL - 2 : fontSizeXL }}
           />

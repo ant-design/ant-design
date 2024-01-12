@@ -29,6 +29,7 @@ import Components from './Components';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 import { useZIndex } from '../../_util/hooks/useZIndex';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import useVariant from '../../form/hooks/useVariants';
 
 export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type InternalRangePickerProps = RangePickerProps<DateType> & {};
@@ -62,6 +63,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       clearIcon,
       allowClear,
       rootClassName,
+      variant: customVariant,
       ...restProps
     } = props;
 
@@ -71,6 +73,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
+
+    const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
     const rootCls = useCSSVarCls(prefixCls);
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -85,6 +89,8 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
       const warning = devUseWarning('DatePicker.RangePicker');
 
       warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
+
+      warning.deprecated(!('bordered' in props), 'bordered', 'variant');
     }
 
     // ===================== Size =====================
@@ -139,7 +145,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
         className={classNames(
           {
             [`${prefixCls}-${mergedSize}`]: mergedSize,
-            [`${prefixCls}-borderless`]: !bordered,
+            [`${prefixCls}-${variant}`]: enableVariantCls,
           },
           getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),
           hashId,

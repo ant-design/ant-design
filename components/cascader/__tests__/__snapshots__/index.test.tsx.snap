@@ -866,7 +866,7 @@ exports[`Cascader can be selected in RTL direction 3`] = `
 
 exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
+  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -1043,7 +1043,7 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
 
 exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
+  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -1370,7 +1370,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 
 exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-rtl ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+  class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
     class="ant-select-selector"
@@ -1607,7 +1607,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 
 exports[`Cascader rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-rtl ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1821,7 +1821,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
 
 exports[`Cascader support controlled mode 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
