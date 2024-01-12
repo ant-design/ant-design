@@ -21,12 +21,7 @@ tag: vVERSION
 `2024-01-12`
 
 - 🔥 Form 组件新增 `variant` 属性用于设置内部组件形态变体。[#46573](https://github.com/ant-design/ant-design/pull/46573)
-  - 🆕 DatePicker 组件新增形态变体 `variant` 属性，并新增 `filled` 变体。[#46568](https://github.com/ant-design/ant-design/pull/46568)
-  - 🆕 Select、Cascader、TreeSelect 组件新增形态变体 `variant` 属性。[#46549](https://github.com/ant-design/ant-design/pull/46549)
-  - 🆕 Input、InputNumber、Mentions 组件新增形态变体 `variant` 属性。[#46435](https://github.com/ant-design/ant-design/pull/46435)
-  - 🛠 InputNumber 组件废弃 `bordered` 属性，使用 `variant` 替代。[#46381](https://github.com/ant-design/ant-design/pull/46381)
-  - 🛠 Select 组件废弃 `bordered`，使用 `variant` 替代。[#46379](https://github.com/ant-design/ant-design/pull/46379)
-  - 🛠 Input 组件废弃 `bordered`，使用 `variant` 替代。[#46337](https://github.com/ant-design/ant-design/pull/46337)
+  - 🆕 Cascader、DatePicker、Select、TreeSelect、Input、InputNumber、Mentions 组件新增形态变体 `variant` 属性。[#46568](https://github.com/ant-design/ant-design/pull/46568) [#46549](https://github.com/ant-design/ant-design/pull/46549) [#46435](https://github.com/ant-design/ant-design/pull/46435) [#46381](https://github.com/ant-design/ant-design/pull/46381) [#46379](https://github.com/ant-design/ant-design/pull/46379) [#46337](https://github.com/ant-design/ant-design/pull/46337)
 - 🆕 QRCode 组件 `status` 新增已扫描选项。[#46704](https://github.com/ant-design/ant-design/pull/46704)
 - 🆕 Select 组件新增支持 `maxCount` 属性，用于设置最大可选。[#46667](https://github.com/ant-design/ant-design/pull/46667)
 - 🆕 Mentions 组件新增 `allowClear` 属性，用于设置清除功能。[#46396](https://github.com/ant-design/ant-design/pull/46396) [@yociduo](https://github.com/yociduo)

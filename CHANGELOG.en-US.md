@@ -21,12 +21,7 @@ tag: vVERSION
 `2024-01-12`
 
 - 🔥 Form support `variant` to control components variant inside. [#46573](https://github.com/ant-design/ant-design/pull/46573)
-  - 🆕 DatePicker support `variant` props, and added the `filled` variant. [#46568](https://github.com/ant-design/ant-design/pull/46568)
-  - 🆕 Select、Cascader、TreeSelect support `variant` props. [#46549](https://github.com/ant-design/ant-design/pull/46549)
-  - 🆕 Input、InputNumber、Mentions support `variant` props. [#46435](https://github.com/ant-design/ant-design/pull/46435)
-  - 🛠 InputNumber deprecates the `bordered` attribute and uses `variant` instead. [#46381](https://github.com/ant-design/ant-design/pull/46381)
-  - 🛠 Select deprecates the `bordered` attribute and uses `variant` instead. [#46379](https://github.com/ant-design/ant-design/pull/46379)
-  - 🛠 Input deprecates the `bordered` attribute and uses `variant` instead. [#46337](https://github.com/ant-design/ant-design/pull/46337)
+  - 🆕 Cascader、DatePicker、Select、TreeSelect、Input、InputNumber、Mentions support `variant` props. [#46568](https://github.com/ant-design/ant-design/pull/46568) [#46549](https://github.com/ant-design/ant-design/pull/46549) [#46435](https://github.com/ant-design/ant-design/pull/46435) [#46381](https://github.com/ant-design/ant-design/pull/46381) [#46379](https://github.com/ant-design/ant-design/pull/46379) [#46337](https://github.com/ant-design/ant-design/pull/46337)
 - 🆕 QRCode support `status` adds a new scanned option. [#46704](https://github.com/ant-design/ant-design/pull/46704)
 - 🆕 Select support the `maxCount`, which is used to set the maximum selectable value. [#46667](https://github.com/ant-design/ant-design/pull/46667)
 - 🆕 Mentions support `allowClear` for setting the clearing function. [#46396](https://github.com/ant-design/ant-design/pull/46396) [@yociduo](https://github.com/yociduo)
