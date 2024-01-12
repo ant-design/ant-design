@@ -87,6 +87,7 @@ const columns = [
 <code src="./demo/fixed-header.tsx">Fixed Header</code>
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
+<code src="./demo/hidden-columns.tsx">Hidden Columns</code>
 <code src="./demo/grouping-columns.tsx">Grouping table head</code>
 <code src="./demo/edit-cell.tsx">Editable Cells</code>
 <code src="./demo/edit-row.tsx">Editable Rows</code>
@@ -208,6 +209,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
+| hidden | Hidden this column | boolean | false | 5.12.9 |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
 | onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
