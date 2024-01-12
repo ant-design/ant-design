@@ -34,9 +34,9 @@ tag: vVERSION
   - 🆕 Tabs 组件支持 `indicator: { align: xxx }` 属性，用于设置 Tabs 指示条对齐方式。[#46786](https://github.com/ant-design/ant-design/pull/46786)
   - 🛠 Tabs 组件废弃 `indicatorSize` 属性，改为 `indicator: { size: xxx }` 代替。[#46786](https://github.com/ant-design/ant-design/pull/46786)
 - ConfigProvider
-  - 🆕 ConfigProvider 组件支持 `indicator: { align: xxx }` 属性。[#46786](https://github.com/ant-design/ant-design/pull/46786)
   - 🆕 ConfigProvider 组件新增 `ConfigProvider.config` 支持 `holderRender`，用于 `message` `modal` `notification` 静态方法设置 `Provider`。[#46596](https://github.com/ant-design/ant-design/pull/46596)
-  - 🛠 ConfigProvider 组件废弃 `indicatorSize` 属性，改为 `indicator: { size: xxx }` 代替。[#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🆕 ConfigProvider 组件支持 `indicator: { align: xxx }` 属性，用于设置 Tabs 指示条对齐方式。[#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🛠 ConfigProvider 组件废弃 Tabs 组件的 `indicatorSize` 属性，改为 `indicator: { size: xxx }` 代替。[#46786](https://github.com/ant-design/ant-design/pull/46786)
 - 🐞 修复 Segmented 在 `hover` 和 `active` 内容被遮挡的问题。[#46925](https://github.com/ant-design/ant-design/pull/46925) [@madocto](https://github.com/madocto)
 - 🐞 修复 Checkbox 定制字体大小在 Form 下不生效的问题。[#46904](https://github.com/ant-design/ant-design/pull/46904)
 - 🐞 修复 Radio 组件配置 `title` 未生效的问题。[#46809](https://github.com/ant-design/ant-design/pull/46809)
