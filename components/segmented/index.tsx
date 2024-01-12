@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import type {
   SegmentedLabeledOption as RcSegmentedLabeledOption,
   SegmentedProps as RCSegmentedProps,
+  SegmentedValue,
   SegmentedRawOption,
 } from 'rc-segmented';
 import RcSegmented from 'rc-segmented';
@@ -10,8 +11,6 @@ import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
-
-export type { SegmentedValue } from 'rc-segmented';
 
 interface SegmentedLabeledOptionWithoutIcon extends RcSegmentedLabeledOption {
   label: RcSegmentedLabeledOption['label'];
@@ -29,11 +28,13 @@ function isSegmentedLabeledOptionWithIcon(
   return typeof option === 'object' && !!(option as SegmentedLabeledOptionWithIcon)?.icon;
 }
 
+export type { SegmentedValue };
 export type SegmentedLabeledOption =
   | SegmentedLabeledOptionWithIcon
   | SegmentedLabeledOptionWithoutIcon;
 
-export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options'> {
+export interface SegmentedProps<Value extends SegmentedValue = SegmentedValue>
+  extends Omit<RCSegmentedProps<Value>, 'size' | 'options'> {
   rootClassName?: string;
   options: (SegmentedRawOption | SegmentedLabeledOption)[];
   /** Option to fit width to its parent's width */
@@ -42,7 +43,7 @@ export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options
   size?: SizeType;
 }
 
-const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
+const Segmented = (props: SegmentedProps, ref: React.ForwardedRef<HTMLDivElement>) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -109,10 +110,14 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
       direction={direction}
     />,
   );
-});
+};
+
+const RefSegmented = React.forwardRef(Segmented);
 
 if (process.env.NODE_ENV !== 'production') {
-  Segmented.displayName = 'Segmented';
+  RefSegmented.displayName = 'Segmented';
 }
 
-export default Segmented;
+export default (RefSegmented as unknown as <Value extends SegmentedValue = SegmentedValue>(
+  props: SegmentedProps<Value> & { ref?: React.Ref<HTMLDivElement> },
+) => React.ReactElement);

@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
-import { Segmented } from 'antd';
+import { Segmented, Space } from 'antd';
+
+enum LogicalOperator {
+  AND = 'AND',
+  OR = 'OR',
+  NOT = 'NOT',
+}
 
 const Demo: React.FC = () => {
-  const [foo, setFoo] = useState<string | number>('AND');
+  const [foo, setFoo] = useState<LogicalOperator>(LogicalOperator.AND);
+
   return (
-    <>
-      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={setFoo} />
-      &nbsp;&nbsp;
-      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={setFoo} />
-    </>
+    <Space direction="vertical">
+      <Segmented value={foo} options={Object.values(LogicalOperator)} onChange={(v) => setFoo(v)} />
+      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={(v) => setFoo(v)} />
+    </Space>
   );
 };
 

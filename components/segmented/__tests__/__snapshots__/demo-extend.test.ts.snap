@@ -281,111 +281,120 @@ exports[`renders components/segmented/demo/controlled.tsx extend context correct
 exports[`renders components/segmented/demo/controlled.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/segmented/demo/controlled-two.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+>
   <div
-    class="ant-segmented"
+    class="ant-space-item"
   >
     <div
-      class="ant-segmented-group"
+      class="ant-segmented"
     >
-      <label
-        class="ant-segmented-item ant-segmented-item-selected"
+      <div
+        class="ant-segmented-group"
       >
-        <input
-          checked=""
-          class="ant-segmented-item-input"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="AND"
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
         >
-          AND
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="OR"
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="AND"
+          >
+            AND
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
         >
-          OR
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="NOT"
+          <input
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="OR"
+          >
+            OR
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
         >
-          NOT
-        </div>
-      </label>
+          <input
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="NOT"
+          >
+            NOT
+          </div>
+        </label>
+      </div>
     </div>
-  </div>,
-    ,
+  </div>
   <div
-    class="ant-segmented"
+    class="ant-space-item"
   >
     <div
-      class="ant-segmented-group"
+      class="ant-segmented"
     >
-      <label
-        class="ant-segmented-item ant-segmented-item-selected"
+      <div
+        class="ant-segmented-group"
       >
-        <input
-          checked=""
-          class="ant-segmented-item-input"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="AND"
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
         >
-          AND
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="OR"
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="AND"
+          >
+            AND
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
         >
-          OR
-        </div>
-      </label>
-      <label
-        class="ant-segmented-item"
-      >
-        <input
-          class="ant-segmented-item-input"
-          type="radio"
-        />
-        <div
-          class="ant-segmented-item-label"
-          title="NOT"
+          <input
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="OR"
+          >
+            OR
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
         >
-          NOT
-        </div>
-      </label>
+          <input
+            class="ant-segmented-item-input"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="NOT"
+          >
+            NOT
+          </div>
+        </label>
+      </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/segmented/demo/controlled-two.tsx extend context correctly 2`] = `[]`;
