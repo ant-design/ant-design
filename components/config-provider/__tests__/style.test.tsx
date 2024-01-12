@@ -159,7 +159,11 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Drawer className works', () => {
     render(
-      <ConfigProvider drawer={{ className: 'test-class' }}>
+      <ConfigProvider
+        drawer={{
+          className: 'test-class',
+        }}
+      >
         <Drawer title="Test Drawer" open />
       </ConfigProvider>,
     );
