@@ -199,13 +199,14 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 If you using antd less variables, you can use compatible package to covert it into v4 less variables and use less-loader to inject them:
 
 ```js
-const { convertLegacyToken } = require('@ant-design/compatible/lib');
 const { theme } = require('antd/lib');
+const { convertLegacyToken, defaultTheme } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
-const v4Token = convertLegacyToken(mapToken);
+const mapV5Token = defaultAlgorithm(defaultSeed);
+const v5Vars = convertLegacyToken(mapV5Token);
+const v4Vars = convertLegacyToken(defaultTheme);
 
 // Webpack Config
 module.exports = {
@@ -213,7 +214,7 @@ module.exports = {
   loader: 'less-loader',
   options: {
     lessOptions: {
-      modifyVars: v4Token,
+      modifyVars: v5Vars, // or v4Vars
     },
   },
 };
