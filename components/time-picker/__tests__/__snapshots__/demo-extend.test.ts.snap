@@ -5359,14 +5359,18 @@ Array [
           <div
             class="ant-picker-footer"
           >
-            <button
-              class="ant-btn ant-btn-primary ant-btn-sm"
-              type="button"
+            <div
+              class="ant-picker-footer-extra"
             >
-              <span>
-                OK
-              </span>
-            </button>
+              <button
+                class="ant-btn ant-btn-primary ant-btn-sm"
+                type="button"
+              >
+                <span>
+                  OK
+                </span>
+              </button>
+            </div>
             <ul
               class="ant-picker-ranges"
             >

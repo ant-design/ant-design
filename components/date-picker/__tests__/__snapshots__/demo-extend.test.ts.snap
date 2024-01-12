@@ -18089,7 +18089,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11"
                         >
                           <div
@@ -22050,7 +22050,11 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              extra footer
+              <div
+                class="ant-picker-footer-extra"
+              >
+                extra footer
+              </div>
               <ul
                 class="ant-picker-ranges"
               >
@@ -24137,7 +24141,11 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              extra footer
+              <div
+                class="ant-picker-footer-extra"
+              >
+                extra footer
+              </div>
               <ul
                 class="ant-picker-ranges"
               >
@@ -25356,7 +25364,11 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
               <div
                 class="ant-picker-footer"
               >
-                extra footer
+                <div
+                  class="ant-picker-footer-extra"
+                >
+                  extra footer
+                </div>
               </div>
             </div>
           </div>
@@ -27482,7 +27494,11 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
               <div
                 class="ant-picker-footer"
               >
-                extra footer
+                <div
+                  class="ant-picker-footer-extra"
+                >
+                  extra footer
+                </div>
                 <ul
                   class="ant-picker-ranges"
                 >
@@ -27744,7 +27760,11 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
             <div
               class="ant-picker-footer"
             >
-              extra footer
+              <div
+                class="ant-picker-footer-extra"
+              >
+                extra footer
+              </div>
             </div>
           </div>
         </div>
