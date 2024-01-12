@@ -206,7 +206,8 @@ const { defaultAlgorithm, defaultSeed } = theme;
 
 const mapV5Token = defaultAlgorithm(defaultSeed);
 const v5Vars = convertLegacyToken(mapV5Token);
-const v4Vars = convertLegacyToken(defaultTheme);
+const mapV4Token = theme.getDesignToken(defaultTheme);
+const v4Vars = convertLegacyToken(mapV4Token);
 
 // Webpack Config
 module.exports = {
