@@ -657,6 +657,16 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
       // ======================== Footer ========================
       [`${componentCls}-footer`]: {
         borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+
+        '&-extra': {
+          padding: `0 ${unit(paddingSM)}`,
+          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
+          textAlign: 'start',
+
+          '&:not(:last-child)': {
+            borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+          },
+        },
       },
 
       // ==================== Footer > Ranges ===================
