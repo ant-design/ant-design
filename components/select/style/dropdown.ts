@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from '.';
+import type { SelectToken } from './token';
 import { resetComponent, textEllipsis } from '../../style';
 import {
   initMoveMotion,

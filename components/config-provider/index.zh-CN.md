@@ -45,6 +45,7 @@ export default Demo;
 <code src="./demo/size.tsx">组件尺寸</code>
 <code src="./demo/theme.tsx">主题</code>
 <code src="./demo/wave.tsx">自定义波纹</code>
+<code src="./demo/holderRender.tsx">静态方法</code>
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
 <code src="./demo/useConfig.tsx" debug>获取配置</code>
 <code src="./demo/warning.tsx" debug>警告</code>
@@ -76,12 +77,8 @@ export default Demo;
 
 ```ts
 ConfigProvider.config({
-  prefixCls: 'ant',
-  iconPrefixCls: 'anticon',
-
-  // 5.6.0+
-  // 请优先考虑使用 hooks 版本
-  theme: { token: { colorPrimary: 'red' } },
+  // 5.13.0+
+  holderRender: (children) => <ConfigProvider prefixCls="ant" iconPrefixCls='anticon' theme={{token: { colorPrimary: 'red' }}}>{children}</ConfigProvider>
 });
 ```
 
@@ -152,7 +149,7 @@ const {
 | statistic | 设置 Statistic 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | steps | 设置 Steps 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | table | 设置 Table 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| tabs | 设置 Tabs 组件的通用属性 | { className?: string, style?: React.CSSProperties, indicator?: { size?: GetIndicatorSize, align?: `start` \| `center` \| `end` }} | - | 5.7.0 |
 | tag | 设置 Tag 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timeline | 设置 Timeline 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | 设置 TimePicker 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
@@ -201,3 +198,9 @@ const {
 相关 issue：[#39045](https://github.com/ant-design/ant-design/issues/39045)
 
 由于 Vite 生产模式下打包与开发模式不同，cjs 格式的文件会多一层，需要 `zhCN.default` 来获取。推荐 Vite 用户直接从 `antd/es/locale` 目录下引入 esm 格式的 locale 文件。
+
+#### prefixCls 优先级(前者被后者覆盖)
+
+1. `ConfigProvider.config({ prefixCls: 'prefix-1' })`
+2. `ConfigProvider.config({ holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider> })`
+3. `message.config({ prefixCls: 'prefix-3' })`

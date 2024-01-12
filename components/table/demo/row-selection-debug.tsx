@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Table, InputNumber } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
-import type { TableRowSelection } from 'antd/es/table/interface';
+import { InputNumber, Table } from 'antd';
+import type { TableColumnsType, TableProps } from 'antd';
+
+type TableRowSelection<T> = TableProps<T>['rowSelection'];
 
 const RenderTimes = () => {
   const timesRef = React.useRef(0);
@@ -19,7 +20,7 @@ interface DataType {
 
 const shouldCellUpdate = (record: any, prevRecord: any) => record !== prevRecord;
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',

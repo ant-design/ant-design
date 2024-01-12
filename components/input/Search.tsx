@@ -1,7 +1,8 @@
+import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button';
 import { ConfigContext } from '../config-provider';
@@ -174,6 +175,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     />
   );
 });
+
 if (process.env.NODE_ENV !== 'production') {
   Search.displayName = 'Search';
 }

@@ -1,14 +1,13 @@
-/* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import {
   Alert,
   Carousel,
   DatePicker,
+  Flex,
   FloatButton,
   Modal,
   Progress,
-  Space,
   Tag,
   Tour,
   Typography,
@@ -21,6 +20,11 @@ import useDark from '../../../hooks/useDark';
 import useLocale from '../../../hooks/useLocale';
 import SiteContext from '../../../theme/slots/SiteContext';
 import { getCarouselStyle } from './util';
+
+const { _InternalPanelDoNotUseOrYouWillBeFired: ModalDoNotUseOrYouWillBeFired } = Modal;
+const { _InternalPanelDoNotUseOrYouWillBeFired: DatePickerDoNotUseOrYouWillBeFired } = DatePicker;
+const { _InternalPanelDoNotUseOrYouWillBeFired: TourDoNotUseOrYouWillBeFired } = Tour;
+const { _InternalPanelDoNotUseOrYouWillBeFired: FloatButtonDoNotUseOrYouWillBeFired } = FloatButton;
 
 const SAMPLE_CONTENT_EN =
   'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.';
@@ -110,19 +114,16 @@ const ComponentItem: React.FC<ComponentItemProps> = ({ title, node, type, index 
       {/* Decorator */}
       <div
         className={styles.cardCircle}
-        style={{
-          right: (index % 2) * -20 - 20,
-          bottom: (index % 3) * -40 - 20,
-        }}
+        style={{ right: (index % 2) * -20 - 20, bottom: (index % 3) * -40 - 20 }}
       />
 
       {/* Title */}
-      <Space>
+      <Flex align="center" gap="small">
         <Typography.Title level={4} style={{ fontWeight: 'normal', margin: 0 }}>
           {title}
         </Typography.Title>
         <Tag color={tagColor}>{tagText}</Tag>
-      </Space>
+      </Flex>
 
       <div
         style={{
@@ -146,25 +147,20 @@ interface ComponentItemProps {
   index: number;
 }
 
-export default function ComponentsList() {
+const ComponentsList: React.FC = () => {
   const token = useTheme();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = useContext(SiteContext);
-
-  const COMPONENTS: {
-    title: React.ReactNode;
-    type: 'new' | 'update';
-    node: React.ReactNode;
-  }[] = React.useMemo(
+  const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
       {
         title: 'Modal',
         type: 'update',
         node: (
-          <Modal._InternalPanelDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
+          <ModalDoNotUseOrYouWillBeFired title="Ant Design 5.0" width={300}>
             {locale.sampleContent}
-          </Modal._InternalPanelDoNotUseOrYouWillBeFired>
+          </ModalDoNotUseOrYouWillBeFired>
         ),
       },
 
@@ -172,7 +168,8 @@ export default function ComponentsList() {
         title: 'DatePicker',
         type: 'update',
         node: (
-          <DatePicker._InternalPanelDoNotUseOrYouWillBeFired
+          <DatePickerDoNotUseOrYouWillBeFired
+            value={dayjs('2022-11-18 14:00:00')}
             showToday={false}
             presets={
               isMobile
@@ -184,7 +181,6 @@ export default function ComponentsList() {
                     { label: locale.lastYear, value: dayjs().add(-1, 'year') },
                   ]
             }
-            value={dayjs('2022-11-18 14:00:00')}
           />
         ),
       },
@@ -193,28 +189,27 @@ export default function ComponentsList() {
         title: 'Progress',
         type: 'update',
         node: (
-          <Space direction="vertical">
-            <Space>
+          <Flex gap="small" vertical>
+            <Flex gap="small" align="center">
               <Progress type="circle" trailColor="#e6f4ff" percent={60} size={14} />
               {locale.inProgress}
-            </Space>
-            <Space>
+            </Flex>
+            <Flex gap="small" align="center">
               <Progress type="circle" percent={100} size={14} />
               {locale.success}
-            </Space>
-            <Space>
+            </Flex>
+            <Flex gap="small" align="center">
               <Progress type="circle" status="exception" percent={88} size={14} />
               {locale.taskFailed}
-            </Space>
-          </Space>
+            </Flex>
+          </Flex>
         ),
       },
-
       {
         title: 'Tour',
         type: 'new',
         node: (
-          <Tour._InternalPanelDoNotUseOrYouWillBeFired
+          <TourDoNotUseOrYouWillBeFired
             title="Ant Design 5.0"
             description={locale.tour}
             style={{ width: isMobile ? 'auto' : 350 }}
@@ -227,36 +222,24 @@ export default function ComponentsList() {
         title: 'FloatButton',
         type: 'new',
         node: (
-          <Space size="large">
-            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+          <Flex align="center" gap="large">
+            <FloatButtonDoNotUseOrYouWillBeFired
               shape="square"
               items={[
-                {
-                  icon: <QuestionCircleOutlined />,
-                },
-                {
-                  icon: <CustomerServiceOutlined />,
-                },
-                {
-                  icon: <SyncOutlined />,
-                },
+                { icon: <QuestionCircleOutlined /> },
+                { icon: <CustomerServiceOutlined /> },
+                { icon: <SyncOutlined /> },
               ]}
             />
-            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired backTop />
-            <FloatButton._InternalPanelDoNotUseOrYouWillBeFired
+            <FloatButtonDoNotUseOrYouWillBeFired backTop />
+            <FloatButtonDoNotUseOrYouWillBeFired
               items={[
-                {
-                  icon: <QuestionCircleOutlined />,
-                },
-                {
-                  icon: <CustomerServiceOutlined />,
-                },
-                {
-                  icon: <SyncOutlined />,
-                },
+                { icon: <QuestionCircleOutlined /> },
+                { icon: <CustomerServiceOutlined /> },
+                { icon: <SyncOutlined /> },
               ]}
             />
-          </Space>
+          </Flex>
         ),
       },
 
@@ -285,7 +268,7 @@ export default function ComponentsList() {
   return isMobile ? (
     <div style={{ margin: '0 16px' }}>
       <Carousel className={styles.carousel}>
-        {COMPONENTS.map(({ title, node, type }, index) => (
+        {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
           <ComponentItem title={title} node={node} type={type} index={index} key={index} />
         ))}
       </Carousel>
@@ -293,10 +276,12 @@ export default function ComponentsList() {
   ) : (
     <div style={{ width: '100%', overflow: 'hidden', display: 'flex', justifyContent: 'center' }}>
       <div style={{ display: 'flex', alignItems: 'stretch', columnGap: token.paddingLG }}>
-        {COMPONENTS.map(({ title, node, type }, index) => (
+        {COMPONENTS.map<React.ReactNode>(({ title, node, type }, index) => (
           <ComponentItem title={title} node={node} type={type} index={index} key={index} />
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default ComponentsList;

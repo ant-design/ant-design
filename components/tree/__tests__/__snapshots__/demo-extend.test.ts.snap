@@ -3287,7 +3287,7 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
     <br />
     showLeafIcon:
     <div
-      class="ant-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -4211,14 +4211,14 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
 exports[`renders components/tree/demo/search.tsx extend context correctly 1`] = `
 <div>
   <span
-    class="ant-input-group-wrapper ant-input-search"
+    class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
     style="margin-bottom: 8px;"
   >
     <span
       class="ant-input-wrapper ant-input-group"
     >
       <input
-        class="ant-input"
+        class="ant-input ant-input-outlined"
         placeholder="Search"
         type="text"
         value=""

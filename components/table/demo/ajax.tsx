@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import qs from 'qs';
 import { Table } from 'antd';
-import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
-import type { FilterValue, SorterResult } from 'antd/es/table/interface';
+import type { GetProp, TableProps } from 'antd';
+import qs from 'qs';
+
+type ColumnsType<T> = TableProps<T>['columns'];
+type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 
 interface DataType {
   name: {
@@ -20,7 +22,7 @@ interface TableParams {
   pagination?: TablePaginationConfig;
   sortField?: string;
   sortOrder?: string;
-  filters?: Record<string, FilterValue>;
+  filters?: Parameters<GetProp<TableProps, 'onChange'>>[1];
 }
 
 const columns: ColumnsType<DataType> = [
@@ -85,11 +87,7 @@ const App: React.FC = () => {
     fetchData();
   }, [JSON.stringify(tableParams)]);
 
-  const handleTableChange = (
-    pagination: TablePaginationConfig,
-    filters: Record<string, FilterValue>,
-    sorter: SorterResult<DataType>,
-  ) => {
+  const handleTableChange: TableProps['onChange'] = (pagination, filters, sorter) => {
     setTableParams({
       pagination,
       filters,

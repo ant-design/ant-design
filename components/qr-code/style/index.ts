@@ -7,7 +7,7 @@ import { genStyleHooks, mergeToken } from '../../theme/internal';
 export interface ComponentToken {}
 
 interface QRCodeToken extends FullToken<'QRCode'> {
-  QRCodeExpiredTextColor: string;
+  QRCodeTextColor: string;
   QRCodeMaskBackgroundColor: string;
 }
 
@@ -41,8 +41,8 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         lineHeight: token.lineHeight,
         background: token.QRCodeMaskBackgroundColor,
         textAlign: 'center',
-        [`& > ${componentCls}-expired`]: {
-          color: token.QRCodeExpiredTextColor,
+        [`& > ${componentCls}-expired, & > ${componentCls}-scanned`]: {
+          color: token.QRCodeTextColor,
         },
       },
 
@@ -69,7 +69,7 @@ export default genStyleHooks<'QRCode'>(
   'QRCode',
   (token) => {
     const mergedToken = mergeToken<QRCodeToken>(token, {
-      QRCodeExpiredTextColor: 'rgba(0, 0, 0, 0.88)',
+      QRCodeTextColor: 'rgba(0, 0, 0, 0.88)',
       QRCodeMaskBackgroundColor: 'rgba(255, 255, 255, 0.96)',
     });
     return genQRCodeStyle(mergedToken);

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Checkbox } from 'antd';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import type { GetProp } from 'antd';
 
-const onChange = (checkedValues: CheckboxValueType[]) => {
+const onChange: GetProp<typeof Checkbox.Group, 'onChange'> = (checkedValues) => {
   console.log('checked = ', checkedValues);
 };
 

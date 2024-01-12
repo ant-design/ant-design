@@ -2,13 +2,13 @@
 
 exports[`Input.Search rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-rtl ant-input-group-wrapper-rtl"
+  class="ant-input-group-wrapper ant-input-group-wrapper-rtl ant-input-group-wrapper-outlined ant-input-search ant-input-search-rtl"
 >
   <span
     class="ant-input-wrapper ant-input-group ant-input-group-rtl"
   >
     <input
-      class="ant-input ant-input-rtl"
+      class="ant-input ant-input-rtl ant-input-outlined"
       type="text"
       value=""
     />
@@ -50,13 +50,13 @@ exports[`Input.Search rtl render component should be rendered correctly in RTL d
 
 exports[`Input.Search should support ReactNode suffix without error 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <span
-      class="ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-outlined"
     >
       <input
         class="ant-input"
@@ -109,13 +109,13 @@ exports[`Input.Search should support ReactNode suffix without error 1`] = `
 
 exports[`Input.Search should support addonAfter 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
@@ -160,13 +160,13 @@ exports[`Input.Search should support addonAfter 1`] = `
 
 exports[`Input.Search should support addonAfter 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
@@ -211,13 +211,13 @@ exports[`Input.Search should support addonAfter 2`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <span
-      class="ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-outlined"
     >
       <input
         class="ant-input"
@@ -269,13 +269,13 @@ exports[`Input.Search should support addonAfter and suffix for loading 1`] = `
 
 exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <span
-      class="ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-outlined"
     >
       <input
         class="ant-input"
@@ -327,13 +327,13 @@ exports[`Input.Search should support addonAfter and suffix for loading 2`] = `
 
 exports[`Input.Search should support custom Button 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
@@ -355,13 +355,13 @@ exports[`Input.Search should support custom Button 1`] = `
 
 exports[`Input.Search should support custom button 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
@@ -380,13 +380,13 @@ exports[`Input.Search should support custom button 1`] = `
 
 exports[`Input.Search should support invalid addonAfter 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
@@ -428,13 +428,13 @@ exports[`Input.Search should support invalid addonAfter 1`] = `
 
 exports[`Input.Search should support invalid suffix 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <span
-      class="ant-input-affix-wrapper"
+      class="ant-input-affix-wrapper ant-input-outlined"
     >
       <input
         class="ant-input"
@@ -483,13 +483,13 @@ exports[`Input.Search should support invalid suffix 1`] = `
 
 exports[`Input.Search should support loading 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
@@ -531,13 +531,13 @@ exports[`Input.Search should support loading 1`] = `
 
 exports[`Input.Search should support loading 2`] = `
 <span
-  class="ant-input-group-wrapper ant-input-search ant-input-search-with-button"
+  class="ant-input-group-wrapper ant-input-group-wrapper-outlined ant-input-search ant-input-search-with-button"
 >
   <span
     class="ant-input-wrapper ant-input-group"
   >
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       type="text"
       value=""
     />
