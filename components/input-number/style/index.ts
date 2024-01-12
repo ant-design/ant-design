@@ -1,16 +1,11 @@
+import { unit } from '@ant-design/cssinjs';
+
 import {
   genBasicInputStyle,
   genInputGroupStyle,
   genPlaceholderStyle,
   initInputToken,
 } from '../../input/style';
-import { resetComponent, resetIcon } from '../../style';
-import { genCompactItemStyle } from '../../style/compact-item';
-import type { GenerateStyle } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
-import { unit } from '@ant-design/cssinjs';
-import type { ComponentToken, InputNumberToken } from './token';
-import { formatComponentToken, prepareComponentToken } from './token';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
@@ -18,6 +13,12 @@ import {
   genOutlinedGroupStyle,
   genOutlinedStyle,
 } from '../../input/style/variants';
+import { resetComponent, resetIcon } from '../../style';
+import { genCompactItemStyle } from '../../style/compact-item';
+import type { GenerateStyle } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { ComponentToken, InputNumberToken } from './token';
+import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
@@ -463,7 +464,6 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
   };
 };
 
-// ============================== Export ==============================
 export default genStyleHooks(
   'InputNumber',
   (token) => {
@@ -479,7 +479,6 @@ export default genStyleHooks(
   },
   prepareComponentToken,
   {
-    format: formatComponentToken,
     unitless: {
       handleOpacity: true,
     },

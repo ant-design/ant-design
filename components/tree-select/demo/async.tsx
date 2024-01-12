@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { TreeSelectProps } from 'antd';
+import type { GetProp, TreeSelectProps } from 'antd';
 import { TreeSelect } from 'antd';
-import type { DefaultOptionType } from 'antd/es/select';
+
+type DefaultOptionType = GetProp<TreeSelectProps, 'treeData'>[number];
 
 const App: React.FC = () => {
   const [value, setValue] = useState<string>();

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { ConfigProvider, Space, Switch, Table, Tag, Transfer } from 'antd';
-import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
-import type { TransferDirection, TransferItem, TransferProps } from 'antd/es/transfer';
+import type { GetProp, TableColumnsType, TableProps, TransferProps } from 'antd';
 import difference from 'lodash/difference';
+
+type TableRowSelection<T> = TableProps<T>['rowSelection'];
+
+type TransferItem = GetProp<TransferProps, 'dataSource'>[number];
 
 interface RecordType {
   key: string;
@@ -22,8 +25,8 @@ interface DataType {
 
 interface TableTransferProps extends TransferProps<TransferItem> {
   dataSource: DataType[];
-  leftColumns: ColumnsType<DataType>;
-  rightColumns: ColumnsType<DataType>;
+  leftColumns: TableColumnsType<DataType>;
+  rightColumns: TableColumnsType<DataType>;
 }
 
 // Customize Table Transfer
@@ -85,7 +88,7 @@ const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
   tag: mockTags[i % 3],
 }));
 
-const leftTableColumns: ColumnsType<DataType> = [
+const leftTableColumns: TableColumnsType<DataType> = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -101,7 +104,7 @@ const leftTableColumns: ColumnsType<DataType> = [
   },
 ];
 
-const rightTableColumns: ColumnsType<Pick<DataType, 'title'>> = [
+const rightTableColumns: TableColumnsType<Pick<DataType, 'title'>> = [
   {
     dataIndex: 'title',
     title: 'Name',
@@ -114,20 +117,23 @@ const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
-  const onChange = (nextTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
+  const onChange: TransferProps['onChange'] = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
     console.log('moveKeys:', moveKeys);
     setTargetKeys(nextTargetKeys);
   };
 
-  const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
+  const onSelectChange: TransferProps['onSelectChange'] = (
+    sourceSelectedKeys,
+    targetSelectedKeys,
+  ) => {
     console.log('sourceSelectedKeys:', sourceSelectedKeys);
     console.log('targetSelectedKeys:', targetSelectedKeys);
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  const onScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
+  const onScroll: TransferProps['onScroll'] = (direction, e) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
   };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Transfer } from 'antd';
-import type { SelectAllLabel } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -16,7 +16,7 @@ const mockData: RecordType[] = Array.from({ length: 10 }).map((_, i) => ({
 
 const oriTargetKeys = mockData.filter((item) => Number(item.key) % 3 > 1).map((item) => item.key);
 
-const selectAllLabels: SelectAllLabel[] = [
+const selectAllLabels: TransferProps['selectAllLabels'] = [
   'Select All',
   ({ selectedCount, totalCount }) => `${selectedCount}/${totalCount}`,
 ];
