@@ -212,7 +212,7 @@ describe('ConfigProvider.Theme', () => {
       expect(button).toHaveStyle({
         '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
         boxShadow: 'var(--ant-button-default-shadow)',
-        'line-height': 'var(--ant-line-height)',
+        'border-radius': 'var(--ant-border-radius)',
       });
     });
 
@@ -235,14 +235,14 @@ describe('ConfigProvider.Theme', () => {
       expect(fooBtn).toHaveStyle({
         '--ant-color-text': 'rgba(0, 0, 0, 0.88)',
         boxShadow: 'var(--ant-button-default-shadow)',
-        'line-height': 'var(--ant-line-height)',
+        'border-radius': 'var(--ant-border-radius)',
       });
 
       expect(barBtn).toHaveClass('bar');
       expect(barBtn).toHaveStyle({
         '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
         boxShadow: 'var(--bar-button-default-shadow)',
-        'line-height': 'var(--bar-line-height)',
+        'border-radius': 'var(--bar-border-radius)',
       });
     });
 
