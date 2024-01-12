@@ -13,6 +13,7 @@ import ReactDOMServer from 'react-dom/server';
 import { App, ConfigProvider, theme } from '../../components';
 import { fillWindowEnv } from '../setup';
 import { render } from '../utils';
+import { TriggerMockContext } from './demoTestContext';
 
 jest.mock('../../components/grid/hooks/useBreakpoint', () => () => ({}));
 
@@ -33,6 +34,7 @@ interface ImageTestOptions {
   onlyViewport?: boolean;
   splitTheme?: boolean;
   ssr?: boolean;
+  openTriggerClassName?: string;
 }
 
 // eslint-disable-next-line jest/no-export
@@ -121,6 +123,8 @@ export default function imageTest(
         }
       };
 
+      const { openTriggerClassName } = options;
+
       MockDate.set(dayjs('2016-11-22').valueOf());
       page.on('request', onRequestHandle);
       await page.goto(`file://${process.cwd()}/tests/index.html`);
@@ -131,11 +135,20 @@ export default function imageTest(
 
       const emptyStyleHolder = doc.createElement('div');
 
-      const element = (
+      let element = (
         <StyleProvider cache={cache} container={emptyStyleHolder}>
           <App>{themedComponent}</App>
         </StyleProvider>
       );
+
+      // Do inject open trigger
+      if (openTriggerClassName) {
+        element = (
+          <TriggerMockContext.Provider value={{ popupVisible: true }}>
+            {element}
+          </TriggerMockContext.Provider>
+        );
+      }
 
       let html: string;
       let styleStr: string;
@@ -154,15 +167,39 @@ export default function imageTest(
         unmount();
       }
 
+      if (openTriggerClassName) {
+        styleStr += `<style>
+          .${openTriggerClassName} {
+            position: relative !important;
+            left: 0 !important;
+            top: 0 !important;
+            opacity: 1 !important;
+            display: inline-block !important;
+          }
+        </style>`;
+      }
+
       await page.evaluate(
-        (innerHTML, ssrStyle) => {
+        (innerHTML, ssrStyle, triggerClassName) => {
           document.querySelector('#root')!.innerHTML = innerHTML;
 
           const head = document.querySelector('head')!;
           head.innerHTML += ssrStyle;
+
+          // Inject open trigger with block style
+          if (triggerClassName) {
+            document.querySelectorAll(`.${triggerClassName}`).forEach((node) => {
+              const blockStart = document.createElement('div');
+              const blockEnd = document.createElement('div');
+
+              node.parentNode!.insertBefore(blockStart, node);
+              node.parentNode!.insertBefore(blockEnd, node.nextSibling);
+            });
+          }
         },
         html,
         styleStr,
+        openTriggerClassName,
       );
 
       if (!options.onlyViewport) {
@@ -233,6 +270,8 @@ type Options = {
   splitTheme?: boolean | string[];
   /** Use SSR render instead. Only used when the third part deps component */
   ssr?: boolean;
+  /** Open Trigger to check the popup render */
+  openTriggerClassName?: string;
 };
 
 // eslint-disable-next-line jest/no-export
@@ -261,6 +300,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
           options.splitTheme === true ||
           (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
         ssr: options.ssr,
+        openTriggerClassName: options.openTriggerClassName,
       });
     });
   });

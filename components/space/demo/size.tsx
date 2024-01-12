@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Radio, Slider, Space } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { ConfigProviderProps } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType | [SizeType, SizeType] | 'customize'>('small');

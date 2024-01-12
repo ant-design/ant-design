@@ -1,7 +1,8 @@
+import { TinyColor } from '@ctrl/tinycolor';
+
 import type { SharedComponentToken, SharedInputToken } from '../../input/style/token';
 import { initComponentToken } from '../../input/style/token';
-import type { FullToken, GetDefaultToken, FormatComponentToken } from '../../theme/internal';
-import { TinyColor } from '@ctrl/tinycolor';
+import type { FullToken, GetDefaultToken } from '../../theme/internal';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -58,23 +59,22 @@ export interface ComponentToken extends SharedComponentToken {
 
 export type InputNumberToken = FullToken<'InputNumber'> & SharedInputToken;
 
-export const prepareComponentToken: GetDefaultToken<'InputNumber'> = (token) => ({
-  ...initComponentToken(token),
-  controlWidth: 90,
-  handleWidth: token.controlHeightSM - token.lineWidth * 2,
-  handleFontSize: token.fontSize / 2,
-  handleVisible: 'auto',
-  handleActiveBg: token.colorFillAlter,
-  handleBg: token.colorBgContainer,
-  filledHandleBg: new TinyColor(token.colorFillSecondary)
-    .onBackground(token.colorBgContainer)
-    .toHexString(),
-  handleHoverColor: token.colorPrimary,
-  handleBorderColor: token.colorBorder,
-  handleOpacity: 0,
-});
+export const prepareComponentToken: GetDefaultToken<'InputNumber'> = (token) => {
+  const handleVisible = token.handleVisible ?? 'auto';
 
-export const formatComponentToken: FormatComponentToken<'InputNumber'> = (token) => ({
-  ...token,
-  handleOpacity: token.handleVisible === true ? 1 : 0,
-});
+  return {
+    ...initComponentToken(token),
+    controlWidth: 90,
+    handleWidth: token.controlHeightSM - token.lineWidth * 2,
+    handleFontSize: token.fontSize / 2,
+    handleVisible,
+    handleActiveBg: token.colorFillAlter,
+    handleBg: token.colorBgContainer,
+    filledHandleBg: new TinyColor(token.colorFillSecondary)
+      .onBackground(token.colorBgContainer)
+      .toHexString(),
+    handleHoverColor: token.colorPrimary,
+    handleBorderColor: token.colorBorder,
+    handleOpacity: handleVisible === true ? 1 : 0,
+  };
+};

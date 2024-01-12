@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { DownloadOutlined } from '@ant-design/icons';
 import { Button, Divider, Flex, Radio } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import type { ConfigProviderProps } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
