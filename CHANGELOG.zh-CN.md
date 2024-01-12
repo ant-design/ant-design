@@ -16,6 +16,46 @@ tag: vVERSION
 
 ---
 
+## 5.13.0
+
+`2024-01-12`
+
+- 🔥 Form 组件新增 `variant` 属性用于设置内部组件形态变体。[#46573](https://github.com/ant-design/ant-design/pull/46573)
+  - 🆕 Cascader、DatePicker、Select、TreeSelect、Input、InputNumber、Mentions 组件新增形态变体 `variant` 属性。[#46568](https://github.com/ant-design/ant-design/pull/46568) [#46549](https://github.com/ant-design/ant-design/pull/46549) [#46435](https://github.com/ant-design/ant-design/pull/46435) [#46381](https://github.com/ant-design/ant-design/pull/46381) [#46379](https://github.com/ant-design/ant-design/pull/46379) [#46337](https://github.com/ant-design/ant-design/pull/46337)
+- 🆕 QRCode 组件 `status` 新增已扫描选项。[#46704](https://github.com/ant-design/ant-design/pull/46704)
+- 🆕 Select 组件新增支持 `maxCount` 属性，用于设置最大可选。[#46667](https://github.com/ant-design/ant-design/pull/46667)
+- 🆕 Mentions 组件新增 `allowClear` 属性，用于设置清除功能。[#46396](https://github.com/ant-design/ant-design/pull/46396) [@yociduo](https://github.com/yociduo)
+- 🆕 ColorPicker 新增支持显示清空状态。[#45993](https://github.com/ant-design/ant-design/pull/45993)
+- 🆕 Drawer 组件新增 `styles.wrapper` 并废弃 `contentWrapperStyle` `drawerStyle`  `maskStyle` 属性，并简化 dom 结构。[#46858](https://github.com/ant-design/ant-design/pull/46858)
+- Tour
+  - 🆕 Tour 新增 `disabledInteraction` 属性，用于禁用高亮区域的交互行为。[#46304](https://github.com/ant-design/ant-design/pull/46304)
+  - 🐞 修复 Tour 组件在 `arrow` 属性下修改 `pointAtCenter` 不生效的问题。[#46301](https://github.com/ant-design/ant-design/pull/46301)
+- Tabs
+  - 🆕 Tabs 组件支持 `indicator: { align: xxx }` 属性，用于设置 Tabs 指示条对齐方式。[#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🛠 Tabs 组件废弃 `indicatorSize` 属性，改为 `indicator: { size: xxx }` 代替。[#46786](https://github.com/ant-design/ant-design/pull/46786)
+- ConfigProvider
+  - 🆕 ConfigProvider 组件支持 `indicator: { align: xxx }` 属性。[#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🆕 ConfigProvider 组件新增 `ConfigProvider.config` 支持 `holderRender`，用于 `message` `modal` `notification` 静态方法设置 `Provider`。[#46596](https://github.com/ant-design/ant-design/pull/46596)
+  - 🛠 ConfigProvider 组件废弃 `indicatorSize` 属性，改为 `indicator: { size: xxx }` 代替。[#46786](https://github.com/ant-design/ant-design/pull/46786)
+- 🐞 修复 Segmented 在 `hover` 和 `active` 内容被遮挡的问题。[#46925](https://github.com/ant-design/ant-design/pull/46925) [@madocto](https://github.com/madocto)
+- 🐞 修复 Checkbox 定制字体大小在 Form 下不生效的问题。[#46904](https://github.com/ant-design/ant-design/pull/46904)
+- 🐞 修复 Radio 组件配置 `title` 未生效的问题。[#46809](https://github.com/ant-design/ant-design/pull/46809)
+- 🐞 修复 Input 组件在 css 变量模式下的悬浮态样式问题。[#46946](https://github.com/ant-design/ant-design/pull/46946)
+- 💄 修复 Dropdown 在多级菜单下样式显示异常的问题。[#46888](https://github.com/ant-design/ant-design/pull/46888)
+- 🛠 重构 ColorPicker 组件弹出面板逻辑，避免使用 `panelRender` 自定义时样式冲突的问题。[#46327](https://github.com/ant-design/ant-design/pull/46327)
+- TypeScript
+  - 🆕 MISC: 导出 `GetProp` `GetProp` `GetRef` 工具方法，便于开发者获取未导出的类型定义。[#46923](https://github.com/ant-design/ant-design/pull/46923)
+  - 🆕 Checkbox.Group 新增支持范型可配置 `options.value`。[#46423](https://github.com/ant-design/ant-design/pull/46423) [@daledelv](https://github.com/daledelv)
+- 🌈 Token
+  - 🆕 Button 组件新增支持 `contentLineHeight` 系列 token。[#46936](https://github.com/ant-design/ant-design/pull/46936)
+  - 🆕 Input 组件新增支持 `inputFontSize` token。[#46875](https://github.com/ant-design/ant-design/pull/46875)
+  - 🆕 Menu 组件新增支持 `darkPopupBg` token。[#46618](https://github.com/ant-design/ant-design/pull/46618)
+  - 🆕 Segmented 组件新增 `trackPadding` 和 `trackBg` token。[#46674](https://github.com/ant-design/ant-design/pull/46674)
+  - 🐞 修复 Button 组件定制 `contentFontSize` token 后 `paddingBlock` 不生效的问题。[#46901](https://github.com/ant-design/ant-design/pull/46901)
+  - 🐞 修复 InputNumber 组件无法定制 `padding` token 的问题。[#46878](https://github.com/ant-design/ant-design/pull/46878)
+- 🌐 国际化
+  - 🇩🇰 完善 da_DK Form 文案。[#46493](https://github.com/ant-design/ant-design/pull/46493) [@Eloi0424](https://github.com/Eloi0424)
+
 ## 5.12.8
 
 `2024-01-05`
