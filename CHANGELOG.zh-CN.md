@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.13.0
 
-`2024-01-12`
+`2024-01-13`
 
 - 🔥 Form 组件新增 `variant` 属性用于设置内部组件形态变体。[#46573](https://github.com/ant-design/ant-design/pull/46573)
   - 🆕 Cascader、DatePicker、Select、TreeSelect、Input、InputNumber、Mentions 组件新增形态变体 `variant` 属性。[#46568](https://github.com/ant-design/ant-design/pull/46568) [#46549](https://github.com/ant-design/ant-design/pull/46549) [#46435](https://github.com/ant-design/ant-design/pull/46435) [#46381](https://github.com/ant-design/ant-design/pull/46381) [#46379](https://github.com/ant-design/ant-design/pull/46379) [#46337](https://github.com/ant-design/ant-design/pull/46337)
@@ -26,7 +26,7 @@ tag: vVERSION
 - 🆕 Select 组件新增支持 `maxCount` 属性，用于设置最大可选。[#46667](https://github.com/ant-design/ant-design/pull/46667)
 - 🆕 Mentions 组件新增 `allowClear` 属性，用于设置清除功能。[#46396](https://github.com/ant-design/ant-design/pull/46396) [@yociduo](https://github.com/yociduo)
 - 🆕 ColorPicker 新增支持显示清空状态。[#45993](https://github.com/ant-design/ant-design/pull/45993)
-- 🆕 Drawer 组件新增 `styles.wrapper` 并废弃 `contentWrapperStyle` `drawerStyle`  `maskStyle` 属性，并简化 dom 结构。[#46858](https://github.com/ant-design/ant-design/pull/46858)
+- 🆕 Drawer 组件新增 `styles.wrapper` 并废弃 `contentWrapperStyle` `drawerStyle` `maskStyle` 属性，并简化 dom 结构。[#46858](https://github.com/ant-design/ant-design/pull/46858)
 - Tour
   - 🆕 Tour 新增 `disabledInteraction` 属性，用于禁用高亮区域的交互行为。[#46304](https://github.com/ant-design/ant-design/pull/46304)
   - 🐞 修复 Tour 组件在 `arrow` 属性下修改 `pointAtCenter` 不生效的问题。[#46301](https://github.com/ant-design/ant-design/pull/46301)
