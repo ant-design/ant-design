@@ -209,7 +209,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
-| hidden | Hidden this column | boolean | false | 5.13.0 |
+| hidden | Hidden this column | boolean | false | 5.14.0 |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
 | onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
