@@ -45,7 +45,7 @@ tag: vVERSION
 - 💄 Fixed the problem of abnormal display of Dropdown style under multi-level menu. [#46888](https://github.com/ant-design/ant-design/pull/46888)
 - 🛠 Refactor the popup panel logic of the ColorPicker component to avoid style conflicts when customizing using `panelRender`. [#46327](https://github.com/ant-design/ant-design/pull/46327)
 - TypeScript
-  - 🆕 MISC: Export `GetProp` `GetProp` `GetRef` tool methods to facilitate developers to obtain unexported type definitions. [#46923](https://github.com/ant-design/ant-design/pull/46923)
+  - 🆕 MISC: Export `GetProp` `GetProps` `GetRef` tool methods to facilitate developers to obtain unexported type definitions. [#46923](https://github.com/ant-design/ant-design/pull/46923)
   - 🆕 Checkbox.Group now supports generic configurable `options.value`. [#46423](https://github.com/ant-design/ant-design/pull/46423) [@daledelv](https://github.com/daledelv)
 - 🌈 Token
   - 🆕 Button support the `contentLineHeight` series of tokens. [#46936](https://github.com/ant-design/ant-design/pull/46936)
