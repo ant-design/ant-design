@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
-import { Form, Radio, Space, Switch, Table, ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { ColumnsType, TableProps, TablePaginationConfig } from 'antd/es/table';
-import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
+import type { ConfigProviderProps, GetProp, RadioChangeEvent, TableProps } from 'antd';
+import { ConfigProvider, Form, Radio, Space, Switch, Table } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
+type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
+type TablePagination = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
+type TablePaginationPosition = NonNullable<TablePagination['position']>[number];
+type ExpandableConfig<T extends object> = GetProp<TableProps<T>, 'expandable'>;
+type TableRowSelection<T extends object> = GetProp<TableProps<T>, 'rowSelection'>;
 
 interface DataType {
   key: number;
@@ -67,8 +71,6 @@ for (let i = 1; i <= 10; i++) {
     description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
   });
 }
-
-type TablePaginationPosition = NonNullable<TablePaginationConfig['position']>[number];
 
 const defaultExpandable = { expandedRowRender: (record: DataType) => <p>{record.description}</p> };
 const defaultTitle = () => 'Here is title';

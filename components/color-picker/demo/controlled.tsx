@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ColorPicker } from 'antd';
-import type { ColorPickerProps } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
 
 const Demo: React.FC = () => {
-  const [color, setColor] = useState<ColorPickerProps['value']>('#1677ff');
+  const [color, setColor] = useState<Color>('#1677ff');
   return <ColorPicker value={color} onChange={setColor} />;
 };
 
