@@ -8,7 +8,7 @@ demo:
   cols: 1
 ---
 
-Add specific text or patterns to the page.
+Add specific text or patterns to the page. Available since `5.0.0`.
 
 ## When To Use
 
@@ -27,6 +27,8 @@ Add specific text or patterns to the page.
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
+
+> This component is available since `antd@5.0.0`.
 
 ### Watermark
 

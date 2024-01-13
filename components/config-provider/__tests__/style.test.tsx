@@ -960,7 +960,7 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider table={{ className: 'cp-table', style: { backgroundColor: 'blue' } }}>
         <Table
           columns={[{ title: 'Address', dataIndex: 'address', key: 'address 1', ellipsis: true }]}
-          dataSource={[{ key: '2', name: 'Jim Green', age: 42, address: 'test', tags: ['loser'] }]}
+          dataSource={[{ key: '1', name: 'Jim Green', age: 40, address: 'test', tags: ['loser'] }]}
         />
       </ConfigProvider>,
     );
