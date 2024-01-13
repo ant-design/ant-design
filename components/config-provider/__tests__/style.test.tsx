@@ -939,7 +939,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 
-  it('Should Tag className & style & closeIcon works', () => {
+  it('Should Tag className & style works', () => {
     const { container } = render(
       <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
         <Tag>Test</Tag>
