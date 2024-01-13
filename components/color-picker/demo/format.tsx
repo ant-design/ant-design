@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { ColorPicker, Space } from 'antd';
-import type { ColorPickerProps } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
+
+type Color = GetProp<ColorPickerProps, 'value'>;
+type Format = GetProp<ColorPickerProps, 'format'>;
 
 const HexCase: React.FC = () => {
-  const [colorHex, setColorHex] = useState<ColorPickerProps['value']>('#1677ff');
-  const [formatHex, setFormatHex] = useState<ColorPickerProps['format']>('hex');
+  const [colorHex, setColorHex] = useState<Color>('#1677ff');
+  const [formatHex, setFormatHex] = useState<Format>('hex');
 
-  const hexString = React.useMemo(
+  const hexString = React.useMemo<string>(
     () => (typeof colorHex === 'string' ? colorHex : colorHex?.toHexString()),
     [colorHex],
   );

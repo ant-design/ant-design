@@ -16,7 +16,6 @@ import type { SiteContextProps } from '../SiteContext';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
-import More from './More';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
 
@@ -309,7 +308,6 @@ const Header: React.FC = () => {
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
     />,
-    <More key="more" {...sharedProps} />,
     <SwitchBtn
       key="lang"
       onClick={onLangChange}

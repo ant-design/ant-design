@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, Flex, Segmented } from 'antd';
-import type { FlexProps } from 'antd';
-import type { SegmentedProps } from 'antd/es/segmented';
+import type { FlexProps, SegmentedProps } from 'antd';
 
 const boxStyle: React.CSSProperties = {
   width: '100%',

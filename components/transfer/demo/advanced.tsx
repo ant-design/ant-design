@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Transfer } from 'antd';
-import type { TransferDirection, TransferListProps } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -40,13 +40,8 @@ const App: React.FC = () => {
     setTargetKeys(newTargetKeys);
   };
 
-  const renderFooter = (
-    _: TransferListProps<any>,
-    { direction }: {
-      direction: TransferDirection;
-    },
-  ) => {
-    if (direction === 'left') {
+  const renderFooter: TransferProps['footer'] = (_, info) => {
+    if (info?.direction === 'left') {
       return (
         <Button size="small" style={{ float: 'left', margin: 5 }} onClick={getMock}>
           Left button reload

@@ -1,8 +1,10 @@
 import React from 'react';
+import { DatePicker, Space } from 'antd';
+import type { GetProps } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { DatePicker, Space } from 'antd';
-import type { RangePickerProps } from 'antd/es/date-picker';
+
+type RangePickerProps = GetProps<typeof DatePicker.RangePicker>;
 
 dayjs.extend(customParseFormat);
 
