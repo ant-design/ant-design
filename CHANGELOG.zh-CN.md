@@ -45,7 +45,7 @@ tag: vVERSION
 - 💄 修复 Dropdown 在多级菜单下样式显示异常的问题。[#46888](https://github.com/ant-design/ant-design/pull/46888)
 - 🛠 重构 ColorPicker 组件弹出面板逻辑，避免使用 `panelRender` 自定义时样式冲突的问题。[#46327](https://github.com/ant-design/ant-design/pull/46327)
 - TypeScript
-  - 🆕 MISC: 导出 `GetProp` `GetProp` `GetRef` 工具方法，便于开发者获取未导出的类型定义。[#46923](https://github.com/ant-design/ant-design/pull/46923)
+  - 🆕 MISC: 导出 `GetProp` `GetProps` `GetRef` 工具方法，便于开发者获取未导出的类型定义。[#46923](https://github.com/ant-design/ant-design/pull/46923)
   - 🆕 Checkbox.Group 新增支持范型可配置 `options.value`。[#46423](https://github.com/ant-design/ant-design/pull/46423) [@daledelv](https://github.com/daledelv)
 - 🌈 Token
   - 🆕 Button 组件新增支持 `contentLineHeight` 系列 token。[#46936](https://github.com/ant-design/ant-design/pull/46936)
