@@ -108,18 +108,13 @@ export default App;
 - [Customize Theme](/docs/react/customize-theme)
 - [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
+## Non-React Implementations
+
+React is used to encapsulate a library of components which embody our design language. We welcome the community to implement our design system [in other front-end frameworks](/docs/spec/introduce#front-end-implementation) of their choice.
+
 ## Companies using antd
 
-- [Ant Group](https://www.antgroup.com/index.htm?locale=en_US)
-- [Alibaba](https://www.alibaba.com/)
-- [Tencent](https://www.tencent.com)
-- [Baidu](https://www.baidu.com)
-- [Koubei](https://www.koubei.com/)
-- [Meituan](https://www.meituan.com)
-- [Didi](https://www.xiaojukeji.com/)
-- [Eleme](https://www.ele.me/)
-
-> If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
+Ant Design is widely used for building enterprise-level websites both domestically and internationally. You can refer to wappalyzer for reference data. If your company or product uses Ant Design, let us know [here](https://github.com/ant-design/ant-design/issues/477)!
 
 ## Contributing
 

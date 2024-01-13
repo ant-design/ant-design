@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import { Table } from 'antd';
+import type { TableColumnsType } from 'antd';
 import type { ResizeCallbackData } from 'react-resizable';
 import { Resizable } from 'react-resizable';
-import { Table } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
 
 interface DataType {
   key: React.Key;
@@ -45,7 +45,7 @@ const ResizableTitle = (
 };
 
 const App: React.FC = () => {
-  const [columns, setColumns] = useState<ColumnsType<DataType>>([
+  const [columns, setColumns] = useState<TableColumnsType<DataType>>([
     {
       title: 'Date',
       dataIndex: 'date',
@@ -98,7 +98,8 @@ const App: React.FC = () => {
   ];
 
   const handleResize: Function =
-    (index: number) => (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
+    (index: number) =>
+    (_: React.SyntheticEvent<Element>, { size }: ResizeCallbackData) => {
       const newColumns = [...columns];
       newColumns[index] = {
         ...newColumns[index],
@@ -107,9 +108,9 @@ const App: React.FC = () => {
       setColumns(newColumns);
     };
 
-  const mergeColumns: ColumnsType<DataType> = columns.map((col, index) => ({
+  const mergeColumns: TableColumnsType<DataType> = columns.map((col, index) => ({
     ...col,
-    onHeaderCell: (column: ColumnsType<DataType>[number]) => ({
+    onHeaderCell: (column: TableColumnsType<DataType>[number]) => ({
       width: column.width,
       onResize: handleResize(index) as React.ReactEventHandler<any>,
     }),

@@ -1,8 +1,9 @@
-import { HappyProvider } from '@ant-design/happy-work-theme';
 import React from 'react';
+import { HappyProvider } from '@ant-design/happy-work-theme';
 import { Button, ConfigProvider, Space } from 'antd';
+import type { ConfigProviderProps, GetProp } from 'antd';
 
-type WaveConfig = NonNullable<Parameters<typeof ConfigProvider>[0]['wave']>;
+type WaveConfig = GetProp<ConfigProviderProps, 'wave'>;
 
 // Prepare effect holder
 const createHolder = (node: HTMLElement) => {

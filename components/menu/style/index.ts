@@ -6,12 +6,7 @@ import type { CssUtil } from 'antd-style';
 
 import { clearFix, resetComponent, resetIcon } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
-import type {
-  FormatComponentToken,
-  FullToken,
-  GenerateStyle,
-  GetDefaultToken,
-} from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
@@ -844,6 +839,10 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     colorErrorHover,
   } = token;
 
+  const activeBarWidth = token.activeBarWidth ?? 0;
+  const activeBarBorderWidth = token.activeBarBorderWidth ?? lineWidth;
+  const itemMarginInline = token.itemMarginInline ?? token.marginXXS;
+
   const colorTextDark = new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString();
 
   return {
@@ -878,11 +877,11 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     colorItemBgSelectedHorizontal: 'transparent',
     horizontalItemSelectedBg: 'transparent',
     colorActiveBarWidth: 0,
-    activeBarWidth: 0,
+    activeBarWidth,
     colorActiveBarHeight: lineWidthBold,
     activeBarHeight: lineWidthBold,
     colorActiveBarBorderSize: lineWidth,
-    activeBarBorderWidth: lineWidth,
+    activeBarBorderWidth,
 
     // Disabled
     colorItemTextDisabled: colorTextDisabled,
@@ -900,7 +899,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     colorDangerItemBgSelected: colorErrorBg,
     dangerItemSelectedBg: colorErrorBg,
 
-    itemMarginInline: token.marginXXS,
+    itemMarginInline,
 
     horizontalItemBorderRadius: 0,
     horizontalItemHoverBg: 'transparent',
@@ -936,16 +935,11 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
     darkDangerItemActiveBg: colorError,
 
     // internal
-    itemWidth: '',
+    itemWidth: activeBarWidth
+      ? `calc(100% + ${activeBarBorderWidth}px)`
+      : `calc(100% - ${itemMarginInline * 2}px)`,
   };
 };
-
-export const formatComponentToken: FormatComponentToken<'Menu'> = (token) => ({
-  ...token,
-  itemWidth: token.activeBarWidth
-    ? `calc(100% + ${token.activeBarBorderWidth}px)`
-    : `calc(100% - ${token.itemMarginInline * 2}px)`,
-});
 
 // ============================== Export ==============================
 export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boolean = true) => {
@@ -1072,7 +1066,6 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         ['colorActiveBarBorderSize', 'activeBarBorderWidth'],
         ['colorItemBgSelected', 'itemSelectedBg'],
       ],
-      format: formatComponentToken,
       // Dropdown will handle menu style self. We do not need to handle this.
       injectStyle,
       unitless: {

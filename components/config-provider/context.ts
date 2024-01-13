@@ -51,7 +51,7 @@ export interface ThemeConfig {
   cssVar?:
     | {
         /**
-         * Prefix for css variable, default to `antd`.
+         * Prefix for css variable, default to `ant`.
          */
         prefix?: string;
         /**

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table, Typography } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableColumnsType } from 'antd';
 
 const { Text } = Typography;
 
@@ -17,7 +17,7 @@ interface FixedDataType {
   description: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -59,7 +59,7 @@ const data: DataType[] = [
   },
 ];
 
-const fixedColumns: ColumnsType<FixedDataType> = [
+const fixedColumns: TableColumnsType<FixedDataType> = [
   {
     title: 'Name',
     dataIndex: 'name',

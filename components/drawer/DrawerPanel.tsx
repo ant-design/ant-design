@@ -31,7 +31,7 @@ export interface DrawerPanelProps {
    * `<Drawer closeIcon={false} />`
    */
   closable?: boolean;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
