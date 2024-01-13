@@ -170,4 +170,4 @@ export { GroupContext };
 
 export default CheckboxGroup as <T extends CheckboxValueType = CheckboxValueType>(
   props: CheckboxGroupProps<T> & React.RefAttributes<HTMLDivElement>,
-) => React.ReactNode;
+) => React.ReactElement;
