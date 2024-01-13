@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { RadioChangeEvent, SelectProps } from 'antd';
 import { Button, Radio, Select, Space, Switch } from 'antd';
-import type { SelectCommonPlacement } from 'antd/es/_util/motion';
+
+type SelectCommonPlacement = SelectProps['placement'];
 
 const randomOptions = (count?: number) => {
   const length = count ?? Math.floor(Math.random() * 5) + 1;

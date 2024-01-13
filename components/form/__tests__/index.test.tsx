@@ -179,7 +179,7 @@ describe('Form', () => {
 
     // https://github.com/ant-design/ant-design/issues/41620
     it('should not throw error when `help=false` and `noStyle=true`', async () => {
-      const App = (props: { help?: boolean | React.ReactNode }) => {
+      const App: React.FC<{ help?: React.ReactNode }> = (props) => {
         const { help = false } = props || {};
         return (
           <Form>

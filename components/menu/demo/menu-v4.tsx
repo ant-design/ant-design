@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   AppstoreOutlined,
   CalendarOutlined,
@@ -5,9 +6,8 @@ import {
   MailOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import React, { useState } from 'react';
 import { ConfigProvider, Menu, Switch, Typography } from 'antd';
-import type { MenuProps } from 'antd/es/menu';
+import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
