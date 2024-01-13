@@ -210,9 +210,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
-    expandIcon: expandable?.expandIcon ?? table?.expandIcon,
   };
-
   const { childrenColumnName = 'children' } = mergedExpandable;
 
   const expandType = React.useMemo<ExpandType>(() => {

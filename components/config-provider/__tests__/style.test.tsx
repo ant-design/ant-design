@@ -957,13 +957,7 @@ describe('ConfigProvider support style and className props', () => {
 
   it('Should Table className & style works', () => {
     const { container } = render(
-      <ConfigProvider
-        table={{
-          className: 'cp-table',
-          style: { backgroundColor: 'blue' },
-          expandIcon: () => <span className="cp-test-icon">test-icon</span>,
-        }}
-      >
+      <ConfigProvider table={{ className: 'cp-table', style: { backgroundColor: 'blue' } }}>
         <Table
           columns={[{ title: 'Address', dataIndex: 'address', key: 'address 1', ellipsis: true }]}
           dataSource={[{ key: '2', name: 'Jim Green', age: 42, address: 'test', tags: ['loser'] }]}
@@ -973,7 +967,6 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-table-wrapper');
     expect(element).toHaveClass('cp-table');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
-    expect(element?.querySelector<HTMLSpanElement>('.cp-test-icon')).toBeTruthy();
   });
 
   it('Should Calendar className works', () => {

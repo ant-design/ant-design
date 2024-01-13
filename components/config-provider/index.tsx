@@ -32,7 +32,6 @@ import type {
   FlexConfig,
   ModalConfig,
   PopupOverflow,
-  TableConfig,
   Theme,
   ThemeConfig,
   WaveConfig,
@@ -189,7 +188,7 @@ export interface ConfigProviderProps {
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
-  table?: TableConfig;
+  table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
