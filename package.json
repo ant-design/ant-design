@@ -100,6 +100,7 @@
     "test:update": "jest --config .jest.js --no-cache -u",
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
+    "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts",
     "visual-regression": "tsx scripts/visual-regression/build.ts",
     "npm-install": "npm install"
