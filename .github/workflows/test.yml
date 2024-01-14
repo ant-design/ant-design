@@ -73,6 +73,12 @@ jobs:
 
       - name: lint
         run: npm run lint
+
+      - name: lint:react-16
+        run: npm run lint:react-16  
+        
+      - name: lint:react-17
+        run: npm run lint:react-17
     needs: setup
 
   check_metadata:
@@ -361,9 +367,6 @@ jobs:
       - name: install react 18
         if: ${{ matrix.react == '18' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
         run: npm run install-react-18
-
-      - name: lint
-        run: npm run lint:old
 
       - name: test
         # lib only run in master branch not in pull request
