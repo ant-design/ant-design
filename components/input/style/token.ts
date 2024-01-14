@@ -123,6 +123,7 @@ export const initComponentToken = (token: AliasToken): SharedComponentToken => {
     controlOutline,
     colorErrorOutline,
     colorWarningOutline,
+    colorBgContainer,
   } = token;
 
   return {
@@ -145,8 +146,8 @@ export const initComponentToken = (token: AliasToken): SharedComponentToken => {
     activeShadow: `0 0 0 ${controlOutlineWidth}px ${controlOutline}`,
     errorActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorErrorOutline}`,
     warningActiveShadow: `0 0 0 ${controlOutlineWidth}px ${colorWarningOutline}`,
-    hoverBg: '',
-    activeBg: '',
+    hoverBg: colorBgContainer,
+    activeBg: colorBgContainer,
     inputFontSize: fontSize,
     inputFontSizeLG: fontSizeLG,
     inputFontSizeSM: fontSize,

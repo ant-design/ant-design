@@ -2,10 +2,8 @@ import React, { useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import type { GetRef, TableColumnsType, TableColumnType } from 'antd';
 import { Button, Input, Space, Table } from 'antd';
+import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
-
-type FilterDropdownType = Exclude<TableColumnType<DataType>['filterDropdown'], React.ReactNode>;
-type FilterConfirmProps = Parameters<FilterDropdownType>[0]['confirm'];
 
 type InputRef = GetRef<typeof Input>;
 
@@ -52,7 +50,7 @@ const App: React.FC = () => {
 
   const handleSearch = (
     selectedKeys: string[],
-    confirm: FilterConfirmProps,
+    confirm: FilterDropdownProps['confirm'],
     dataIndex: DataIndex,
   ) => {
     confirm();
