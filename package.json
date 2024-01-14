@@ -345,7 +345,7 @@
       "dumi": "^2.3.0-beta.3"
     }
   },
-  "packageManager": "npm@10.2.5",
+  "packageManager": "npm@10.3.0",
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
