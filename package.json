@@ -77,6 +77,7 @@
     "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo",
     "lint-fix:demo": "npm run lint:demo -- --fix",
     "lint-fix:script": "npm run lint:script -- --fix",
+    "lint:old": "npm run build npm run tsc:old",
     "pre-publish": "npm run test-all -- --skip-build && tsx ./scripts/pre-publish-notice.ts",
     "prepare": "is-ci || husky install && dumi setup",
     "prepublishOnly": "antd-tools run guard",
@@ -100,6 +101,7 @@
     "test:update": "jest --config .jest.js --no-cache -u",
     "token-meta": "tsx scripts/generate-token-meta.ts",
     "tsc": "tsc --noEmit",
+    "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts",
     "visual-regression": "tsx scripts/visual-regression/build.ts",
     "npm-install": "npm install"

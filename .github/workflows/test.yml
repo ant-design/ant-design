@@ -363,7 +363,7 @@ jobs:
         run: npm run install-react-18
 
       - name: lint
-        run: npm run lint
+        run: npm run lint:old
 
       - name: test
         # lib only run in master branch not in pull request
