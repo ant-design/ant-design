@@ -1,48 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { FullToken, GetDefaultToken } from 'antd/es/theme/util/genComponentStyleHook';
 
-export interface MultipleSelectorToken {
-  /**
-   * @desc 多选标签背景色
-   * @descEN Background color of multiple tag
-   */
-  multipleItemBg: string;
-  /**
-   * @desc 多选标签边框色
-   * @descEN Border color of multiple tag
-   */
-  multipleItemBorderColor: string;
-  /**
-   * @desc 多选标签高度
-   * @descEN Height of multiple tag
-   */
-  multipleItemHeight: number;
-  /**
-   * @desc 大号多选标签高度
-   * @descEN Height of multiple tag with large size
-   */
-  multipleItemHeightLG: number;
-  /**
-   * @desc 多选框禁用背景
-   * @descEN Background color of multiple selector when disabled
-   */
-  multipleSelectorBgDisabled: string;
-  /**
-   * @desc 多选标签禁用文本颜色
-   * @descEN Text color of multiple tag when disabled
-   */
-  multipleItemColorDisabled: string;
-  /**
-   * @desc 多选标签禁用边框色
-   * @descEN Border color of multiple tag when disabled
-   */
-  multipleItemBorderColorDisabled: string;
-  /**
-   * @internal
-   */
-}
-
-export interface ComponentToken extends MultipleSelectorToken {
+export interface ComponentToken {
   /**
    * @desc 下拉菜单 z-index
    * @descEN z-index of dropdown
@@ -103,18 +62,52 @@ export interface ComponentToken extends MultipleSelectorToken {
    * @descEN Height of single selected item with large size
    */
   singleItemHeightLG: number;
-
+  /**
+   * @desc 多选标签背景色
+   * @descEN Background color of multiple tag
+   */
+  multipleItemBg: string;
+  /**
+   * @desc 多选标签边框色
+   * @descEN Border color of multiple tag
+   */
+  multipleItemBorderColor: string;
+  /**
+   * @desc 多选标签高度
+   * @descEN Height of multiple tag
+   */
+  multipleItemHeight: number;
+  /**
+   * @desc 大号多选标签高度
+   * @descEN Height of multiple tag with large size
+   */
+  multipleItemHeightLG: number;
+  /**
+   * @desc 多选框禁用背景
+   * @descEN Background color of multiple selector when disabled
+   */
+  multipleSelectorBgDisabled: string;
+  /**
+   * @desc 多选标签禁用文本颜色
+   * @descEN Text color of multiple tag when disabled
+   */
+  multipleItemColorDisabled: string;
+  /**
+   * @desc 多选标签禁用边框色
+   * @descEN Border color of multiple tag when disabled
+   */
+  multipleItemBorderColorDisabled: string;
+  /**
+   * @internal
+   */
   showArrowPaddingInlineEnd: number;
 }
 
-export interface SelectorToken {
+export interface SelectToken extends FullToken<'Select'> {
+  rootPrefixCls: string;
   inputPaddingHorizontalBase: number | string;
   multipleSelectItemHeight: number;
   selectHeight: number;
-}
-
-export interface SelectToken extends FullToken<'Select'>, SelectorToken {
-  rootPrefixCls: string;
 }
 
 export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {

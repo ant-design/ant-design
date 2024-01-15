@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { DatePicker, Space } from 'antd';
 import type { DatePickerProps, GetProps } from 'antd';
+import { DatePicker, Space } from 'antd';
 import type { Dayjs } from 'dayjs';
 
 type RangePickerProps = GetProps<typeof DatePicker.RangePicker>;
 
 const { RangePicker } = DatePicker;
 
-type RangeValue = [Dayjs | null | undefined, Dayjs | null | undefined] | null;
+type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
 const ControlledDatePicker = () => {
   const [mode, setMode] = useState<DatePickerProps['mode']>('time');

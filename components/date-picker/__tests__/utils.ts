@@ -2,10 +2,8 @@ import type { render } from '../../../tests/utils';
 import { fireEvent, screen } from '../../../tests/utils';
 
 export function openPicker(wrapper: ReturnType<typeof render>, index = 0) {
-  const inputEle = wrapper.container?.querySelectorAll<HTMLInputElement>('input')?.[index]!;
-  fireEvent.mouseDown(inputEle);
-  fireEvent.focus(inputEle);
-  fireEvent.click(inputEle);
+  fireEvent.mouseDown(wrapper.container?.querySelectorAll('input')?.[index]!);
+  fireEvent.focus(wrapper.container?.querySelectorAll('input')?.[index]!);
 }
 
 export function closePicker(wrapper: ReturnType<typeof render>, index = 0) {
