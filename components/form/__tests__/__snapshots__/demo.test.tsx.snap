@@ -2335,17 +2335,18 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-disabled ant-picker-outlined"
+                class="ant-picker ant-picker-outlined ant-picker-disabled"
               >
                 <div
                   class="ant-picker-input"
                 >
                   <input
-                    aria-invalid="false"
                     autocomplete="off"
                     disabled=""
                     placeholder="Select date"
+                    readonly=""
                     size="12"
+                    title=""
                     value=""
                   />
                   <span
@@ -2404,17 +2405,16 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined"
+                class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
               >
                 <div
-                  class="ant-picker-input"
+                  class="ant-picker-input ant-picker-input-active"
                 >
                   <input
-                    aria-invalid="false"
                     autocomplete="off"
-                    date-range="start"
                     disabled=""
                     placeholder="Start date"
+                    readonly=""
                     size="12"
                     value=""
                   />
@@ -2451,18 +2451,17 @@ Array [
                   class="ant-picker-input"
                 >
                   <input
-                    aria-invalid="false"
                     autocomplete="off"
-                    date-range="end"
                     disabled=""
                     placeholder="End date"
+                    readonly=""
                     size="12"
                     value=""
                   />
                 </div>
                 <div
                   class="ant-picker-active-bar"
-                  style="position:absolute;width:0;left:0"
+                  style="left:0;width:0;position:absolute"
                 />
                 <span
                   class="ant-picker-suffix"
@@ -7328,10 +7327,11 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
                   placeholder="Select date"
+                  readonly=""
                   size="12"
+                  title=""
                   value=""
                 />
                 <span
@@ -7597,12 +7597,13 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_date-picker"
                   placeholder="Select date"
+                  readonly=""
                   size="12"
+                  title=""
                   value=""
                 />
                 <span
@@ -7668,12 +7669,13 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_date-time-picker"
                   placeholder="Select date"
+                  readonly=""
                   size="21"
+                  title=""
                   value=""
                 />
                 <span
@@ -7739,12 +7741,13 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_month-picker"
                   placeholder="Select month"
+                  readonly=""
                   size="12"
+                  title=""
                   value=""
                 />
                 <span
@@ -7804,18 +7807,17 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-picker ant-picker-range ant-picker-outlined"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-active"
               >
                 <input
-                  aria-invalid="false"
-                  aria-required="true"
                   autocomplete="off"
-                  date-range="start"
                   id="time_related_controls_range-picker"
                   placeholder="Start date"
+                  readonly=""
                   size="12"
                   value=""
                 />
@@ -7852,18 +7854,16 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
-                  aria-required="true"
                   autocomplete="off"
-                  date-range="end"
                   placeholder="End date"
+                  readonly=""
                   size="12"
                   value=""
                 />
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position:absolute;width:0;left:0"
+                style="left:0;width:0;position:absolute"
               />
               <span
                 class="ant-picker-suffix"
@@ -7921,18 +7921,17 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-picker ant-picker-range ant-picker-outlined"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-active"
               >
                 <input
-                  aria-invalid="false"
-                  aria-required="true"
                   autocomplete="off"
-                  date-range="start"
                   id="time_related_controls_range-time-picker"
                   placeholder="Start date"
+                  readonly=""
                   size="21"
                   value=""
                 />
@@ -7969,18 +7968,16 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
-                  aria-required="true"
                   autocomplete="off"
-                  date-range="end"
                   placeholder="End date"
+                  readonly=""
                   size="21"
                   value=""
                 />
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position:absolute;width:0;left:0"
+                style="left:0;width:0;position:absolute"
               />
               <span
                 class="ant-picker-suffix"
@@ -8044,12 +8041,13 @@ exports[`renders components/form/demo/time-related-controls.tsx correctly 1`] = 
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   aria-required="true"
                   autocomplete="off"
                   id="time_related_controls_time-picker"
                   placeholder="Select time"
+                  readonly=""
                   size="10"
+                  title=""
                   value=""
                 />
                 <span
@@ -10323,10 +10321,11 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
                   placeholder="Select date"
+                  readonly=""
                   size="12"
+                  title=""
                   value=""
                 />
                 <span
@@ -10415,10 +10414,11 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
                   placeholder="Select time"
+                  readonly=""
                   size="10"
+                  title=""
                   value=""
                 />
                 <span
@@ -10507,13 +10507,12 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               style="width:100%"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-active"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
-                  date-range="start"
                   placeholder="Start date"
+                  readonly=""
                   size="12"
                   value=""
                 />
@@ -10550,17 +10549,16 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   autocomplete="off"
-                  date-range="end"
                   placeholder="End date"
+                  readonly=""
                   size="12"
                   value=""
                 />
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position:absolute;width:0;left:0"
+                style="left:0;width:0;position:absolute"
               />
               <span
                 class="ant-picker-suffix"
@@ -10999,10 +10997,11 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                           class="ant-picker-input"
                         >
                           <input
-                            aria-invalid="false"
                             autocomplete="off"
                             placeholder="Select date"
+                            readonly=""
                             size="12"
+                            title=""
                             value=""
                           />
                           <span
@@ -11063,10 +11062,11 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                           class="ant-picker-input"
                         >
                           <input
-                            aria-invalid="false"
                             autocomplete="off"
                             placeholder="Select date"
+                            readonly=""
                             size="12"
+                            title=""
                             value=""
                           />
                           <span
@@ -12403,12 +12403,13 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
                   aria-required="true"
                   autocomplete="off"
                   id="DatePicker"
                   placeholder="Select date"
+                  readonly=""
                   size="12"
+                  title=""
                   value=""
                 />
                 <span
@@ -12468,18 +12469,17 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-picker ant-picker-range ant-picker-filled"
             >
               <div
-                class="ant-picker-input"
+                class="ant-picker-input ant-picker-input-active"
               >
                 <input
-                  aria-invalid="false"
-                  aria-required="true"
                   autocomplete="off"
-                  date-range="start"
                   id="RangePicker"
                   placeholder="Start date"
+                  readonly=""
                   size="12"
                   value=""
                 />
@@ -12516,18 +12516,16 @@ exports[`renders components/form/demo/variant.tsx correctly 1`] = `
                 class="ant-picker-input"
               >
                 <input
-                  aria-invalid="false"
-                  aria-required="true"
                   autocomplete="off"
-                  date-range="end"
                   placeholder="End date"
+                  readonly=""
                   size="12"
                   value=""
                 />
               </div>
               <div
                 class="ant-picker-active-bar"
-                style="position:absolute;width:0;left:0"
+                style="left:0;width:0;position:absolute"
               />
               <span
                 class="ant-picker-suffix"

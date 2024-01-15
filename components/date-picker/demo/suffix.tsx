@@ -1,12 +1,18 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import { DatePicker, Space } from 'antd';
 import type { Dayjs } from 'dayjs';
+import { DatePicker, Space } from 'antd';
 
 const smileIcon = <SmileOutlined />;
 const { RangePicker } = DatePicker;
 
-const onChange = (date: Dayjs | (Dayjs | null)[] | null, dateString: string | string[]) => {
+type DatePickerValue = Dayjs | null;
+type RangePickerValue = [Dayjs | null, Dayjs | null] | null;
+
+const onChange = (
+  date: DatePickerValue | RangePickerValue,
+  dateString: [string, string] | string,
+) => {
   console.log(date, dateString);
 };
 

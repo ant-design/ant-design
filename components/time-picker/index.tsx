@@ -3,24 +3,9 @@ import type { Dayjs } from 'dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
-import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import DatePicker from '../date-picker';
-import type {
-  PickerProps,
-  PickerPropsWithMultiple,
-  RangePickerProps,
-} from '../date-picker/generatePicker/interface';
-
-export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
-  DateType,
-  Omit<PickerProps<DateType>, 'picker' | 'showTime'>
->;
-
-export type RangePickerTimeProps<DateType extends AnyObject> = Omit<
-  RangePickerProps<DateType>,
-  'showTime' | 'picker'
->;
+import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
