@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2024-01-15`
 
-- 🐞 Fix Checkbox type error in React@16. [#46962](https://github.com/ant-design/ant-design/pull/46962) [@crazyair](https://github.com/crazyair)
+- 🐞 Fix Checkbox type error with `@types/react` version 16 or 17. [#46962](https://github.com/ant-design/ant-design/pull/46962) [@crazyair](https://github.com/crazyair)
 
 ## 5.13.0
 
