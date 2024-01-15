@@ -251,7 +251,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           cursor: 'unset',
         },
 
-        '&:not(&-noop):hover': {
+        [`&:not(${treeCls}-switcher-noop):hover`]: {
           backgroundColor: token.colorBgTextHover,
         },
 
