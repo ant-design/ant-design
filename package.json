@@ -67,7 +67,6 @@
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18",
-    "prelint": "is-ci && dumi setup",
     "lint": "npm run version && npm run tsc && npm run lint:script && npm run lint:demo && npm run lint:md && npm run lint:style",
     "lint:demo": "eslint components/*/demo/*.md",
     "lint:deps": "antd-tools run deps-lint",
