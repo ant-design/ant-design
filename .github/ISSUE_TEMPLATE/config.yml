@@ -5,4 +5,4 @@ contact_links:
     about: The issue which is not created via https://new-issue.ant.design will be closed immediately.
   - name: 🆕 创建一个新 Issue
     url: https://new-issue.ant.design
-    about: 不是用 https://new-issue.ant.design 创建的 issue 会被机器人自动关闭。另外『如何使用...』类问题建议使用讨论区 https://github.com/ant-design/ant-design/discussions
+    about: ⚠️ 注意请不要使用上面的 Report a vulnerability（报告安全漏洞）来报告组件库的 bug 和特性请求，请点击右侧 Open 按钮。不是用 https://new-issue.ant.design 创建的 issue 会被机器人自动关闭。
