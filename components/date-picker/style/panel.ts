@@ -695,6 +695,11 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
           display: 'inline-block',
         },
 
+        [`${componentCls}-now-btn-disabled`]: {
+          pointerEvents: 'none',
+          color: token.colorTextDisabled,
+        },
+
         // https://github.com/ant-design/ant-design/issues/23687
         [`${componentCls}-preset > ${antCls}-tag-blue`]: {
           color: colorPrimary,

@@ -46,8 +46,6 @@ export const genSelectionStyle = (
 
   return {
     [`${componentCls}-multiple${suffixCls}`]: {
-      // fontSize: token.fontSize,
-
       /**
        * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
        * may update to redesign with its align logic.
@@ -79,10 +77,6 @@ export const genSelectionStyle = (
         paddingBlock: token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal(),
         borderRadius: token.borderRadius,
 
-        // [`${componentCls}-show-search&`]: {
-        //   cursor: 'text',
-        // },
-
         [`${componentCls}-disabled&`]: {
           background: token.multipleSelectorBgDisabled,
           cursor: 'not-allowed',
@@ -97,16 +91,6 @@ export const genSelectionStyle = (
           content: '"\\a0"',
         },
       },
-
-      // [`
-      //   &${componentCls}-show-arrow ${componentCls}-selector,
-      //   &${componentCls}-allow-clear ${componentCls}-selector
-      // `]: {
-      //   paddingInlineEnd: token
-      //     .calc(token.fontSizeIcon)
-      //     .add(token.controlPaddingHorizontal)
-      //     .equal(),
-      // },
 
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
