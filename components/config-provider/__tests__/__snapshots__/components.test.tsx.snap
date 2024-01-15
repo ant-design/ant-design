@@ -29442,14 +29442,6 @@ Array [
               class="config-picker-time-panel"
             >
               <div
-                class="config-picker-header"
-              >
-                <div
-                  class="config-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="config-picker-content"
               >
                 <ul
@@ -31058,14 +31050,6 @@ Array [
               class="config-picker-time-panel"
             >
               <div
-                class="config-picker-header"
-              >
-                <div
-                  class="config-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="config-picker-content"
               >
                 <ul
@@ -32626,14 +32610,6 @@ Array [
             <div
               class="config-picker-time-panel"
             >
-              <div
-                class="config-picker-header"
-              >
-                <div
-                  class="config-picker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="config-picker-content"
               >
@@ -34196,14 +34172,6 @@ Array [
               class="config-picker-time-panel"
             >
               <div
-                class="config-picker-header"
-              >
-                <div
-                  class="config-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="config-picker-content"
               >
                 <ul
@@ -35765,14 +35733,6 @@ Array [
               class="ant-picker-time-panel"
             >
               <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="ant-picker-content"
               >
                 <ul
@@ -37333,14 +37293,6 @@ Array [
             <div
               class="prefix-TimePicker-time-panel"
             >
-              <div
-                class="prefix-TimePicker-header"
-              >
-                <div
-                  class="prefix-TimePicker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="prefix-TimePicker-content"
               >
