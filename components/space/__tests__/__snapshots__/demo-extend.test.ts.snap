@@ -5091,14 +5091,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   class="ant-picker-time-panel"
                 >
                   <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
-                  <div
                     class="ant-picker-content"
                   >
                     <ul
@@ -6862,14 +6854,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   <div
                     class="ant-picker-time-panel"
                   >
-                    <div
-                      class="ant-picker-header"
-                    >
-                      <div
-                        class="ant-picker-header-view"
-                      >
-                      </div>
-                    </div>
                     <div
                       class="ant-picker-content"
                     >
@@ -14186,14 +14170,6 @@ Array [
                 <div
                   class="ant-picker-time-panel"
                 >
-                  <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
                   <div
                     class="ant-picker-content"
                   >

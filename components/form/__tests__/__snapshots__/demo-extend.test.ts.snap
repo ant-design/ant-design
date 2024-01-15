@@ -18331,14 +18331,6 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                         class="ant-picker-time-panel"
                       >
                         <div
-                          class="ant-picker-header"
-                        >
-                          <div
-                            class="ant-picker-header-view"
-                          >
-                          </div>
-                        </div>
-                        <div
                           class="ant-picker-content"
                         >
                           <ul
@@ -23434,14 +23426,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                       <div
                         class="ant-picker-time-panel"
                       >
-                        <div
-                          class="ant-picker-header"
-                        >
-                          <div
-                            class="ant-picker-header-view"
-                          >
-                          </div>
-                        </div>
                         <div
                           class="ant-picker-content"
                         >
