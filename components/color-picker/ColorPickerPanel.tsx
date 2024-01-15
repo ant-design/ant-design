@@ -15,7 +15,7 @@ interface ColorPickerPanelProps extends ColorPickerBaseProps {
 
 const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
   const { prefixCls, presets, panelRender, color, onChange, onClear, ...injectProps } = props;
-  const colorPickerPanelPrefixCls = `${prefixCls}-inner-content`;
+  const colorPickerPanelPrefixCls = `${prefixCls}-inner`;
 
   // ==== Inject props ===
   const panelPickerProps = {
@@ -38,11 +38,11 @@ const ColorPickerPanel: FC<ColorPickerPanelProps> = (props) => {
 
   // ====================== Render ======================
   const innerPanel = (
-    <>
+    <div className={`${colorPickerPanelPrefixCls}-content`}>
       <PanelPicker />
-      {Array.isArray(presets) && <Divider className={`${colorPickerPanelPrefixCls}-divider`} />}
+      {Array.isArray(presets) && <Divider />}
       <PanelPresets />
-    </>
+    </div>
   );
 
   return (

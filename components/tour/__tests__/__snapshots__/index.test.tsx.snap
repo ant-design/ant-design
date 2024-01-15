@@ -96,8 +96,8 @@ exports[`Tour Primary 1`] = `
           >
             <rect
               fill="white"
-              height="100vh"
-              width="100vw"
+              height="100%"
+              width="100%"
               x="0"
               y="0"
             />
@@ -319,8 +319,8 @@ exports[`Tour controlled current 1`] = `
           >
             <rect
               fill="white"
-              height="100vh"
-              width="100vw"
+              height="100%"
+              width="100%"
               x="0"
               y="0"
             />
@@ -526,8 +526,8 @@ exports[`Tour single 1`] = `
           >
             <rect
               fill="white"
-              height="100vh"
-              width="100vw"
+              height="100%"
+              width="100%"
               x="0"
               y="0"
             />
@@ -708,8 +708,8 @@ exports[`Tour step support Primary 1`] = `
           >
             <rect
               fill="white"
-              height="100vh"
-              width="100vw"
+              height="100%"
+              width="100%"
               x="0"
               y="0"
             />

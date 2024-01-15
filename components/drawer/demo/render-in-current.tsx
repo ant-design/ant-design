@@ -18,7 +18,6 @@ const App: React.FC = () => {
     height: 200,
     padding: 48,
     overflow: 'hidden',
-    textAlign: 'center',
     background: token.colorFillAlter,
     border: `1px solid ${token.colorBorderSecondary}`,
     borderRadius: token.borderRadiusLG,

@@ -17,15 +17,18 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariants from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
+import { useToken } from '../theme/internal';
+import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
-import useBuiltinPlacements from './useBuiltinPlacements';
 import useIcons from './useIcons';
 import useShowArrow from './useShowArrow';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 type RawValue = string | number;
 
@@ -48,12 +51,18 @@ export interface InternalSelectProps<
   size?: SizeType;
   disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE' | 'combobox';
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 export interface SelectProps<
@@ -80,9 +89,12 @@ const InternalSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  {
+  props: SelectProps<ValueType, OptionType>,
+  ref: React.Ref<BaseSelectRef>,
+) => {
+  const {
     prefixCls: customizePrefixCls,
-    bordered = true,
+    bordered,
     className,
     rootClassName,
     getPopupContainer,
@@ -90,7 +102,7 @@ const InternalSelect = <
     dropdownClassName,
     listHeight = 256,
     placement,
-    listItemHeight = 24,
+    listItemHeight: customListItemHeight,
     size: customizeSize,
     disabled: customDisabled,
     notFoundContent,
@@ -101,10 +113,14 @@ const InternalSelect = <
     direction: propDirection,
     style,
     allowClear,
-    ...props
-  }: SelectProps<ValueType, OptionType>,
-  ref: React.Ref<BaseSelectRef>,
-) => {
+    variant: customizeVariant,
+    dropdownStyle,
+    transitionName,
+    tagRender,
+    maxCount,
+    ...rest
+  } = props;
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -116,11 +132,17 @@ const InternalSelect = <
     select,
   } = React.useContext(ConfigContext);
 
+  const [, token] = useToken();
+
+  const listItemHeight = customListItemHeight ?? token?.controlHeight;
+
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   const direction = propDirection ?? contextDirection;
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const [variant, enableVariantCls] = useVariants(customizeVariant, bordered);
 
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -140,6 +162,7 @@ const InternalSelect = <
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
+
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
@@ -166,22 +189,18 @@ const InternalSelect = <
 
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
-    ...props,
+    ...rest,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
     prefixCls,
-    showArrow: props.showArrow,
     componentName: 'Select',
   });
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
-  const selectProps = omit(props as typeof props & { itemIcon: React.ReactNode }, [
-    'suffixIcon',
-    'itemIcon',
-  ]);
+  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
   const mergedPopupClassName = classNames(
     popupClassName || dropdownClassName,
@@ -205,7 +224,7 @@ const InternalSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
@@ -226,8 +245,6 @@ const InternalSelect = <
     return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
   }, [placement, direction]);
 
-  const mergedBuiltinPlacements = useBuiltinPlacements(builtinPlacements, popupOverflow);
-
   // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Select');
@@ -245,10 +262,18 @@ const InternalSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+
+    warning(
+      !(typeof maxCount !== 'undefined' && !isMultiple),
+      'usage',
+      '`maxCount` only works with mode `multiple` or `tags`',
+    );
   }
 
   // ====================== zIndex =========================
-  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   // ====================== Render =======================
   return wrapCSSVar(
@@ -259,8 +284,8 @@ const InternalSelect = <
       {...selectProps}
       style={{ ...select?.style, ...style }}
       dropdownMatchSelectWidth={mergedPopupMatchSelectWidth}
-      builtinPlacements={mergedBuiltinPlacements}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow)}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode}
@@ -276,10 +301,9 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      dropdownStyle={{
-        ...props?.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...dropdownStyle, zIndex }}
+      maxCount={isMultiple ? maxCount : undefined}
+      tagRender={isMultiple ? tagRender : undefined}
     />,
   );
 };
@@ -292,9 +316,8 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  props: React.PropsWithChildren<SelectProps<ValueType, OptionType>> & {
-    ref?: React.Ref<BaseSelectRef>;
-  },
+  props: React.PropsWithChildren<SelectProps<ValueType, OptionType>> &
+    React.RefAttributes<BaseSelectRef>,
 ) => React.ReactElement) & {
   displayName?: string;
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;

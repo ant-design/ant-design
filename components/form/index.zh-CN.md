@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/control-hooks.tsx">表单方法调用</code>
 <code src="./demo/layout.tsx">表单布局</code>
 <code src="./demo/disabled.tsx">表单禁用</code>
+<code src="./demo/variant.tsx" version="5.13.0">表单变体</code>
 <code src="./demo/required-mark.tsx">必选样式</code>
 <code src="./demo/size.tsx">表单尺寸</code>
 <code src="./demo/layout-can-wrap.tsx">表单标签可换行</code>
@@ -76,12 +77,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid-cn#col) | - |  |
 | layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
-| preserve | 当字段被删除时保留字段值 | boolean | true | 4.4.0 |
+| preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | 4.4.0 |
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) | false |  |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | 统一设置字段触发验证的时机 | string \| string\[] | `onChange` | 4.3.0 |
+| variant | 表单内控件变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](/components/grid-cn#col) | - |  |
 | onFieldsChange | 字段更新时触发回调事件 | function(changedFields, allFields) | - |  |
 | onFinish | 提交表单且数据验证成功后回调事件 | function(values) | - |  |

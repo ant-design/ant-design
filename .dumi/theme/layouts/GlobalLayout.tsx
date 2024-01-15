@@ -1,5 +1,4 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
-import dayjs from 'dayjs';
+import React, { useCallback, useEffect, useMemo, Suspense } from 'react';
 import {
   createCache,
   extractStyle,
@@ -18,10 +17,11 @@ import { DarkContext } from '../../hooks/useDark';
 import useLayoutState from '../../hooks/useLayoutState';
 import useLocation from '../../hooks/useLocation';
 import type { ThemeName } from '../common/ThemeSwitch';
-import ThemeSwitch from '../common/ThemeSwitch';
 import SiteThemeProvider from '../SiteThemeProvider';
 import type { SiteContextProps } from '../slots/SiteContext';
 import SiteContext from '../slots/SiteContext';
+
+const ThemeSwitch = React.lazy(() => import('../common/ThemeSwitch'));
 
 type Entries<T> = { [K in keyof T]: [K, T[K]] }[keyof T][];
 type SiteState = Partial<Omit<SiteContextProps, 'updateSiteContext'>>;
@@ -101,15 +101,15 @@ const GlobalLayout: React.FC = () => {
   useEffect(() => {
     const _theme = searchParams.getAll('theme') as ThemeName[];
     const _direction = searchParams.get('direction') as DirectionType;
-    const storedBannerVisibleLastTime =
-      localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
-    const storedBannerVisible =
-      storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
+    // const storedBannerVisibleLastTime =
+    //   localStorage && localStorage.getItem(ANT_DESIGN_NOT_SHOW_BANNER);
+    // const storedBannerVisible =
+    //   storedBannerVisibleLastTime && dayjs().diff(dayjs(storedBannerVisibleLastTime), 'day') >= 1;
 
     setSiteState({
       theme: _theme,
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
-      bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
+      // bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
     });
     // Handle isMobile
     updateMobileMode();
@@ -134,8 +134,26 @@ const GlobalLayout: React.FC = () => {
   const [styleCache] = React.useState(() => createCache());
 
   useServerInsertedHTML(() => {
-    const styleText = extractStyle(styleCache, true);
+    const styleText = extractStyle(styleCache, {
+      plain: true,
+      types: 'style',
+    });
     return <style data-type="antd-cssinjs" dangerouslySetInnerHTML={{ __html: styleText }} />;
+  });
+
+  useServerInsertedHTML(() => {
+    const styleText = extractStyle(styleCache, {
+      plain: true,
+      types: ['cssVar', 'token'],
+    });
+    return (
+      <style
+        data-type="antd-css-var"
+        data-rc-order="prepend"
+        data-rc-priority="-9999"
+        dangerouslySetInnerHTML={{ __html: styleText }}
+      />
+    );
   });
 
   useServerInsertedHTML(() => (
@@ -156,10 +174,12 @@ const GlobalLayout: React.FC = () => {
     content = (
       <App>
         {outlet}
-        <ThemeSwitch
-          value={theme}
-          onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
-        />
+        <Suspense>
+          <ThemeSwitch
+            value={theme}
+            onChange={(nextTheme) => updateSiteConfig({ theme: nextTheme })}
+          />
+        </Suspense>
       </App>
     );
   }

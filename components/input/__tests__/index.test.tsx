@@ -527,6 +527,14 @@ describe('Input allowClear', () => {
     fireEvent.focus(container.querySelector('input')!);
     expect(container.querySelector('input')).not.toHaveStyle('background-color: transparent');
   });
+
+  it('legacy bordered should work', () => {
+    const errSpy = jest.spyOn(console, 'error');
+    const { container } = render(<Input bordered={false} />);
+    expect(container.querySelector('input')).toHaveClass('ant-input-borderless');
+    expect(errSpy).toHaveBeenCalledWith(expect.stringContaining('`bordered` is deprecated'));
+    errSpy.mockRestore();
+  });
 });
 
 describe('typescript types', () => {

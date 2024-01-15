@@ -2,7 +2,7 @@
 
 exports[`renders components/tree-select/demo/async.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -228,7 +228,7 @@ exports[`renders components/tree-select/demo/async.tsx extend context correctly 
 
 exports[`renders components/tree-select/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -573,7 +573,7 @@ exports[`renders components/tree-select/demo/basic.tsx extend context correctly 
 
 exports[`renders components/tree-select/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -842,7 +842,7 @@ exports[`renders components/tree-select/demo/checkable.tsx extend context correc
 
 exports[`renders components/tree-select/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -1289,7 +1289,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   >
     <div
       class="ant-select-selector"
@@ -1641,7 +1641,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-open"
     style="width: 100%; margin: 0px;"
   >
     <div
@@ -1841,7 +1841,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-status-error ant-select-single ant-select-show-arrow"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-status-error ant-select-single ant-select-show-arrow"
       style="width: 100%;"
     >
       <div
@@ -1962,7 +1962,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-status-warning ant-select-multiple ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-status-warning ant-select-multiple ant-select-show-arrow ant-select-show-search"
       style="width: 100%;"
     >
       <div
@@ -2101,7 +2101,7 @@ exports[`renders components/tree-select/demo/status.tsx extend context correctly
 
 exports[`renders components/tree-select/demo/suffix.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
   style="width: 100%;"
 >
   <div
@@ -2446,7 +2446,7 @@ exports[`renders components/tree-select/demo/suffix.tsx extend context correctly
 
 exports[`renders components/tree-select/demo/treeData.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+  class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -2773,7 +2773,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width: 300px;"
     >
       <div

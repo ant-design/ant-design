@@ -1,5 +1,5 @@
-import React, { Suspense, useContext, useLayoutEffect, useMemo } from 'react';
-import { Col, Skeleton, Space, Typography } from 'antd';
+import React, { useContext, useLayoutEffect, useMemo } from 'react';
+import { Col, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
@@ -9,6 +9,7 @@ import useLocation from '../../../hooks/useLocation';
 import type { DemoContextProps } from '../DemoContext';
 import DemoContext from '../DemoContext';
 import SiteContext from '../SiteContext';
+import InViewSuspense from './InViewSuspense';
 
 const Contributors = React.lazy(() => import('./Contributors'));
 const ColumnCard = React.lazy(() => import('./ColumnCard'));
@@ -62,54 +63,51 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <DemoContext.Provider value={contextValue}>
       <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-        <Suspense fallback={<Skeleton.Input active size="small" />}>
+        <InViewSuspense fallback={null}>
           <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
-        </Suspense>
+        </InViewSuspense>
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
-              <Space size="small">
-                {meta.frontmatter?.title}
-                {meta.frontmatter?.subtitle}
-
+              <Flex gap="small">
+                <div>{meta.frontmatter?.title}</div>
+                <div>{meta.frontmatter?.subtitle}</div>
                 {!pathname.startsWith('/components/overview') && (
-                  <Suspense fallback={null}>
+                  <InViewSuspense fallback={null}>
                     <EditButton
                       title={<FormattedMessage id="app.content.edit-page" />}
                       filename={meta.frontmatter.filename}
                     />
-                  </Suspense>
+                  </InViewSuspense>
                 )}
-              </Space>
+              </Flex>
               {pathname.startsWith('/components/') && (
-                <Suspense fallback={null}>
+                <InViewSuspense fallback={null}>
                   <ComponentChangelog pathname={pathname} />
-                </Suspense>
+                </InViewSuspense>
               )}
             </Typography.Title>
           ) : null}
-          <Suspense fallback={<Skeleton.Input active size="small" />}>
+          <InViewSuspense fallback={null}>
             <DocMeta />
-          </Suspense>
+          </InViewSuspense>
           {!meta.frontmatter.__autoDescription && meta.frontmatter.description}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>{children}</div>
-          <Suspense fallback={<Skeleton.Input active size="small" />}>
+          <InViewSuspense>
             <ColumnCard
               zhihuLink={meta.frontmatter.zhihu_url}
               yuqueLink={meta.frontmatter.yuque_url}
               juejinLink={meta.frontmatter.juejin_url}
             />
-          </Suspense>
-          <Suspense fallback={<Skeleton.Input active size="small" />}>
+          </InViewSuspense>
+          <InViewSuspense>
             <Contributors filename={meta.frontmatter.filename} />
-          </Suspense>
+          </InViewSuspense>
         </article>
-        <Suspense fallback={<Skeleton.Input active size="small" />}>
+        <InViewSuspense fallback={null}>
           <PrevAndNext rtl={isRTL} />
-        </Suspense>
-        <Suspense fallback={null}>
-          <Footer />
-        </Suspense>
+        </InViewSuspense>
+        <Footer />
       </Col>
     </DemoContext.Provider>
   );

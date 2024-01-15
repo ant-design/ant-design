@@ -32,7 +32,7 @@ interface CopyConfig {
   text?: string;
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
-  tooltips?: boolean | React.ReactNode;
+  tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
 }
 
@@ -40,7 +40,7 @@ interface EditConfig {
   text?: string;
   editing?: boolean;
   icon?: React.ReactNode;
-  tooltip?: boolean | React.ReactNode;
+  tooltip?: React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
   onCancel?: () => void;
@@ -451,7 +451,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // Copy
   const renderCopy = () => {
-    if (!enableCopy) return;
+    if (!enableCopy) {
+      return null;
+    }
 
     const { tooltips, icon } = copyConfig;
 
@@ -467,7 +469,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <Tooltip key="copy" title={copyTitle}>
         <TransButton
-          className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
+          className={classNames(`${prefixCls}-copy`, {
+            [`${prefixCls}-copy-success`]: copied,
+            [`${prefixCls}-copy-icon-only`]: children === null || children === undefined,
+          })}
           onClick={onCopyClick}
           aria-label={ariaLabel}
         >

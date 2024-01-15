@@ -40,6 +40,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     rootClassName,
     children,
     style,
+    title,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -88,6 +89,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         style={{ ...radio?.style, ...style }}
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
+        title={title}
       >
         <RcCheckbox
           {...radioProps}

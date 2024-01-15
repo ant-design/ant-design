@@ -254,7 +254,7 @@ const Dropdown: CompoundedComponent = (props) => {
     return (
       <OverrideProvider
         prefixCls={`${prefixCls}-menu`}
-        rootClassName={cssVarCls}
+        rootClassName={classNames(cssVarCls, rootCls)}
         expandIcon={
           <span className={`${prefixCls}-menu-submenu-arrow`}>
             <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />

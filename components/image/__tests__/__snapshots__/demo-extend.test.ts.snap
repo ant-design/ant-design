@@ -131,7 +131,7 @@ Array [
   <div>
     scaleStep:
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"

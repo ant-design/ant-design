@@ -8,7 +8,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -454,7 +454,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1593,7 +1593,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2039,7 +2039,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -3177,7 +3177,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -3623,7 +3623,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4755,7 +4755,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -5201,7 +5201,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -6402,7 +6402,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-select ant-select-sm my-year-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-outlined my-year-select ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6873,7 +6873,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -7977,7 +7977,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -8423,7 +8423,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </span>
     </div>
     <div
-      class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -9972,7 +9972,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -10418,7 +10418,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"

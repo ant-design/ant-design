@@ -114,7 +114,9 @@ describe('ColorPicker', () => {
 
   it('Should allowClear and onClear work', async () => {
     const onClear = jest.fn();
-    const { container } = render(<ColorPicker allowClear onClear={onClear} />);
+    const { container } = render(
+      <ColorPicker defaultValue="#1677ff" allowClear onClear={onClear} />,
+    );
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
@@ -326,7 +328,9 @@ describe('ColorPicker', () => {
 
   it('Should not trigger onChange when click clear after clearing', async () => {
     const onChange = jest.fn();
-    const { container } = render(<ColorPicker allowClear onChange={onChange} />);
+    const { container } = render(
+      <ColorPicker defaultValue="#1677ff" allowClear onChange={onChange} />,
+    );
     fireEvent.click(container.querySelector('.ant-color-picker-trigger')!);
     fireEvent.click(container.querySelector('.ant-color-picker-clear')!);
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -372,14 +376,16 @@ describe('ColorPicker', () => {
   });
 
   it('Should showText as render function work', async () => {
-    const { container } = render(<ColorPicker showText={(color) => color.toHexString()} />);
+    const { container } = render(
+      <ColorPicker defaultValue="#1677ff" showText={(color) => color.toHexString()} />,
+    );
     const targetEle = container.querySelector('.ant-color-picker-trigger-text');
     expect(targetEle).toBeTruthy();
     expect(targetEle?.innerHTML).toBe('#1677ff');
   });
 
   it('Should showText work', async () => {
-    const { container } = render(<ColorPicker open showText />);
+    const { container } = render(<ColorPicker defaultValue="#1677ff" open showText />);
     const targetEle = container.querySelector('.ant-color-picker-trigger-text');
     expect(targetEle).toBeTruthy();
 
@@ -435,7 +441,8 @@ describe('ColorPicker', () => {
       />,
     );
     expect(componentContainer.querySelector('.custom-panel')).toBeTruthy();
-    expect(componentContainer.querySelector('.ant-color-picker-inner-content')).toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner-content')).not.toBeTruthy();
+    expect(componentContainer.querySelector('.ant-color-picker-inner')).toBeTruthy();
     expect(componentContainer).toMatchSnapshot();
   });
 
@@ -594,5 +601,10 @@ describe('ColorPicker', () => {
   it('Should defaultFormat work', () => {
     const { container } = render(<ColorPicker open defaultFormat="hsb" />);
     expect(container.querySelector('.ant-color-picker-hsb-input')).toBeTruthy();
+  });
+
+  it('Should clear show when value not set', () => {
+    const { container } = render(<ColorPicker />);
+    expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
   });
 });

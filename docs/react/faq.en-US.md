@@ -115,15 +115,19 @@ If you need some features which should not be included in antd, try to extend an
 
 ## How to get the definition which is not export?
 
-antd will export mainly definitions, but not export internal definitions which may be rename or changed. So we recommend you to use Typescript's native ability to get the definition if needed:
+antd expose the basic component definitions. For the unexposed props, you can get them via the utility types provided by antd. For example:
 
 ```tsx
-import { Table } from 'antd';
+import type { Checkbox, CheckboxProps, GetProp, GetProps, GetRef, Input } from 'antd';
 
-type Props<T extends (...args: any) => any> = Parameters<T>[0];
+// Get Props
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
 
-type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
-type DataSource = TableProps['dataSource'];
+// Get Prop
+type CheckboxValue = GetProp<CheckboxProps, 'value'>;
+
+// Get Ref
+type InputRef = GetRef<typeof Input>;
 ```
 
 ## Date-related components locale is not working?
@@ -187,6 +191,14 @@ For historical reasons, the display names of the pop components are not uniform,
 
 Please ref dynamic theme document [Legacy Browser Compatible](/docs/react/compatible-style) part.
 
+## CSS-in-JS css priority conflict with tailwindcss?
+
+Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
+
+## How to let CSS-in-JS work with shadow DOM?
+
+Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
+
 ## How to disable motion?
 
 Config with SeedToken:
@@ -198,14 +210,6 @@ import { ConfigProvider } from 'antd';
   <App />
 </ConfigProvider>;
 ```
-
-## CSS-in-JS css priority conflict with tailwindcss?
-
-Same as above. You can adjust antd css priority to override. Related issue: [#38794](https://github.com/ant-design/ant-design/issues/38794)
-
-## How to let CSS-in-JS work with shadow DOM?
-
-Please ref document [Shadow Dom Usage](/docs/react/compatible-style#shadow-dom-usage).
 
 ## How to support SSR？
 
@@ -268,13 +272,46 @@ The above problem occurs if `strictNullChecks` is set to `true`, If you can dete
 
 ## The antd component reported an error when using the App Router of Next.js
 
-If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, etc., you may get the following error:
+If you are using the App Router of Next.js, when you use the sub-components provided by some antd components, such as `Select.Option `, `Form.Item`, `Typography.Title`, etc., you may get the following error:
 
 ```bash
 Error: Cannot access .Option on the server. You cannot dot into a client module from a server component. You can only pass the imported name through.
 ```
 
-At present, this problem is waiting for Next.js to give an official solution, before this, if you use sub-components in your page, you can try to add the following client tag at the top of the page to solve this problem:
+Currently, this problem is [waiting for Next.js to give an official solution](https://github.com/vercel/next.js/issues/51593). There are two workarounds as of now if you need to use sub-components in your page with the App Router:
+
+- Create a wrapper component that extracts the sub-components that you need, and re-exports them. Take the `Typography` component as an example. A wrapper component would look something like this:
+
+```tsx
+'use client';
+
+import React from 'react';
+import { Typography as OriginTypography } from 'antd';
+import type { LinkProps } from 'antd/es/typography/Link';
+import type { ParagraphProps } from 'antd/es/typography/Paragraph';
+import type { TextProps } from 'antd/es/typography/Text';
+import type { TitleProps } from 'antd/es/typography/Title';
+
+const Title = React.forwardRef<HTMLElement, TitleProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Title ref={ref} {...props} />,
+);
+
+const Paragraph = React.forwardRef<HTMLElement, ParagraphProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Paragraph ref={ref} {...props} />,
+);
+
+const Link = React.forwardRef<HTMLElement, LinkProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Link ref={ref} {...props} />,
+);
+
+const Text = React.forwardRef<HTMLElement, TextProps & React.RefAttributes<HTMLElement>>(
+  (props, ref) => <OriginTypography.Text ref={ref} {...props} />,
+);
+
+export { Title, Link, Text, Paragraph };
+```
+
+- You can also make the page fully client-rendered by adding `use client` tag at the beginning of your page's source:
 
 ```tsx
 'use client';

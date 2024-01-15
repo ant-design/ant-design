@@ -4,6 +4,7 @@ import type { BaseSelectRef } from 'rc-select';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
 
+import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
@@ -18,7 +19,6 @@ import type {
   SelectProps,
 } from '../select';
 import Select from '../select';
-import { useZIndex } from '../_util/hooks/useZIndex';
 
 const { Option } = Select;
 
@@ -161,9 +161,8 @@ const RefAutoComplete = React.forwardRef<RefSelectProps, AutoCompleteProps>(
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  props: React.PropsWithChildren<AutoCompleteProps<ValueType, OptionType>> & {
-    ref?: React.Ref<BaseSelectRef>;
-  },
+  props: React.PropsWithChildren<AutoCompleteProps<ValueType, OptionType>> &
+    React.RefAttributes<BaseSelectRef>,
 ) => React.ReactElement) & {
   displayName?: string;
   Option: typeof Option;

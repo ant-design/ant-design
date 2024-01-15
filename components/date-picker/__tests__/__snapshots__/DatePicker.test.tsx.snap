@@ -3,7 +3,7 @@
 exports[`DatePicker disabled date 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -604,7 +604,7 @@ Array [
 exports[`DatePicker prop locale should works 1`] = `
 Array [
   <div
-    class="ant-picker"
+    class="ant-picker ant-picker-outlined"
   >
     <div
       class="ant-picker-input"
@@ -1228,7 +1228,7 @@ Array [
 
 exports[`DatePicker support DatePicker.generatePicker 1`] = `
 <div
-  class="ant-picker"
+  class="ant-picker ant-picker-outlined"
 >
   <div
     class="ant-picker-input"
