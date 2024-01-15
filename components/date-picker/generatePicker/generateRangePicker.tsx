@@ -16,7 +16,7 @@ import DisabledContext from '../../config-provider/DisabledContext';
 import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import { useLocale } from '../../locale';
-import { useCompactItemContext } from '../../space/Compact';
+import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import {
@@ -118,58 +118,64 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const [zIndex] = useZIndex('DatePicker', props.popupStyle?.zIndex as number);
 
     return wrapCSSVar(
-      <RCRangePicker<DateType>
-        separator={
-          <span aria-label="to" className={`${prefixCls}-separator`}>
-            <SwapRightOutlined />
-          </span>
-        }
-        disabled={mergedDisabled}
-        ref={innerRef}
-        dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-        placeholder={getRangePlaceholder(locale, picker, placeholder)}
-        suffixIcon={suffixNode}
-        prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-        nextIcon={<span className={`${prefixCls}-next-icon`} />}
-        superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-        superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-        transitionName={`${rootPrefixCls}-slide-up`}
-        {...restProps}
-        {...additionalOverrideProps}
-        className={classNames(
-          {
-            [`${prefixCls}-${mergedSize}`]: mergedSize,
-            [`${prefixCls}-borderless`]: !bordered,
-          },
-          getStatusClassNames(prefixCls, getMergedStatus(contextStatus, customStatus), hasFeedback),
-          hashId,
-          compactItemClassnames,
-          className,
-          rangePicker?.className,
-          cssVarCls,
-          rootCls,
-          rootClassName,
-        )}
-        style={{ ...rangePicker?.style, ...style }}
-        locale={locale.lang}
-        prefixCls={prefixCls}
-        getPopupContainer={customGetPopupContainer || getPopupContainer}
-        generateConfig={generateConfig}
-        components={Components}
-        direction={direction}
-        dropdownClassName={classNames(
-          hashId,
-          popupClassName || dropdownClassName,
-          cssVarCls,
-          rootCls,
-          rootClassName,
-        )}
-        popupStyle={{
-          ...props.popupStyle,
-          zIndex,
-        }}
-        allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
-      />,
+      <NoCompactStyle>
+        <RCRangePicker<DateType>
+          separator={
+            <span aria-label="to" className={`${prefixCls}-separator`}>
+              <SwapRightOutlined />
+            </span>
+          }
+          disabled={mergedDisabled}
+          ref={innerRef}
+          dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+          placeholder={getRangePlaceholder(locale, picker, placeholder)}
+          suffixIcon={suffixNode}
+          prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+          nextIcon={<span className={`${prefixCls}-next-icon`} />}
+          superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+          superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+          transitionName={`${rootPrefixCls}-slide-up`}
+          {...restProps}
+          {...additionalOverrideProps}
+          className={classNames(
+            {
+              [`${prefixCls}-${mergedSize}`]: mergedSize,
+              [`${prefixCls}-borderless`]: !bordered,
+            },
+            getStatusClassNames(
+              prefixCls,
+              getMergedStatus(contextStatus, customStatus),
+              hasFeedback,
+            ),
+            hashId,
+            compactItemClassnames,
+            className,
+            rangePicker?.className,
+            cssVarCls,
+            rootCls,
+            rootClassName,
+          )}
+          style={{ ...rangePicker?.style, ...style }}
+          locale={locale.lang}
+          prefixCls={prefixCls}
+          getPopupContainer={customGetPopupContainer || getPopupContainer}
+          generateConfig={generateConfig}
+          components={Components}
+          direction={direction}
+          dropdownClassName={classNames(
+            hashId,
+            popupClassName || dropdownClassName,
+            cssVarCls,
+            rootCls,
+            rootClassName,
+          )}
+          popupStyle={{
+            ...props.popupStyle,
+            zIndex,
+          }}
+          allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+        />
+      </NoCompactStyle>,
     );
   });
 
