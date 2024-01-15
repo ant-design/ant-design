@@ -31,26 +31,38 @@ const compareScreenshots = async (
   const currentImgBuf = await sharp(currentImgPath).toBuffer();
 
   const basePng = PNG.sync.read(baseImgBuf);
-  const targetWidth = basePng.width;
-  const targetHeight = basePng.height;
+  const currentPng = PNG.sync.read(currentImgBuf);
 
-  const comparePng = PNG.sync.read(
-    await sharp(currentImgBuf)
-      .resize({
-        width: targetWidth,
-        height: targetHeight,
-        fit: sharp.fit.contain,
-        background: { r: 255, g: 255, b: 255, alpha: 0 },
-      })
-      .png()
-      .toBuffer(),
+  const targetWidth = Math.max(basePng.width, currentPng.width);
+  const targetHeight = Math.max(basePng.height, currentPng.height);
+
+  // fill color for transparent png
+  const fillColor =
+    baseImgPath.endsWith('dark.png') || baseImgPath.endsWith('dark.css-var.png')
+      ? { r: 0, g: 0, b: 0, alpha: 255 }
+      : { r: 255, g: 255, b: 255, alpha: 255 };
+
+  const resizeOptions = {
+    width: targetWidth,
+    height: targetHeight,
+    position: 'left top',
+    fit: sharp.fit.contain,
+    background: fillColor,
+  };
+
+  const resizedBasePng = PNG.sync.read(
+    await sharp(baseImgBuf).resize(resizeOptions).png().toBuffer(),
+  );
+
+  const resizedCurrentPng = PNG.sync.read(
+    await sharp(currentImgBuf).resize(resizeOptions).png().toBuffer(),
   );
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
   const mismatchedPixels = pixelmatch(
-    basePng.data,
-    comparePng.data,
+    resizedBasePng.data,
+    resizedCurrentPng.data,
     diffPng.data,
     targetWidth,
     targetHeight,
