@@ -1,7 +1,7 @@
 import React from 'react';
+import { DatePicker, Space } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { DatePicker, Space } from 'antd';
 
 dayjs.extend(customParseFormat);
 
@@ -12,6 +12,11 @@ const dateFormat = 'YYYY-MM-DD';
 const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={dayjs('2015-06-06', dateFormat)} disabled />
+    <DatePicker
+      defaultValue={dayjs('2019-09-03', dateFormat)}
+      minDate={dayjs('2019-06-01', dateFormat)}
+      maxDate={dayjs('2020-06-30', dateFormat)}
+    />
     <DatePicker picker="month" defaultValue={dayjs('2015-06', 'YYYY-MM')} disabled />
     <RangePicker
       defaultValue={[dayjs('2015-06-06', dateFormat), dayjs('2015-06-06', dateFormat)]}
