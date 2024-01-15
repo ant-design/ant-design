@@ -1,12 +1,26 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from './token';
-import { resetIcon } from '../../style';
-import { mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
+
+import { resetIcon } from '../../style';
+import { mergeToken, type AliasToken } from '../../theme/internal';
+import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import type { SelectToken } from './token';
 
 const FIXED_ITEM_MARGIN = 2;
 
-const getSelectItemStyle = (token: SelectToken): number | string => {
+type SelectItemToken = Pick<
+  SelectToken,
+  | 'multipleSelectItemHeight'
+  | 'multipleSelectorBgDisabled'
+  | 'multipleItemColorDisabled'
+  | 'multipleItemBorderColorDisabled'
+  | 'selectHeight'
+  | 'lineWidth'
+  | 'calc'
+  | 'inputPaddingHorizontalBase'
+>;
+
+const getSelectItemStyle = (token: SelectItemToken): number | string => {
   const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
   const selectItemDist = token
     .calc(selectHeight)
@@ -17,7 +31,10 @@ const getSelectItemStyle = (token: SelectToken): number | string => {
   return selectItemDist;
 };
 
-function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
+export const genSelectionStyle = (
+  token: TokenWithCommonCls<AliasToken> & SelectItemToken,
+  suffix?: string,
+): CSSObject => {
   const { componentCls, iconCls } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
@@ -29,7 +46,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
   return {
     [`${componentCls}-multiple${suffixCls}`]: {
-      fontSize: token.fontSize,
+      // fontSize: token.fontSize,
 
       /**
        * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
@@ -62,9 +79,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         paddingBlock: token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal(),
         borderRadius: token.borderRadius,
 
-        [`${componentCls}-show-search&`]: {
-          cursor: 'text',
-        },
+        // [`${componentCls}-show-search&`]: {
+        //   cursor: 'text',
+        // },
 
         [`${componentCls}-disabled&`]: {
           background: token.multipleSelectorBgDisabled,
@@ -81,15 +98,15 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
       },
 
-      [`
-        &${componentCls}-show-arrow ${componentCls}-selector,
-        &${componentCls}-allow-clear ${componentCls}-selector
-      `]: {
-        paddingInlineEnd: token
-          .calc(token.fontSizeIcon)
-          .add(token.controlPaddingHorizontal)
-          .equal(),
-      },
+      // [`
+      //   &${componentCls}-show-arrow ${componentCls}-selector,
+      //   &${componentCls}-allow-clear ${componentCls}-selector
+      // `]: {
+      //   paddingInlineEnd: token
+      //     .calc(token.fontSizeIcon)
+      //     .add(token.controlPaddingHorizontal)
+      //     .equal(),
+      // },
 
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
@@ -202,6 +219,37 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
     },
   };
+};
+
+function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
+  const { componentCls } = token;
+
+  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
+
+  const rawStyle: CSSObject = {
+    [`${componentCls}-multiple${suffixCls}`]: {
+      fontSize: token.fontSize,
+
+      // ========================= Selector =========================
+      [`${componentCls}-selector`]: {
+        [`${componentCls}-show-search&`]: {
+          cursor: 'text',
+        },
+      },
+
+      [`
+        &${componentCls}-show-arrow ${componentCls}-selector,
+        &${componentCls}-allow-clear ${componentCls}-selector
+      `]: {
+        paddingInlineEnd: token
+          .calc(token.fontSizeIcon)
+          .add(token.controlPaddingHorizontal)
+          .equal(),
+      },
+    },
+  };
+
+  return [genSelectionStyle(token, suffix), rawStyle];
 }
 
 const genMultipleStyle = (token: SelectToken): CSSInterpolation => {

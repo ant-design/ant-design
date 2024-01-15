@@ -264,6 +264,8 @@ Replace moment.js locale with day.js locale:
 +   dayjs.locale('zh-cn');
 ```
 
+🚨 You need to pay attention to the day.js plugin system. If you find that the function originally in moment.js cannot be used in day.js, please refer to the [day.js plugin document](https://day.js.org/docs/en/plugin/plugin).
+
 If you do not want to replace with day.js, you can use `@ant-design/moment-webpack-plugin` to keep moment.js:
 
 ```bash
