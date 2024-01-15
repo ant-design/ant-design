@@ -72430,14 +72430,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                 class="ant-picker-time-panel"
               >
                 <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
-                <div
                   class="ant-picker-content"
                 >
                   <ul

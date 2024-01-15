@@ -133,15 +133,6 @@ Array [
               class="ant-picker-time-panel"
             >
               <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                  00:00:00
-                </div>
-              </div>
-              <div
                 class="ant-picker-content"
               >
                 <ul

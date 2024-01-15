@@ -70,14 +70,6 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                 class="ant-picker-time-panel"
               >
                 <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
-                <div
                   class="ant-picker-content"
                 >
                   <ul
@@ -1542,14 +1534,6 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -3016,14 +3000,6 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                 class="ant-picker-time-panel"
               >
                 <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
-                <div
                   class="ant-picker-content"
                 >
                   <ul
@@ -3887,14 +3863,6 @@ Array [
             <div
               class="ant-picker-time-panel"
             >
-              <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="ant-picker-content"
               >
@@ -5471,14 +5439,6 @@ Array [
               class="ant-picker-time-panel"
             >
               <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="ant-picker-content"
               >
                 <ul
@@ -7046,14 +7006,6 @@ Array [
               class="ant-picker-time-panel"
             >
               <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="ant-picker-content"
               >
                 <ul
@@ -8604,14 +8556,6 @@ Array [
             <div
               class="ant-picker-time-panel"
             >
-              <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="ant-picker-content"
               >
@@ -10180,15 +10124,6 @@ Array [
             <div
               class="ant-picker-time-panel"
             >
-              <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                  12:08:23
-                </div>
-              </div>
               <div
                 class="ant-picker-content"
               >
@@ -11778,15 +11713,6 @@ Array [
               class="ant-picker-time-panel"
             >
               <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                  12:08
-                </div>
-              </div>
-              <div
                 class="ant-picker-content"
               >
                 <ul
@@ -12745,14 +12671,6 @@ Array [
               class="ant-picker-time-panel"
             >
               <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
-              <div
                 class="ant-picker-content"
               >
                 <ul
@@ -13267,14 +13185,6 @@ Array [
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -14832,14 +14742,6 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
             <div
               class="ant-picker-time-panel"
             >
-              <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="ant-picker-content"
               >
@@ -16435,15 +16337,6 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                 class="ant-picker-time-panel"
               >
                 <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                    12:08:23
-                  </div>
-                </div>
-                <div
                   class="ant-picker-content"
                 >
                   <ul
@@ -18028,15 +17921,6 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                    12:08:23
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -19623,15 +19507,6 @@ exports[`renders components/time-picker/demo/size.tsx extend context correctly 1
                 class="ant-picker-time-panel"
               >
                 <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                    12:08:23
-                  </div>
-                </div>
-                <div
                   class="ant-picker-content"
                 >
                   <ul
@@ -21201,14 +21076,6 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                 class="ant-picker-time-panel"
               >
                 <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
-                <div
                   class="ant-picker-content"
                 >
                   <ul
@@ -22768,14 +22635,6 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -24389,14 +24248,6 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   class="ant-picker-time-panel"
                 >
                   <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
-                  <div
                     class="ant-picker-content"
                   >
                     <ul
@@ -26000,14 +25851,6 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   class="ant-picker-time-panel"
                 >
                   <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
-                  <div
                     class="ant-picker-content"
                   >
                     <ul
@@ -27559,14 +27402,6 @@ Array [
             <div
               class="ant-picker-time-panel"
             >
-              <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="ant-picker-content"
               >
@@ -29134,14 +28969,6 @@ Array [
             <div
               class="ant-picker-time-panel"
             >
-              <div
-                class="ant-picker-header"
-              >
-                <div
-                  class="ant-picker-header-view"
-                >
-                </div>
-              </div>
               <div
                 class="ant-picker-content"
               >
@@ -30712,14 +30539,6 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -32329,14 +32148,6 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-time-panel"
                 >
                   <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
-                  <div
                     class="ant-picker-content"
                   >
                     <ul
@@ -33888,14 +33699,6 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -35505,14 +35308,6 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   class="ant-picker-time-panel"
                 >
                   <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
-                  <div
                     class="ant-picker-content"
                   >
                     <ul
@@ -37064,14 +36859,6 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
               <div
                 class="ant-picker-time-panel"
               >
-                <div
-                  class="ant-picker-header"
-                >
-                  <div
-                    class="ant-picker-header-view"
-                  >
-                  </div>
-                </div>
                 <div
                   class="ant-picker-content"
                 >
@@ -38680,14 +38467,6 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                 <div
                   class="ant-picker-time-panel"
                 >
-                  <div
-                    class="ant-picker-header"
-                  >
-                    <div
-                      class="ant-picker-header-view"
-                    >
-                    </div>
-                  </div>
                   <div
                     class="ant-picker-content"
                   >
