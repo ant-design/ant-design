@@ -35,7 +35,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           package_manager: bun
           build_script: dist
-          skip_step: install
 
         env:
           NODE_OPTIONS: "--max_old_space_size=4096"
