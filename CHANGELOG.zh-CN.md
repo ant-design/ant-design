@@ -16,6 +16,12 @@ tag: vVERSION
 
 ---
 
+## 5.13.1
+
+`2024-01-15`
+
+- 🐞 修复 Checkbox 组件在 React@16 版本下 Typescript 报错。[#46962](https://github.com/ant-design/ant-design/pull/46962) [@crazyair](https://github.com/crazyair)
+
 ## 5.13.0
 
 `2024-01-13`
