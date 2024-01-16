@@ -122,7 +122,7 @@ const getComponentToken = <C extends OverrideComponent>(
   return mergedToken;
 };
 
-const getSmallFontSizeToken = (token: GlobalToken, size: SizeType) => {
+const getCustomFontSizeToken = (token: GlobalToken, size: SizeType) => {
   if (token.experimentSmallFontSize || token.experimentLargeFontSize) {
     let { fontSize } = token;
     if (size === 'small' && token.experimentSmallFontSize) {
@@ -172,8 +172,8 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
 
   return (prefixCls: string, size: SizeType = undefined): UseComponentStyleResult => {
     const [theme, _realToken, hashId, _token, cssVar] = useToken();
-    const token = getSmallFontSizeToken(_token, size);
-    const realToken = getSmallFontSizeToken(_realToken, size);
+    const token = getCustomFontSizeToken(_token, size);
+    const realToken = getCustomFontSizeToken(_realToken, size);
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
@@ -339,7 +339,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
 
   const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar, size }) => {
     const [, _realToken] = useToken();
-    const realToken = getSmallFontSizeToken(_realToken, size);
+    const realToken = getCustomFontSizeToken(_realToken, size);
     useCSSVarRegister(
       {
         path: [component],
