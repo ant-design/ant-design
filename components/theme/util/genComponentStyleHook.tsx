@@ -70,17 +70,15 @@ export type GetDefaultToken<C extends OverrideComponent> =
   | OverrideTokenWithoutDerivative[C]
   | ((
       token: AliasToken & Partial<OverrideTokenWithoutDerivative[C]>,
-      size: SizeType,
     ) => OverrideTokenWithoutDerivative[C]);
 
 const getDefaultComponentToken = <C extends OverrideComponent>(
   component: C,
   token: GlobalToken,
   getDefaultToken: GetDefaultToken<C>,
-  size: SizeType,
 ) => {
   if (typeof getDefaultToken === 'function') {
-    return getDefaultToken(mergeToken<any>(token, token[component] ?? {}), size);
+    return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
   }
   return getDefaultToken ?? {};
 };
@@ -222,7 +220,6 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
           component,
           realToken,
           getDefaultToken,
-          size,
         );
 
         const componentCls = `.${prefixCls}`;
@@ -357,7 +354,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
         scope: rootCls,
       },
       () => {
-        const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken, size);
+        const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
         const componentToken = getComponentToken(component, realToken, defaultToken, {
           deprecatedTokens: options?.deprecatedTokens,
         });
