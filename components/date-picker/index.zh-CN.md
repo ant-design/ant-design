@@ -24,6 +24,7 @@ demo:
 <code src="./demo/format.tsx">日期格式</code>
 <code src="./demo/time.tsx">日期时间选择</code>
 <code src="./demo/align.tsx" version="5.14.0">格式对齐</code>
+<code src="./demo/date-range.tsx" version="5.14.0">日期限定范围</code>
 <code src="./demo/disabled.tsx">禁用</code>
 <code src="./demo/disabled-date.tsx">不可选择日期和时间</code>
 <code src="./demo/allow-empty.tsx">允许留空</code>

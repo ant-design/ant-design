@@ -23,6 +23,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/format.tsx">Date Format</code>
 <code src="./demo/time.tsx">Choose Time</code>
 <code src="./demo/align.tsx" version="5.14.0">Align Format</code>
+<code src="./demo/date-range.tsx" version="5.14.0">Limit Date Range</code>
 <code src="./demo/disabled.tsx">Disabled</code>
 <code src="./demo/disabled-date.tsx">Disabled Date & Time</code>
 <code src="./demo/allow-empty.tsx">Allow Empty</code>
