@@ -1456,6 +1456,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -2921,6 +2922,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -3781,6 +3783,7 @@ exports[`renders components/time-picker/demo/12hours.tsx extend context correctl
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -5357,6 +5360,7 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
+                  disabled=""
                   type="button"
                 >
                   <span>
@@ -5446,7 +5450,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -5691,7 +5695,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -6296,7 +6300,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -6936,11 +6940,7 @@ Array [
 ]
 `;
 
-exports[`renders components/time-picker/demo/basic.tsx extend context correctly 2`] = `
-[
-  "Warning: 'defaultOpenValue' is deprecated which merged into 'defaultPickerValue' instead.",
-]
-`;
+exports[`renders components/time-picker/demo/basic.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/time-picker/demo/change-on-scroll.tsx extend context correctly 1`] = `
 Array [
@@ -8564,7 +8564,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -8809,7 +8809,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -9414,7 +9414,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -10054,11 +10054,7 @@ Array [
 ]
 `;
 
-exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 2`] = `
-[
-  "Warning: 'defaultOpenValue' is deprecated which merged into 'defaultPickerValue' instead.",
-]
-`;
+exports[`renders components/time-picker/demo/colored-popup.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/time-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
@@ -13052,6 +13048,7 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
+                  disabled=""
                   type="button"
                 >
                   <span>
@@ -14657,6 +14654,7 @@ Array [
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -16224,6 +16222,7 @@ exports[`renders components/time-picker/demo/render-panel.tsx extend context cor
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
+                  disabled=""
                   type="button"
                 >
                   <span>
@@ -22557,6 +22556,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -24117,6 +24117,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -25719,6 +25720,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   >
                     <button
                       class="ant-btn ant-btn-primary ant-btn-sm"
+                      disabled=""
                       type="button"
                     >
                       <span>
@@ -27322,6 +27324,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
                   >
                     <button
                       class="ant-btn ant-btn-primary ant-btn-sm"
+                      disabled=""
                       type="button"
                     >
                       <span>
@@ -27410,7 +27413,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -27655,7 +27658,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -28260,7 +28263,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -28900,11 +28903,7 @@ Array [
 ]
 `;
 
-exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 2`] = `
-[
-  "Warning: 'defaultOpenValue' is deprecated which merged into 'defaultPickerValue' instead.",
-]
-`;
+exports[`renders components/time-picker/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/time-picker/demo/value.tsx extend context correctly 1`] = `
 Array [
@@ -30451,6 +30450,7 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
+                  disabled=""
                   type="button"
                 >
                   <span>
@@ -32021,6 +32021,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -33619,6 +33620,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   >
                     <button
                       class="ant-btn ant-btn-primary ant-btn-sm"
+                      disabled=""
                       type="button"
                     >
                       <span>
@@ -35181,6 +35183,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -36779,6 +36782,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   >
                     <button
                       class="ant-btn ant-btn-primary ant-btn-sm"
+                      disabled=""
                       type="button"
                     >
                       <span>
@@ -38341,6 +38345,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
@@ -39939,6 +39944,7 @@ exports[`renders components/time-picker/demo/variant.tsx extend context correctl
                   >
                     <button
                       class="ant-btn ant-btn-primary ant-btn-sm"
+                      disabled=""
                       type="button"
                     >
                       <span>

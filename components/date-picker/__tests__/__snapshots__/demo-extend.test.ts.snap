@@ -73998,6 +73998,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                 >
                   <button
                     class="ant-btn ant-btn-primary ant-btn-sm"
+                    disabled=""
                     type="button"
                   >
                     <span>
