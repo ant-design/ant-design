@@ -29449,7 +29449,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -29694,7 +29694,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -30299,7 +30299,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -31057,7 +31057,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -31302,7 +31302,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -31907,7 +31907,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -32618,7 +32618,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -32863,7 +32863,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -33468,7 +33468,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -34179,7 +34179,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -34424,7 +34424,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -35029,7 +35029,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="config-picker-time-panel-cell"
+                    class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -35740,7 +35740,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -35985,7 +35985,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -36590,7 +36590,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="ant-picker-time-panel-cell"
+                    class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -37301,7 +37301,7 @@ Array [
                   data-type="hour"
                 >
                   <li
-                    class="prefix-TimePicker-time-panel-cell"
+                    class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -37546,7 +37546,7 @@ Array [
                   data-type="minute"
                 >
                   <li
-                    class="prefix-TimePicker-time-panel-cell"
+                    class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
@@ -38151,7 +38151,7 @@ Array [
                   data-type="second"
                 >
                   <li
-                    class="prefix-TimePicker-time-panel-cell"
+                    class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                     data-value="0"
                   >
                     <div
