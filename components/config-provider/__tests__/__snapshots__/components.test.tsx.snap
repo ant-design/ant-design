@@ -14217,46 +14217,42 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
       role="dialog"
     >
       <div
-        class="config-drawer-wrapper-body"
+        class="config-drawer-header config-drawer-header-close-only"
       >
         <div
-          class="config-drawer-header config-drawer-header-close-only"
+          class="config-drawer-header-title"
         >
-          <div
-            class="config-drawer-header-title"
+          <button
+            aria-label="Close"
+            class="config-drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="config-drawer-body"
-        />
       </div>
+      <div
+        class="config-drawer-body"
+      />
     </div>
   </div>
   <div
@@ -14292,46 +14288,42 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
       role="dialog"
     >
       <div
-        class="config-drawer-wrapper-body"
+        class="config-drawer-header config-drawer-header-close-only"
       >
         <div
-          class="config-drawer-header config-drawer-header-close-only"
+          class="config-drawer-header-title"
         >
-          <div
-            class="config-drawer-header-title"
+          <button
+            aria-label="Close"
+            class="config-drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="config-drawer-body"
-        />
       </div>
+      <div
+        class="config-drawer-body"
+      />
     </div>
   </div>
   <div
@@ -14367,46 +14359,42 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
       role="dialog"
     >
       <div
-        class="config-drawer-wrapper-body"
+        class="config-drawer-header config-drawer-header-close-only"
       >
         <div
-          class="config-drawer-header config-drawer-header-close-only"
+          class="config-drawer-header-title"
         >
-          <div
-            class="config-drawer-header-title"
+          <button
+            aria-label="Close"
+            class="config-drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="config-drawer-body"
-        />
       </div>
+      <div
+        class="config-drawer-body"
+      />
     </div>
   </div>
   <div
@@ -14442,46 +14430,42 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
       role="dialog"
     >
       <div
-        class="config-drawer-wrapper-body"
+        class="config-drawer-header config-drawer-header-close-only"
       >
         <div
-          class="config-drawer-header config-drawer-header-close-only"
+          class="config-drawer-header-title"
         >
-          <div
-            class="config-drawer-header-title"
+          <button
+            aria-label="Close"
+            class="config-drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="config-drawer-body"
-        />
       </div>
+      <div
+        class="config-drawer-body"
+      />
     </div>
   </div>
   <div
@@ -14517,46 +14501,42 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
       role="dialog"
     >
       <div
-        class="config-drawer-wrapper-body"
+        class="config-drawer-header config-drawer-header-close-only"
       >
         <div
-          class="config-drawer-header config-drawer-header-close-only"
+          class="config-drawer-header-title"
         >
-          <div
-            class="config-drawer-header-title"
+          <button
+            aria-label="Close"
+            class="config-drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="config-drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="config-drawer-body"
-        />
       </div>
+      <div
+        class="config-drawer-body"
+      />
     </div>
   </div>
   <div
@@ -14592,46 +14572,42 @@ exports[`ConfigProvider components Drawer normal 1`] = `
       role="dialog"
     >
       <div
-        class="ant-drawer-wrapper-body"
+        class="ant-drawer-header ant-drawer-header-close-only"
       >
         <div
-          class="ant-drawer-header ant-drawer-header-close-only"
+          class="ant-drawer-header-title"
         >
-          <div
-            class="ant-drawer-header-title"
+          <button
+            aria-label="Close"
+            class="ant-drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="ant-drawer-body"
-        />
       </div>
+      <div
+        class="ant-drawer-body"
+      />
     </div>
   </div>
   <div
@@ -14667,46 +14643,42 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
       role="dialog"
     >
       <div
-        class="prefix-Drawer-wrapper-body"
+        class="prefix-Drawer-header prefix-Drawer-header-close-only"
       >
         <div
-          class="prefix-Drawer-header prefix-Drawer-header-close-only"
+          class="prefix-Drawer-header-title"
         >
-          <div
-            class="prefix-Drawer-header-title"
+          <button
+            aria-label="Close"
+            class="prefix-Drawer-close"
+            type="button"
           >
-            <button
-              aria-label="Close"
-              class="prefix-Drawer-close"
-              type="button"
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
             >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </div>
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
         </div>
-        <div
-          class="prefix-Drawer-body"
-        />
       </div>
+      <div
+        class="prefix-Drawer-body"
+      />
     </div>
   </div>
   <div
@@ -21804,7 +21776,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
     >
       <div
         class="config-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -21832,7 +21804,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
     >
       <div
         class="config-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -21860,7 +21832,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
     >
       <div
         class="config-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -21888,7 +21860,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
     >
       <div
         class="config-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -21916,7 +21888,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
     >
       <div
         class="config-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -21944,7 +21916,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>
@@ -21972,7 +21944,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
     >
       <div
         class="prefix-Progress-bg"
-        style="width: 100%; height: 8px; clip-path: inset(0 100% 0 0 round 100px);"
+        style="width: 0%; height: 8px; --progress-percent: 0;"
       />
     </div>
   </div>

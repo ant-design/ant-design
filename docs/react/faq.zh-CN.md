@@ -137,15 +137,19 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 ## 如何获取未导出的属性定义？
 
-antd 会透出组件定义，但是随着重构可能导致内部一些定义命名或者属性变化。因而更推荐直接使用 Typescript 原生能力获取：
+antd 会透出基本组件定义。对于未透出属性，你可以通过 antd 提供的工具类型来获取。例如：
 
 ```tsx
-import type { Table } from 'antd';
+import type { Checkbox, CheckboxProps, GetProp, GetProps, GetRef, Input } from 'antd';
 
-type Props<T extends (...args: any) => any> = Parameters<T>[0];
+// Get Props
+type CheckboxGroupProps = GetProps<typeof Checkbox.Group>;
 
-type TableProps = Props<typeof Table<{ key: string; name: string; age: number }>>;
-type DataSource = TableProps['dataSource'];
+// Get Prop
+type CheckboxValue = GetProp<CheckboxProps, 'value'>;
+
+// Get Ref
+type InputRef = GetRef<typeof Input>;
 ```
 
 ## 我的组件默认语言是英文的？如何切回中文的。

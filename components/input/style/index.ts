@@ -5,6 +5,8 @@ import { clearFix, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { ComponentToken, InputToken } from './token';
+import { initComponentToken, initInputToken } from './token';
 import {
   genBorderlessStyle,
   genFilledGroupStyle,
@@ -12,8 +14,6 @@ import {
   genOutlinedGroupStyle,
   genOutlinedStyle,
 } from './variants';
-import type { ComponentToken, InputToken } from './token';
-import { initComponentToken, initInputToken } from './token';
 
 export type { ComponentToken };
 export { initComponentToken, initInputToken };
@@ -40,11 +40,11 @@ export const genActiveStyle = (token: InputToken) => ({
 });
 
 const genInputLargeStyle = (token: InputToken): CSSObject => {
-  const { paddingBlockLG, fontSizeLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
+  const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
 
   return {
     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
-    fontSize: fontSizeLG,
+    fontSize: token.inputFontSizeLG,
     lineHeight: lineHeightLG,
     borderRadius: borderRadiusLG,
   };
@@ -52,6 +52,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
 
 export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
+  fontSize: token.inputFontSizeSM,
   borderRadius: token.borderRadiusSM,
 });
 
@@ -62,7 +63,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   minWidth: 0,
   padding: `${unit(token.paddingBlock)} ${unit(token.paddingInline)}`,
   color: token.colorText,
-  fontSize: token.fontSize,
+  fontSize: token.inputFontSize,
   lineHeight: token.lineHeight,
   borderRadius: token.borderRadius,
   transition: `all ${token.motionDurationMid}`,
@@ -163,7 +164,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         padding: `0 ${unit(token.paddingInline)}`,
         color: token.colorText,
         fontWeight: 'normal',
-        fontSize: token.fontSize,
+        fontSize: token.inputFontSize,
         textAlign: 'center',
         borderRadius: token.borderRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -590,7 +591,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         '&-lg': {
           [`${componentCls}-group-addon`]: {
             borderRadius: borderRadiusLG,
-            fontSize: token.fontSizeLG,
+            fontSize: token.inputFontSizeLG,
           },
         },
         '&-sm': {

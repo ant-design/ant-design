@@ -61,6 +61,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       '&-pure': {
         position: 'relative',
         background: colorBgElevated,
+        display: 'flex',
+        flexDirection: 'column',
 
         [`&${componentCls}-left`]: {
           boxShadow: token.boxShadowDrawerLeft,
@@ -132,19 +134,13 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       },
 
       [`${componentCls}-content`]: {
+        display: 'flex',
+        flexDirection: 'column',
         width: '100%',
         height: '100%',
         overflow: 'auto',
         background: colorBgElevated,
         pointerEvents: 'auto',
-      },
-
-      // ===================== Panel ======================
-      [`${componentCls}-wrapper-body`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        height: '100%',
       },
 
       // Header

@@ -1,5 +1,5 @@
 import React, { useContext, useLayoutEffect, useMemo } from 'react';
-import { Col, Space, Typography } from 'antd';
+import { Col, Flex, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import classNames from 'classnames';
 import { FormattedMessage, useRouteMeta } from 'dumi';
@@ -69,10 +69,9 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
         <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Typography.Title style={{ fontSize: 30, position: 'relative' }}>
-              <Space size="small">
-                {meta.frontmatter?.title}
-                {meta.frontmatter?.subtitle}
-
+              <Flex gap="small">
+                <div>{meta.frontmatter?.title}</div>
+                <div>{meta.frontmatter?.subtitle}</div>
                 {!pathname.startsWith('/components/overview') && (
                   <InViewSuspense fallback={null}>
                     <EditButton
@@ -81,7 +80,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                     />
                   </InViewSuspense>
                 )}
-              </Space>
+              </Flex>
               {pathname.startsWith('/components/') && (
                 <InViewSuspense fallback={null}>
                   <ComponentChangelog pathname={pathname} />

@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import type { InputRef } from 'antd';
+import type { GetRef } from 'antd';
 import { Button, Form, Input, Popconfirm, Table } from 'antd';
-import type { FormInstance } from 'antd/es/form';
+
+type InputRef = GetRef<typeof Input>;
+type FormInstance<T> = GetRef<typeof Form<T>>;
 
 const EditableContext = React.createContext<FormInstance<any> | null>(null);
 

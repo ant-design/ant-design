@@ -76,7 +76,7 @@ const locales = {
   },
   en: {
     official: 'Official',
-    thirdPart: 'Third Part',
+    thirdPart: 'Third Party',
     thirdPartDesc: 'Unofficial product, please take care confirm availability',
   },
 };

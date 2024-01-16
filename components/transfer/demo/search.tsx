@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Transfer } from 'antd';
-import type { TransferDirection } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -43,7 +43,7 @@ const App: React.FC = () => {
     setTargetKeys(newTargetKeys);
   };
 
-  const handleSearch = (dir: TransferDirection, value: string) => {
+  const handleSearch: TransferProps['onSearch'] = (dir, value) => {
     console.log('search:', dir, value);
   };
 
