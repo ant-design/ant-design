@@ -639,10 +639,8 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
   const {
     componentCls,
-    paddingXXS,
     textHeight,
     lineWidth,
-    paddingXS,
     paddingSM,
     antCls,
     colorPrimary,
