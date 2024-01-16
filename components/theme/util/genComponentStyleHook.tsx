@@ -6,6 +6,8 @@ import { token2CSSVar, useCSSVarRegister, useStyleRegister } from '@ant-design/c
 import { warning } from 'rc-util';
 
 import { ConfigContext } from '../../config-provider/context';
+import useSize from '../../config-provider/hooks/useSize';
+import type { SizeType } from '../../config-provider/SizeContext';
 import { genCommonStyle, genLinkStyle } from '../../style';
 import type {
   AliasToken,
@@ -14,6 +16,7 @@ import type {
   OverrideToken,
   UseComponentStyleResult,
 } from '../interface';
+import genFontMapToken from '../themes/shared/genFontMapToken';
 import useToken, { ignore, unitless } from '../useToken';
 import genCalc from './calc';
 import type AbstractCalculator from './calc/calculator';
@@ -67,15 +70,17 @@ export type GetDefaultToken<C extends OverrideComponent> =
   | OverrideTokenWithoutDerivative[C]
   | ((
       token: AliasToken & Partial<OverrideTokenWithoutDerivative[C]>,
+      size: SizeType,
     ) => OverrideTokenWithoutDerivative[C]);
 
 const getDefaultComponentToken = <C extends OverrideComponent>(
   component: C,
   token: GlobalToken,
   getDefaultToken: GetDefaultToken<C>,
+  size: SizeType,
 ) => {
   if (typeof getDefaultToken === 'function') {
-    return getDefaultToken(mergeToken<any>(token, token[component] ?? {}));
+    return getDefaultToken(mergeToken<any>(token, token[component] ?? {}), size);
   }
   return getDefaultToken ?? {};
 };
@@ -119,6 +124,19 @@ const getComponentToken = <C extends OverrideComponent>(
   return mergedToken;
 };
 
+const getSmallFontSizeToken = (token: GlobalToken, size: SizeType) => {
+  if (token.smallFontSize || token.largeFontSize) {
+    let { fontSize } = token;
+    if (size === 'small' && token.smallFontSize) {
+      fontSize = token.smallFontSize;
+    } else if (size === 'large' && token.largeFontSize) {
+      fontSize = token.largeFontSize;
+    }
+    return { ...token, ...genFontMapToken(fontSize) };
+  }
+  return token;
+};
+
 const getCompVarPrefix = (component: string, prefix?: string) =>
   `${[
     prefix,
@@ -154,8 +172,10 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string): UseComponentStyleResult => {
-    const [theme, realToken, hashId, token, cssVar] = useToken();
+  return (prefixCls: string, size: SizeType = undefined): UseComponentStyleResult => {
+    const [theme, _realToken, hashId, _token, cssVar] = useToken();
+    const token = getSmallFontSizeToken(_token, size);
+    const realToken = getSmallFontSizeToken(_realToken, size);
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
@@ -202,6 +222,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
           component,
           realToken,
           getDefaultToken,
+          size,
         );
 
         const componentCls = `.${prefixCls}`;
@@ -293,6 +314,7 @@ export type CSSVarRegisterProps = {
     prefix?: string;
     key?: string;
   };
+  size: SizeType;
 };
 
 const genCSSVarRegister = <C extends OverrideComponent>(
@@ -318,8 +340,9 @@ const genCSSVarRegister = <C extends OverrideComponent>(
     compUnitless[prefixToken(key)] = originUnitless[key];
   });
 
-  const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar }) => {
-    const [, realToken] = useToken();
+  const CSSVarRegister: FC<CSSVarRegisterProps> = ({ rootCls, cssVar, size }) => {
+    const [, _realToken] = useToken();
+    const realToken = getSmallFontSizeToken(_realToken, size);
     useCSSVarRegister(
       {
         path: [component],
@@ -334,7 +357,7 @@ const genCSSVarRegister = <C extends OverrideComponent>(
         scope: rootCls,
       },
       () => {
-        const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken);
+        const defaultToken = getDefaultComponentToken(component, realToken, getDefaultToken, size);
         const componentToken = getComponentToken(component, realToken, defaultToken, {
           deprecatedTokens: options?.deprecatedTokens,
         });
@@ -348,14 +371,14 @@ const genCSSVarRegister = <C extends OverrideComponent>(
     return null;
   };
 
-  const useCSSVar = (rootCls: string) => {
+  const useCSSVar = (rootCls: string, size: SizeType) => {
     const [, , , , cssVar] = useToken();
 
     return [
       (node: ReactElement): ReactElement =>
         injectStyle && cssVar ? (
           <>
-            <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} />
+            <CSSVarRegister rootCls={rootCls} cssVar={cssVar} component={component} size={size} />
             {node}
           </>
         ) : (
@@ -405,9 +428,11 @@ export const genStyleHooks = <C extends OverrideComponent>(
     options,
   );
 
-  return (prefixCls: string, rootCls: string = prefixCls) => {
-    const [, hashId] = useStyle(prefixCls);
-    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
+  return (prefixCls: string, rootCls: string = prefixCls, size: SizeType = undefined) => {
+    const sizeFullName = useSize((ctxSize) => size ?? ctxSize);
+
+    const [, hashId] = useStyle(prefixCls, sizeFullName);
+    const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls, sizeFullName);
 
     return [wrapCSSVar, hashId, cssVarCls] as const;
   };

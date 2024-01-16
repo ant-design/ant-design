@@ -1,4 +1,5 @@
 import type { PresetColorType } from './presetColors';
+
 // ======================================================================
 // ==                            Seed Token                            ==
 // ======================================================================
@@ -97,6 +98,21 @@ export interface SeedToken extends PresetColorType {
    * @default 14
    */
   fontSize: number;
+
+  /**
+   * @nameZH 小号字号
+   * @nameEN Small Font Size
+   * @desc 小号字号
+   * @descEN Small Font Size
+   */
+  smallFontSize: number;
+  /**
+   * @nameZH 大号字号
+   * @nameEN Large Font Size
+   * @desc 大号字号
+   * @descEN Large Font Size
+   */
+  largeFontSize: number;
 
   //  ----------   Line   ---------- //
 

@@ -118,8 +118,6 @@ const InternalButton: React.ForwardRefRenderFunction<
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
@@ -205,8 +203,9 @@ const InternalButton: React.ForwardRefRenderFunction<
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
-
   const sizeCls = sizeFullName ? sizeClassNameMap[sizeFullName] || '' : '';
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, undefined, sizeFullName);
 
   const iconType = innerLoading ? 'loading' : icon;
 

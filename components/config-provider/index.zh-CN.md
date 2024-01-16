@@ -49,6 +49,7 @@ export default Demo;
 <code src="./demo/prefixCls.tsx" debug>前缀</code>
 <code src="./demo/useConfig.tsx" debug>获取配置</code>
 <code src="./demo/warning.tsx" debug>警告</code>
+<code src="./demo/small-font-size.tsx" debug>组件小号尺寸</code>
 
 ## API
 
