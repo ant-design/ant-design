@@ -125,12 +125,12 @@ const getComponentToken = <C extends OverrideComponent>(
 };
 
 const getSmallFontSizeToken = (token: GlobalToken, size: SizeType) => {
-  if (token.smallFontSize || token.largeFontSize) {
+  if (token.experimentSmallFontSize || token.experimentLargeFontSize) {
     let { fontSize } = token;
-    if (size === 'small' && token.smallFontSize) {
-      fontSize = token.smallFontSize;
-    } else if (size === 'large' && token.largeFontSize) {
-      fontSize = token.largeFontSize;
+    if (size === 'small' && token.experimentSmallFontSize) {
+      fontSize = token.experimentSmallFontSize;
+    } else if (size === 'large' && token.experimentLargeFontSize) {
+      fontSize = token.experimentLargeFontSize;
     }
     return { ...token, ...genFontMapToken(fontSize) };
   }

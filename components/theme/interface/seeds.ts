@@ -105,14 +105,14 @@ export interface SeedToken extends PresetColorType {
    * @desc 小号字号
    * @descEN Small Font Size
    */
-  smallFontSize: number;
+  experimentSmallFontSize: number;
   /**
    * @nameZH 大号字号
    * @nameEN Large Font Size
    * @desc 大号字号
    * @descEN Large Font Size
    */
-  largeFontSize: number;
+  experimentLargeFontSize: number;
 
   //  ----------   Line   ---------- //
 
