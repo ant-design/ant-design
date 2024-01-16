@@ -107,6 +107,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
+| minDate | The minimum date, which also limits the range of panel switching | dayjs | - | 5.14.0 |
+| maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | 5.14.0 |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | needConfirm | Need click confirm button to trigger value change | boolean | - | 5.14.0 |
 | nextIcon | The custom next icon | ReactNode | - | 4.17.0 |
