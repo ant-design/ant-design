@@ -683,7 +683,7 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
         alignItems: 'center',
 
         '> li': {
-          lineHeight: token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal(),
+          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
           display: 'inline-block',
         },
 

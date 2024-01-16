@@ -19812,6 +19812,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                         >
                           <button
                             class="ant-btn ant-btn-primary ant-btn-sm"
+                            disabled=""
                             type="button"
                           >
                             <span>
@@ -24908,6 +24909,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                         >
                           <button
                             class="ant-btn ant-btn-primary ant-btn-sm"
+                            disabled=""
                             type="button"
                           >
                             <span>
