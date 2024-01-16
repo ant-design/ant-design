@@ -191,6 +191,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
 
         '&-draggable': {
+          cursor: 'grab',
+
           [`${treeCls}-draggable-icon`]: {
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
@@ -242,9 +244,15 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
+        transition: `all ${token.motionDurationSlow}`,
+        borderRadius: token.borderRadius,
 
         '&-noop': {
-          cursor: 'default',
+          cursor: 'unset',
+        },
+
+        [`&:not(${treeCls}-switcher-noop):hover`]: {
+          backgroundColor: token.colorBgTextHover,
         },
 
         '&_close': {
