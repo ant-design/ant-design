@@ -676,22 +676,16 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
 
       [`${componentCls}-ranges`]: {
         marginBlock: 0,
-        padding: `${unit(paddingXXS)} ${unit(paddingSM)}`,
+        paddingInline: unit(paddingSM),
         overflow: 'hidden',
-        lineHeight: unit(
-          token
-            .calc(textHeight)
-            .sub(token.calc(lineWidth).mul(2))
-            .sub(token.calc(paddingXS).div(2))
-            .equal(),
-        ),
         textAlign: 'start',
         listStyle: 'none',
         display: 'flex',
         justifyContent: 'center',
-        // justifyContent: 'space-between',
+        alignItems: 'center',
 
         '> li': {
+          lineHeight: token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal(),
           display: 'inline-block',
         },
 
@@ -709,6 +703,7 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         [`${componentCls}-ok`]: {
+          paddingBlock: token.calc(lineWidth).mul(2).equal(),
           marginInlineStart: 'auto',
         },
       },
