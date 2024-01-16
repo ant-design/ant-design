@@ -174,6 +174,7 @@ export default function imageTest(
             top: 0 !important;
             opacity: 1 !important;
             display: inline-block !important;
+            vertical-align: top !important;
           }
         </style>`;
       }
