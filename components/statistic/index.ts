@@ -13,4 +13,4 @@ export type CompoundedStatistic = typeof Statistic & CompoundedComponent;
 
 (Statistic as CompoundedStatistic).Countdown = Countdown;
 
-export default (Statistic as CompoundedStatistic);
+export default Statistic as CompoundedStatistic;
