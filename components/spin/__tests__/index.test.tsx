@@ -74,6 +74,17 @@ describe('Spin', () => {
     errSpy.mockRestore();
   });
 
+  it('should not warn tip with fullscreen', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin fullscreen tip="Fullscreen" />);
+    expect(container.querySelector('.ant-spin-fullscreen')).toBeTruthy();
+
+    expect(errSpy).not.toHaveBeenCalled();
+
+    errSpy.mockRestore();
+  });
+
   it('right style when fullscreen', () => {
     const { container } = render(<Spin fullscreen spinning />);
     const element = container.querySelector<HTMLDivElement>('.ant-spin.ant-spin-fullscreen');
