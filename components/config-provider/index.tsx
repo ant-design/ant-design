@@ -446,7 +446,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     warning: warningConfig,
   };
 
-  const config = {
+  const config: ConfigConsumerProps = {
     ...parentContext,
   };
 
