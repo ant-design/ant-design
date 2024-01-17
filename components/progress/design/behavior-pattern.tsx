@@ -16,12 +16,12 @@ const BehaviorPattern: React.FC = () => (
             {
               id: '707000085',
               label: '了解任务进度',
-              link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-date',
+              link: 'components-progress-index-tab-design-demo-progress',
             },
             {
               id: '707000086',
               label: '了解任务状态',
-              link: 'components-date-picker-index-tab-design-zh-cn-demo-pick-week',
+              link: 'components-progress-index-tab-design-demo-status',
             },
           ],
         },
@@ -29,7 +29,7 @@ const BehaviorPattern: React.FC = () => (
           id: '200000005',
           label: '查看进度相关描述',
           targetType: 'extension',
-          link: '',
+          link: 'components-progress-index-tab-design-demo-info',
         },
       ],
     }}
