@@ -878,7 +878,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
-  it('work with holderRender', async () => {
+  it('should be able to config holderRender', async () => {
     ConfigProvider.config({
       holderRender: (children) => (
         <ConfigProvider prefixCls="test" iconPrefixCls="icon">
@@ -888,7 +888,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
     Modal.confirm({ content: 'hai' });
     await waitFakeTimer();
-    console.log(document.body.innerHTML);
     expect(document.querySelectorAll('.ant-modal-root')).toHaveLength(0);
     expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
