@@ -287,7 +287,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       {kids}
 
       {/* Styles: compact */}
-      {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
+      {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 
