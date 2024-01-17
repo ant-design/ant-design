@@ -34,7 +34,7 @@ describe('RangePicker', () => {
   it('should not throw error when value is reset to `[]`', () => {
     const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper1 = render(<RangePicker value={[birthday, birthday]} open />);
-    const wrapper2 = render(<RangePicker value={[] as unknown as RangeValue<dayjs.Dayjs>} open />);
+    const wrapper2 = render(<RangePicker value={[] as unknown as null} open />);
 
     expect(() => {
       openPicker(wrapper1);

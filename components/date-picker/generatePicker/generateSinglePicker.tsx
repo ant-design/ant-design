@@ -190,7 +190,7 @@ export default function generatePicker<DateType extends AnyObject>(
       );
     });
 
-    if (displayName) {
+    if (process.env.NODE_ENV !== 'production' && displayName) {
       Picker.displayName = displayName;
     }
 

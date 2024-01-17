@@ -19,7 +19,7 @@ import Select from '../../select';
 import Header, { type CalendarHeaderProps } from '../Header';
 
 const ref: {
-  calendarProps?: PickerPanelProps<any>;
+  calendarProps?: PickerPanelProps;
   calendarHeaderProps?: CalendarHeaderProps<unknown>;
 } = {};
 
@@ -37,7 +37,7 @@ jest.mock('rc-picker', () => {
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
-    PickerPanel: (props: PickerPanelProps<any>) => {
+    PickerPanel: (props: PickerPanelProps) => {
       ref.calendarProps = props;
       return <PickerPanelComponent {...props} />;
     },
