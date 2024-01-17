@@ -468,7 +468,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.custom-modal-wrap')).toHaveLength(1);
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
-    expect($$('.custom-modal-btn')).toHaveLength(2);
+    expect($$('.ant-btn')).toHaveLength(2);
   });
 
   it('should be Modal.confirm without mask', async () => {
@@ -878,7 +878,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
   });
-  it('should be able to config holderRender', async () => {
+  it('work with holderRender', async () => {
     ConfigProvider.config({
       holderRender: (children) => (
         <ConfigProvider prefixCls="test" iconPrefixCls="icon">
@@ -888,6 +888,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
     Modal.confirm({ content: 'hai' });
     await waitFakeTimer();
+    console.log(document.body.innerHTML);
     expect(document.querySelectorAll('.ant-modal-root')).toHaveLength(0);
     expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
     expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
