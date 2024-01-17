@@ -19,6 +19,9 @@ const genFontMapToken = (fontSize: number): FontMapToken => {
     fontSizeLG,
     fontSizeXL: fontSizes[3],
 
+    experimentSmallFontSize: fontSize,
+    experimentLargeFontSize: fontSizeLG,
+
     fontSizeHeading1: fontSizes[6],
     fontSizeHeading2: fontSizes[5],
     fontSizeHeading3: fontSizes[4],

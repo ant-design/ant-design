@@ -185,8 +185,8 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => Butto
 
 export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentFontSize = token.contentFontSize ?? token.fontSize;
-  const contentFontSizeSM = token.contentFontSizeSM ?? token.fontSize;
-  const contentFontSizeLG = token.contentFontSizeLG ?? token.fontSizeLG;
+  const contentFontSizeSM = token.contentFontSizeSM ?? token.experimentSmallFontSize;
+  const contentFontSizeLG = token.contentFontSizeLG ?? token.experimentLargeFontSize;
   const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
   const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
   const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);

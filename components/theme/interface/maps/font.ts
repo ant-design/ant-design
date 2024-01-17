@@ -22,6 +22,17 @@ export interface FontMapToken {
   fontSizeXL: number;
 
   /**
+   * @desc 小号字号
+   * @descEN Small Font Size
+   */
+  experimentSmallFontSize: number;
+  /**
+   * @desc 大号字号
+   * @descEN Large Font Size
+   */
+  experimentLargeFontSize: number;
+
+  /**
    * @nameZH 一级标题字号
    * @nameEN Font size of heading level 1
    * @desc H1 标签所使用的字号
