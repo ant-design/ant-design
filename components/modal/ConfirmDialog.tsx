@@ -276,8 +276,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const { rootPrefixCls, iconPrefixCls, direction, theme } = props;
 
-  console.log('Inner:', props.prefixCls);
-
   return (
     <ConfigProvider
       prefixCls={rootPrefixCls}
