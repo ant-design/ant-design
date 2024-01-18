@@ -17413,7 +17413,7 @@ exports[`ConfigProvider components List configProvider 1`] = `
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -17465,7 +17465,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -17517,7 +17517,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
                 class="config-avatar config-avatar-lg config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -17569,7 +17569,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
                 class="config-avatar config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -17621,7 +17621,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
                 class="config-avatar config-avatar-sm config-avatar-circle config-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -17673,7 +17673,7 @@ exports[`ConfigProvider components List normal 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -17725,7 +17725,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
                 class="ant-avatar ant-avatar-circle ant-avatar-image"
               >
                 <img
-                  src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=9"
                 />
               </span>
             </div>
@@ -24471,7 +24471,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -24659,7 +24659,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -24786,7 +24786,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -24913,7 +24913,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -25040,7 +25040,7 @@ exports[`ConfigProvider components Select normal 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -25167,7 +25167,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto;"
+          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
         >
           <div>
             <div
@@ -41395,7 +41395,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -41591,7 +41591,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -41726,7 +41726,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -41861,7 +41861,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -41996,7 +41996,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
@@ -42131,7 +42131,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
           >
             <div
               class="prefix-TreeSelect-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto;"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
             >
               <div>
                 <div
