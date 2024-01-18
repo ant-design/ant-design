@@ -64,7 +64,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      getContainer: getContainer || getContextPopupContainer,
+      getContainer:
+        getContainer || getContainer === false ? getContainer : getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
