@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, Flex, Typography } from 'antd';
+import { Alert, Flex, Typography } from 'antd';
 
 const Demo = () => {
   const [expandA, setExpandA] = React.useState(false);
