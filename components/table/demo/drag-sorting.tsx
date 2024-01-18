@@ -1,14 +1,14 @@
+import React, { useEffect, useRef, useState } from 'react';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers';
 import {
-  SortableContext,
   arrayMove,
+  SortableContext,
   useSortable,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -39,19 +39,37 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
 }
 
 const Row = (props: RowProps) => {
+  const trRef = useRef<HTMLTableRowElement | null>(null);
+
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: props['data-row-key'],
   });
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
+    transform: CSS.Translate.toString(transform),
     transition,
     cursor: 'move',
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
-  return <tr {...props} ref={setNodeRef} style={style} {...attributes} {...listeners} />;
+  // https://github.com/ant-design/ant-design/issues/45847
+  useEffect(() => {
+    trRef.current!.closest('table')!.style.overflow = isDragging ? 'hidden' : '';
+  }, [isDragging]);
+
+  return (
+    <tr
+      {...props}
+      ref={(ref) => {
+        trRef.current = ref;
+        setNodeRef(ref);
+      }}
+      style={style}
+      {...attributes}
+      {...listeners}
+    />
+  );
 };
 
 const App: React.FC = () => {

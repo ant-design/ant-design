@@ -1,3 +1,4 @@
+import React, { useEffect, useRef, useState } from 'react';
 import { MenuOutlined } from '@ant-design/icons';
 import type { DragEndEvent } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
@@ -9,7 +10,6 @@ import {
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import React, { useState } from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
@@ -43,6 +43,8 @@ interface RowProps extends React.HTMLAttributes<HTMLTableRowElement> {
 }
 
 const Row = ({ children, ...props }: RowProps) => {
+  const trRef = useRef<HTMLTableRowElement | null>(null);
+
   const {
     attributes,
     listeners,
@@ -57,13 +59,26 @@ const Row = ({ children, ...props }: RowProps) => {
 
   const style: React.CSSProperties = {
     ...props.style,
-    transform: CSS.Transform.toString(transform && { ...transform, scaleY: 1 }),
+    transform: CSS.Translate.toString(transform),
     transition,
     ...(isDragging ? { position: 'relative', zIndex: 9999 } : {}),
   };
 
+  // https://github.com/ant-design/ant-design/issues/45847
+  useEffect(() => {
+    trRef.current!.closest('table')!.style.overflow = isDragging ? 'hidden' : '';
+  }, [isDragging]);
+
   return (
-    <tr {...props} ref={setNodeRef} style={style} {...attributes}>
+    <tr
+      {...props}
+      ref={(ref) => {
+        trRef.current = ref;
+        setNodeRef(ref);
+      }}
+      style={style}
+      {...attributes}
+    >
       {React.Children.map(children, (child) => {
         if ((child as React.ReactElement).key === 'sort') {
           return React.cloneElement(child as React.ReactElement, {
