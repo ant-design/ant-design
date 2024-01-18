@@ -17,6 +17,26 @@ demo:
 - 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio-cn/) 是更好的选择。
 - 如果你在寻找一个可输可选的输入框，那你可能需要 [AutoComplete](/components/auto-complete-cn/)。
 
+### 5.11.0 用法升级
+
+<!-- prettier-ignore -->
+:::info
+在 5.11.0 版本后，我们提供了 `<Select options={[...]} />` 的简写方式，有更好的性能和更方便的数据组织方式，开发者不再需要自行拼接 JSX。
+同时我们废弃了原先的写法，你还是可以在 5.x 继续使用，但会在控制台看到警告，并会在 6.0 后移除。
+:::
+
+```jsx
+// >=5.11.0 可用，推荐的写法 ✅
+return <Select options={[{ value: 'sample', label: <span>sample</span> }]} />;
+
+// <5.11.0 可用，>=5.11.0 时不推荐 🙅🏻‍♀️
+return (
+  <Select onChange={onChange}>
+    <Select.Option value="sample">Sample</Select.Option>
+  </Select>
+);
+```
+
 ## 代码演示
 
 <!-- prettier-ignore -->
