@@ -24471,7 +24471,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24659,7 +24659,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24786,7 +24786,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -24913,7 +24913,7 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -25040,7 +25040,7 @@ exports[`ConfigProvider components Select normal 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -25167,7 +25167,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
       >
         <div
           class="rc-virtual-list-holder"
-          style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+          style="max-height: 256px; overflow-y: auto;"
         >
           <div>
             <div
@@ -41395,7 +41395,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41591,7 +41591,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41726,7 +41726,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41861,7 +41861,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize small
           >
             <div
               class="config-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -41996,7 +41996,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
           >
             <div
               class="ant-select-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
@@ -42131,7 +42131,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
           >
             <div
               class="prefix-TreeSelect-tree-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
