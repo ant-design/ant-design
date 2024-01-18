@@ -214,12 +214,12 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
       <span>
         Zhejiang
         <!-- -->
-         /
+         / 
       </span>
       <span>
         Hangzhou
         <!-- -->
-         /
+         / 
       </span>
       <span>
         West Lake

@@ -739,7 +739,7 @@ exports[`renders components/empty/demo/customize.tsx correctly 1`] = `
     class="ant-empty-description"
   >
     <span>
-      Customize
+      Customize 
       <a
         href="#API"
       >

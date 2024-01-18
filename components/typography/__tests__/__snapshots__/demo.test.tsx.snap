@@ -44,7 +44,7 @@ exports[`renders components/typography/demo/basic.tsx correctly 1`] = `
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -87,7 +87,7 @@ exports[`renders components/typography/demo/basic.tsx correctly 1`] = `
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -260,7 +260,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx correctly 1
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >
@@ -303,7 +303,7 @@ exports[`renders components/typography/demo/componentToken-debug.tsx correctly 1
   <div
     class="ant-typography"
   >
-    Press
+    Press 
     <span
       class="ant-typography"
     >
@@ -634,7 +634,7 @@ Array [
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
   >
-    This is a loooooooooooooooooooooooooooooooong editable text
+    This is a loooooooooooooooooooooooooooooooong editable text 
     <!-- -->
     with suffix.
     <div
@@ -1840,7 +1840,7 @@ Array [
         Sketch
       </code>
     </span>
-     and
+     and 
     <span
       class="ant-typography"
     >

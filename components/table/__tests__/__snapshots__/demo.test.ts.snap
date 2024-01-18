@@ -107,7 +107,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                         class="ant-space-item"
                       >
                         <a>
-                          Invite
+                          Invite 
                           <!-- -->
                           John Brown
                         </a>
@@ -162,7 +162,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                         class="ant-space-item"
                       >
                         <a>
-                          Invite
+                          Invite 
                           <!-- -->
                           Jim Green
                         </a>
@@ -222,7 +222,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                         class="ant-space-item"
                       >
                         <a>
-                          Invite
+                          Invite 
                           <!-- -->
                           Joe Black
                         </a>
@@ -13699,7 +13699,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                         class="ant-space-item"
                       >
                         <a>
-                          Invite
+                          Invite 
                           <!-- -->
                           Brown
                         </a>
@@ -13757,7 +13757,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                         class="ant-space-item"
                       >
                         <a>
-                          Invite
+                          Invite 
                           <!-- -->
                           Green
                         </a>
@@ -13820,7 +13820,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                         class="ant-space-item"
                       >
                         <a>
-                          Invite
+                          Invite 
                           <!-- -->
                           Black
                         </a>
@@ -15593,7 +15593,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -15679,7 +15679,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -15765,7 +15765,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16252,7 +16252,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16338,7 +16338,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16424,7 +16424,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16911,7 +16911,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -16997,7 +16997,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -17083,7 +17083,7 @@ Array [
                                               <a
                                                 class="ant-dropdown-trigger"
                                               >
-                                                More
+                                                More 
                                                 <span
                                                   aria-label="down"
                                                   class="anticon anticon-down"
@@ -18039,7 +18039,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                           class="ant-space-item"
                         >
                           <a>
-                            Invite
+                            Invite 
                             <!-- -->
                             John Brown
                           </a>
@@ -18096,7 +18096,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                           class="ant-space-item"
                         >
                           <a>
-                            Invite
+                            Invite 
                             <!-- -->
                             Jim Green
                           </a>
@@ -18158,7 +18158,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                           class="ant-space-item"
                         >
                           <a>
-                            Invite
+                            Invite 
                             <!-- -->
                             Joe Black
                           </a>
@@ -20957,7 +20957,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                   >
                     false
                     <!-- -->
-                    :
+                    : 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -21000,7 +21000,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                   >
                     false
                     <!-- -->
-                    :
+                    : 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -21043,7 +21043,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                   >
                     false
                     <!-- -->
-                    :
+                    : 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -21086,7 +21086,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                   >
                     false
                     <!-- -->
-                    :
+                    : 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -21129,7 +21129,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
                   >
                     false
                     <!-- -->
-                    :
+                    : 
                     <label
                       class="ant-checkbox-wrapper"
                     >
@@ -26113,7 +26113,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      CheckStrictly:
+      CheckStrictly: 
     </div>
     <div
       class="ant-space-item"
@@ -26422,7 +26422,7 @@ Array [
     <div
       class="ant-space-item"
     >
-      Fixed first column:
+      Fixed first column: 
     </div>
     <div
       class="ant-space-item"

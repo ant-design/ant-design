@@ -498,10 +498,10 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
       class="ant-select-selection-item"
     >
       <span>
-        Zhejiang /
+        Zhejiang / 
       </span>
       <span>
-        Hangzhou /
+        Hangzhou / 
       </span>
       <span>
         West Lake (
@@ -660,7 +660,7 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
 
 exports[`renders components/cascader/demo/custom-trigger.tsx extend context correctly 1`] = `
 <span>
-  Unselect
+  Unselect 
   <a>
     Change city
   </a>

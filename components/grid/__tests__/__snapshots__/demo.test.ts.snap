@@ -866,7 +866,7 @@ Array [
 exports[`renders components/grid/demo/playground.tsx correctly 1`] = `
 Array [
   <span>
-    Horizontal Gutter (px):
+    Horizontal Gutter (px): 
   </span>,
   <div
     style="width:50%"
@@ -963,7 +963,7 @@ Array [
     </div>
   </div>,
   <span>
-    Vertical Gutter (px):
+    Vertical Gutter (px): 
   </span>,
   <div
     style="width:50%"
