@@ -1385,7 +1385,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
           >
             <div
               class="rc-virtual-list-holder"
-              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+              style="max-height: 256px; overflow-y: auto;"
             >
               <div>
                 <div
