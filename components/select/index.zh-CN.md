@@ -29,7 +29,7 @@ demo:
 // >=5.11.0 可用，推荐的写法 ✅
 return <Select options={[{ value: 'sample', label: <span>sample</span> }]} />;
 
-// <5.11.0 可用，>=5.11.0 时不推荐 🙅🏻‍♀️
+// 5.x 都可用，>=5.11.0 时不推荐 🙅🏻‍♀️
 return (
   <Select onChange={onChange}>
     <Select.Option value="sample">Sample</Select.Option>
