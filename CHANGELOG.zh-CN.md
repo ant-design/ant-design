@@ -16,6 +16,15 @@ tag: vVERSION
 
 ---
 
+## 5.13.2
+
+`2024-01-19`
+
+- 🐞 修复 Image 组件 `preview.getContainer` 值为 false 时，内联渲染不生效的问题。[#47034](https://github.com/ant-design/ant-design/pull/47034) [@FEyudong](https://github.com/FEyudong)
+- 🐞 修复 Modal 静态方法配置 `prefixCls` 时，会改变所有子元素的 `prefixCls` 并导致动画丢失的问题。[#47010](https://github.com/ant-design/ant-design/pull/47010)
+- 🐞 修复 Space.Compact 与 DatePicker 一起使用导致 DatePicker 的确认按钮样式错误。[#46769](https://github.com/ant-design/ant-design/pull/46769) [@Fatpandac](https://github.com/Fatpandac)
+- 💄 优化 Tree 拖拽节点和展开收起按钮的鼠标 hover 样式。[#46974](https://github.com/ant-design/ant-design/pull/46974)
+
 ## 5.13.1
 
 `2024-01-15`
