@@ -55,7 +55,9 @@ export interface ListProps<T> {
   pagination?: PaginationConfig | false;
   prefixCls?: string;
   rowKey?: ((item: T) => React.Key) | keyof T;
+  /** @deprecated */
   renderItem?: (item: T, index: number) => React.ReactNode;
+  itemRender?: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -86,6 +88,7 @@ function List<T>({
   loading = false,
   rowKey,
   renderItem,
+  itemRender: customizeItemRender,
   locale,
   ...rest
 }: ListProps<T>) {
@@ -103,6 +106,8 @@ function List<T>({
     total: 0,
   };
 
+  const itemRender = customizeItemRender ?? renderItem;
+
   const triggerPaginationEvent =
     (eventName: 'onChange' | 'onShowSizeChange') => (page: number, pageSize: number) => {
       setPaginationCurrent(page);
@@ -117,7 +122,7 @@ function List<T>({
   const onPaginationShowSizeChange = triggerPaginationEvent('onShowSizeChange');
 
   const renderInnerItem = (item: T, index: number) => {
-    if (!renderItem) return null;
+    if (!itemRender) return null;
 
     let key;
 
@@ -133,7 +138,7 @@ function List<T>({
       key = `list-item-${index}`;
     }
 
-    return <React.Fragment key={key}>{renderItem(item, index)}</React.Fragment>;
+    return <React.Fragment key={key}>{itemRender(item, index)}</React.Fragment>;
   };
 
   const isSomethingAfterLastItem = () => !!(loadMore || pagination || footer);

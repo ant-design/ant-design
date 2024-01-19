@@ -49,7 +49,7 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => (
+      itemRender={(item) => (
         <List.Item>
           <Typography.Text mark>[ITEM]</Typography.Text> {item}
         </List.Item>
@@ -62,7 +62,7 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => <List.Item>{item}</List.Item>}
+      itemRender={(item) => <List.Item>{item}</List.Item>}
     />
     <Divider orientation="left">Large Size</Divider>
     <List
@@ -71,13 +71,13 @@ const App: React.FC = () => (
       footer={<div>Footer</div>}
       bordered
       dataSource={data}
-      renderItem={(item) => <List.Item>{item}</List.Item>}
+      itemRender={(item) => <List.Item>{item}</List.Item>}
     />
     <Divider orientation="left">Meta</Divider>
     <List
       itemLayout="horizontal"
       dataSource={data1}
-      renderItem={(item, index) => (
+      itemRender={(item, index) => (
         <List.Item>
           <List.Item.Meta
             avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}
@@ -91,7 +91,7 @@ const App: React.FC = () => (
     <List
       itemLayout="vertical"
       dataSource={data1}
-      renderItem={(item, index) => (
+      itemRender={(item, index) => (
         <List.Item>
           <List.Item.Meta
             avatar={<Avatar src={`https://api.dicebear.com/7.x/miniavs/svg?seed=${index}`} />}

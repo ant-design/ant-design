@@ -45,7 +45,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | loadMore | Shows a load more content | ReactNode | - |  |
 | locale | The i18n text including empty text | object | {emptyText: `No Data`} |  |
 | pagination | Pagination [config](/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
-| renderItem | Customize list item when using `dataSource` | (item) => ReactNode | - |  |
+| renderItem | Same with `itemRender`, will deprecated | (item) => ReactNode | - |  |
+| itemRender | Customize list item when using `dataSource` | (item) => ReactNode | - |  |
 | rowKey | Item's unique value, could be an Item's key which holds a unique value of type `React.Key` or function that receives Item and returns a `React.Key` | `keyof` T \| (item: T) => `React.Key` | `"key"` |  |
 | size | Size of list | `default` \| `large` \| `small` | `default` |  |
 | split | Toggles rendering of the split under the list item | boolean | true |  |

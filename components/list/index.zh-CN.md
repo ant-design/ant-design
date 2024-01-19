@@ -48,7 +48,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | loadMore | 加载更多 | ReactNode | - |  |
 | locale | 默认文案设置，目前包括空数据文案 | object | {emptyText: `暂无数据`} |  |
 | pagination | 对应的 `pagination` 配置，设置 false 不显示 | boolean \| object | false |  |
-| renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | (item) => ReactNode | - |  |
+| renderItem | 和`itemRender`相同，未来会被废弃 | (item) => ReactNode | - |  |
+| itemRender | 当使用 dataSource 时，可以用 `itemRender` 自定义渲染列表项 | (item) => ReactNode | - |  |
 | rowKey | 当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式 | `keyof` T \| (item: T) => `React.Key` | `"key"` |  |
 | size | list 的尺寸 | `default` \| `large` \| `small` | `default` |  |
 | split | 是否展示分割线 | boolean | true |  |

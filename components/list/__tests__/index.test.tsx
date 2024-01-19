@@ -15,11 +15,11 @@ describe('List', () => {
 
   it('locale not passed to internal div', async () => {
     const locale = { emptyText: 'Custom text' };
-    const renderItem: ListProps<any>['renderItem'] = (item) => <List.Item>{item}</List.Item>;
+    const itemRender: ListProps<any>['itemRender'] = (item) => <List.Item>{item}</List.Item>;
     const dataSource: ListProps<any>['dataSource'] = [];
 
     const { container } = render(
-      <List renderItem={renderItem} dataSource={dataSource} locale={locale} />,
+      <List itemRender={itemRender} dataSource={dataSource} locale={locale} />,
     );
     expect(container.querySelector('div.ant-list')?.getAttribute('locale')).toBe(null);
   });

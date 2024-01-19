@@ -33,17 +33,17 @@ const App: React.FC = () => (
     <List
       grid={{ gutter: 16, column: 4 }}
       dataSource={data}
-      renderItem={(item) => (
+      itemRender={(item) => (
         <List.Item>
           <Card title={item.title}>Card content</Card>
         </List.Item>
       )}
     />
-    <List grid={{ gutter: 16, column: 4 }} dataSource={data} renderItem={() => <ListItem />} />
+    <List grid={{ gutter: 16, column: 4 }} dataSource={data} itemRender={() => <ListItem />} />
     <List
       grid={{ gutter: 16, column: 4 }}
       dataSource={data}
-      renderItem={() => (
+      itemRender={() => (
         <>
           <ListItem />
           <div />
