@@ -456,7 +456,7 @@ const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     fontSize: token.contentFontSize,
     lineHeight: token.contentLineHeight,
   });
-  return genSizeButtonStyle(baseToken);
+  return genSizeButtonStyle(baseToken, token.componentCls);
 };
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
