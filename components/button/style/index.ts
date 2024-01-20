@@ -393,7 +393,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
 };
 
 // =============================== Size ===============================
-const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSSInterpolation => {
+const genButtonStyle = (token: ButtonToken, prefixCls: string = ''): CSSInterpolation => {
   const {
     componentCls,
     controlHeight,
@@ -408,9 +408,8 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
   const iconOnlyCls = `${componentCls}-icon-only`;
 
   return [
-    // Size
     {
-      [`${sizePrefixCls}`]: {
+      [`${prefixCls}`]: {
         fontSize,
         lineHeight,
         height: controlHeight,
@@ -443,10 +442,10 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 
     // Shape - patch prefixCls again to override solid border radius style
     {
-      [`${componentCls}${componentCls}-circle${sizePrefixCls}`]: genCircleButtonStyle(token),
+      [`${componentCls}${componentCls}-circle${prefixCls}`]: genCircleButtonStyle(token),
     },
     {
-      [`${componentCls}${componentCls}-round${sizePrefixCls}`]: genRoundButtonStyle(token),
+      [`${componentCls}${componentCls}-round${prefixCls}`]: genRoundButtonStyle(token),
     },
   ];
 };
@@ -456,7 +455,7 @@ const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     fontSize: token.contentFontSize,
     lineHeight: token.contentLineHeight,
   });
-  return genSizeButtonStyle(baseToken, token.componentCls);
+  return genButtonStyle(baseToken, token.componentCls);
 };
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
@@ -471,7 +470,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
 
-  return genSizeButtonStyle(smallToken, `${token.componentCls}-sm`);
+  return genButtonStyle(smallToken, `${token.componentCls}-sm`);
 };
 
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
@@ -485,7 +484,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });
 
-  return genSizeButtonStyle(largeToken, `${token.componentCls}-lg`);
+  return genButtonStyle(largeToken, `${token.componentCls}-lg`);
 };
 
 const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
