@@ -19,7 +19,7 @@ const localeValues: Locale = {
     filterReset: 'リセット',
     filterEmptyText: 'フィルターなし',
     filterCheckall: 'すべてを選択',
-    filterSearchPlaceholder: 'Search in filters',
+    filterSearchPlaceholder: 'フィルターで検索',
     selectAll: 'ページ単位で選択',
     selectInvert: 'ページ単位で反転',
     selectNone: 'クリア',
