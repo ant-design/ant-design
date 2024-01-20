@@ -30,6 +30,10 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       userSelect: 'none',
       touchAction: 'manipulation',
       color: token.colorText,
+      fontSize: token.fontSize,
+      lineHeight: token.lineHeight,
+      height: token.controlHeight,
+      padding: `${unit(token.buttonPaddingVertical!)} ${unit(token.buttonPaddingHorizontal!)}`,
       borderRadius: token.borderRadius,
 
       '&:disabled > *': {
