@@ -30,6 +30,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       userSelect: 'none',
       touchAction: 'manipulation',
       color: token.colorText,
+      borderRadius: token.borderRadius,
 
       '&:disabled > *': {
         pointerEvents: 'none',
