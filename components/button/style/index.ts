@@ -410,7 +410,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
   return [
     // Size
     {
-      [`${componentCls}${sizePrefixCls}`]: {
+      [`${sizePrefixCls}`]: {
         fontSize,
         lineHeight,
         height: controlHeight,
