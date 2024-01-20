@@ -146,7 +146,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             classNames={{
               ...modal?.classNames,
               ...modalClassNames,
-              wrapper: `${wrapClassNameExtended} ${modalClassNames?.wrapper}`,
+              wrapper: `${wrapClassNameExtended} ${modalClassNames?.wrapper || ''}`,
             }}
             styles={{
               ...modal?.styles,
