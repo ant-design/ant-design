@@ -51,6 +51,36 @@ export interface ComponentToken {
    */
   dangerColor: string;
   /**
+   * @desc 默认按钮悬浮态背景色
+   * @descEN Background color of default button when hover
+   */
+  defaultBgHover: string;
+  /**
+   * @desc 默认按钮悬浮态文本颜色
+   * @descEN Text color of default button when hover
+   */
+  defaultColorHover: string;
+  /**
+   * @desc 默认按钮悬浮态边框颜色
+   * @descEN Border color of default button
+   */
+  defaultBorderColorHover: string;
+  /**
+   * @desc 默认按钮激活态背景色
+   * @descEN Background color of default button when active
+   */
+  defaultBgActive: string;
+  /**
+   * @desc 默认按钮激活态边框颜色
+   * @descEN Text color of default button when active
+   */
+  defaultColorActive: string;
+  /**
+   * @desc 默认按钮激活态边框颜色
+   * @descEN Border color of default button when active
+   */
+  defaultBorderColorActive: string;
+  /**
    * @desc 禁用状态边框颜色
    * @descEN Border color of disabled button
    */
@@ -189,6 +219,12 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
   const contentLineHeight = token.contentLineHeight ?? getLineHeight(contentFontSize);
   const contentLineHeightSM = token.contentLineHeightSM ?? getLineHeight(contentFontSizeSM);
   const contentLineHeightLG = token.contentLineHeightLG ?? getLineHeight(contentFontSizeLG);
+  const defaultBgHover = token.defaultBgHover ?? token.colorBgContainer;
+  const defaultColorHover = token.defaultColorHover ?? token.colorPrimaryHover;
+  const defaultBorderColorHover = token.defaultBorderColorHover ?? defaultColorHover;
+  const defaultBgActive = token.defaultBgActive ?? token.colorBgContainer;
+  const defaultColorActive = token.defaultColorActive ?? token.colorPrimaryActive;
+  const defaultBorderColorActive = token.defaultBorderColorActive ?? token.colorPrimaryActive;
 
   return {
     fontWeight: 400,
@@ -214,6 +250,12 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultBg: token.colorBgContainer,
     defaultBorderColor: token.colorBorder,
     defaultBorderColorDisabled: token.colorBorder,
+    defaultBgHover,
+    defaultColorHover,
+    defaultBorderColorHover,
+    defaultBgActive,
+    defaultColorActive,
+    defaultBorderColorActive,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,
