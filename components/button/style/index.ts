@@ -30,11 +30,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       userSelect: 'none',
       touchAction: 'manipulation',
       color: token.colorText,
-      fontSize: token.fontSize,
-      lineHeight: token.lineHeight,
-      height: token.controlHeight,
-      padding: `${unit(token.buttonPaddingVertical!)} ${unit(token.buttonPaddingHorizontal!)}`,
-      borderRadius: token.borderRadius,
 
       '&:disabled > *': {
         pointerEvents: 'none',
@@ -456,13 +451,13 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
   ];
 };
 
-const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) =>
-  genSizeButtonStyle(
-    mergeToken<ButtonToken>(token, {
-      fontSize: token.contentFontSize,
-      lineHeight: token.contentLineHeight,
-    }),
-  );
+const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+  const baseToken = mergeToken<ButtonToken>(token, {
+    fontSize: token.contentFontSize,
+    lineHeight: token.contentLineHeight,
+  });
+  return genSizeButtonStyle(baseToken);
+};
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const smallToken = mergeToken<ButtonToken>(token, {
@@ -515,8 +510,8 @@ export default genStyleHooks(
       genSharedButtonStyle(buttonToken),
 
       // Size
-      genSizeSmallButtonStyle(buttonToken),
       genSizeBaseButtonStyle(buttonToken),
+      genSizeSmallButtonStyle(buttonToken),
       genSizeLargeButtonStyle(buttonToken),
 
       // Block
