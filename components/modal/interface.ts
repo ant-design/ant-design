@@ -52,7 +52,7 @@ export interface ModalProps extends ModalCommonProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
+  classNames?: NonNullable<DialogProps['classNames']>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   /** @deprecated Please use `styles.body` instead */
