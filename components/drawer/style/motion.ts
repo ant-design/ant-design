@@ -65,7 +65,7 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
 
       // ======================= Panel ========================
       [`${componentCls}-panel-motion`]: (['left', 'right', 'top', 'bottom'] as const).reduce(
-        (obj, direction: Direction) => ({
+        (obj, direction) => ({
           ...obj,
           [`&-${direction}`]: getPanelMotionStyles(direction, motionDurationSlow),
         }),
