@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 18
 
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
@@ -42,7 +42,7 @@ jobs:
 
       - name: Download success lock file as `success.lock`
         if: ${{ failure() }}
-        uses: actions/cache/restore@v3
+        uses: actions/cache/restore@v4
         with:
           path: ~tmpProj/yarn.lock
           key: primes-${{ runner.os }}-${{ github.run_id }}
