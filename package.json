@@ -180,7 +180,7 @@
     "@emotion/server": "^11.11.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.1.1",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
-    "@qixian.cs/github-contributors-list": "^1.1.0",
+    "@qixian.cs/github-contributors-list": "^2.0.0",
     "@size-limit/file": "^11.0.1",
     "@stackblitz/sdk": "^1.9.0",
     "@testing-library/dom": "^9.3.4",
