@@ -118,7 +118,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  |
-| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
+| components | Override default table elements. Not support `virtual` | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
@@ -141,7 +141,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
-| virtual | Support virtual list | boolean | - | 5.9.0 |
+| virtual | Support virtual list. Not support `components` when enabled | boolean | - | 5.9.0 |
 
 ### Table ref
 
