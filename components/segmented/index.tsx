@@ -118,12 +118,9 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
 });
 
 const Segmented = InternalSegmented as (<ValueType>(
-  props: SegmentedProps<ValueType> & {
-    ref?: React.ForwardedRef<HTMLDivElement>;
-  },
-) => ReturnType<typeof InternalSegmented>) & {
-  displayName?: string;
-};
+  props: SegmentedProps<ValueType> & React.RefAttributes<HTMLDivElement>,
+) => ReturnType<typeof InternalSegmented>) &
+  Pick<React.FC, 'displayName'>;
 
 if (process.env.NODE_ENV !== 'production') {
   Segmented.displayName = 'Segmented';
