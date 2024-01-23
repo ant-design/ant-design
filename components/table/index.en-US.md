@@ -385,3 +385,7 @@ Fixed column use `z-index` to make it over other columns. You will find sometime
 ### How to custom render Table Checkbox（For example, adding Tooltip）?
 
 Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
+
+### Why does components.body.wrapper crash when virtual is enabled?
+
+Because `rc-virtual-list` needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom

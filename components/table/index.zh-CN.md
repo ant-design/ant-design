@@ -385,3 +385,7 @@ return <Table rowKey={(record) => record.uid} />;
 ### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
 
 自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
+
+### 为什么 components.body.wrapper 在 virtual 开启时会崩溃？
+
+因为 `rc-virtual-list` 需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。
