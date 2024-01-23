@@ -113,11 +113,15 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const showRiddleButton = useShowRiddleButton();
 
   const previewDemo = useRef<React.ReactNode>(null);
+  const demoContainer = useRef<HTMLElement>(null);
   const {
     node: liveDemoNode,
     error: liveDemoError,
     setSource: setLiveDemoSource,
-  } = useLiveDemo(asset.id);
+  } = useLiveDemo(asset.id, {
+    iframe: Boolean(iframe),
+    containerRef: demoContainer,
+  });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
   const riddleIconRef = useRef<HTMLFormElement>(null);
@@ -367,7 +371,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle}>
+      <section className="code-box-demo" style={codeBoxDemoStyle} ref={demoContainer}>
         {liveDemoNode || (
           <ErrorBoundary>
             <React.StrictMode>{previewDemo.current}</React.StrictMode>
