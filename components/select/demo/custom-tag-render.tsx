@@ -1,10 +1,12 @@
 import React from 'react';
-import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
 import { Select, Tag } from 'antd';
+import type { SelectProps } from 'antd';
+
+type TagRender = SelectProps['tagRender'];
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 
-const tagRender = (props: CustomTagProps) => {
+const tagRender: TagRender = (props) => {
   const { label, value, closable, onClose } = props;
   const onPreventMouseDown = (event: React.MouseEvent<HTMLSpanElement>) => {
     event.preventDefault();

@@ -16,6 +16,72 @@ tag: vVERSION
 
 ---
 
+## 5.13.2
+
+`2024-01-19`
+
+- 🐞 Fix that the inline rendering does not take effect when the `preview.getContainer` value for Image is false. [#47034](https://github.com/ant-design/ant-design/pull/47034) [@FEyudong](https://github.com/FEyudong)
+- 🐞 Fix Modal static function with `prefixCls` breaks children other component `prefixCls` and thus bring the motion miss. [#47010](https://github.com/ant-design/ant-design/pull/47010)
+- 🐞 Fix ok button of the DatePicker becomes compacted when used with Space.Compact. [#46769](https://github.com/ant-design/ant-design/pull/46769) [@Fatpandac](https://github.com/Fatpandac)
+- 💄 Optimize Tree draggable node cursor style and collaspe icon hover style. [#46974](https://github.com/ant-design/ant-design/pull/46974)
+
+## 5.13.1
+
+`2024-01-15`
+
+- 🐞 Fix Checkbox type error with `@types/react` version 16 or 17. [#46962](https://github.com/ant-design/ant-design/pull/46962) [@crazyair](https://github.com/crazyair)
+
+## 5.13.0
+
+`2024-01-13`
+
+- 🔥 Form support `variant` to control components variant inside. [#46573](https://github.com/ant-design/ant-design/pull/46573)
+  - 🆕 Cascader、DatePicker、Select、TreeSelect、Input、InputNumber、Mentions support `variant` props. [#46568](https://github.com/ant-design/ant-design/pull/46568) [#46549](https://github.com/ant-design/ant-design/pull/46549) [#46435](https://github.com/ant-design/ant-design/pull/46435) [#46381](https://github.com/ant-design/ant-design/pull/46381) [#46379](https://github.com/ant-design/ant-design/pull/46379) [#46337](https://github.com/ant-design/ant-design/pull/46337)
+- 🆕 QRCode support `status` adds a new scanned option. [#46704](https://github.com/ant-design/ant-design/pull/46704)
+- 🆕 Table support `hidden` to set hidden columns. [#46957](https://github.com/ant-design/ant-design/pull/46957) [@madocto](https://github.com/madocto)
+- 🆕 Select support the `maxCount`, which is used to set the maximum selectable value. [#46667](https://github.com/ant-design/ant-design/pull/46667)
+- 🆕 Mentions support `allowClear` for setting the clearing function. [#46396](https://github.com/ant-design/ant-design/pull/46396) [@yociduo](https://github.com/yociduo)
+- 🆕 ColorPicker support displaying cleared status. [#45993](https://github.com/ant-design/ant-design/pull/45993)
+- 🆕 Drawer adds `styles.wrapper` and discards the `contentWrapperStyle` `drawerStyle` `maskStyle` attributes, and simplifies the dom structure. [#46858](https://github.com/ant-design/ant-design/pull/46858)
+- Tour
+  - 🆕 Tour support `disabledInteraction`, which is used to disable the interactive behavior of the highlighted area. [#46304](https://github.com/ant-design/ant-design/pull/46304)
+  - 🐞 Fixed the issue where modifying `pointAtCenter` under the `arrow` attribute of the Tour component does not take effect. [#46301](https://github.com/ant-design/ant-design/pull/46301)
+- Tabs
+  - 🆕 Tabs support the `indicator: { align: xxx }` attribute, which is used to set the alignment of the Tabs indicator bar. [#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🛠 Tabs deprecated the `indicatorSize` attribute and replaced it with `indicator: { size: xxx }`. [#46786](https://github.com/ant-design/ant-design/pull/46786)
+- ConfigProvider
+  - 🆕 ConfigProvider adds `ConfigProvider.config` to support `holderRender` for `message` `modal` `notification` static method setting `Provider`. [#46596](https://github.com/ant-design/ant-design/pull/46596)
+  - 🆕 ConfigProvider support the `indicator: { align: xxx }` attribute, which is used to set the alignment of the Tabs indicator bar. [#46786](https://github.com/ant-design/ant-design/pull/46786)
+  - 🛠 ConfigProvider deprecated the Tabs `indicatorSize` attribute and replaced it with `indicator: { size: xxx }`. [#46786](https://github.com/ant-design/ant-design/pull/46786)
+- 🐞 Fix the problem of Segmented content being obscured in `hover` and `active`. [#46925](https://github.com/ant-design/ant-design/pull/46925) [@madocto](https://github.com/madocto)
+- 🐞 Fixed the problem that the customized font size of Checkbox does not take effect under Form. [#46904](https://github.com/ant-design/ant-design/pull/46904)
+- 🐞 Fixed the issue where the Radio component configuration `title` did not take effect. [#46809](https://github.com/ant-design/ant-design/pull/46809)
+- 🐞 Fixed Input hover style in css var mode. [#46946](https://github.com/ant-design/ant-design/pull/46946)
+- 💄 Fixed the problem of abnormal display of Dropdown style under multi-level menu. [#46888](https://github.com/ant-design/ant-design/pull/46888)
+- 🛠 Refactor the popup panel logic of the ColorPicker component to avoid style conflicts when customizing using `panelRender`. [#46327](https://github.com/ant-design/ant-design/pull/46327)
+- TypeScript
+  - 🆕 MISC: Export `GetProp` `GetProps` `GetRef` tool methods to facilitate developers to obtain unexported type definitions. [#46923](https://github.com/ant-design/ant-design/pull/46923)
+  - 🆕 Checkbox.Group now supports generic configurable `options.value`. [#46423](https://github.com/ant-design/ant-design/pull/46423) [@daledelv](https://github.com/daledelv)
+- 🌈 Token
+  - 🆕 Button support the `contentLineHeight` series of tokens. [#46936](https://github.com/ant-design/ant-design/pull/46936)
+  - 🆕 Input support `inputFontSize` token. [#46875](https://github.com/ant-design/ant-design/pull/46875)
+  - 🆕 Menu support `darkPopupBg` token. [#46618](https://github.com/ant-design/ant-design/pull/46618)
+  - 🆕 Segmented support `trackPadding` and `trackBg` token. [#46674](https://github.com/ant-design/ant-design/pull/46674)
+  - 🐞 Fix the problem that `paddingBlock` does not take effect after customizing `contentFontSize` token in Button component. [#46901](https://github.com/ant-design/ant-design/pull/46901)
+  - 🐞 Fixed the issue where the InputNumber component cannot customize the `padding` token. [#46878](https://github.com/ant-design/ant-design/pull/46878)
+- 🌐 Localization
+  - 🇩🇰 Improve da_DK Form local. [#46493](https://github.com/ant-design/ant-design/pull/46493) [@Eloi0424](https://github.com/Eloi0424)
+
+## 5.12.8
+
+`2024-01-05`
+
+- 🐞 Fix Upload.Dragger not align center and focus ring style. [#46810](https://github.com/ant-design/ant-design/pull/46810)
+- 🐞 Fix Popconfirm config empty `okText` and `cancelText` will not fallback to locale text. [#46812](https://github.com/ant-design/ant-design/pull/46812)
+- 🐞 Fix Progress that line border-radius cannot be overrided. [#46789](https://github.com/ant-design/ant-design/pull/46789)
+- 🐞 Fix Typography without `children` has extra `margin-left` when `copyable` is true. [#46748](https://github.com/ant-design/ant-design/pull/46748)
+- 🐞 Fix Typography copied icon color. [#46748](https://github.com/ant-design/ant-design/pull/46748)
+
 ## 5.12.7
 
 `2024-01-02`

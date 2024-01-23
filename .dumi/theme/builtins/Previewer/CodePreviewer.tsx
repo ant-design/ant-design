@@ -2,13 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, Flex, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, LiveContext, useSiteData } from 'dumi';
+import { FormattedMessage, useSiteData, useLiveDemo } from 'dumi';
 import LZString from 'lz-string';
-
-import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -21,7 +19,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
+import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
 
@@ -108,14 +106,22 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
   const location = useLocation();
 
-  const { enabled: liveEnabled } = useContext(LiveContext);
-
   const { styles } = useStyle();
 
-  const entryCode = asset.dependencies['index.tsx'].value;
+  const entryName = 'index.tsx';
+  const entryCode = asset.dependencies[entryName].value;
   const showRiddleButton = useShowRiddleButton();
 
-  const liveDemo = useRef<React.ReactNode>(null);
+  const previewDemo = useRef<React.ReactNode>(null);
+  const demoContainer = useRef<HTMLElement>(null);
+  const {
+    node: liveDemoNode,
+    error: liveDemoError,
+    setSource: setLiveDemoSource,
+  } = useLiveDemo(asset.id, {
+    iframe: Boolean(iframe),
+    containerRef: demoContainer,
+  });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
   const riddleIconRef = useRef<HTMLFormElement>(null);
@@ -153,8 +159,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
 
-  if (!liveDemo.current) {
-    liveDemo.current = iframe ? (
+  if (!previewDemo.current) {
+    previewDemo.current = iframe ? (
       <BrowserFrame>
         <iframe
           src={demoUrl}
@@ -365,13 +371,11 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle}>
-        {!liveEnabled ? (
+      <section className="code-box-demo" style={codeBoxDemoStyle} ref={demoContainer}>
+        {liveDemoNode || (
           <ErrorBoundary>
-            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+            <React.StrictMode>{previewDemo.current}</React.StrictMode>
           </ErrorBoundary>
-        ) : (
-          <LiveDemo />
         )}
       </section>
       <section className="code-box-meta markdown">
@@ -386,7 +390,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
         {description && (
           <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
         )}
-        <Space wrap size="middle" className="code-box-actions">
+        <Flex wrap="wrap" gap="middle" className="code-box-actions">
           {showOnlineUrl && (
             <Tooltip title={<FormattedMessage id="app.demo.online" />}>
               <a
@@ -505,7 +509,7 @@ createRoot(document.getElementById('container')).render(<Demo />);
               />
             </div>
           </Tooltip>
-        </Space>
+        </Flex>
       </section>
       {codeExpand && (
         <section className={highlightClass} key="code">
@@ -513,7 +517,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
             sourceCode={entryCode}
             jsxCode={jsx}
             styleCode={style}
+            error={liveDemoError}
+            entryName={entryName}
             onCodeTypeChange={setCodeType}
+            onSourceChange={setLiveDemoSource}
           />
           <div
             tabIndex={0}

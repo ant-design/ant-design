@@ -43,7 +43,7 @@ export interface AlertProps {
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;

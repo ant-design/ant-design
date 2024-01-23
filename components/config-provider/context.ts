@@ -50,7 +50,7 @@ export interface ThemeConfig {
   cssVar?:
     | {
         /**
-         * Prefix for css variable, default to `antd`.
+         * Prefix for css variable, default to `ant`.
          */
         prefix?: string;
         /**
@@ -175,7 +175,7 @@ export interface ConfigConsumerProps {
   tag?: ComponentStyleConfig;
   table?: ComponentStyleConfig;
   card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
+  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;

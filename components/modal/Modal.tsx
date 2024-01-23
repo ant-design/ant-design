@@ -144,9 +144,9 @@ const Modal: React.FC<ModalProps> = (props) => {
             className={classNames(hashId, className, modal?.className)}
             style={{ ...modal?.style, ...style }}
             classNames={{
-              wrapper: wrapClassNameExtended,
               ...modal?.classNames,
               ...modalClassNames,
+              wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
             }}
             styles={{
               ...modal?.styles,

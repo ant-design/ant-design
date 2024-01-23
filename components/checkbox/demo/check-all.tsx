@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Checkbox, Divider } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import type { CheckboxProps, GetProp } from 'antd';
+
+type CheckboxValueType = GetProp<typeof Checkbox.Group, 'value'>[number];
 
 const CheckboxGroup = Checkbox.Group;
 
@@ -18,7 +19,7 @@ const App: React.FC = () => {
     setCheckedList(list);
   };
 
-  const onCheckAllChange = (e: CheckboxChangeEvent) => {
+  const onCheckAllChange: CheckboxProps['onChange'] = (e) => {
     setCheckedList(e.target.checked ? plainOptions : []);
   };
 

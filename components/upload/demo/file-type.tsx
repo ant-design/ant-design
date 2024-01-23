@@ -9,9 +9,11 @@ import {
   PlusOutlined,
 } from '@ant-design/icons';
 import { Modal, Upload } from 'antd';
-import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
+import type { GetProp, UploadFile, UploadProps } from 'antd';
 
-const getBase64 = (file: RcFile): Promise<string> =>
+type FileType = Parameters<GetProp<UploadProps, 'beforeUpload'>>[0];
+
+const getBase64 = (file: FileType): Promise<string> =>
   new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -56,7 +58,7 @@ const App: React.FC = () => {
 
   const handlePreview = async (file: UploadFile) => {
     if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj as RcFile);
+      file.preview = await getBase64(file.originFileObj as FileType);
     }
 
     setPreviewOpen(true);

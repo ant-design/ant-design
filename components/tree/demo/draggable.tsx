@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/es/tree';
+import type { TreeDataNode, TreeProps } from 'antd';
 
 const x = 3;
 const y = 2;
 const z = 1;
-const defaultData: DataNode[] = [];
+const defaultData: TreeDataNode[] = [];
 
-const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) => {
+const generateData = (_level: number, _preKey?: React.Key, _tns?: TreeDataNode[]) => {
   const preKey = _preKey || '0';
   const tns = _tns || defaultData;
 
@@ -45,12 +45,12 @@ const App: React.FC = () => {
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');
-    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
+    const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]); // the drop position relative to the drop node, inside 0, top -1, bottom 1
 
     const loop = (
-      data: DataNode[],
+      data: TreeDataNode[],
       key: React.Key,
-      callback: (node: DataNode, i: number, data: DataNode[]) => void,
+      callback: (node: TreeDataNode, i: number, data: TreeDataNode[]) => void,
     ) => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].key === key) {
@@ -64,7 +64,7 @@ const App: React.FC = () => {
     const data = [...gData];
 
     // Find dragObject
-    let dragObj: DataNode;
+    let dragObj: TreeDataNode;
     loop(data, dragKey, (item, index, arr) => {
       arr.splice(index, 1);
       dragObj = item;
@@ -77,28 +77,18 @@ const App: React.FC = () => {
         // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
         item.children.unshift(dragObj);
       });
-    } else if (
-      ((info.node as any).props.children || []).length > 0 && // Has children
-      (info.node as any).props.expanded && // Is expanded
-      dropPosition === 1 // On the bottom gap
-    ) {
-      loop(data, dropKey, (item) => {
-        item.children = item.children || [];
-        // where to insert. New item was inserted to the start of the array in this example, but can be anywhere
-        item.children.unshift(dragObj);
-        // in previous version, we use item.children.push(dragObj) to insert the
-        // item to the tail of the children
-      });
     } else {
-      let ar: DataNode[] = [];
+      let ar: TreeDataNode[] = [];
       let i: number;
       loop(data, dropKey, (_item, index, arr) => {
         ar = arr;
         i = index;
       });
       if (dropPosition === -1) {
+        // Drop on the top of the drop node
         ar.splice(i!, 0, dragObj!);
       } else {
+        // Drop on the bottom of the drop node
         ar.splice(i! + 1, 0, dragObj!);
       }
     }

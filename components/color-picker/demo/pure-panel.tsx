@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { ColorPicker } from 'antd';
-import type { ColorPickerProps } from 'antd/es/color-picker';
+import type { ColorPickerProps, GetProp } from 'antd';
 
-const PureRenderColorPicker = ColorPicker._InternalPanelDoNotUseOrYouWillBeFired;
+const { _InternalPanelDoNotUseOrYouWillBeFired: PureRenderColorPicker } = ColorPicker;
 
-export default () => {
-  const [color, setColor] = useState<ColorPickerProps['value']>('#1677ff');
+type Color = GetProp<ColorPickerProps, 'value'>;
 
+const Demo: React.FC = () => {
+  const [color, setColor] = useState<Color>('#1677ff');
   return (
     <div style={{ paddingLeft: 100 }}>
       <PureRenderColorPicker value={color} onChange={setColor} />
     </div>
   );
 };
+
+export default Demo;

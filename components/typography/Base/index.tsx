@@ -32,7 +32,7 @@ interface CopyConfig {
   text?: string;
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
-  tooltips?: boolean | React.ReactNode;
+  tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
 }
 
@@ -40,7 +40,7 @@ interface EditConfig {
   text?: string;
   editing?: boolean;
   icon?: React.ReactNode;
-  tooltip?: boolean | React.ReactNode;
+  tooltip?: React.ReactNode;
   onStart?: () => void;
   onChange?: (value: string) => void;
   onCancel?: () => void;

@@ -1,3 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
-extendTest('dropdown');
+extendTest('dropdown', {
+  skip: ['sub-menu-debug.tsx'],
+});

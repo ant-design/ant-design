@@ -25,7 +25,9 @@ export interface PushState {
 }
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
-export interface DrawerProps extends RcDrawerProps, Omit<DrawerPanelProps, 'prefixCls'> {
+export interface DrawerProps
+  extends Omit<RcDrawerProps, 'maskStyle'>,
+    Omit<DrawerPanelProps, 'prefixCls'> {
   size?: sizeType;
 
   open?: boolean;
@@ -64,6 +66,9 @@ const Drawer: React.FC<DrawerProps> & {
     // Deprecated
     visible,
     afterVisibleChange,
+    maskStyle,
+    drawerStyle,
+    contentWrapperStyle,
 
     ...rest
   } = props;
@@ -100,6 +105,9 @@ const Drawer: React.FC<DrawerProps> & {
       ['headerStyle', 'styles.header'],
       ['bodyStyle', 'styles.body'],
       ['footerStyle', 'styles.footer'],
+      ['contentWrapperStyle', 'styles.wrapper'],
+      ['maskStyle', 'styles.mask'],
+      ['drawerStyle', 'styles.content'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -166,11 +174,18 @@ const Drawer: React.FC<DrawerProps> & {
             styles={{
               mask: {
                 ...rest.styles?.mask,
+                ...maskStyle,
                 ...drawer?.styles?.mask,
               },
               content: {
                 ...rest.styles?.content,
+                ...drawerStyle,
                 ...drawer?.styles?.content,
+              },
+              wrapper: {
+                ...rest.styles?.wrapper,
+                ...contentWrapperStyle,
+                ...drawer?.styles?.wrapper,
               },
             }}
             open={open ?? visible}
