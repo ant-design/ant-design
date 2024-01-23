@@ -513,10 +513,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
             sourceCode={entryCode}
             jsxCode={jsx}
             styleCode={style}
-            liveError={liveDemoError}
+            error={liveDemoError}
             entryName={entryName}
             onCodeTypeChange={setCodeType}
-            onSourceTranspile={setLiveDemoSource}
+            onSourceChange={setLiveDemoSource}
           />
           <div
             tabIndex={0}
