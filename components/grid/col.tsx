@@ -73,7 +73,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   // ===================== Size ======================
   const sizeStyle: Record<string, string> = {};
 
-  let sizeClassObj = {};
+  let sizeClassObj: Record<string, boolean | ColSpanType> = {};
   sizes.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
@@ -98,6 +98,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     // Responsive flex layout
     if (sizeProps.flex) {
+      sizeClassObj[`${prefixCls}-${size}-flex`] = true;
       sizeStyle[`--${prefixCls}-${size}-flex`] = parseFlex(sizeProps.flex);
     }
   });
