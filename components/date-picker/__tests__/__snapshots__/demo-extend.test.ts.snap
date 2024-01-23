@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders components/date-picker/demo/align.tsx extend context correctly 1`] = `
+exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
 >
@@ -1229,7 +1229,7 @@ exports[`renders components/date-picker/demo/align.tsx extend context correctly 
 </div>
 `;
 
-exports[`renders components/date-picker/demo/align.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/date-picker/demo/mask.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/date-picker/demo/allow-empty.tsx extend context correctly 1`] = `
 Array [

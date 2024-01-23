@@ -11,14 +11,14 @@ const App: React.FC = () => (
     <DatePicker
       format={{
         format: 'YYYY-MM-DD',
-        align: true,
+        type: 'mask',
       }}
       onChange={onChange}
     />
     <DatePicker
       format={{
         format: 'YYYY-MM-DD HH:mm:ss',
-        align: true,
+        type: 'mask',
       }}
       onChange={onChange}
     />
