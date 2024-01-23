@@ -117,7 +117,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
-    "@ant-design/cssinjs": "^1.18.2",
+    "@ant-design/cssinjs": "^1.18.4",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/react-slick": "~1.0.2",
     "@ctrl/tinycolor": "^3.6.1",
@@ -230,7 +230,7 @@
     "cross-fetch": "^4.0.0",
     "crypto": "^1.0.1",
     "dekko": "^0.2.1",
-    "dumi": "^2.3.0-beta.3",
+    "dumi": "^2.3.0-beta.5",
     "dumi-plugin-color-chunk": "^1.1.0",
     "esbuild-loader": "^4.0.2",
     "eslint": "^8.56.0",
@@ -343,7 +343,7 @@
   },
   "overrides": {
     "dumi-plugin-color-chunk": {
-      "dumi": "^2.3.0-beta.3"
+      "dumi": "^2.3.0-beta.5"
     }
   },
   "packageManager": "npm@10.3.0",
