@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
+import { TinyColor } from '@ctrl/tinycolor';
 import classNames from 'classnames';
 import { QRCodeCanvas, QRCodeSVG } from 'qrcode.react';
 
@@ -78,17 +79,23 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     [`${prefixCls}-borderless`]: !bordered,
   });
 
+  // Mask background color and font color in dark mode
+  const maskBackgroundColor = new TinyColor(token.colorBgContainer).setAlpha(0.96).toRgbString();
+  const fontColor = new TinyColor(token.colorText).toRgbString();
+
   return wrapCSSVar(
     <div
       className={mergedCls}
       style={{ ...style, width: size, height: size, backgroundColor: bgColor }}
     >
       {status !== 'active' && (
-        <div className={`${prefixCls}-mask`}>
+        <div className={`${prefixCls}-mask`} style={{ backgroundColor: maskBackgroundColor }}>
           {status === 'loading' && <Spin />}
           {status === 'expired' && (
             <>
-              <p className={`${prefixCls}-expired`}>{locale?.expired}</p>
+              <p className={`${prefixCls}-expired`} style={{ color: fontColor }}>
+                {locale?.expired}
+              </p>
               {onRefresh && (
                 <Button type="link" icon={<ReloadOutlined />} onClick={onRefresh}>
                   {locale?.refresh}
@@ -96,7 +103,11 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
               )}
             </>
           )}
-          {status === 'scanned' && <p className={`${prefixCls}-scanned`}>{locale?.scanned}</p>}
+          {status === 'scanned' && (
+            <p className={`${prefixCls}-scanned`} style={{ color: fontColor }}>
+              {locale?.scanned}
+            </p>
+          )}
         </div>
       )}
       {type === 'canvas' ? <QRCodeCanvas {...qrCodeProps} /> : <QRCodeSVG {...qrCodeProps} />}
