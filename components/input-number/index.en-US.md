@@ -62,6 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false | 4.13.0 |
 | value | The current value | number | - | - |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| wheel | Allows changing value with mouse wheel | boolean | false | - |
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons | (value: number, info: { offset: number, type: 'up' \| 'down' }) => void | - | 4.7.0 |
