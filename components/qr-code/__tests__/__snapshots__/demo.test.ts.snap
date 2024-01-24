@@ -290,7 +290,6 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode-mask"
-      style="background-color:rgba(255, 255, 255, 0.96)"
     >
       <div
         aria-busy="true"
@@ -326,11 +325,9 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode-mask"
-      style="background-color:rgba(255, 255, 255, 0.96)"
     >
       <p
         class="ant-qrcode-expired"
-        style="color:rgba(0, 0, 0, 0.88)"
       >
         QR code expired
       </p>
@@ -377,11 +374,9 @@ exports[`renders components/qr-code/demo/status.tsx correctly 1`] = `
   >
     <div
       class="ant-qrcode-mask"
-      style="background-color:rgba(255, 255, 255, 0.96)"
     >
       <p
         class="ant-qrcode-scanned"
-        style="color:rgba(0, 0, 0, 0.88)"
       >
         Scanned
       </p>
