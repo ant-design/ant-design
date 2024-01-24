@@ -37,7 +37,6 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * @default "outlined"
    */
   variant?: Variant;
-  wheel?: boolean;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
