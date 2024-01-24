@@ -44,7 +44,7 @@ const useStyle = createStyles(({ token, css }) => {
         }
       }
       ${antCls}-typography-copy:not(${antCls}-typography-copy-success) {
-        color: ${token.colorIcon};
+        color: ${colorIcon};
 
         &:hover {
           color: ${colorIcon};
