@@ -388,4 +388,4 @@ return <Table rowKey={(record) => record.uid} />;
 
 ### 为什么 components.body.wrapper 在 virtual 开启时会崩溃？
 
-因为 `rc-virtual-list` 需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。
+因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。

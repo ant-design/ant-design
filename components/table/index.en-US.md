@@ -388,4 +388,4 @@ Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/compon
 
 ### Why does components.body.wrapper crash when virtual is enabled?
 
-Because `rc-virtual-list` needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom
+Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom
