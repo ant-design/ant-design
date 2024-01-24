@@ -386,6 +386,6 @@ return <Table rowKey={(record) => record.uid} />;
 
 自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
 
-### 为什么 components.body.wrapper 在 virtual 开启时会崩溃？
+### 为什么 components.body.wrapper 在 virtual 开启时会报错？
 
 因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。
