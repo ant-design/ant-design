@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleProvider, createCache, extractStyle } from '@ant-design/cssinjs';
+import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+
 import notification from '..';
-import { fireEvent, pureRender, render } from '../../../tests/utils';
+import { act, fireEvent, pureRender, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
@@ -10,6 +11,7 @@ describe('notification.hooks', () => {
   });
 
   afterEach(() => {
+    jest.clearAllTimers();
     jest.useRealTimers();
   });
 
@@ -188,5 +190,34 @@ describe('notification.hooks', () => {
     render(<Demo />);
 
     expect(document.querySelector('.ant-notification-stack')).toBeFalsy();
+  });
+
+  it('support duration', () => {
+    const Demo = () => {
+      const [api, holder] = notification.useNotification({ duration: 1.5 });
+
+      React.useEffect(() => {
+        api.info({
+          message: null,
+          description: 'test',
+        });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    // Pass 1s
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(document.querySelector('.ant-notification-notice')).toBeTruthy();
+
+    // Pass 2s
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
+    expect(document.querySelector('.ant-notification-notice')).toBeFalsy();
   });
 });
