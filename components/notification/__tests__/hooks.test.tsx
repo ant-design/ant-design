@@ -7,6 +7,7 @@ import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
   beforeEach(() => {
+    document.body.innerHTML = '';
     jest.useFakeTimers();
   });
 
@@ -196,28 +197,42 @@ describe('notification.hooks', () => {
     const Demo = () => {
       const [api, holder] = notification.useNotification({ duration: 1.5 });
 
-      React.useEffect(() => {
-        api.info({
-          message: null,
-          description: 'test',
-        });
-      }, []);
-
-      return holder;
+      return (
+        <>
+          <a
+            onClick={() => {
+              api.info({
+                message: null,
+                description: 'test',
+              });
+            }}
+          >
+            Show
+          </a>
+          {holder}
+        </>
+      );
     };
 
-    render(<Demo />);
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('a')!);
+
+    function getNoticeCount() {
+      return Array.from(document.querySelectorAll('.ant-notification-notice-wrapper')).filter(
+        (node) => !node.classList.contains('ant-notification-fade-leave'),
+      ).length;
+    }
 
     // Pass 1s
     act(() => {
       jest.advanceTimersByTime(1000);
     });
-    expect(document.querySelector('.ant-notification-notice')).toBeTruthy();
+    expect(getNoticeCount()).toBe(1);
 
     // Pass 2s
     act(() => {
       jest.advanceTimersByTime(1000);
     });
-    expect(document.querySelector('.ant-notification-notice')).toBeFalsy();
+    expect(getNoticeCount()).toBe(0);
   });
 });
