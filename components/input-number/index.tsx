@@ -37,7 +37,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
    * @default "outlined"
    */
   variant?: Variant;
-  wheel?: boolean;
+  changeOnWheel?: boolean;
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
@@ -66,7 +66,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     status: customStatus,
     controls,
     variant: customVariant,
-    wheel = false,
+    changeOnWheel = false,
     ...others
   } = props;
 
@@ -138,7 +138,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
-      wheel={wheel}
+      wheel={changeOnWheel}
       addonAfter={
         addonAfter && (
           <NoCompactStyle>
