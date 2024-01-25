@@ -7,7 +7,7 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-type StatisticHTMLAttributes = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
+type StatisticHTMLAttributes = Omit<React.HTMLAttributes<HTMLDivElement>, 'title' | 'prefix'>;
 
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
