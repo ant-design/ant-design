@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, ConfigProvider, Drawer, Space } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import type { DrawerClassNames, DrawerStyles } from '../DrawerPanel';
+import type { DrawerClassNames, DrawerStyles } from 'antd/es/drawer/DrawerPanel';
 
 const useStyle = createStyles(({ token }) => ({
   'my-drawer-body': {

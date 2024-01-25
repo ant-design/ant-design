@@ -73,6 +73,12 @@ jobs:
 
       - name: lint
         run: npm run lint
+
+      - name: lint:react-16
+        run: npm run compile && npm run install-react-16 && npm run tsc:old  
+        
+      - name: lint:react-17
+        run: npm run compile && npm run install-react-17 && npm run tsc:old
     needs: setup
 
   check_metadata:

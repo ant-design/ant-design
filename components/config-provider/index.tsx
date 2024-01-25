@@ -268,6 +268,12 @@ const setGlobalConfig = (props: GlobalConfigProps) => {
 };
 
 export const globalConfig = () => ({
+  getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
+    if (customizePrefixCls) {
+      return customizePrefixCls;
+    }
+    return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
+  },
   getIconPrefixCls: getGlobalIconPrefixCls,
   getRootPrefixCls: () => {
     // If Global prefixCls provided, use this

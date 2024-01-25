@@ -627,4 +627,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default (React.forwardRef(InternalTable) as RefInternalTable);
+export default React.forwardRef(InternalTable) as RefInternalTable;
