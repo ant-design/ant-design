@@ -6407,7 +6407,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-compact-item ant-btn-compact-first-item"
+                      class="ant-btn ant-btn-primary ant-btn-sm"
                       disabled=""
                       type="button"
                     >
@@ -8020,7 +8020,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       class="ant-picker-ok"
                     >
                       <button
-                        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-compact-item ant-btn-compact-first-item"
+                        class="ant-btn ant-btn-primary ant-btn-sm"
                         disabled=""
                         type="button"
                       >
@@ -15185,7 +15185,7 @@ Array [
                     class="ant-picker-ok"
                   >
                     <button
-                      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-compact-item ant-btn-compact-first-item"
+                      class="ant-btn ant-btn-primary ant-btn-sm"
                       disabled=""
                       type="button"
                     >

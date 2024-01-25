@@ -32,7 +32,6 @@ const themes = {
 
 interface ImageTestOptions {
   onlyViewport?: boolean;
-  splitTheme?: boolean;
   ssr?: boolean;
   openTriggerClassName?: string;
 }
@@ -175,6 +174,7 @@ export default function imageTest(
             top: 0 !important;
             opacity: 1 !important;
             display: inline-block !important;
+            vertical-align: top !important;
           }
         </style>`;
       }
@@ -221,53 +221,27 @@ export default function imageTest(
     });
   }
 
-  if (options.splitTheme) {
-    Object.entries(themes).forEach(([key, algorithm]) => {
-      test(
-        `component image screenshot should correct ${key}`,
-        `-${key}`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
-        </div>,
-      );
-      test(
-        `[CSS Var] component image screenshot should correct ${key}`,
-        `-${key}.css-var`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
-        </div>,
-      );
-    });
-  } else {
+  Object.entries(themes).forEach(([key, algorithm]) => {
     test(
-      `component image screenshot should correct`,
-      '',
-      <>
-        {Object.entries(themes).map(([key, algorithm]) => (
-          <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-            <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
-          </div>
-        ))}
-      </>,
+      `component image screenshot should correct ${key}`,
+      `.${key}`,
+      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <ConfigProvider theme={{ algorithm }}>{component}</ConfigProvider>
+      </div>,
     );
     test(
-      `[CSS Var] component image screenshot should correct`,
-      '.css-var',
-      <>
-        {Object.entries(themes).map(([key, algorithm]) => (
-          <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-            <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
-          </div>
-        ))}
-      </>,
+      `[CSS Var] component image screenshot should correct ${key}`,
+      `.${key}.css-var`,
+      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
+      </div>,
     );
-  }
+  });
 }
 
 type Options = {
   skip?: boolean | string[];
   onlyViewport?: boolean | string[];
-  splitTheme?: boolean | string[];
   /** Use SSR render instead. Only used when the third part deps component */
   ssr?: boolean;
   /** Open Trigger to check the popup render */
@@ -296,9 +270,6 @@ export function imageDemoTest(component: string, options: Options = {}) {
           options.onlyViewport === true ||
           (Array.isArray(options.onlyViewport) &&
             options.onlyViewport.some((c) => file.endsWith(c))),
-        splitTheme:
-          options.splitTheme === true ||
-          (Array.isArray(options.splitTheme) && options.splitTheme.some((c) => file.endsWith(c))),
         ssr: options.ssr,
         openTriggerClassName: options.openTriggerClassName,
       });
