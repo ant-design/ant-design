@@ -8,7 +8,7 @@ import { formatCountdown } from './utils';
 
 const REFRESH_INTERVAL = 1000 / 30;
 
-export interface CountdownProps extends Omit<StatisticProps, 'onChange'> {
+export interface CountdownProps extends StatisticProps {
   format?: string;
   onFinish?: () => void;
   onChange?: (value?: valueType) => void;
