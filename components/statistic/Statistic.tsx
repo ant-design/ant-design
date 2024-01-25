@@ -7,11 +7,11 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-export interface StatisticProps extends FormatConfig {
+type StatisticHTMLAttributes = Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
+
+interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
-  className?: string;
   rootClassName?: string;
-  style?: React.CSSProperties;
   value?: valueType;
   valueStyle?: React.CSSProperties;
   valueRender?: (node: React.ReactNode) => React.ReactNode;
@@ -19,11 +19,11 @@ export interface StatisticProps extends FormatConfig {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   loading?: boolean;
-  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
-  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-const Statistic: React.FC<StatisticProps> = (props) => {
+export type StatisticProps = StatisticHTMLAttributes & StatisticReactProps;
+
+const Statistic: React.FC<StatisticProps & StatisticHTMLAttributes> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -36,10 +36,13 @@ const Statistic: React.FC<StatisticProps> = (props) => {
     prefix,
     suffix,
     loading = false,
-    onMouseEnter,
-    onMouseLeave,
+    /* --- FormatConfig starts --- */
+    formatter,
+    precision,
     decimalSeparator = '.',
     groupSeparator = ',',
+    /* --- FormatConfig starts --- */
+    ...rest
   } = props;
 
   const { getPrefixCls, direction, statistic } =
@@ -54,7 +57,8 @@ const Statistic: React.FC<StatisticProps> = (props) => {
       decimalSeparator={decimalSeparator}
       groupSeparator={groupSeparator}
       prefixCls={prefixCls}
-      {...props}
+      formatter={formatter}
+      precision={precision}
       value={value}
     />
   );
@@ -72,12 +76,7 @@ const Statistic: React.FC<StatisticProps> = (props) => {
   );
 
   return wrapCSSVar(
-    <div
-      className={cls}
-      style={{ ...statistic?.style, ...style }}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
+    <div {...rest} className={cls} style={{ ...statistic?.style, ...style }}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
         <div style={valueStyle} className={`${prefixCls}-content`}>

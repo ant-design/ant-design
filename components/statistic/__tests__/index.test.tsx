@@ -81,6 +81,16 @@ describe('Statistic', () => {
     expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
   });
 
+  it('data attrs', () => {
+    const { container } = render(<Statistic value={1128} data-abc="1" />);
+    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
+
+    const { container: countdownContainer } = render(<Statistic.Countdown data-xyz="2" />);
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
+      '2',
+    );
+  });
+
   describe('Countdown', () => {
     it('render correctly', () => {
       const now = dayjs()
