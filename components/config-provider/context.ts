@@ -84,6 +84,7 @@ export interface ButtonConfig extends ComponentStyleConfig {
 export interface DrawerConfig extends ComponentStyleConfig {
   classNames?: DrawerProps['classNames'];
   styles?: DrawerProps['styles'];
+  closeIcon?: DrawerProps['closeIcon'];
 }
 
 export interface FlexConfig extends ComponentStyleConfig {
@@ -188,15 +189,6 @@ export interface ConfigConsumerProps {
   flex?: FlexConfig;
   wave?: WaveConfig;
   warning?: WarningContextProps;
-  icons?: Partial<
-    Record<
-      | 'closeIcon' // Alert、Drawer、FloatButton、Modal、Notification、Tag、Tour
-      | 'clearIcon' // Cascader、DatePicker、TimePicker、Input、Mentions、Select、TreeSelect
-      | 'suffixIcon' // Cascader、Select、TreeSelect
-      | 'removeIcon', // Cascader、Upload、Select、TreeSelect,
-      React.ReactNode
-    >
-  >;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

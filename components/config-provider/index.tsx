@@ -206,7 +206,6 @@ export interface ConfigProviderProps {
    * Wave is special component which only patch on the effect of component interaction.
    */
   wave?: WaveConfig;
-  icons?: ConfigConsumerProps['icons'];
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -353,7 +352,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
-    icons,
   } = props;
 
   // =================================== Context ===================================
@@ -447,7 +445,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
-    icons,
   };
 
   const config: ConfigConsumerProps = {
