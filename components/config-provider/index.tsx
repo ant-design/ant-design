@@ -85,7 +85,6 @@ export const configConsumerProps = [
   'csp',
   'autoInsertSpaceInButton',
   'locale',
-  'pageHeader',
 ];
 
 // These props is used by `useContext` directly in sub component
@@ -96,7 +95,6 @@ const PASSED_PROPS: Exclude<
   'getTargetContainer',
   'getPopupContainer',
   'renderEmpty',
-  'pageHeader',
   'input',
   'pagination',
   'form',
@@ -119,7 +117,6 @@ export interface ConfigProviderProps {
   select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
   pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
-  pageHeader?: Record<'ghost', boolean>;
   componentSize?: SizeType;
   componentDisabled?: boolean;
   direction?: DirectionType;

@@ -78,9 +78,6 @@ const localeValues: Locale = {
     copied: '複製成功',
     expand: '展開',
   },
-  PageHeader: {
-    back: '返回',
-  },
   Form: {
     defaultValidateMessages: {
       default: '字段驗證錯誤${label}',
