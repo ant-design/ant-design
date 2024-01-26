@@ -45,9 +45,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
       />
       <div
         class="ant-segmented-item-label"
-        title="2021"
+        title="Monthly"
       >
-        2021
+        Monthly
       </div>
     </label>
     <label
@@ -59,9 +59,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
       />
       <div
         class="ant-segmented-item-label"
-        title="2022"
+        title="Quarterly"
       >
-        2022
+        Quarterly
       </div>
     </label>
     <label
@@ -73,23 +73,9 @@ exports[`renders components/segmented/demo/basic.tsx extend context correctly 1`
       />
       <div
         class="ant-segmented-item-label"
-        title="true"
+        title="Yearly"
       >
-        true
-      </div>
-    </label>
-    <label
-      class="ant-segmented-item"
-    >
-      <input
-        class="ant-segmented-item-input"
-        type="radio"
-      />
-      <div
-        class="ant-segmented-item-label"
-        title="false"
-      >
-        false
+        Yearly
       </div>
     </label>
   </div>
