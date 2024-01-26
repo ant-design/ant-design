@@ -94,7 +94,6 @@ export interface ConfigConsumerProps {
   input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
   pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
-  pageHeader?: Record<'ghost', boolean>;
   direction?: DirectionType;
   space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
   virtual?: boolean;

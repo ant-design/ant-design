@@ -81,9 +81,6 @@ const localeValues: Locale = {
     copied: '复制成功',
     expand: '展开',
   },
-  PageHeader: {
-    back: '返回',
-  },
   Form: {
     optional: '（可选）',
     defaultValidateMessages: {
