@@ -124,7 +124,7 @@
     "@rc-component/color-picker": "~1.5.1",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.12.3",
-    "@rc-component/trigger": "^1.18.2",
+    "@rc-component/trigger": "^1.18.3",
     "classnames": "^2.5.1",
     "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.10",
