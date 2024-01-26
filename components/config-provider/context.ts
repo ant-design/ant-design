@@ -1,6 +1,4 @@
 import * as React from 'react';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import type { Options } from 'scroll-into-view-if-needed';
 
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
@@ -8,15 +6,16 @@ import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
-import type { RequiredMark } from '../form/Form';
+import type { FormProps } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { ModalProps } from '../modal';
+import type { PaginationProps } from '../pagination';
+import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { SizeType } from './SizeContext';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -66,29 +65,15 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface ModalConfig extends ComponentStyleConfig {
-  classNames?: ModalProps['classNames'];
-  styles?: ModalProps['styles'];
-}
+export type ModalConfig = ComponentStyleConfig & Pick<ModalProps, 'classNames' | 'styles'>;
 
-export interface BadgeConfig extends ComponentStyleConfig {
-  classNames?: BadgeProps['classNames'];
-  styles?: BadgeProps['styles'];
-}
+export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
-export interface ButtonConfig extends ComponentStyleConfig {
-  classNames?: ButtonProps['classNames'];
-  styles?: ButtonProps['styles'];
-}
+export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
 
-export interface DrawerConfig extends ComponentStyleConfig {
-  classNames?: DrawerProps['classNames'];
-  styles?: DrawerProps['styles'];
-}
+export type DrawerConfig = ComponentStyleConfig & Pick<DrawerProps, 'classNames' | 'styles'>;
 
-export interface FlexConfig extends ComponentStyleConfig {
-  vertical?: FlexProps['vertical'];
-}
+export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -106,37 +91,19 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: ComponentStyleConfig & {
-    autoComplete?: string;
-    classNames?: InputProps['classNames'];
-    styles?: InputProps['styles'];
-  };
-  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
+  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
+  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
-  };
+  pageHeader?: Record<'ghost', boolean>;
   direction?: DirectionType;
-  space?: {
-    size?: SizeType | number;
-    className?: SpaceProps['className'];
-    classNames?: SpaceProps['classNames'];
-    style?: SpaceProps['style'];
-    styles?: SpaceProps['styles'];
-  };
+  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
-  form?: ComponentStyleConfig & {
-    requiredMark?: RequiredMark;
-    colon?: boolean;
-    scrollToFirstError?: Options | boolean;
-    validateMessages?: ValidateMessages;
-  };
+  form?: ComponentStyleConfig &
+    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
   theme?: ThemeConfig;
-  select?: ComponentStyleConfig & {
-    showSearch?: boolean;
-  };
+  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
   alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
