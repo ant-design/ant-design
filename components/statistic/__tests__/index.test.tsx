@@ -81,6 +81,28 @@ describe('Statistic', () => {
     expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
   });
 
+  it('data attrs', () => {
+    const { container } = render(
+      <Statistic value={1128} data-abc="1" aria-label="2" role="status" />,
+    );
+    expect(container.querySelector('.ant-statistic')!.getAttribute('data-abc')).toEqual('1');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual('2');
+    expect(container.querySelector('.ant-statistic')!.getAttribute('role')).toEqual('status');
+
+    const { container: countdownContainer } = render(
+      <Statistic.Countdown data-xyz="x" aria-label="y" role="contentinfo" />,
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('data-xyz')).toEqual(
+      'x',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('aria-label')).toEqual(
+      'y',
+    );
+    expect(countdownContainer.querySelector('.ant-statistic')!.getAttribute('role')).toEqual(
+      'contentinfo',
+    );
+  });
+
   describe('Countdown', () => {
     it('render correctly', () => {
       const now = dayjs()

@@ -1,15 +1,12 @@
-'use client';
-
 import * as React from 'react';
 import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import { merge } from 'rc-util/lib/utils/set';
-import type { Options } from 'scroll-into-view-if-needed';
 
-import warning, { WarningContext, type WarningContextProps } from '../_util/warning';
-import type { RequiredMark } from '../form/Form';
+import warning, { WarningContext } from '../_util/warning';
+import type { WarningContextProps } from '../_util/warning';
+import type { FormProps } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
@@ -17,6 +14,8 @@ import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
+import type { PaginationProps } from '../pagination';
+import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
@@ -114,44 +113,24 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  form?: ComponentStyleConfig & {
-    validateMessages?: ValidateMessages;
-    requiredMark?: RequiredMark;
-    colon?: boolean;
-    scrollToFirstError?: Options | boolean;
-  };
-  input?: ComponentStyleConfig & {
-    classNames?: InputProps['classNames'];
-    styles?: InputProps['styles'];
-    autoComplete?: string;
-  };
-  select?: ComponentStyleConfig & {
-    showSearch?: boolean;
-  };
-  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
+  form?: ComponentStyleConfig &
+    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
+  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
-  };
+  pageHeader?: Record<'ghost', boolean>;
   componentSize?: SizeType;
   componentDisabled?: boolean;
   direction?: DirectionType;
-  space?: {
-    size?: SizeType | number;
-    className?: SpaceProps['className'];
-    classNames?: SpaceProps['classNames'];
-    style?: SpaceProps['style'];
-    styles?: SpaceProps['styles'];
-  };
+  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
-
   warning?: WarningContextProps;
-
   alert?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;

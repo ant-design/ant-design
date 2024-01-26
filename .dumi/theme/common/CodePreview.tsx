@@ -8,7 +8,7 @@ import Prism from 'prismjs';
 import LiveCode from './LiveCode';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { colorIcon, colorBgTextHover, antCls } = token;
+  const { colorIcon, antCls } = token;
 
   return {
     code: css`
@@ -24,7 +24,6 @@ const useStyle = createStyles(({ token, css }) => {
       inset-inline-end: 16px;
       width: 32px;
       text-align: center;
-      background: ${colorBgTextHover};
       padding: 0;
     `,
 
@@ -158,7 +157,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           </div>
         ),
       })),
-    [JSON.stringify(highlightedCodes)],
+    [JSON.stringify(highlightedCodes), styles.code, styles.copyButton, styles.copyIcon],
   );
 
   if (!langList.length) {
