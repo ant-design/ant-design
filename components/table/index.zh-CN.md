@@ -119,7 +119,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  |
-| components | 覆盖默认的 table 元素，`virtual` 下不支持 `components.body` | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
+| components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | function(currentPageData) | - |  |
@@ -142,7 +142,7 @@ const columns = [
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
-| virtual | 支持虚拟列表，开启后不支持 `components.body` 自定义 | boolean | - | 5.9.0 |
+| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 
 ### Table ref
 
@@ -385,3 +385,7 @@ return <Table rowKey={(record) => record.uid} />;
 ### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
 
 自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
+
+### 为什么 components.body.wrapper 在 virtual 开启时会报错？
+
+因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。
