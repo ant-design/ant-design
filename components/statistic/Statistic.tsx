@@ -1,20 +1,20 @@
 import classNames from 'classnames';
 import * as React from 'react';
+import pickAttrs from 'rc-util/lib/pickAttrs';
+
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import Skeleton from '../skeleton';
 import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
-
-type StatisticHTMLAttributes = Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'title' | 'prefix' | 'onChange'
->;
+import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
+  className?: string;
   rootClassName?: string;
+  style?: React.CSSProperties;
   value?: valueType;
   valueStyle?: React.CSSProperties;
   valueRender?: (node: React.ReactNode) => React.ReactNode;
@@ -22,11 +22,13 @@ interface StatisticReactProps extends FormatConfig {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   loading?: boolean;
+  onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
+  onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
 }
 
-export type StatisticProps = StatisticHTMLAttributes & StatisticReactProps;
+export type StatisticProps = HTMLAriaDataAttributes & StatisticReactProps;
 
-const Statistic: React.FC<StatisticProps & StatisticHTMLAttributes> = (props) => {
+const Statistic: React.FC<StatisticProps & HTMLAriaDataAttributes> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -45,6 +47,8 @@ const Statistic: React.FC<StatisticProps & StatisticHTMLAttributes> = (props) =>
     decimalSeparator = '.',
     groupSeparator = ',',
     /* --- FormatConfig starts --- */
+    onMouseEnter,
+    onMouseLeave,
     ...rest
   } = props;
 
@@ -78,8 +82,16 @@ const Statistic: React.FC<StatisticProps & StatisticHTMLAttributes> = (props) =>
     cssVarCls,
   );
 
+  const restProps = pickAttrs(rest, { aria: true, data: true });
+
   return wrapCSSVar(
-    <div {...rest} className={cls} style={{ ...statistic?.style, ...style }}>
+    <div
+      {...restProps}
+      className={cls}
+      style={{ ...statistic?.style, ...style }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
         <div style={valueStyle} className={`${prefixCls}-content`}>
