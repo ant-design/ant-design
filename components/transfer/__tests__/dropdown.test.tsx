@@ -103,8 +103,13 @@ describe('Transfer.Dropdown', () => {
       clickItem(container, 0);
       expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
 
+      fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
+      act(() => {
+        jest.runAllTimers();
+      });
+
       clickItem(container, 2);
-      expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd'], []);
+      expect(onSelectChange).toHaveBeenCalledWith(['e'], []);
 
       jest.useRealTimers();
     });
