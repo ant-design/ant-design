@@ -3,6 +3,7 @@ import type { FormatConfig, valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
   value: valueType;
+  prefixCls?: string;
 }
 
 const StatisticNumber: React.FC<NumberProps> = (props) => {
