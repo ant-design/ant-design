@@ -51,6 +51,36 @@ export interface ComponentToken {
    */
   dangerColor: string;
   /**
+   * @desc 默认按钮悬浮态背景色
+   * @descEN Background color of default button when hover
+   */
+  defaultHoverBg: string;
+  /**
+   * @desc 默认按钮悬浮态文本颜色
+   * @descEN Text color of default button when hover
+   */
+  defaultHoverColor: string;
+  /**
+   * @desc 默认按钮悬浮态边框颜色
+   * @descEN Border color of default button
+   */
+  defaultHoverBorderColor: string;
+  /**
+   * @desc 默认按钮激活态背景色
+   * @descEN Background color of default button when active
+   */
+  defaultActiveBg: string;
+  /**
+   * @desc 默认按钮激活态文字颜色
+   * @descEN Text color of default button when active
+   */
+  defaultActiveColor: string;
+  /**
+   * @desc 默认按钮激活态边框颜色
+   * @descEN Border color of default button when active
+   */
+  defaultActiveBorderColor: string;
+  /**
    * @desc 禁用状态边框颜色
    * @descEN Border color of disabled button
    */
@@ -214,6 +244,12 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     defaultBg: token.colorBgContainer,
     defaultBorderColor: token.colorBorder,
     defaultBorderColorDisabled: token.colorBorder,
+    defaultHoverBg: token.colorBgContainer,
+    defaultHoverColor: token.colorPrimaryHover,
+    defaultHoverBorderColor: token.colorPrimaryHover,
+    defaultActiveBg: token.colorBgContainer,
+    defaultActiveColor: token.colorPrimaryActive,
+    defaultActiveBorderColor: token.colorPrimaryActive,
     contentFontSize,
     contentFontSizeSM,
     contentFontSizeLG,
