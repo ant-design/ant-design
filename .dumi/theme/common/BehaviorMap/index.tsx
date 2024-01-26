@@ -10,7 +10,7 @@ const useStyle = createStyles(({ token, css }) => ({
   fallback: css`
     width: 100%;
     > * {
-      width: 100%;
+      width: 100% !important;
       border-radius: 8px;
     }
   `,

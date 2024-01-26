@@ -64,6 +64,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
     stack,
+    duration,
   } = props;
   const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
   const [, token] = useToken();
@@ -87,7 +88,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     motion: getNotificationMotion,
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
-    duration: DEFAULT_DURATION,
+    duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,

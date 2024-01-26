@@ -16,6 +16,15 @@ tag: vVERSION
 
 ---
 
+## 5.13.2
+
+`2024-01-19`
+
+- 🐞 Fix that the inline rendering does not take effect when the `preview.getContainer` value for Image is false. [#47034](https://github.com/ant-design/ant-design/pull/47034) [@FEyudong](https://github.com/FEyudong)
+- 🐞 Fix Modal static function with `prefixCls` breaks children other component `prefixCls` and thus bring the motion miss. [#47010](https://github.com/ant-design/ant-design/pull/47010)
+- 🐞 Fix ok button of the DatePicker becomes compacted when used with Space.Compact. [#46769](https://github.com/ant-design/ant-design/pull/46769) [@Fatpandac](https://github.com/Fatpandac)
+- 💄 Optimize Tree draggable node cursor style and collaspe icon hover style. [#46974](https://github.com/ant-design/ant-design/pull/46974)
+
 ## 5.13.1
 
 `2024-01-15`
