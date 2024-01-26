@@ -118,7 +118,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  |
-| components | Override default table elements. Not support `components.body` when in `virtual` | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
+| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
@@ -141,7 +141,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback executed when pagination, filters or sorter is changed | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | Set props on per header row | function(columns, index) | - |  |
 | onRow | Set props on per row | function(record, index) | - |  |
-| virtual | Support virtual list. Not support `components.body` when enabled | boolean | - | 5.9.0 |
+| virtual | Support virtual list | boolean | - | 5.9.0 |
 
 ### Table ref
 
@@ -385,3 +385,7 @@ Fixed column use `z-index` to make it over other columns. You will find sometime
 ### How to custom render Table Checkbox（For example, adding Tooltip）?
 
 Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
+
+### Why does components.body.wrapper report an error when virtual is enabled?
+
+Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom
