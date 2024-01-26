@@ -25,13 +25,14 @@ describe('ConfigProvider', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
     const App: React.FC = () => {
+      const [flex, setFlex] = React.useState({ vertical: true });
       const [, forceRender] = React.useReducer((v) => v + 1, 1);
       return (
-        <ConfigProvider>
+        <ConfigProvider flex={flex}>
           <button type="button" className="render" onClick={forceRender}>
             Force Render
           </button>
-          <button type="button" className="setState">
+          <button type="button" className="setState" onClick={() => setFlex({ vertical: false })}>
             Change Config
           </button>
           <MemoedSibling spy={spy} />
@@ -53,14 +54,15 @@ describe('ConfigProvider', () => {
     const MemoedSibling = React.memo(Sibling);
     const spy = jest.fn();
     const App: React.FC = () => {
+      const [flex, setFlex] = React.useState({ vertical: true });
       const [, forceRender] = React.useReducer((v) => v + 1, 1);
       return (
-        <ConfigProvider>
+        <ConfigProvider flex={flex}>
           <ConfigProvider>
             <button type="button" className="render" onClick={forceRender}>
               Force Render
             </button>
-            <button type="button" className="setState">
+            <button type="button" className="setState" onClick={() => setFlex({ vertical: false })}>
               Change Config
             </button>
             <MemoedSibling spy={spy} />
