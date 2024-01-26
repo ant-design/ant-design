@@ -35,6 +35,11 @@ const localeValues: Locale = {
     triggerAsc: 'Clicca per ordinare in modo ascendente',
     cancelSort: "Clicca per eliminare l'ordinamento",
   },
+  Tour: {
+    Next: 'Successivo',
+    Previous: 'Precedente',
+    Finish: 'Termina',
+  },
   Modal: {
     okText: 'OK',
     cancelText: 'Annulla',
