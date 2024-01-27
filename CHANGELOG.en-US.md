@@ -27,7 +27,7 @@ tag: vVERSION
 - 🐞 Fix Table `column.onFilter` don't work on tree table data. [#47170](https://github.com/ant-design/ant-design/pull/47170) [@Mumujianguang](https://github.com/Mumujianguang)
 - 🐞 Fix Affix `placeholder` height anomaly when browser zoom is 80%. [#46823](https://github.com/ant-design/ant-design/pull/46823) [@zhipenglin](https://github.com/zhipenglin)
 - 🐞 Fix QrCode background color in dark mode. [#47128](https://github.com/ant-design/ant-design/pull/47128) [@kampiu](https://github.com/kampiu)
-- 🗑 Remove unused PageHeader locale text. [#47163](https://github.com/ant-design/ant-design/pull/47163) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 Remove unused PageHeader locale text and ConfigProvider `pageHeader` property. [#47163](https://github.com/ant-design/ant-design/pull/47163) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Statistic component don't support html `role` and `data-*` and `aria-*` attributes. [#47149](https://github.com/ant-design/ant-design/pull/47149)
 - 🐞 Fix Transfer inverting current page incorrectly. [#47125](https://github.com/ant-design/ant-design/pull/47125) [@linxianxi](https://github.com/linxianxi)
 - 💄 Lower the priority of Button `size` styles. [#47074](https://github.com/ant-design/ant-design/pull/47074) [@crazyair](https://github.com/crazyair)
@@ -177,7 +177,7 @@ tag: vVERSION
 `2023-12-04`
 
 - 🐞 MISC: Fix missing color less variables converted from token. [#46250](https://github.com/ant-design/ant-design/pull/46250)
-- 🐞 Fix Notification title overlaps with the close icon when it is too long。 [#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
+- 🐞 Fix Notification title overlaps with the close icon when it is too long. [#46211](https://github.com/ant-design/ant-design/pull/46211) [@zh-lx](https://github.com/zh-lx)
 
 ## 5.12.0
 
@@ -230,7 +230,7 @@ tag: vVERSION
 - 🐞 Fix ColorPicker not support Form disabled config. [#45978](https://github.com/ant-design/ant-design/pull/45978) [@RedJue](https://github.com/RedJue)
 - 🐞 Fix Typography.Text `ellipsis.tooltip` cannot open under Layout component. [#45962](https://github.com/ant-design/ant-design/pull/45962)
 - 🐞 Remove Select native 🔍 icon from search input in Safari. [#46008](https://github.com/ant-design/ant-design/pull/46008)
-- 💄 Remove Rate useless style.[#45927](https://github.com/ant-design/ant-design/pull/45927) [@JarvisArt](https://github.com/JarvisArt)
+- 💄 Remove Rate useless style. [#45927](https://github.com/ant-design/ant-design/pull/45927) [@JarvisArt](https://github.com/JarvisArt)
 - 🛠 UMD `antd.js` will try to reuse global `@ant-design/cssinjs` first now. [#46009](https://github.com/ant-design/ant-design/pull/46009)
 - 🌐 Improve `eu_ES` localization. [#45928](https://github.com/ant-design/ant-design/pull/45928) [@ionlizarazu](https://github.com/ionlizarazu)
 

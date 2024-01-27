@@ -27,7 +27,7 @@ tag: vVERSION
 - 🐞 修复 Table `column.onFilter` 方法未过滤树形数据的问题。[#47170](https://github.com/ant-design/ant-design/pull/47170) [@Mumujianguang](https://github.com/Mumujianguang)
 - 🐞 修复 Affix 在 Chrome 缩放 `80%` 的情况下占位高度异常的问题。[#46823](https://github.com/ant-design/ant-design/pull/46823) [@zhipenglin](https://github.com/zhipenglin)
 - 🐞 修复 QrCode 在暗黑模式下的背景色。[#47128](https://github.com/ant-design/ant-design/pull/47128) [@kampiu](https://github.com/kampiu)
-- 🗑 移除了 PageHeader 组件相关的多语言文案。[#47163](https://github.com/ant-design/ant-design/pull/47163) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🗑 移除了早已失效的 PageHeader 组件相关的多语言文案和 ConfigProvider 的 `pageHeader` 属性。[#47163](https://github.com/ant-design/ant-design/pull/47163) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 修复 Statistic 组件不支持 HTML `role`、`data-*` 和 `aria-*` 等属性的问题。[#47149](https://github.com/ant-design/ant-design/pull/47149)
 - 🐞 修复 Transfer 反选当页错误的问题[#47125](https://github.com/ant-design/ant-design/pull/47125) [@linxianxi](https://github.com/linxianxi)
 - 💄 降低 Button `size` 样式权重以方便覆盖。[#47074](https://github.com/ant-design/ant-design/pull/47074) [@crazyair](https://github.com/crazyair)
