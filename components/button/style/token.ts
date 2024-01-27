@@ -81,6 +81,11 @@ export interface ComponentToken {
    */
   paddingInlineLG: CSSProperties['paddingInline'];
   /**
+   * @desc 小号按钮横向内间距
+   * @descEN Horizontal padding of small button
+   */
+  paddingInlineSM: CSSProperties['paddingInline'];
+  /**
    * @desc 按钮纵向内间距
    * @descEN Vertical padding of button
    */
