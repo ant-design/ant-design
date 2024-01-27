@@ -632,6 +632,15 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
             borderEndStartRadius: 0,
           },
         },
+
+        // Fix the issue of input use show-count param in space compact mode
+        // https://github.com/ant-design/ant-design/issues/46872
+        [`&:not(${componentCls}-compact-last-item)${componentCls}-compact-item`]: {
+          [`${componentCls}-affix-wrapper`]: {
+            borderStartEndRadius: 0,
+            borderEndEndRadius: 0,
+          },
+        },
       },
     },
   };
