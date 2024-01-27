@@ -61,13 +61,14 @@ const LANGS = {
   style: 'CSS',
 };
 
-interface CodePreviewProps extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang'> {
+interface CodePreviewProps
+  extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang' | 'onChange'> {
   sourceCode?: string;
   jsxCode?: string;
   styleCode?: string;
   entryName: string;
   onCodeTypeChange?: (activeKey: string) => void;
-  onSourceTranspile?: (source: Record<string, string>) => void;
+  onSourceChange?: (source: Record<string, string>) => void;
 }
 
 function toReactComponent(jsonML: any[]) {
@@ -92,7 +93,8 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   styleCode = '',
   entryName,
   onCodeTypeChange,
-  onSourceTranspile,
+  onSourceChange,
+  error,
 }) => {
   // 避免 Tabs 数量不稳定的闪动问题
   const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
@@ -140,10 +142,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
           <div className={styles.code}>
             {lang === 'tsx' ? (
               <LiveCode
+                error={error}
                 lang={lang}
                 initialValue={sourceCodes[lang]}
-                onTranspile={(code) => {
-                  onSourceTranspile?.({ [entryName]: code });
+                onChange={(code) => {
+                  onSourceChange?.({ [entryName]: code });
                 }}
               />
             ) : (
@@ -165,10 +168,11 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   if (langList.length === 1) {
     return (
       <LiveCode
+        error={error}
         lang={langList[0]}
         initialValue={sourceCodes[langList[0]]}
-        onTranspile={(code) => {
-          onSourceTranspile?.({ [entryName]: code });
+        onChange={(code) => {
+          onSourceChange?.({ [entryName]: code });
         }}
       />
     );

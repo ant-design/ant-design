@@ -64,7 +64,6 @@ const genClearStyle = (
       borderRadius: borderRadiusSM,
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
-      cursor: 'pointer',
       overflow: 'hidden',
       ...extraStyle,
       '&::after': {

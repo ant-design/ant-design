@@ -17,6 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       jobs: ${{ steps.visual_diff_build_job_status.outputs.result }}
+      upstream-job-link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/job/${{ steps.visual_diff_build_job_status.outputs.job-id }}
       build-status: ${{ steps.visual_diff_build_job_status.outputs.build-status }}
     steps:
       - name: summary jobs status
@@ -33,7 +34,10 @@ jobs:
             // { [name]: [conclusion] }, e.g. { 'test image': 'success' }
             const jobs = (response.data?.jobs ?? []).reduce((acc, job) => {
               if(job?.status === 'completed' && 'name' in job && 'conclusion' in job) {
-                acc[job.name] = job.conclusion;
+                acc[job.name] = {
+                  id: job.id,
+                  status: job.conclusion,
+                };
               }
               return acc;
             }, {});
@@ -42,10 +46,11 @@ jobs:
             if(total === 0) core.setFailed('no jobs found');
 
             // the name here must be the same as `jobs.xxx.{name}`
-            console.log('visual-diff report job status: %s', jobs['visual-diff report']);
+            console.log('visual-diff report job status: %s', jobs['visual-diff report'].status);
 
             // set output
-            core.setOutput('build-status', jobs['visual-diff report']);
+            core.setOutput('job-id', jobs['visual-diff report'].id);
+            core.setOutput('build-status', jobs['visual-diff report'].status);
             return jobs;
 
   download-visual-regression-report:
@@ -127,7 +132,7 @@ jobs:
           body: |
             ## Visual Regression Build for PR #${{ steps.pr.outputs.id }} Failed ❌
             Potential causes:
-              - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.build-status }}
+              - `upstream workflow` status: ${{ needs.upstream-workflow-summary.outputs.build-status }} [upstream job link](${{ needs.upstream-workflow-summary.outputs.upstream-job-link }})
               - `download report artifact` status: ${{ steps.download_report.outcome }}
               - `report upload` status: ${{ steps.report.outcome }}
             <!-- VISUAL_DIFF_REGRESSION_HOOK -->
