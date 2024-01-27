@@ -678,6 +678,8 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           border: 0,
 
           [`${searchPrefixCls}-button`]: {
+            // Fix https://github.com/ant-design/ant-design/issues/47150
+            marginInlineEnd: -1,
             paddingTop: 0,
             paddingBottom: 0,
             borderStartStartRadius: 0,
