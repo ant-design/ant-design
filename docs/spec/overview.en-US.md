@@ -22,7 +22,7 @@ The complete design pattern will include examples of templates, components (ETC)
 - **Template:** A page-level example that inspires users how to build a typical page in a system, such as a detail page.
 - **Component**
   - Basic components: The most basic elements of the system, such as buttons and pagers.
-  - Business components/modules: Block-level examples, typically consisting of multiple components, such as the PageHeader generic header.
+  - Business components/modules: Block-level examples, typically consisting of multiple components.
 - **General concepts:** Some conventions that guarantee ETC systematization, such as typesetting, fonts, and copywriting.
 
 ## Resources

@@ -65,6 +65,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     status: customStatus,
     controls,
     variant: customVariant,
+    wheel = false,
     ...others
   } = props;
 
@@ -136,6 +137,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       controls={controlsTemp}
       prefix={prefix}
       suffix={suffixNode}
+      wheel={wheel}
       addonAfter={
         addonAfter && (
           <NoCompactStyle>
