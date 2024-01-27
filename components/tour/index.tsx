@@ -40,13 +40,14 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     [steps, type],
   );
 
-  const builtinPlacements = getPlacements({
-    arrowPointAtCenter: true,
-    autoAdjustOverflow: true,
-    offset: token.marginXXS,
-    arrowWidth: token.sizePopupArrow,
-    borderRadius: token.borderRadius,
-  });
+  const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
+    getPlacements({
+      arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
+      autoAdjustOverflow: true,
+      offset: token.marginXXS,
+      arrowWidth: token.sizePopupArrow,
+      borderRadius: token.borderRadius,
+    });
 
   const customClassName = classNames(
     {

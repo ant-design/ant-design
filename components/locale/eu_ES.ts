@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/eu_ES';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/eu_ES';
 import DatePicker from '../date-picker/locale/eu_ES';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/eu_ES';
 
 const typeTemplate = '${label} ez da ${type} balioduna';
@@ -79,9 +80,6 @@ const localeValues: Locale = {
     copy: 'Kopiatu',
     copied: 'Kopiatuta',
     expand: 'Zabaldu',
-  },
-  PageHeader: {
-    back: 'Itzuli',
   },
   Form: {
     optional: '(aukerakoa)',

@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+
 import type { MenuToken } from '.';
 import { genFocusOutline } from '../../style';
 
@@ -37,7 +38,8 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     dangerItemSelectedColor,
     dangerItemActiveBg,
     dangerItemSelectedBg,
-
+    // Bg
+    popupBg,
     itemHoverBg,
     itemActiveBg,
     menuSubMenuBg,
@@ -47,8 +49,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
     horizontalItemSelectedBg,
     horizontalItemBorderRadius,
     horizontalItemHoverBg,
-
-    popupBg,
   } = token;
 
   return {
@@ -159,9 +159,16 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         backgroundColor: menuSubMenuBg,
       },
 
+      // ===== 设置浮层的颜色 =======
+      // ！dark 模式会被popupBg 会被rest 为 darkPopupBg
       [`&${componentCls}-popup > ${componentCls}`]: {
         backgroundColor: popupBg,
       },
+
+      [`&${componentCls}-submenu-popup > ${componentCls}`]: {
+        backgroundColor: popupBg,
+      },
+      // ===== 设置浮层的颜色 end =======
 
       // ====================== Horizontal ======================
       [`&${componentCls}-horizontal`]: {

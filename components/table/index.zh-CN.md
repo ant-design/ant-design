@@ -88,6 +88,7 @@ const columns = [
 <code src="./demo/fixed-header.tsx">固定表头</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
+<code src="./demo/hidden-columns.tsx">隐藏列</code>
 <code src="./demo/grouping-columns.tsx">表头分组</code>
 <code src="./demo/edit-cell.tsx">可编辑单元格</code>
 <code src="./demo/edit-row.tsx">可编辑行</code>
@@ -118,7 +119,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  |
-| components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
+| components | 覆盖默认的 table 元素，`virtual` 下不支持 `components.body` | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | function(currentPageData) | - |  |
@@ -141,7 +142,7 @@ const columns = [
 | onChange | 分页、排序、筛选变化时触发 | function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` \| `sort` \| `filter` }) | - |  |
 | onHeaderRow | 设置头部行属性 | function(columns, index) | - |  |
 | onRow | 设置行属性 | function(record, index) | - |  |
-| virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
+| virtual | 支持虚拟列表，开启后不支持 `components.body` 自定义 | boolean | - | 5.9.0 |
 
 ### Table ref
 
@@ -209,6 +210,7 @@ const columns = [
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
+| hidden | 隐藏列 | boolean | false | 5.13.0 |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
 | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |

@@ -64,7 +64,6 @@ const genClearStyle = (
       borderRadius: borderRadiusSM,
       border: `${unit(lineWidth)} solid ${colorSplit}`,
       position: 'relative',
-      cursor: 'pointer',
       overflow: 'hidden',
       ...extraStyle,
       '&::after': {
@@ -156,6 +155,7 @@ const genSizeStyle = (token: ColorPickerToken): CSSObject => {
 
 const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   const {
+    antCls,
     componentCls,
     colorPickerWidth,
     colorPrimary,
@@ -183,14 +183,17 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
   return [
     {
       [componentCls]: {
-        [`${componentCls}-inner-content`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: colorPickerWidth,
+        [`${componentCls}-inner`]: {
+          '&-content': {
+            display: 'flex',
+            flexDirection: 'column',
+            width: colorPickerWidth,
 
-          '&-divider': {
-            margin: `${unit(marginSM)} 0 ${unit(marginXS)}`,
+            [`& > ${antCls}-divider`]: {
+              margin: `${unit(marginSM)} 0 ${unit(marginXS)}`,
+            },
           },
+
           [`${componentCls}-panel`]: {
             ...genPickerStyle(token),
           },

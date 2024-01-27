@@ -1,4 +1,5 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+
 import type { AliasToken } from '../theme/internal';
 import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
 import type { ArrowToken } from './roundedArrow';
@@ -24,7 +25,9 @@ export function getArrowOffsetToken(options: {
 }
 
 function isInject(valid: boolean, code: CSSObject): CSSObject {
-  if (!valid) return {};
+  if (!valid) {
+    return {};
+  }
   return code;
 }
 

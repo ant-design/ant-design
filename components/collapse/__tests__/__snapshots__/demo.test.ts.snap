@@ -1074,7 +1074,7 @@ Array [
     Expand Icon Position:
   </span>,
   <div
-    class="ant-select ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
     style="margin:0 8px"
   >
     <div

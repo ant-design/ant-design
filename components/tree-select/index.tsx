@@ -21,6 +21,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -61,6 +63,7 @@ export interface TreeSelectProps<
   popupClassName?: string;
   /** @deprecated Please use `popupClassName` instead */
   dropdownClassName?: string;
+  /** @deprecated Use `variant` instead. */
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
@@ -75,6 +78,11 @@ export interface TreeSelectProps<
    *   default behavior, you can hide it by setting `suffixIcon` to null.
    */
   showArrow?: boolean;
+  /**
+   * @since 5.13.0
+   * @default "outlined"
+   */
+  variant?: Variant;
 }
 
 const InternalTreeSelect = <
@@ -108,6 +116,9 @@ const InternalTreeSelect = <
     dropdownMatchSelectWidth,
     popupMatchSelectWidth,
     allowClear,
+    variant: customVariant,
+    dropdownStyle,
+    tagRender,
     ...props
   }: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -144,6 +155,8 @@ const InternalTreeSelect = <
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   const rootPrefixCls = getPrefixCls();
@@ -156,6 +169,8 @@ const InternalTreeSelect = <
   const treeSelectRootCls = useCSSVarCls(treeSelectPrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useSelectStyle(prefixCls, rootCls);
   const [treeSelectWrapCSSVar] = useStyle(treeSelectPrefixCls, treePrefixCls, treeSelectRootCls);
+
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   const mergedDropdownClassName = classNames(
     popupClassName || dropdownClassName,
@@ -171,6 +186,7 @@ const InternalTreeSelect = <
   );
 
   const isMultiple = !!(treeCheckable || multiple);
+
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
@@ -207,12 +223,12 @@ const InternalTreeSelect = <
   }
 
   // ==================== Render =====================
-  const selectProps = omit(props as typeof props & { itemIcon: any; switcherIcon: any }, [
+  const selectProps = omit(props, [
     'suffixIcon',
-    'itemIcon',
     'removeIcon',
     'clearIcon',
-    'switcherIcon',
+    'itemIcon' as any,
+    'switcherIcon' as any,
   ]);
 
   // ===================== Placement =====================
@@ -235,7 +251,7 @@ const InternalTreeSelect = <
       [`${prefixCls}-lg`]: mergedSize === 'large',
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
@@ -258,7 +274,7 @@ const InternalTreeSelect = <
   );
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', props.dropdownStyle?.zIndex as number);
+  const [zIndex] = useZIndex('SelectLike', dropdownStyle?.zIndex as number);
 
   const returnNode = (
     <RcTreeSelect
@@ -287,13 +303,11 @@ const InternalTreeSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
-      dropdownStyle={{
-        ...props.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...dropdownStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       treeExpandAction={treeExpandAction}
+      tagRender={isMultiple ? tagRender : undefined}
     />
   );
 

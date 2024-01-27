@@ -9,30 +9,24 @@ import useLocale from '../../hooks/useLocale';
 import LiveError from '../slots/LiveError';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { colorPrimaryBorder, colorIcon, colorPrimary } = token;
+  const { colorBgContainer, colorIcon } = token;
 
   return {
     editor: css`
-      .npm__react-simple-code-editor__textarea {
-        outline: none;
-
-        &:hover {
-          box-shadow: inset 0 0 0 1px ${colorPrimaryBorder} !important;
-        }
-
-        &:focus {
-          box-shadow: inset 0 0 0 1px ${colorPrimary} !important;
-        }
-      }
-
       // override dumi editor styles
       .dumi-default-source-code-editor {
+        .dumi-default-source-code {
+          background: ${colorBgContainer};
+        }
+
         .dumi-default-source-code > pre,
+        .dumi-default-source-code-scroll-content > pre,
         .dumi-default-source-code-editor-textarea {
           padding: 12px 16px;
         }
 
-        .dumi-default-source-code > pre {
+        .dumi-default-source-code > pre,
+        .dumi-default-source-code-scroll-content > pre {
           font-size: 13px;
           line-height: 2;
           font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
@@ -43,12 +37,14 @@ const useStyle = createStyles(({ token, css }) => {
           display: none;
         }
 
-        &-textarea:hover {
-          box-shadow: 0 0 0 1px ${token.colorPrimaryBorderHover} inset;
+        &::after {
+          border-radius: 0 !important;
         }
 
-        &-textarea:focus {
-          box-shadow: 0 0 0 1px ${token.colorPrimary} inset;
+        &:hover:not(:focus-within) {
+          &::after {
+            box-shadow: 0 0 0 1px ${token.colorPrimaryBorderHover} inset;
+          }
         }
       }
     `,
@@ -79,14 +75,12 @@ const locales = {
 
 const HIDE_LIVE_DEMO_TIP = 'hide-live-demo-tip';
 
-const LiveCode: FC<{
-  lang: ComponentProps<typeof SourceCodeEditor>['lang'];
-  initialValue: ComponentProps<typeof SourceCodeEditor>['initialValue'];
-  liveError?: Error;
-  onTranspile?: (code: string) => void;
-}> = (props) => {
+const LiveCode: FC<
+  {
+    error: Error | null;
+  } & Pick<ComponentProps<typeof SourceCodeEditor>, 'lang' | 'initialValue' | 'onChange'>
+> = (props) => {
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState<Error>();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
 
@@ -110,16 +104,9 @@ const LiveCode: FC<{
         <SourceCodeEditor
           lang={props.lang}
           initialValue={props.initialValue}
-          onTranspile={({ err, code }) => {
-            if (err) {
-              setError(err);
-            } else {
-              setError(undefined);
-              props.onTranspile?.(code);
-            }
-          }}
+          onChange={props.onChange}
         />
-        <LiveError error={props.liveError || error} />
+        <LiveError error={props.error} />
       </div>
       <Tooltip title={locale.demoEditable} open={open} onOpenChange={handleOpenChange}>
         <EditFilled className={styles.editableIcon} />

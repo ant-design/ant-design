@@ -1,8 +1,8 @@
 import type { FC } from 'react';
+import type { DialogProps } from 'rc-dialog';
 
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
-import type { DialogProps } from 'rc-dialog';
 
 export type ModalFooterRender = (
   originNode: React.ReactNode,
@@ -52,7 +52,7 @@ export interface ModalProps extends ModalCommonProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: Omit<NonNullable<DialogProps['classNames']>, 'wrapper'>;
+  classNames?: NonNullable<DialogProps['classNames']>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   /** @deprecated Please use `styles.body` instead */
@@ -63,7 +63,7 @@ export interface ModalProps extends ModalCommonProps {
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;

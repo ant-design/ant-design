@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | bgColor | QRCode Background Color | string | `transparent` | 5.5.0 |
 | bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
-| status | QRCode status | `active \| expired \| loading ` | `active` |
+| status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | onRefresh | callback | `() => void` | - |
 
 ## Design Token

@@ -40,11 +40,13 @@ return (
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
+<code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/async.tsx">异步加载</code>
 <code src="./demo/form.tsx">配合 Form 使用</code>
 <code src="./demo/prefix.tsx">自定义触发字符</code>
 <code src="./demo/readonly.tsx">无效或只读</code>
 <code src="./demo/placement.tsx">向上展开</code>
+<code src="./demo/allowClear.tsx">带移除图标</code>
 <code src="./demo/autoSize.tsx">自动大小</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -58,6 +60,7 @@ return (
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| allowClear | 支持清除 | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
 | autoFocus | 自动获得焦点 | boolean | false |  |
 | autoSize | 自适应内容高度，可设置为 true \| false 或对象：{ minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | defaultValue | 默认值 | string | - |  |
@@ -70,6 +73,7 @@ return (
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  |
 | value | 设置值 | string | - |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onBlur | 失去焦点时触发 | () => void | - |  |
 | onChange | 值改变时触发 | (text: string) => void | - |  |
 | onFocus | 获得焦点时触发 | () => void | - |  |

@@ -26,6 +26,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -127,6 +129,7 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
      */
     showArrow?: boolean;
     disabled?: boolean;
+    /** @deprecated Use `variant` instead. */
     bordered?: boolean;
     placement?: SelectCommonPlacement;
     suffixIcon?: React.ReactNode;
@@ -138,6 +141,11 @@ export type CascaderProps<DataNodeType extends BaseOptionType = any> =
     popupClassName?: string;
     /** @deprecated Please use `popupClassName` instead */
     dropdownClassName?: string;
+    /**
+     * @since 5.13.0
+     * @default "outlined"
+     */
+    variant?: Variant;
   };
 
 export interface CascaderRef {
@@ -169,6 +177,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     showArrow,
     builtinPlacements,
     style,
+    variant: customVariant,
     ...rest
   } = props;
 
@@ -201,6 +210,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       'deprecated',
       '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
     );
+
+    warning.deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
   // ==================== Prefix =====================
@@ -218,6 +229,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const [wrapCascaderCSSVar] = useStyle(cascaderPrefixCls, cascaderRootCls);
 
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+
+  const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
@@ -306,7 +319,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-rtl`]: isRtl,
-          [`${prefixCls}-borderless`]: !bordered,
+          [`${prefixCls}-${variant}`]: enableVariantCls,
           [`${prefixCls}-in-form-item`]: isFormItemInput,
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
@@ -335,10 +348,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       checkable={checkable}
       dropdownClassName={mergedDropdownClassName}
       dropdownPrefixCls={customizePrefixCls || cascaderPrefixCls}
-      dropdownStyle={{
-        ...restProps.dropdownStyle,
-        zIndex,
-      }}
+      dropdownStyle={{ ...restProps.dropdownStyle, zIndex }}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
       getPopupContainer={getPopupContainer || getContextPopupContainer}

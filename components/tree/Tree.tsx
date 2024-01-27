@@ -197,7 +197,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
-  const itemHeight = (token.paddingXS / 2) + (token.Tree?.titleHeight || token.controlHeightSM);
+  const itemHeight = token.paddingXS / 2 + (token.Tree?.titleHeight || token.controlHeightSM);
 
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {

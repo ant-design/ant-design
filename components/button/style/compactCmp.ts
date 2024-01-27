@@ -1,6 +1,6 @@
 // Style as inline component
-import type { ButtonToken } from '.';
-import { prepareComponentToken, prepareToken } from '.';
+import type { ButtonToken } from './token';
+import { prepareComponentToken, prepareToken } from './token';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genCompactItemVerticalStyle } from '../../style/compact-item-vertical';
 import type { GenerateStyle } from '../../theme/internal';

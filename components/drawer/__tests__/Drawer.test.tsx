@@ -309,5 +309,56 @@ describe('Drawer', () => {
       );
       expect(baseElement.querySelector('.anticon-close')).not.toBeNull();
     });
+
+    it('match between styles and deprecated style prop', async () => {
+      const initialFontSize = 10;
+      let fontSize1 = initialFontSize;
+      let fontSize2 = initialFontSize;
+      const getStyle1 = () => ({ fontSize: fontSize1++ });
+      const getStyle2 = () => ({ fontSize: fontSize2++ });
+      const { container: container1 } = render(
+        <Drawer
+          open
+          forceRender
+          getContainer={false}
+          footer="footer"
+          styles={{
+            header: getStyle1(),
+            body: getStyle1(),
+            footer: getStyle1(),
+            content: getStyle1(),
+            wrapper: getStyle1(),
+            mask: getStyle1(),
+          }}
+        >
+          <p>Some contents...</p>
+        </Drawer>,
+      );
+      const { container: container2 } = render(
+        <Drawer
+          open
+          forceRender
+          getContainer={false}
+          footer="footer"
+          headerStyle={getStyle2()}
+          bodyStyle={getStyle2()}
+          footerStyle={getStyle2()}
+          drawerStyle={getStyle2()}
+          contentWrapperStyle={getStyle2()}
+          maskStyle={getStyle2()}
+        >
+          <p>Some contents...</p>
+        </Drawer>,
+      );
+      expect(container1).toMatchSnapshot();
+      expect(container2).toMatchSnapshot();
+      for (let i = initialFontSize; i < fontSize1; i += 1) {
+        expect(container1.outerHTML).toContain(`font-size: ${i}px`);
+      }
+      for (let j = initialFontSize; j < fontSize2; j += 1) {
+        expect(container2.outerHTML).toContain(`font-size: ${j}px`);
+      }
+      expect(container1.outerHTML).toEqual(container2.outerHTML);
+    });
   });
 });
