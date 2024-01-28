@@ -468,7 +468,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.custom-modal-wrap')).toHaveLength(1);
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
-    expect($$('.custom-modal-btn')).toHaveLength(2);
+    expect($$('.ant-btn')).toHaveLength(2);
   });
 
   it('should be Modal.confirm without mask', async () => {

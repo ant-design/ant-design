@@ -79,14 +79,12 @@ const locales = {
 
 const HIDE_LIVE_DEMO_TIP = 'hide-live-demo-tip';
 
-const LiveCode: FC<{
-  lang: ComponentProps<typeof SourceCodeEditor>['lang'];
-  initialValue: ComponentProps<typeof SourceCodeEditor>['initialValue'];
-  liveError?: Error;
-  onTranspile?: (code: string) => void;
-}> = (props) => {
+const LiveCode: FC<
+  {
+    error: Error | null;
+  } & Pick<ComponentProps<typeof SourceCodeEditor>, 'lang' | 'initialValue' | 'onChange'>
+> = (props) => {
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState<Error>();
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
 
@@ -110,16 +108,9 @@ const LiveCode: FC<{
         <SourceCodeEditor
           lang={props.lang}
           initialValue={props.initialValue}
-          onTranspile={({ err, code }) => {
-            if (err) {
-              setError(err);
-            } else {
-              setError(undefined);
-              props.onTranspile?.(code);
-            }
-          }}
+          onChange={props.onChange}
         />
-        <LiveError error={props.liveError || error} />
+        <LiveError error={props.error} />
       </div>
       <Tooltip title={locale.demoEditable} open={open} onOpenChange={handleOpenChange}>
         <EditFilled className={styles.editableIcon} />

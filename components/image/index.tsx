@@ -49,7 +49,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     typeof preview === 'object' ? preview.zIndex : undefined,
   );
 
-  const mergedPreview = React.useMemo(() => {
+  const mergedPreview = React.useMemo<ImageProps['preview']>(() => {
     if (preview === false) {
       return preview;
     }
@@ -64,7 +64,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       ),
       icons,
       ...restPreviewProps,
-      getContainer: getContainer || getContextPopupContainer,
+      getContainer: getContainer ?? getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,

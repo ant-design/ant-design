@@ -87,10 +87,8 @@ export interface CardConfig extends ComponentStyleConfig {
   styles: CardProps['styles'];
 }
 
-export interface DrawerConfig extends ComponentStyleConfig {
-  classNames?: DrawerProps['classNames'];
-  styles?: DrawerProps['styles'];
-}
+export type DrawerConfig = ComponentStyleConfig &
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
 
 export interface FlexConfig extends ComponentStyleConfig {
   vertical?: FlexProps['vertical'];
