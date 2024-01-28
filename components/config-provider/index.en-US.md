@@ -151,6 +151,7 @@ const {
 | tag | Set Tag common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timeline | Set Timeline common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | timePicker | Set TimePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| tour | Set Tour common props | { closeIcon?: React.ReactNode } | - | 5.14.0 |
 | transfer | Set Transfer common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | tree | Set Tree common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
