@@ -155,6 +155,11 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               paddingInlineStart: token.calc(token.controlPaddingHorizontal).mul(2).equal(),
             },
           },
+
+          '&-empty': {
+            ...genItemStyle(token),
+            color: token.colorTextDisabled,
+          },
         },
 
         // =========================== RTL ===========================
