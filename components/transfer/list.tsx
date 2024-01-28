@@ -343,22 +343,19 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const availableKeys = getEnabledItemKeys(
-            pagination
-              ? (listBodyRef.current?.items || []).map((entity) => entity.item)
-              : filteredItems,
+          const availablePageItemKeys = getEnabledItemKeys(
+            (listBodyRef.current?.items || []).map((entity) => entity.item),
           );
-          const checkedKeySet = new Set<string>(checkedKeys);
-          const newCheckedKeys: string[] = [];
-          const newUnCheckedKeys: string[] = [];
-          availableKeys.forEach((key) => {
+          const checkedKeySet = new Set(checkedKeys);
+          const newCheckedKeysSet = new Set(checkedKeySet);
+          availablePageItemKeys.forEach((key) => {
             if (checkedKeySet.has(key)) {
-              newUnCheckedKeys.push(key);
+              newCheckedKeysSet.delete(key);
             } else {
-              newCheckedKeys.push(key);
+              newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, 'replace');
+          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
         },
       },
     ];

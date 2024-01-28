@@ -16,6 +16,28 @@ tag: vVERSION
 
 ---
 
+## 5.13.3
+
+`2024-01-28`
+
+- Input
+  - 🐞 修复 Input.Search 宽度比 Input 少 1px 的问题。[#47193](https://github.com/ant-design/ant-design/pull/47193)
+  - 🐞 修复 Input 启用 `showCount` 时在 Space.Compact 下的样式错误。[#47112](https://github.com/ant-design/ant-design/pull/47112) [@huiliangShen](https://github.com/huiliangShen)
+- 🐞 修复 Descriptions 当 `item` 的 `children` 为 `null` 时丢失单元格右边框样式的问题。[#47191](https://github.com/ant-design/ant-design/pull/47191)
+- 🐞 修复 Table `column.onFilter` 方法未过滤树形数据的问题。[#47170](https://github.com/ant-design/ant-design/pull/47170) [@Mumujianguang](https://github.com/Mumujianguang)
+- 🐞 修复 Affix 在 Chrome 缩放 `80%` 的情况下占位高度异常的问题。[#46823](https://github.com/ant-design/ant-design/pull/46823) [@zhipenglin](https://github.com/zhipenglin)
+- 🐞 修复 QRCode 在暗黑模式下的背景色。[#47128](https://github.com/ant-design/ant-design/pull/47128) [@kampiu](https://github.com/kampiu)
+- 🐞 修复 Statistic 组件不支持 HTML `role`、`data-*` 和 `aria-*` 等属性的问题。[#47149](https://github.com/ant-design/ant-design/pull/47149)
+- 🐞 修复 Transfer 反选当页错误的问题[#47125](https://github.com/ant-design/ant-design/pull/47125) [@linxianxi](https://github.com/linxianxi)
+- 💄 降低 Button `size` 样式权重以方便覆盖。[#47074](https://github.com/ant-design/ant-design/pull/47074) [@crazyair](https://github.com/crazyair)
+- 🐞 修复 Modal 自定义 `classNames.wrapper` 时 `centered` 属性不生效的问题。[#47076](https://github.com/ant-design/ant-design/pull/47076) [@sunsunmonkey](https://github.com/sunsunmonkey)
+- 🐞 修复 Spin 组件在 `tip` 和 `fullscreen` 同时使用时的控制台误报。[#47015](https://github.com/ant-design/ant-design/pull/47015) [@xsjcTony](https://github.com/xsjcTony)
+- 🗑 移除了早已失效的 PageHeader 组件相关的多语言文案和 ConfigProvider 的 `pageHeader` 属性。[#47163](https://github.com/ant-design/ant-design/pull/47163) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 重构简化 Drawer 的动画代码。[#47194](https://github.com/ant-design/ant-design/pull/47194)
+- 国际化
+  - 🇮🇹 为 Tour 组件补充 it_IT 本地化文案。[#47148](https://github.com/ant-design/ant-design/pull/47148) [@nikzanda](https://github.com/nikzanda)
+  - 🇯🇵 为 Table 组件筛选功能补充 ja_JP 本地化文案。[#47072](https://github.com/ant-design/ant-design/pull/47072) [@sebastibe](https://github.com/sebastibe)
+
 ## 5.13.2
 
 `2024-01-19`

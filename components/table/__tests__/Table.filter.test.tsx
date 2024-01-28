@@ -579,6 +579,47 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
+  it('can filter children by defaultFilteredValue', () => {
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            defaultFilteredValue: ['Jim', 'Tom'],
+            onFilter: (value: string, record) => {
+              if (record.children && record.children.length) {
+                return true;
+              }
+              return record.name.includes(value);
+            },
+          },
+        ],
+        dataSource: [
+          {
+            key: '0',
+            name: 'Jack',
+            children: [
+              { key: '0-1', name: 'Jim' },
+              { key: '0-2', name: 'Tony' },
+            ],
+          },
+          { key: '1', name: 'Lucy' },
+          { key: '2', name: 'Tom' },
+          { key: '3', name: 'Jerry' },
+        ],
+        expandable: {
+          defaultExpandAllRows: true,
+        },
+      }),
+    );
+
+    expect([...container.querySelectorAll('tbody tr')].map((item) => item.textContent)).toEqual([
+      'Jack',
+      'Jim',
+      'Tom',
+    ]);
+  });
+
   //  Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('fires change event', () => {
     const handleChange = jest.fn();
@@ -633,7 +674,7 @@ describe('Table.filter', () => {
     await waitFor(() => expect(handleChange).not.toHaveBeenCalled());
   });
 
-  it('three levels menu', async () => {
+  it('three levels menu', () => {
     const onChange = jest.fn();
     const filters = [
       { text: 'Upper', value: 'Upper' },
@@ -656,17 +697,7 @@ describe('Table.filter', () => {
         ],
       },
     ];
-    const { container } = render(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filters,
-          },
-        ],
-        onChange,
-      }),
-    );
+    const { container } = render(createTable({ columns: [{ ...column, filters }], onChange }));
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 
