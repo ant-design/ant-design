@@ -54,8 +54,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAA
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |
 | title | 卡片标题 | ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
-| classNames | 配置卡片内置模块的 className | Record<SemanticDOM, string> | - | 5.13.0 |
-| styles | 配置卡片内置模块的 style | Record<SemanticDOM, string> | - | 5.13.0 |
+| classNames | 配置卡片内置模块的 className | Record<SemanticDOM, string> | - | 5.14.0 |
+| styles | 配置卡片内置模块的 style | Record<SemanticDOM, string> | - | 5.14.0 |
 | onTabChange | 页签切换的回调 | (key) => void | - |  |
 
 ### Card.Grid
@@ -80,12 +80,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-8zR6rrupgAAA
 
 | 名称    | 说明                     | 版本   |
 | ------- | ------------------------ | ------ |
-| header  | 设置卡片头部区域         | 5.13.0 |
-| body    | 设置卡片内容区域         | 5.13.0 |
-| extra   | 设置卡片右上角的操作区域 | 5.13.0 |
-| title   | 设置卡片标题             | 5.13.0 |
-| actions | 设置卡片底部操作组       | 5.13.0 |
-| cover   | 设置标题封面             | 5.13.0 |
+| header  | 设置卡片头部区域         | 5.14.0 |
+| body    | 设置卡片内容区域         | 5.14.0 |
+| extra   | 设置卡片右上角的操作区域 | 5.14.0 |
+| title   | 设置卡片标题             | 5.14.0 |
+| actions | 设置卡片底部操作组       | 5.14.0 |
+| cover   | 设置标题封面             | 5.14.0 |
 
 ## 主题变量（Design Token）
 
