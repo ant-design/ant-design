@@ -15,6 +15,7 @@ import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
+import type { TourProps } from '../tour/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultIconPrefixCls = 'anticon';
@@ -64,6 +65,8 @@ export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
 }
+
+export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig & Pick<ModalProps, 'classNames' | 'styles'>;
 
@@ -145,6 +148,7 @@ export interface ConfigConsumerProps {
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
+  tour?: TourConfig;
   upload?: ComponentStyleConfig;
   notification?: ComponentStyleConfig;
   tree?: ComponentStyleConfig;
