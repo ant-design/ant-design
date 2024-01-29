@@ -377,4 +377,22 @@ describe('Descriptions', () => {
       expect.anything(),
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/47151
+  it('should has .ant-descriptions-item-content className when children is falsy', () => {
+    const wrapper = render(
+      <Descriptions
+        bordered
+        items={[
+          {
+            key: '1',
+            label: null,
+            children: null,
+          },
+        ]}
+      />,
+    );
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
+  });
 });

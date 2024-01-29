@@ -17,6 +17,7 @@ export interface CellProps {
   label?: React.ReactNode;
   content?: React.ReactNode;
   colon?: boolean;
+  type?: 'label' | 'content' | 'item';
 }
 
 const Cell: React.FC<CellProps> = (props) => {
@@ -32,6 +33,7 @@ const Cell: React.FC<CellProps> = (props) => {
     label,
     content,
     colon,
+    type,
   } = props;
 
   const Component = component as keyof JSX.IntrinsicElements;
@@ -41,8 +43,8 @@ const Cell: React.FC<CellProps> = (props) => {
       <Component
         className={classNames(
           {
-            [`${itemPrefixCls}-item-label`]: notEmpty(label),
-            [`${itemPrefixCls}-item-content`]: notEmpty(content),
+            [`${itemPrefixCls}-item-label`]: type === 'label',
+            [`${itemPrefixCls}-item-content`]: type === 'content',
           },
           className,
         )}

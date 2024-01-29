@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/fr_BE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/fr_BE';
 import DatePicker from '../date-picker/locale/fr_BE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/fr_BE';
 
 const typeTemplate = "La valeur du champ ${label} n'est pas valide pour le type ${type}";
@@ -71,9 +72,6 @@ const localeValues: Locale = {
     copy: 'Copier',
     copied: 'Copie effectuée',
     expand: 'Développer',
-  },
-  PageHeader: {
-    back: 'Retour',
   },
   Form: {
     optional: '(optionnel)',
