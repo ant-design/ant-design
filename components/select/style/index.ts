@@ -126,7 +126,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         [iconCls]: {
           verticalAlign: 'top',
           transition: `transform ${token.motionDurationSlow}`,
-          fontSize: token.fontSizeIcon,
 
           '> svg': {
             verticalAlign: 'top',
