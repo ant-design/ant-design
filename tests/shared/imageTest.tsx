@@ -236,6 +236,15 @@ export default function imageTest(
         <ConfigProvider theme={{ algorithm, cssVar: true }}>{component}</ConfigProvider>
       </div>,
     );
+    test(
+      `[CSS Var without Hash] component image screenshot should correct ${key}`,
+      `.${key}.css-var-without-hash`,
+      <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
+        <ConfigProvider theme={{ algorithm, cssVar: true, hashed: false }}>
+          {component}
+        </ConfigProvider>
+      </div>,
+    );
   });
 }
 
