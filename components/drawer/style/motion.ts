@@ -44,7 +44,7 @@ const getFadeStyle = (from: number, duration: string) => ({
 });
 
 const getPanelMotionStyles = (direction: Direction, duration: string) => [
-  getFadeStyle(0.7, duration),
+  getFadeStyle(0, duration),
   getEnterLeaveStyle(
     {
       transform: getMoveTranslate(direction),
