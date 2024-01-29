@@ -24,7 +24,7 @@ const getEnterLeaveStyle = (startStyle: React.CSSProperties, endStyle: React.CSS
   },
 });
 
-const getFadeStyle = (duration: string) => ({
+const getFadeStyle = (from: number, duration: string) => ({
   '&-enter, &-appear, &-leave': {
     '&-start': {
       transition: 'none',
@@ -35,7 +35,7 @@ const getFadeStyle = (duration: string) => ({
   },
   ...getEnterLeaveStyle(
     {
-      opacity: 0,
+      opacity: from,
     },
     {
       opacity: 1,
@@ -44,7 +44,7 @@ const getFadeStyle = (duration: string) => ({
 });
 
 const getPanelMotionStyles = (direction: Direction, duration: string) => [
-  getFadeStyle(duration),
+  getFadeStyle(0.7, duration),
   getEnterLeaveStyle(
     {
       transform: getMoveTranslate(direction),

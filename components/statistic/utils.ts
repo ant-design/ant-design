@@ -15,7 +15,6 @@ export interface FormatConfig {
   decimalSeparator?: string;
   groupSeparator?: string;
   precision?: number;
-  prefixCls?: string;
 }
 
 export interface CountdownFormatConfig extends FormatConfig {
