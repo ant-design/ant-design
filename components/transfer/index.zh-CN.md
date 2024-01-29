@@ -3,8 +3,8 @@ category: Components
 subtitle: 穿梭框
 group: 数据录入
 title: Transfer
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EAApQ5ephigAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*yv12S4sSRAEAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fkfzT5BbwNIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
 双栏穿梭选择框。
