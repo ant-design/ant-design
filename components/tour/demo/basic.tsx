@@ -4,9 +4,9 @@ import { Button, Divider, Space, Tour } from 'antd';
 import type { TourProps } from 'antd';
 
 const App: React.FC = () => {
-  const ref1 = useRef<HTMLButtonElement>(null);
-  const ref2 = useRef<HTMLButtonElement>(null);
-  const ref3 = useRef<HTMLButtonElement>(null);
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
 
   const [open, setOpen] = useState<boolean>(false);
 
@@ -20,17 +20,17 @@ const App: React.FC = () => {
           src="https://user-images.githubusercontent.com/5378891/197385811-55df8480-7ff4-44bd-9d43-a7dade598d70.png"
         />
       ),
-      target: () => ref1.current!,
+      target: () => ref1.current,
     },
     {
       title: 'Save',
       description: 'Save your changes.',
-      target: () => ref2.current!,
+      target: () => ref2.current,
     },
     {
       title: 'Other Actions',
       description: 'Click to see other actions.',
-      target: () => ref3.current!,
+      target: () => ref3.current,
     },
   ];
   return (
