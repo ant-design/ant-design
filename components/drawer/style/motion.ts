@@ -61,7 +61,7 @@ const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
   return {
     [componentCls]: {
       // ======================== Mask ========================
-      [`${componentCls}-mask-motion`]: getFadeStyle(motionDurationSlow),
+      [`${componentCls}-mask-motion`]: getFadeStyle(0, motionDurationSlow),
 
       // ======================= Panel ========================
       [`${componentCls}-panel-motion`]: (['left', 'right', 'top', 'bottom'] as const).reduce(
