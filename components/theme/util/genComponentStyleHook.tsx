@@ -154,7 +154,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string, rootCls: string): UseComponentStyleResult => {
+  return (prefixCls: string, rootCls: string = prefixCls): UseComponentStyleResult => {
     const [theme, realToken, hashId, token, cssVar] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
