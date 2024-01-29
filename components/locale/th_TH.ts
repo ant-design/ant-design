@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/th_TH';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/th_TH';
 import DatePicker from '../date-picker/locale/th_TH';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/th_TH';
 
 const typeTemplate = '${label} ไม่ใช่ ${type} ที่ถูกต้อง';
@@ -79,9 +80,6 @@ const localeValues: Locale = {
     copy: 'คัดลอก',
     copied: 'คัดลอกแล้ว',
     expand: 'ขยาย',
-  },
-  PageHeader: {
-    back: 'ย้อนกลับ',
   },
   Form: {
     optional: '(ไม่จำเป็น)',

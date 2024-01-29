@@ -50,6 +50,7 @@ import Tabs from '../../tabs';
 import Tag from '../../tag';
 import TimePicker from '../../time-picker';
 import Timeline from '../../timeline';
+import Tour from '../../tour';
 import Transfer from '../../transfer';
 import Tree from '../../tree';
 import Typography from '../../typography';
@@ -1336,5 +1337,18 @@ describe('ConfigProvider support style and className props', () => {
     const element = container.querySelector<HTMLDivElement>('.ant-dropdown');
     expect(element).toHaveClass('cp-dropdown');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+  });
+
+  it('Should Tour closeIcon works', () => {
+    const { container } = render(
+      <ConfigProvider
+        tour={{ closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span> }}
+      >
+        <Tour steps={[{ title: 'test' }]} open />
+      </ConfigProvider>,
+    );
+    const selectors = '.ant-tour .ant-tour-inner .ant-tour-close .cp-test-closeIcon';
+    const element = container.querySelector<HTMLSpanElement>(selectors);
+    expect(element).toBeTruthy();
   });
 });

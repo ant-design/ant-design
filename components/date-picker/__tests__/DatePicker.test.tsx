@@ -35,6 +35,12 @@ jest.mock('@rc-component/trigger', () => {
   };
 });
 
+function getCell(text: string) {
+  const cells = Array.from(document.querySelectorAll('.ant-picker-cell'));
+
+  return cells.find((cell) => cell.textContent === text);
+}
+
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -96,8 +102,10 @@ describe('DatePicker', () => {
 
   it('disabled date', () => {
     const disabledDate = (current: any) => current && current < dayjs().endOf('day');
-    const wrapper = render(<DatePicker disabledDate={disabledDate} open />);
-    expect(Array.from(wrapper.container.children)).toMatchSnapshot();
+    render(<DatePicker disabledDate={disabledDate} open />);
+
+    expect(getCell('21')).toHaveClass('ant-picker-cell-disabled');
+    expect(getCell('23')).not.toHaveClass('ant-picker-cell-disabled');
   });
 
   it('placeholder', () => {
@@ -234,12 +242,7 @@ describe('DatePicker', () => {
 
   it('showTime={{ showHour: true }}', () => {
     const { container } = render(
-      <DatePicker
-        defaultValue={dayjs()}
-        showTime={{ showHour: true }}
-        format="YYYY-MM-DD"
-        open
-      />,
+      <DatePicker defaultValue={dayjs()} showTime={{ showHour: true }} format="YYYY-MM-DD" open />,
     );
     expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(1);
     expect(
@@ -249,16 +252,11 @@ describe('DatePicker', () => {
     ).toBe(24);
   });
 
-    it('showTime={{ }} (no true args)', () => {
+  it('showTime={{ }} (no true args)', () => {
     const { container } = render(
-      <DatePicker
-        defaultValue={dayjs()}
-        showTime={{ }}
-        format="YYYY-MM-DD"
-        open
-      />,
+      <DatePicker defaultValue={dayjs()} showTime={{}} format="YYYY-MM-DD" open />,
     );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(0);
+    expect(container.querySelectorAll('.ant-picker-time-panel-column')).toHaveLength(3);
   });
 
   it('showTime should work correctly when format is custom function', () => {
@@ -270,13 +268,13 @@ describe('DatePicker', () => {
         open
       />,
     );
-    const fuousEvent = () => {
+    const focusEvent = () => {
       fireEvent.focus(container.querySelector('input')!);
     };
     const mouseDownEvent = () => {
       fireEvent.mouseDown(container.querySelector('input')!);
     };
-    expect(fuousEvent).not.toThrow();
+    expect(focusEvent).not.toThrow();
     expect(mouseDownEvent).not.toThrow();
   });
 
@@ -411,7 +409,7 @@ describe('DatePicker', () => {
     const { container } = render(
       <DatePicker defaultValue={dayjs()} format="kk:mm" showTime open />,
     );
-    expect(container.querySelectorAll('.ant-picker-time-panel-column').length).toBe(2);
+    expect(container.querySelectorAll('.ant-picker-time-panel-column')).toHaveLength(2);
     expect(
       container
         .querySelectorAll('.ant-picker-time-panel-column')?.[0]
