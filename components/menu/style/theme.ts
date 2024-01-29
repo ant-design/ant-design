@@ -106,6 +106,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
+      [`&:not(${componentCls}-horizontal) ${componentCls}-submenu-active`]: {
+        [`${componentCls}-submenu-title`]: {
+          backgroundColor: itemHoverBg,
+        },
+      },
+
       // Danger - only Item has
       [`${componentCls}-item-danger`]: {
         color: dangerItemColor,
