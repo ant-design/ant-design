@@ -154,7 +154,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
   const [component] = cells;
   const concatComponent = cells.join('-');
 
-  return (prefixCls: string): UseComponentStyleResult => {
+  return (prefixCls: string, rootCls: string = prefixCls): UseComponentStyleResult => {
     const [theme, realToken, hashId, token, cssVar] = useToken();
     const { getPrefixCls, iconPrefixCls, csp } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
@@ -241,7 +241,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
         });
         flush(component, componentToken);
         return [
-          options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls),
+          options.resetStyle === false ? null : genCommonStyle(mergedToken, prefixCls, rootCls),
           styleInterpolation,
         ];
       },
@@ -253,6 +253,7 @@ export default function genComponentStyleHook<C extends OverrideComponent>(
 
 export interface SubStyleComponentProps {
   prefixCls: string;
+  rootCls?: string;
 }
 
 // Get from second argument
@@ -272,8 +273,9 @@ export const genSubStyleComponent: <C extends OverrideComponent>(
 
   const StyledComponent: ComponentType<SubStyleComponentProps> = ({
     prefixCls,
+    rootCls = prefixCls,
   }: SubStyleComponentProps) => {
-    useStyle(prefixCls);
+    useStyle(prefixCls, rootCls);
     return null;
   };
 
@@ -406,7 +408,7 @@ export const genStyleHooks = <C extends OverrideComponent>(
   );
 
   return (prefixCls: string, rootCls: string = prefixCls) => {
-    const [, hashId] = useStyle(prefixCls);
+    const [, hashId] = useStyle(prefixCls, rootCls);
     const [wrapCSSVar, cssVarCls] = useCSSVar(rootCls);
 
     return [wrapCSSVar, hashId, cssVarCls] as const;
