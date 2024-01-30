@@ -85,6 +85,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
     height: size,
     lineHeight: unit(calc(size).sub(calc(lineWidth).mul(2)).equal()),
     borderRadius: '50%',
+    border: size > 15 ? `${unit(lineWidth)} ${lineType} transparent` : 0,
 
     [`&${componentCls}-square`]: {
       borderRadius: radius,
@@ -118,7 +119,6 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
       textAlign: 'center',
       verticalAlign: 'middle',
       background: avatarBg,
-      border: `${unit(lineWidth)} ${lineType} transparent`,
 
       [`&-image`]: {
         background: 'transparent',
