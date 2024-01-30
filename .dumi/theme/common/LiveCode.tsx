@@ -24,6 +24,12 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-source-code-editor-textarea {
           padding: 12px 16px;
         }
+        .dumi-default-source-code-editor-textarea,
+        .dumi-default-source-code-editor-textarea:focus {
+          height: calc(100% - 12px);
+          outline: none;
+          box-shadow: unset;
+        }
 
         .dumi-default-source-code > pre,
         .dumi-default-source-code-scroll-content > pre {
