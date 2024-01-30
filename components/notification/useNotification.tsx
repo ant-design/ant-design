@@ -151,7 +151,10 @@ export function useInternalNotification(
         ...restConfig
       } = config;
 
-      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon ?? notification?.closeIcon);
+      const realCloseIcon = getCloseIcon(
+        noticePrefixCls,
+        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+      );
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
