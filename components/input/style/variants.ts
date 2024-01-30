@@ -78,8 +78,8 @@ export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CS
   '&-outlined': {
     ...genBaseOutlinedStyle(token, {
       borderColor: token.colorBorder,
-      hoverBorderColor: token.colorPrimaryHover,
-      activeBorderColor: token.colorPrimary,
+      hoverBorderColor: token.hoverBorderColor,
+      activeBorderColor: token.activeBorderColor,
       activeShadow: token.activeShadow,
     }),
 
