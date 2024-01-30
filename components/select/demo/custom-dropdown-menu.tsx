@@ -6,7 +6,7 @@ import type { InputRef } from 'antd';
 let index = 0;
 
 const App: React.FC = () => {
-  const [items, setItems] = useState(['jack', 'lucy']);
+  const [items, setItems] = useState(['']);
   const [name, setName] = useState('');
   const inputRef = useRef<InputRef>(null);
 
