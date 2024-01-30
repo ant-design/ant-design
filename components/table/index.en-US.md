@@ -267,7 +267,8 @@ Properties for row selection.
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
 | hideSelectAll | Hide the selectAll checkbox and custom selection | boolean | false | 4.3.0 |
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | 4.4.0 |
-| renderCell | Renderer of the table cell. Same as `render` in column | function(checked, record, index, originNode) {} | - | 4.1.0 |
+| renderCell | deprecated, use `cellRender` instead | - | 4.1.0 |
+| cellRender | Renderer of the table cell. Same as `render` in column | function(checked, record, index, originNode) {} | - | x.y.z |
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] |  |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
@@ -384,4 +385,4 @@ Fixed column use `z-index` to make it over other columns. You will find sometime
 
 ### How to custom render Table Checkbox（For example, adding Tooltip）?
 
-Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
+Since `x.y.z`, You can use [`rowSelection.cellRender`](or `rowSelection.renderCell` if (`x.y.z` ＞ `your version` ≥ `4.1.0`))(https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
