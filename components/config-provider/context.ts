@@ -13,6 +13,7 @@ import type { ModalProps } from '../modal';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
+import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
@@ -64,6 +65,12 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface TableConfig extends ComponentStyleConfig {
+  expandable?: {
+    expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
+  };
 }
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
@@ -143,7 +150,7 @@ export interface ConfigConsumerProps {
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
-  table?: ComponentStyleConfig;
+  table?: TableConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
