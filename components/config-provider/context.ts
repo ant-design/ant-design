@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { PreviewProps } from 'rc-image/es/Preview';
 
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
@@ -76,6 +77,12 @@ export interface TableConfig extends ComponentStyleConfig {
   };
 }
 
+export interface ImageConfig extends ComponentStyleConfig {
+  preview?: {
+    closeIcon?: PreviewProps['closeIcon'];
+  };
+}
+
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
@@ -142,7 +149,7 @@ export interface ConfigConsumerProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;

@@ -455,19 +455,25 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Image className & style works', () => {
-    const { container } = render(
+  it('Should Image className & style & closeIcon works', () => {
+    const { container, baseElement } = render(
       <ConfigProvider
-        image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
+        image={{
+          className: 'config-provider-image',
+          style: { backgroundColor: 'red' },
+          preview: { closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span> },
+        }}
       >
         <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
       </ConfigProvider>,
     );
-    const element = container
-      ?.querySelector<HTMLDivElement>('.ant-image')
-      ?.querySelector<HTMLImageElement>('img');
+    const element = container?.querySelector<HTMLImageElement>('.ant-image img');
     expect(element).toHaveClass('config-provider-image');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+    fireEvent.click(container.querySelector<HTMLDivElement>('.ant-image')!);
+    expect(
+      baseElement.querySelector<HTMLSpanElement>('.ant-image-preview-close .cp-test-closeIcon'),
+    ).toBeTruthy();
   });
 
   it('Should Input className & style & classNames & styles works', () => {
