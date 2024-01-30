@@ -71,6 +71,13 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
       },
 
+      [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+        color: itemColor,
+        [`&:not(${componentCls}-item-disabled):focus-visible`]: {
+          ...accessibilityFocus(token),
+        },
+      },
+
       // Disabled
       [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
         color: `${itemDisabledColor} !important`,
@@ -146,12 +153,6 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
         // Danger
         [`&${componentCls}-item-danger`]: {
           backgroundColor: dangerItemSelectedBg,
-        },
-      },
-
-      [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-        [`&:not(${componentCls}-item-disabled):focus-visible`]: {
-          ...accessibilityFocus(token),
         },
       },
 

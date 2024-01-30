@@ -687,6 +687,21 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
               opacity: 0,
               content: '""',
             },
+
+            [`> ${componentCls}`]: {
+              borderRadius: borderRadiusLG,
+
+              ...genMenuItemStyle(token),
+              ...genSubMenuArrowStyle(token),
+
+              [`${componentCls}-item, ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
+                borderRadius: subMenuItemBorderRadius,
+              },
+
+              [`${componentCls}-submenu-title::after`]: {
+                transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
+              },
+            },
           },
 
           // https://github.com/ant-design/ant-design/issues/13955
@@ -749,21 +764,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           &-placement-bottomLeft
           `]: {
             paddingTop: token.paddingXS,
-          },
-
-          [`> ${componentCls}`]: {
-            borderRadius: borderRadiusLG,
-
-            ...genMenuItemStyle(token),
-            ...genSubMenuArrowStyle(token),
-
-            [`${componentCls}-item, ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-              borderRadius: subMenuItemBorderRadius,
-            },
-
-            [`${componentCls}-submenu-title::after`]: {
-              transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
-            },
           },
         },
 
