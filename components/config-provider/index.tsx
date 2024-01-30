@@ -23,6 +23,7 @@ import defaultSeedToken from '../theme/themes/seed';
 import type {
   BadgeConfig,
   ButtonConfig,
+  CardConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
@@ -167,7 +168,7 @@ export interface ConfigProviderProps {
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: TableConfig;
-  card?: ComponentStyleConfig;
+  card?: CardConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;

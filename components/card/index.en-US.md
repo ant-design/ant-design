@@ -41,12 +41,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | actions | The action list, shows at the bottom of the Card | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
-| bodyStyle | Inline style to apply to the card content | CSSProperties | - |  |
 | bordered | Toggles rendering of the border around the card | boolean | true |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | - |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
-| headStyle | Inline style to apply to the card head | CSSProperties | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
 | size | Size of card | `default` \| `small` | `default` |  |
@@ -55,6 +53,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |
 | title | Card title | ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
+| classNames | Config Card build-in module's className | Record<SemanticDOM, string> | - | 5.14.0 |
+| styles | Config Card build-in module's style | Record<SemanticDOM, string> | - | 5.14.0 |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
 
 ### Card.Grid
@@ -74,6 +74,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | description | Description content           | ReactNode     | -       |         |
 | style       | The style object of container | CSSProperties | -       |         |
 | title       | Title content                 | ReactNode     | -       |         |
+
+### `styles` 和 `classNames` attribute
+
+| 名称    | 说明                  | 版本   |
+| ------- | --------------------- | ------ |
+| header  | set `header` of card  | 5.14.0 |
+| body    | set `body` of card    | 5.14.0 |
+| extra   | set `extra` of card   | 5.14.0 |
+| title   | set `title` of card   | 5.14.0 |
+| actions | set `actions` of card | 5.14.0 |
+| cover   | set `cover` of card   | 5.14.0 |
 
 ## Design Token
 

@@ -1006,15 +1006,25 @@ describe('ConfigProvider support style and className props', () => {
     );
   });
 
-  it('Should Card className & style works', () => {
+  it('Should Card className & style & classNames & styles works', () => {
     const { container } = render(
-      <ConfigProvider card={{ className: 'cp-card', style: { backgroundColor: 'blue' } }}>
+      <ConfigProvider
+        card={{
+          className: 'cp-card',
+          style: { backgroundColor: 'blue' },
+          classNames: { body: 'custom-body' },
+          styles: { body: { color: 'red' } },
+        }}
+      >
         <Card>test</Card>
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-card');
     expect(element).toHaveClass('cp-card');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    const head = container.querySelector<HTMLDivElement>('.ant-card-body');
+    expect(head).toHaveClass('custom-body');
+    expect(head).toHaveStyle({ color: 'red' });
   });
 
   it('Should Tabs className & style works', () => {

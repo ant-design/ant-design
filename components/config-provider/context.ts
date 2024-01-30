@@ -15,6 +15,7 @@ import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
+import type { CardProps } from '../card';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -81,6 +82,11 @@ export type ModalConfig = ComponentStyleConfig &
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
+
+export interface CardConfig extends ComponentStyleConfig {
+  classNames?: CardProps['classNames'];
+  styles: CardProps['styles'];
+}
 
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
@@ -152,7 +158,7 @@ export interface ConfigConsumerProps {
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
   table?: TableConfig;
-  card?: ComponentStyleConfig;
+  card?: CardConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
