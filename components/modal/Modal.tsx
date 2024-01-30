@@ -108,7 +108,7 @@ const Modal: React.FC<ModalProps> = (props) => {
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,
-    closeIcon ?? modal?.closeIcon,
+    typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
     (icon) => renderCloseIcon(prefixCls, icon),
     <CloseOutlined className={`${prefixCls}-close-icon`} />,
     true,
