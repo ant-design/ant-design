@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import type { AnyObject } from '../_util/type';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { BadgeProps } from '../badge';
@@ -13,6 +14,7 @@ import type { ModalProps } from '../modal';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
+import type { ExpandableConfig } from '../table/interface';
 import type { TabsProps } from '../tabs';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
@@ -64,6 +66,12 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   className?: string;
   style?: React.CSSProperties;
+}
+
+export interface TableConfig<T extends AnyObject = AnyObject> extends ComponentStyleConfig {
+  expandable?: {
+    expandIcon?: ExpandableConfig<T>['expandIcon'];
+  };
 }
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
@@ -143,7 +151,7 @@ export interface ConfigConsumerProps {
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: ComponentStyleConfig;
-  table?: ComponentStyleConfig;
+  table?: TableConfig;
   card?: ComponentStyleConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
   timeline?: ComponentStyleConfig;
