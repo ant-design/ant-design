@@ -21,6 +21,7 @@ import type { TabsProps } from '../tabs';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  AlertConfig,
   BadgeConfig,
   ButtonConfig,
   CardConfig,
@@ -131,7 +132,7 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   warning?: WarningContextProps;
-  alert?: ComponentStyleConfig;
+  alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;

@@ -706,13 +706,14 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         alert={{
           className: 'test-class',
+          closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
         }}
       >
-        <Alert message="Test Message" />
+        <Alert closable message="Test Message" />
       </ConfigProvider>,
     );
-
-    expect(container.querySelector('.ant-alert')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
   });
 
   it('Should Alert style works', () => {

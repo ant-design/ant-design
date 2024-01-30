@@ -2,8 +2,10 @@ import * as React from 'react';
 
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
+import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
+import type { CardProps } from '../card';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FormProps } from '../form/Form';
@@ -15,7 +17,6 @@ import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
-import type { CardProps } from '../card';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -79,6 +80,8 @@ export type TourConfig = Pick<TourProps, 'closeIcon'>;
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
 
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
+
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
@@ -121,7 +124,7 @@ export interface ConfigConsumerProps {
     Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
   theme?: ThemeConfig;
   select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
-  alert?: ComponentStyleConfig;
+  alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
