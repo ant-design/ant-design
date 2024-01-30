@@ -210,8 +210,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
-    expandIcon:
-      expandable?.expandIcon ?? table?.expandable?.expandIcon ?? renderExpandIcon(tableLocale),
+    expandIcon: expandable?.expandIcon ?? table?.expandable?.expandIcon,
   };
   const { childrenColumnName = 'children' } = mergedExpandable;
 
