@@ -4,19 +4,19 @@ import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
 import useClosable from '../_util/hooks/useClosable';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
 import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
-import { useZIndex } from '../_util/hooks/useZIndex';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 let mousePosition: MousePosition;
 
@@ -105,9 +105,10 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter = footer !== null && (
     <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
   );
+
   const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,
-    closeIcon,
+    closeIcon ?? modal?.closeIcon,
     (icon) => renderCloseIcon(prefixCls, icon),
     <CloseOutlined className={`${prefixCls}-close-icon`} />,
     true,

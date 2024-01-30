@@ -68,7 +68,8 @@ export interface ComponentStyleConfig {
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
-export type ModalConfig = ComponentStyleConfig & Pick<ModalProps, 'classNames' | 'styles'>;
+export type ModalConfig = ComponentStyleConfig &
+  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 

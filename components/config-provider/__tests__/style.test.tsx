@@ -642,27 +642,23 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-mentions')).toHaveStyle({ background: 'red' });
   });
 
-  it('Should Modal className & style works', () => {
+  it('Should Modal className & style & closeIcon works', () => {
     const { baseElement } = render(
       <ConfigProvider
         modal={{
           className: 'cp-modal',
-          style: {
-            background: 'red',
-          },
+          style: { background: 'red' },
+          closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span>,
         }}
       >
-        <Modal title="Basic Modal" open>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
+        <Modal open>test</Modal>
       </ConfigProvider>,
     );
-
+    const selectors = '.ant-modal-content .ant-modal-close .cp-test-closeIcon';
     const element = baseElement.querySelector<HTMLDivElement>('.ant-modal');
     expect(element).toHaveClass('cp-modal');
     expect(element).toHaveStyle({ background: 'red' });
+    expect(element?.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
   });
 
   it('Should Result className & style works', () => {
