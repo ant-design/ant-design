@@ -32,6 +32,7 @@ import type {
   DrawerConfig,
   FlexConfig,
   ModalConfig,
+  NotificationConfig,
   PopupOverflow,
   TableConfig,
   Theme,
@@ -174,7 +175,7 @@ export interface ConfigProviderProps {
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
-  notification?: ComponentStyleConfig;
+  notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;

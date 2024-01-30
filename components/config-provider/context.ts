@@ -12,6 +12,7 @@ import type { FormProps } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { ModalProps } from '../modal';
+import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
@@ -85,6 +86,8 @@ export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
+
+export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
 export interface CardConfig extends ComponentStyleConfig {
   classNames?: CardProps['classNames'];
@@ -167,7 +170,7 @@ export interface ConfigConsumerProps {
   timePicker?: ComponentStyleConfig;
   tour?: TourConfig;
   upload?: ComponentStyleConfig;
-  notification?: ComponentStyleConfig;
+  notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;

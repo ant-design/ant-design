@@ -1127,11 +1127,17 @@ describe('ConfigProvider support style and className props', () => {
     expect(element?.querySelector<HTMLDivElement>('.ant-upload')).toHaveStyle({ color: 'blue' });
   });
 
-  it('Should notification className & style works', () => {
+  it('Should notification className & style & closeIcon works', () => {
     const Demo: React.FC = () => {
       const [api, holder] = notification.useNotification();
       return (
-        <ConfigProvider notification={{ className: 'cp-notification', style: { color: 'blue' } }}>
+        <ConfigProvider
+          notification={{
+            className: 'cp-notification',
+            style: { color: 'blue' },
+            closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          }}
+        >
           <button type="button" onClick={() => api.open({ message: 'test', duration: 0 })}>
             test
           </button>
@@ -1146,6 +1152,7 @@ describe('ConfigProvider support style and className props', () => {
       ?.querySelector<HTMLDivElement>('.ant-notification-notice');
     expect(element).toHaveClass('cp-notification');
     expect(element).toHaveStyle({ color: 'blue' });
+    expect(element?.querySelector<HTMLSpanElement>('.ant-notification .cp-test-icon')).toBeTruthy();
   });
 
   it('Should Timeline className works', () => {
