@@ -405,8 +405,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // >>>>>>>>>>> Typography
   // Expand
-  const renderExpand = () => {
-    const renderExpanded = !expanded;
+  const renderExpand = (renderExpanded: boolean) => {
+    // 搞不懂
+    // const renderExpanded = !expanded;
     const { expandable, symbol, collapse } = ellipsisConfig;
     if (!expandable) return null;
     if (!collapse && !renderExpanded) return null;
@@ -480,7 +481,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = () => [renderExpand(), renderEdit(), renderCopy()];
+  const renderOperations = (renderExpanded: boolean) => [
+    renderExpand(renderExpanded),
+    renderEdit(),
+    renderCopy(),
+  ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
@@ -489,7 +494,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(),
+    renderOperations(needEllipsis),
   ];
 
   return (
