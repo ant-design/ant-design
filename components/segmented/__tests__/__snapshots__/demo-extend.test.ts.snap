@@ -446,7 +446,7 @@ exports[`renders components/segmented/demo/custom.tsx extend context correctly 1
             >
               <span
                 class="ant-avatar-string"
-                style="transform: scale(1) translateX(-50%);"
+                style="transform: scale(1);"
               >
                 K
               </span>
