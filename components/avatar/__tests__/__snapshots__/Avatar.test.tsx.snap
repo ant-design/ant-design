@@ -175,7 +175,7 @@ exports[`Avatar Render support size is number 1`] = `
 >
   <span
     class="ant-avatar-string"
-    style="line-height: 100px; transform: scale(0.32);"
+    style="transform: scale(0.32);"
   >
     TestString
   </span>
