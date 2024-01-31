@@ -4,11 +4,11 @@ exports[`Avatar Render adjusts component size to 24 when window size is xs 1`] =
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 24px; height: 24px; line-height: 24px; font-size: 18px;"
+    style="width: 24px; height: 24px; font-size: 18px;"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
+      style="transform: scale(0.32);"
     />
   </span>
 </div>
@@ -18,11 +18,11 @@ exports[`Avatar Render adjusts component size to 32 when window size is sm 1`] =
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+    style="width: 32px; height: 32px; font-size: 18px;"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
+      style="transform: scale(0.32);"
     />
   </span>
 </div>
@@ -32,11 +32,11 @@ exports[`Avatar Render adjusts component size to 40 when window size is md 1`] =
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 40px; height: 40px; line-height: 40px; font-size: 18px;"
+    style="width: 40px; height: 40px; font-size: 18px;"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
+      style="transform: scale(0.32);"
     />
   </span>
 </div>
@@ -46,11 +46,11 @@ exports[`Avatar Render adjusts component size to 64 when window size is lg 1`] =
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 64px; height: 64px; line-height: 64px; font-size: 18px;"
+    style="width: 64px; height: 64px; font-size: 18px;"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
+      style="transform: scale(0.32);"
     />
   </span>
 </div>
@@ -60,11 +60,11 @@ exports[`Avatar Render adjusts component size to 80 when window size is xl 1`] =
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 80px; height: 80px; line-height: 80px; font-size: 18px;"
+    style="width: 80px; height: 80px; font-size: 18px;"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
+      style="transform: scale(0.32);"
     />
   </span>
 </div>
@@ -74,11 +74,11 @@ exports[`Avatar Render adjusts component size to 100 when window size is xxl 1`]
 <div>
   <span
     class="ant-avatar ant-avatar-circle"
-    style="width: 100px; height: 100px; line-height: 100px; font-size: 18px;"
+    style="width: 100px; height: 100px; font-size: 18px;"
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(0.32) translateX(-50%);"
+      style="transform: scale(0.32);"
     />
   </span>
 </div>
@@ -90,7 +90,7 @@ exports[`Avatar Render fallback 1`] = `
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(1) translateX(-50%);"
+    style="transform: scale(1);"
   >
     A
   </span>
@@ -103,7 +103,7 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(0.72) translateX(-50%);"
+    style="transform: scale(0.72);"
   />
 </span>
 `;
@@ -111,7 +111,7 @@ exports[`Avatar Render rtl render component should be rendered correctly in RTL 
 exports[`Avatar Render should calculate scale of avatar children correctly 1`] = `
 <span
   class="ant-avatar-string"
-  style="transform: scale(0.72) translateX(-50%);"
+  style="transform: scale(0.72);"
 >
   Avatar
 </span>
@@ -120,7 +120,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly 1`] =
 exports[`Avatar Render should calculate scale of avatar children correctly 2`] = `
 <span
   class="ant-avatar-string"
-  style="transform: scale(0.72) translateX(-50%);"
+  style="transform: scale(0.72);"
 >
   xx
 </span>
@@ -129,7 +129,7 @@ exports[`Avatar Render should calculate scale of avatar children correctly 2`] =
 exports[`Avatar Render should calculate scale of avatar children correctly with gap 1`] = `
 <span
   class="ant-avatar-string"
-  style="transform: scale(0.36) translateX(-50%);"
+  style="transform: scale(0.36);"
 >
   Avatar
 </span>
@@ -151,7 +151,7 @@ exports[`Avatar Render should show image on success after a failure state 1`] = 
 >
   <span
     class="ant-avatar-string"
-    style="transform: scale(1) translateX(-50%);"
+    style="transform: scale(1);"
   >
     Fallback
   </span>
@@ -171,11 +171,11 @@ exports[`Avatar Render should show image on success after a failure state 2`] = 
 exports[`Avatar Render support size is number 1`] = `
 <span
   class="ant-avatar ant-avatar-circle"
-  style="width: 100px; height: 100px; line-height: 100px; font-size: 18px;"
+  style="width: 100px; height: 100px; font-size: 18px;"
 >
   <span
     class="ant-avatar-string"
-    style="line-height: 100px; transform: scale(0.32) translateX(-50%);"
+    style="transform: scale(0.32);"
   >
     TestString
   </span>
