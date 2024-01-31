@@ -56,6 +56,7 @@ export interface EllipsisConfig {
   expandable?: boolean;
   suffix?: string;
   symbol?: React.ReactNode;
+  collapse?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode | TooltipProps;
@@ -236,6 +237,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
+    symbol: textLocale.expand,
+    // collapse: textLocale.collapse,
   });
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
@@ -282,8 +285,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
-  const onExpandClick: React.MouseEventHandler<HTMLElement> = (e) => {
-    setExpanded(true);
+  const onExpandClick = (e: React.MouseEvent<HTMLElement>, renderExpanded: boolean) => {
+    setExpanded(renderExpanded);
     ellipsisConfig.onExpand?.(e);
   };
 
@@ -403,25 +406,18 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = () => {
-    const { expandable, symbol } = ellipsisConfig;
-
+    const renderExpanded = !expanded;
+    const { expandable, symbol, collapse } = ellipsisConfig;
     if (!expandable) return null;
-
-    let expandContent: React.ReactNode;
-    if (symbol) {
-      expandContent = symbol;
-    } else {
-      expandContent = textLocale?.expand;
-    }
-
+    if (!collapse && !renderExpanded) return null;
     return (
       <a
-        key="expand"
+        key={renderExpanded ? 'expand' : 'collapse'}
         className={`${prefixCls}-expand`}
-        onClick={onExpandClick}
-        aria-label={textLocale?.expand}
+        onClick={(e) => onExpandClick(e, renderExpanded)}
+        aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
-        {expandContent}
+        {renderExpanded ? symbol : collapse}
       </a>
     );
   };
@@ -484,11 +480,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (renderExpanded: boolean) => [
-    renderExpanded && renderExpand(),
-    renderEdit(),
-    renderCopy(),
-  ];
+  const renderOperations = () => [renderExpand(), renderEdit(), renderCopy()];
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
@@ -497,7 +489,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(needEllipsis),
+    renderOperations(),
   ];
 
   return (
