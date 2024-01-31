@@ -1,5 +1,4 @@
 import * as React from 'react';
-import type { PreviewProps } from 'rc-image/es/Preview';
 
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
@@ -78,7 +77,7 @@ export interface TableConfig extends ComponentStyleConfig {
 }
 
 export interface ImageConfig extends ComponentStyleConfig {
-  preview?: Pick<PreviewProps, 'closeIcon'>;
+  preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
