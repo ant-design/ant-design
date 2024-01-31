@@ -109,7 +109,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
-          style="width:64px;height:64px;line-height:64px;font-size:32px"
+          style="width:64px;height:64px;font-size:32px"
         >
           <span
             aria-label="user"
@@ -227,7 +227,7 @@ exports[`renders components/avatar/demo/basic.tsx correctly 1`] = `
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
-          style="width:64px;height:64px;line-height:64px;font-size:32px"
+          style="width:64px;height:64px;font-size:32px"
         >
           <span
             aria-label="user"
@@ -985,7 +985,7 @@ exports[`renders components/avatar/demo/type.tsx correctly 1`] = `
   >
     <span
       class="ant-avatar ant-avatar-circle"
-      style="width:40px;height:40px;line-height:40px;font-size:18px"
+      style="width:40px;height:40px;font-size:18px"
     >
       <span
         class="ant-avatar-string"

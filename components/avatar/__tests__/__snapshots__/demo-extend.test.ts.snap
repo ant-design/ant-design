@@ -111,7 +111,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       >
         <span
           class="ant-avatar ant-avatar-circle ant-avatar-icon"
-          style="width: 64px; height: 64px; line-height: 64px; font-size: 32px;"
+          style="width: 64px; height: 64px; font-size: 32px;"
         >
           <span
             aria-label="user"
@@ -229,7 +229,7 @@ exports[`renders components/avatar/demo/basic.tsx extend context correctly 1`] =
       >
         <span
           class="ant-avatar ant-avatar-square ant-avatar-icon"
-          style="width: 64px; height: 64px; line-height: 64px; font-size: 32px;"
+          style="width: 64px; height: 64px; font-size: 32px;"
         >
           <span
             aria-label="user"
@@ -379,7 +379,7 @@ Array [
         >
           <span
             class="ant-avatar-string"
-            style="transform: scale(1) translateX(-50%);"
+            style="transform: scale(1);"
           >
             K
           </span>
@@ -390,7 +390,7 @@ Array [
         >
           <span
             class="ant-avatar-string"
-            style="transform: scale(1) translateX(-50%);"
+            style="transform: scale(1);"
           >
             +2
           </span>
@@ -588,7 +588,7 @@ Array [
   >
     <span
       class="ant-avatar-string"
-      style="transform: scale(1) translateX(-50%);"
+      style="transform: scale(1);"
     >
       U
     </span>
@@ -668,7 +668,7 @@ Array [
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         >
           K
         </span>
@@ -762,7 +762,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         K
       </span>
@@ -773,7 +773,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         +2
       </span>
@@ -888,7 +888,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         K
       </span>
@@ -899,7 +899,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         +2
       </span>
@@ -1014,7 +1014,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         K
       </span>
@@ -1025,7 +1025,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         +2
       </span>
@@ -1133,7 +1133,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         A
       </span>
@@ -1144,7 +1144,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         K
       </span>
@@ -1206,7 +1206,7 @@ exports[`renders components/avatar/demo/group.tsx extend context correctly 2`] =
 exports[`renders components/avatar/demo/responsive.tsx extend context correctly 1`] = `
 <span
   class="ant-avatar ant-avatar-circle ant-avatar-icon"
-  style="width: 24px; height: 24px; line-height: 24px; font-size: 12px;"
+  style="width: 24px; height: 24px; font-size: 12px;"
 >
   <span
     aria-label="ant-design"
@@ -1284,7 +1284,7 @@ Array [
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         Avatar
       </span>
@@ -1306,7 +1306,7 @@ Array [
       >
         <span
           class="ant-avatar-string"
-          style="transform: scale(1) translateX(-50%);"
+          style="transform: scale(1);"
         >
           Avatar
         </span>
@@ -1366,7 +1366,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         U
       </span>
@@ -1377,11 +1377,11 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
   >
     <span
       class="ant-avatar ant-avatar-circle"
-      style="width: 40px; height: 40px; line-height: 40px; font-size: 18px;"
+      style="width: 40px; height: 40px; font-size: 18px;"
     >
       <span
         class="ant-avatar-string"
-        style="line-height: 40px; transform: scale(1) translateX(-50%);"
+        style="line-height: 40px; transform: scale(1);"
       >
         USER
       </span>
@@ -1419,7 +1419,7 @@ exports[`renders components/avatar/demo/type.tsx extend context correctly 1`] = 
     >
       <span
         class="ant-avatar-string"
-        style="transform: scale(1) translateX(-50%);"
+        style="transform: scale(1);"
       >
         U
       </span>
