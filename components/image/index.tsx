@@ -68,7 +68,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
-      closeIcon: _preview.closeIcon ?? image?.preview?.closeIcon,
+      closeIcon: _preview.closeIcon ?? image?.preview?.closeIcon ?? icons.close,
     };
   }, [preview, imageLocale]);
 

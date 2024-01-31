@@ -78,9 +78,7 @@ export interface TableConfig extends ComponentStyleConfig {
 }
 
 export interface ImageConfig extends ComponentStyleConfig {
-  preview?: {
-    closeIcon?: PreviewProps['closeIcon'];
-  };
+  preview?: Pick<PreviewProps, 'closeIcon'>;
 }
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
