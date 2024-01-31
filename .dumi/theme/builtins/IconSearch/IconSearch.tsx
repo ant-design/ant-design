@@ -91,6 +91,7 @@ const IconSearch: React.FC = () => {
           'DollarCircle', // same as Dollar
         ];
         iconList = iconList.filter((icon) => !ignore.includes(icon));
+        console.log(theme, iconList);
 
         return {
           category: key,
