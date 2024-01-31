@@ -6,6 +6,7 @@
 const OSS = require('ali-oss');
 const path = require('path');
 const fs = require('fs');
+const path = require('path');
 const assert = require('assert');
 
 // node scripts/visual-regression/upload.js ./visualRegressionReport.tar.gz --ref=pr-id
@@ -93,6 +94,10 @@ async function uploadFile(client, filePath, refValue) {
     // https://help.aliyun.com/zh/oss/developer-reference/prevent-objects-from-being-overwritten-by-objects-that-have-the-same-names-3
     'x-oss-forbid-overwrite': 'false',
   };
+  // Set content-type to allow individual preview of images
+  if (path.extname(filePath) === '.png') {
+    headers['Content-Type'] = 'image/png';
+  }
 
   console.log('Uploading file: %s', filePath);
   try {
