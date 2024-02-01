@@ -1,5 +1,5 @@
 import type { render } from '../../../tests/utils';
-import { fireEvent, screen } from '../../../tests/utils';
+import { fireEvent } from '../../../tests/utils';
 
 export function openPicker(wrapper: ReturnType<typeof render>, index = 0) {
   const inputEle = wrapper.container?.querySelectorAll<HTMLInputElement>('input')?.[index]!;
