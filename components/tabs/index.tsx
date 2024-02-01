@@ -70,7 +70,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
       removeIcon: <CloseOutlined />,
-      addIcon: addIcon ?? tabs?.addIcon ?? <PlusOutlined />,
+      addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
       showAdd: hideAdd !== true,
     };
   }
