@@ -24,7 +24,7 @@ jobs:
           node-version: 18
 
       - name: cache package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
@@ -40,7 +40,7 @@ jobs:
           cp package-lock.json package-temp-dir
       - name: cache node_modules
         id: node_modules_cache_id
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -60,13 +60,13 @@ jobs:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -75,8 +75,8 @@ jobs:
         run: npm run lint
 
       - name: lint:react-16
-        run: npm run compile && npm run install-react-16 && npm run tsc:old  
-        
+        run: npm run compile && npm run install-react-16 && npm run tsc:old
+
       - name: lint:react-17
         run: npm run compile && npm run install-react-17 && npm run tsc:old
     needs: setup
@@ -92,13 +92,13 @@ jobs:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -117,19 +117,19 @@ jobs:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: cache dist
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: dist
           key: dist-${{ github.sha }}
@@ -161,13 +161,13 @@ jobs:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -186,7 +186,7 @@ jobs:
 
       - name: restore cache from dist
         if: ${{ matrix.module == 'dist' || matrix.module == 'dist-min' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: dist
           key: dist-${{ github.sha }}
@@ -278,25 +278,25 @@ jobs:
           node-version: 18
 
       - name: restore cache from package-lock.json
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: cache lib
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: lib
           key: lib-${{ github.sha }}
 
       - name: cache es
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: es
           key: es-${{ github.sha }}
@@ -335,7 +335,7 @@ jobs:
       - name: restore cache from package-lock.json
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
@@ -343,7 +343,7 @@ jobs:
       - name: restore cache from node_modules
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
@@ -351,7 +351,7 @@ jobs:
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
