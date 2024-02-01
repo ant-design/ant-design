@@ -2,7 +2,6 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import RCPicker, { type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -19,10 +18,11 @@ import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
+import useIcons from '../../select/useIcons';
 import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
+import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
@@ -53,8 +53,7 @@ export default function generatePicker<DateType extends AnyObject>(
         dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
-        clearIcon,
-        allowClear,
+        allowClear = true,
         variant: customVariant,
         ...restProps
       } = props;
@@ -100,6 +99,16 @@ export default function generatePicker<DateType extends AnyObject>(
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
       }
+
+      // ===================== Icon =====================
+      const { clearIcon, removeIcon } = useIcons({
+        ...props,
+        prefixCls,
+        componentName: 'DatePicker',
+      });
+
+      const mergedAllowClear =
+        allowClear === true ? { clearIcon: clearIcon as React.ReactElement } : allowClear;
 
       // ================== components ==================
       const mergedComponents = useComponents(components);
@@ -184,7 +193,8 @@ export default function generatePicker<DateType extends AnyObject>(
                 zIndex,
               },
             }}
-            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+            allowClear={mergedAllowClear}
+            removeIcon={removeIcon}
           />
         </NoCompactStyle>,
       );

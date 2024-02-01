@@ -3,7 +3,7 @@ import type { PickerMode } from 'rc-picker/lib/interface';
 
 import type { SelectCommonPlacement } from '../_util/motion';
 import type { DirectionType } from '../config-provider';
-import type { PickerLocale, PickerProps } from './generatePicker';
+import type { PickerLocale } from './generatePicker';
 
 export function getPlaceholder(
   locale: PickerLocale,
@@ -104,20 +104,4 @@ export function transPlacement2DropdownAlign(
       };
     }
   }
-}
-
-type AllowClear = PickerProps['allowClear'];
-type ClearIcon = PickerProps['clearIcon'];
-
-export function mergeAllowClear(
-  allowClear: AllowClear,
-  clearIcon: ClearIcon,
-  defaultClearIcon: NonNullable<ClearIcon>,
-) {
-  if (allowClear === false) {
-    return false;
-  }
-
-  const defaults = { clearIcon: clearIcon ?? defaultClearIcon };
-  return typeof allowClear === 'object' ? { ...defaults, ...allowClear } : defaults;
 }

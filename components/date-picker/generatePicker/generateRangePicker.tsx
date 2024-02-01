@@ -19,10 +19,11 @@ import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
+import useIcons from '../../select/useIcons';
 import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
+import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
 
@@ -46,7 +47,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
       popupClassName,
       dropdownClassName,
       status: customStatus,
-      clearIcon,
       allowClear,
       rootClassName,
       variant: customVariant,
@@ -73,6 +73,16 @@ export default function generateRangePicker<DateType extends AnyObject>(
 
       warning.deprecated(!('bordered' in props), 'bordered', 'variant');
     }
+
+    // ===================== Icon =====================
+    const { clearIcon } = useIcons({
+      ...props,
+      prefixCls,
+      componentName: 'DatePicker',
+    });
+
+    const mergedAllowClear =
+      allowClear === true ? { clearIcon: clearIcon as React.ReactElement } : allowClear;
 
     // ================== components ==================
     const mergedComponents = useComponents(components);
@@ -163,7 +173,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
               zIndex,
             },
           }}
-          allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+          allowClear={mergedAllowClear}
         />
       </NoCompactStyle>,
     );
