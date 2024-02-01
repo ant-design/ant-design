@@ -252,13 +252,15 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
     // 初始化
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapselg...Expand`); // 预期 fullStr + Expand
+    // expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapselg...Expand`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...Expand`);
     // 展开
     fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
     expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapse`);
     // 收起
     fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapselg...Expand`); // 预期 fullStr + Expand
+    // expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapselg...Expand`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...Expand`);
   });
 
   it('should have custom expand style', async () => {
