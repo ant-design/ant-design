@@ -45,6 +45,7 @@ return (
 <code src="./demo/multiple.tsx">多选</code>
 <code src="./demo/size.tsx">三种大小</code>
 <code src="./demo/option-label-prop.tsx">定制回填内容</code>
+<code src="./demo/mutually-exclusive.tsx">互斥</code>
 <code src="./demo/search-sort.tsx">带排序的搜索</code>
 <code src="./demo/tags.tsx">标签</code>
 <code src="./demo/optgroup.tsx">分组</code>
