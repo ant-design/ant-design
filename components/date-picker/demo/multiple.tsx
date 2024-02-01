@@ -8,7 +8,7 @@ const onChange: DatePickerProps<Dayjs[]>['onChange'] = (date, dateString) => {
   console.log(date, dateString);
 };
 
-const defaultValue = [dayjs(), dayjs().add(1, 'day'), dayjs().add(2, 'day')];
+const defaultValue = [dayjs('2000-01-01'), dayjs('2000-01-03'), dayjs('2000-01-05')];
 
 const App: React.FC = () => (
   <Flex vertical gap="small">
