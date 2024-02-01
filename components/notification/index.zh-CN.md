@@ -52,7 +52,7 @@ config 参数如下：
 | --- | --- | --- | --- | --- |
 | btn | 自定义关闭按钮 | ReactNode | - | - |
 | className | 自定义 CSS class | string | - | - |
-| closeIcon | 自定义关闭图标 | boolean \| ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | description | 通知提醒内容，必选 | ReactNode | - | - |
 | duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 | - |
 | icon | 自定义图标 | ReactNode | - | - |
@@ -72,7 +72,7 @@ config 参数如下：
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
-| closeIcon | 自定义关闭图标 | boolean \| ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | 是否开启 RTL 模式 | boolean | false |  |
@@ -104,7 +104,7 @@ notification.config({
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 |  |
-| closeIcon | 自定义关闭图标 | boolean \| ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
+| closeIcon | 自定义关闭图标 | ReactNode | true | 5.7.0：设置为 null 或 false 时隐藏关闭按钮 |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |  |
 | getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
