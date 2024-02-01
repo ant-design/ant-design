@@ -1035,15 +1035,24 @@ describe('ConfigProvider support style and className props', () => {
     expect(head).toHaveStyle({ color: 'red' });
   });
 
-  it('Should Tabs className & style works', () => {
+  it('Should Tabs className & style & addIcon & moreIcon works', () => {
     const { container } = render(
-      <ConfigProvider tabs={{ className: 'cp-tabs', style: { backgroundColor: 'red' } }}>
-        <Tabs />
+      <ConfigProvider
+        tabs={{
+          className: 'cp-tabs',
+          style: { backgroundColor: 'red' },
+          addIcon: <span className="cp-test-addIcon">cp-test-addIcon</span>,
+          moreIcon: <span className="cp-test-moreIcon">cp-test-moreIcon</span>,
+        }}
+      >
+        <Tabs items={[]} type="editable-card" />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
     expect(element).toHaveClass('cp-tabs');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-addIcon')).toBeTruthy();
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-moreIcon')).toBeTruthy();
   });
 
   it('Should TimePicker className works', () => {

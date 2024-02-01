@@ -77,6 +77,9 @@ export interface TableConfig extends ComponentStyleConfig {
   };
 }
 
+export type TabsConfig = ComponentStyleConfig &
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
+
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
@@ -168,7 +171,7 @@ export interface ConfigConsumerProps {
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   tour?: TourConfig;

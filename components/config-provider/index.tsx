@@ -17,7 +17,6 @@ import defaultLocale from '../locale/en_US';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
-import type { TabsProps } from '../tabs';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
@@ -35,6 +34,7 @@ import type {
   NotificationConfig,
   PopupOverflow,
   TableConfig,
+  TabsConfig,
   TagConfig,
   Theme,
   ThemeConfig,
@@ -172,7 +172,7 @@ export interface ConfigProviderProps {
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
