@@ -86,6 +86,9 @@ export type TourConfig = Pick<TourProps, 'closeIcon'>;
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
 
+export type TabsConfig = ComponentStyleConfig &
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
+
 export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
@@ -172,7 +175,7 @@ export interface ConfigConsumerProps {
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   tour?: TourConfig;
