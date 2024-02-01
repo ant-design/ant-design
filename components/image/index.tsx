@@ -54,7 +54,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const { getContainer, ...restPreviewProps } = _preview;
+    const { getContainer, closeIcon, ...restPreviewProps } = _preview;
     return {
       mask: (
         <div className={`${prefixCls}-mask-info`}>
@@ -68,9 +68,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
-      closeIcon: _preview.closeIcon ?? image?.preview?.closeIcon ?? icons.close,
+      closeIcon: closeIcon ?? image?.preview?.closeIcon,
     };
-  }, [preview, imageLocale]);
+  }, [preview, imageLocale, image?.preview?.closeIcon]);
 
   const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
 
