@@ -5,7 +5,6 @@ import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test ca
 
 import React from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
-import userEvent from '@testing-library/user-event';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
@@ -13,9 +12,9 @@ import dayJsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import DatePicker from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, render, screen, waitFor } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 import type { PickerLocale } from '../generatePicker';
-import { closeCircleByRole, expectCloseCircle } from './utils';
+import { getClearButton } from './utils';
 
 dayjs.extend(customParseFormat);
 
@@ -423,29 +422,26 @@ describe('DatePicker', () => {
   });
 
   it('allows or prohibits clearing as applicable', async () => {
-    const somepoint = dayjs('2023-08-01');
-    const { rerender } = render(<DatePicker value={somepoint} />);
+    const somePoint = dayjs('2023-08-01');
+    const { rerender, container } = render(<DatePicker value={somePoint} />);
+    expect(getClearButton()).toBeTruthy();
 
-    const { role, options } = closeCircleByRole;
-    await userEvent.hover(screen.getByRole(role, options));
-    await waitFor(() => expectCloseCircle(true));
+    rerender(<DatePicker value={somePoint} allowClear={false} />);
+    expect(getClearButton()).toBeFalsy();
 
-    rerender(<DatePicker value={somepoint} allowClear={false} />);
-    await waitFor(() => expectCloseCircle(false));
-
-    rerender(<DatePicker value={somepoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />);
-    await waitFor(() => expectCloseCircle(true));
+    rerender(<DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />);
+    expect(getClearButton()).toBeTruthy();
 
     rerender(
       <DatePicker
-        value={somepoint}
+        value={somePoint}
         allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
       />,
     );
-    await waitFor(() => expectCloseCircle(false));
-    await userEvent.hover(screen.getByTestId('custom-clear'));
+    expect(getClearButton()).toBeTruthy();
+    expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
 
-    rerender(<DatePicker value={somepoint} allowClear={{}} />);
-    await waitFor(() => expectCloseCircle(true));
+    rerender(<DatePicker value={somePoint} allowClear={{}} />);
+    expect(getClearButton()).toBeTruthy();
   });
 });

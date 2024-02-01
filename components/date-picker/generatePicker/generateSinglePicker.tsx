@@ -18,11 +18,10 @@ import useSize from '../../config-provider/hooks/useSize';
 import { FormItemInputContext } from '../../form/context';
 import useVariant from '../../form/hooks/useVariants';
 import { useLocale } from '../../locale';
-import useIcons from '../../select/useIcons';
 import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
+import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
 import type { PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
@@ -53,7 +52,6 @@ export default function generatePicker<DateType extends AnyObject>(
         dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
-        allowClear = true,
         variant: customVariant,
         ...restProps
       } = props;
@@ -101,14 +99,7 @@ export default function generatePicker<DateType extends AnyObject>(
       }
 
       // ===================== Icon =====================
-      const { clearIcon, removeIcon } = useIcons({
-        ...props,
-        prefixCls,
-        componentName: 'DatePicker',
-      });
-
-      const mergedAllowClear =
-        allowClear === true ? { clearIcon: clearIcon as React.ReactNode } : allowClear;
+      const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
 
       // ================== components ==================
       const mergedComponents = useComponents(components);

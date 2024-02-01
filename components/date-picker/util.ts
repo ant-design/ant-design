@@ -1,9 +1,11 @@
+import * as React from 'react';
 import type { AlignType } from '@rc-component/trigger';
 import type { PickerMode } from 'rc-picker/lib/interface';
 
 import type { SelectCommonPlacement } from '../_util/motion';
 import type { DirectionType } from '../config-provider';
-import type { PickerLocale } from './generatePicker';
+import useSelectIcons from '../select/useIcons';
+import type { PickerLocale, PickerProps } from './generatePicker';
 
 export function getPlaceholder(
   locale: PickerLocale,
@@ -104,4 +106,29 @@ export function transPlacement2DropdownAlign(
       };
     }
   }
+}
+
+export function useIcons(props: Pick<PickerProps, 'allowClear' | 'removeIcon'>, prefixCls: string) {
+  const { allowClear = true } = props;
+
+  const { clearIcon, removeIcon } = useSelectIcons({
+    ...props,
+    prefixCls,
+    componentName: 'DatePicker',
+  });
+
+  const mergedAllowClear = React.useMemo(() => {
+    if (allowClear === false) {
+      return false;
+    }
+
+    const allowClearConfig = allowClear === true ? {} : allowClear;
+
+    return {
+      clearIcon: clearIcon as React.ReactNode,
+      ...allowClearConfig,
+    };
+  }, [allowClear, clearIcon]);
+
+  return [mergedAllowClear, removeIcon] as const;
 }

@@ -28,10 +28,6 @@ export function selectCell(wrapper: ReturnType<typeof render>, text: string | nu
   return matchCell;
 }
 
-export const closeCircleByRole = { role: 'img', options: { name: 'close-circle' } } as const;
-
-export function expectCloseCircle(shouldExist: boolean) {
-  const { role, options } = closeCircleByRole;
-  const count = shouldExist ? 1 : 0;
-  return expect(screen.queryAllByRole(role, options).length).toStrictEqual(count);
+export function getClearButton() {
+  return document.querySelector('.ant-picker-clear');
 }
