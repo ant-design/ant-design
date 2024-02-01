@@ -67,10 +67,10 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left` | string | `top` |  |
 | destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false |  |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |
-| onChange | 切换面板的回调 | function(activeKey) {} | - |  |
-| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action): void | - |  |
-| onTabClick | tab 被点击的回调 | function(key: string, event: MouseEvent) | - |  |
-| onTabScroll | tab 滚动时触发 | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
+| onChange | 切换面板的回调 | (activeKey: string) => void | - |  |
+| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action) => void | - |  |
+| onTabClick | tab 被点击的回调 | (key: string, event: MouseEvent) => void | - |  |
+| onTabScroll | tab 滚动时触发 | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - | 4.3.0 |
 
 > 更多属性查看 [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
@@ -78,7 +78,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| closeIcon | 自定义关闭图标，在 `type="editable-card"` 时有效。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | - |  |
+| closeIcon | 自定义关闭图标，在 `type="editable-card"` 时有效。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | - |  |
 | destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false | 5.11.0 |
 | disabled | 禁用某一项 | boolean | false |  |
 | forceRender | 被隐藏时是否渲染 DOM 结构 | boolean | false |  |
