@@ -77,6 +77,10 @@ export interface TableConfig extends ComponentStyleConfig {
   };
 }
 
+export interface ImageConfig extends ComponentStyleConfig {
+  preview?: Partial<Record<'closeIcon', React.ReactNode>>;
+}
+
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
@@ -145,7 +149,7 @@ export interface ConfigConsumerProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;

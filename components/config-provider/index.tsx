@@ -31,6 +31,7 @@ import type {
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  ImageConfig,
   ModalConfig,
   NotificationConfig,
   PopupOverflow,
@@ -149,7 +150,7 @@ export interface ConfigProviderProps {
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;

@@ -7,10 +7,10 @@ import type { ImageProps } from 'rc-image';
 import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import defaultLocale from '../locale/en_US';
 import PreviewGroup, { icons } from './PreviewGroup';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
@@ -54,7 +54,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-    const { getContainer, ...restPreviewProps } = _preview;
+    const { getContainer, closeIcon, ...restPreviewProps } = _preview;
     return {
       mask: (
         <div className={`${prefixCls}-mask-info`}>
@@ -68,8 +68,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
       zIndex,
+      closeIcon: closeIcon ?? image?.preview?.closeIcon,
     };
-  }, [preview, imageLocale]);
+  }, [preview, imageLocale, image?.preview?.closeIcon]);
 
   const mergedStyle: React.CSSProperties = { ...image?.style, ...style };
 
