@@ -14,14 +14,14 @@ const allOptions: DefaultOptionType[] = [
   { value: 'Elle Blair', label: <span>Elle Blair</span> },
 ];
 
-const useMappedOptions = (options: DefaultOptionType[], disabledValueSet: (string | number)[][]) =>
+const useMappedOptions = (options: DefaultOptionType[], disabledValuesSet: (string | number)[][]) =>
   React.useMemo<DefaultOptionType[]>(
     () =>
       options.map((option) => ({
         ...option,
-        disabled: disabledValueSet.some((d) => d.includes(option.value!)),
+        disabled: disabledValuesSet.some((values) => option.value && values.includes(option.value)),
       })),
-    [options, ...disabledValueSet],
+    [options, ...disabledValuesSet],
   );
 
 const App: React.FC = () => {
