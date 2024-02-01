@@ -118,7 +118,7 @@
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
     "@ant-design/cssinjs": "^1.18.4",
-    "@ant-design/icons": "^5.2.6",
+    "@ant-design/icons": "^5.3.0",
     "@ant-design/react-slick": "~1.0.2",
     "@ctrl/tinycolor": "^3.6.1",
     "@rc-component/color-picker": "~1.5.1",
