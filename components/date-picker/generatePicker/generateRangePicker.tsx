@@ -2,7 +2,6 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import classNames from 'classnames';
 import { RangePicker as RCRangePicker, type PickerRef } from 'rc-picker';
@@ -22,7 +21,7 @@ import { useLocale } from '../../locale';
 import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getRangePlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
+import { getRangePlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
 import type { RangePickerProps } from './interface';
 import useComponents from './useComponents';
 
@@ -46,8 +45,6 @@ export default function generateRangePicker<DateType extends AnyObject>(
       popupClassName,
       dropdownClassName,
       status: customStatus,
-      clearIcon,
-      allowClear,
       rootClassName,
       variant: customVariant,
       ...restProps
@@ -73,6 +70,9 @@ export default function generateRangePicker<DateType extends AnyObject>(
 
       warning.deprecated(!('bordered' in props), 'bordered', 'variant');
     }
+
+    // ===================== Icon =====================
+    const [mergedAllowClear] = useIcons(props, prefixCls);
 
     // ================== components ==================
     const mergedComponents = useComponents(components);
@@ -163,7 +163,7 @@ export default function generateRangePicker<DateType extends AnyObject>(
               zIndex,
             },
           }}
-          allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+          allowClear={mergedAllowClear}
         />
       </NoCompactStyle>,
     );

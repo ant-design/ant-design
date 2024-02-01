@@ -19,6 +19,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/range-picker.tsx">Range Picker</code>
 <code src="./demo/multiple.tsx" version="5.14.0">Multiple</code>
+<code src="./demo/needConfirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
 <code src="./demo/time.tsx">Choose Time</code>
@@ -112,7 +113,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | minDate | The minimum date, which also limits the range of panel switching | dayjs | - | 5.14.0 |
 | maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | 5.14.0 |
 | mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/react/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
-| needConfirm | Need click confirm button to trigger value change | boolean | - | 5.14.0 |
+| needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | 5.14.0 |
 | nextIcon | The custom next icon | ReactNode | - | 4.17.0 |
 | open | The open state of picker | boolean | - |  |
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
@@ -147,6 +148,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | defaultValue | To set default date, if start time or end time is null or undefined, the date range will be an open interval | [dayjs](https://day.js.org/) | - |  |
 | disabledTime | To specify the time that cannot be selected | function(date) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD` |  |
+| multiple | Enable multiple selection. Not support `showTime` | boolean | false | 5.14.0 |
 | pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/) | - | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | showNow | Show the fast access of current datetime | boolean | - | 4.4.0 |
@@ -164,6 +166,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -176,6 +179,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-\QQ` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -186,6 +190,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
@@ -196,6 +201,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- |
 | defaultValue | To set default date | [dayjs](https://day.js.org/) | - |  |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-wo` |  |
+| multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs, dateString: string) | - |  |
