@@ -71,7 +71,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       },
       removeIcon: <CloseOutlined />,
       addIcon: addIcon ?? tabs?.addIcon ?? <PlusOutlined />,
-      showAdd: hideAdd === true,
+      showAdd: hideAdd !== true,
     };
   }
   const rootPrefixCls = getPrefixCls();
