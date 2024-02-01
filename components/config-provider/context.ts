@@ -18,6 +18,7 @@ import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
+import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
@@ -93,6 +94,8 @@ export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames'
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
+export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
+
 export interface CardConfig extends ComponentStyleConfig {
   classNames?: CardProps['classNames'];
   styles: CardProps['styles'];
@@ -166,7 +169,7 @@ export interface ConfigConsumerProps {
   transfer?: ComponentStyleConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
-  tag?: ComponentStyleConfig;
+  tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
   tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;

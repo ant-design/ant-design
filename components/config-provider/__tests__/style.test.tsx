@@ -946,9 +946,15 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 
-  it('Should Tag className & style works', () => {
+  it('Should Tag className & style & closeIcon works', () => {
     const { container } = render(
-      <ConfigProvider tag={{ className: 'cp-tag', style: { backgroundColor: 'blue' } }}>
+      <ConfigProvider
+        tag={{
+          className: 'cp-tag',
+          style: { backgroundColor: 'blue' },
+          closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span>,
+        }}
+      >
         <Tag>Test</Tag>
         <Tag.CheckableTag checked>CheckableTag</Tag.CheckableTag>
       </ConfigProvider>,
@@ -960,6 +966,7 @@ describe('ConfigProvider support style and className props', () => {
     const checkableElement = container.querySelector<HTMLSpanElement>('.ant-tag-checkable');
     expect(checkableElement).toHaveClass('cp-tag');
     expect(checkableElement).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-closeIcon')).toBeTruthy();
   });
 
   it('Should Table className & style works', () => {
