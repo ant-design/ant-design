@@ -2,7 +2,6 @@ import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import RCPicker, { type PickerRef } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
@@ -22,7 +21,7 @@ import { useLocale } from '../../locale';
 import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
-import { getPlaceholder, mergeAllowClear, transPlacement2DropdownAlign } from '../util';
+import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
 import type { PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
@@ -53,8 +52,6 @@ export default function generatePicker<DateType extends AnyObject>(
         dropdownClassName,
         disabled: customDisabled,
         status: customStatus,
-        clearIcon,
-        allowClear,
         variant: customVariant,
         ...restProps
       } = props;
@@ -100,6 +97,9 @@ export default function generatePicker<DateType extends AnyObject>(
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
       }
+
+      // ===================== Icon =====================
+      const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
 
       // ================== components ==================
       const mergedComponents = useComponents(components);
@@ -184,7 +184,8 @@ export default function generatePicker<DateType extends AnyObject>(
                 zIndex,
               },
             }}
-            allowClear={mergeAllowClear(allowClear, clearIcon, <CloseCircleFilled />)}
+            allowClear={mergedAllowClear}
+            removeIcon={removeIcon}
           />
         </NoCompactStyle>,
       );
