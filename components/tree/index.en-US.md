@@ -66,7 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | selectable | Whether can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to true | boolean | false |  |
-| showLine | Shows a connecting line | boolean \| {showLeafIcon: boolean \| ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
+| showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
