@@ -411,10 +411,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const { expandable, symbol, collapse } = ellipsisConfig;
     if (!expandable) return null;
     if (!collapse && !renderExpanded) return null;
+    const key = renderExpanded ? 'expand' : 'collapse';
     return (
       <a
-        key={renderExpanded ? 'expand' : 'collapse'}
-        className={`${prefixCls}-expand`}
+        key={key}
+        className={`${prefixCls}-${key}`}
         onClick={(e) => onExpandClick(e, renderExpanded)}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
