@@ -30,3 +30,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    labels:
+      - "github-actions"
+      - "dependencies"
+      - "skip-verify-files"
