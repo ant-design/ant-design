@@ -262,6 +262,11 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           '&:hover': {
             color: colorIconHover,
           },
+
+          '&:disabled': {
+            opacity: 0.25,
+            pointerEvents: 'none',
+          },
         },
 
         '&-view': {

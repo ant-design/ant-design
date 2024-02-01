@@ -9407,7 +9407,8 @@ Array [
                 class="ant-picker-header"
               >
                 <button
-                  class="ant-picker-header-super-prev-btn"
+                  class="ant-picker-header-super-prev-btn ant-picker-header-super-prev-btn-disabled"
+                  disabled=""
                   tabindex="-1"
                   type="button"
                 >
@@ -13308,7 +13309,8 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                   class="ant-picker-header"
                 >
                   <button
-                    class="ant-picker-header-super-prev-btn"
+                    class="ant-picker-header-super-prev-btn ant-picker-header-super-prev-btn-disabled"
+                    disabled=""
                     tabindex="-1"
                     type="button"
                   >
@@ -13353,7 +13355,8 @@ exports[`renders components/date-picker/demo/disabled.tsx extend context correct
                     />
                   </button>
                   <button
-                    class="ant-picker-header-super-next-btn"
+                    class="ant-picker-header-super-next-btn ant-picker-header-super-next-btn-disabled"
+                    disabled=""
                     tabindex="-1"
                     type="button"
                   >
@@ -40047,26 +40050,6 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
               </div>
             </div>
           </div>
-          <div
-            class="ant-picker-footer"
-          >
-            <ul
-              class="ant-picker-ranges"
-            >
-              <li
-                class="ant-picker-ok"
-              >
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -40699,26 +40682,6 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
               </div>
             </div>
           </div>
-          <div
-            class="ant-picker-footer"
-          >
-            <ul
-              class="ant-picker-ranges"
-            >
-              <li
-                class="ant-picker-ok"
-              >
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -41350,26 +41313,6 @@ exports[`renders components/date-picker/demo/multiple.tsx extend context correct
                 </table>
               </div>
             </div>
-          </div>
-          <div
-            class="ant-picker-footer"
-          >
-            <ul
-              class="ant-picker-ranges"
-            >
-              <li
-                class="ant-picker-ok"
-              >
-                <button
-                  class="ant-btn ant-btn-primary ant-btn-sm"
-                  type="button"
-                >
-                  <span>
-                    OK
-                  </span>
-                </button>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
