@@ -77,13 +77,17 @@ export interface TableConfig extends ComponentStyleConfig {
   };
 }
 
-export type TabsConfig = ComponentStyleConfig &
-  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
+export interface ImageConfig extends ComponentStyleConfig {
+  preview?: Partial<Record<'closeIcon', React.ReactNode>>;
+}
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
+
+export type TabsConfig = ComponentStyleConfig &
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
 
 export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
 
@@ -148,7 +152,7 @@ export interface ConfigConsumerProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
