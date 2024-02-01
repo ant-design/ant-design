@@ -22,9 +22,12 @@ let mousePosition: MousePosition;
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
+  const element = (e.target as HTMLElement) || document.documentElement;
   mousePosition = {
     x: e.pageX,
     y: e.pageY,
+    width: element?.clientWidth || 0,
+    height: element?.clientHeight || 0,
   };
   // 100ms 内发生过点击事件，则从点击位置动画展示
   // 否则直接 zoom 展示

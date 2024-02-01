@@ -127,4 +127,4 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-export type MousePosition = { x: number; y: number } | null;
+export type MousePosition = { x: number; y: number; width: number; height: number } | null;
