@@ -21,7 +21,7 @@ jobs:
       build-status: ${{ steps.visual_diff_build_job_status.outputs.build-status }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: visual_diff_build_job_status
         with:
           script: |
