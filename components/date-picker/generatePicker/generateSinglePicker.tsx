@@ -108,7 +108,7 @@ export default function generatePicker<DateType extends AnyObject>(
       });
 
       const mergedAllowClear =
-        allowClear === true ? { clearIcon: clearIcon as React.ReactElement } : allowClear;
+        allowClear === true ? { clearIcon: clearIcon as React.ReactNode } : allowClear;
 
       // ================== components ==================
       const mergedComponents = useComponents(components);

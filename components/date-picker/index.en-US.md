@@ -19,6 +19,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/range-picker.tsx">Range Picker</code>
 <code src="./demo/multiple.tsx" version="5.14.0">Multiple</code>
+<code src="./demo/needConfirm.tsx" version="5.14.0">Need Confirm</code>
 <code src="./demo/switchable.tsx">Switchable picker</code>
 <code src="./demo/format.tsx">Date Format</code>
 <code src="./demo/time.tsx">Choose Time</code>
