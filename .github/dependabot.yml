@@ -26,3 +26,7 @@ updates:
       dev-dependencies:
         dependency-type: "development"
         update-types: ["major"]
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
