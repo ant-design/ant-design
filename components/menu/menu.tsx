@@ -159,7 +159,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ========================= Render ==========================
   return wrapCSSVar(
-    <OverrideContext.Provider value={null}>
+    <OverrideContext.Provider value={{ prefixCls }}>
       <MenuContext.Provider value={contextValue}>
         <RcMenu
           getPopupContainer={getPopupContainer}
