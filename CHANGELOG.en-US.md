@@ -35,7 +35,7 @@ tag: vVERSION
 - 🆕 Added six tokens (`defaultHoverBg`, `defaultHoverColor`, `defaultHoverBorderColor`, `defaultActiveBg`, `defaultActiveColor`, and `defaultActiveBorderColor`) to the Button component. [#47075](https://github.com/ant-design/ant-design/pull/47075) by [@madocto](https://github.com/madocto)
 - 🆕 Added `duration` configuration support to the `useNotification` function in the Notification component. This update also applies to the `notification` configuration of the App component. [#47141](https://github.com/ant-design/ant-design/pull/47141)
 - 🆕 Added support for configuring `flex` property in responsive layouts of the Grid component. [#47124](https://github.com/ant-design/ant-design/pull/47124)
-- ConfigProvide
+- ConfigProvider
   - 🆕 Added support for `selectionsIcon` in the Transfer component to ConfigProvide. [#47301](https://github.com/ant-design/ant-design/pull/47301) by [@li-jia-nan](https://github.com/li-jia-nan)
   - 🆕 Added support for `addIcon` and `moreIcon` in the Tabs component to ConfigProvide. [#47274](https://github.com/ant-design/ant-design/pull/47274) by [@li-jia-nan](https://github.com/li-jia-nan)
   - 🆕 Added support for `closeIcon` in the Image component to ConfigProvide. [#47252](https://github.com/ant-design/ant-design/pull/47252) by [@li-jia-nan](https://github.com/li-jia-nan)
