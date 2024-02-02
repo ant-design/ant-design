@@ -20,7 +20,33 @@ tag: vVERSION
 
 `2024-02-02`
 
-- 🔥 重构了 DatePicker 组件。[#46982](https://github.com/ant-design/ant-design/pull/46982)
+- 🔥 重构了 DatePicker 组件 (#46982)。[#46982](https://github.com/ant-design/ant-design/pull/46982)
+  - ⚡️ 优化 `disabledDate` 检查逻辑，现在会提供 `info.type` 告知当前面板信息。
+  - 🆕 DatePicker 新增 `multiple` 支持多选能力。
+  - 🆕 新增配套 `pickerValue`、`defaultPickerValue` 属性用于受控管理展开面板所在日期。
+  - `defaultPickerValue` 现在会在每次面板展开时都进行重置。
+  - 🐞 修复输入框功能按键会唤起弹出框的问题，现在只有在交互按键、以及输入内容变化时唤起。
+  - 🆕 新增 `preserveInvalidOnBlur` 属性用于无障碍时失去焦点需要保留输入内容的场景。
+  - 🆕 `format` 支持 `align` 属性，允许通过掩码模式输入内容。
+  - 🆕 支持 `required` 属性。
+  - 🆕 RangePicker 下的 `id` 属性支持分别设置 `start` 和 `end` 输入框的 `id`。
+  - 🆕 RangePicker 的 `onFocus` 和 `onBlur` 事件会额外提供一个 `info.range` 告知当前的焦点来自于哪个输入框。
+  - 🆕 时间面板支持 `scrollOnChange` 设置滚动时间时自动选择对应的时间。
+  - 🆕 添加 `needConfirm` 属性，允许设置需要确认、或者不确认的提交模式。
+  - 🆕 添加 `components` 属性，允许自定义部分面板。
+  - 🆕 面板中所有的日期相关信息都会允许通过 `locale` 进行配置。
+  - 🆕 `format` 支持 `LT`、`LTS` 日期格式。
+  - 🆕 新增 `minDate` 和 `maxDate` 用于设置面板切换范围。
+  - 🆕 RangePicker 支持 `order` 属性。
+  - 🆕 DatePicker 支持 `showWeek` 属性。
+  - 🐞 通过输入框输入日期后失去焦点会提交变更，而不是丢失输入内容（即不再强制需要按下回车提交）。
+  - 🐞 修复 `use12Hours` 下，`disabledTime` 获取的 `hour` 也会被裁剪成 0~12 的问题。
+  - 🐞 修复某些交互下，禁用日期没有生效依然可以提交的问题。
+  - 🛠 `allowClear` 触发事件从 `onMouseDown` 切换为 `onClick`。
+  - 🛠 移除键盘对面板交互，它需要基于无障碍重新设计。
+  - 🛠 废弃 `onKetDown` 的 `preventDefault` 参数，请直接通过 `event.preventDefault` 进行调用。
+  - 💄 移除 RangePicker 的虚线样式，减少视觉干扰。
+  - 💄 移除 RangePicker 在选择开始或者结束时间时的禁用范围，优化交互体验。
 - 🔥 Table 支持堆叠固定列。[#47245](https://github.com/ant-design/ant-design/pull/47245)
 - 🐞 改进 Transfer 组件内部分页器的内边距。[#47231](https://github.com/ant-design/ant-design/pull/47231) [@qmhc](https://github.com/qmhc)
 - 🐞 修复 Avatar 组件当高度小于 16px 内容不居中的问题。[#47236](https://github.com/ant-design/ant-design/pull/47236) [@lcgash](https://github.com/lcgash)

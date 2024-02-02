@@ -21,6 +21,32 @@ tag: vVERSION
 `2024-02-02`
 
 - 🔥 Refactored the DatePicker component. [#46982](https://github.com/ant-design/ant-design/pull/46982)
+  - ⚡️ Optimize `disabledDate` check logic, now it will provide `info.type` to inform the current panel information.
+  - 🆕 DatePicker adds `multiple` to support multiple selection capabilities.
+  - 🆕 Add matching `pickerValue` and `defaultPickerValue` attributes to control the date where the expanded panel is located.
+  - `defaultPickerValue` will now be reset each time the panel is expanded.
+  - 🐞 Fix the problem that the input box function key will trigger the pop-up box, now it will only be triggered when the interactive key and the input content change.
+  - 🆕 Add the `preserveInvalidOnBlur` attribute to keep the input content when losing focus in the case of accessibility.
+  - 🆕 `format` supports the `align` attribute, allowing input content through the mask mode.
+  - 🆕 Support `required` attribute.
+  - 🆕 The `id` attribute under RangePicker supports setting the `id` of the `start` and `end` input boxes separately.
+  - 🆕 The `onFocus` and `onBlur` events of RangePicker will additionally provide an `info.range` to inform which input box the current focus comes from.
+  - 🆕 The time panel supports `scrollOnChange` to automatically select the corresponding time when scrolling.
+  - 🆕 Add the `needConfirm` attribute to allow setting the confirmation or non-confirmation submission mode.
+  - 🆕 Add the `components` attribute to allow customizing some panels.
+  - 🆕 All date-related information in the panel will allow configuration through `locale`.
+  - 🆕 `format` supports `LT` and `LTS` date formats.
+  - 🆕 Add `minDate` and `maxDate` to set the panel switching range.
+  - 🆕 RangePicker supports `order` attribute.
+  - 🆕 DatePicker supports `showWeek` attribute.
+  - 🐞 Losing focus after entering the date through the input box will submit the change instead of losing the input content (that is, it is no longer necessary to press Enter to submit).
+  - 🐞 Fix the problem that the `hour` obtained by `disabledTime` under `use12Hours` will also be clipped to 0~12.
+  - 🐞 Fix the problem that the disabled date is not effective and can still be submitted under some interactions.
+  - 🛠 `allowClear` trigger event from `onMouseDown` to `onClick`.
+  - 🛠 Remove the keyboard interaction with the panel, it needs to be redesigned based on accessibility.
+  - 🛠 Deprecate the `preventDefault` parameter of `onKetDown`, please call it directly through `event.preventDefault`.
+  - 💄 Remove the dotted line style of RangePicker to reduce visual interference.
+  - 💄 Remove the disabled range of RangePicker when selecting start or end time to optimize the interaction experience.
 - 🔥 Added support for stacked fixed columns in the Table component. [#47245](https://github.com/ant-design/ant-design/pull/47245)
 - 🐞 Improved the Transfer internal padding of the pagination component. [#47231](https://github.com/ant-design/ant-design/pull/47231) by [@qmhc](https://github.com/qmhc)
 - 🐞 Fixed the alignment issue in the Avatar component when the height is less than 16px. [#47236](https://github.com/ant-design/ant-design/pull/47236) by [@lcgash](https://github.com/lcgash)
