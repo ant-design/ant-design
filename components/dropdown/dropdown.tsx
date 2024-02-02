@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import { useEvent } from 'rc-util';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import KeyCode from 'rc-util/lib/KeyCode';
 import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -15,12 +16,12 @@ import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { MenuProps } from '../menu';
 import Menu from '../menu';
 import { OverrideProvider } from '../menu/OverrideContext';
 import { useToken } from '../theme/internal';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const Placements = [
   'topLeft',
@@ -172,6 +173,7 @@ const Dropdown: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const triggerRef = React.useRef<HTMLButtonElement>(null);
 
   const [, token] = useToken();
 
@@ -186,6 +188,7 @@ const Dropdown: CompoundedComponent = (props) => {
       child.props.className,
     ),
     disabled,
+    ref: triggerRef,
   });
 
   const triggerActions = disabled ? [] : trigger;
@@ -232,6 +235,26 @@ const Dropdown: CompoundedComponent = (props) => {
     setOpen(false);
   }, [menu?.selectable, menu?.multiple]);
 
+  const onMenuKeyDown = React.useCallback(
+    (e: React.KeyboardEvent<HTMLUListElement>) => {
+      if (menu?.selectable && menu?.multiple) {
+        return;
+      }
+
+      const isSubMenuItem = (e.target as HTMLUListElement).classList.contains(
+        `${prefixCls}-menu-submenu-title`,
+      );
+
+      // return focus to dropodown trigger
+      if (e.which === KeyCode.ENTER && !isSubMenuItem) {
+        setTimeout(() => {
+          triggerRef.current?.focus();
+        });
+      }
+    },
+    [menu?.selectable, menu?.multiple],
+  );
+
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
@@ -263,6 +286,7 @@ const Dropdown: CompoundedComponent = (props) => {
         mode="vertical"
         selectable={false}
         onClick={onMenuClick}
+        onKeyDown={onMenuKeyDown}
         validator={({ mode }) => {
           // Warning if use other mode
           warning(

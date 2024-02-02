@@ -11,6 +11,7 @@ import initCollapseMotion from '../_util/motion';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
@@ -18,7 +19,6 @@ import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -62,6 +62,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     mode,
     selectable,
     onClick,
+    onKeyDown,
     overflowedIndicatorPopupClassName,
     ...restProps
   } = props;
@@ -98,6 +99,13 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     onClick?.(...args);
     overrideObj.onClick?.();
   });
+
+  const onItemKeyDown = useEvent<Required<MenuProps>['onKeyDown']>(
+    (event: React.KeyboardEvent<HTMLUListElement>) => {
+      onKeyDown?.(event);
+      overrideObj.onKeyDown?.(event);
+    },
+  );
 
   // ========================== Mode ===========================
   const mergedMode = overrideObj.mode || mode;
@@ -172,6 +180,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           mode={mergedMode}
           selectable={mergedSelectable}
           onClick={onItemClick}
+          onKeyDown={onItemKeyDown}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
           style={{ ...menu?.style, ...style }}
