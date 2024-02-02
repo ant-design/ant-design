@@ -245,22 +245,28 @@ describe('Typography.Ellipsis', () => {
     expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
-  it('should expandable.collapse work', async () => {
+  it('should expandable.collapsible work', async () => {
     const { container: wrapper } = render(
-      <Base ellipsis={{ expandable: true, collapse: 'collapse' }} component="p">
+      <Base
+        ellipsis={{
+          expandable: true,
+          expand: 'aaa',
+          collapsible: true,
+          collapse: 'bbb',
+        }}
+        component="p"
+      >
         {fullStr}
       </Base>,
     );
     // 初始化
-    // expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapselg...Expand`);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...Expand`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...aaa`);
     // 展开
     fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapse`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}bbb`);
     // 收起
     fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
-    // expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}collapselg...Expand`);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...Expand`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...aaa`);
   });
 
   it('should have custom expand style', async () => {
