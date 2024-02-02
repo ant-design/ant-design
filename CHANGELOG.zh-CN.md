@@ -30,7 +30,7 @@ tag: vVERSION
 - 💄 Card 组件增加 classNames 和 styles 属性。[#46811](https://github.com/ant-design/ant-design/pull/46811) [@zh-lx](https://github.com/zh-lx)
 - 💄 修复无 hash 模式下的组件样式问题。[#46609](https://github.com/ant-design/ant-design/pull/46609) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Segmented `value` 类型支持泛型。[#47091](https://github.com/ant-design/ant-design/pull/47091) [@madocto](https://github.com/madocto)
-- 🆕 Table 支持 `virtual` 下的 components.body。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
+- 🆕 Table 支持 `virtual` 下的 `components.body` 。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
 - 🆕 InputNumber 组件支持 `changeOnWheel` 属性，以启用鼠标滚轮控制。[#47158](https://github.com/ant-design/ant-design/pull/47158) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Button 添加 `defaultHoverBg`、`defaultHoverColor`、`defaultHoverBorderColor`、 `defaultActiveBg`、`defaultActiveColor` 和 `defaultActiveBorderColor` 六个 token。[#47075](https://github.com/ant-design/ant-design/pull/47075) [@madocto](https://github.com/madocto)
 - 🆕 Notification `useNotification` 支持 `duration` 配置，该更新同样适用于 App 组件的 `notification` 配置。[#47141](https://github.com/ant-design/ant-design/pull/47141)
