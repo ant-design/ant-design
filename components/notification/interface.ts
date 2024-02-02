@@ -67,4 +67,5 @@ export interface NotificationConfig {
   maxCount?: number;
   rtl?: boolean;
   stack?: boolean | { threshold?: number };
+  duration?: number;
 }

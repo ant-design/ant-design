@@ -865,7 +865,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end"
+                class="ant-picker-cell"
                 title="2016-10-31"
               >
                 <div
@@ -882,7 +882,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-01"
               >
                 <div
@@ -1245,7 +1245,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2016-11-22"
               >
                 <div
@@ -1383,7 +1383,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-30"
               >
                 <div
@@ -1400,7 +1400,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start"
+                class="ant-picker-cell"
                 title="2016-12-01"
               >
                 <div
@@ -2450,7 +2450,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -2467,7 +2467,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -2830,7 +2830,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -2968,7 +2968,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -2985,7 +2985,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -4034,7 +4034,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -4051,7 +4051,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -4414,7 +4414,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -4552,7 +4552,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -4569,7 +4569,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -5612,7 +5612,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -5629,7 +5629,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -5992,7 +5992,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -6130,7 +6130,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -6147,7 +6147,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -7247,7 +7247,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -7264,7 +7264,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -7627,7 +7627,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -7765,7 +7765,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -7782,7 +7782,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -8838,7 +8838,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end"
+                class="ant-picker-cell"
                 title="2016-10-31"
               >
                 <div
@@ -8859,7 +8859,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-01"
               >
                 <div
@@ -9463,7 +9463,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2016-11-22"
               >
                 <div
@@ -9633,7 +9633,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-30"
               >
                 <div
@@ -9654,7 +9654,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start"
+                class="ant-picker-cell"
                 title="2016-12-01"
               >
                 <div
@@ -10812,7 +10812,7 @@ Array [
             <tbody>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-01"
                 >
                   <div
@@ -11226,7 +11226,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
                   title="2017-01-25"
                 >
                   <div
@@ -11330,7 +11330,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-31"
                 >
                   <div
@@ -11347,7 +11347,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2017-02-01"
                 >
                   <div

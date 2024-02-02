@@ -1,5 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders components/date-picker/demo/allow-empty.tsx correctly 1`] = `
+<div
+  class="ant-picker ant-picker-range ant-picker-outlined"
+>
+  <div
+    class="ant-picker-input"
+  >
+    <input
+      aria-invalid="false"
+      autocomplete="off"
+      date-range="start"
+      placeholder=""
+      size="12"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-picker-range-separator"
+  >
+    <span
+      aria-label="to"
+      class="ant-picker-separator"
+    >
+      <span
+        aria-label="swap-right"
+        class="anticon anticon-swap-right"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="swap-right"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-picker-input"
+  >
+    <input
+      aria-invalid="false"
+      autocomplete="off"
+      date-range="end"
+      placeholder="Till Now"
+      size="12"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-picker-active-bar"
+    style="position:absolute;width:0;left:0"
+  />
+  <span
+    class="ant-picker-suffix"
+  >
+    <span
+      aria-label="calendar"
+      class="anticon anticon-calendar"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="calendar"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;
+
 exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
@@ -14,11 +100,10 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -47,6 +132,22 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
       </div>
     </div>
   </div>
+</div>
+`;
+
+exports[`renders components/date-picker/demo/buddhist-era.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <h4
+      class="ant-typography"
+    >
+      By locale props
+    </h4>
+  </div>
   <div
     class="ant-space-item"
   >
@@ -57,12 +158,11 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
-          placeholder="Select week"
-          readonly=""
+          placeholder="Select date"
           size="12"
-          title=""
-          value=""
+          value="2567-01-01"
         />
         <span
           class="ant-picker-suffix"
@@ -83,6 +183,31 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
             >
               <path
                 d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-picker-clear"
+          role="button"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -100,12 +225,11 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
-          placeholder="Select month"
-          readonly=""
-          size="12"
-          title=""
-          value=""
+          placeholder="Select date"
+          size="21"
+          value="2567-01-01 00:00:00"
         />
         <span
           class="ant-picker-suffix"
@@ -126,6 +250,31 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
             >
               <path
                 d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-picker-clear"
+          role="button"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
               />
             </svg>
           </span>
@@ -136,86 +285,151 @@ exports[`renders components/date-picker/demo/basic.tsx correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <div
-      class="ant-picker ant-picker-outlined"
+    <h4
+      class="ant-typography"
     >
-      <div
-        class="ant-picker-input"
-      >
-        <input
-          autocomplete="off"
-          placeholder="Select quarter"
-          readonly=""
-          size="12"
-          title=""
-          value=""
-        />
-        <span
-          class="ant-picker-suffix"
-        >
-          <span
-            aria-label="calendar"
-            class="anticon anticon-calendar"
-            role="img"
-          >
-            <svg
-              aria-hidden="true"
-              data-icon="calendar"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-              />
-            </svg>
-          </span>
-        </span>
-      </div>
-    </div>
+      By ConfigProvider
+    </h4>
   </div>
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined"
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
     >
       <div
-        class="ant-picker-input"
+        class="ant-space-item"
       >
-        <input
-          autocomplete="off"
-          placeholder="Select year"
-          readonly=""
-          size="12"
-          title=""
-          value=""
-        />
-        <span
-          class="ant-picker-suffix"
+        <div
+          class="ant-picker ant-picker-outlined"
         >
-          <span
-            aria-label="calendar"
-            class="anticon anticon-calendar"
-            role="img"
+          <div
+            class="ant-picker-input"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="calendar"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <input
+              aria-invalid="false"
+              autocomplete="off"
+              placeholder="Select date"
+              size="12"
+              value="2567-01-01"
+            />
+            <span
+              class="ant-picker-suffix"
             >
-              <path
-                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-              />
-            </svg>
-          </span>
-        </span>
+              <span
+                aria-label="calendar"
+                class="anticon anticon-calendar"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-picker-clear"
+              role="button"
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-picker ant-picker-outlined"
+        >
+          <div
+            class="ant-picker-input"
+          >
+            <input
+              aria-invalid="false"
+              autocomplete="off"
+              placeholder="Select date"
+              size="21"
+              value="2567-01-01 00:00:00"
+            />
+            <span
+              class="ant-picker-suffix"
+            >
+              <span
+                aria-label="calendar"
+                class="anticon anticon-calendar"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="calendar"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-picker-clear"
+              role="button"
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -237,11 +451,10 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -277,12 +490,13 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -319,16 +533,17 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -358,6 +573,121 @@ exports[`renders components/date-picker/demo/cell-render.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/date-picker/demo/components.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-outlined"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          aria-invalid="false"
+          autocomplete="off"
+          placeholder="Select date"
+          size="12"
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/date-picker/demo/date-range.tsx correctly 1`] = `
+<div
+  class="ant-picker ant-picker-outlined"
+>
+  <div
+    class="ant-picker-input"
+  >
+    <input
+      aria-invalid="false"
+      autocomplete="off"
+      placeholder="Select date"
+      size="12"
+      value="2019-09-03"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
+      role="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -367,19 +697,18 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined ant-picker-disabled"
+      class="ant-picker ant-picker-disabled ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           disabled=""
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2015-06-06"
         />
         <span
           class="ant-picker-suffix"
@@ -411,19 +740,18 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-outlined ant-picker-disabled"
+      class="ant-picker ant-picker-disabled ant-picker-outlined"
     >
       <div
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           disabled=""
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2015-06"
         />
         <span
           class="ant-picker-suffix"
@@ -455,18 +783,19 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-outlined ant-picker-disabled"
+      class="ant-picker ant-picker-range ant-picker-disabled ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           disabled=""
           placeholder="Start date"
-          readonly=""
           size="12"
-          value=""
+          value="2015-06-06"
         />
       </div>
       <div
@@ -501,17 +830,18 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           disabled=""
           placeholder="End date"
-          readonly=""
           size="12"
-          value=""
+          value="2015-06-06"
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -545,14 +875,15 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
-          value=""
+          value="2019-09-03"
         />
       </div>
       <div
@@ -587,17 +918,18 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           disabled=""
           placeholder="End date"
-          readonly=""
           size="12"
-          value=""
+          value="2019-11-22"
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -649,6 +981,73 @@ exports[`renders components/date-picker/demo/disabled.tsx correctly 1`] = `
       </span>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-outlined"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          aria-invalid="false"
+          autocomplete="off"
+          placeholder="Select date"
+          size="12"
+          value="2019-09-03"
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          class="ant-picker-clear"
+          role="button"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              fill-rule="evenodd"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -667,11 +1066,10 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="21"
-          title=""
           value=""
         />
         <span
@@ -710,11 +1108,10 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -750,12 +1147,13 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -792,16 +1190,17 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -835,12 +1234,13 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="21"
           value=""
         />
@@ -877,16 +1277,17 @@ exports[`renders components/date-picker/demo/disabled-date.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="21"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -931,11 +1332,10 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -974,11 +1374,10 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="21"
-          title=""
           value=""
         />
         <span
@@ -1014,12 +1413,13 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -1056,16 +1456,17 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1099,12 +1500,13 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="21"
           value=""
         />
@@ -1141,16 +1543,17 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="21"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1187,11 +1590,10 @@ exports[`renders components/date-picker/demo/extra-footer.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -1232,19 +1634,18 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-filled ant-picker-disabled"
+      class="ant-picker ant-picker-disabled ant-picker-filled"
     >
       <div
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           disabled=""
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2015-06-06"
         />
         <span
           class="ant-picker-suffix"
@@ -1276,19 +1677,18 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-filled ant-picker-disabled"
+      class="ant-picker ant-picker-disabled ant-picker-filled"
     >
       <div
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           disabled=""
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2015-06"
         />
         <span
           class="ant-picker-suffix"
@@ -1320,18 +1720,19 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-filled ant-picker-disabled"
+      class="ant-picker ant-picker-range ant-picker-disabled ant-picker-filled"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           disabled=""
           placeholder="Start date"
-          readonly=""
           size="12"
-          value=""
+          value="2015-06-06"
         />
       </div>
       <div
@@ -1366,17 +1767,18 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           disabled=""
           placeholder="End date"
-          readonly=""
           size="12"
-          value=""
+          value="2015-06-06"
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1410,14 +1812,15 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-filled"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
-          value=""
+          value="2019-09-03"
         />
       </div>
       <div
@@ -1452,17 +1855,18 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           disabled=""
           placeholder="End date"
-          readonly=""
           size="12"
-          value=""
+          value="2019-11-22"
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1525,12 +1929,11 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2023-12-25"
         />
         <span
           class="ant-picker-suffix"
@@ -1594,11 +1997,10 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -1635,12 +2037,13 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       style="width:100%"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -1677,16 +2080,17 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1721,12 +2125,13 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
       style="width:100%"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -1763,16 +2168,17 @@ exports[`renders components/date-picker/demo/filled-debug.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -1817,12 +2223,11 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2015/01/01"
         />
         <span
           class="ant-picker-suffix"
@@ -1885,12 +2290,11 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="01/01/2015"
         />
         <span
           class="ant-picker-suffix"
@@ -1953,12 +2357,11 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
-          value=""
+          value="2015/01"
         />
         <span
           class="ant-picker-suffix"
@@ -2021,12 +2424,12 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
           readonly=""
           size="15"
-          title=""
-          value=""
+          value="11/20 ~ 11/26"
         />
         <span
           class="ant-picker-suffix"
@@ -2086,14 +2489,15 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
-          value=""
+          value="2015/01/01"
         />
       </div>
       <div
@@ -2128,16 +2532,17 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
-          value=""
+          value="2015/01/01"
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2199,12 +2604,12 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
           readonly=""
           size="27"
-          title=""
-          value=""
+          value="custom format: 2015/01/01"
         />
         <span
           class="ant-picker-suffix"
@@ -2260,6 +2665,97 @@ exports[`renders components/date-picker/demo/format.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/date-picker/demo/mask.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-outlined"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          aria-invalid="false"
+          autocomplete="off"
+          placeholder="Select date"
+          size="12"
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-outlined"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          aria-invalid="false"
+          autocomplete="off"
+          placeholder="Select date"
+          size="21"
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2275,11 +2771,10 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="21"
-          title=""
           value=""
         />
         <span
@@ -2315,12 +2810,13 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start month"
-          readonly=""
           size="12"
           value=""
         />
@@ -2357,16 +2853,17 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End month"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2391,6 +2888,348 @@ exports[`renders components/date-picker/demo/mode.tsx correctly 1`] = `
           </svg>
         </span>
       </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/date-picker/demo/multiple.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-picker ant-picker-multiple ant-picker-small ant-picker-outlined"
+  >
+    <div
+      class="ant-picker-selector"
+    >
+      <div
+        class="ant-picker-selection-overflow"
+      >
+        <div
+          aria-hidden="true"
+          class="ant-picker-selection-overflow-item ant-picker-selection-overflow-item-rest"
+          style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+        >
+          <span
+            class="ant-picker-selection-item"
+            title="+ 2 ..."
+          >
+            <span
+              class="ant-picker-selection-item-content"
+            >
+              + 2 ...
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <input
+      class="ant-picker-multiple-input"
+      readonly=""
+      value="2000-01-01,2000-01-03,2000-01-05"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
+      role="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-picker ant-picker-multiple ant-picker-outlined"
+  >
+    <div
+      class="ant-picker-selector"
+    >
+      <div
+        class="ant-picker-selection-overflow"
+      >
+        <div
+          aria-hidden="true"
+          class="ant-picker-selection-overflow-item ant-picker-selection-overflow-item-rest"
+          style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+        >
+          <span
+            class="ant-picker-selection-item"
+            title="+ 2 ..."
+          >
+            <span
+              class="ant-picker-selection-item-content"
+            >
+              + 2 ...
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <input
+      class="ant-picker-multiple-input"
+      readonly=""
+      value="2000-01-01,2000-01-03,2000-01-05"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
+      role="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-picker ant-picker-multiple ant-picker-large ant-picker-outlined"
+  >
+    <div
+      class="ant-picker-selector"
+    >
+      <div
+        class="ant-picker-selection-overflow"
+      >
+        <div
+          aria-hidden="true"
+          class="ant-picker-selection-overflow-item ant-picker-selection-overflow-item-rest"
+          style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+        >
+          <span
+            class="ant-picker-selection-item"
+            title="+ 2 ..."
+          >
+            <span
+              class="ant-picker-selection-item-content"
+            >
+              + 2 ...
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <input
+      class="ant-picker-multiple-input"
+      readonly=""
+      value="2000-01-01,2000-01-03,2000-01-05"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
+      role="button"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/date-picker/demo/needConfirm.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="column-gap:12px;row-gap:12px"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-outlined"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          aria-invalid="false"
+          autocomplete="off"
+          placeholder="Select date"
+          size="12"
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-outlined"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          aria-invalid="false"
+          autocomplete="off"
+          placeholder="Select date"
+          size="21"
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -2488,11 +3327,10 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         placeholder="Select date"
-        readonly=""
         size="12"
-        title=""
         value=""
       />
       <span
@@ -2526,12 +3364,13 @@ Array [
     class="ant-picker ant-picker-range ant-picker-outlined"
   >
     <div
-      class="ant-picker-input ant-picker-input-active"
+      class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
+        date-range="start"
         placeholder="Start date"
-        readonly=""
         size="12"
         value=""
       />
@@ -2568,16 +3407,17 @@ Array [
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
+        date-range="end"
         placeholder="End date"
-        readonly=""
         size="12"
         value=""
       />
     </div>
     <div
       class="ant-picker-active-bar"
-      style="left:0;width:0;position:absolute"
+      style="position:absolute;width:0;left:0"
     />
     <span
       class="ant-picker-suffix"
@@ -2621,11 +3461,10 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -2661,12 +3500,13 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -2703,16 +3543,17 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2746,12 +3587,13 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="21"
           value=""
         />
@@ -2788,16 +3630,17 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="21"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2839,12 +3682,13 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -2881,16 +3725,17 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -2924,12 +3769,13 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="21"
           value=""
         />
@@ -2966,16 +3812,17 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="21"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3009,12 +3856,13 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start week"
-          readonly=""
           size="12"
           value=""
         />
@@ -3051,16 +3899,17 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End week"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3094,12 +3943,13 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start month"
-          readonly=""
           size="12"
           value=""
         />
@@ -3136,16 +3986,17 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End month"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3179,12 +4030,13 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start quarter"
-          readonly=""
           size="12"
           value=""
         />
@@ -3221,16 +4073,17 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End quarter"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3264,12 +4117,14 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
+          id="startInput"
           placeholder="Start year"
-          readonly=""
           size="12"
           value=""
         />
@@ -3306,16 +4161,18 @@ exports[`renders components/date-picker/demo/range-picker.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
+          id="endInput"
           placeholder="End year"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3357,11 +4214,10 @@ exports[`renders components/date-picker/demo/render-panel.tsx correctly 1`] = `
       class="ant-picker-input"
     >
       <input
+        aria-invalid="false"
         autocomplete="off"
         placeholder="Select date"
-        readonly=""
         size="12"
-        title=""
         value=""
       />
       <span
@@ -3397,12 +4253,13 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
   class="ant-picker ant-picker-range ant-picker-outlined"
 >
   <div
-    class="ant-picker-input ant-picker-input-active"
+    class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="start"
       placeholder="Start date"
-      readonly=""
       size="12"
       value=""
     />
@@ -3439,16 +4296,17 @@ exports[`renders components/date-picker/demo/select-in-range.tsx correctly 1`] =
     class="ant-picker-input"
   >
     <input
+      aria-invalid="false"
       autocomplete="off"
+      date-range="end"
       placeholder="End date"
-      readonly=""
       size="12"
       value=""
     />
   </div>
   <div
     class="ant-picker-active-bar"
-    style="left:0;width:0;position:absolute"
+    style="position:absolute;width:0;left:0"
   />
   <span
     class="ant-picker-suffix"
@@ -3557,11 +4415,10 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -3600,11 +4457,10 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -3640,12 +4496,13 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-middle ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -3682,16 +4539,17 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -3728,11 +4586,10 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -3778,11 +4635,10 @@ exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Start"
-          readonly=""
           size="21"
-          title=""
           value=""
         />
         <span
@@ -3821,11 +4677,10 @@ exports[`renders components/date-picker/demo/start-end.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="End"
-          readonly=""
           size="21"
-          title=""
           value=""
         />
         <span
@@ -3873,11 +4728,10 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -3917,11 +4771,10 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -3958,12 +4811,13 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
       style="width:100%"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -4000,16 +4854,17 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4044,12 +4899,13 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
       style="width:100%"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -4086,16 +4942,17 @@ exports[`renders components/date-picker/demo/status.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4140,11 +4997,10 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4183,11 +5039,10 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4223,12 +5078,13 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -4265,16 +5121,17 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4311,11 +5168,10 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4354,11 +5210,10 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4379,11 +5234,10 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select month"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4401,12 +5255,13 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="12"
           value=""
         />
@@ -4443,16 +5298,17 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4471,11 +5327,10 @@ exports[`renders components/date-picker/demo/suffix.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select week"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4566,11 +5421,10 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select time"
-          readonly=""
           size="10"
-          title=""
           value=""
         />
         <span
@@ -4620,11 +5474,10 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Select date"
-          readonly=""
           size="21"
-          title=""
           value=""
         />
         <span
@@ -4660,12 +5513,13 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Start date"
-          readonly=""
           size="18"
           value=""
         />
@@ -4702,16 +5556,17 @@ exports[`renders components/date-picker/demo/time.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder="End date"
-          readonly=""
           size="18"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4757,11 +5612,10 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Outlined"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4793,12 +5647,13 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-outlined"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Outlined"
-          readonly=""
           size="12"
           value=""
         />
@@ -4835,16 +5690,17 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder=""
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -4882,11 +5738,10 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Filled"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -4918,12 +5773,13 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-filled"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Filled"
-          readonly=""
           size="12"
           value=""
         />
@@ -4960,16 +5816,17 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder=""
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
@@ -5007,11 +5864,10 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
           placeholder="Borderless"
-          readonly=""
           size="12"
-          title=""
           value=""
         />
         <span
@@ -5043,12 +5899,13 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
       class="ant-picker ant-picker-range ant-picker-borderless"
     >
       <div
-        class="ant-picker-input ant-picker-input-active"
+        class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="start"
           placeholder="Borderless"
-          readonly=""
           size="12"
           value=""
         />
@@ -5085,16 +5942,17 @@ exports[`renders components/date-picker/demo/variant.tsx correctly 1`] = `
         class="ant-picker-input"
       >
         <input
+          aria-invalid="false"
           autocomplete="off"
+          date-range="end"
           placeholder=""
-          readonly=""
           size="12"
           value=""
         />
       </div>
       <div
         class="ant-picker-active-bar"
-        style="left:0;width:0;position:absolute"
+        style="position:absolute;width:0;left:0"
       />
       <span
         class="ant-picker-suffix"
