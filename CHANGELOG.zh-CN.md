@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2024-02-02`
 
-- 🔥 重构了 DatePicker 组件 (#46982)。[18e85a7](https://github.com/ant-design/ant-design/commit/18e85a7)
+- 🔥 重构了 DatePicker 组件。[#46982](https://github.com/ant-design/ant-design/pull/46982)
 - 🔥 Table 支持堆叠固定列。[#47245](https://github.com/ant-design/ant-design/pull/47245)
 - 🐞 改进内部分页器的内边距。[#47231](https://github.com/ant-design/ant-design/pull/47231) [@qmhc](https://github.com/qmhc)
 - 🐞 修复 Avatar 组件当高度小于 16px 内容不居中的问题。[#47236](https://github.com/ant-design/ant-design/pull/47236) [@lcgash](https://github.com/lcgash)
