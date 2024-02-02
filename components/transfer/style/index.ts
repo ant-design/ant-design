@@ -43,7 +43,7 @@ interface TransferToken extends FullToken<'Transfer'> {
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
   token: TransferToken,
 ): CSSObject => {
-  const { antCls, componentCls, listHeight, controlHeightLG, paddingXS, marginXS, margin } = token;
+  const { antCls, componentCls, listHeight, controlHeightLG, marginXS } = token;
 
   const tableCls = `${antCls}-table`;
   const inputCls = `${antCls}-input`;
@@ -70,8 +70,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         },
 
         [`${tableCls}-pagination${tableCls}-pagination`]: {
-          margin: `${unit(margin)} 0 ${unit(marginXS)}`,
-          padding: `0 ${unit(paddingXS)}`,
+          padding: marginXS,
         },
       },
 
