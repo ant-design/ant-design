@@ -70,6 +70,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         },
 
         [`${tableCls}-pagination${tableCls}-pagination`]: {
+          margin: 0,
           padding: marginXS,
         },
       },
