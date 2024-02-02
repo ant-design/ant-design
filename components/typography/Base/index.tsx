@@ -409,8 +409,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     if (!expandable) return null;
     if (!collapsible && !renderExpanded) return null;
 
-    const key = renderExpanded ? 'expand' : 'collapse';
+    const expandNode = expand ?? symbol ?? textLocale.expand;
+    const collapseNode = collapse ?? textLocale.collapse;
 
+    const key = renderExpanded ? 'expand' : 'collapse';
     return (
       <a
         key={key}
@@ -418,7 +420,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onClick={(e) => onExpandClick(e, renderExpanded)}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
-        {renderExpanded ? expand ?? symbol ?? textLocale.expand : collapse ?? textLocale.collapse}
+        {renderExpanded ? expandNode : collapseNode}
       </a>
     );
   };
