@@ -20,7 +20,7 @@ tag: vVERSION
 
 `2024-02-02`
 
-- 🔥 Refactored the DatePicker component. [#46982](https://github.com/ant-design/ant-design/commit/18e85a7)
+- 🔥 Refactored the DatePicker component. [#46982](https://github.com/ant-design/ant-design/pull/46982)
 - 🔥 Added support for stacked fixed columns in the Table component. [#47245](https://github.com/ant-design/ant-design/pull/47245)
 - 🐞 Improved the Transfer internal padding of the pagination component. [#47231](https://github.com/ant-design/ant-design/pull/47231) by [@qmhc](https://github.com/qmhc)
 - 🐞 Fixed the alignment issue in the Avatar component when the height is less than 16px. [#47236](https://github.com/ant-design/ant-design/pull/47236) by [@lcgash](https://github.com/lcgash)
