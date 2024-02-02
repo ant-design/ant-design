@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { devUseWarning } from '../_util/warning';
+import type { CustomComponent } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -16,6 +17,12 @@ export interface DividerProps {
   dashed?: boolean;
   style?: React.CSSProperties;
   plain?: boolean;
+  /**
+   * render element
+   * @default 'div'
+   * @since 5.15.0
+   */
+  component?: CustomComponent;
 }
 
 const Divider: React.FC<DividerProps> = (props) => {
@@ -32,6 +39,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     dashed,
     plain,
     style,
+    component: Component = 'div',
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
@@ -88,7 +96,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   }
 
   return wrapCSSVar(
-    <div
+    <Component
       className={classString}
       style={{ ...divider?.style, ...style }}
       {...restProps}
@@ -99,7 +107,7 @@ const Divider: React.FC<DividerProps> = (props) => {
           {children}
         </span>
       )}
-    </div>,
+    </Component>,
   );
 };
 
