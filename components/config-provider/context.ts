@@ -21,6 +21,7 @@ import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
+import type { TransferProps } from '../transfer';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultIconPrefixCls = 'anticon';
@@ -109,6 +110,8 @@ export type DrawerConfig = ComponentStyleConfig &
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
+export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
+
 export type PopupOverflow = 'viewport' | 'scroll';
 
 export interface WaveConfig {
@@ -169,7 +172,7 @@ export interface ConfigConsumerProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
-  transfer?: ComponentStyleConfig;
+  transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;

@@ -1230,6 +1230,7 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         transfer={{
           className: 'test-class',
+          selectionsIcon: <span className="cp-test-selectionsIcon">cp-test-selectionsIcon</span>,
         }}
       >
         <Transfer dataSource={mockData} />
@@ -1237,6 +1238,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-transfer')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.cp-test-selectionsIcon')).toBeTruthy();
   });
 
   it('Should Transfer style works', () => {
