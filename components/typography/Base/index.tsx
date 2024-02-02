@@ -14,6 +14,7 @@ import { composeRef } from 'rc-util/lib/ref';
 
 import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
+import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
@@ -239,6 +240,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {});
+  const warning = devUseWarning('Typography');
+
+  warning(
+    !('symbol' in ellipsisConfig),
+    'deprecated',
+    '`symbol` is deprecated. Please use `expand` instead',
+  );
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
 
