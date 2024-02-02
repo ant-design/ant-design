@@ -44,7 +44,7 @@ on:
 每次构建成功，CI 都会缓存当下的 `yarn.lock` 文件。这样，我们在下次构建如果失败了，就可以很方便的拉取两份文件进行对比去排查问题。`actions/cache` 虽然不允许同名 cache key，但是允许通过 `restore-keys` 来获取最近的 cache，这就非常方便了：
 
 ```yml
-- uses: actions/cache@v3
+- uses: actions/cache@v4
   with:
     path: ~tmpProj/yarn.lock
     key: primes-${{ runner.os }}-${{ github.run_id }}

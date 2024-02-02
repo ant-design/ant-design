@@ -233,7 +233,7 @@ To further optimize dependency installation speed, we can add pnpm caching. Afte
     echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
 - name: Setup pnpm cache
-  uses: actions/cache@v3
+  uses: actions/cache@v4
   with:
     path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
