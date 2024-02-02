@@ -71,6 +71,11 @@ group: 数据展示
 | root      | 设置根元素   | 5.7.0 |
 | indicator | 设置徽标元素 | 5.7.0 |
 
+2333
+
+<SemanticComponentPreview component="Button" semantic="icon" />
+<code src="./demo/basic.tsx">基本</code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Badge"></ComponentTokenTable>
