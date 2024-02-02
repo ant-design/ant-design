@@ -238,13 +238,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isJsEllipsis, setIsJsEllipsis] = React.useState(false);
   const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
-  const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
-    expandable: false,
-    symbol: textLocale.expand,
-    expand: textLocale.expand,
-    collapsible: false,
-    collapse: textLocale.collapse,
-  });
+  const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {});
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
 
@@ -412,9 +406,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // Expand
   const renderExpand = (renderExpanded: boolean) => {
     const { expandable, symbol, expand, collapsible, collapse } = ellipsisConfig;
-    const _expand = expand ?? symbol;
     if (!expandable) return null;
     if (!collapsible && !renderExpanded) return null;
+
+    const _expand = expand ?? symbol ?? textLocale.expand;
+    const _collapse = collapse ?? textLocale.collapse;
+
     const key = renderExpanded ? 'expand' : 'collapse';
     return (
       <a
@@ -423,7 +420,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onClick={(e) => onExpandClick(e, renderExpanded)}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
-        {renderExpanded ? _expand : collapse}
+        {renderExpanded ? _expand : _collapse}
       </a>
     );
   };
