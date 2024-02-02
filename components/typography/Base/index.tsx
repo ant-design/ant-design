@@ -53,9 +53,12 @@ interface EditConfig {
 
 export interface EllipsisConfig {
   rows?: number;
-  expandable?: boolean;
   suffix?: string;
+  /* @deprecated Please use `expand` instead */
   symbol?: React.ReactNode;
+  expandable?: boolean;
+  expand?: React.ReactNode;
+  collapsible?: boolean;
   collapse?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
@@ -238,7 +241,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
     symbol: textLocale.expand,
-    // collapse: textLocale.collapse,
+    expand: textLocale.expand,
+    collapsible: false,
+    collapse: textLocale.collapse,
   });
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
@@ -406,11 +411,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = (renderExpanded: boolean) => {
-    // 搞不懂
-    // const renderExpanded = !expanded;
-    const { expandable, symbol, collapse } = ellipsisConfig;
+    const { expandable, symbol, expand, collapsible, collapse } = ellipsisConfig;
+    const _expand = expand ?? symbol;
     if (!expandable) return null;
-    if (!collapse && !renderExpanded) return null;
+    if (!collapsible && !renderExpanded) return null;
     const key = renderExpanded ? 'expand' : 'collapse';
     return (
       <a
@@ -419,7 +423,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onClick={(e) => onExpandClick(e, renderExpanded)}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
-        {renderExpanded ? symbol : collapse}
+        {renderExpanded ? _expand : collapse}
       </a>
     );
   };
