@@ -1,4 +1,5 @@
 import React from 'react';
+import { renderHook } from '@testing-library/react';
 import type { FormListFieldData, FormListOperation } from '..';
 import Form from '..';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -327,5 +328,55 @@ describe('Form.List', () => {
     expect(errorSpy).toHaveBeenCalled();
 
     errorSpy.mockRestore();
+  });
+
+  it('Form.List.usePrefixName', () => {
+    const { result } = renderHook(() => Form.List.usePrefixName(), {
+      wrapper({ children }) {
+        return (
+          <Form
+            layout="vertical"
+            initialValues={{
+              parent1: [
+                {
+                  name: 'parent1',
+                  parent2: [
+                    {
+                      name: 'parent2',
+                    },
+                  ],
+                },
+              ],
+            }}
+          >
+            <Form.List name="parent1">
+              {(fields) =>
+                fields.map((field) => (
+                  <div key={field.key}>
+                    <Form.Item label="parent1" name={[field.name, 'name']}>
+                      <Input />
+                    </Form.Item>
+                    <Form.List name={[field.name, 'parent2']}>
+                      {(fields2) =>
+                        fields2.map((field2) => (
+                          <div key={field2.key}>
+                            <Form.Item label="parent2" name={[field2.name, 'name']}>
+                              <Input />
+                            </Form.Item>
+                            {children}
+                          </div>
+                        ))
+                      }
+                    </Form.List>
+                  </div>
+                ))
+              }
+            </Form.List>
+          </Form>
+        );
+      },
+    });
+
+    expect(result.current).toEqual(['parent1', 0, 'parent2']);
   });
 });

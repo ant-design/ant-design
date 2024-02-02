@@ -55,6 +55,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/ref-item.tsx" debug>Ref item</code>
 <code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/use-form-list-prefix-name.tsx" debug>Form.List.usePrefixName</code>
 
 ## API
 
@@ -434,6 +435,74 @@ const Demo = () => {
     </div>
   );
 };
+```
+
+### Form.List.usePrefixName
+
+`type Form.List.usePrefixName = (): (string | number)[] | undefined`
+
+Used to get the `NamePath` collection of all parent `Form.List`. If there are multiple `Form.List`, all `NamePath` will be merged. If there is no `Form.List` in the upper layer, `usePrefixName` will return` undefined`
+
+```tsx
+import * as React from 'react';
+import { Form, Input } from 'antd';
+
+const ChildrenContent = () => {
+  const prefixName = Form.List.usePrefixName();
+  const watchedValue = Form.useWatch([...prefixName!, 'watched']);
+  console.log(prefixName); // output ['parent1', 0, 'parent2']
+
+  return (
+    <>
+      <Form.Item label="watched" name="watched">
+        <Input />
+      </Form.Item>
+      <Form.Item>watched value: {watchedValue}</Form.Item>
+    </>
+  );
+};
+
+export default () => (
+  <Form
+    layout="vertical"
+    initialValues={{
+      parent1: [
+        {
+          name: 'parent1',
+          parent2: [
+            {
+              name: 'parent2',
+            },
+          ],
+        },
+      ],
+    }}
+  >
+    <Form.List name="parent1">
+      {(fields) =>
+        fields.map((field) => (
+          <div key={field.key}>
+            <Form.Item label="parent1" name={[field.name, 'name']}>
+              <Input />
+            </Form.Item>
+            <Form.List name={[field.name, 'parent2']}>
+              {(fields2) =>
+                fields2.map((field2) => (
+                  <div key={field2.key}>
+                    <Form.Item label="parent2" name={[field2.name, 'name']}>
+                      <Input />
+                    </Form.Item>
+                    <ChildrenContent />
+                  </div>
+                ))
+              }
+            </Form.List>
+          </div>
+        ))
+      }
+    </Form.List>
+  </Form>
+);
 ```
 
 ### Form.Item.useStatus

@@ -5,6 +5,7 @@ import type { StoreValue, ValidatorRule } from 'rc-field-form/lib/interface';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { FormItemPrefixContext } from './context';
+import useFormListPrefixName from './hooks/useFormListPrefixName';
 
 export interface FormListFieldData {
   name: number;
@@ -31,11 +32,7 @@ export interface FormListProps {
   ) => React.ReactNode;
 }
 
-const FormList: React.FC<FormListProps> = ({
-  prefixCls: customizePrefixCls,
-  children,
-  ...props
-}) => {
+const InternalFormList = ({ prefixCls: customizePrefixCls, children, ...props }: FormListProps) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Form.List');
 
@@ -74,5 +71,14 @@ const FormList: React.FC<FormListProps> = ({
     </List>
   );
 };
+
+type InternalFormListType = typeof InternalFormList;
+
+type CompoundedComponent = InternalFormListType & {
+  usePrefixName: typeof useFormListPrefixName;
+};
+
+const FormList = InternalFormList as CompoundedComponent;
+FormList.usePrefixName = useFormListPrefixName;
 
 export default FormList;
