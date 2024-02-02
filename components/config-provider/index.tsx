@@ -40,6 +40,7 @@ import type {
   Theme,
   ThemeConfig,
   TourConfig,
+  TransferConfig,
   WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
@@ -167,7 +168,7 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
-  transfer?: ComponentStyleConfig;
+  transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;
