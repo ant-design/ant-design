@@ -21,6 +21,7 @@ import type { TabsProps } from '../tabs';
 import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TourProps } from '../tour/interface';
+import type { TransferProps } from '../transfer';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
 export const defaultIconPrefixCls = 'anticon';
@@ -77,10 +78,17 @@ export interface TableConfig extends ComponentStyleConfig {
   };
 }
 
+export interface ImageConfig extends ComponentStyleConfig {
+  preview?: Partial<Record<'closeIcon', React.ReactNode>>;
+}
+
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
+
+export type TabsConfig = ComponentStyleConfig &
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
 
 export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
 
@@ -101,6 +109,8 @@ export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
+
+export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -145,7 +155,7 @@ export interface ConfigConsumerProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
@@ -162,13 +172,13 @@ export interface ConfigConsumerProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
-  transfer?: ComponentStyleConfig;
+  transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   tour?: TourConfig;

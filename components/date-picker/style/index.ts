@@ -150,18 +150,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
           },
 
-          '&:hover': {
-            [`${componentCls}-clear`]: {
-              opacity: 1,
-            },
-            // Should use the following selector, but since `:has` has poor compatibility,
-            // we use `:not(:last-child)` instead, which may cause some problems in some cases.
-            // [`${componentCls}-suffix:has(+ ${componentCls}-clear)`]: {
-            [`${componentCls}-suffix:not(:last-child)`]: {
-              opacity: 0,
-            },
-          },
-
           '&-placeholder': {
             '> input': {
               color: colorTextPlaceholder,
@@ -222,6 +210,18 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
         },
 
+        '&:hover': {
+          [`${componentCls}-clear`]: {
+            opacity: 1,
+          },
+          // Should use the following selector, but since `:has` has poor compatibility,
+          // we use `:not(:last-child)` instead, which may cause some problems in some cases.
+          // [`${componentCls}-suffix:has(+ ${componentCls}-clear)`]: {
+          [`${componentCls}-suffix:not(:last-child)`]: {
+            opacity: 0,
+          },
+        },
+
         [`${componentCls}-separator`]: {
           position: 'relative',
           display: 'inline-block',
@@ -248,23 +248,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           position: 'relative',
           display: 'inline-flex',
 
-          // Clear
-          [`${componentCls}-clear`]: {
-            insetInlineEnd: paddingInline,
-          },
-
-          '&:hover': {
-            [`${componentCls}-clear`]: {
-              opacity: 1,
-            },
-            // Should use the following selector, but since `:has` has poor compatibility,
-            // we use `:not(:last-child)` instead, which may cause some problems in some cases.
-            // [`${componentCls}-suffix:has(+ ${componentCls}-clear)`]: {
-            [`${componentCls}-suffix:not(:last-child)`]: {
-              opacity: 0,
-            },
-          },
-
           // Active bar
           [`${componentCls}-active-bar`]: {
             bottom: token.calc(lineWidth).mul(-1).equal(),
@@ -285,6 +268,14 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             alignItems: 'center',
             padding: `0 ${unit(paddingXS)}`,
             lineHeight: 1,
+          },
+        },
+
+        // ======================== Clear =========================
+        '&-range, &-multiple': {
+          // Clear
+          [`${componentCls}-clear`]: {
+            insetInlineEnd: paddingInline,
           },
 
           [`&${componentCls}-small`]: {

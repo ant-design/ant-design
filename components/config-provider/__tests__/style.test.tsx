@@ -455,19 +455,25 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Image className & style works', () => {
-    const { container } = render(
+  it('Should Image className & style & closeIcon works', () => {
+    const { container, baseElement } = render(
       <ConfigProvider
-        image={{ className: 'config-provider-image', style: { backgroundColor: 'red' } }}
+        image={{
+          className: 'config-provider-image',
+          style: { backgroundColor: 'red' },
+          preview: { closeIcon: <span className="cp-test-closeIcon">cp-test-closeIcon</span> },
+        }}
       >
         <Image src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" />
       </ConfigProvider>,
     );
-    const element = container
-      ?.querySelector<HTMLDivElement>('.ant-image')
-      ?.querySelector<HTMLImageElement>('img');
+    const element = container?.querySelector<HTMLImageElement>('.ant-image img');
     expect(element).toHaveClass('config-provider-image');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+    fireEvent.click(container.querySelector<HTMLDivElement>('.ant-image')!);
+    expect(
+      baseElement.querySelector<HTMLSpanElement>('.ant-image-preview-close .cp-test-closeIcon'),
+    ).toBeTruthy();
   });
 
   it('Should Input className & style & classNames & styles works', () => {
@@ -1035,15 +1041,24 @@ describe('ConfigProvider support style and className props', () => {
     expect(head).toHaveStyle({ color: 'red' });
   });
 
-  it('Should Tabs className & style works', () => {
+  it('Should Tabs className & style & addIcon & moreIcon works', () => {
     const { container } = render(
-      <ConfigProvider tabs={{ className: 'cp-tabs', style: { backgroundColor: 'red' } }}>
-        <Tabs />
+      <ConfigProvider
+        tabs={{
+          className: 'cp-tabs',
+          style: { backgroundColor: 'red' },
+          addIcon: <span className="cp-test-addIcon">cp-test-addIcon</span>,
+          moreIcon: <span className="cp-test-moreIcon">cp-test-moreIcon</span>,
+        }}
+      >
+        <Tabs items={[]} type="editable-card" />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
     expect(element).toHaveClass('cp-tabs');
     expect(element).toHaveStyle({ backgroundColor: 'red' });
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-addIcon')).toBeTruthy();
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-moreIcon')).toBeTruthy();
   });
 
   it('Should TimePicker className works', () => {
@@ -1215,6 +1230,7 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         transfer={{
           className: 'test-class',
+          selectionsIcon: <span className="cp-test-selectionsIcon">cp-test-selectionsIcon</span>,
         }}
       >
         <Transfer dataSource={mockData} />
@@ -1222,6 +1238,7 @@ describe('ConfigProvider support style and className props', () => {
     );
 
     expect(container.querySelector('.ant-transfer')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.cp-test-selectionsIcon')).toBeTruthy();
   });
 
   it('Should Transfer style works', () => {

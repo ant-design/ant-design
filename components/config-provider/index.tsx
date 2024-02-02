@@ -17,7 +17,6 @@ import defaultLocale from '../locale/en_US';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
-import type { TabsProps } from '../tabs';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
@@ -31,14 +30,17 @@ import type {
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  ImageConfig,
   ModalConfig,
   NotificationConfig,
   PopupOverflow,
   TableConfig,
+  TabsConfig,
   TagConfig,
   Theme,
   ThemeConfig,
   TourConfig,
+  TransferConfig,
   WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
@@ -149,7 +151,7 @@ export interface ConfigProviderProps {
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
@@ -166,13 +168,13 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
-  transfer?: ComponentStyleConfig;
+  transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;
   table?: TableConfig;
   card?: CardConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;

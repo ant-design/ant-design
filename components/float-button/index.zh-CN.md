@@ -60,6 +60,7 @@ tag: New
 | shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` |  |
 | trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - |  |
 | open | 受控展开，需配合 trigger 一起使用 | boolean | - |  |
+| closeIcon | 自定义关闭按钮 | React.ReactNode | `<CloseOutlined />` |  |
 | onOpenChange | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop

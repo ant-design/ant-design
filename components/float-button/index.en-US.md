@@ -59,6 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
+| closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop
