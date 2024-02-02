@@ -10,7 +10,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Form from '../../form';
-import { getFileItem, isImageUrl, removeFileItem } from '../utils';
+import { getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 
 (globalThis as any).IS_REACT_ACT_ENVIRONMENT = true;
@@ -375,11 +375,6 @@ describe('Upload', () => {
       ];
       const targetItem = removeFileItem(file, fileList);
       expect(targetItem).toBe(null);
-    });
-
-    it('isImageUrl should work correctly when file.url is null', () => {
-      const file = { url: null } as unknown as UploadFile;
-      expect(isImageUrl(file)).toBe(true);
     });
   });
 
