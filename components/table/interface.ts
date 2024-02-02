@@ -174,6 +174,13 @@ export type SelectionSelectFn<T> = (
 
 export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple';
 
+type TableRowSelectionCellRender<T> = (
+  value: boolean,
+  record: T,
+  index: number,
+  originNode: React.ReactNode,
+) => React.ReactNode | RcRenderedCell<T>;
+
 export interface TableRowSelection<T> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
@@ -197,12 +204,9 @@ export interface TableRowSelection<T> {
   columnWidth?: string | number;
   columnTitle?: React.ReactNode | ((checkboxNode: React.ReactNode) => React.ReactNode);
   checkStrictly?: boolean;
-  renderCell?: (
-    value: boolean,
-    record: T,
-    index: number,
-    originNode: React.ReactNode,
-  ) => React.ReactNode | RcRenderedCell<T>;
+  /** @deprecated Please use `cellRender` instead */
+  renderCell?: TableRowSelectionCellRender<T>;
+  cellRender?: TableRowSelectionCellRender<T>;
   onCell?: GetComponentProps<T>;
 }
 

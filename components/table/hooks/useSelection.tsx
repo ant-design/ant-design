@@ -91,7 +91,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     type: selectionType,
     selections,
     fixed,
-    renderCell: customizeRenderCell,
+    renderCell: deprecatedCustomizeRenderCell,
+    cellRender: customizeCellRender,
     hideSelectAll,
     checkStrictly = true,
   } = rowSelection || {};
@@ -602,6 +603,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         };
       }
 
+      const customizeRenderCell = customizeCellRender ?? deprecatedCustomizeRenderCell;
       const renderSelectionCell = (_: any, record: RecordType, index: number) => {
         const { node, checked } = renderCell(_, record, index);
 

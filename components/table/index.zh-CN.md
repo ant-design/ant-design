@@ -268,7 +268,8 @@ const columns = [
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |
 | hideSelectAll | 隐藏全选勾选框与自定义选择项 | boolean | false | 4.3.0 |
 | preserveSelectedRowKeys | 当数据被删除时仍然保留选项的 `key` | boolean | - | 4.4.0 |
-| renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | function(checked, record, index, originNode) {} | - | 4.1.0 |
+| renderCell | 已废弃，请使用`cellRender` | - | 4.1.0 |
+| cellRender | 渲染勾选框，用法与 Column 的 `render` 相同 | function(checked, record, index, originNode) {} | - | x.y.z |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] |  |
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
@@ -384,4 +385,4 @@ return <Table rowKey={(record) => record.uid} />;
 
 ### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
 
-自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
+自 `x.y.z` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `cellRender` 属性（如果`x.y.z` ＞ `你的版本` ≥ `4.1.0`，使用`renderCell`）控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
