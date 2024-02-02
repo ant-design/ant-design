@@ -35,7 +35,7 @@ tag: vVERSION
 - 🆕 Button 添加 `defaultHoverBg`、`defaultHoverColor`、`defaultHoverBorderColor`、 `defaultActiveBg`、`defaultActiveColor` 和 `defaultActiveBorderColor` 六个 token。[#47075](https://github.com/ant-design/ant-design/pull/47075) [@madocto](https://github.com/madocto)
 - 🆕 Notification `useNotification` 支持 `duration` 配置，该更新同样适用于 App 组件的 `notification` 配置。[#47141](https://github.com/ant-design/ant-design/pull/47141)
 - 🆕 Grid 支持为响应式布局配置 `flex` 属性。[#47124](https://github.com/ant-design/ant-design/pull/47124)
-- ConfigProvide
+- ConfigProvider
   - 🆕 ConfigProvide 支持 Transfer 的 `selectionsIcon`。[#47301](https://github.com/ant-design/ant-design/pull/47301) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🆕 ConfigProvide 支持 Tabs 的 `addIcon` 和 `moreIcon`。[#47274](https://github.com/ant-design/ant-design/pull/47274) [@li-jia-nan](https://github.com/li-jia-nan)
   - 🆕 ConfigProvide 支持 Image 的 `closeIcon`。[#47252](https://github.com/ant-design/ant-design/pull/47252) [@li-jia-nan](https://github.com/li-jia-nan)
