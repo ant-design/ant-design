@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.14.0
 
-`2024-02-03`
+`2024-02-04`
 
 - 🔥 重构了 DatePicker 组件，详细改动如下。[#46982](https://github.com/ant-design/ant-design/pull/46982)
   - 🆕 DatePicker 新增 `multiple` 支持多选能力。

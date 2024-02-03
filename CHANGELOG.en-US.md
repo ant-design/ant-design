@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.14.0
 
-`2024-02-03`
+`2024-02-04`
 
 - 🔥 Refactored the DatePicker component, details are follows. [#46982](https://github.com/ant-design/ant-design/pull/46982)
   - 🆕 DatePicker adds `multiple` to support multiple selection capabilities.
