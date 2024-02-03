@@ -1,5 +1,5 @@
 import type { MouseEvent, MouseEventHandler } from 'react';
-import React, { forwardRef, useLayoutEffect, useMemo, useTransition } from 'react';
+import React, { forwardRef, useLayoutEffect, useTransition } from 'react';
 import { useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
 
@@ -17,11 +17,11 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const href = useMemo(() => {
+  const href = React.useMemo<string>(() => {
     if (typeof to === 'object') {
       return `${to.pathname || pathname}${to.search || ''}${to.hash || ''}`;
     }
-    return to;
+    return to || '';
   }, [to]);
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
