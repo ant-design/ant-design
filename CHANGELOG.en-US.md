@@ -33,12 +33,12 @@ tag: vVERSION
   - 🆕 DatePicker time panel supports `scrollOnChange` to automatically select the corresponding time when scrolling.
   - 🆕 DatePicker Add the `needConfirm` attribute to allow setting the confirmation or non-confirmation submission mode.
   - 🆕 DatePicker Add the `components` attribute to allow customizing some panels.
-  - 🆕 All date-related information in the panel will allow configuration through `locale`.
+  - 🆕 DatePicker All date-related information in the panel will allow configuration through `locale`.
   - 🆕 DatePicker`format` supports `LT` and `LTS` date formats.
   - 🆕 DatePicker Add `minDate` and `maxDate` to set the panel switching range.
   - 🐞 DatePicker `defaultPickerValue` will now be reset each time the panel is expanded.
   - 🐞 DatePicker fix the problem that the input box function key will trigger the pop-up box, now it will only be triggered when the interactive key and the input content change.
-  - 🐞 Losing focus after entering the date through the input box will submit the change instead of losing the input content (that is, it is no longer necessary to press Enter to submit).
+  - 🐞 DatePicker Losing focus after entering the date through the input box will submit the change instead of losing the input content (that is, it is no longer necessary to press Enter to submit).
   - 🐞 DatePicker fix the problem that the `hour` obtained by `disabledTime` under `use12Hours` will also be clipped to 0~12.
   - 🐞 DatePicker fix the problem that the disabled date is not effective and can still be submitted under some interactions.
   - ⚡️ DatePicker Optimize `disabledDate` check logic, now it will provide `info.type` to inform the current panel information.
