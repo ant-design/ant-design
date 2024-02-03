@@ -44,7 +44,7 @@ tag: vVERSION
   - ⚡️ 优化 `disabledDate` 检查逻辑，现在会提供 `info.type` 告知当前面板信息。
   - 🛠 `allowClear` 触发事件从 `onMouseDown` 切换为 `onClick`。
   - 🛠 移除键盘对面板交互，它需要基于无障碍重新设计。
-  - 🛠 废弃 `onKetDown` 的 `preventDefault` 参数，请直接通过 `event.preventDefault` 进行调用。
+  - 🛠 废弃 `onKeyDown` 的 `preventDefault` 参数，请直接通过 `event.preventDefault` 进行调用。
   - 💄 移除 RangePicker 的虚线样式，减少视觉干扰。
   - 💄 移除 RangePicker 在选择开始或者结束时间时的禁用范围，优化交互体验。
 - 🔥 Table 支持堆叠固定列。[#47245](https://github.com/ant-design/ant-design/pull/47245)
