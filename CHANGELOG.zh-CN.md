@@ -23,9 +23,9 @@ tag: vVERSION
 - 🔥 重构了 DatePicker 组件，详细改动如下。[#46982](https://github.com/ant-design/ant-design/pull/46982)
   - 🆕 DatePicker 新增 `multiple` 支持多选能力。
   - 🆕 DatePicker 支持 `showWeek` 属性。
-  - 🆕 DatePicker 下的 `id` 属性支持分别设置 `start` 和 `end` 输入框的 `id`。
-  - 🆕 DatePicker 的 `onFocus` 和 `onBlur` 事件会额外提供一个 `info.range` 告知当前的焦点来自于哪个输入框。
-  - 🆕 DatePicker 支持 `order` 属性。
+  - 🆕 DatePicker.RangePicker 下的 `id` 属性支持分别设置 `start` 和 `end` 输入框的 `id`。
+  - 🆕 DatePicker.RangePicker 的 `onFocus` 和 `onBlur` 事件会额外提供一个 `info.range` 告知当前的焦点来自于哪个输入框。
+  - 🆕 DatePicker.RangePicker 支持 `order` 属性。
   - 🆕 DatePicker 新增配套 `pickerValue`、`defaultPickerValue` 属性用于受控管理展开面板所在日期。
   - 🆕 DatePicker 新增 `preserveInvalidOnBlur` 属性用于无障碍时失去焦点需要保留输入内容的场景。
   - 🆕 DatePicker `format` 支持 `align` 属性，允许通过掩码模式输入内容。
@@ -45,8 +45,8 @@ tag: vVERSION
   - 🛠 DatePicker 的 `allowClear` 触发事件从 `onMouseDown` 切换为 `onClick`。
   - 🛠 移除 DatePicker 的键盘对面板交互，它需要基于无障碍重新设计。
   - 🛠 DatePicker 废弃 `onKeyDown` 的 `preventDefault` 参数，请直接通过 `event.preventDefault` 进行调用。
-  - 💄 DatePicker 移除虚线样式，减少视觉干扰。
-  - 💄 DatePicker 移除在选择开始或者结束时间时的禁用范围，优化交互体验。
+  - 💄 DatePicker.RangePicker 移除虚线样式，减少视觉干扰。
+  - 💄 DatePicker.RangePicker 移除在选择开始或者结束时间时的禁用范围，优化交互体验。
 - 🔥 Table 支持堆叠固定列。[#47245](https://github.com/ant-design/ant-design/pull/47245)
 - 🆕 Table 支持 `virtual` 下的 `components.body`。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Segmented `value` 类型支持泛型。[#47091](https://github.com/ant-design/ant-design/pull/47091) [@madocto](https://github.com/madocto)
