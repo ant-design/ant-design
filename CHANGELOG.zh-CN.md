@@ -48,7 +48,7 @@ tag: vVERSION
   - 💄 移除 RangePicker 的虚线样式，减少视觉干扰。
   - 💄 移除 RangePicker 在选择开始或者结束时间时的禁用范围，优化交互体验。
 - 🔥 Table 支持堆叠固定列。[#47245](https://github.com/ant-design/ant-design/pull/47245)
-- 🆕 Table 支持 `virtual` 下的 `components.body` 。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
+- 🆕 Table 支持 `virtual` 下的 `components.body`。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
 - 🆕 Segmented `value` 类型支持泛型。[#47091](https://github.com/ant-design/ant-design/pull/47091) [@madocto](https://github.com/madocto)
 - 🆕 InputNumber 组件支持 `changeOnWheel` 属性，以启用鼠标滚轮控制。[#47158](https://github.com/ant-design/ant-design/pull/47158) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Button 添加 `defaultHoverBg`、`defaultHoverColor`、`defaultHoverBorderColor`、 `defaultActiveBg`、`defaultActiveColor` 和 `defaultActiveBorderColor` 六个 token。[#47075](https://github.com/ant-design/ant-design/pull/47075) [@madocto](https://github.com/madocto)
