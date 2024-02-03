@@ -43,7 +43,7 @@ tag: vVERSION
   - 🐞 Fix the problem that the disabled date is not effective and can still be submitted under some interactions.
   - ⚡️ Optimize `disabledDate` check logic, now it will provide `info.type` to inform the current panel information.
   - 🛠 `allowClear` trigger event from `onMouseDown` to `onClick`.
-  - 🛠 Deprecate the `preventDefault` parameter of `onKetDown`, please call it directly through `event.preventDefault`.
+  - 🛠 Deprecate the `preventDefault` parameter of `onKeyDown`, please call it directly through `event.preventDefault`.
   - 🛠 Remove the keyboard interaction with the panel, it needs to be redesigned based on accessibility.
   - 💄 Remove the dotted line style of RangePicker to reduce visual interference.
   - 💄 Remove the disabled range of RangePicker when selecting start or end time to optimize the interaction experience.
