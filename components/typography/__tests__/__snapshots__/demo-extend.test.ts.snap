@@ -1525,6 +1525,12 @@ Array [
     class="ant-typography ant-typography-ellipsis"
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <a
+      aria-label="Collapse"
+      class="ant-typography-collapse"
+    >
+      Collapse
+    </a>
     <span
       aria-hidden="true"
       style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; font-size: 0px; word-break: keep-all; white-space: nowrap;"
@@ -1544,7 +1550,7 @@ Array [
         aria-label="Expand"
         class="ant-typography-expand"
       >
-        more
+        Expand
       </a>
     </span>
   </div>,
