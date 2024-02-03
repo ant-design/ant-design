@@ -53,7 +53,7 @@ tag: vVERSION
 - 🐞 修复 Input 组件禁用时鼠标指针不正确的问题。[#47280](https://github.com/ant-design/ant-design/pull/47280) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复 Input 组件 `hoverBorderColor` 和 `activeBorderColor` token 定制无效的问题。[#47243](https://github.com/ant-design/ant-design/pull/47243) [@MadCcc](https://github.com/MadCcc)
 - 💄 修复 Menu 组件子菜单 hover 样式在边缘消失的问题。[#47227](https://github.com/ant-design/ant-design/pull/47227) [@MadCcc](https://github.com/MadCcc)
-- 💄 Card 组件增加 classNames 和 styles 属性。[#46811](https://github.com/ant-design/ant-design/pull/46811) [@zh-lx](https://github.com/zh-lx)
+- 💄 Card 组件增加 `classNames` 和 `styles` 属性。[#46811](https://github.com/ant-design/ant-design/pull/46811) [@zh-lx](https://github.com/zh-lx)
 - 💄 修复无 hash 模式下的组件样式问题。[#46609](https://github.com/ant-design/ant-design/pull/46609) [@MadCcc](https://github.com/MadCcc)
 - 🆕 Segmented `value` 类型支持泛型。[#47091](https://github.com/ant-design/ant-design/pull/47091) [@madocto](https://github.com/madocto)
 - 🆕 Table 支持 `virtual` 下的 `components.body` 。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
