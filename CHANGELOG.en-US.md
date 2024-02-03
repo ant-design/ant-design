@@ -21,46 +21,46 @@ tag: vVERSION
 `2024-02-02`
 
 - 🔥 Refactored the DatePicker component. [#46982](https://github.com/ant-design/ant-design/pull/46982)
-  - ⚡️ Optimize `disabledDate` check logic, now it will provide `info.type` to inform the current panel information.
   - 🆕 DatePicker adds `multiple` to support multiple selection capabilities.
+  - 🆕 DatePicker supports `showWeek` attribute.
+  - 🆕 RangePicker supports `order` attribute.
+  - 🆕 The `id` attribute under RangePicker supports setting the `id` of the `start` and `end` input boxes separately.
+  - 🆕 The `onFocus` and `onBlur` events of RangePicker will additionally provide an `info.range` to inform which input box the current focus comes from.
   - 🆕 Add matching `pickerValue` and `defaultPickerValue` attributes to control the date where the expanded panel is located.
-  - `defaultPickerValue` will now be reset each time the panel is expanded.
-  - 🐞 Fix the problem that the input box function key will trigger the pop-up box, now it will only be triggered when the interactive key and the input content change.
   - 🆕 Add the `preserveInvalidOnBlur` attribute to keep the input content when losing focus in the case of accessibility.
   - 🆕 `format` supports the `align` attribute, allowing input content through the mask mode.
   - 🆕 Support `required` attribute.
-  - 🆕 The `id` attribute under RangePicker supports setting the `id` of the `start` and `end` input boxes separately.
-  - 🆕 The `onFocus` and `onBlur` events of RangePicker will additionally provide an `info.range` to inform which input box the current focus comes from.
   - 🆕 The time panel supports `scrollOnChange` to automatically select the corresponding time when scrolling.
   - 🆕 Add the `needConfirm` attribute to allow setting the confirmation or non-confirmation submission mode.
   - 🆕 Add the `components` attribute to allow customizing some panels.
   - 🆕 All date-related information in the panel will allow configuration through `locale`.
   - 🆕 `format` supports `LT` and `LTS` date formats.
   - 🆕 Add `minDate` and `maxDate` to set the panel switching range.
-  - 🆕 RangePicker supports `order` attribute.
-  - 🆕 DatePicker supports `showWeek` attribute.
+  - 🐞 `defaultPickerValue` will now be reset each time the panel is expanded.
+  - 🐞 Fix the problem that the input box function key will trigger the pop-up box, now it will only be triggered when the interactive key and the input content change.
   - 🐞 Losing focus after entering the date through the input box will submit the change instead of losing the input content (that is, it is no longer necessary to press Enter to submit).
   - 🐞 Fix the problem that the `hour` obtained by `disabledTime` under `use12Hours` will also be clipped to 0~12.
   - 🐞 Fix the problem that the disabled date is not effective and can still be submitted under some interactions.
+  - ⚡️ Optimize `disabledDate` check logic, now it will provide `info.type` to inform the current panel information.
   - 🛠 `allowClear` trigger event from `onMouseDown` to `onClick`.
-  - 🛠 Remove the keyboard interaction with the panel, it needs to be redesigned based on accessibility.
   - 🛠 Deprecate the `preventDefault` parameter of `onKetDown`, please call it directly through `event.preventDefault`.
+  - 🛠 Remove the keyboard interaction with the panel, it needs to be redesigned based on accessibility.
   - 💄 Remove the dotted line style of RangePicker to reduce visual interference.
   - 💄 Remove the disabled range of RangePicker when selecting start or end time to optimize the interaction experience.
 - 🔥 Added support for stacked fixed columns in the Table component. [#47245](https://github.com/ant-design/ant-design/pull/47245)
-- 🐞 Improved the Transfer internal padding of the pagination component. [#47231](https://github.com/ant-design/ant-design/pull/47231) by [@qmhc](https://github.com/qmhc)
+- 🆕 Added support for `components.body` in the Table component under the `virtual` mode. [#47098](https://github.com/ant-design/ant-design/pull/47098) by [@linxianxi](https://github.com/linxianxi)
+- 🆕 Added support for generics in the Segmented `value` type. [#47091](https://github.com/ant-design/ant-design/pull/47091) by [@madocto](https://github.com/madocto)
+- 🆕 Added the `changeOnWheel` property to the InputNumber component to enable mouse wheel control. [#47158](https://github.com/ant-design/ant-design/pull/47158) by [@MadCcc](https://github.com/MadCcc)
+- 🆕 Added six tokens (`defaultHoverBg`, `defaultHoverColor`, `defaultHoverBorderColor`, `defaultActiveBg`, `defaultActiveColor`, and `defaultActiveBorderColor`) to the Button component. [#47075](https://github.com/ant-design/ant-design/pull/47075) by [@madocto](https://github.com/madocto)
+- 🆕 Added `duration` configuration support to the `useNotification` function in the Notification component. This update also applies to the `notification` configuration of the App component. [#47141](https://github.com/ant-design/ant-design/pull/47141)
+- 🆕 Added support for configuring `flex` property in responsive layouts of the Grid component. [#47124](https://github.com/ant-design/ant-design/pull/47124)
+- 🐞 Improved the Transfer internal padding of the Pagination component. [#47231](https://github.com/ant-design/ant-design/pull/47231) by [@qmhc](https://github.com/qmhc)
 - 🐞 Fixed the alignment issue in the Avatar component when the height is less than 16px. [#47236](https://github.com/ant-design/ant-design/pull/47236) by [@lcgash](https://github.com/lcgash)
 - 🐞 Fixed the incorrect mouse pointer when the Input component is disabled. [#47280](https://github.com/ant-design/ant-design/pull/47280) by [@MadCcc](https://github.com/MadCcc)
 - 🐞 Fixed the issue where the `hoverBorderColor` and `activeBorderColor` token customization didn't work in the Input component. [#47243](https://github.com/ant-design/ant-design/pull/47243) by [@MadCcc](https://github.com/MadCcc)
 - 💄 Fixed the issue where the hover style of submenus in the Menu component disappears at the edges. [#47227](https://github.com/ant-design/ant-design/pull/47227) by [@MadCcc](https://github.com/MadCcc)
 - 💄 Added `classNames` and `styles` properties to the Card component. [#46811](https://github.com/ant-design/ant-design/pull/46811) by [@zh-lx](https://github.com/zh-lx)
 - 💄 Fixed component styling issues in non-hash mode. [#46609](https://github.com/ant-design/ant-design/pull/46609) by [@MadCcc](https://github.com/MadCcc)
-- 🆕 Added support for generics in the Segmented `value` type. [#47091](https://github.com/ant-design/ant-design/pull/47091) by [@madocto](https://github.com/madocto)
-- 🆕 Added support for `components.body` in the Table component under the `virtual` mode. [#47098](https://github.com/ant-design/ant-design/pull/47098) by [@linxianxi](https://github.com/linxianxi)
-- 🆕 Added the `changeOnWheel` property to the InputNumber component to enable mouse wheel control. [#47158](https://github.com/ant-design/ant-design/pull/47158) by [@MadCcc](https://github.com/MadCcc)
-- 🆕 Added six tokens (`defaultHoverBg`, `defaultHoverColor`, `defaultHoverBorderColor`, `defaultActiveBg`, `defaultActiveColor`, and `defaultActiveBorderColor`) to the Button component. [#47075](https://github.com/ant-design/ant-design/pull/47075) by [@madocto](https://github.com/madocto)
-- 🆕 Added `duration` configuration support to the `useNotification` function in the Notification component. This update also applies to the `notification` configuration of the App component. [#47141](https://github.com/ant-design/ant-design/pull/47141)
-- 🆕 Added support for configuring `flex` property in responsive layouts of the Grid component. [#47124](https://github.com/ant-design/ant-design/pull/47124)
 - ConfigProvider
   - 🆕 Added support for `selectionsIcon` in the Transfer component to ConfigProvide. [#47301](https://github.com/ant-design/ant-design/pull/47301) by [@li-jia-nan](https://github.com/li-jia-nan)
   - 🆕 Added support for `addIcon` and `moreIcon` in the Tabs component to ConfigProvide. [#47274](https://github.com/ant-design/ant-design/pull/47274) by [@li-jia-nan](https://github.com/li-jia-nan)
