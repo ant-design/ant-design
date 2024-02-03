@@ -18,7 +18,7 @@ tag: vVERSION
 
 ## 5.14.0
 
-`2024-02-03`
+`2024-02-03`·
 
 - 🔥 Refactored the DatePicker component. [#46982](https://github.com/ant-design/ant-design/pull/46982)
   - 🆕 DatePicker adds `multiple` to support multiple selection capabilities.
@@ -26,16 +26,16 @@ tag: vVERSION
   - 🆕 RangePicker supports `order` attribute.
   - 🆕 DatePicker `id` attribute under RangePicker supports setting the `id` of the `start` and `end` input boxes separately.
   - 🆕 DatePicker `onFocus` and `onBlur` events of RangePicker will additionally provide an `info.range` to inform which input box the current focus comes from.
-  - 🆕 DatePicker Add matching `pickerValue` and `defaultPickerValue` attributes to control the date where the expanded panel is located.
-  - 🆕 DatePicker Add the `preserveInvalidOnBlur` attribute to keep the input content when losing focus in the case of accessibility.
+  - 🆕 DatePicker add matching `pickerValue` and `defaultPickerValue` attributes to control the date where the expanded panel is located.
+  - 🆕 DatePicker add the `preserveInvalidOnBlur` attribute to keep the input content when losing focus in the case of accessibility.
   - 🆕 DatePicker `format` supports the `align` attribute, allowing input content through the mask mode.
   - 🆕 DatePicker Support `required` attribute.
   - 🆕 DatePicker time panel supports `scrollOnChange` to automatically select the corresponding time when scrolling.
-  - 🆕 DatePicker Add the `needConfirm` attribute to allow setting the confirmation or non-confirmation submission mode.
-  - 🆕 DatePicker Add the `components` attribute to allow customizing some panels.
-  - 🆕 DatePicker All date-related information in the panel will allow configuration through `locale`.
-  - 🆕 DatePicker`format` supports `LT` and `LTS` date formats.
-  - 🆕 DatePicker Add `minDate` and `maxDate` to set the panel switching range.
+  - 🆕 DatePicker add the `needConfirm` attribute to allow setting the confirmation or non-confirmation submission mode.
+  - 🆕 DatePicker add the `components` attribute to allow customizing some panels.
+  - 🆕 DatePicker all date-related information in the panel will allow configuration through `locale`.
+  - 🆕 DatePicker `format` supports `LT` and `LTS` date formats.
+  - 🆕 DatePicker add `minDate` and `maxDate` to set the panel switching range.
   - 🐞 DatePicker `defaultPickerValue` will now be reset each time the panel is expanded.
   - 🐞 DatePicker fix the problem that the input box function key will trigger the pop-up box, now it will only be triggered when the interactive key and the input content change.
   - 🐞 DatePicker Losing focus after entering the date through the input box will submit the change instead of losing the input content (that is, it is no longer necessary to press Enter to submit).
