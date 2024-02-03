@@ -18,12 +18,12 @@ tag: vVERSION
 
 ## 5.14.0
 
-`2024-02-03`·
+`2024-02-03`
 
-- 🔥 Refactored the DatePicker component. [#46982](https://github.com/ant-design/ant-design/pull/46982)
+- 🔥 Refactored the DatePicker component, details are follows. [#46982](https://github.com/ant-design/ant-design/pull/46982)
   - 🆕 DatePicker adds `multiple` to support multiple selection capabilities.
   - 🆕 DatePicker supports `showWeek` attribute.
-  - 🆕 RangePicker supports `order` attribute.
+  - 🆕 DatePicker supports `order` attribute.
   - 🆕 DatePicker `id` attribute under RangePicker supports setting the `id` of the `start` and `end` input boxes separately.
   - 🆕 DatePicker `onFocus` and `onBlur` events of RangePicker will additionally provide an `info.range` to inform which input box the current focus comes from.
   - 🆕 DatePicker add matching `pickerValue` and `defaultPickerValue` attributes to control the date where the expanded panel is located.
