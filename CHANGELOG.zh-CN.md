@@ -16,6 +16,63 @@ tag: vVERSION
 
 ---
 
+## 5.14.0
+
+`2024-02-03`
+
+- 🔥 重构了 DatePicker 组件，详细改动如下。[#46982](https://github.com/ant-design/ant-design/pull/46982)
+  - 🆕 DatePicker 新增 `multiple` 支持多选能力。
+  - 🆕 DatePicker 支持 `showWeek` 属性。
+  - 🆕 DatePicker.RangePicker 下的 `id` 属性支持分别设置 `start` 和 `end` 输入框的 `id`。
+  - 🆕 DatePicker.RangePicker 的 `onFocus` 和 `onBlur` 事件会额外提供一个 `info.range` 告知当前的焦点来自于哪个输入框。
+  - 🆕 DatePicker.RangePicker 支持 `order` 属性。
+  - 🆕 DatePicker 新增配套 `pickerValue`、`defaultPickerValue` 属性用于受控管理展开面板所在日期。
+  - 🆕 DatePicker 新增 `preserveInvalidOnBlur` 属性用于无障碍时失去焦点需要保留输入内容的场景。
+  - 🆕 DatePicker `format` 支持 `align` 属性，允许通过掩码模式输入内容。
+  - 🆕 DatePicker 支持 `required` 属性。
+  - 🆕 DatePicker 时间面板支持 `scrollOnChange` 设置滚动时间时自动选择对应的时间。
+  - 🆕 DatePicker 添加 `needConfirm` 属性，允许设置需要确认、或者不确认的提交模式。
+  - 🆕 DatePicker 添加 `components` 属性，允许自定义部分面板。
+  - 🆕 DatePicker 面板中所有的日期相关信息都会允许通过 `locale` 进行配置。
+  - 🆕 DatePicker `format` 支持 `LT`、`LTS` 日期格式。
+  - 🆕 DatePicker 新增 `minDate` 和 `maxDate` 用于设置面板切换范围。
+  - 🐞 DatePicker 的`defaultPickerValue` 现在会在每次面板展开时都进行重置。
+  - 🐞 DatePicker 修复输入框功能按键会唤起弹出框的问题，现在只有在交互按键、以及输入内容变化时唤起。
+  - 🐞 DatePicker 通过输入框输入日期后失去焦点会提交变更，而不是丢失输入内容（即不再强制需要按下回车提交）。
+  - 🐞 DatePicker 修复 `use12Hours` 下，`disabledTime` 获取的 `hour` 也会被裁剪成 0~12 的问题。
+  - 🐞 DatePicker 修复某些交互下，禁用日期没有生效依然可以提交的问题。
+  - ⚡️ DatePicker 优化 `disabledDate` 检查逻辑，现在会提供 `info.type` 告知当前面板信息。
+  - 🛠 DatePicker 的 `allowClear` 触发事件从 `onMouseDown` 切换为 `onClick`。
+  - 🛠 移除 DatePicker 的键盘对面板交互，它需要基于无障碍重新设计。
+  - 🛠 DatePicker 废弃 `onKeyDown` 的 `preventDefault` 参数，请直接通过 `event.preventDefault` 进行调用。
+  - 💄 DatePicker.RangePicker 移除虚线样式，减少视觉干扰。
+  - 💄 DatePicker.RangePicker 移除在选择开始或者结束时间时的禁用范围，优化交互体验。
+- 🔥 Table 支持堆叠固定列。[#47245](https://github.com/ant-design/ant-design/pull/47245)
+- 🆕 Table 支持 `virtual` 下的 `components.body`。[#47098](https://github.com/ant-design/ant-design/pull/47098) [@linxianxi](https://github.com/linxianxi)
+- 🆕 Segmented `value` 类型支持泛型。[#47091](https://github.com/ant-design/ant-design/pull/47091) [@madocto](https://github.com/madocto)
+- 🆕 InputNumber 组件支持 `changeOnWheel` 属性，以启用鼠标滚轮控制。[#47158](https://github.com/ant-design/ant-design/pull/47158) [@MadCcc](https://github.com/MadCcc)
+- 🆕 Button 添加 `defaultHoverBg`、`defaultHoverColor`、`defaultHoverBorderColor`、 `defaultActiveBg`、`defaultActiveColor` 和 `defaultActiveBorderColor` 六个 token。[#47075](https://github.com/ant-design/ant-design/pull/47075) [@madocto](https://github.com/madocto)
+- 🆕 Notification `useNotification` 支持 `duration` 配置，该更新同样适用于 App 组件的 `notification` 配置。[#47141](https://github.com/ant-design/ant-design/pull/47141)
+- 🆕 Grid 支持为响应式布局配置 `flex` 属性。[#47124](https://github.com/ant-design/ant-design/pull/47124)
+- 🐞 改进 Transfer 组件分页器的内边距。[#47231](https://github.com/ant-design/ant-design/pull/47231) [@qmhc](https://github.com/qmhc)
+- 🐞 修复 Avatar 组件当高度小于 16px 内容不居中的问题。[#47236](https://github.com/ant-design/ant-design/pull/47236) [@lcgash](https://github.com/lcgash)
+- 🐞 修复 Input 组件禁用时鼠标指针不正确的问题。[#47280](https://github.com/ant-design/ant-design/pull/47280) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Input 组件 `hoverBorderColor` 和 `activeBorderColor` token 定制无效的问题。[#47243](https://github.com/ant-design/ant-design/pull/47243) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Menu 组件子菜单 hover 样式在边缘消失的问题。[#47227](https://github.com/ant-design/ant-design/pull/47227) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Menu 在无 hash 模式下的组件样式问题。[#46609](https://github.com/ant-design/ant-design/pull/46609) [@MadCcc](https://github.com/MadCcc)
+- 💄 Card 组件增加 `classNames` 和 `styles` 属性。[#46811](https://github.com/ant-design/ant-design/pull/46811) [@zh-lx](https://github.com/zh-lx)
+- ConfigProvider
+  - 🆕 ConfigProvide 支持 Transfer 的 `selectionsIcon`。[#47301](https://github.com/ant-design/ant-design/pull/47301) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Tabs 的 `addIcon` 和 `moreIcon`。[#47274](https://github.com/ant-design/ant-design/pull/47274) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Image 的 `closeIcon`。[#47252](https://github.com/ant-design/ant-design/pull/47252) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Tag 的 `closeIcon`。[#47250](https://github.com/ant-design/ant-design/pull/47250) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Notification 的 `closeIcon`。[#47244](https://github.com/ant-design/ant-design/pull/47244) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Modal 的 `closeIcon`。[#47226](https://github.com/ant-design/ant-design/pull/47226) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Table 的 `expandIcon`。[#47225](https://github.com/ant-design/ant-design/pull/47225) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Tour 的 `closeIcon`。[#47200](https://github.com/ant-design/ant-design/pull/47200) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Drawer 的 `icons`。[#46894](https://github.com/ant-design/ant-design/pull/46894) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 ConfigProvide 支持 Alert 的 `closeIcon`。[#47235](https://github.com/ant-design/ant-design/pull/47235) [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.13.3
 
 `2024-01-28`

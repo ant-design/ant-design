@@ -16,6 +16,63 @@ tag: vVERSION
 
 ---
 
+## 5.14.0
+
+`2024-02-03`
+
+- 🔥 Refactored the DatePicker component, details are follows. [#46982](https://github.com/ant-design/ant-design/pull/46982)
+  - 🆕 DatePicker adds `multiple` to support multiple selection capabilities.
+  - 🆕 DatePicker supports `showWeek` attribute.
+  - 🆕 DatePicker.RangePicker supports `order` attribute.
+  - 🆕 DatePicker `id` attribute under RangePicker supports setting the `id` of the `start` and `end` input boxes separately.
+  - 🆕 DatePicker `onFocus` and `onBlur` events of RangePicker will additionally provide an `info.range` to inform which input box the current focus comes from.
+  - 🆕 DatePicker add matching `pickerValue` and `defaultPickerValue` attributes to control the date where the expanded panel is located.
+  - 🆕 DatePicker add the `preserveInvalidOnBlur` attribute to keep the input content when losing focus in the case of accessibility.
+  - 🆕 DatePicker `format` supports the `align` attribute, allowing input content through the mask mode.
+  - 🆕 DatePicker Support `required` attribute.
+  - 🆕 DatePicker time panel supports `scrollOnChange` to automatically select the corresponding time when scrolling.
+  - 🆕 DatePicker add the `needConfirm` attribute to allow setting the confirmation or non-confirmation submission mode.
+  - 🆕 DatePicker add the `components` attribute to allow customizing some panels.
+  - 🆕 DatePicker all date-related information in the panel will allow configuration through `locale`.
+  - 🆕 DatePicker `format` supports `LT` and `LTS` date formats.
+  - 🆕 DatePicker add `minDate` and `maxDate` to set the panel switching range.
+  - 🐞 DatePicker `defaultPickerValue` will now be reset each time the panel is expanded.
+  - 🐞 DatePicker fix the problem that the input box function key will trigger the pop-up box, now it will only be triggered when the interactive key and the input content change.
+  - 🐞 DatePicker Losing focus after entering the date through the input box will submit the change instead of losing the input content (that is, it is no longer necessary to press Enter to submit).
+  - 🐞 DatePicker fix the problem that the `hour` obtained by `disabledTime` under `use12Hours` will also be clipped to 0~12.
+  - 🐞 DatePicker fix the problem that the disabled date is not effective and can still be submitted under some interactions.
+  - ⚡️ DatePicker Optimize `disabledDate` check logic, now it will provide `info.type` to inform the current panel information.
+  - 🛠 DatePicker `allowClear` trigger event from `onMouseDown` to `onClick`.
+  - 🛠 DatePicker Deprecate the `preventDefault` parameter of `onKeyDown`, please call it directly through `event.preventDefault`.
+  - 🛠 DatePicker Remove the keyboard interaction with the panel, it needs to be redesigned based on accessibility.
+  - 💄 DatePicker Remove the dotted line style of RangePicker to reduce visual interference.
+  - 💄 DatePicker Remove the disabled range of RangePicker when selecting start or end time to optimize the interaction experience.
+- 🔥 Added support for stacked fixed columns in the Table component. [#47245](https://github.com/ant-design/ant-design/pull/47245)
+- 🆕 Added support for `components.body` in the Table component under the `virtual` mode. [#47098](https://github.com/ant-design/ant-design/pull/47098) by [@linxianxi](https://github.com/linxianxi)
+- 🆕 Added support for generics in the Segmented `value` type. [#47091](https://github.com/ant-design/ant-design/pull/47091) by [@madocto](https://github.com/madocto)
+- 🆕 Added the `changeOnWheel` property to the InputNumber component to enable mouse wheel control. [#47158](https://github.com/ant-design/ant-design/pull/47158) by [@MadCcc](https://github.com/MadCcc)
+- 🆕 Added six tokens (`defaultHoverBg`, `defaultHoverColor`, `defaultHoverBorderColor`, `defaultActiveBg`, `defaultActiveColor`, and `defaultActiveBorderColor`) to the Button component. [#47075](https://github.com/ant-design/ant-design/pull/47075) by [@madocto](https://github.com/madocto)
+- 🆕 Added `duration` configuration support to the `useNotification` function in the Notification component. This update also applies to the `notification` configuration of the App component. [#47141](https://github.com/ant-design/ant-design/pull/47141)
+- 🆕 Added support for configuring `flex` property in responsive layouts of the Grid component. [#47124](https://github.com/ant-design/ant-design/pull/47124)
+- 🐞 Improved the Transfer internal padding of the Pagination component. [#47231](https://github.com/ant-design/ant-design/pull/47231) by [@qmhc](https://github.com/qmhc)
+- 🐞 Fixed the alignment issue in the Avatar component when the height is less than 16px. [#47236](https://github.com/ant-design/ant-design/pull/47236) by [@lcgash](https://github.com/lcgash)
+- 🐞 Fixed the incorrect mouse pointer when the Input component is disabled. [#47280](https://github.com/ant-design/ant-design/pull/47280) by [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fixed the issue where the `hoverBorderColor` and `activeBorderColor` token customization didn't work in the Input component. [#47243](https://github.com/ant-design/ant-design/pull/47243) by [@MadCcc](https://github.com/MadCcc)
+- 💄 Fixed the issue where the hover style of submenus in the Menu component disappears at the edges. [#47227](https://github.com/ant-design/ant-design/pull/47227) by [@MadCcc](https://github.com/MadCcc)
+- 💄 Menu fixed component styling issues in non-hash mode. [#46609](https://github.com/ant-design/ant-design/pull/46609) by [@MadCcc](https://github.com/MadCcc)
+- 💄 Added `classNames` and `styles` properties to the Card component. [#46811](https://github.com/ant-design/ant-design/pull/46811) by [@zh-lx](https://github.com/zh-lx)
+- ConfigProvider
+  - 🆕 Added support for `selectionsIcon` in the Transfer component to ConfigProvide. [#47301](https://github.com/ant-design/ant-design/pull/47301) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `addIcon` and `moreIcon` in the Tabs component to ConfigProvide. [#47274](https://github.com/ant-design/ant-design/pull/47274) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `closeIcon` in the Image component to ConfigProvide. [#47252](https://github.com/ant-design/ant-design/pull/47252) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `closeIcon` in the Tag component to ConfigProvide. [#47250](https://github.com/ant-design/ant-design/pull/47250) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `closeIcon` in the Notification component to ConfigProvide. [#47244](https://github.com/ant-design/ant-design/pull/47244) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `closeIcon` in the Modal component to ConfigProvide. [#47226](https://github.com/ant-design/ant-design/pull/47226) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `expandIcon` in the Table component to ConfigProvide. [#47225](https://github.com/ant-design/ant-design/pull/47225) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `closeIcon` in the Tour component to ConfigProvide. [#47200](https://github.com/ant-design/ant-design/pull/47200) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `icons` in the Drawer component to ConfigProvide. [#46894](https://github.com/ant-design/ant-design/pull/46894) by [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🆕 Added support for `closeIcon` in the Alert component to ConfigProvide. [#47235](https://github.com/ant-design/ant-design/pull/47235) by [@li-jia-nan](https://github.com/li-jia-nan)
+
 ## 5.13.3
 
 `2024-01-28`
