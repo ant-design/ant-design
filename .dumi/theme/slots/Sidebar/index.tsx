@@ -1,8 +1,9 @@
+import React, { useContext } from 'react';
+import { Col, ConfigProvider, Menu } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useSidebarData } from 'dumi';
 import MobileMenu from 'rc-drawer';
-import React, { useContext } from 'react';
-import { Col, ConfigProvider, Menu } from 'antd';
+
 import useMenu from '../../../hooks/useMenu';
 import SiteContext from '../SiteContext';
 
@@ -41,17 +42,17 @@ const useStyle = createStyles(({ token, css }) => {
         }
 
         > ${antCls}-menu-item,
-        > ${antCls}-menu-submenu
-        > ${antCls}-menu-submenu-title,
-        > ${antCls}-menu-item-group
-        > ${antCls}-menu-item-group-title,
-        > ${antCls}-menu-item-group
-        > ${antCls}-menu-item-group-list
-        > ${antCls}-menu-item,
-        &${antCls}-menu-inline
-        > ${antCls}-menu-item-group
-        > ${antCls}-menu-item-group-list
-        > ${antCls}-menu-item {
+          > ${antCls}-menu-submenu
+          > ${antCls}-menu-submenu-title,
+          > ${antCls}-menu-item-group
+          > ${antCls}-menu-item-group-title,
+          > ${antCls}-menu-item-group
+          > ${antCls}-menu-item-group-list
+          > ${antCls}-menu-item,
+          &${antCls}-menu-inline
+          > ${antCls}-menu-item-group
+          > ${antCls}-menu-item-group-list
+          > ${antCls}-menu-item {
           padding-left: 40px !important;
 
           ${antCls}-row-rtl & {
@@ -139,7 +140,7 @@ const Sidebar: React.FC = () => {
         mode="inline"
         theme={isDark ? 'dark' : 'light'}
         selectedKeys={[selectedKey]}
-        defaultOpenKeys={sidebarData?.map(({ title }) => title).filter((item) => item) as string[]}
+        defaultOpenKeys={sidebarData?.map<string>(({ title }) => title!).filter(Boolean)}
       />
     </ConfigProvider>
   );

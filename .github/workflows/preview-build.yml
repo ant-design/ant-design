@@ -77,7 +77,7 @@ jobs:
           NODE_OPTIONS: "--max_old_space_size=4096"
 
       - name: upload site artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: site
           path: _site/
@@ -90,7 +90,7 @@ jobs:
 
       - name: Upload PR number
         if: ${{ always() }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ./pr-id.txt
@@ -116,7 +116,7 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: download site artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: site
           path: _site

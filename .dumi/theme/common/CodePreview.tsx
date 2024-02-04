@@ -1,4 +1,4 @@
-import React, { type ComponentProps, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, type ComponentProps } from 'react';
 import { Button, Tabs, Typography } from 'antd';
 import { createStyles } from 'antd-style';
 import toReactElement from 'jsonml-to-react-element';
@@ -96,7 +96,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
   error,
 }) => {
   // 避免 Tabs 数量不稳定的闪动问题
-  const initialCodes = {} as Record<'tsx' | 'jsx' | 'style', string>;
+  const initialCodes: Partial<Record<'tsx' | 'jsx' | 'style', string>> = {};
   if (sourceCode) {
     initialCodes.tsx = '';
   }
@@ -144,7 +144,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
                 error={error}
                 lang={lang}
                 initialValue={sourceCodes[lang]}
-                onChange={(code) => {
+                onChange={(code: string) => {
                   onSourceChange?.({ [entryName]: code });
                 }}
               />
@@ -170,7 +170,7 @@ const CodePreview: React.FC<CodePreviewProps> = ({
         error={error}
         lang={langList[0]}
         initialValue={sourceCodes[langList[0]]}
-        onChange={(code) => {
+        onChange={(code: string) => {
           onSourceChange?.({ [entryName]: code });
         }}
       />
