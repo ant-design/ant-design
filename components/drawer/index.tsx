@@ -156,7 +156,6 @@ const Drawer: React.FC<DrawerProps> & {
   // ============================ zIndex ============================
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
-  console.log('>????', rest.classNames);
   // =========================== Render ===========================
   const { classNames: propClassNames = {}, styles: propStyles = {} } = rest;
   const { classNames: contextClassNames = {}, styles: contextStyles = {} } = drawer || {};
@@ -174,7 +173,6 @@ const Drawer: React.FC<DrawerProps> & {
             classNames={{
               mask: classNames(propClassNames.mask, contextClassNames.mask),
               content: classNames(propClassNames.content, contextClassNames.content),
-              wrapper: classNames(propClassNames.wrapper, contextClassNames.wrapper),
             }}
             styles={{
               mask: {
