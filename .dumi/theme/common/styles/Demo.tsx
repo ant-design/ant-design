@@ -31,6 +31,7 @@ const GlobalDemoStyles: React.FC = () => {
 
           &.code-box-simplify {
             border-radius: 0;
+            margin-bottom: 0;
 
             .code-box-demo {
               padding: 0;
