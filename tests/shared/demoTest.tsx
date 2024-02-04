@@ -28,8 +28,8 @@ export type Options = {
 };
 
 function baseText(doInject: boolean, component: string, options: Options = {}) {
-  const files = globSync(`./components/${component}/demo/*.tsx`).filter((file) =>
-    file.includes('_semantic'),
+  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+    (file) => !file.includes('_semantic'),
   );
   files.forEach((file) => {
     // to compatible windows path
