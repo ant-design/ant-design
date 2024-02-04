@@ -95,6 +95,7 @@ const columns = [
 <code src="./demo/nested-table.tsx">Nested tables</code>
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
 <code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
+<code src="./demo/mouse-selection.tsx">Mouse frame selection</code>
 <code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>

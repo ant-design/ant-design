@@ -302,6 +302,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-intersection-observer": "^9.6.0",
     "react-resizable": "^3.0.5",
+    "react-selectable-box": "^1.8.0",
     "react-router-dom": "^6.22.0",
     "react-sticky-box": "^2.0.5",
     "regenerator-runtime": "^0.14.1",
