@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Col, ConfigProvider, Flex, Row, Space, Tag, theme, Typography } from 'antd';
+import { Col, ConfigProvider, Flex, Row, Tag, theme, Typography } from 'antd';
 
 export interface SemanticPreviewProps {
   semantics: { name: string; desc: string; version?: string }[];
