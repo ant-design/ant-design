@@ -27,8 +27,27 @@ const BlockModal = (props: ModalProps) => {
   const divRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={divRef}>
-      <Modal getContainer={() => divRef.current!} {...props} />
+    <div ref={divRef} style={{ position: 'absolute', inset: 0 }}>
+      <Modal
+        getContainer={() => divRef.current!}
+        {...props}
+        styles={
+          {
+            mask: {
+              position: 'absolute',
+            },
+            wrapper: {
+              position: 'absolute',
+            },
+          } as any
+        }
+        style={{
+          top: '50%',
+          transform: 'translateY(-50%)',
+          marginBottom: 0,
+          paddingBottom: 0,
+        }}
+      />
     </div>
   );
 };
@@ -42,11 +61,6 @@ const App: React.FC = () => {
         {
           name: 'mask',
           desc: locale.mask,
-          version: '5.13.0',
-        },
-        {
-          name: 'wrapper',
-          desc: locale.wrapper,
           version: '5.13.0',
         },
         {

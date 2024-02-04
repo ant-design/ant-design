@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Col, Flex, Row, Space, Tag, theme, Typography } from 'antd';
+import { Col, ConfigProvider, Flex, Row, Space, Tag, theme, Typography } from 'antd';
 
 export interface SemanticPreviewProps {
   semantics: { name: string; desc: string; version?: string }[];
@@ -86,7 +86,15 @@ const SemanticPreview = (props: SemanticPreviewProps) => {
             overflow: 'hidden',
           }}
         >
-          {cloneNode}
+          <ConfigProvider
+            theme={{
+              token: {
+                motion: false,
+              },
+            }}
+          >
+            {cloneNode}
+          </ConfigProvider>
         </Col>
         <Col span={8}>
           <ul
@@ -146,6 +154,7 @@ const SemanticPreview = (props: SemanticPreviewProps) => {
           width: markPos[2] + MARK_BORDER_SIZE * 2,
           height: markPos[3] + MARK_BORDER_SIZE * 2,
           boxShadow: '0 0 0 1px #FFF',
+          pointerEvents: 'none',
           transition: [
             `opacity ${token.motionDurationSlow} ease`,
             positionMotion ? `all ${token.motionDurationSlow} ease` : null,
