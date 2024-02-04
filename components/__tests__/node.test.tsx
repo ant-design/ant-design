@@ -1,6 +1,8 @@
-import { globSync } from 'glob';
 import * as React from 'react';
+import { globSync } from 'glob';
 import { renderToString } from 'react-dom/server';
+import slash from 'slash2';
+
 import type { Options } from '../../tests/shared/demoTest';
 
 (global as any).testConfig = {};
@@ -23,28 +25,30 @@ describe('node', () => {
   // Find the component exist demo test file
   const files = globSync(`./components/*/__tests__/demo.test.@(j|t)s?(x)`);
 
-  files.forEach((componentTestFile) => {
-    const componentName = componentTestFile.match(/components\/([^/]*)\//)![1];
+  files
+    .map((path) => slash(path))
+    .forEach((componentTestFile) => {
+      const componentName = componentTestFile.match(/components\/([^/]*)\//)![1];
 
-    // Test for ssr
-    describe(componentName, () => {
-      const demoList = globSync(`./components/${componentName}/demo/*.tsx`);
+      // Test for ssr
+      describe(componentName, () => {
+        const demoList = globSync(`./components/${componentName}/demo/*.tsx`);
 
-      // Use mock to get config
-      require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require
-      const option = (global as any).testConfig?.[componentName];
+        // Use mock to get config
+        require(`../../${componentTestFile}`); // eslint-disable-line global-require, import/no-dynamic-require
+        const option = (global as any).testConfig?.[componentName];
 
-      demoList.forEach((demoFile) => {
-        const skip: string[] = option?.skip || [];
-        const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
+        demoList.forEach((demoFile) => {
+          const skip: string[] = option?.skip || [];
+          const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
-        test(demoFile, () => {
-          const Demo = require(`../../${demoFile}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-          expect(() => {
-            renderToString(<Demo />);
-          }).not.toThrow();
+          test(demoFile, () => {
+            const Demo = require(`../../${demoFile}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+            expect(() => {
+              renderToString(<Demo />);
+            }).not.toThrow();
+          });
         });
       });
     });
-  });
 });

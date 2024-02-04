@@ -317,6 +317,7 @@
     "sharp": "^0.33.2",
     "simple-git": "^3.22.0",
     "size-limit": "^11.0.2",
+    "slash2": "^2.0.0",
     "stylelint": "^16.2.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^36.0.0",
