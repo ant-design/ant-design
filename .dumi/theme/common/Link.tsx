@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'dumi';
 import nprogress from 'nprogress';
 
 export interface LinkProps {
-  to?: string | { pathname?: string; search?: string; hash?: string };
+  to: string | { pathname?: string; search?: string; hash?: string };
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
@@ -21,7 +21,7 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {
     if (typeof to === 'object') {
       return `${to.pathname || pathname}${to.search || ''}${to.hash || ''}`;
     }
-    return to || '';
+    return to;
   }, [to]);
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
