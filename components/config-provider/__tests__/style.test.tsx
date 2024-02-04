@@ -1041,7 +1041,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(head).toHaveStyle({ color: 'red' });
   });
 
-  it('Should Tabs className & style & addIcon & moreIcon works', () => {
+  it('Should Tabs className & style & addIcon & moreIcon & removeIcon works', () => {
     const { container } = render(
       <ConfigProvider
         tabs={{
