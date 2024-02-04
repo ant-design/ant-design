@@ -1049,9 +1049,13 @@ describe('ConfigProvider support style and className props', () => {
           style: { backgroundColor: 'red' },
           addIcon: <span className="cp-test-addIcon">cp-test-addIcon</span>,
           moreIcon: <span className="cp-test-moreIcon">cp-test-moreIcon</span>,
+          removeIcon: <span className="cp-test-removeIcon">cp-test-removeIcon</span>,
         }}
       >
-        <Tabs items={[]} type="editable-card" />
+        <Tabs
+          type="editable-card"
+          items={[{ key: '1', label: <span>tab</span>, children: <span>children</span> }]}
+        />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
@@ -1059,6 +1063,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-addIcon')).toBeTruthy();
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-moreIcon')).toBeTruthy();
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-removeIcon')).toBeTruthy();
   });
 
   it('Should TimePicker className works', () => {
