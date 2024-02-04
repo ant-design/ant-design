@@ -10,7 +10,7 @@ const Previewer = React.lazy(() => import('./Previewer'));
 const useStyle = createStyles(({ css }) => ({
   skeletonWrapper: css`
     width: 100% !important;
-    height: 100%;
+    height: 250px;
     margin-bottom: 16px;
     border-radius: 8px;
   `,
@@ -22,7 +22,11 @@ const PreviewerSuspense: React.FC<IPreviewerProps> = (props) => {
     <ErrorBoundary>
       <Suspense
         fallback={
-          <Skeleton.Node active className={styles.skeletonWrapper}>
+          <Skeleton.Node
+            active
+            className={styles.skeletonWrapper}
+            style={{ width: '100%', height: '100%' }}
+          >
             {' '}
           </Skeleton.Node>
         }
