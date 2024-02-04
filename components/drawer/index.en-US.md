@@ -75,6 +75,10 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
 
+### `styles` and `classNames` attribute
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Drawer"></ComponentTokenTable>

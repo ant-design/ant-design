@@ -1,171 +1,43 @@
 import React from 'react';
-import { Avatar, Badge, Button, Col, Row, theme, Typography } from 'antd';
+import { Avatar, Badge } from 'antd';
 
-export interface SemanticPreviewProps {
-  semantics: { name: string; desc: string }[];
-  children: React.ReactElement;
-}
+import SemanticPreview from '../../../.dumi/components/SemanticPreview';
+import useLocale from '../../../.dumi/hooks/useLocale';
 
-const SemanticPreview = (props: SemanticPreviewProps) => {
-  const { semantics = [], children } = props;
-  const { token } = theme.useToken();
-
-  // ======================= Semantic =======================
-  const getMarkClassName = React.useCallback(
-    (semanticKey: string) => `semantic-mark-${semanticKey}`,
-    [],
-  );
-
-  const semanticClassNames = React.useMemo(() => {
-    const classNames: Record<string, string> = {};
-
-    semantics.forEach((semantic) => {
-      classNames[semantic.name] = getMarkClassName(semantic.name);
-    });
-
-    return classNames;
-  }, [semantics]);
-
-  const cloneNode = React.cloneElement(children, {
-    classNames: semanticClassNames,
-  });
-
-  // ======================== Hover =========================
-  const MARK_BORDER_SIZE = 2;
-  const containerRef = React.useRef<HTMLDivElement>(null);
-
-  const [positionMotion, setPositionMotion] = React.useState(false);
-
-  const [hoverSemantic, setHoverSemantic] = React.useState<string | null>(null);
-  const [markPos, setMarkPos] = React.useState<
-    [left: number, top: number, width: number, height: number]
-  >([0, 0, 0, 0]);
-
-  React.useEffect(() => {
-    if (hoverSemantic) {
-      const targetClassName = getMarkClassName(hoverSemantic);
-      const targetElement = containerRef.current?.querySelector(`.${targetClassName}`);
-
-      const containerRect = containerRef.current?.getBoundingClientRect();
-      const targetRect = targetElement?.getBoundingClientRect();
-
-      setMarkPos([
-        (targetRect?.left || 0) - (containerRect?.left || 0),
-        (targetRect?.top || 0) - (containerRect?.top || 0),
-        targetRect?.width || 0,
-        targetRect?.height || 0,
-      ]);
-
-      setTimeout(() => {
-        setPositionMotion(true);
-      }, 10);
-    } else {
-      const timeout = setTimeout(() => {
-        setPositionMotion(false);
-      }, 500);
-
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, [hoverSemantic]);
-
-  // ======================== Render ========================
-  return (
-    <div style={{ position: 'relative' }} ref={containerRef}>
-      <Row>
-        <Col
-          span={16}
-          style={{
-            borderRight: `1px solid ${token.colorBorderSecondary}`,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            padding: token.paddingMD,
-          }}
-        >
-          {cloneNode}
-        </Col>
-        <Col span={8}>
-          <ul
-            style={{
-              rowGap: token.paddingXS,
-              listStyle: 'none',
-              margin: 0,
-              padding: 0,
-              flexDirection: 'column',
-            }}
-          >
-            {semantics.map((semantic, index) => (
-              <li
-                key={semantic.name}
-                style={{
-                  paddingBlock: token.paddingXS,
-                  paddingInline: token.paddingSM,
-                  cursor: 'pointer',
-                  borderTop: index === 0 ? 'none' : `1px solid ${token.colorBorderSecondary}`,
-                  background:
-                    hoverSemantic === semantic.name ? token.controlItemBgHover : 'transparent',
-                  transition: `background ${token.motionDurationFast} ease`,
-                }}
-                onMouseEnter={() => {
-                  setHoverSemantic(semantic.name);
-                }}
-                onMouseLeave={() => {
-                  setHoverSemantic(null);
-                }}
-              >
-                <Typography.Title level={5} style={{ marginTop: 0, marginBottom: token.marginXS }}>
-                  {semantic.name}
-                </Typography.Title>
-                <Typography.Paragraph style={{ margin: 0 }}>{semantic.desc}</Typography.Paragraph>
-              </li>
-            ))}
-          </ul>
-        </Col>
-      </Row>
-
-      <div
-        style={{
-          position: 'absolute',
-          border: `${MARK_BORDER_SIZE}px solid ${token.colorWarning}`,
-          boxSizing: 'border-box',
-          zIndex: 999999,
-          left: markPos[0] - MARK_BORDER_SIZE,
-          top: markPos[1] - MARK_BORDER_SIZE,
-          width: markPos[2] + MARK_BORDER_SIZE * 2,
-          height: markPos[3] + MARK_BORDER_SIZE * 2,
-          boxShadow: '0 0 0 1px #FFF',
-          transition: [
-            `opacity ${token.motionDurationSlow} ease`,
-            positionMotion ? `all ${token.motionDurationSlow} ease` : null,
-          ]
-            .filter(Boolean)
-            .join(','),
-          opacity: hoverSemantic ? 1 : 0,
-        }}
-      />
-    </div>
-  );
+const locales = {
+  cn: {
+    root: '根节点',
+    indicator: '指示器节点',
+  },
+  en: {
+    root: 'Root element',
+    indicator: 'Indicator element',
+  },
 };
 
-const App: React.FC = () => (
-  <SemanticPreview
-    semantics={[
-      {
-        name: 'root',
-        desc: '1222',
-      },
-      {
-        name: 'indicator',
-        desc: '3333',
-      },
-    ]}
-  >
-    <Badge count={5}>
-      <Avatar shape="square" size="large" />
-    </Badge>
-  </SemanticPreview>
-);
+const App: React.FC = () => {
+  const [locale] = useLocale(locales);
+
+  return (
+    <SemanticPreview
+      semantics={[
+        {
+          name: 'root',
+          desc: locale.root,
+          version: '5.7.0',
+        },
+        {
+          name: 'indicator',
+          desc: locale.indicator,
+          version: '5.7.0',
+        },
+      ]}
+    >
+      <Badge count={5}>
+        <Avatar shape="square" size="large" />
+      </Badge>
+    </SemanticPreview>
+  );
+};
 
 export default App;

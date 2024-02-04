@@ -83,9 +83,7 @@ group:
 
 ### `styles` 和 `classNames` 属性
 
-| 名称 | 说明         | 版本  |
-| ---- | ------------ | ----- |
-| icon | 设置图标元素 | 5.5.0 |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

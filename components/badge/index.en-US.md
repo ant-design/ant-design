@@ -65,10 +65,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### `styles` and `classNames` attribute
 
-| Property  | Description         | Version |
-| --------- | ------------------- | ------- |
-| root      | set `root` element  | 5.7.0   |
-| indicator | set `badge` element | 5.7.0   |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -68,11 +68,6 @@ group: 数据展示
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-| 名称      | 说明         | 版本  |
-| --------- | ------------ | ----- |
-| root      | 设置根元素   | 5.7.0 |
-| indicator | 设置徽标元素 | 5.7.0 |
-
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Badge"></ComponentTokenTable>

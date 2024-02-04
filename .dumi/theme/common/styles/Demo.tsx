@@ -30,7 +30,7 @@ const GlobalDemoStyles: React.FC = () => {
           transition: all 0.2s;
 
           &.code-box-simplify {
-            overflow: hidden;
+            border-radius: 0;
 
             .code-box-demo {
               padding: 0;

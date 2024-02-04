@@ -78,9 +78,7 @@ It accepts all props which native buttons support.
 
 ### `styles` and `classNames` attribute
 
-| Property | Description       | Version |
-| -------- | ----------------- | ------- |
-| icon     | set `icon`element | 5.5.0   |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 
