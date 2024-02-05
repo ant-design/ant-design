@@ -408,7 +408,7 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
               class="ant-avatar ant-avatar-circle ant-avatar-image"
             >
               <img
-                src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+                src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
               />
             </span>
             <div>
@@ -1246,7 +1246,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       </div>
     </div>
     <input
-      class="ant-input"
+      class="ant-input ant-input-outlined"
       placeholder="default size"
       style="width:150px"
       type="text"
@@ -1307,7 +1307,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
       style="width:150px"
     >
       <div

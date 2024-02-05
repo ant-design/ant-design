@@ -87,7 +87,9 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
 <code src="./demo/fixed-header.tsx">固定表头</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
+<code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
+<code src="./demo/hidden-columns.tsx">隐藏列</code>
 <code src="./demo/grouping-columns.tsx">表头分组</code>
 <code src="./demo/edit-cell.tsx">可编辑单元格</code>
 <code src="./demo/edit-row.tsx">可编辑行</code>
@@ -209,6 +211,7 @@ const columns = [
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
+| hidden | 隐藏列 | boolean | false | 5.13.0 |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
 | onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
@@ -383,3 +386,7 @@ return <Table rowKey={(record) => record.uid} />;
 ### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
 
 自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
+
+### 为什么 components.body.wrapper 在 virtual 开启时会报错？
+
+因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。

@@ -7185,7 +7185,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -10401,7 +10401,7 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -10459,6 +10459,345 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
           </div>
         </li>
       </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+            style="overflow-x:auto;overflow-y:hidden"
+          >
+            <table
+              style="width:1300px;min-width:100%;table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:100px"
+                />
+                <col
+                  style="width:100px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width:90px"
+                />
+                <col
+                  style="width:90px"
+                />
+                <col
+                  style="width:90px"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position:sticky;left:0"
+                  >
+                    Full Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position:sticky;left:0"
+                  >
+                    Column 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 2
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 3
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 4
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 5
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 6
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 7
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 8
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
+                    style="position:sticky;right:0"
+                  >
+                    Action 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Action 2
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
+                    style="position:sticky;right:0"
+                  >
+                    Action 3
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height:0;font-size:0"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding:0;border:0;height:0"
+                  >
+                    <div
+                      style="height:0;overflow:hidden"
+                    >
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -11661,7 +12000,7 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -12691,7 +13030,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"
@@ -13132,6 +13471,442 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`renders components/table/demo/hidden-columns.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-center"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Columns displayed
+    </span>
+  </div>,
+  <div
+    class="ant-checkbox-group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="1"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 1
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="2"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 2
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="3"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 3
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="4"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 4
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="5"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 5
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="6"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 6
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="7"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 7
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="8"
+        />
+        <span
+          class="ant-checkbox-inner"
+        />
+      </span>
+      <span>
+        Column 8
+      </span>
+    </label>
+  </div>,
+  <div
+    class="ant-table-wrapper"
+    style="margin-top:24px"
+  >
+    <div
+      class="ant-spin-nested-loading"
+    >
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          class="ant-table"
+        >
+          <div
+            class="ant-table-container"
+          >
+            <div
+              class="ant-table-content"
+            >
+              <table
+                style="table-layout:auto"
+              >
+                <colgroup />
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 1
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 2
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 3
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 4
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 5
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 6
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 7
+                    </th>
+                    <th
+                      class="ant-table-cell"
+                      scope="col"
+                    >
+                      Column 8
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      New York Park
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
+                  >
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London Park
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        >
+          <li
+            aria-disabled="true"
+            class="ant-pagination-prev ant-pagination-disabled"
+            title="Previous Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="left"
+                class="anticon anticon-left"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="left"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+          <li
+            class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            tabindex="0"
+            title="1"
+          >
+            <a
+              rel="nofollow"
+            >
+              1
+            </a>
+          </li>
+          <li
+            aria-disabled="true"
+            class="ant-pagination-next ant-pagination-disabled"
+            title="Next Page"
+          >
+            <button
+              class="ant-pagination-item-link"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
@@ -14387,7 +15162,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
           >
             <div
               aria-label="Page Size"
-              class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -20862,7 +21637,7 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
 exports[`renders components/table/demo/row-selection-debug.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-handler-wrap"
@@ -24980,7 +25755,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
         >
           <div
             aria-label="Page Size"
-            class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-selector"

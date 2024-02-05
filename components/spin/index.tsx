@@ -82,7 +82,7 @@ const Spin: SpinType = (props) => {
     wrapperClassName,
     style,
     children,
-    fullscreen,
+    fullscreen = false,
     ...restProps
   } = props;
 
@@ -118,7 +118,11 @@ const Spin: SpinType = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
-    warning(!tip || isNestedPattern, 'usage', '`tip` only work in nest pattern.');
+    warning(
+      !tip || isNestedPattern || fullscreen,
+      'usage',
+      '`tip` only work in nest or fullscreen pattern.',
+    );
   }
 
   const { direction, spin } = React.useContext<ConfigConsumerProps>(ConfigContext);

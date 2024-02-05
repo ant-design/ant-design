@@ -1368,7 +1368,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-disabled"
+      class="ant-input ant-input-disabled ant-input-outlined"
       disabled=""
       placeholder="disabled"
       type="text"
@@ -1398,7 +1398,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-disabled"
+      class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1534,7 +1534,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
         class="ant-select-selector"

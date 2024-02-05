@@ -1,32 +1,57 @@
-import type { FC } from 'react';
+import type { ComponentProps, FC } from 'react';
 import React, { useEffect, useState } from 'react';
-import { createStyles } from 'antd-style';
-import LiveEditor from '../slots/LiveEditor';
-import LiveError from '../slots/LiveError';
 import { EditFilled } from '@ant-design/icons';
 import { Tooltip } from 'antd';
+import { createStyles } from 'antd-style';
+import SourceCodeEditor from 'dumi/theme-default/slots/SourceCodeEditor';
+
 import useLocale from '../../hooks/useLocale';
+import LiveError from '../slots/LiveError';
 
 const useStyle = createStyles(({ token, css }) => {
-  const { colorPrimaryBorder, colorIcon, colorPrimary } = token;
+  const { colorBgContainer, colorIcon } = token;
 
   return {
     editor: css`
-      .npm__react-simple-code-editor__textarea {
-        outline: none;
-
-        &:hover {
-          box-shadow: inset 0 0 0 1px ${colorPrimaryBorder} !important;
+      // override dumi editor styles
+      .dumi-default-source-code-editor {
+        .dumi-default-source-code {
+          background: ${colorBgContainer};
         }
 
-        &:focus {
-          box-shadow: inset 0 0 0 1px ${colorPrimary} !important;
+        .dumi-default-source-code > pre,
+        .dumi-default-source-code-scroll-content > pre,
+        .dumi-default-source-code-editor-textarea {
+          padding: 12px 16px;
+        }
+
+        .dumi-default-source-code > pre,
+        .dumi-default-source-code-scroll-content > pre {
+          font-size: 13px;
+          line-height: 2;
+          font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+
+        // disable dumi default copy button
+        .dumi-default-source-code-copy {
+          display: none;
+        }
+
+        &::after {
+          border-radius: 0 !important;
+        }
+
+        &:hover:not(:focus-within) {
+          &::after {
+            box-shadow: 0 0 0 1px ${token.colorPrimaryBorderHover} inset;
+          }
         }
       }
     `,
 
     editableIcon: css`
       position: absolute;
+      z-index: 2;
       height: 32px;
       width: 32px;
       display: flex;
@@ -50,7 +75,11 @@ const locales = {
 
 const HIDE_LIVE_DEMO_TIP = 'hide-live-demo-tip';
 
-const LiveCode: FC = () => {
+const LiveCode: FC<
+  {
+    error: Error | null;
+  } & Pick<ComponentProps<typeof SourceCodeEditor>, 'lang' | 'initialValue' | 'onChange'>
+> = (props) => {
   const [open, setOpen] = useState(false);
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
@@ -72,8 +101,12 @@ const LiveCode: FC = () => {
   return (
     <>
       <div className={styles.editor}>
-        <LiveEditor />
-        <LiveError />
+        <SourceCodeEditor
+          lang={props.lang}
+          initialValue={props.initialValue}
+          onChange={props.onChange}
+        />
+        <LiveError error={props.error} />
       </div>
       <Tooltip title={locale.demoEditable} open={open} onOpenChange={handleOpenChange}>
         <EditFilled className={styles.editableIcon} />

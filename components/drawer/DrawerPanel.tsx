@@ -5,20 +5,16 @@ import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
 import useClosable from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 
-export interface DrawerClassNames {
+export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
   header?: string;
   body?: string;
   footer?: string;
-  mask?: string;
-  content?: string;
 }
 
-export interface DrawerStyles {
+export interface DrawerStyles extends NonNullable<RCDrawerProps['styles']> {
   header?: React.CSSProperties;
   body?: React.CSSProperties;
   footer?: React.CSSProperties;
-  mask?: React.CSSProperties;
-  content?: React.CSSProperties;
 }
 
 export interface DrawerPanelProps {
@@ -35,20 +31,25 @@ export interface DrawerPanelProps {
    * `<Drawer closeIcon={false} />`
    */
   closable?: boolean;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
-  /** Wrapper dom node style of header and body */
-  drawerStyle?: React.CSSProperties;
+  children?: React.ReactNode;
+  classNames?: DrawerClassNames;
+  styles?: DrawerStyles;
+
   /** @deprecated Please use `styles.header` instead */
   headerStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.footer` instead */
   footerStyle?: React.CSSProperties;
-  children?: React.ReactNode;
-  classNames?: DrawerClassNames;
-  styles?: DrawerStyles;
+  /** @deprecated Please use `styles.wrapper` instead */
+  contentWrapperStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.mask` instead */
+  maskStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.content` instead */
+  drawerStyle?: React.CSSProperties;
 }
 
 const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
@@ -61,7 +62,6 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     closable,
     onClose,
     headerStyle,
-    drawerStyle,
     bodyStyle,
     footerStyle,
     children,
@@ -78,9 +78,10 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     ),
     [onClose],
   );
+
   const [mergedClosable, mergedCloseIcon] = useClosable(
     closable,
-    closeIcon,
+    typeof closeIcon !== 'undefined' ? closeIcon : drawerContext?.closeIcon,
     customCloseIconRender,
     undefined,
     true,
@@ -139,7 +140,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   }, [footer, footerStyle, prefixCls]);
 
   return (
-    <div className={`${prefixCls}-wrapper-body`} style={drawerStyle}>
+    <>
       {headerNode}
       <div
         className={classNames(
@@ -156,7 +157,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
         {children}
       </div>
       {footerNode}
-    </div>
+    </>
   );
 };
 

@@ -21,6 +21,8 @@ demo:
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
 <code src="./demo/size.tsx">三种大小</code>
+<code src="./demo/variant.tsx" version="5.13.0">变体</code>
+<code src="./demo/filled-debug.tsx" debug>面性变体 Debug</code>
 <code src="./demo/addon.tsx">前置/后置标签</code>
 <code src="./demo/compact-style.tsx">紧凑模式</code>
 <code src="./demo/group.tsx" debug>输入框组合</code>
@@ -35,7 +37,6 @@ demo:
 <code src="./demo/show-count.tsx">带字数提示</code>
 <code src="./demo/advance-count.tsx" version=">= 5.10.0">定制计数能力</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/borderless.tsx">无边框</code>
 <code src="./demo/focus.tsx">聚焦</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
 <code src="./demo/align.tsx" debug>文本对齐</code>
@@ -54,7 +55,6 @@ demo:
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - |  |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
-| bordered | 是否有边框 | boolean | true | 4.5.0 |
 | classNames | 语义化结构 class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
@@ -69,6 +69,7 @@ demo:
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
 | value | 输入框内容 | string | - |  |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | 输入框内容变化时的回调 | function(e) | - |  |
 | onPressEnter | 按下回车的回调 | function(e) | - |  |
 
@@ -107,7 +108,7 @@ interface CountConfig {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | boolean \| ReactNode | false |
+| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | ReactNode | false |
 | loading | 搜索 loading | boolean | false |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -138,19 +139,11 @@ interface CountConfig {
 
 #### Input
 
-| 名称   | 说明               | 版本  |
-| ------ | ------------------ | ----- |
-| input  | `input` 元素       | 5.4.0 |
-| prefix | 所有前缀的包裹元素 | 5.4.0 |
-| suffix | 所有后缀的包裹元素 | 5.4.0 |
-| count  | 文字计数元素       | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-| 名称     | 说明            | 版本  |
-| -------- | --------------- | ----- |
-| textarea | `textarea` 元素 | 5.4.0 |
-| count    | 文字计数元素    | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

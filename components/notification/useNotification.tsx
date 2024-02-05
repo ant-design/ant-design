@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
@@ -6,7 +6,9 @@ import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { ComponentStyleConfig } from '../config-provider/context';
+import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
   NotificationConfig,
@@ -16,8 +18,6 @@ import type {
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getMotion, getPlacementStyle } from './util';
-import { useToken } from '../theme/internal';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -32,7 +32,7 @@ type HolderProps = NotificationConfig & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  notification?: ComponentStyleConfig;
+  notification?: CPNotificationConfig;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -64,8 +64,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
     stack,
+    duration,
   } = props;
-  const { getPrefixCls, getPopupContainer, notification } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
   const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
@@ -74,7 +75,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -87,7 +88,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     motion: getNotificationMotion,
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
-    duration: DEFAULT_DURATION,
+    duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
@@ -103,11 +104,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   });
 
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({
-    ...api,
-    prefixCls,
-    notification,
-  }));
+  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
 
   return holder;
 });
@@ -154,7 +151,10 @@ export function useInternalNotification(
         ...restConfig
       } = config;
 
-      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
+      const realCloseIcon = getCloseIcon(
+        noticePrefixCls,
+        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+      );
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"

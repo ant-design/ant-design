@@ -25,9 +25,10 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/interval-options.tsx">interval option</code>
 <code src="./demo/addon.tsx">Addon</code>
 <code src="./demo/12hours.tsx">12 hours</code>
+<code src="./demo/change-on-scroll.tsx" version="5.14.0">Change on scroll</code>
 <code src="./demo/colored-popup.tsx" debug>Colored Popup</code>
 <code src="./demo/range-picker.tsx">Time Range Picker</code>
-<code src="./demo/bordered.tsx">Bordered-less</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -51,9 +52,8 @@ dayjs.extend(customParseFormat)
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | autoFocus | If get focus when component mounted | boolean | false |  |
-| bordered | Whether has border style | boolean | true |  |
 | cellRender | Custom rendering function for picker cells | (current: number, info: { originNode: React.ReactElement, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
-| changeOnBlur | Trigger `change` when blur. e.g. datetime picker no need click confirm button | boolean | false | 5.5.0 |
+| changeOnScroll | Trigger selection when scroll the column | boolean | false | 5.14.0 |
 | className | The className of picker | string | - |  |
 | defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
@@ -64,6 +64,7 @@ dayjs.extend(customParseFormat)
 | hourStep | Interval between hours in picker | number | 1 |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | minuteStep | Interval between minutes in picker | number | 1 |  |
+| needConfirm | Need click confirm button to trigger value change | boolean | - | 5.14.0 |
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
@@ -77,6 +78,7 @@ dayjs.extend(customParseFormat)
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [dayjs](http://day.js.org/) | - |  |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
 | onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |
@@ -88,8 +90,15 @@ type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledMilliseconds?: (
+    selectedHour: number,
+    selectedMinute: number,
+    selectedSecond: number,
+  ) => number[];
 };
 ```
+
+Note: `disabledMilliseconds` is added in `5.14.0`.
 
 ## Methods
 

@@ -1,22 +1,28 @@
 import * as React from 'react';
-import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import type { Options } from 'scroll-into-view-if-needed';
 
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
+import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
+import type { CardProps } from '../card';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
-import type { RequiredMark } from '../form/Form';
+import type { FormProps } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import type { ModalProps } from '../modal';
+import type { ArgsProps } from '../notification/interface';
+import type { PaginationProps } from '../pagination';
+import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
+import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
+import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
+import type { TourProps } from '../tour/interface';
+import type { TransferProps } from '../transfer';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { SizeType } from './SizeContext';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -50,7 +56,7 @@ export interface ThemeConfig {
   cssVar?:
     | {
         /**
-         * Prefix for css variable, default to `antd`.
+         * Prefix for css variable, default to `ant`.
          */
         prefix?: string;
         /**
@@ -66,29 +72,45 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface ModalConfig extends ComponentStyleConfig {
-  classNames?: ModalProps['classNames'];
-  styles?: ModalProps['styles'];
+export interface TableConfig extends ComponentStyleConfig {
+  expandable?: {
+    expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
+  };
 }
 
-export interface BadgeConfig extends ComponentStyleConfig {
-  classNames?: BadgeProps['classNames'];
-  styles?: BadgeProps['styles'];
+export interface ImageConfig extends ComponentStyleConfig {
+  preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
-export interface ButtonConfig extends ComponentStyleConfig {
-  classNames?: ButtonProps['classNames'];
-  styles?: ButtonProps['styles'];
+export type TourConfig = Pick<TourProps, 'closeIcon'>;
+
+export type ModalConfig = ComponentStyleConfig &
+  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
+
+export type TabsConfig = ComponentStyleConfig &
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
+
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
+
+export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
+
+export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
+
+export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
+
+export interface CardConfig extends ComponentStyleConfig {
+  classNames?: CardProps['classNames'];
+  styles: CardProps['styles'];
 }
 
-export interface DrawerConfig extends ComponentStyleConfig {
-  classNames?: DrawerProps['classNames'];
-  styles?: DrawerProps['styles'];
-}
+export type DrawerConfig = ComponentStyleConfig &
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
 
-export interface FlexConfig extends ComponentStyleConfig {
-  vertical?: FlexProps['vertical'];
-}
+export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
+
+export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -106,38 +128,19 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: ComponentStyleConfig & {
-    autoComplete?: string;
-    classNames?: InputProps['classNames'];
-    styles?: InputProps['styles'];
-  };
-  pagination?: ComponentStyleConfig & { showSizeChanger?: boolean };
+  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
+  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
-  pageHeader?: {
-    ghost: boolean;
-  };
   direction?: DirectionType;
-  space?: {
-    size?: SizeType | number;
-    className?: SpaceProps['className'];
-    classNames?: SpaceProps['classNames'];
-    style?: SpaceProps['style'];
-    styles?: SpaceProps['styles'];
-  };
+  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
-  form?: ComponentStyleConfig & {
-    requiredMark?: RequiredMark;
-    colon?: boolean;
-    scrollToFirstError?: Options | boolean;
-    validateMessages?: ValidateMessages;
-  };
+  form?: ComponentStyleConfig &
+    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
   theme?: ThemeConfig;
-  select?: ComponentStyleConfig & {
-    showSearch?: boolean;
-  };
-  alert?: ComponentStyleConfig;
+  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+  alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: ComponentStyleConfig;
@@ -152,7 +155,7 @@ export interface ConfigConsumerProps {
   segmented?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
@@ -169,17 +172,18 @@ export interface ConfigConsumerProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
-  transfer?: ComponentStyleConfig;
+  transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
-  tag?: ComponentStyleConfig;
-  table?: ComponentStyleConfig;
-  card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicatorSize'>;
+  tag?: TagConfig;
+  table?: TableConfig;
+  card?: CardConfig;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
+  tour?: TourConfig;
   upload?: ComponentStyleConfig;
-  notification?: ComponentStyleConfig;
+  notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;

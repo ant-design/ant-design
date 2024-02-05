@@ -27,6 +27,11 @@ const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
           width: '100%',
           height: '100%',
           outline: 'none',
+          borderRadius: token.borderRadiusLG,
+
+          '&:focus-visible': {
+            outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
+          },
         },
 
         [`${componentCls}-drag-container`]: {

@@ -1,8 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/et_EE';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/et_EE';
 import DatePicker from '../date-picker/locale/et_EE';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/et_EE';
 
 const typeTemplate = '${label} ei ole kehtiv ${type}';
@@ -74,9 +75,6 @@ const localeValues: Locale = {
     copy: 'Kopeeri',
     copied: 'Kopeeritud',
     expand: 'Laienda',
-  },
-  PageHeader: {
-    back: 'Tagasi',
   },
   Form: {
     optional: '(valikuline)',

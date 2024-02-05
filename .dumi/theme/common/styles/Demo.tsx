@@ -22,12 +22,22 @@ const GlobalDemoStyles: React.FC = () => {
         .code-box {
           position: relative;
           display: inline-block;
-          width: 100%;
+          width: calc(100% - ${token.lineWidth * 2}px);
           margin: 0 0 16px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
           transition: all 0.2s;
+
+          &.code-box-simplify {
+            border-radius: 0;
+            margin-bottom: 0;
+
+            .code-box-demo {
+              padding: 0;
+              border-bottom: 0;
+            }
+          }
 
           .code-box-title {
             &,

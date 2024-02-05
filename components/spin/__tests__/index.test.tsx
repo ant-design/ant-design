@@ -69,7 +69,20 @@ describe('Spin', () => {
     const { container } = render(<Spin tip="Not Show" />);
     expect(container.querySelector('.ant-spin-text')).toBeFalsy();
 
-    expect(errSpy).toHaveBeenCalledWith('Warning: [antd: Spin] `tip` only work in nest pattern.');
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Spin] `tip` only work in nest or fullscreen pattern.',
+    );
+
+    errSpy.mockRestore();
+  });
+
+  it('should not warn tip with fullscreen', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Spin fullscreen tip="Fullscreen" />);
+    expect(container.querySelector('.ant-spin-fullscreen')).toBeTruthy();
+
+    expect(errSpy).not.toHaveBeenCalled();
 
     errSpy.mockRestore();
   });

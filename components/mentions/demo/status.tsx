@@ -1,6 +1,8 @@
 import React from 'react';
 import { Mentions, Space } from 'antd';
-import type { MentionsOptionProps } from 'antd/es/mentions';
+import type { GetProp, MentionProps } from 'antd';
+
+type MentionsOptionProps = GetProp<MentionProps, 'options'>[number];
 
 const onChange = (value: string) => {
   console.log('Change:', value);

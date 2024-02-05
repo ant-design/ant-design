@@ -12,7 +12,7 @@ export const NotificationPlacements = [
   'bottomLeft',
   'bottomRight',
 ] as const;
-export type NotificationPlacement = typeof NotificationPlacements[number];
+export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
@@ -29,7 +29,7 @@ export interface ArgsProps {
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   props?: DivProps;
   role?: 'alert' | 'status';
 }
@@ -67,4 +67,5 @@ export interface NotificationConfig {
   maxCount?: number;
   rtl?: boolean;
   stack?: boolean | { threshold?: number };
+  duration?: number;
 }

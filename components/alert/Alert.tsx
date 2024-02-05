@@ -43,7 +43,7 @@ export interface AlertProps {
   banner?: boolean;
   icon?: React.ReactNode;
   /** Custom closeIcon */
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
@@ -84,7 +84,7 @@ interface CloseIconProps {
   handleClose: AlertProps['onClose'];
 }
 
-const CloseIcon: React.FC<CloseIconProps> = (props) => {
+const CloseIconNode: React.FC<CloseIconProps> = (props) => {
   const { isClosable, prefixCls, closeIcon, handleClose } = props;
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
@@ -143,7 +143,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   }, [props.type, banner]);
 
   // closeable when closeText or closeIcon is assigned
-  const isClosable = React.useMemo(() => {
+  const isClosable = React.useMemo<boolean>(() => {
     if (closeText) {
       return true;
     }
@@ -209,10 +209,10 @@ const Alert: React.FC<AlertProps> = (props) => {
             {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
           </div>
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
-          <CloseIcon
+          <CloseIconNode
             isClosable={isClosable}
             prefixCls={prefixCls}
-            closeIcon={closeText || closeIcon}
+            closeIcon={closeText || (closeIcon ?? alert?.closeIcon)}
             handleClose={handleClose}
           />
         </div>

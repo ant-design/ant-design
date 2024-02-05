@@ -31,26 +31,38 @@ const compareScreenshots = async (
   const currentImgBuf = await sharp(currentImgPath).toBuffer();
 
   const basePng = PNG.sync.read(baseImgBuf);
-  const targetWidth = basePng.width;
-  const targetHeight = basePng.height;
+  const currentPng = PNG.sync.read(currentImgBuf);
 
-  const comparePng = PNG.sync.read(
-    await sharp(currentImgBuf)
-      .resize({
-        width: targetWidth,
-        height: targetHeight,
-        fit: sharp.fit.contain,
-        background: { r: 255, g: 255, b: 255, alpha: 0 },
-      })
-      .png()
-      .toBuffer(),
+  const targetWidth = Math.max(basePng.width, currentPng.width);
+  const targetHeight = Math.max(basePng.height, currentPng.height);
+
+  // fill color for transparent png
+  const fillColor =
+    baseImgPath.endsWith('dark.png') || baseImgPath.endsWith('dark.css-var.png')
+      ? { r: 0, g: 0, b: 0, alpha: 255 }
+      : { r: 255, g: 255, b: 255, alpha: 255 };
+
+  const resizeOptions = {
+    width: targetWidth,
+    height: targetHeight,
+    position: 'left top',
+    fit: sharp.fit.contain,
+    background: fillColor,
+  };
+
+  const resizedBasePng = PNG.sync.read(
+    await sharp(baseImgBuf).resize(resizeOptions).png().toBuffer(),
+  );
+
+  const resizedCurrentPng = PNG.sync.read(
+    await sharp(currentImgBuf).resize(resizeOptions).png().toBuffer(),
   );
 
   const diffPng = new PNG({ width: targetWidth, height: targetHeight });
 
   const mismatchedPixels = pixelmatch(
-    basePng.data,
-    comparePng.data,
+    resizedBasePng.data,
+    resizedCurrentPng.data,
     diffPng.data,
     targetWidth,
     targetHeight,
@@ -141,29 +153,29 @@ function generateReport(
   const passed = badCases.length === 0;
 
   const commonHeader = `
-## Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
-> **Target branch:** ${targetBranch} (${targetRef})
+## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
+> **🎯 Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
+  const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
+  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
+
+  const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
   if (passed) {
     const mdStr = [
       commonHeader,
-      '------------------------',
-      'Congrats! No visual-regression diff found',
+      fullReport,
+      '\n🎊 Congrats! No visual-regression diff found.\n',
+      '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
     ].join('\n');
 
     return [mdStr, md2Html(mdStr)];
   }
 
-  const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
-
-  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
-
   let reportMdStr = `
 ${commonHeader}
-> <a href="${htmlReportLink}" target="_blank">View Full Report</a> \n
-------------------------
-| image name | expected | actual | diff |
+${fullReport}
+| Image name | Expected | Actual | Diff |
 | --- | --- | --- | --- |
     `.trim();
   reportMdStr += '\n';
@@ -178,7 +190,7 @@ ${commonHeader}
     if (type === 'changed') {
       lineReportMdStr += '| ';
       lineReportMdStr += [
-        badCase.filename,
+        `\`${badCase.filename}\``,
         `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
         `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
         `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
@@ -187,7 +199,7 @@ ${commonHeader}
     } else if (type === 'removed') {
       lineReportMdStr += '| ';
       lineReportMdStr += [
-        badCase.filename,
+        `\`${badCase.filename}\``,
         `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
         `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
         `🚨🚨🚨 Removed 🚨🚨🚨`,

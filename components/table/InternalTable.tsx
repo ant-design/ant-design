@@ -82,7 +82,7 @@ export interface InternalTableProps<RecordType> extends TableProps<RecordType> {
   _renderTimes: number;
 }
 
-export interface TableProps<RecordType>
+export interface TableProps<RecordType = any>
   extends Omit<
     RcTableProps<RecordType>,
     | 'transformColumns'
@@ -210,6 +210,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     childrenColumnName: legacyChildrenColumnName,
     expandIconColumnIndex,
     ...expandable,
+    expandIcon: expandable?.expandIcon ?? table?.expandable?.expandIcon,
   };
   const { childrenColumnName = 'children' } = mergedExpandable;
 
@@ -289,6 +290,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       currentDataSource: getFilterData(
         getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
         changeInfo.filterStates!,
+        childrenColumnName,
       ),
       action,
     });
@@ -355,7 +357,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     getPopupContainer: getPopupContainer || getContextPopupContainer,
     rootClassName: classNames(rootClassName, rootCls),
   });
-  const mergedData = getFilterData(sortedData, filterStates);
+  const mergedData = getFilterData(sortedData, filterStates, childrenColumnName);
 
   changeEventInfo.filters = filters;
   changeEventInfo.filterStates = filterStates;
@@ -627,4 +629,4 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 };
 
-export default (React.forwardRef(InternalTable) as RefInternalTable);
+export default React.forwardRef(InternalTable) as RefInternalTable;

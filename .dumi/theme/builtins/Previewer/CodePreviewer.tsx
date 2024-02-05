@@ -2,13 +2,12 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { LinkOutlined, ThunderboltOutlined, UpOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Alert, Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, Flex, Tooltip } from 'antd';
 import { createStyles, css } from 'antd-style';
 import classNames from 'classnames';
-import { FormattedMessage, LiveContext, useSiteData } from 'dumi';
+import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
-import type { AntdPreviewerProps } from './Previewer';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
@@ -21,7 +20,7 @@ import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
 import { ping } from '../../utils';
-import LiveDemo from 'dumi/theme-default/slots/LiveDemo';
+import type { AntdPreviewerProps } from './Previewer';
 
 const { ErrorBoundary } = Alert;
 
@@ -101,6 +100,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     background,
     filename,
     version,
+    simplify,
     clientOnly,
     pkgDependencyList,
   } = props;
@@ -108,14 +108,22 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
   const location = useLocation();
 
-  const { enabled: liveEnabled } = useContext(LiveContext);
-
   const { styles } = useStyle();
 
-  const entryCode = asset.dependencies['index.tsx'].value;
+  const entryName = 'index.tsx';
+  const entryCode = asset.dependencies[entryName].value;
   const showRiddleButton = useShowRiddleButton();
 
-  const liveDemo = useRef<React.ReactNode>(null);
+  const previewDemo = useRef<React.ReactNode>(null);
+  const demoContainer = useRef<HTMLElement>(null);
+  const {
+    node: liveDemoNode,
+    error: liveDemoError,
+    setSource: setLiveDemoSource,
+  } = useLiveDemo(asset.id, {
+    iframe: Boolean(iframe),
+    containerRef: demoContainer,
+  });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const codeSandboxIconRef = useRef<HTMLFormElement>(null);
   const riddleIconRef = useRef<HTMLFormElement>(null);
@@ -153,8 +161,8 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
 
-  if (!liveDemo.current) {
-    liveDemo.current = iframe ? (
+  if (!previewDemo.current) {
+    previewDemo.current = iframe ? (
       <BrowserFrame>
         <iframe
           src={demoUrl}
@@ -171,6 +179,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const codeBoxClass = classNames('code-box', {
     expand: codeExpand,
     'code-box-debug': originDebug,
+    'code-box-simplify': simplify,
   });
 
   const localizedTitle = title;
@@ -365,155 +374,165 @@ createRoot(document.getElementById('container')).render(<Demo />);
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      <section className="code-box-demo" style={codeBoxDemoStyle}>
-        {!liveEnabled ? (
+      <section className="code-box-demo" style={codeBoxDemoStyle} ref={demoContainer}>
+        {liveDemoNode || (
           <ErrorBoundary>
-            <React.StrictMode>{liveDemo.current}</React.StrictMode>
+            <React.StrictMode>{previewDemo.current}</React.StrictMode>
           </ErrorBoundary>
-        ) : (
-          <LiveDemo />
         )}
       </section>
-      <section className="code-box-meta markdown">
-        <div className="code-box-title">
-          <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
-            <a href={`#${asset.id}`} ref={anchorRef}>
-              {localizedTitle}
-            </a>
-          </Tooltip>
-          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
-        </div>
-        {description && (
-          <div className="code-box-description" dangerouslySetInnerHTML={{ __html: description }} />
-        )}
-        <Space wrap size="middle" className="code-box-actions">
-          {showOnlineUrl && (
-            <Tooltip title={<FormattedMessage id="app.demo.online" />}>
-              <a
-                className="code-box-code-action"
-                target="_blank"
-                rel="noreferrer"
-                href={docsOnlineUrl}
-              >
-                <LinkOutlined aria-label="open in new tab" className="code-box-online" />
+      {!simplify && (
+        <section className="code-box-meta markdown">
+          <div className="code-box-title">
+            <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
+              <a href={`#${asset.id}`} ref={anchorRef}>
+                {localizedTitle}
               </a>
             </Tooltip>
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-demo" />}
+              filename={filename}
+            />
+          </div>
+          {description && (
+            <div
+              className="code-box-description"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
           )}
-          {showRiddleButton ? (
+
+          <Flex wrap="wrap" gap="middle" className="code-box-actions">
+            {showOnlineUrl && (
+              <Tooltip title={<FormattedMessage id="app.demo.online" />}>
+                <a
+                  className="code-box-code-action"
+                  target="_blank"
+                  rel="noreferrer"
+                  href={docsOnlineUrl}
+                >
+                  <LinkOutlined aria-label="open in new tab" className="code-box-online" />
+                </a>
+              </Tooltip>
+            )}
+            {showRiddleButton ? (
+              <form
+                className="code-box-code-action"
+                action="//riddle.alibaba-inc.com/riddles/define"
+                method="POST"
+                target="_blank"
+                ref={riddleIconRef}
+                onClick={() => {
+                  track({ type: 'riddle', demo: asset.id });
+                  riddleIconRef.current?.submit();
+                }}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
+                  <RiddleIcon className="code-box-riddle" />
+                </Tooltip>
+              </form>
+            ) : null}
             <form
               className="code-box-code-action"
-              action="//riddle.alibaba-inc.com/riddles/define"
+              action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
-              ref={riddleIconRef}
+              ref={codeSandboxIconRef}
               onClick={() => {
-                track({ type: 'riddle', demo: asset.id });
-                riddleIconRef.current?.submit();
+                track({ type: 'codesandbox', demo: asset.id });
+                codeSandboxIconRef.current?.submit();
               }}
             >
-              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                <RiddleIcon className="code-box-riddle" />
+              <input
+                type="hidden"
+                name="parameters"
+                value={compress(JSON.stringify(codesanboxPrefillConfig))}
+              />
+              <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
+                <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-          ) : null}
-          <form
-            className="code-box-code-action"
-            action="https://codesandbox.io/api/v1/sandboxes/define"
-            method="POST"
-            target="_blank"
-            ref={codeSandboxIconRef}
-            onClick={() => {
-              track({ type: 'codesandbox', demo: asset.id });
-              codeSandboxIconRef.current?.submit();
-            }}
-          >
-            <input
-              type="hidden"
-              name="parameters"
-              value={compress(JSON.stringify(codesanboxPrefillConfig))}
-            />
-            <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-              <CodeSandboxIcon className="code-box-codesandbox" />
-            </Tooltip>
-          </form>
-          <form
-            className="code-box-code-action"
-            action="https://codepen.io/pen/define"
-            method="POST"
-            target="_blank"
-            ref={codepenIconRef}
-            onClick={() => {
-              track({ type: 'codepen', demo: asset.id });
-              codepenIconRef.current?.submit();
-            }}
-          >
-            <ClientOnly>
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-            </ClientOnly>
-            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-              <CodePenIcon className="code-box-codepen" />
-            </Tooltip>
-          </form>
-          <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
-            <span
+            <form
               className="code-box-code-action"
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              ref={codepenIconRef}
               onClick={() => {
-                track({ type: 'stackblitz', demo: asset.id });
-                stackblitzSdk.openProject(stackblitzPrefillConfig, {
-                  openFile: [`demo.${suffix}`],
-                });
+                track({ type: 'codepen', demo: asset.id });
+                codepenIconRef.current?.submit();
               }}
             >
-              <ThunderboltOutlined className="code-box-stackblitz" />
-            </span>
-          </Tooltip>
-          <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
-            <a
-              className="code-box-code-action"
-              aria-label="open in new tab"
-              target="_blank"
-              rel="noreferrer"
-              href={demoUrl}
+              <ClientOnly>
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              </ClientOnly>
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <CodePenIcon className="code-box-codepen" />
+              </Tooltip>
+            </form>
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  track({ type: 'stackblitz', demo: asset.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
+                    openFile: [`demo.${suffix}`],
+                  });
+                }}
+              >
+                <ThunderboltOutlined className="code-box-stackblitz" />
+              </span>
+            </Tooltip>
+            <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
+              <a
+                className="code-box-code-action"
+                aria-label="open in new tab"
+                target="_blank"
+                rel="noreferrer"
+                href={demoUrl}
+              >
+                <ExternalLinkIcon className="code-box-separate" />
+              </a>
+            </Tooltip>
+            <Tooltip
+              title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
             >
-              <ExternalLinkIcon className="code-box-separate" />
-            </a>
-          </Tooltip>
-          <Tooltip
-            title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
-          >
-            <div className="code-expand-icon code-box-code-action">
-              <img
-                alt="expand code"
-                src={
-                  theme?.includes('dark')
-                    ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
-                    : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
-                }
-                className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-                onClick={() => handleCodeExpand(asset.id)}
-              />
-              <img
-                alt="expand code"
-                src={
-                  theme?.includes('dark')
-                    ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
-                    : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
-                }
-                className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-                onClick={() => handleCodeExpand(asset.id)}
-              />
-            </div>
-          </Tooltip>
-        </Space>
-      </section>
+              <div className="code-expand-icon code-box-code-action">
+                <img
+                  alt="expand code"
+                  src={
+                    theme?.includes('dark')
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
+                      : 'https://gw.alipayobjects.com/zos/antfincdn/Z5c7kzvi30/expand.svg'
+                  }
+                  className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
+                  onClick={() => handleCodeExpand(asset.id)}
+                />
+                <img
+                  alt="expand code"
+                  src={
+                    theme?.includes('dark')
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
+                      : 'https://gw.alipayobjects.com/zos/antfincdn/4zAaozCvUH/unexpand.svg'
+                  }
+                  className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
+                  onClick={() => handleCodeExpand(asset.id)}
+                />
+              </div>
+            </Tooltip>
+          </Flex>
+        </section>
+      )}
       {codeExpand && (
         <section className={highlightClass} key="code">
           <CodePreview
             sourceCode={entryCode}
             jsxCode={jsx}
             styleCode={style}
+            error={liveDemoError}
+            entryName={entryName}
             onCodeTypeChange={setCodeType}
+            onSourceChange={setLiveDemoSource}
           />
           <div
             tabIndex={0}

@@ -60,6 +60,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     maxCount,
     data = {},
     multiple = false,
+    hasControlInside = true,
     action = '',
     accept = '',
     supportServerRender = true,
@@ -350,6 +351,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
+    hasControlInside,
   } as RcUploadProps;
 
   delete rcUploadProps.className;
@@ -458,13 +460,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     [`${prefixCls}-disabled`]: mergedDisabled,
   });
 
-  const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
-    <div className={uploadButtonCls} style={uploadButtonStyle}>
+  const uploadButton = (
+    <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
-
-  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
 
   if (listType === 'picture-card' || listType === 'picture-circle') {
     return wrapCSSVar(
