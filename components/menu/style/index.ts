@@ -635,11 +635,16 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         // >>>>> Divider
         [`${componentCls}-item-divider`]: {
           overflow: 'hidden',
-          lineHeight: 1,
+          lineHeight: 0,
+          borderColor: colorSplit,
+          borderStyle: lineType,
+          borderWidth: 0,
+          borderTopWidth: lineWidth,
+          marginBlock: lineWidth,
+          padding: 0,
 
-          // add a selector weight (required)
-          [`&${componentCls}-item-divider-horizontal`]: {
-            margin: 0,
+          '&-dashed': {
+            borderStyle: 'dashed',
           },
         },
 

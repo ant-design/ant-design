@@ -1,12 +1,11 @@
 import { ItemGroup } from 'rc-menu';
 import type {
-  // MenuDividerType as RcMenuDividerType,
+  MenuDividerType as RcMenuDividerType,
   MenuItemGroupType as RcMenuItemGroupType,
   MenuItemType as RcMenuItemType,
   SubMenuType as RcSubMenuType,
 } from 'rc-menu/lib/interface';
 import * as React from 'react';
-import type { MenuDividerProps } from '../MenuDivider';
 import MenuDivider from '../MenuDivider';
 import MenuItem from '../MenuItem';
 import SubMenu from '../SubMenu';
@@ -30,9 +29,9 @@ export interface MenuItemGroupType<T extends MenuItemType = MenuItemType>
   key?: React.Key;
 }
 
-export interface MenuDividerType extends Omit<MenuDividerProps, 'prefixCls'> {
+export interface MenuDividerType extends RcMenuDividerType {
+  dashed?: boolean;
   key?: React.Key;
-  type: 'divider';
 }
 
 export type ItemType<T extends MenuItemType = MenuItemType> =
@@ -48,15 +47,6 @@ function convertItemsToNodes(list: ItemType[]) {
       if (opt && typeof opt === 'object') {
         const { label, children, key, type, ...restProps } = opt as any;
         const mergedKey = key ?? `tmp-${index}`;
-
-        // MenuItem & Divider
-        if (type === 'divider') {
-          return (
-            <MenuDivider key={mergedKey} {...restProps}>
-              {children}
-            </MenuDivider>
-          );
-        }
 
         // MenuItemGroup & SubMenuItem
         if (children || type === 'group') {
@@ -75,6 +65,11 @@ function convertItemsToNodes(list: ItemType[]) {
               {convertItemsToNodes(children)}
             </SubMenu>
           );
+        }
+
+        // MenuItem & Divider
+        if (type === 'divider') {
+          return <MenuDivider key={mergedKey} {...restProps} />;
         }
 
         return (
