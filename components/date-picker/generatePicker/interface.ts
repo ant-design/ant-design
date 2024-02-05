@@ -86,6 +86,6 @@ export type PickerPropsWithMultiple<
   React.RefAttributes<PickerRef> & {
     defaultValue?: ValueType | null;
     value?: ValueType | null;
-    onChange?: (date: ValueType, dates: string | string[]) => void;
+    onChange?: (date: ValueType, dateString: string | string[]) => void;
     onOk?: (date: ValueType) => void;
   };
