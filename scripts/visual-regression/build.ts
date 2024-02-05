@@ -174,7 +174,6 @@ function generateReport(
 
   let reportMdStr = `
 ${commonHeader}
-
 ${fullReport}
 
 | Image name | Expected | Actual | Diff |
