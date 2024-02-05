@@ -160,12 +160,12 @@ function generateReport(
   const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
   const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
 
-  const fullReport = `> <a href="${htmlReportLink}" target="_blank">📖 View Full Report↗︎</a>`;
+  const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
   if (passed) {
     const mdStr = [
       commonHeader,
       fullReport,
-      '🎊 Congrats! No visual-regression diff found.',
+      '\n🎊 Congrats! No visual-regression diff found.\n',
       '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
     ].join('\n');
 
