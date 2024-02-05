@@ -25,4 +25,12 @@ describe('Divider', () => {
       marginRight: 10,
     });
   });
+
+  it('support component', () => {
+    const { container, rerender } = render(<Divider>test</Divider>);
+    expect(container.firstChild?.nodeName).toBe('DIV');
+
+    rerender(<Divider component="p">test</Divider>);
+    expect(container.firstChild?.nodeName).toBe('P');
+  });
 });
