@@ -8,8 +8,10 @@ import List, {
   type FormListOperation,
   type FormListProps,
 } from './FormList';
-import { FormProvider } from './context';
+import type { FormScope, FormScopeProps } from './context';
+import { FormProvider, ScopeProvider } from './context';
 import useFormInstance from './hooks/useFormInstance';
+import useFormScope from './hooks/useFormScope';
 
 type InternalFormType = typeof InternalForm;
 
@@ -17,10 +19,12 @@ type CompoundedComponent = InternalFormType & {
   useForm: typeof useForm;
   useFormInstance: typeof useFormInstance;
   useWatch: typeof useWatch;
+  useScope: typeof useFormScope;
   Item: typeof Item;
   List: typeof List;
   ErrorList: typeof ErrorList;
   Provider: typeof FormProvider;
+  Scope: typeof ScopeProvider;
 
   /** @deprecated Only for warning usage. Do not use. */
   create: () => void;
@@ -35,6 +39,8 @@ Form.useForm = useForm;
 Form.useFormInstance = useFormInstance;
 Form.useWatch = useWatch;
 Form.Provider = FormProvider;
+Form.Scope = ScopeProvider;
+Form.useScope = useFormScope;
 Form.create = () => {
   warning(
     false,
@@ -54,6 +60,8 @@ export type {
   Rule,
   RuleObject,
   RuleRender,
+  FormScope,
+  FormScopeProps,
 };
 
 export default Form;

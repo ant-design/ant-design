@@ -56,6 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/ref-item.tsx" debug>引用字段</code>
 <code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/use-form-scope.tsx" debug>Form.useScope</code>
 
 ## API
 
@@ -290,6 +291,10 @@ Form.List 渲染表单相关操作函数。
 </Form.Provider>
 ```
 
+## Form.Scope
+
+创建一个用来传递`NamePath`的`Scope`，用于复杂表单场景下的`namePath`传递，配合[Form.useScope](#formusescope)使用
+
 ### FormInstance
 
 | 名称 | 说明 | 类型 | 版本 |
@@ -435,6 +440,78 @@ const Demo = () => {
 };
 ```
 
+### Form.useScope
+
+`type Form.useScope = (): FormScope`
+
+用于获取所有父级`Form.List`和`Form.Scope`的`NamePath`集合
+
+```tsx
+import * as React from 'react';
+import { Form, Input } from 'antd';
+
+const ChildrenContent = () => {
+  const { prefixName } = Form.useScope();
+  const child = Form.useWatch([...prefixName!, 'child']);
+  console.log(prefixName); // output ["parent1",0,"parent2",0]
+
+  return (
+    <>
+      <Form.Item label="Children Content" name="child">
+        <Input />
+      </Form.Item>
+      <Form.Item>child value: {child}</Form.Item>
+    </>
+  );
+};
+
+export default () => (
+  <Form
+    layout="vertical"
+    initialValues={{
+      parent1: [
+        {
+          name: 'parent1',
+          parent2: [
+            {
+              name: 'parent2',
+            },
+          ],
+        },
+      ],
+    }}
+  >
+    <Form.List name="parent1">
+      {(fields) =>
+        fields.map((field) => (
+          <div key={field.key}>
+            <Form.Item label="parent1" name={[field.name, 'name']}>
+              <Input />
+            </Form.Item>
+            <Form.List name={[field.name, 'parent2']}>
+              {(fields2) => (
+                <>
+                  {fields2.map((field2) => (
+                    <div key={field2.key}>
+                      <Form.Item label="parent2" name={[field2.name, 'name']}>
+                        <Input />
+                      </Form.Item>
+                      <Form.Scope name={field2.name}>
+                        <ChildrenContent />
+                      </Form.Scope>
+                    </div>
+                  ))}
+                </>
+              )}
+            </Form.List>
+          </div>
+        ))
+      }
+    </Form.List>
+  </Form>
+);
+```
+
 ### Form.Item.useStatus
 
 `type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
@@ -551,6 +628,15 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | -------- | ------------------------------------- | ------------ | ---------------------- | ----- |
 | form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
 | preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
+
+#### FormScope
+
+```ts
+interface FormScope {
+  prefixName?: (string | number)[];
+  name?: NamePath;
+}
+```
 
 ## 主题变量（Design Token）
 

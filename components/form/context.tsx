@@ -1,9 +1,10 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 import * as React from 'react';
 import { createContext, useContext, useMemo } from 'react';
-import { FormProvider as RcFormProvider } from 'rc-field-form';
+import { FieldContext, FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
-import type { Meta } from 'rc-field-form/lib/interface';
+import type { Meta, InternalNamePath } from 'rc-field-form/lib/interface';
+import { getNamePath } from 'rc-field-form/lib/utils/valueUtil';
 import omit from 'rc-util/lib/omit';
 
 import type { ColProps } from '../grid/col';
@@ -101,3 +102,49 @@ export const NoFormStyle: React.FC<NoFormStyleProps> = ({ children, status, over
 };
 
 export const VariantContext = createContext<Variant | undefined>(undefined);
+
+export interface FormScope {
+  prefixName?: InternalNamePath;
+  name?: string | number | (string | number)[];
+}
+
+export const ScopeContext = createContext<FormScope>({});
+
+export type FormScopeProps = PropsWithChildren<{
+  name: string | number | (string | number)[];
+}>;
+
+export const BaseScopeProvider: React.FC<FormScopeProps> = (props) => {
+  const { children, name } = props;
+  const formScope = useContext(ScopeContext);
+  const newFormScope = useMemo<FormScope>(
+    () => ({
+      ...formScope,
+      name,
+      prefixName: [...getNamePath(formScope?.prefixName), ...getNamePath(name)],
+    }),
+    [formScope, name],
+  );
+
+  return <ScopeContext.Provider value={newFormScope}>{children}</ScopeContext.Provider>;
+};
+
+export const ScopeProvider: React.FC<FormScopeProps> = (props) => {
+  const fieldContext = React.useContext(FieldContext);
+
+  const prefixName: InternalNamePath = React.useMemo(() => {
+    const parentPrefixName = getNamePath(fieldContext.prefixName) || [];
+    return [...parentPrefixName, ...getNamePath(props.name)];
+  }, [fieldContext.prefixName, props.name]);
+
+  const newFieldContext = React.useMemo(
+    () => ({ ...fieldContext, prefixName }),
+    [fieldContext, prefixName],
+  );
+
+  return (
+    <FieldContext.Provider value={newFieldContext}>
+      <BaseScopeProvider {...props} />
+    </FieldContext.Provider>
+  );
+};

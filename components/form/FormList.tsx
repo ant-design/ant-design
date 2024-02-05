@@ -4,7 +4,7 @@ import type { StoreValue, ValidatorRule } from 'rc-field-form/lib/interface';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import { FormItemPrefixContext } from './context';
+import { FormItemPrefixContext, BaseScopeProvider } from './context';
 
 export interface FormListFieldData {
   name: number;
@@ -61,14 +61,16 @@ const FormList: React.FC<FormListProps> = ({
     <List {...props}>
       {(fields, operation, meta) => (
         <FormItemPrefixContext.Provider value={contextValue}>
-          {children(
-            fields.map((field) => ({ ...field, fieldKey: field.key })),
-            operation,
-            {
-              errors: meta.errors,
-              warnings: meta.warnings,
-            },
-          )}
+          <BaseScopeProvider name={props.name}>
+            {children(
+              fields.map((field) => ({ ...field, fieldKey: field.key })),
+              operation,
+              {
+                errors: meta.errors,
+                warnings: meta.warnings,
+              },
+            )}
+          </BaseScopeProvider>
         </FormItemPrefixContext.Provider>
       )}
     </List>

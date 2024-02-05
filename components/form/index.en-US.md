@@ -55,6 +55,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/ref-item.tsx" debug>Ref item</code>
 <code src="./demo/custom-feedback-icons.tsx" debug>Custom feedback icons</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/use-form-scope.tsx" debug>Form.useScope</code>
 
 ## API
 
@@ -291,6 +292,10 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 </Form.Provider>
 ```
 
+## Form.Scope
+
+Create a `Scope` used to pass `NamePath`, which is used to pass `namePath` in complex form scenarios. Use it with [Form.useScope](#formusescope)
+
 ### FormInstance
 
 | Name | Description | Type | Version |
@@ -436,6 +441,78 @@ const Demo = () => {
 };
 ```
 
+### Form.useScope
+
+`type Form.useScope = (): FormScope`
+
+Used to get the `NamePath` collection of all parent `Form.List` and `Form.Scope`
+
+```tsx
+import * as React from 'react';
+import { Form, Input } from 'antd';
+
+const ChildrenContent = () => {
+  const { prefixName } = Form.useScope();
+  const child = Form.useWatch([...prefixName!, 'child']);
+  console.log(prefixName); // output ["parent1",0,"parent2",0]
+
+  return (
+    <>
+      <Form.Item label="Children Content" name="child">
+        <Input />
+      </Form.Item>
+      <Form.Item>child value: {child}</Form.Item>
+    </>
+  );
+};
+
+export default () => (
+  <Form
+    layout="vertical"
+    initialValues={{
+      parent1: [
+        {
+          name: 'parent1',
+          parent2: [
+            {
+              name: 'parent2',
+            },
+          ],
+        },
+      ],
+    }}
+  >
+    <Form.List name="parent1">
+      {(fields) =>
+        fields.map((field) => (
+          <div key={field.key}>
+            <Form.Item label="parent1" name={[field.name, 'name']}>
+              <Input />
+            </Form.Item>
+            <Form.List name={[field.name, 'parent2']}>
+              {(fields2) => (
+                <>
+                  {fields2.map((field2) => (
+                    <div key={field2.key}>
+                      <Form.Item label="parent2" name={[field2.name, 'name']}>
+                        <Input />
+                      </Form.Item>
+                      <Form.Scope name={field2.name}>
+                        <ChildrenContent />
+                      </Form.Scope>
+                    </div>
+                  ))}
+                </>
+              )}
+            </Form.List>
+          </div>
+        ))
+      }
+    </Form.List>
+  </Form>
+);
+```
+
 ### Form.Item.useStatus
 
 `type Form.Item.useStatus = (): { status: ValidateStatus | undefined, errors: ReactNode[], warnings: ReactNode[] }`
@@ -552,6 +629,15 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | --- | --- | --- | --- | --- |
 | form | Form instance | FormInstance | Current form in context | 5.4.0 |
 | preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |
+
+#### FormScope
+
+```ts
+interface FormScope {
+  prefixName?: (string | number)[];
+  name?: NamePath;
+}
+```
 
 ## Design Token
 
