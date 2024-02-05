@@ -190,6 +190,10 @@ const confirmed = await modal.confirm({ ... });
 | originNode | default node | React.ReactNode                   | -      |
 | extra      | extended options | { OkBtn: FC; CancelBtn: FC } | -      |
 
+### `styles` and `classNames` attribute
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>

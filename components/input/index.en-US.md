@@ -138,21 +138,11 @@ Supports all props of `Input`.
 
 #### Input
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| input | `input` element | 5.4.0 |
-| prefix | Wrapper of prefix | 5.4.0 |
-| suffix | Wrapper of suffix | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| textarea | `textarea` element | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## Design Token
 

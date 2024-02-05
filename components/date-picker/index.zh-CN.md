@@ -37,7 +37,7 @@ demo:
 <code src="./demo/components.tsx" version="5.14.0">定制面板</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">佛历格式</code>
 <code src="./demo/status.tsx">自定义状态</code>
-<code src="./demo/variant.tsx" version="5.14.0">多种形态</code>
+<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">弹出位置</code>
 <code src="./demo/mode.tsx" debug>受控面板</code>
@@ -130,7 +130,7 @@ import 'dayjs/locale/zh-cn';
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | superNextIcon | 自定义 `>>` 切换图标 | ReactNode | - | 4.17.0 |
 | superPrevIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.14.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
 
