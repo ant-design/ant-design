@@ -275,9 +275,11 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             },
 
             '&-divider': {
+              height: 1, // By design
               margin: `${unit(token.marginXXS)} 0`,
               overflow: 'hidden',
-              lineHeight: 1,
+              lineHeight: 0,
+              backgroundColor: token.colorSplit,
             },
 
             [`${componentCls}-menu-submenu-expand-icon`]: {
