@@ -7,12 +7,14 @@ const ltrD =
 const rtlD =
   'M256 64l512 0 0 128-128 0 0 768-128 0 0-768-128 0 0 768-128 0 0-448c-123.712 0-224-100.288-224-224s100.288-224 224-224zM960 896l-256-224 256-224z';
 
+const DirectionSvg = ({ direction }: any) => (
+  <svg viewBox="0 0 1024 1024" fill="currentColor">
+    <path d={direction === 'ltr' ? ltrD : rtlD} />
+  </svg>
+);
+
 const DirectionIcon: React.FC<{ direction: DirectionType; className?: string }> = (props) => (
-  <Icon {...props}>
-    <svg viewBox="0 0 1024 1024" fill="currentColor">
-      <path d={props.direction === 'ltr' ? ltrD : rtlD} />
-    </svg>
-  </Icon>
+  <Icon {...props} component={() => <DirectionSvg direction={props.direction} />} />
 );
 
 export default DirectionIcon;
