@@ -139,19 +139,11 @@ interface CountConfig {
 
 #### Input
 
-| 名称   | 说明               | 版本  |
-| ------ | ------------------ | ----- |
-| input  | `input` 元素       | 5.4.0 |
-| prefix | 所有前缀的包裹元素 | 5.4.0 |
-| suffix | 所有后缀的包裹元素 | 5.4.0 |
-| count  | 文字计数元素       | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-| 名称     | 说明            | 版本  |
-| -------- | --------------- | ----- |
-| textarea | `textarea` 元素 | 5.4.0 |
-| count    | 文字计数元素    | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 
