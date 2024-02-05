@@ -50,7 +50,6 @@
     "build": "npm run compile && NODE_OPTIONS='--max-old-space-size=4096' npm run dist",
     "changelog": "git fetch origin && tsx scripts/print-changelog.ts",
     "check-commit": "tsx scripts/check-commit.ts",
-    "check-ts-demo": "tsx scripts/check-ts-demo.ts",
     "clean": "antd-tools run clean && rm -rf es lib coverage dist report.html",
     "clean-lockfiles": "rm -rf package-lock.json yarn.lock",
     "collect-token-statistic": "tsx scripts/collect-token-statistic.ts",
