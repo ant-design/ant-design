@@ -36,7 +36,7 @@ By clicking the input box, you can select a date from a popup calendar.
 <code src="./demo/components.tsx" version="5.14.0">Customize Panel</code>
 <code src="./demo/buddhist-era.tsx" version="5.14.0">Buddhist Era</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/variant.tsx" version="5.14.0">Variants</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/placement.tsx">Placement</code>
 <code src="./demo/mode.tsx" debug>Controlled Panels</code>
@@ -129,7 +129,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.14.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
 
