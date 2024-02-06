@@ -245,7 +245,7 @@ describe('Typography.Ellipsis', () => {
     expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
-  it('should expandable.collapsible work', async () => {
+  it('should expandable = collapsible work', async () => {
     const { container: wrapper } = render(
       <Base
         ellipsis={{ expandable: 'collapsible', symbol: (expanded) => (expanded ? 'aaa' : 'bbb') }}
