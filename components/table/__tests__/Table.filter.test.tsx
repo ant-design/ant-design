@@ -579,7 +579,7 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
-  it('can filter children by defaultFilteredValue', async () => {
+  it('can filter children by defaultFilteredValue', () => {
     const { container } = render(
       createTable({
         columns: [
@@ -674,7 +674,7 @@ describe('Table.filter', () => {
     await waitFor(() => expect(handleChange).not.toHaveBeenCalled());
   });
 
-  it('three levels menu', async () => {
+  it('three levels menu', () => {
     const onChange = jest.fn();
     const filters = [
       { text: 'Upper', value: 'Upper' },
@@ -697,17 +697,7 @@ describe('Table.filter', () => {
         ],
       },
     ];
-    const { container } = render(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filters,
-          },
-        ],
-        onChange,
-      }),
-    );
+    const { container } = render(createTable({ columns: [{ ...column, filters }], onChange }));
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 

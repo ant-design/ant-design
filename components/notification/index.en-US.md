@@ -3,8 +3,8 @@ category: Components
 group: Feedback
 noinstant: true
 title: Notification
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*6RWNQ78WtvEAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9hTIToR-3YYAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cRmqTY4nKPEAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*W3RmSov-xVMAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -51,7 +51,7 @@ The properties of config are as follows:
 | --- | --- | --- | --- | --- |
 | btn | Customized close button | ReactNode | - | - |
 | className | Customized CSS class | string | - | - |
-| closeIcon | Custom close icon | boolean \| ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
+| closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | description | The content of notification box (required) | ReactNode | - | - |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 | - |
 | icon | Customized icon | ReactNode | - | - |
@@ -71,7 +71,7 @@ The properties of config are as follows:
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottom` `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
-| closeIcon | Custom close icon | boolean \| ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
+| closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |
 | rtl | Whether to enable RTL mode | boolean | false |  |
@@ -103,7 +103,7 @@ notification.config({
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | bottom | Distance from the bottom of the viewport, when `placement` is `bottom` `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 |  |
-| closeIcon | Custom close icon | boolean \| ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
+| closeIcon | Custom close icon | ReactNode | true | 5.7.0: close button will be hidden when setting to null or false |
 | duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
 | getContainer | Return the mount node for Notification, but still display at fullScreen | () => HTMLNode | () => document.body |  |
 | placement | Position of Notification, can be one of `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | string | `topRight` |  |

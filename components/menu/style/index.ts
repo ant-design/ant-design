@@ -373,7 +373,6 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuHorizontalHeight: number | string;
   menuArrowSize: number | string;
   menuArrowOffset: number | string;
-  menuPanelMaskInset: number;
   menuSubMenuBg: string;
   darkPopupBg: string;
 }
@@ -528,7 +527,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     menuArrowSize,
     menuArrowOffset,
     lineType,
-    menuPanelMaskInset,
     groupTitleLineHeight,
     groupTitleFontSize,
   } = token;
@@ -680,19 +678,28 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             // https://github.com/ant-design/ant-design/issues/13955
             '&::before': {
               position: 'absolute',
-              inset: `${unit(menuPanelMaskInset)} 0 0`,
+              inset: 0,
               zIndex: -1,
               width: '100%',
               height: '100%',
               opacity: 0,
               content: '""',
             },
-          },
 
-          // https://github.com/ant-design/ant-design/issues/13955
-          '&-placement-rightTop::before': {
-            top: 0,
-            insetInlineStart: menuPanelMaskInset,
+            [`> ${componentCls}`]: {
+              borderRadius: borderRadiusLG,
+
+              ...genMenuItemStyle(token),
+              ...genSubMenuArrowStyle(token),
+
+              [`${componentCls}-item, ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
+                borderRadius: subMenuItemBorderRadius,
+              },
+
+              [`${componentCls}-submenu-title::after`]: {
+                transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
+              },
+            },
           },
 
           [`
@@ -749,21 +756,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
           &-placement-bottomLeft
           `]: {
             paddingTop: token.paddingXS,
-          },
-
-          [`> ${componentCls}`]: {
-            borderRadius: borderRadiusLG,
-
-            ...genMenuItemStyle(token),
-            ...genSubMenuArrowStyle(token),
-
-            [`${componentCls}-item, ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
-              borderRadius: subMenuItemBorderRadius,
-            },
-
-            [`${componentCls}-submenu-title::after`]: {
-              transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
-            },
           },
         },
 
@@ -977,7 +969,6 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         menuArrowSize,
         menuHorizontalHeight: token.calc(controlHeightLG).mul(1.15).equal(),
         menuArrowOffset: token.calc(menuArrowSize).mul(0.25).equal(),
-        menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
         menuSubMenuBg: colorBgElevated,
         calc: token.calc,
         popupBg,

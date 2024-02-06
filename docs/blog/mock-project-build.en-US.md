@@ -44,7 +44,7 @@ Pass `--depth=1` to only pull the last commit. Then execute `yarn` to install de
 Every time the build is successful, CI will cache the current `yarn.lock` file. In this way, if the next build fails, we can easily pull the two files for comparison to troubleshoot the problem. Although `actions/cache` does not allow cache keys with the same name, it allows `restore-keys` to get the latest cache, which is very convenient:
 
 ```yml
-- uses: actions/cache@v3
+- uses: actions/cache@v4
   with:
     path: ~tmpProj/yarn.lock
     key: primes-${{ runner.os }}-${{ github.run_id }}

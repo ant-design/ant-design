@@ -420,6 +420,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
+  const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
+
   return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
@@ -443,7 +445,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
-        selectionsIcon={selectionsIcon}
+        selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
       <Operation
@@ -482,7 +484,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}
         pagination={mergedPagination}
-        selectionsIcon={selectionsIcon}
+        selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
     </div>,

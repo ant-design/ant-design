@@ -47,6 +47,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     hideAdd,
     centered,
     addIcon,
+    moreIcon,
     popupClassName,
     children,
     items,
@@ -56,7 +57,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     indicator,
     ...otherProps
   } = props;
-  const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = otherProps;
+  const { prefixCls: customizePrefixCls } = otherProps;
   const { direction, tabs, getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
@@ -69,7 +70,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
       removeIcon: <CloseOutlined />,
-      addIcon: addIcon || <PlusOutlined />,
+      addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
       showAdd: hideAdd !== true,
     };
   }
@@ -128,7 +129,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       popupClassName={classNames(popupClassName, hashId, cssVarCls, rootCls)}
       style={mergedStyle}
       editable={editable}
-      moreIcon={moreIcon}
+      moreIcon={moreIcon ?? tabs?.moreIcon ?? <EllipsisOutlined />}
       prefixCls={prefixCls}
       animated={mergedAnimated}
       indicator={mergedIndicator}

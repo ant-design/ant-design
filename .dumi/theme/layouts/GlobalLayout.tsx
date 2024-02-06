@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, Suspense } from 'react';
+import React, { Suspense, useCallback, useEffect } from 'react';
 import {
   createCache,
   extractStyle,
@@ -9,8 +9,9 @@ import {
 } from '@ant-design/cssinjs';
 import { HappyProvider } from '@ant-design/happy-work-theme';
 import { getSandpackCssText } from '@codesandbox/sandpack-react';
-import { App, theme as antdTheme } from 'antd';
-import type { DirectionType } from 'antd/es/config-provider';
+import { theme as antdTheme, App } from 'antd';
+import type { MappingAlgorithm } from 'antd';
+import type { DirectionType, ThemeConfig } from 'antd/es/config-provider';
 import { createSearchParams, useOutlet, useSearchParams, useServerInsertedHTML } from 'dumi';
 
 import { DarkContext } from '../../hooks/useDark';
@@ -43,9 +44,9 @@ const getAlgorithm = (themes: ThemeName[] = []) =>
       if (theme === 'compact') {
         return antdTheme.compactAlgorithm;
       }
-      return null;
+      return null as unknown as MappingAlgorithm;
     })
-    .filter((item) => item) as (typeof antdTheme.darkAlgorithm)[];
+    .filter(Boolean);
 
 const GlobalLayout: React.FC = () => {
   const outlet = useOutlet();
@@ -120,7 +121,7 @@ const GlobalLayout: React.FC = () => {
     };
   }, []);
 
-  const siteContextValue = useMemo(
+  const siteContextValue = React.useMemo<SiteContextProps>(
     () => ({
       direction,
       updateSiteConfig,
@@ -129,6 +130,16 @@ const GlobalLayout: React.FC = () => {
       bannerVisible,
     }),
     [isMobile, direction, updateSiteConfig, theme, bannerVisible],
+  );
+
+  const themeConfig = React.useMemo<ThemeConfig>(
+    () => ({
+      algorithm: getAlgorithm(theme),
+      token: { motion: !theme.includes('motion-off') },
+      cssVar: true,
+      hashed: false,
+    }),
+    [theme],
   );
 
   const [styleCache] = React.useState(() => createCache());
@@ -191,15 +202,7 @@ const GlobalLayout: React.FC = () => {
         linters={[legacyNotSelectorLinter, parentSelectorLinter, NaNLinter]}
       >
         <SiteContext.Provider value={siteContextValue}>
-          <SiteThemeProvider
-            theme={{
-              algorithm: getAlgorithm(theme),
-              token: {
-                motion: !theme.includes('motion-off'),
-              },
-              cssVar: true,
-            }}
-          >
+          <SiteThemeProvider theme={themeConfig}>
             <HappyProvider disabled={!theme.includes('happy-work')}>{content}</HappyProvider>
           </SiteThemeProvider>
         </SiteContext.Provider>

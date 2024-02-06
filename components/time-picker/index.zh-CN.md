@@ -26,6 +26,7 @@ demo:
 <code src="./demo/interval-options.tsx">步长选项</code>
 <code src="./demo/addon.tsx">附加内容</code>
 <code src="./demo/12hours.tsx">12 小时制</code>
+<code src="./demo/change-on-scroll.tsx" version="5.14.0">滚动即改变</code>
 <code src="./demo/colored-popup.tsx" debug>色付きポップアップ</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
 <code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
@@ -52,7 +53,7 @@ dayjs.extend(customParseFormat)
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | cellRender | 自定义单元格的内容 | (current: number, info: { originNode: React.ReactNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
-| changeOnBlur | 失去焦点时触发 `change` 事件，例如 datetime 下不再需要点击确认按钮 | boolean | false | 5.5.0 |
+| changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 |
 | className | 选择器类名 | string | - |  |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
@@ -63,6 +64,7 @@ dayjs.extend(customParseFormat)
 | hourStep | 小时选项间隔 | number | 1 |  |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  |
 | minuteStep | 分钟选项间隔 | number | 1 |  |
+| needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择 | boolean | - | 5.14.0 |
 | open | 面板是否打开 | boolean | false |  |
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
@@ -87,8 +89,15 @@ type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledMilliseconds?: (
+    selectedHour: number,
+    selectedMinute: number,
+    selectedSecond: number,
+  ) => number[];
 };
 ```
+
+注意：`disabledMilliseconds` 为 `5.14.0` 新增。
 
 ## 方法
 

@@ -17,22 +17,30 @@ import defaultLocale from '../locale/en_US';
 import type { PaginationProps } from '../pagination';
 import type { SelectProps } from '../select';
 import type { SpaceProps } from '../space';
-import type { TabsProps } from '../tabs';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
+  AlertConfig,
   BadgeConfig,
   ButtonConfig,
+  CardConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  ImageConfig,
   ModalConfig,
+  NotificationConfig,
   PopupOverflow,
+  TableConfig,
+  TabsConfig,
+  TagConfig,
   Theme,
   ThemeConfig,
+  TourConfig,
+  TransferConfig,
   WaveConfig,
 } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
@@ -128,7 +136,7 @@ export interface ConfigProviderProps {
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
   warning?: WarningContextProps;
-  alert?: ComponentStyleConfig;
+  alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
@@ -143,7 +151,7 @@ export interface ConfigProviderProps {
   segmented?: ComponentStyleConfig;
   statistic?: ComponentStyleConfig;
   steps?: ComponentStyleConfig;
-  image?: ComponentStyleConfig;
+  image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ComponentStyleConfig;
   mentions?: ComponentStyleConfig;
@@ -160,17 +168,17 @@ export interface ConfigProviderProps {
   radio?: ComponentStyleConfig;
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
-  transfer?: ComponentStyleConfig;
+  transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
-  tag?: ComponentStyleConfig;
-  table?: ComponentStyleConfig;
-  card?: ComponentStyleConfig;
-  tabs?: ComponentStyleConfig & Pick<TabsProps, 'indicator' | 'indicatorSize'>;
+  tag?: TagConfig;
+  table?: TableConfig;
+  card?: CardConfig;
+  tabs?: TabsConfig;
   timeline?: ComponentStyleConfig;
   timePicker?: ComponentStyleConfig;
   upload?: ComponentStyleConfig;
-  notification?: ComponentStyleConfig;
+  notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ComponentStyleConfig;
   datePicker?: ComponentStyleConfig;
@@ -181,6 +189,7 @@ export interface ConfigProviderProps {
    * Wave is special component which only patch on the effect of component interaction.
    */
   wave?: WaveConfig;
+  tour?: TourConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -191,6 +200,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 type holderRenderType = (children: React.ReactNode) => React.ReactNode;
 
 export const defaultPrefixCls = 'ant';
+
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
@@ -333,6 +343,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
+    tour,
   } = props;
 
   // =================================== Context ===================================
@@ -426,6 +437,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     wave,
     dropdown,
     warning: warningConfig,
+    tour,
   };
 
   const config: ConfigConsumerProps = {
