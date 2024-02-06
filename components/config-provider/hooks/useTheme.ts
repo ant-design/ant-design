@@ -15,7 +15,11 @@ export default function useTheme(
   const themeConfig = theme || {};
   const parentThemeConfig: ThemeConfig =
     themeConfig.inherit === false || !parentTheme
-      ? { ...defaultConfig, hashed: parentTheme?.hashed, cssVar: parentTheme?.cssVar }
+      ? {
+          ...defaultConfig,
+          hashed: parentTheme?.hashed ?? defaultConfig.hashed,
+          cssVar: parentTheme?.cssVar,
+        }
       : parentTheme;
 
   const themeKey = useThemeKey();
