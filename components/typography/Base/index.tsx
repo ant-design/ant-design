@@ -282,8 +282,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
-  const onExpandClick = (e: React.MouseEvent<HTMLElement>, renderExpanded: boolean) => {
-    setExpanded(renderExpanded);
+  const onExpandClick: React.MouseEventHandler<HTMLElement> = (e) => {
+    setExpanded(!expanded);
     ellipsisConfig.onExpand?.(e);
   };
 
@@ -402,7 +402,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // >>>>>>>>>>> Typography
   // Expand
-  const renderExpand = (renderExpanded: boolean) => {
+  const renderExpand = () => {
+    const renderExpanded = !expanded;
     const { expandable, symbol } = ellipsisConfig;
     if (!expandable) return null;
     if (expandable !== 'collapsible' && !renderExpanded) return null;
@@ -422,7 +423,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       <a
         key="expand"
         className={`${prefixCls}-${renderExpanded ? 'expand' : 'collapse'}`}
-        onClick={(e) => onExpandClick(e, renderExpanded)}
+        onClick={onExpandClick}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
         {expandContent}
@@ -488,11 +489,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (renderExpanded: boolean) => [
-    renderExpand(renderExpanded),
-    renderEdit(),
-    renderCopy(),
-  ];
+  const renderOperations = () => [renderExpand(), renderEdit(), renderCopy()];
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
@@ -501,7 +498,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(needEllipsis),
+    renderOperations(),
   ];
 
   return (
