@@ -324,4 +324,31 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
     jest.useRealTimers();
   });
+
+  it('should respect trigger disabled prop', () => {
+    const { container: container1 } = render(
+      <Dropdown menu={{ items }} disabled>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+    expect(container1.querySelector('button')).toHaveAttribute('disabled');
+
+    const { container: container2 } = render(
+      <Dropdown menu={{ items }}>
+        <button type="button" disabled>
+          button
+        </button>
+      </Dropdown>,
+    );
+    expect(container2.querySelector('button')).toHaveAttribute('disabled');
+
+    const { container: container3 } = render(
+      <Dropdown menu={{ items }} disabled>
+        <button type="button" disabled={false}>
+          button
+        </button>
+      </Dropdown>,
+    );
+    expect(container3.querySelector('button')).not.toHaveAttribute('disabled');
+  });
 });
