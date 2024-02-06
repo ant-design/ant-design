@@ -1187,7 +1187,7 @@ Array [
       aria-label="Collapse"
       class="ant-typography-collapse"
     >
-      Expand
+      Collapse
     </a>
     <span
       aria-hidden="true"
