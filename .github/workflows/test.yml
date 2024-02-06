@@ -207,16 +207,16 @@ jobs:
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverages
-        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        if: ${{ matrix.module == 'dom' && matrix.react == '18' }}
         run: |
           mkdir persist-coverage
           mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
 
-      - uses: actions/upload-artifact@v3
-        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+      - uses: actions/upload-artifact@v4
+        if: ${{ matrix.module == 'dom' && matrix.react == '18' }}
         name: upload coverages
         with:
-          name: coverage-artifacts
+          name: coverage-artifacts-${{ matrix.module }}-${{ matrix.react }}-${{ strategy.job-index }}
           path: persist-coverage/
 
       # node test
@@ -251,9 +251,10 @@ jobs:
         with:
           node-version: 18
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
-          name: coverage-artifacts
+          pattern: coverage-artifacts-*
+          merge-multiple: true
           path: persist-coverage
       - name: Merge Code Coverage
         run: |
