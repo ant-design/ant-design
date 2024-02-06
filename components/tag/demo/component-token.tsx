@@ -17,6 +17,9 @@ export default () => (
       <Tag>
         <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
       </Tag>
+      <Tag bordered={false}>
+        <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
+      </Tag>
       <Tag closable color="magenta">
         Tag 2
       </Tag>
