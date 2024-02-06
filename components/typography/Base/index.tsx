@@ -53,8 +53,7 @@ interface EditConfig {
 
 export interface EllipsisConfig {
   rows?: number;
-  expandable?: boolean;
-  collapsible?: boolean;
+  expandable?: boolean | 'collapsible';
   symbol?: React.ReactNode | ((expanded: boolean) => React.ReactNode);
   suffix?: string;
   onExpand?: React.MouseEventHandler<HTMLElement>;
@@ -237,7 +236,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
-    collapsible: false,
   });
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
@@ -405,9 +403,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = (renderExpanded: boolean) => {
-    const { expandable, collapsible, symbol } = ellipsisConfig;
+    const { expandable, symbol } = ellipsisConfig;
     if (!expandable) return null;
-    if (!collapsible && !renderExpanded) return null;
+    if (expandable !== 'collapsible' && !renderExpanded) return null;
 
     let expandContent: React.ReactNode;
     if (symbol) {
