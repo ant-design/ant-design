@@ -23,6 +23,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/item.tsx">Other elements</code>
 <code src="./demo/arrow-center.tsx">Arrow pointing at the center</code>
 <code src="./demo/trigger.tsx">Trigger mode</code>
+<code src="./demo/defaultOpen.tsx">Default open</code>
 <code src="./demo/event.tsx">Click event</code>
 <code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
@@ -57,6 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | Whether the dropdown menu is currently open. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | - | 4.23.0 |
+| defaultOpen | Whether the dropdown menu is initially open. | boolean | false |  |
 | onOpenChange | Called when the open state is changed. Not trigger when hidden by click item. Use `onVisibleChange` under 4.23.0 ([why?](/docs/react/faq#why-open)) | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
 
 ### Dropdown.Button
