@@ -418,12 +418,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       expandContent = renderExpanded ? textLocale?.expand : textLocale.collapse;
     }
 
-    const key = renderExpanded ? 'expand' : 'collapse';
-
     return (
       <a
-        key={key}
-        className={`${prefixCls}-${key}`}
+        key="expand"
+        className={`${prefixCls}-${renderExpanded ? 'expand' : 'collapse'}`}
         onClick={(e) => onExpandClick(e, renderExpanded)}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
