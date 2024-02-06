@@ -417,7 +417,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         expandContent = symbol;
       }
     } else {
-      expandContent = textLocale?.expand;
+      expandContent = renderExpanded ? textLocale?.expand : textLocale.collapse;
     }
 
     const key = renderExpanded ? 'expand' : 'collapse';
