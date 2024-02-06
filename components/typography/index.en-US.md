@@ -140,7 +140,7 @@ Common props ref：[Common props](/docs/react/common-props)
       rows: number,
       expandable: boolean,
       suffix: string,
-      expand: ReactNode,
+      symbol: ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
@@ -152,8 +152,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | collapsible | Whether to be collapsible | boolean | - |  |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
-| expand | Custom description of ellipsis | ReactNode | `Expand` | 4.14.0 |
-| collapse | Custom description of ellipsis | ReactNode | `Collapse` | 4.14.0 |
+| symbol | Custom description of ellipsis | ReactNode\|((expanded: boolean) => React.ReactNode) | `Expand` |  |
 | tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event) | - |  |

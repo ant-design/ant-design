@@ -141,7 +141,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
       rows: number,
       expandable: boolean,
       suffix: string,
-      expand: ReactNode,
+      symbol: ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
       onExpand: function(event),
       onEllipsis: function(ellipsis),
@@ -153,8 +153,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | collapsible | 是否可收起 | boolean | - |  |
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
-| expand | 自定义展开描述文案 | ReactNode | `展开` | 4.14.0 |
-| collapse | 自定义收起描述文案 | ReactNode | `收起` | 4.14.0 |
+| symbol | 自定义展开描述文案 | ReactNode\|((expanded: boolean) => React.ReactNode) | `展开` |  |
 | tooltip | 省略时，展示提示信息 | ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开时的回调 | function(event) | - |  |

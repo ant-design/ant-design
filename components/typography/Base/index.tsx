@@ -14,7 +14,6 @@ import { composeRef } from 'rc-util/lib/ref';
 
 import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
-import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
@@ -54,13 +53,10 @@ interface EditConfig {
 
 export interface EllipsisConfig {
   rows?: number;
-  suffix?: string;
-  /* @deprecated Please use `expand` instead */
-  symbol?: React.ReactNode;
   expandable?: boolean;
-  expand?: React.ReactNode;
   collapsible?: boolean;
-  collapse?: React.ReactNode;
+  symbol?: React.ReactNode | ((expanded: boolean) => React.ReactNode);
+  suffix?: string;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode | TooltipProps;
@@ -239,14 +235,10 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isJsEllipsis, setIsJsEllipsis] = React.useState(false);
   const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
-  const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {});
-  const warning = devUseWarning('Typography');
-
-  warning(
-    !('symbol' in ellipsisConfig),
-    'deprecated',
-    '`symbol` is deprecated. Please use `expand` instead',
-  );
+  const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
+    expandable: false,
+    collapsible: false,
+  });
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
 
@@ -413,14 +405,23 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = (renderExpanded: boolean) => {
-    const { expandable, symbol, expand, collapsible, collapse } = ellipsisConfig;
+    const { expandable, collapsible, symbol } = ellipsisConfig;
     if (!expandable) return null;
     if (!collapsible && !renderExpanded) return null;
 
-    const expandNode = expand ?? symbol ?? textLocale.expand;
-    const collapseNode = collapse ?? textLocale.collapse;
+    let expandContent: React.ReactNode;
+    if (symbol) {
+      if (typeof symbol === 'function') {
+        expandContent = symbol(renderExpanded);
+      } else {
+        expandContent = symbol;
+      }
+    } else {
+      expandContent = textLocale?.expand;
+    }
 
     const key = renderExpanded ? 'expand' : 'collapse';
+
     return (
       <a
         key={key}
@@ -428,7 +429,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onClick={(e) => onExpandClick(e, renderExpanded)}
         aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
       >
-        {renderExpanded ? expandNode : collapseNode}
+        {expandContent}
       </a>
     );
   };
