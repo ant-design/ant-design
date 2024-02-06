@@ -250,9 +250,8 @@ describe('Typography.Ellipsis', () => {
       <Base
         ellipsis={{
           expandable: true,
-          expand: 'aaa',
           collapsible: true,
-          collapse: 'bbb',
+          symbol: (expanded) => (expanded ? 'aaa' : 'bbb'),
         }}
         component="p"
       >
