@@ -370,7 +370,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             ...genRoundedArrow(token, colorBgElevated, boxShadowPopoverArrow),
 
             '&:before': {
-              left: token.calc(paddingInline).mul(1.5).equal(),
+              insetInlineStart: token.calc(paddingInline).mul(1.5).equal(),
             },
           },
 
