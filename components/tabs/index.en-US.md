@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
 | moreIcon | The custom icon of ellipsis | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
-| removeIcon | The custom icon of remove, Only works while `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
+| removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` |  |
