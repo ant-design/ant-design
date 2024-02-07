@@ -364,9 +364,14 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             position: 'absolute',
             zIndex: 1,
             display: 'none',
-            marginInlineStart: token.calc(paddingInline).mul(1.5).equal(),
+            paddingInline: token.calc(paddingInline).mul(1.5).equal(),
+            boxSizing: 'content-box',
             transition: `left ${motionDurationSlow} ease-out`,
             ...genRoundedArrow(token, colorBgElevated, boxShadowPopoverArrow),
+
+            '&:before': {
+              insetInlineStart: token.calc(paddingInline).mul(1.5).equal(),
+            },
           },
 
           [`${componentCls}-panel-container`]: {
