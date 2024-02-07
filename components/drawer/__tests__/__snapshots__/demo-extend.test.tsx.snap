@@ -1523,19 +1523,18 @@ Array [
                           class="ant-form-item-control-input-content"
                         >
                           <div
+                            aria-required="true"
                             class="ant-picker ant-picker-range ant-picker-outlined"
                             style="width: 100%;"
                           >
                             <div
-                              class="ant-picker-input"
+                              class="ant-picker-input ant-picker-input-active"
                             >
                               <input
-                                aria-invalid="false"
-                                aria-required="true"
                                 autocomplete="off"
-                                date-range="start"
                                 id="dateTime"
                                 placeholder="Start date"
+                                readonly=""
                                 size="12"
                                 value=""
                               />
@@ -1572,18 +1571,16 @@ Array [
                               class="ant-picker-input"
                             >
                               <input
-                                aria-invalid="false"
-                                aria-required="true"
                                 autocomplete="off"
-                                date-range="end"
                                 placeholder="End date"
+                                readonly=""
                                 size="12"
                                 value=""
                               />
                             </div>
                             <div
                               class="ant-picker-active-bar"
-                              style="position: absolute; width: 0px; left: 0px;"
+                              style="left: 0px; width: 0px; position: absolute;"
                             />
                             <span
                               class="ant-picker-suffix"
@@ -1611,19 +1608,19 @@ Array [
                           </div>
                           <div
                             class="ant-picker-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-picker-dropdown-range ant-picker-dropdown-placement-bottomLeft"
-                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
                           >
                             <div
                               class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
+                              style="min-width: 0;"
                             >
                               <div
                                 class="ant-picker-range-arrow"
                                 style="left: 0px;"
                               />
                               <div
-                                class="ant-picker-panel-container ant-picker-date-panel-container"
-                                style="margin-left: 0px; margin-right: auto;"
-                                tabindex="-1"
+                                class="ant-picker-panel-container"
+                                style="margin-left: 0px;"
                               >
                                 <div
                                   class="ant-picker-panel-layout"
@@ -1633,8 +1630,8 @@ Array [
                                       class="ant-picker-panels"
                                     >
                                       <div
-                                        class="ant-picker-panel"
-                                        tabindex="0"
+                                        class="ant-picker-panel ant-picker-panel-focused"
+                                        tabindex="-1"
                                       >
                                         <div
                                           class="ant-picker-date-panel"
@@ -1743,7 +1740,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell"
+                                                    class="ant-picker-cell ant-picker-cell-end"
                                                     title="2016-10-31"
                                                   >
                                                     <div
@@ -1753,7 +1750,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                                    class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                                                     title="2016-11-01"
                                                   >
                                                     <div
@@ -2051,7 +2048,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                                    class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                                                     title="2016-11-30"
                                                   >
                                                     <div
@@ -2061,7 +2058,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell"
+                                                    class="ant-picker-cell ant-picker-cell-start"
                                                     title="2016-12-01"
                                                   >
                                                     <div
@@ -2169,8 +2166,8 @@ Array [
                                         </div>
                                       </div>
                                       <div
-                                        class="ant-picker-panel"
-                                        tabindex="0"
+                                        class="ant-picker-panel ant-picker-panel-focused"
+                                        tabindex="-1"
                                       >
                                         <div
                                           class="ant-picker-date-panel"
@@ -2299,7 +2296,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell"
+                                                    class="ant-picker-cell ant-picker-cell-end"
                                                     title="2016-11-30"
                                                   >
                                                     <div
@@ -2309,7 +2306,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                                    class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
                                                     title="2016-12-01"
                                                   >
                                                     <div
@@ -2617,7 +2614,7 @@ Array [
                                                     </div>
                                                   </td>
                                                   <td
-                                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                                    class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
                                                     title="2016-12-31"
                                                   >
                                                     <div
@@ -2629,7 +2626,7 @@ Array [
                                                 </tr>
                                                 <tr>
                                                   <td
-                                                    class="ant-picker-cell"
+                                                    class="ant-picker-cell ant-picker-cell-start"
                                                     title="2017-01-01"
                                                   >
                                                     <div

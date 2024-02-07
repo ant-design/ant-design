@@ -10475,7 +10475,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"

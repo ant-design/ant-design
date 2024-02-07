@@ -12950,7 +12950,7 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context c
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
       >
         <div
           class="ant-table-container"
@@ -13278,7 +13278,12 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context c
 </div>
 `;
 
-exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context correctly 2`] = `
+[
+  "Warning: Index 1 of \`columns\` missing \`fixed='left'\` prop.",
+  "Warning: Index 11 of \`columns\` missing \`fixed='right'\` prop.",
+]
+`;
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div

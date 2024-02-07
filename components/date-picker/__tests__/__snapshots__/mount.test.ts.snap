@@ -2,16 +2,17 @@
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       placeholder="Select date"
+      readonly=""
       size="12"
+      title=""
       value=""
     />
     <span
@@ -43,16 +44,17 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-picker ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       placeholder="Select month"
+      readonly=""
       size="12"
+      title=""
       value=""
     />
     <span
@@ -84,16 +86,17 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 3`] = `
 <div
-  class="ant-picker ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-outlined ant-picker-rtl"
 >
   <div
     class="ant-picker-input"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
       placeholder="Select week"
+      readonly=""
       size="12"
+      title=""
       value=""
     />
     <span
@@ -125,16 +128,15 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 4`] = `
 <div
-  class="ant-picker ant-picker-range ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-range ant-picker-outlined ant-picker-rtl"
 >
   <div
-    class="ant-picker-input"
+    class="ant-picker-input ant-picker-input-active"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
-      date-range="start"
       placeholder="Start date"
+      readonly=""
       size="12"
       value=""
     />
@@ -171,17 +173,16 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
     class="ant-picker-input"
   >
     <input
-      aria-invalid="false"
       autocomplete="off"
-      date-range="end"
       placeholder="End date"
+      readonly=""
       size="12"
       value=""
     />
   </div>
   <div
     class="ant-picker-active-bar"
-    style="position: absolute; width: 0px; right: 0px;"
+    style="right: 0px; width: 0px; position: absolute;"
   />
   <span
     class="ant-picker-suffix"
