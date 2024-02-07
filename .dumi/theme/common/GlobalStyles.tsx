@@ -1,4 +1,5 @@
 import React from 'react';
+
 import ColorStyle from './Color/ColorStyle';
 import {
   BrowserMockup,
@@ -17,7 +18,7 @@ import {
 } from './styles';
 import InlineCard from './styles/InlineCard';
 
-const GlobalStyles = () => (
+const GlobalStyles: React.FC = () => (
   <>
     <Reset />
     <Common />
