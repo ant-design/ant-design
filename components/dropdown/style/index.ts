@@ -196,6 +196,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
           '&:empty': {
             padding: 0,
+            boxShadow: 'none',
           },
 
           [`${menuCls}-item-group-title`]: {
