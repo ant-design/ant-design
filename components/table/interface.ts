@@ -58,6 +58,8 @@ export interface TableLocale {
 
 export type SortOrder = 'descend' | 'ascend' | null;
 
+export type SorterTooltipTarget = 'full-header' | 'sorter';
+
 const TableActions = ['paginate', 'sort', 'filter'] as const;
 export type TableAction = (typeof TableActions)[number];
 
@@ -124,6 +126,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   sortDirections?: SortOrder[];
   sortIcon?: (props: { sortOrder: SortOrder }) => React.ReactNode;
   showSorterTooltip?: boolean | TooltipProps;
+  sorterTooltipTarget?: SorterTooltipTarget;
 
   // Filter
   filtered?: boolean;

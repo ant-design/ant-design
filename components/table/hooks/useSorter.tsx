@@ -1,8 +1,9 @@
+import * as React from 'react';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import * as React from 'react';
+
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
@@ -13,6 +14,7 @@ import type {
   CompareFn,
   Key,
   SorterResult,
+  SorterTooltipTarget,
   SortOrder,
   TableLocale,
   TransformColumns,
@@ -111,6 +113,7 @@ function injectSorter<RecordType>(
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
   tableShowSorterTooltip?: boolean | TooltipProps,
+  tableSorterTooltipTarget?: SorterTooltipTarget,
   pos?: string,
 ): ColumnsType<RecordType> {
   return (columns || []).map((column, index) => {
@@ -123,6 +126,10 @@ function injectSorter<RecordType>(
         newColumn.showSorterTooltip === undefined
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
+      const sorterTooltipTarget =
+        newColumn.sorterTooltipTarget === undefined
+          ? tableSorterTooltipTarget
+          : newColumn.sorterTooltipTarget;
       const columnKey = getColumnKey(newColumn, columnPos);
       const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sortOrder = sorterState ? sorterState.sortOrder : null;
@@ -178,19 +185,32 @@ function injectSorter<RecordType>(
         ...newColumn,
         className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => {
+          const columnSortersClass = `${prefixCls}-column-sorters`;
+          const renderColumnTitleWrapper = (
+            <span className={`${prefixCls}-column-title`}>
+              {renderColumnTitle(column.title, renderProps)}
+            </span>
+          );
           const renderSortTitle = (
-            <div className={`${prefixCls}-column-sorters`}>
-              <span className={`${prefixCls}-column-title`}>
-                {renderColumnTitle(column.title, renderProps)}
-              </span>
+            <div className={columnSortersClass}>
+              {renderColumnTitleWrapper}
               {sorter}
             </div>
           );
-          return showSorterTooltip ? (
-            <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>
-          ) : (
-            renderSortTitle
-          );
+          if (showSorterTooltip) {
+            if (sorterTooltipTarget === 'sorter') {
+              return (
+                <div
+                  className={`${columnSortersClass} ${prefixCls}-column-sorters-tooltip-target-sorter`}
+                >
+                  {renderColumnTitleWrapper}
+                  <Tooltip {...tooltipProps}>{sorter}</Tooltip>
+                </div>
+              );
+            }
+            return <Tooltip {...tooltipProps}>{renderSortTitle}</Tooltip>;
+          }
+          return renderSortTitle;
         },
         onHeaderCell: (col) => {
           const cell: React.HTMLAttributes<HTMLElement> =
@@ -248,6 +268,7 @@ function injectSorter<RecordType>(
           defaultSortDirections,
           tableLocale,
           tableShowSorterTooltip,
+          tableSorterTooltipTarget,
           columnPos,
         ),
       };
@@ -347,6 +368,7 @@ interface SorterConfig<RecordType> {
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
   showSorterTooltip?: boolean | TooltipProps;
+  sorterTooltipTarget?: SorterTooltipTarget;
 }
 
 export default function useFilterSorter<RecordType>({
@@ -356,6 +378,7 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   tableLocale,
   showSorterTooltip,
+  sorterTooltipTarget,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
   SortState<RecordType>[],
@@ -455,6 +478,7 @@ export default function useFilterSorter<RecordType>({
       sortDirections,
       tableLocale,
       showSorterTooltip,
+      sorterTooltipTarget,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);
