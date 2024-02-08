@@ -42,9 +42,6 @@ const genStepsInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           },
           [`${componentCls}-icon-dot`]: {
             borderRadius: token.calc(token.fontSizeSM).div(4).equal(),
-            '&::after': {
-              display: 'none',
-            },
           },
         },
 
