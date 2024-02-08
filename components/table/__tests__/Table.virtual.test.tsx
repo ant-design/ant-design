@@ -22,6 +22,11 @@ describe('Table.Virtual', () => {
       />,
     );
 
+    expect(
+      container.querySelectorAll(
+        '.ant-table-wrapper .ant-table-tbody-virtual .ant-table-row:not(tr)',
+      ),
+    ).toHaveLength(1);
     expect(container.querySelectorAll('.rc-virtual-list-holder .ant-table-cell')).toHaveLength(1);
     expect(container.querySelector('.rc-virtual-list-holder .ant-table-cell')?.textContent).toEqual(
       'bamboo',

@@ -198,6 +198,29 @@ describe('ConfigProvider.Theme', () => {
     expect(tokenRef?.colorPrimaryText).toBe('#1677ff');
   });
 
+  it('theme inherit should not affect hashed and cssVar', () => {
+    let hashId = 'hashId';
+    let cssVar;
+
+    const Demo = () => {
+      const [, , hash, , cssVarConfig] = useToken();
+      hashId = hash;
+      cssVar = cssVarConfig;
+      return null;
+    };
+
+    render(
+      <ConfigProvider theme={{ hashed: true, cssVar: true }}>
+        <ConfigProvider theme={{ inherit: false }}>
+          <Demo />
+        </ConfigProvider>
+      </ConfigProvider>,
+    );
+
+    expect(hashId).toBeTruthy();
+    expect(cssVar).toBeTruthy();
+  });
+
   describe('cssVar', () => {
     it('should work', () => {
       const { container } = render(

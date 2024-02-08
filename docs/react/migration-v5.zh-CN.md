@@ -259,6 +259,8 @@ export default {
 +   dayjs.locale('zh-cn');
 ```
 
+🚨 需要注意 day.js 通过插件系统拓展功能。如果你发现原本 moment.js 的功能在 day.js 中无法使用，请查阅 [day.js 官方文档](https://day.js.org/docs/en/plugin/plugin)。
+
 如果你暂时不想替换 day.js，也可以使用 `@ant-design/moment-webpack-plugin` 插件将 day.js 替换回 moment.js：
 
 ```bash

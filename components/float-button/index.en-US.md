@@ -2,8 +2,8 @@
 category: Components
 group: General
 title: FloatButton
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HS-wTIIwu0kAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a0hwTY_rOSUAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 tag: New
@@ -59,6 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | shape | Setting button shape of children | `circle` \| `square` | `circle` |  |
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - |  |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - |  |
+| closeIcon | Customize close button icon | React.ReactNode | `<CloseOutlined />` |  |
 | onOpenChange | Callback executed when active menu is changed, use it with trigger | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop

@@ -14,7 +14,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`${componentCls}-wrapper`]: {
       // ========================== Row ==========================
       [`${componentCls}-tbody-virtual`]: {
-        [`${componentCls}-row`]: {
+        [`${componentCls}-row:not(tr)`]: {
           display: 'flex',
           boxSizing: 'border-box',
           width: '100%',

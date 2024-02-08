@@ -54,7 +54,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
   if (file.type && !file.thumbUrl) {
     return isImageFileType(file.type);
   }
-  const url: string = (file.thumbUrl || file.url || '') as string;
+  const url = file.thumbUrl || file.url || '';
   const extension = extname(url);
   if (
     /^data:image\//.test(url) ||
@@ -76,17 +76,16 @@ export const isImageUrl = (file: UploadFile): boolean => {
 const MEASURE_SIZE = 200;
 
 export function previewImage(file: File | Blob): Promise<string> {
-  return new Promise((resolve) => {
+  return new Promise<string>((resolve) => {
     if (!file.type || !isImageFileType(file.type)) {
       resolve('');
       return;
     }
-
     const canvas = document.createElement('canvas');
     canvas.width = MEASURE_SIZE;
     canvas.height = MEASURE_SIZE;
     canvas.style.cssText = `position: fixed; left: 0; top: 0; width: ${MEASURE_SIZE}px; height: ${MEASURE_SIZE}px; z-index: 9999; display: none;`;
-    document.body.appendChild(canvas);
+    document.body.appendChild<HTMLCanvasElement>(canvas);
     const ctx = canvas.getContext('2d');
     const img = new Image();
     img.onload = () => {
@@ -115,13 +114,17 @@ export function previewImage(file: File | Blob): Promise<string> {
     if (file.type.startsWith('image/svg+xml')) {
       const reader = new FileReader();
       reader.onload = () => {
-        if (reader.result) img.src = reader.result as string;
+        if (reader.result && typeof reader.result === 'string') {
+          img.src = reader.result;
+        }
       };
       reader.readAsDataURL(file);
     } else if (file.type.startsWith('image/gif')) {
       const reader = new FileReader();
       reader.onload = () => {
-        if (reader.result) resolve(reader.result as string);
+        if (reader.result) {
+          resolve(reader.result as string);
+        }
       };
       reader.readAsDataURL(file);
     } else {

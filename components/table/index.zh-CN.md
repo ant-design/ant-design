@@ -87,6 +87,7 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
 <code src="./demo/fixed-header.tsx">固定表头</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
+<code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
 <code src="./demo/hidden-columns.tsx">隐藏列</code>
 <code src="./demo/grouping-columns.tsx">表头分组</code>
