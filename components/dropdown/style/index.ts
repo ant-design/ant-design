@@ -194,6 +194,11 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           boxShadow: token.boxShadowSecondary,
           ...genFocusStyle(token),
 
+          '&:empty': {
+            padding: 0,
+            boxShadow: 'none',
+          },
+
           [`${menuCls}-item-group-title`]: {
             padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
             color: token.colorTextDescription,
