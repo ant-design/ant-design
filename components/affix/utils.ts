@@ -1,9 +1,16 @@
 export type BindElement = HTMLElement | Window | null | undefined;
 
 export function getTargetRect(target: BindElement): DOMRect {
-  return target !== window
-    ? (target as HTMLElement).getBoundingClientRect()
-    : ({ top: 0, bottom: window.innerHeight } as DOMRect);
+  if (target === window) {
+    return { top: 0, bottom: window.innerHeight } as DOMRect;
+  }
+  const targetRect = (target as HTMLElement).getBoundingClientRect();
+  const { borderTopWidth, borderBottomWidth } = getComputedStyle(target as HTMLElement);
+  return {
+    ...targetRect,
+    top: targetRect.top + Number.parseInt(borderTopWidth, 10),
+    bottom: targetRect.bottom - Number.parseInt(borderBottomWidth, 10),
+  };
 }
 
 export function getFixedTop(placeholderRect: DOMRect, targetRect: DOMRect, offsetTop?: number) {
