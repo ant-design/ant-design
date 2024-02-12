@@ -264,7 +264,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-environment-node": "^29.7.0",
     "jest-image-snapshot": "^6.4.0",
-    "jest-puppeteer": "^9.0.2",
+    "jest-puppeteer": "^10.0.0",
     "jquery": "^3.7.1",
     "jsdom": "^24.0.0",
     "jsonml-to-react-element": "^1.1.11",
