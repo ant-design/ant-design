@@ -16,6 +16,18 @@ tag: vVERSION
 
 ---
 
+## 5.14.1
+
+`2024-02-12`
+
+- 🐞 Fix Steps cannot interact correctly when `type="inline"`. [#47406](https://github.com/ant-design/ant-design/pull/47406)
+- 🐞 Fix DatePicker &amp; TimePicker arrow position not consider panel border radius distance. [#47389](https://github.com/ant-design/ant-design/pull/47389)
+- 🐞 Fix Dropdown should not display when items is empty array. [#47375](https://github.com/ant-design/ant-design/pull/47375)
+- 🐞 Fix Tag that should use `defaultBg` token with `bordered={false}`. [#47372](https://github.com/ant-design/ant-design/pull/47372) [@MadCcc](https://github.com/MadCcc)
+- 🐞 MISC: Fix that `theme.inherit` should not affect `hashded` and `cssVar`. [#47360](https://github.com/ant-design/ant-design/pull/47360) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Calendar panel not switch when change year or month. [#47361](https://github.com/ant-design/ant-design/pull/47361)
+- 💄 Fix Table's sub-table style issue in virtual mode. [#47333](https://github.com/ant-design/ant-design/pull/47333) [@Enigama](https://github.com/Enigama)
+
 ## 5.14.0
 
 `2024-02-04`
