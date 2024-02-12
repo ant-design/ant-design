@@ -7,10 +7,15 @@ export function getTargetRect(target: BindElement): DOMRect {
   const targetRect = (target as HTMLElement).getBoundingClientRect();
   const { borderTopWidth, borderBottomWidth } = getComputedStyle(target as HTMLElement);
   return {
-    ...targetRect,
-    top: targetRect.top + Number.parseInt(borderTopWidth, 10),
-    bottom: targetRect.bottom - Number.parseInt(borderBottomWidth, 10),
-  };
+    width: targetRect.width,
+    height: targetRect.height,
+    left: targetRect.left,
+    right: targetRect.right,
+    x: targetRect.x,
+    y: targetRect.y,
+    top: targetRect.top + parseInt(borderTopWidth || '0', 10),
+    bottom: targetRect.bottom - parseInt(borderBottomWidth || '0', 10),
+  } as DOMRect;
 }
 
 export function getFixedTop(placeholderRect: DOMRect, targetRect: DOMRect, offsetTop?: number) {
