@@ -204,6 +204,7 @@ export const defaultPrefixCls = 'ant';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
+let globalCsp: CSPConfig;
 let globalHolderRender: holderRenderType | undefined;
 
 function getGlobalPrefixCls() {
@@ -222,11 +223,12 @@ interface GlobalConfigProps {
   prefixCls?: string;
   iconPrefixCls?: string;
   theme?: Theme | ThemeConfig;
+  csp?: CSPConfig
   holderRender?: holderRenderType;
 }
 
 const setGlobalConfig = (props: GlobalConfigProps) => {
-  const { prefixCls, iconPrefixCls, theme, holderRender } = props;
+  const { prefixCls, iconPrefixCls, theme, csp, holderRender } = props;
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
@@ -249,6 +251,10 @@ const setGlobalConfig = (props: GlobalConfigProps) => {
       globalTheme = theme;
     }
   }
+  
+  if(csp) {
+    globalCsp = csp;
+  }
 };
 
 export const globalConfig = () => ({
@@ -269,6 +275,7 @@ export const globalConfig = () => ({
     return getGlobalPrefixCls();
   },
   getTheme: () => globalTheme,
+  getCsp: () => globalCsp,
   holderRender: globalHolderRender,
 });
 
