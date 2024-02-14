@@ -252,7 +252,7 @@
     "glob": "^10.3.10",
     "html2sketch": "^1.0.2",
     "http-server": "^14.1.1",
-    "husky": "^9.0.10",
+    "husky": "^9.0.11",
     "identity-obj-proxy": "^3.0.0",
     "immer": "^10.0.3",
     "inquirer": "^9.2.14",
