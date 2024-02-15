@@ -80,7 +80,12 @@ function injectFilter<RecordType>(
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
-    const { filterMultiple = true, filterMode, filterSearch } = column as ColumnType<RecordType>;
+    const {
+      filterOnClose = true,
+      filterMultiple = true,
+      filterMode,
+      filterSearch,
+    } = column as ColumnType<RecordType>;
 
     let newColumn: ColumnsType<RecordType>[number] = column;
 
@@ -98,6 +103,7 @@ function injectFilter<RecordType>(
             column={newColumn}
             columnKey={columnKey}
             filterState={filterState}
+            filterOnClose={filterOnClose}
             filterMultiple={filterMultiple}
             filterMode={filterMode}
             filterSearch={filterSearch}
