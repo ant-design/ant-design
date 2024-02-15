@@ -77,7 +77,7 @@
     "lint-fix:demo": "npm run lint:demo -- --fix",
     "lint-fix:script": "npm run lint:script -- --fix",
     "pre-publish": "npm run test-all -- --skip-build && tsx ./scripts/pre-publish-notice.ts",
-    "prepare": "is-ci || husky install && dumi setup",
+    "prepare": "is-ci || husky && dumi setup",
     "prepublishOnly": "antd-tools run guard",
     "prettier": "prettier -c --write **/* --cache",
     "pub": "npm run version && npm run collect-token-statistic && npm run token-meta && antd-tools run pub",
