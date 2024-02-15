@@ -154,6 +154,27 @@ describe('Alert', () => {
     expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
   });
 
+  it('close button should be support aria-* by closable', () => {
+    const { container, rerender } = render(<Alert />);
+    expect(container.querySelector('*[aria-label]')).toBeFalsy();
+    rerender(<Alert closable={{ 'aria-label': 'Close' }} closeIcon="CloseIcon" />);
+    expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
+    rerender(<Alert closable={{ 'aria-label': 'Close' }} closeText="CloseText" />);
+    expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
+    rerender(<Alert closable={{ 'aria-label': 'Close', icon: 'CloseIconProp' }} />);
+    expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
+  });
+  it('close button should be support custom icon by closable', () => {
+    const { container, rerender } = render(<Alert />);
+    expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
+    rerender(<Alert closable={{ icon: 'CloseBtn' }} />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
+    rerender(<Alert closable={{ icon: 'CloseBtn' }} closeIcon="CloseBtn2" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn2');
+    rerender(<Alert closable={{ icon: 'CloseBtn' }} closeText="CloseBtn3" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn3');
+  });
+
   it('should warning when using closeText', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
