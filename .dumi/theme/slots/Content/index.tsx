@@ -100,7 +100,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
               juejinLink={meta.frontmatter.juejin_url}
             />
           </InViewSuspense>
-          <InViewSuspense>
+          <InViewSuspense fallback={<div style={{ height: 50, marginTop: 120 }} />}>
             <Contributors filename={meta.frontmatter.filename} />
           </InViewSuspense>
         </article>
