@@ -15,17 +15,8 @@ const locales = {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
-    <SemanticPreview
-      semantics={[
-        {
-          name: 'item',
-          desc: locale.item,
-          version: '5.6.0',
-        },
-      ]}
-    >
+    <SemanticPreview semantics={[{ name: 'item', desc: locale.item, version: '5.6.0' }]}>
       <Space>
         <Button type="primary">Primary</Button>
         <Button>Default</Button>
