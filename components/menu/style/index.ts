@@ -956,8 +956,6 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         darkDangerItemHoverColor,
         darkDangerItemSelectedColor,
         darkDangerItemActiveBg,
-        horizontalItemSelectedBg,
-        horizontalItemSelectedColor,
         popupBg,
         darkPopupBg,
       } = token;
@@ -1001,8 +999,8 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         menuSubMenuBg: darkSubMenuItemBg,
 
         // Horizontal
-        horizontalItemSelectedColor: horizontalItemSelectedColor,
-        horizontalItemSelectedBg: horizontalItemSelectedBg,
+        horizontalItemSelectedColor: darkItemSelectedColor,
+        horizontalItemSelectedBg: darkItemSelectedBg,
       });
 
       return [
