@@ -940,8 +940,6 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
     (token) => {
       const {
         colorBgElevated,
-        colorPrimary,
-        colorTextLightSolid,
         controlHeightLG,
         fontSize,
         darkItemColor,
@@ -958,6 +956,8 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         darkDangerItemHoverColor,
         darkDangerItemSelectedColor,
         darkDangerItemActiveBg,
+        horizontalItemSelectedBg,
+        horizontalItemSelectedColor,
         popupBg,
         darkPopupBg,
       } = token;
@@ -1001,8 +1001,8 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         menuSubMenuBg: darkSubMenuItemBg,
 
         // Horizontal
-        horizontalItemSelectedColor: colorTextLightSolid,
-        horizontalItemSelectedBg: colorPrimary,
+        horizontalItemSelectedColor: horizontalItemSelectedColor,
+        horizontalItemSelectedBg: horizontalItemSelectedBg,
       });
 
       return [
