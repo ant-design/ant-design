@@ -270,6 +270,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
     // =================== Content ====================
     [`${componentCls}-content`]: {
       flex: 'auto',
+      color: colorText,
 
       // fix firefox can't set height smaller than content on flex item
       minHeight: 0,
