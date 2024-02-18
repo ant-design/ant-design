@@ -211,7 +211,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     const merged = closable ?? alert?.closable;
     if (typeof merged === 'object') {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { closeIcon, ...ariaProps } = merged;
+      const { closeIcon: _, ...ariaProps } = merged;
       return ariaProps;
     }
     return {};
