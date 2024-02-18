@@ -9,7 +9,7 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
   container: css`
     position: relative;
   `,
-  col: css`
+  colWrap: css`
     border-right: 1px solid ${token.colorBorderSecondary};
     display: flex;
     justify-content: center;
@@ -18,17 +18,16 @@ const useStyle = createStyles(({ token }, markPos: [number, number, number, numb
     overflow: hidden;
   `,
   listWrap: css`
-    row-gap: ${token.paddingXS}px;
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin: 0;
     padding: 0;
-    flex-direction: column;
     overflow: hidden;
   `,
   listItem: css`
     cursor: pointer;
-    padding-block: ${token.paddingXS}px;
-    padding-inline: ${token.paddingSM}px;
+    padding: ${token.paddingSM}px;
     transition: background-color ${token.motionDurationFast} ease;
     &:hover {
       background-color: ${token.controlItemBgHover};
@@ -137,7 +136,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   return (
     <div className={classnames(styles.container)} ref={containerRef}>
       <Row style={{ minHeight: height }}>
-        <Col span={16} className={classnames(styles.col)}>
+        <Col span={16} className={classnames(styles.colWrap)}>
           <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
         </Col>
         <Col span={8}>
