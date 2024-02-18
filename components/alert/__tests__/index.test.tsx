@@ -170,8 +170,12 @@ describe('Alert', () => {
     rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} />);
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
     rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} closeIcon="CloseBtn2" />);
-    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn2');
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
     rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} closeText="CloseBtn3" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
+    rerender(<Alert closeText="CloseBtn2" />);
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn2');
+    rerender(<Alert closeIcon="CloseBtn3" />);
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn3');
   });
 
@@ -182,7 +186,21 @@ describe('Alert', () => {
     const { container } = render(<Alert closeText="close" />);
 
     expect(warnSpy).toHaveBeenCalledWith(
-      `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closeIcon\` instead.`,
+      `Warning: [antd: Alert] \`closeText\` is deprecated. Please use \`closable.closeIcon\` instead.`,
+    );
+
+    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
+
+    warnSpy.mockRestore();
+  });
+  it('should warning when using closeIcon', () => {
+    resetWarned();
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const { container } = render(<Alert closeIcon="close" />);
+
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Alert] \`closeIcon\` is deprecated. Please use \`closable.closeIcon\` instead.`,
     );
 
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
