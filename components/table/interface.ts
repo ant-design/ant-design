@@ -129,6 +129,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
+  filterOnClose?: boolean;
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;
