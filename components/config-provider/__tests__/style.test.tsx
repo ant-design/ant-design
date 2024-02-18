@@ -708,7 +708,7 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Alert className works', () => {
-    const { container } = render(
+    const { container, rerender } = render(
       <ConfigProvider
         alert={{
           className: 'test-class',
@@ -719,6 +719,23 @@ describe('ConfigProvider support style and className props', () => {
         <Alert message="Test Message" />
       </ConfigProvider>,
     );
+    expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
+    expect(container.querySelectorAll('*[aria-label="close"]')).toBeTruthy();
+    rerender(
+      <ConfigProvider
+        alert={{
+          className: 'test-class',
+          closable: {
+            'aria-label': 'close',
+            closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
+        }}
+      >
+        <Alert message="Test Message" />
+      </ConfigProvider>,
+    );
+
     expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
     expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
     expect(container.querySelectorAll('*[aria-label="close"]')).toBeTruthy();
