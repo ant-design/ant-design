@@ -161,17 +161,17 @@ describe('Alert', () => {
     expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
     rerender(<Alert closable={{ 'aria-label': 'Close' }} closeText="CloseText" />);
     expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
-    rerender(<Alert closable={{ 'aria-label': 'Close', icon: 'CloseIconProp' }} />);
+    rerender(<Alert closable={{ 'aria-label': 'Close', closeIcon: 'CloseIconProp' }} />);
     expect(container.querySelector('[aria-label="Close"]')).toBeTruthy();
   });
   it('close button should be support custom icon by closable', () => {
     const { container, rerender } = render(<Alert />);
     expect(container.querySelector('.ant-alert-close-icon')).toBeFalsy();
-    rerender(<Alert closable={{ icon: 'CloseBtn' }} />);
+    rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} />);
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn');
-    rerender(<Alert closable={{ icon: 'CloseBtn' }} closeIcon="CloseBtn2" />);
+    rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} closeIcon="CloseBtn2" />);
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn2');
-    rerender(<Alert closable={{ icon: 'CloseBtn' }} closeText="CloseBtn3" />);
+    rerender(<Alert closable={{ closeIcon: 'CloseBtn' }} closeText="CloseBtn3" />);
     expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('CloseBtn3');
   });
 

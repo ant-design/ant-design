@@ -27,7 +27,7 @@ const App: React.FC = () => (
       type="error"
       closable={{
         'aria-label': 'close',
-        icon: <CloseSquareFilled />,
+        closeIcon: <CloseSquareFilled />,
       }}
       onClose={onClose}
     />

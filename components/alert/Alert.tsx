@@ -18,7 +18,7 @@ export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
-  closable?: boolean | ({ icon?: React.ReactNode } & React.AriaAttributes);
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /**
    * @deprecated please use `closeIcon` instead.
    * Close text to show
@@ -157,7 +157,7 @@ const Alert: React.FC<AlertProps> = (props) => {
     if (typeof closable === 'boolean') {
       return closable;
     }
-    if (typeof closable === 'object' && closable.icon) return true;
+    if (typeof closable === 'object' && closable.closeIcon) return true;
     // should be true when closeIcon is 0 or ''
     return closeIcon !== false && closeIcon !== null && closeIcon !== undefined;
   }, [closeText, closeIcon, closable]);
@@ -190,8 +190,8 @@ const Alert: React.FC<AlertProps> = (props) => {
     if (closeIcon !== undefined) {
       return closeIcon;
     }
-    if (typeof closable === 'object' && closable.icon) {
-      return closable.icon;
+    if (typeof closable === 'object' && closable.closeIcon) {
+      return closable.closeIcon;
     }
     return alert?.closeIcon;
   }, [closeIcon, closable, closeText, alert?.closeIcon]);
@@ -199,7 +199,7 @@ const Alert: React.FC<AlertProps> = (props) => {
   const mergeAriaProps = React.useMemo(() => {
     if (typeof closable === 'object') {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { icon, ...ariaProps } = closable;
+      const { closeIcon, ...ariaProps } = closable;
       return ariaProps;
     }
     return {};
