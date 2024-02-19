@@ -69,10 +69,6 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 
 ## FAQ
 
-### Why does the warning findDOMNode is deprecated some times appear in strict mode?
-
-This is due to the implementation of `rc-tooltip`. `rc-trigger` forces children to accept ref, otherwise it will fallback to findDOMNode, so children either need to be native html tags, or need to use `React.forwardRef` to ref is passed transparently to native tags.
-
 ### Why sometime not work on HOC?
 
 Please ensure that the child node of `Tooltip` accepts `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, `onClick` events.
