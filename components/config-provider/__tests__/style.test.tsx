@@ -712,8 +712,10 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         alert={{
           className: 'test-class',
-          closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
-          closable: { 'aria-label': 'close' },
+          closable: {
+            'aria-label': 'close',
+            closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
         }}
       >
         <Alert message="Test Message" />
