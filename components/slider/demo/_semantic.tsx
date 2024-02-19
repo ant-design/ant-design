@@ -21,30 +21,13 @@ const locales = {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
       semantics={[
-        {
-          name: 'track',
-          desc: locale.track,
-          version: '5.10.0',
-        },
-        {
-          name: 'tracks',
-          desc: locale.tracks,
-          version: '5.10.0',
-        },
-        {
-          name: 'rail',
-          desc: locale.rail,
-          version: '5.10.0',
-        },
-        {
-          name: 'handle',
-          desc: locale.handle,
-          version: '5.10.0',
-        },
+        { name: 'track', desc: locale.track, version: '5.10.0' },
+        { name: 'tracks', desc: locale.tracks, version: '5.10.0' },
+        { name: 'rail', desc: locale.rail, version: '5.10.0' },
+        { name: 'handle', desc: locale.handle, version: '5.10.0' },
       ]}
     >
       <Slider range defaultValue={[20, 30, 50]} style={{ width: '100%' }} />

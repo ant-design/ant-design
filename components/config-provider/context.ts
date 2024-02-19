@@ -73,8 +73,6 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
-
 export type AvatarConfig = ComponentStyleConfig & Pick<AvatarProps, 'icon'>;
 
 export interface TableConfig extends ComponentStyleConfig {
@@ -94,6 +92,8 @@ export type ModalConfig = ComponentStyleConfig &
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
+
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
