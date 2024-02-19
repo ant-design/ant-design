@@ -22,36 +22,19 @@ const locales = {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
-
   return (
     <SemanticPreview
       semantics={[
-        {
-          name: 'input',
-          desc: locale.input,
-          version: '5.4.0',
-        },
-        {
-          name: 'prefix',
-          desc: locale.prefix,
-          version: '5.4.0',
-        },
-        {
-          name: 'suffix',
-          desc: locale.suffix,
-          version: '5.4.0',
-        },
-        {
-          name: 'count',
-          desc: locale.count,
-          version: '5.4.0',
-        },
+        { name: 'input', desc: locale.input, version: '5.4.0' },
+        { name: 'prefix', desc: locale.prefix, version: '5.4.0' },
+        { name: 'suffix', desc: locale.suffix, version: '5.4.0' },
+        { name: 'count', desc: locale.count, version: '5.4.0' },
       ]}
     >
       <Input
+        showCount
         prefix={<UserOutlined />}
         suffix={<EditOutlined />}
-        showCount
         defaultValue="Hello, Ant Design"
       />
     </SemanticPreview>
