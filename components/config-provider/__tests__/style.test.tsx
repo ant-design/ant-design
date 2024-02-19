@@ -273,7 +273,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Collapse className works', () => {
+  it('Should Collapse className & expandIcon works', () => {
     const items = [
       {
         key: '1',
@@ -285,13 +285,14 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         collapse={{
           className: 'test-class',
+          expandIcon: (props) => <span className="cp-test-icon">{props.isActive}</span>,
         }}
       >
         <Collapse items={items} />
       </ConfigProvider>,
     );
-
     expect(container.querySelector('.ant-collapse')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.cp-test-icon')).toBeTruthy();
   });
 
   it('Should Collapse style works', () => {
@@ -954,22 +955,15 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 
-  it('Should Avatar className & style & icon works', () => {
+  it('Should Avatar className & style works', () => {
     const { container } = render(
-      <ConfigProvider
-        avatar={{
-          className: 'cp-avatar',
-          style: { backgroundColor: 'blue' },
-          icon: <span className="test-cp-icon">test-cp-icon</span>,
-        }}
-      >
+      <ConfigProvider avatar={{ className: 'cp-avatar', style: { backgroundColor: 'blue' } }}>
         <Avatar />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-avatar');
     expect(element).toHaveClass('cp-avatar');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
-    expect(element?.querySelector<HTMLSpanElement>('.test-cp-icon')).toBeTruthy();
   });
 
   it('Should Tag className & style & closeIcon works', () => {

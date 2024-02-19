@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import type { AnyObject } from './type';
 
 export const { isValidElement } = React;

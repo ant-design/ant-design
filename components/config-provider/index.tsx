@@ -21,10 +21,10 @@ import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   AlertConfig,
-  AvatarConfig,
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
@@ -143,7 +143,7 @@ export interface ConfigProviderProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
@@ -170,7 +170,7 @@ export interface ConfigProviderProps {
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
-  avatar?: AvatarConfig;
+  avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;
   table?: TableConfig;

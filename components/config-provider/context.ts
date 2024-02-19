@@ -3,10 +3,10 @@ import * as React from 'react';
 import type { WarningContextProps } from '../_util/warning';
 import type { ShowWaveEffect } from '../_util/wave/interface';
 import type { AlertProps } from '../alert';
-import type { AvatarProps } from '../avatar';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FormProps } from '../form/Form';
@@ -73,8 +73,6 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export type AvatarConfig = ComponentStyleConfig & Pick<AvatarProps, 'icon'>;
-
 export interface TableConfig extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
@@ -84,6 +82,8 @@ export interface TableConfig extends ComponentStyleConfig {
 export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
+
+export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
@@ -151,7 +151,7 @@ export interface ConfigConsumerProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
@@ -176,7 +176,7 @@ export interface ConfigConsumerProps {
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
-  avatar?: AvatarConfig;
+  avatar?: ComponentStyleConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;
   table?: TableConfig;

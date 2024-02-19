@@ -103,7 +103,7 @@ const {
 | --- | --- | --- | --- | --- |
 | alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties, icon?: React.ReactNode } | - | 5.7.0, icon: 5.15.0 |
+| avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, indicator?: string }, styles?: { count?: React.CSSProperties, indicator?: React.CSSProperties } } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
@@ -112,7 +112,7 @@ const {
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | checkbox | Set Checkbox common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| collapse | Set Collapse common props | { className?: string, style?: React.CSSProperties, expandIcon?: (props) => ReactNode } | - | 5.7.0, expandIcon: 5.15.0 |
 | colorPicker | Set ColorPicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | datePicker | Set datePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | rangePicker | Set rangePicker common props | { className?: string, style?: React.CSSProperties } | - | 5.11.0 |

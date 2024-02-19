@@ -90,29 +90,24 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
   }
 
   // Align with logic position
-  const mergedExpandIconPosition = React.useMemo(() => {
+  const mergedExpandIconPosition = React.useMemo<'start' | 'end'>(() => {
     if (expandIconPosition === 'left') {
       return 'start';
     }
     return expandIconPosition === 'right' ? 'end' : expandIconPosition;
   }, [expandIconPosition]);
 
-  const renderExpandIcon = (panelProps: PanelProps = {}) => {
-    const icon = (
-      expandIcon ? (
-        expandIcon(panelProps)
-      ) : (
+  const renderExpandIcon = React.useCallback(
+    (panelProps: PanelProps = {}) => {
+      const icon = (expandIcon ?? collapse?.expandIcon)?.(panelProps) ?? (
         <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
-      )
-    ) as React.ReactNode;
-
-    return cloneElement(icon, () => ({
-      className: classNames(
-        (icon as React.ReactElement<any>).props.className,
-        `${prefixCls}-arrow`,
-      ),
-    }));
-  };
+      );
+      return cloneElement(icon, () => ({
+        className: classNames((icon as React.ReactElement)?.props?.className, `${prefixCls}-arrow`),
+      }));
+    },
+    [prefixCls, expandIcon, collapse?.expandIcon],
+  );
 
   const collapseClassName = classNames(
     `${prefixCls}-icon-position-${mergedExpandIconPosition}`,

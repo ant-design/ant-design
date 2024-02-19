@@ -109,8 +109,6 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
-  const mergedIcon = icon ?? avatar?.icon;
-
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'default');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
@@ -130,7 +128,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       ? {
           width: currentSize,
           height: currentSize,
-          fontSize: currentSize && (mergedIcon || children) ? currentSize / 2 : 18,
+          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size]);
@@ -139,9 +137,9 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     const warning = devUseWarning('Avatar');
 
     warning(
-      !(typeof mergedIcon === 'string' && mergedIcon.length > 2),
+      !(typeof icon === 'string' && icon.length > 2),
       'breaking',
-      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${mergedIcon}\` at https://ant.design/components/icon`,
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
     );
   }
 
@@ -165,7 +163,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
-      [`${prefixCls}-icon`]: !!mergedIcon,
+      [`${prefixCls}-icon`]: !!icon,
     },
     cssVarCls,
     rootCls,
@@ -175,9 +173,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   );
 
   const sizeStyle: React.CSSProperties =
-    typeof size === 'number'
-      ? { width: size, height: size, fontSize: mergedIcon ? size / 2 : 18 }
-      : {};
+    typeof size === 'number' ? { width: size, height: size, fontSize: icon ? size / 2 : 18 } : {};
 
   let childrenToRender: React.ReactNode;
   if (typeof src === 'string' && isImgExist) {
@@ -193,8 +189,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     );
   } else if (hasImageElement) {
     childrenToRender = src;
-  } else if (mergedIcon) {
-    childrenToRender = mergedIcon;
+  } else if (icon) {
+    childrenToRender = icon;
   } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale})`;
     const childrenStyle: React.CSSProperties = {
