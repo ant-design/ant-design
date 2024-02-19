@@ -935,15 +935,22 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
   });
 
-  it('Should Avatar className & style works', () => {
+  it('Should Avatar className & style & icon works', () => {
     const { container } = render(
-      <ConfigProvider avatar={{ className: 'cp-avatar', style: { backgroundColor: 'blue' } }}>
+      <ConfigProvider
+        avatar={{
+          className: 'cp-avatar',
+          style: { backgroundColor: 'blue' },
+          icon: <span className="test-cp-icon">test-cp-icon</span>,
+        }}
+      >
         <Avatar />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLSpanElement>('.ant-avatar');
     expect(element).toHaveClass('cp-avatar');
     expect(element).toHaveStyle({ backgroundColor: 'blue' });
+    expect(element?.querySelector<HTMLSpanElement>('.test-cp-icon')).toBeTruthy();
   });
 
   it('Should Tag className & style & closeIcon works', () => {

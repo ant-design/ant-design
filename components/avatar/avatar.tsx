@@ -7,12 +7,12 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -109,6 +109,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     ...others
   } = props;
 
+  const mergedIcon = icon ?? avatar?.icon;
+
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'default');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
@@ -128,7 +130,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
       ? {
           width: currentSize,
           height: currentSize,
-          fontSize: currentSize && (icon || children) ? currentSize / 2 : 18,
+          fontSize: currentSize && (mergedIcon || children) ? currentSize / 2 : 18,
         }
       : {};
   }, [screens, size]);
@@ -137,9 +139,9 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     const warning = devUseWarning('Avatar');
 
     warning(
-      !(typeof icon === 'string' && icon.length > 2),
+      !(typeof mergedIcon === 'string' && mergedIcon.length > 2),
       'breaking',
-      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${mergedIcon}\` at https://ant.design/components/icon`,
     );
   }
 
@@ -163,7 +165,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     `${prefixCls}-${mergedShape}`,
     {
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
-      [`${prefixCls}-icon`]: !!icon,
+      [`${prefixCls}-icon`]: !!mergedIcon,
     },
     cssVarCls,
     rootCls,
@@ -174,11 +176,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
 
   const sizeStyle: React.CSSProperties =
     typeof size === 'number'
-      ? {
-          width: size,
-          height: size,
-          fontSize: icon ? size / 2 : 18,
-        }
+      ? { width: size, height: size, fontSize: mergedIcon ? size / 2 : 18 }
       : {};
 
   let childrenToRender: React.ReactNode;
@@ -195,8 +193,8 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
     );
   } else if (hasImageElement) {
     childrenToRender = src;
-  } else if (icon) {
-    childrenToRender = icon;
+  } else if (mergedIcon) {
+    childrenToRender = mergedIcon;
   } else if (mounted || scale !== 1) {
     const transformString = `scale(${scale})`;
     const childrenStyle: React.CSSProperties = {

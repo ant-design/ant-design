@@ -21,6 +21,7 @@ import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
   AlertConfig,
+  AvatarConfig,
   BadgeConfig,
   ButtonConfig,
   CardConfig,
@@ -169,7 +170,7 @@ export interface ConfigProviderProps {
   rate?: ComponentStyleConfig;
   switch?: ComponentStyleConfig;
   transfer?: TransferConfig;
-  avatar?: ComponentStyleConfig;
+  avatar?: AvatarConfig;
   message?: ComponentStyleConfig;
   tag?: TagConfig;
   table?: TableConfig;

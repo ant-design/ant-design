@@ -103,7 +103,7 @@ const {
 | --- | --- | --- | --- | --- |
 | alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode } | - | 5.7.0, closeIcon: 5.14.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
-| avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
+| avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties, icon?: React.ReactNode } | - | 5.7.0, icon: 5.15.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, indicator?: string }, styles?: { count?: React.CSSProperties, indicator?: React.CSSProperties } } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
