@@ -1,31 +1,46 @@
-import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import React from 'react';
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Dropdown, Space, Modal } from 'antd';
+
+const items: MenuProps['items'] = [
+  {
+    key: '1',
+    label: '1',
+  },
+  {
+    key: '2',
+    label: '2',
+  },
+  {
+    key: '3',
+    label: '3',
+  },
+  {
+    key: '4',
+    label: '4',
+  },
+];
 
 const App: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
+  const [open, setOpen] = React.useState(false);
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
-        Open Modal
-      </Button>
-      <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
+      {Array(10)
+        .fill(null)
+        .map((_, index) => (
+          <Dropdown key={index} menu={{ items, onClick: () => setOpen(true) }}>
+            <div onClick={(e) => e.preventDefault()}>
+              <Space>
+                Hover me
+                <DownOutlined />
+              </Space>
+            </div>
+          </Dropdown>
+        ))}
+
+      <Modal title="title" open={open} onCancel={() => setOpen(false)} />
     </>
   );
 };

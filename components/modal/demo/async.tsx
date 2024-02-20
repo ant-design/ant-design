@@ -1,45 +1,67 @@
 import React, { useState } from 'react';
-import { Button, Modal } from 'antd';
+import type { MenuProps } from 'antd';
+import { Button, Modal, Dropdown, Space } from 'antd';
 
-const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
-  const [confirmLoading, setConfirmLoading] = useState(false);
-  const [modalText, setModalText] = useState('Content of the modal');
+const Apps: React.FC = (props) => {
+  const { time } = props;
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
-    setOpen(true);
+    for (let i = 0; i < time; i++) {
+      console.log(i);
+    }
+    setIsModalOpen(true);
   };
 
   const handleOk = () => {
-    setModalText('The modal will be closed after two seconds');
-    setConfirmLoading(true);
-    setTimeout(() => {
-      setOpen(false);
-      setConfirmLoading(false);
-    }, 2000);
+    setIsModalOpen(false);
   };
 
   const handleCancel = () => {
-    console.log('Clicked cancel button');
-    setOpen(false);
+    setIsModalOpen(false);
   };
 
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Open Modal with async logic
+        Open Modal
       </Button>
       <Modal
-        title="Title"
-        open={open}
+        destroyOnClose
+        title="Basic Modal"
+        open={isModalOpen}
         onOk={handleOk}
-        confirmLoading={confirmLoading}
         onCancel={handleCancel}
       >
-        <p>{modalText}</p>
+        modal
       </Modal>
     </>
   );
 };
+
+const items1: MenuProps['items'] = [
+  {
+    key: '1',
+    label: <Apps time={10} />,
+  },
+];
+
+const items2: MenuProps['items'] = [
+  {
+    key: '1',
+    label: <Apps time={10000} />,
+  },
+];
+
+const App: React.FC = () => (
+  <Space direction="vertical">
+    <Dropdown menu={{ items: items1 }}>
+      <span>10</span>
+    </Dropdown>
+    <Dropdown menu={{ items: items2 }}>
+      <span>10000 </span>
+    </Dropdown>
+  </Space>
+);
 
 export default App;
