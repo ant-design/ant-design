@@ -28,7 +28,7 @@ By clicking the input box, you can select a time from a popup panel.
 <code src="./demo/change-on-scroll.tsx" version="5.14.0">Change on scroll</code>
 <code src="./demo/colored-popup.tsx" debug>Colored Popup</code>
 <code src="./demo/range-picker.tsx">Time Range Picker</code>
-<code src="./demo/variant.tsx" version="5.14.0">Variants</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/suffix.tsx" debug>Suffix</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -78,7 +78,7 @@ dayjs.extend(customParseFormat)
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [dayjs](http://day.js.org/) | - |  |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.14.0 |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
 | onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |

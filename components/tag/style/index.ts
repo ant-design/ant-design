@@ -133,7 +133,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken
     tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
     tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
     tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.colorFillTertiary,
+    tagBorderlessBg: token.defaultBg,
   });
   return tagToken;
 };

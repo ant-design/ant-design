@@ -18,7 +18,10 @@ import remarkHtml from 'remark-html';
 import sharp from 'sharp';
 import tar from 'tar';
 
+const ROOT_DIR = process.cwd();
 const ALI_OSS_BUCKET = 'antd-visual-diff';
+
+const REPORT_DIR = path.join(ROOT_DIR, './visualRegressionReport');
 
 const isLocalEnv = process.env.LOCAL;
 
@@ -148,36 +151,40 @@ function generateReport(
   targetRef: string,
   prId: string,
 ): [string, string] {
-  const publicPath = isLocalEnv ? path.resolve(__dirname, '../..') : `${ossDomain}/pr-${prId}`;
+  const reportDirname = path.basename(REPORT_DIR);
+
+  const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${reportDirname}`;
 
   const passed = badCases.length === 0;
 
   const commonHeader = `
-## Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
-> **Target branch:** ${targetBranch} (${targetRef})
+## 👁 Visual Regression Report for PR #${prId} ${passed ? 'Passed ✅' : 'Failed ❌'}
+> **🎯 Target branch:** ${targetBranch} (${targetRef})
   `.trim();
 
+  const htmlReportLink = `${publicPath}/report.html`;
+  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
+
+  const fullReport = `> 📖 <a href="${htmlReportLink}" target="_blank">View Full Report ↗︎</a>`;
   if (passed) {
     const mdStr = [
       commonHeader,
-      '------------------------',
-      'Congrats! No visual-regression diff found',
+      fullReport,
+      '\n🎊 Congrats! No visual-regression diff found.\n',
+      '<img src="https://github.com/ant-design/ant-design/assets/507615/2d1a77dc-dbc6-4b0f-9cbc-19a43d3c29cd" width="300" />',
     ].join('\n');
 
     return [mdStr, md2Html(mdStr)];
   }
 
-  const htmlReportLink = `${publicPath}/visualRegressionReport/report.html`;
-
-  const addonFullReportDesc = `\n\nCheck <a href="${htmlReportLink}" target="_blank">Full Report</a> for details`;
-
   let reportMdStr = `
 ${commonHeader}
-> <a href="${htmlReportLink}" target="_blank">View Full Report</a> \n
-------------------------
-| image name | expected | actual | diff |
+${fullReport}
+
+| Image name | Expected | Actual | Diff |
 | --- | --- | --- | --- |
     `.trim();
+
   reportMdStr += '\n';
 
   let fullVersionMd = reportMdStr;
@@ -190,17 +197,17 @@ ${commonHeader}
     if (type === 'changed') {
       lineReportMdStr += '| ';
       lineReportMdStr += [
-        badCase.filename,
-        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
-        `![current: pr-${prId}](${publicPath}/visualRegressionReport/images/current/${filename})`,
-        `![diff](${publicPath}/visualRegressionReport/images/diff/${filename})`,
+        `\`${badCase.filename}\``,
+        `![${targetBranch}: ${targetRef}](${publicPath}/images/base/${filename})`,
+        `![current: pr-${prId}](${publicPath}/images/current/${filename})`,
+        `![diff](${publicPath}/images/diff/${filename})`,
       ].join(' | ');
       lineReportMdStr += ' |\n';
     } else if (type === 'removed') {
       lineReportMdStr += '| ';
       lineReportMdStr += [
-        badCase.filename,
-        `![${targetBranch}: ${targetRef}](${publicPath}/visualRegressionReport/images/base/${filename})`,
+        `\`${badCase.filename}\``,
+        `![${targetBranch}: ${targetRef}](${publicPath}/images/base/${filename})`,
         `⛔️⛔️⛔️ Missing ⛔️⛔️⛔️`,
         `🚨🚨🚨 Removed 🚨🚨🚨`,
       ].join(' | ');
@@ -224,7 +231,7 @@ ${commonHeader}
 async function boot() {
   const { prId, baseRef: targetBranch = 'master' } = parseArgs();
 
-  const baseImgSourceDir = path.resolve(__dirname, `../../imageSnapshots-${targetBranch}`);
+  const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
 
   /* --- prepare stage --- */
   console.log(
@@ -250,13 +257,12 @@ async function boot() {
     process.exit(1);
   }
 
-  const currentImgSourceDir = path.resolve(__dirname, '../../imageSnapshots');
+  const currentImgSourceDir = path.resolve(ROOT_DIR, './imageSnapshots');
 
-  const reportDir = path.resolve(__dirname, '../../visualRegressionReport');
   // save diff images(x3) to reportDir
-  const diffImgReportDir = path.resolve(reportDir, './images/diff');
-  const baseImgReportDir = path.resolve(reportDir, './images/base');
-  const currentImgReportDir = path.resolve(reportDir, './images/current');
+  const diffImgReportDir = path.resolve(REPORT_DIR, './images/diff');
+  const baseImgReportDir = path.resolve(REPORT_DIR, './images/base');
+  const currentImgReportDir = path.resolve(REPORT_DIR, './images/current');
 
   await fse.ensureDir(diffImgReportDir);
   await fse.ensureDir(baseImgReportDir);
@@ -329,18 +335,18 @@ async function boot() {
   /* --- generate report stage --- */
   const jsonl = badCases.map((i) => JSON.stringify(i)).join('\n');
   // write jsonl and markdown report to diffImgDir
-  await fse.writeFile(path.join(reportDir, './report.jsonl'), jsonl);
+  await fse.writeFile(path.join(REPORT_DIR, './report.jsonl'), jsonl);
   const [reportMdStr, reportHtmlStr] = generateReport(
     badCases,
     targetBranch,
     targetCommitSha,
     prId,
   );
-  await fse.writeFile(path.join(reportDir, './report.md'), reportMdStr);
+  await fse.writeFile(path.join(REPORT_DIR, './report.md'), reportMdStr);
   const htmlTemplate = await fse.readFile(path.join(__dirname, './report-template.html'), 'utf8');
 
   await fse.writeFile(
-    path.join(reportDir, './report.html'),
+    path.join(REPORT_DIR, './report.html'),
     htmlTemplate.replace('{{reportContent}}', reportHtmlStr),
     'utf-8',
   );
@@ -349,10 +355,10 @@ async function boot() {
     {
       gzip: true,
       // ignore top-level dir(e.g. visualRegressionReport) and zip all files in it
-      cwd: reportDir,
-      file: `${path.basename(reportDir)}.tar.gz`,
+      cwd: REPORT_DIR,
+      file: `${path.basename(REPORT_DIR)}.tar.gz`,
     },
-    await fse.readdir(reportDir),
+    await fse.readdir(REPORT_DIR),
   );
 
   const currentImgFileList = readPngs(currentImgSourceDir);

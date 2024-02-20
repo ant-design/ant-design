@@ -9,12 +9,21 @@ import { devUseWarning } from '../../_util/warning';
 export default function useTheme(
   theme?: ThemeConfig,
   parentTheme?: ThemeConfig,
+  config?: {
+    prefixCls?: string;
+  },
 ): ThemeConfig | undefined {
   const warning = devUseWarning('ConfigProvider');
 
   const themeConfig = theme || {};
   const parentThemeConfig: ThemeConfig =
-    themeConfig.inherit === false || !parentTheme ? defaultConfig : parentTheme;
+    themeConfig.inherit === false || !parentTheme
+      ? {
+          ...defaultConfig,
+          hashed: parentTheme?.hashed ?? defaultConfig.hashed,
+          cssVar: parentTheme?.cssVar,
+        }
+      : parentTheme;
 
   const themeKey = useThemeKey();
 
@@ -51,7 +60,7 @@ export default function useTheme(
 
       const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`;
       const mergedCssVar = (themeConfig.cssVar ?? parentThemeConfig.cssVar) && {
-        prefix: 'ant', // Default to ant
+        prefix: config?.prefixCls, // Same as prefixCls by default
         ...(typeof parentThemeConfig.cssVar === 'object' ? parentThemeConfig.cssVar : {}),
         ...(typeof themeConfig.cssVar === 'object' ? themeConfig.cssVar : {}),
         key: (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) || cssVarKey,

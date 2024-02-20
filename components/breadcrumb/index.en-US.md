@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### ItemType
 
-> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+> type ItemType = Omit<[RouteItemType](#RouteItemType), 'title' | 'path'> | [SeparatorType](#SeparatorType)
 
 ### RouteItemType
 

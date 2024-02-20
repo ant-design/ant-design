@@ -64,7 +64,7 @@ group:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |
-| classNames | 语义化结构 class | Record<SemanticDOM, string> | - | 5.4.0 |
+| classNames | 语义化结构 class | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.4.0 |
 | danger | 设置危险按钮 | boolean | false |  |
 | disabled | 设置按钮失效状态 | boolean | false |  |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | false |  |
@@ -74,18 +74,16 @@ group:
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
-| styles | 语义化结构 style | Record<SemanticDOM, CSSProperties> | - | 5.4.0 |
+| styles | 语义化结构 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - | 5.4.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |
 | onClick | 点击按钮时的回调 | (event: MouseEvent) => void | - |  |
 
 支持原生 button 的其他所有属性。
 
-### `styles` 和 `classNames` 属性
+## Semantic DOM
 
-| 名称 | 说明         | 版本  |
-| ---- | ------------ | ----- |
-| icon | 设置图标元素 | 5.5.0 |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

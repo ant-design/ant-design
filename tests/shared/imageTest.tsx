@@ -251,7 +251,9 @@ type Options = {
 // eslint-disable-next-line jest/no-export
 export function imageDemoTest(component: string, options: Options = {}) {
   let describeMethod = options.skip === true ? describe.skip : describe;
-  const files = globSync(`./components/${component}/demo/*.tsx`);
+  const files = globSync(`./components/${component}/demo/*.tsx`).filter(
+    (file) => !file.includes('_semantic'),
+  );
 
   files.forEach((file) => {
     if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {

@@ -191,6 +191,10 @@ const confirmed = await modal.confirm({ ... });
 | originNode | 默认节点 | React.ReactNode                   | -      |
 | extra      | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | -      |
 
+### `styles` and `classNames` 属性
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>

@@ -29,7 +29,7 @@ demo:
 <code src="./demo/change-on-scroll.tsx" version="5.14.0">滚动即改变</code>
 <code src="./demo/colored-popup.tsx" debug>色付きポップアップ</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
-<code src="./demo/variant.tsx" version="5.14.0">多种形态</code>
+<code src="./demo/variant.tsx" version="5.13.0">多种形态</code>
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/suffix.tsx" debug>后缀图标</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
@@ -78,7 +78,7 @@ dayjs.extend(customParseFormat)
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
 | value | 当前时间 | [dayjs](http://day.js.org/) | - |  |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.14.0 |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  |
 
