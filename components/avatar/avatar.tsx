@@ -7,12 +7,13 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
