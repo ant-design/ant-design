@@ -7,7 +7,6 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { AvatarContextType, AvatarSize } from './AvatarContext';
