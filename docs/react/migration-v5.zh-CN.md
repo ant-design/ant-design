@@ -120,7 +120,7 @@ tag: Updated
 
 - 移除 `locale-provider` 目录。`LocaleProvider` 在 v4 中已移除，请使用 `ConfigProvider` 替代。
 - 移除 Comment 组件，移至 `@ant-design/compatible` 中维护。
-- 移除 PageHeader 组件，移至 `@ant-design/pro-components` 中维护。
+- 移除 PageHeader 组件，移至 `@ant-design/pro-layout` 中维护。
 
   ```diff
   - import { PageHeader, Comment } from 'antd';
