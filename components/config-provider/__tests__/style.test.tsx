@@ -273,7 +273,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Collapse className works', () => {
+  it('Should Collapse className & expandIcon works', () => {
     const items = [
       {
         key: '1',
@@ -285,13 +285,14 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         collapse={{
           className: 'test-class',
+          expandIcon: (props) => <span className="cp-test-icon">{props.isActive}</span>,
         }}
       >
         <Collapse items={items} />
       </ConfigProvider>,
     );
-
     expect(container.querySelector('.ant-collapse')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.cp-test-icon')).toBeTruthy();
   });
 
   it('Should Collapse style works', () => {
