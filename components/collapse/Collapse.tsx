@@ -97,16 +97,21 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     return expandIconPosition === 'right' ? 'end' : expandIconPosition;
   }, [expandIconPosition]);
 
+  const mergedExpandIcon = expandIcon ?? collapse?.expandIcon;
+
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
-      const icon = (expandIcon ?? collapse?.expandIcon)?.(panelProps) ?? (
-        <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
-      );
+      const icon =
+        typeof mergedExpandIcon === 'function' ? (
+          mergedExpandIcon(panelProps)
+        ) : (
+          <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+        );
       return cloneElement(icon, () => ({
         className: classNames((icon as React.ReactElement)?.props?.className, `${prefixCls}-arrow`),
       }));
     },
-    [prefixCls, expandIcon, collapse?.expandIcon],
+    [mergedExpandIcon, prefixCls],
   );
 
   const collapseClassName = classNames(
