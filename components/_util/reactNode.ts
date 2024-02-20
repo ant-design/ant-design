@@ -10,11 +10,11 @@ export function isFragment(child: any): boolean {
 
 type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | void);
 
-export const replaceElement = <P = AnyObject>(
+export function replaceElement<P>(
   element: React.ReactNode,
   replacement: React.ReactNode,
   props?: RenderProps,
-) => {
+) {
   if (!isValidElement<P>(element)) {
     return replacement;
   }
@@ -22,8 +22,8 @@ export const replaceElement = <P = AnyObject>(
     element,
     typeof props === 'function' ? props(element.props || {}) : props,
   );
-};
+}
 
-export function cloneElement<P = AnyObject>(element: React.ReactNode, props?: RenderProps) {
+export function cloneElement<P>(element: React.ReactNode, props?: RenderProps) {
   return replaceElement<P>(element, element, props) as React.ReactElement;
 }
