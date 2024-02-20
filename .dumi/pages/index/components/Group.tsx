@@ -106,7 +106,12 @@ const Group: React.FC<GroupProps> = (props) => {
       style={{ position: 'relative', background, transition: `all ${token.motionDurationSlow}` }}
     >
       <div style={{ position: 'absolute', inset: 0 }}>{decoration}</div>
-      <GroupMask disabled={!!background} style={{ paddingBlock: (token as any).marginFarSM }}>
+      <GroupMask
+        disabled={!!background}
+        style={{
+          paddingBlock: (token as any).marginFarSM,
+        }}
+      >
         {childNode}
       </GroupMask>
     </div>

@@ -173,7 +173,13 @@ const InternalAvatar: React.ForwardRefRenderFunction<HTMLSpanElement, AvatarProp
   );
 
   const sizeStyle: React.CSSProperties =
-    typeof size === 'number' ? { width: size, height: size, fontSize: icon ? size / 2 : 18 } : {};
+    typeof size === 'number'
+      ? {
+          width: size,
+          height: size,
+          fontSize: icon ? size / 2 : 18,
+        }
+      : {};
 
   let childrenToRender: React.ReactNode;
   if (typeof src === 'string' && isImgExist) {
