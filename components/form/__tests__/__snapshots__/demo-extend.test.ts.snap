@@ -8105,6 +8105,212 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
 
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 1`] = `
+<form
+  autocomplete="off"
+  class="ant-form"
+  id="layout-multiple"
+  style="max-width: 600px;"
+>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      horizontal
+    </span>
+  </div>
+  <div
+    class="ant-form-horizontal"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-col-8 ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_horizontal"
+            title="horizontal"
+          >
+            horizontal
+          </label>
+        </div>
+        <div
+          class="ant-col ant-col-16 ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_horizontal"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      vertical
+    </span>
+  </div>
+  <div
+    class="ant-form-vertical"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_vertical"
+            title="vertical"
+          >
+            vertical
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_vertical"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      inline
+    </span>
+  </div>
+  <div
+    class="ant-form-inline"
+  >
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_inline"
+            title="inline"
+          >
+            inline
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_inline"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class="ant-form-item-required"
+            for="layout-multiple_inline2"
+            title="inline2"
+          >
+            inline2
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                aria-required="true"
+                class="ant-input ant-input-outlined"
+                id="layout-multiple_inline2"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
