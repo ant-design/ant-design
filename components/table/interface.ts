@@ -61,7 +61,7 @@ export type SortOrder = 'descend' | 'ascend' | null;
 export type SorterTooltipTarget = 'full-header' | 'sorter-icon';
 
 export type SorterTooltipProps = TooltipProps & {
-  target: SorterTooltipTarget;
+  target?: SorterTooltipTarget;
 };
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
