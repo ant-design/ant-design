@@ -48,6 +48,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   hideRequiredMark?: boolean;
   rootClassName?: string;
   variant?: Variant;
+  noLayout?: boolean;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
@@ -75,6 +76,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     style,
     feedbackIcons,
     variant,
+    noLayout,
     ...restFormProps
   } = props;
 
@@ -113,8 +115,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const formClassName = classNames(
     prefixCls,
-    `${prefixCls}-${layout}`,
     {
+      [`${prefixCls}-${layout}`]: !noLayout,
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
