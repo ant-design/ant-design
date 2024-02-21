@@ -273,7 +273,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Collapse className works', () => {
+  it('Should Collapse className & expandIcon works', () => {
     const items = [
       {
         key: '1',
@@ -285,13 +285,14 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         collapse={{
           className: 'test-class',
+          expandIcon: (props) => <span className="cp-test-icon">{props.isActive}</span>,
         }}
       >
         <Collapse items={items} />
       </ConfigProvider>,
     );
-
     expect(container.querySelector('.ant-collapse')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.cp-test-icon')).toBeTruthy();
   });
 
   it('Should Collapse style works', () => {
@@ -708,18 +709,37 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Alert className works', () => {
-    const { container } = render(
+    const { container, rerender } = render(
       <ConfigProvider
         alert={{
           className: 'test-class',
           closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          closable: { 'aria-label': 'close' },
         }}
       >
-        <Alert closable message="Test Message" />
+        <Alert message="Test Message" />
       </ConfigProvider>,
     );
     expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
     expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
+    expect(container.querySelectorAll('*[aria-label="close"]')).toBeTruthy();
+    rerender(
+      <ConfigProvider
+        alert={{
+          className: 'test-class',
+          closable: {
+            'aria-label': 'close',
+            closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
+        }}
+      >
+        <Alert message="Test Message" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
+    expect(container.querySelectorAll('*[aria-label="close"]')).toBeTruthy();
   });
 
   it('Should Alert style works', () => {
@@ -1041,7 +1061,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(head).toHaveStyle({ color: 'red' });
   });
 
-  it('Should Tabs className & style & addIcon & moreIcon works', () => {
+  it('Should Tabs className & style & addIcon & moreIcon & removeIcon works', () => {
     const { container } = render(
       <ConfigProvider
         tabs={{
@@ -1049,9 +1069,13 @@ describe('ConfigProvider support style and className props', () => {
           style: { backgroundColor: 'red' },
           addIcon: <span className="cp-test-addIcon">cp-test-addIcon</span>,
           moreIcon: <span className="cp-test-moreIcon">cp-test-moreIcon</span>,
+          removeIcon: <span className="cp-test-removeIcon">cp-test-removeIcon</span>,
         }}
       >
-        <Tabs items={[]} type="editable-card" />
+        <Tabs
+          type="editable-card"
+          items={[{ key: '1', label: <span>tab</span>, children: <span>children</span> }]}
+        />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
@@ -1059,6 +1083,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-addIcon')).toBeTruthy();
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-moreIcon')).toBeTruthy();
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-removeIcon')).toBeTruthy();
   });
 
   it('Should TimePicker className works', () => {
