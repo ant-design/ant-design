@@ -63,6 +63,9 @@ const useStyle = createStyles(({ token }) => {
   const { borderRadius } = token;
   return {
     codeHideBtn: css`
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
       width: 100%;
       height: 40px;
       display: flex;
