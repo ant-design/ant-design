@@ -30,7 +30,11 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  /**
+   * Custom close icon
+   * @deprecated Please use `closable.closeIcon` instead
+   */
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
@@ -80,7 +84,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   );
 
   const [mergedClosable, mergedCloseIcon] = useClosable(
-    closable,
+    !!closable,
     typeof closeIcon !== 'undefined' ? closeIcon : drawerContext?.closeIcon,
     customCloseIconRender,
     undefined,
