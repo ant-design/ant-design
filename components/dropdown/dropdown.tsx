@@ -50,6 +50,7 @@ export interface DropdownProps {
   dropdownRender?: (originNode: React.ReactNode) => React.ReactNode;
   onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean;
+  defaultOpen?: boolean;
   disabled?: boolean;
   destroyPopupOnHide?: boolean;
   align?: AlignType;
@@ -95,6 +96,7 @@ const Dropdown: CompoundedComponent = (props) => {
     rootClassName,
     overlayStyle,
     open,
+    defaultOpen = false,
     onOpenChange,
     // Deprecated
     visible,
@@ -195,7 +197,7 @@ const Dropdown: CompoundedComponent = (props) => {
   }
 
   // =========================== Open ============================
-  const [mergedOpen, setOpen] = useMergedState(false, {
+  const [mergedOpen, setOpen] = useMergedState(defaultOpen, {
     value: open ?? visible,
   });
 

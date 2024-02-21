@@ -27,6 +27,7 @@ demo:
 <code src="./demo/item.tsx">其他元素</code>
 <code src="./demo/arrow-center.tsx">箭头指向</code>
 <code src="./demo/trigger.tsx">触发方式</code>
+<code src="./demo/defaultOpen.tsx">默认打开</code>
 <code src="./demo/event.tsx">触发事件</code>
 <code src="./demo/dropdown-button.tsx">带下拉框的按钮</code>
 <code src="./demo/custom-dropdown.tsx">扩展菜单</code>
@@ -61,6 +62,7 @@ demo:
 | placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | 触发下拉的行为，移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | 菜单是否显示，小于 4.23.0 使用 `visible`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | boolean | - | 4.23.0 |
+| defaultOpen | 下拉菜单最初是否打开 | boolean | false |  |
 | onOpenChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发。小于 4.23.0 使用 `onVisibleChange`（[为什么?](/docs/react/faq#弹层类组件为什么要统一至-open-属性)） | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
 
 ### Dropdown.Button

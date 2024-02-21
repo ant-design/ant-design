@@ -324,4 +324,21 @@ describe('Dropdown', () => {
     expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
     jest.useRealTimers();
   });
+  // write test case for defualtOpen here
+  it('should open by default', () => {
+    const { container } = render(
+      <Dropdown
+        defaultOpen
+        menu={{
+          items,
+        }}
+      >
+        <a />
+      </Dropdown>,
+    );
+    expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
+  });
+
 });
+
+
