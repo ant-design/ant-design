@@ -13,7 +13,7 @@ const columns: TableColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    sorterTooltipTarget: 'full-header',
+    showSorterTooltip: { target: 'full-header' },
     filters: [
       {
         text: 'Joe',
@@ -99,7 +99,12 @@ const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter,
 };
 
 const App: React.FC = () => (
-  <Table columns={columns} dataSource={data} onChange={onChange} sorterTooltipTarget="sorter" />
+  <Table
+    columns={columns}
+    dataSource={data}
+    onChange={onChange}
+    showSorterTooltip={{ target: 'sorter-icon' }}
+  />
 );
 
 export default App;

@@ -47,7 +47,7 @@ import type {
   GetRowKey,
   RefInternalTable,
   SorterResult,
-  SorterTooltipTarget,
+  SorterTooltipProps,
   SortOrder,
   TableAction,
   TableCurrentDataSource,
@@ -117,8 +117,7 @@ export interface TableProps<RecordType = any>
     scrollToFirstRowOnChange?: boolean;
   };
   sortDirections?: SortOrder[];
-  showSorterTooltip?: boolean | TooltipProps;
-  sorterTooltipTarget?: SorterTooltipTarget;
+  showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
 }
 
@@ -153,8 +152,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     scroll,
     sortDirections,
     locale,
-    showSorterTooltip = true,
-    sorterTooltipTarget = 'full-header',
+    showSorterTooltip = { target: 'full-header' },
     virtual,
   } = props;
 
@@ -327,7 +325,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     sortDirections: sortDirections || ['ascend', 'descend'],
     tableLocale,
     showSorterTooltip,
-    sorterTooltipTarget,
   });
   const sortedData = React.useMemo(
     () => getSortData(rawData, sortStates, childrenColumnName),

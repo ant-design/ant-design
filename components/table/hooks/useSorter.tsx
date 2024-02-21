@@ -14,7 +14,7 @@ import type {
   CompareFn,
   Key,
   SorterResult,
-  SorterTooltipTarget,
+  SorterTooltipProps,
   SortOrder,
   TableLocale,
   TransformColumns,
@@ -112,8 +112,7 @@ function injectSorter<RecordType>(
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
-  tableShowSorterTooltip?: boolean | TooltipProps,
-  tableSorterTooltipTarget?: SorterTooltipTarget,
+  tableShowSorterTooltip?: boolean | SorterTooltipProps,
   pos?: string,
 ): ColumnsType<RecordType> {
   return (columns || []).map((column, index) => {
@@ -126,10 +125,7 @@ function injectSorter<RecordType>(
         newColumn.showSorterTooltip === undefined
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
-      const sorterTooltipTarget =
-        newColumn.sorterTooltipTarget === undefined
-          ? tableSorterTooltipTarget
-          : newColumn.sorterTooltipTarget;
+
       const columnKey = getColumnKey(newColumn, columnPos);
       const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sortOrder = sorterState ? sorterState.sortOrder : null;
@@ -198,7 +194,10 @@ function injectSorter<RecordType>(
             </div>
           );
           if (showSorterTooltip) {
-            if (sorterTooltipTarget === 'sorter') {
+            if (
+              typeof showSorterTooltip !== 'boolean' &&
+              showSorterTooltip?.target === 'sorter-icon'
+            ) {
               return (
                 <div
                   className={`${columnSortersClass} ${prefixCls}-column-sorters-tooltip-target-sorter`}
@@ -268,7 +267,6 @@ function injectSorter<RecordType>(
           defaultSortDirections,
           tableLocale,
           tableShowSorterTooltip,
-          tableSorterTooltipTarget,
           columnPos,
         ),
       };
@@ -367,8 +365,7 @@ interface SorterConfig<RecordType> {
   ) => void;
   sortDirections: SortOrder[];
   tableLocale?: TableLocale;
-  showSorterTooltip?: boolean | TooltipProps;
-  sorterTooltipTarget?: SorterTooltipTarget;
+  showSorterTooltip?: boolean | SorterTooltipProps;
 }
 
 export default function useFilterSorter<RecordType>({
@@ -378,7 +375,6 @@ export default function useFilterSorter<RecordType>({
   sortDirections,
   tableLocale,
   showSorterTooltip,
-  sorterTooltipTarget,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
   SortState<RecordType>[],
@@ -478,7 +474,6 @@ export default function useFilterSorter<RecordType>({
       sortDirections,
       tableLocale,
       showSorterTooltip,
-      sorterTooltipTarget,
     );
 
   const getSorters = () => generateSorterInfo(mergedSorterStates);

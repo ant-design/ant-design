@@ -307,7 +307,7 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
-    // table props sorterTooltipTarget is 'full-header' by default
+    // table props showSorterTooltip is 'full-header' by default
     rerender(
       createTable({
         showSorterTooltip: true,
@@ -324,10 +324,10 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
-    // set table props sorterTooltipTarget is 'sorter'
+    // set table props showSorterTooltip target is 'sorter-icon'
     rerender(
       createTable({
-        sorterTooltipTarget: 'sorter',
+        showSorterTooltip: { target: 'sorter-icon' },
         columns: [{ ...column }],
       }),
     );
@@ -349,11 +349,11 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorter')!);
 
-    // set table props sorterTooltipTarget is 'sorter', column sorterTooltipTarget is 'full-header'
+    // set table props showSorterTooltip target is 'sorter-icon', column showSorterTooltip target is 'full-header'
     rerender(
       createTable({
-        sorterTooltipTarget: 'sorter',
-        columns: [{ ...column, sorterTooltipTarget: 'full-header' }],
+        showSorterTooltip: { target: 'sorter-icon' },
+        columns: [{ ...column, showSorterTooltip: { target: 'full-header' } }],
       }),
     );
     expect(container.querySelector('.ant-table-column-sorters')).not.toHaveClass(
@@ -366,11 +366,11 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
-    // set table props sorterTooltipTarget is 'full-header', column sorterTooltipTarget is 'sorter'
+    // set table props showSorterTooltip target is 'full-header', column showSorterTooltip target is 'sorter-icon'
     rerender(
       createTable({
-        sorterTooltipTarget: 'full-header',
-        columns: [{ ...column, sorterTooltipTarget: 'sorter' }],
+        showSorterTooltip: { target: 'full-header' },
+        columns: [{ ...column, showSorterTooltip: { target: 'sorter-icon' } }],
       }),
     );
     expect(container.querySelector('.ant-table-column-sorters')).toHaveClass(
