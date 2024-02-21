@@ -91,6 +91,7 @@ const Group: React.FC<GroupProps> = (props) => {
         trigger={maxPopoverTrigger}
         placement={maxPopoverPlacement}
         overlayClassName={`${groupPrefixCls}-popover`}
+        destroyTooltipOnHide
       >
         <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
