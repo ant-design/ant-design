@@ -19,7 +19,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
 <code src="./demo/layout.tsx">Form Layout</code>
-<code src="./demo/layout-multiple.tsx">Multiple layouts of form</code>
+<code src="./demo/layout-multiple.tsx">Form mix Layout</code>
 <code src="./demo/disabled.tsx">Form disabled</code>
 <code src="./demo/variant.tsx" version="5.13.0">Form variants</code>
 <code src="./demo/required-mark.tsx">Required style</code>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Divider, Form, Input } from 'antd';
+import { Divider, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <Form name="layout-multiple" style={{ maxWidth: 600 }} autoComplete="off" noLayout>
@@ -28,16 +28,6 @@ const App: React.FC = () => (
       </Form.Item>
       <Form.Item label="inline2" name="inline2" rules={[{ required: true }]}>
         <Input />
-      </Form.Item>
-    </Form.Layout>
-    <Divider orientation="left" plain>
-      submit
-    </Divider>
-    <Form.Layout layout="horizontal">
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
       </Form.Item>
     </Form.Layout>
   </Form>
