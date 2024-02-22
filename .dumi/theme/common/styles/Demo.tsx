@@ -220,7 +220,6 @@ const GlobalDemoStyles: React.FC = () => {
 
           .highlight-wrapper {
             display: none;
-            overflow: auto;
             border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
 
             &-expand {
