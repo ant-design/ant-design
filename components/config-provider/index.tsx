@@ -24,6 +24,7 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
@@ -142,7 +143,7 @@ export interface ConfigProviderProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
@@ -367,7 +368,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   useStyle(iconPrefixCls, csp);
 
-  const mergedTheme = useTheme(theme, parentContext.theme);
+  const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
 
   if (process.env.NODE_ENV !== 'production') {
     existThemeConfig = existThemeConfig || !!mergedTheme;

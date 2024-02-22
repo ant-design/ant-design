@@ -194,6 +194,7 @@ const columns = [
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
+| filterOnClose | 是否在筛选菜单关闭时触发筛选 | boolean | true | 5.15.0 |
 | filterMultiple | 是否多选 | boolean | true |  |
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | 筛选菜单项是否可搜索 | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
