@@ -48,17 +48,17 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
 
   const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
 
-  const [closable, mergedDisplayCloseIcon] = useClosable(
-    mergedClosable,
-    mergedCloseIcon,
-    (icon) => (
+  const [closable, mergedDisplayCloseIcon] = useClosable({
+    closable: mergedClosable,
+    closeIcon: mergedCloseIcon,
+    customCloseIconRender: (icon) => (
       <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
         {icon}
       </span>
     ),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
-  );
+    defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    defaultClosable: true,
+  });
 
   const isLastStep = current === total - 1;
 
