@@ -362,7 +362,7 @@ describe('Drawer', () => {
     });
   });
   it('should support aria-* and closeIcon by closable', async () => {
-    const { baseElement, rerender } = render(
+    const { baseElement } = render(
       <Drawer
         open
         closable={{
