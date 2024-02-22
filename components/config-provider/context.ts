@@ -109,7 +109,7 @@ export interface CardConfig extends ComponentStyleConfig {
 }
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 

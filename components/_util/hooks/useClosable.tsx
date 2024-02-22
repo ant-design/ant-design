@@ -15,8 +15,11 @@ function useInnerClosable(
   closeIcon?: ReactNode,
   defaultClosable?: boolean,
 ) {
-  if (!!closable) {
+  if (typeof closable === 'boolean') {
     return closable;
+  }
+  if (!!closable) {
+    return true;
   }
   if (closeIcon === undefined) {
     return !!defaultClosable;
