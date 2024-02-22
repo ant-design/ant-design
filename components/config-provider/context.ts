@@ -6,6 +6,7 @@ import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FormProps } from '../form/Form';
@@ -82,6 +83,8 @@ export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
+export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
@@ -148,7 +151,7 @@ export interface ConfigConsumerProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;

@@ -40,7 +40,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
-      marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,
