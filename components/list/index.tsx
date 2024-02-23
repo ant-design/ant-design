@@ -59,6 +59,7 @@ export interface ListProps<T> {
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
+  headerStyle?: React.CSSProperties;
   footer?: React.ReactNode;
   locale?: ListLocale;
 }
@@ -82,6 +83,7 @@ function List<T>({
   dataSource = [],
   size: customizeSize,
   header,
+  headerStyle,
   footer,
   loading = false,
   rowKey,
@@ -287,7 +289,11 @@ function List<T>({
     <ListContext.Provider value={contextValue}>
       <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
-        {header && <div className={`${prefixCls}-header`}>{header}</div>}
+        {header && (
+          <div className={`${prefixCls}-header`} style={headerStyle}>
+            {header}
+          </div>
+        )}
         <Spin {...loadingProp}>
           {childrenContent}
           {children}
