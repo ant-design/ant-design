@@ -16,6 +16,18 @@ tag: vVERSION
 
 ---
 
+## 5.14.2
+
+`2024-02-23`
+
+- 🐞 Fix DatePicker.RangePicker time column sometime not scroll to the target time value. [#47542](https://github.com/ant-design/ant-design/pull/47542)
+- 🐞 Fix Modal that pointer events will triggered during openning animation. [#47508](https://github.com/ant-design/ant-design/pull/47508) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix Avatar.Group unnecessary dom since tooltip. [#47478](https://github.com/ant-design/ant-design/pull/47478)
+- 💄 Fix Progress unexpected margin style. [#47493](https://github.com/ant-design/ant-design/pull/47493) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 Fix Table scrollbar color in darkmode. [#47487](https://github.com/ant-design/ant-design/pull/47487) [@wkmyws](https://github.com/wkmyws)
+- 💄 Fix Layout content font color in dark mode. [#47441](https://github.com/ant-design/ant-design/pull/47441) [@nova1751](https://github.com/nova1751)
+- 💄 Fix Menu cannot customize `darkItemSelectedColor` and `darkItemSelectedBg` token in horizontal dark mode. [#47463](https://github.com/ant-design/ant-design/pull/47463) [@gandavarapurajasekhar](https://github.com/gandavarapurajasekhar)
+
 ## 5.14.1
 
 `2024-02-13`
