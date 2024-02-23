@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
-
+import { devUseWarning } from '../_util/warning';
 import useClosable from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 
@@ -73,6 +73,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     styles: drawerStyles,
   } = props;
   const { drawer: drawerContext } = React.useContext(ConfigContext);
+
+  const warning = devUseWarning('Drawer');
+  warning.deprecated(!closeIcon, 'closeIcon', 'closable.closeIcon');
 
   const customCloseIconRender = React.useCallback(
     (icon: React.ReactNode) => (
