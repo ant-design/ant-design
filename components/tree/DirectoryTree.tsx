@@ -5,7 +5,7 @@ import FolderOutlined from '@ant-design/icons/FolderOutlined';
 import classNames from 'classnames';
 import type RcTree from 'rc-tree';
 import type { BasicDataNode } from 'rc-tree';
-import type { DataNode, EventDataNode, Key } from 'rc-tree/lib/interface';
+import type { DataNode, EventDataNode, Key, KeyEntities } from 'rc-tree/lib/interface';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 
@@ -52,7 +52,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const cachedSelectedKeys = React.useRef<Key[]>();
 
   const getInitExpandedKeys = () => {
-    const { keyEntities } = convertDataToEntities(getTreeData(props));
+    const { keyEntities }: { keyEntities: KeyEntities } = convertDataToEntities(getTreeData(props));
 
     let initExpandedKeys: Key[];
 
