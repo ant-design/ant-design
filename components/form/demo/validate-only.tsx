@@ -6,8 +6,8 @@ interface SubmitButtonProps {
   form: FormInstance;
 }
 
-const SubmitButton: React.FC<SubmitButtonProps> = ({ form }) => {
-  const [submitAble, setSubmitAble] = React.useState<boolean>(false);
+const SubmitButton: React.FC<React.PropsWithChildren<SubmitButtonProps>> = ({ form, children }) => {
+  const [submittable, setSubmittable] = React.useState<boolean>(false);
 
   // Watch all values
   const values = Form.useWatch([], form);
@@ -15,13 +15,13 @@ const SubmitButton: React.FC<SubmitButtonProps> = ({ form }) => {
   React.useEffect(() => {
     form
       .validateFields({ validateOnly: true })
-      .then(() => setSubmitAble(true))
-      .catch(() => setSubmitAble(false));
-  }, [values]);
+      .then(() => setSubmittable(true))
+      .catch(() => setSubmittable(false));
+  }, [form, values]);
 
   return (
-    <Button type="primary" htmlType="submit" disabled={!submitAble}>
-      Submit
+    <Button type="primary" htmlType="submit" disabled={!submittable}>
+      {children}
     </Button>
   );
 };
@@ -38,7 +38,7 @@ const App: React.FC = () => {
       </Form.Item>
       <Form.Item>
         <Space>
-          <SubmitButton form={form} />
+          <SubmitButton form={form}>Submit</SubmitButton>
           <Button htmlType="reset">Reset</Button>
         </Space>
       </Form.Item>
