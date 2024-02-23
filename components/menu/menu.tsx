@@ -4,7 +4,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
-import type { RenderIconType } from 'rc-menu/es/interface';
+import type { RenderIconType } from 'rc-menu/lib/interface';
 import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
@@ -127,35 +127,26 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
-  const mergedExpandIcon = React.useMemo<RenderIconType>(() => {
-    if (typeof expandIcon === 'function') {
-      return expandIcon;
-    }
-    if (expandIcon === null || expandIcon === false) {
-      return null;
-    }
-    if (typeof overrideObj.expandIcon === 'function') {
-      return overrideObj.expandIcon;
-    }
-    if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
-      return null;
-    }
-    if (typeof menu?.expandIcon === 'function') {
-      return menu?.expandIcon;
-    }
-    if (menu?.expandIcon === null || menu?.expandIcon === false) {
-      return null;
-    }
+  let mergedExpandIcon: RenderIconType;
+  if (typeof expandIcon === 'function') {
+    mergedExpandIcon = expandIcon;
+  } else if (expandIcon === null || expandIcon === false) {
+    mergedExpandIcon = null;
+  } else if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
+    mergedExpandIcon = null;
+  } else if (typeof menu?.expandIcon === 'function') {
+    mergedExpandIcon = menu?.expandIcon;
+  } else if (menu?.expandIcon === null || menu?.expandIcon === false) {
+    mergedExpandIcon = null;
+  } else {
     const mergedIcon = expandIcon ?? overrideObj.expandIcon ?? menu?.expandIcon;
-    return cloneElement(mergedIcon, {
+    mergedExpandIcon = cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        isValidElement<Record<'className', string>>(mergedIcon)
-          ? mergedIcon.props?.className
-          : undefined,
+        isValidElement<any>(mergedIcon) ? mergedIcon.props?.className : undefined,
       ),
     });
-  }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon]);
+  }
 
   // ======================== Context ==========================
   const contextValue = React.useMemo<MenuContextProps>(
