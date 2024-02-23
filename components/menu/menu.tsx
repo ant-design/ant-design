@@ -9,7 +9,7 @@ import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
-import { cloneElement } from '../_util/reactNode';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -128,20 +128,34 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ====================== Expand Icon ========================
   const mergedExpandIcon = React.useMemo<RenderIconType>(() => {
-    const waitClone = expandIcon ?? overrideObj.expandIcon ?? menu?.expandIcon;
-    if (typeof waitClone === 'function') {
-      return waitClone;
+    if (typeof expandIcon === 'function') {
+      return expandIcon;
     }
-    if (waitClone === null || waitClone === false) {
+    if (expandIcon === null || expandIcon === false) {
       return null;
     }
-    return cloneElement(waitClone, {
+    if (typeof overrideObj.expandIcon === 'function') {
+      return overrideObj.expandIcon;
+    }
+    if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
+      return null;
+    }
+    if (typeof menu?.expandIcon === 'function') {
+      return menu?.expandIcon;
+    }
+    if (menu?.expandIcon === null || menu?.expandIcon === false) {
+      return null;
+    }
+    const mergedIcon = expandIcon ?? overrideObj.expandIcon ?? menu?.expandIcon;
+    return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement(waitClone) ? waitClone.props?.className : undefined,
+        isValidElement<Record<'className', string>>(mergedIcon)
+          ? mergedIcon.props?.className
+          : undefined,
       ),
     });
-  }, [expandIcon, overrideObj.expandIcon, menu?.expandIcon]);
+  }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon]);
 
   // ======================== Context ==========================
   const contextValue = React.useMemo<MenuContextProps>(
