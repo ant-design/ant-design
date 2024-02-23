@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | footer | List footer renderer | ReactNode | - |  |
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#list-grid-props) | - |  |
 | header | List header renderer | ReactNode | - |  |
-| headerStyle | Custom Header style | CSSProperties | - |  |
+| headerStyle | Custom Header style | CSSProperties | - | 5.15.0 |
 | itemLayout | The layout of list | `horizontal` \| `vertical` | `horizontal` |  |
 | loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#api) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | Shows a load more content | ReactNode | - |  |
