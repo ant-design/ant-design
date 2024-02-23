@@ -68,9 +68,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       initExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
       // If not specified, expand all leaf nodes in the first level.
       const firstLayerLeafs = Object.values(keyEntities)
-        .filter((item) => {
-          return item.parent === undefined && item?.node.isLeaf === true;
-        })
+        .filter((item) => item.parent === undefined && item?.node.isLeaf === true)
         .map((item) => item.key);
       initExpandedKeys = Array.from(new Set([...initExpandedKeys, ...firstLayerLeafs]));
     }
