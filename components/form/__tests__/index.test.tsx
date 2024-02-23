@@ -1204,6 +1204,30 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  it('Form.Layout', () => {
+    const App: React.FC = () => (
+      <Form noLayout>
+        <Form.Layout layout="horizontal" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
+          <Form.Item label="horizontal" name="horizontal" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </Form.Layout>
+        <Form.Layout layout="vertical">
+          <Form.Item label="vertical" name="vertical" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </Form.Layout>
+        <Form.Layout layout="inline">
+          <Form.Item label="inline" name="inline" rules={[{ required: true }]}>
+            <Input />
+          </Form.Item>
+        </Form.Layout>
+      </Form>
+    );
+    const { container } = render(<App />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
   it('_internalItemRender api test', () => {
     const { container } = render(
       <Form>
