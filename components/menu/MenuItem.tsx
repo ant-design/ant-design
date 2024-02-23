@@ -1,14 +1,15 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
 import { Item } from 'rc-menu';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
+import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
 import type { TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
-import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
 
@@ -48,7 +49,7 @@ const MenuItem: GenericComponent = (props) => {
     const wrapNode = <span className={`${prefixCls}-title-content`}>{children}</span>;
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
     // ref: https://github.com/ant-design/ant-design/pull/23456
-    if (!icon || (isValidElement(children) && children.type === 'span')) {
+    if (!icon || (React.isValidElement(children) && children.type === 'span')) {
       if (children && inlineCollapsed && firstLevel && typeof children === 'string') {
         return <div className={`${prefixCls}-inline-collapsed-noicon`}>{children.charAt(0)}</div>;
       }
@@ -91,7 +92,7 @@ const MenuItem: GenericComponent = (props) => {
     >
       {cloneElement(icon, {
         className: classNames(
-          isValidElement(icon) ? icon.props?.className : '',
+          React.isValidElement(icon) ? icon.props?.className : '',
           `${prefixCls}-item-icon`,
         ),
       })}

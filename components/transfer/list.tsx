@@ -3,7 +3,6 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import { isValidElement } from '../_util/reactNode';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -26,7 +25,7 @@ const defaultRender = () => null;
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
   return !!(
     result &&
-    !isValidElement(result) &&
+    !React.isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
