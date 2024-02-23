@@ -65,7 +65,17 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
         keyEntities,
       );
     } else {
-      initExpandedKeys = (props.expandedKeys || defaultExpandedKeys)!;
+      initExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
+      // If not specified, expand all leaf nodes in the first level.
+      const firstLayerLeafs = Object.values(keyEntities)
+        .filter((item) => {
+          if (item.parent === undefined && item?.node.isLeaf === true) {
+            return true;
+          }
+          return false;
+        })
+        .map((item) => item.key);
+      initExpandedKeys = Array.from(new Set([...initExpandedKeys, ...firstLayerLeafs]));
     }
     return initExpandedKeys;
   };
