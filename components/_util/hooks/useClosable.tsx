@@ -18,7 +18,7 @@ function useInnerClosable(
   if (typeof closable === 'boolean') {
     return closable;
   }
-  if (!!closable) {
+  if (typeof closable === 'object') {
     return true;
   }
   if (closeIcon === undefined) {
@@ -35,13 +35,16 @@ function useClosable({
   defaultClosable = false,
 }: UseClosableParams): [closable: boolean, closeIcon: React.ReactNode | null] {
   const mergedClosable = useInnerClosable(closable, closeIcon, defaultClosable);
+
   if (!mergedClosable) {
     return [false, null];
   }
+  const { closeIcon: closableIcon, ...ariaProps } =
+    typeof closable === 'object' ? closable : ({} as any);
   // Priority: closable.closeIcon > closeIcon > defaultCloseIcon
   const mergedCloseIcon = (() => {
-    if (typeof closable === 'object' && closable.closeIcon !== undefined) {
-      return closable.closeIcon;
+    if (typeof closable === 'object' && closableIcon !== undefined) {
+      return closableIcon;
     }
     return typeof closeIcon === 'boolean' || closeIcon === undefined || closeIcon === null
       ? defaultCloseIcon
@@ -51,10 +54,11 @@ function useClosable({
   const plainCloseIcon = customCloseIconRender
     ? customCloseIconRender(mergedCloseIcon)
     : mergedCloseIcon;
-  const { closeIcon: _, ...ariaProps } = typeof closable === 'object' ? closable : ({} as any);
+
   const closeIconWithAria = React.isValidElement(plainCloseIcon)
     ? React.cloneElement(plainCloseIcon, ariaProps)
     : plainCloseIcon;
+
   return [true, closeIconWithAria];
 }
 

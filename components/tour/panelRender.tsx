@@ -51,6 +51,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   const [closable, mergedDisplayCloseIcon] = useClosable({
     closable: mergedClosable,
     closeIcon: mergedCloseIcon,
+    // eslint-disable-next-line react/no-unstable-nested-components
     customCloseIconRender: (icon) => (
       <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
         {icon}
