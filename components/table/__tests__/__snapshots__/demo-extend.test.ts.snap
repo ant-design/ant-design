@@ -1883,7 +1883,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -4368,7 +4368,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell"
                     />
                     <th
@@ -5667,7 +5667,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -9146,7 +9146,7 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
@@ -18961,7 +18961,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -19296,7 +19296,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -20282,7 +20282,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -21268,7 +21268,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -22271,7 +22271,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                   >
                     Name
                   </th>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
