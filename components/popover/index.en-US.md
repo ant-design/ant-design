@@ -52,7 +52,7 @@ Please ensure that the child node of `Popover` accepts `onMouseEnter`, `onMouseL
 
 ### Why does the warning findDOMNode is deprecated some times appear in strict mode?
 
-This is due to the implementation of `rc-trigger`. `rc-trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React. forwardRef` transparently passes `ref` to native html tags.
+This is due to the implementation of `rc-trigger`. `rc-trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React.forwardRef` transparently passes `ref` to native html tags.
 
 ### Why sometime not work on HOC?
 
