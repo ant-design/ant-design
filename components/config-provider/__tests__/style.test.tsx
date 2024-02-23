@@ -28,6 +28,7 @@ import Layout from '../../layout';
 import List from '../../list';
 import Mentions from '../../mentions';
 import Menu from '../../menu';
+import type { MenuProps } from '../../menu';
 import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';
@@ -575,24 +576,31 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
   });
 
-  it('Should Menu className works', () => {
-    const menuItems = [
+  it('Should Menu className & expandIcon works', () => {
+    const menuItems: MenuProps['items'] = [
       {
-        label: 'Test Label',
+        label: <span>Test Label</span>,
         key: 'test',
+        children: [
+          {
+            label: <span>Test Label children</span>,
+            key: 'test-children',
+          },
+        ],
       },
     ];
     const { container } = render(
       <ConfigProvider
         menu={{
           className: 'test-class',
+          expandIcon: <span className="test-cp-icon">test-cp-icon</span>,
         }}
       >
         <Menu items={menuItems} />
       </ConfigProvider>,
     );
-
     expect(container.querySelector('.ant-menu')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.ant-menu .test-cp-icon')).toBeTruthy();
   });
 
   it('Should Menu style works', () => {

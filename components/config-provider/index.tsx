@@ -32,6 +32,7 @@ import type {
   DrawerConfig,
   FlexConfig,
   ImageConfig,
+  MenuConfig,
   ModalConfig,
   NotificationConfig,
   PopupOverflow,
@@ -161,7 +162,7 @@ export interface ConfigProviderProps {
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
-  menu?: ComponentStyleConfig;
+  menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;

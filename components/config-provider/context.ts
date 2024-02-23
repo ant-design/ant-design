@@ -12,6 +12,7 @@ import type { FlexProps } from '../flex/interface';
 import type { FormProps } from '../form/Form';
 import type { InputProps } from '../input';
 import type { Locale } from '../locale';
+import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
@@ -84,6 +85,8 @@ export interface ImageConfig extends ComponentStyleConfig {
 }
 
 export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+
+export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
@@ -167,7 +170,7 @@ export interface ConfigConsumerProps {
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
-  menu?: ComponentStyleConfig;
+  menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;

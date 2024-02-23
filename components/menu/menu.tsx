@@ -4,13 +4,15 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
+import type { RenderIconType } from 'rc-menu/es/interface';
 import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
@@ -18,7 +20,6 @@ import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -126,22 +127,21 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps['expandIcon'];
-  if (typeof expandIcon === 'function') {
-    mergedExpandIcon = expandIcon;
-  } else if (expandIcon === null || expandIcon === false) {
-    mergedExpandIcon = null;
-  } else if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
-    mergedExpandIcon = null;
-  } else {
-    const beClone: React.ReactNode = (expandIcon ?? overrideObj.expandIcon) as React.ReactNode;
-    mergedExpandIcon = cloneElement(beClone, {
+  const mergedExpandIcon = React.useMemo<RenderIconType>(() => {
+    const waitClone = expandIcon ?? overrideObj.expandIcon ?? menu?.expandIcon;
+    if (typeof waitClone === 'function') {
+      return waitClone;
+    }
+    if (waitClone === null || waitClone === false) {
+      return null;
+    }
+    return cloneElement(waitClone, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        isValidElement(beClone) ? beClone.props?.className : '',
+        React.isValidElement(waitClone) ? waitClone.props?.className : undefined,
       ),
     });
-  }
+  }, [expandIcon, overrideObj.expandIcon, menu?.expandIcon]);
 
   // ======================== Context ==========================
   const contextValue = React.useMemo<MenuContextProps>(
