@@ -20,7 +20,7 @@ describe('hooks test', () => {
     },
     {
       params: [undefined, undefined, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [undefined, undefined, false],
@@ -34,11 +34,11 @@ describe('hooks test', () => {
     },
     {
       params: [true, undefined, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, undefined, false],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
 
     // test case like: <Component closable={false | true} closeIcon={null | false | element} />
@@ -52,19 +52,19 @@ describe('hooks test', () => {
     },
     {
       params: [true, null, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, false, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, null, false],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, false, false],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [
@@ -74,7 +74,7 @@ describe('hooks test', () => {
         </div>,
         false,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
     },
     {
       params: [false, <div key="close">close</div>, false],
@@ -98,7 +98,7 @@ describe('hooks test', () => {
         </div>,
         undefined,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
     },
     {
       params: [
@@ -108,7 +108,7 @@ describe('hooks test', () => {
         </div>,
         true,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
     },
     {
       params: [
@@ -118,7 +118,18 @@ describe('hooks test', () => {
         </div>,
         false,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
+    },
+    {
+      params: [
+        {
+          closeIcon: 'Close',
+          'aria-label': 'Close Btn',
+        },
+        undefined,
+        false,
+      ],
+      res: [true, '*[aria-label="Close Btn"]'],
     },
   ];
 
@@ -143,7 +154,7 @@ describe('hooks test', () => {
       if (res[1] === '') {
         expect(container.querySelector('.anticon-close')).toBeFalsy();
       } else {
-        expect(container.querySelector(`.${res[1]}`)).toBeTruthy();
+        expect(container.querySelector(`${res[1]}`)).toBeTruthy();
       }
     });
   });

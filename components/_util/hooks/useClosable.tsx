@@ -40,9 +40,11 @@ function useClosable({
     return [false, null];
   }
   const { closeIcon: closableIcon, ...ariaProps } =
-    typeof closable === 'object' ? closable : ({} as any);
+    typeof closable === 'object'
+      ? closable
+      : ({} as { closeIcon: React.ReactNode } & React.AriaAttributes);
   // Priority: closable.closeIcon > closeIcon > defaultCloseIcon
-  const mergedCloseIcon = (() => {
+  const mergedCloseIcon: ReactNode = (() => {
     if (typeof closable === 'object' && closableIcon !== undefined) {
       return closableIcon;
     }
@@ -55,9 +57,11 @@ function useClosable({
     ? customCloseIconRender(mergedCloseIcon)
     : mergedCloseIcon;
 
-  const closeIconWithAria = React.isValidElement(plainCloseIcon)
-    ? React.cloneElement(plainCloseIcon, ariaProps)
-    : plainCloseIcon;
+  const closeIconWithAria = React.isValidElement(plainCloseIcon) ? (
+    React.cloneElement(plainCloseIcon, ariaProps)
+  ) : (
+    <span {...ariaProps}>{plainCloseIcon}</span>
+  );
 
   return [true, closeIconWithAria];
 }
