@@ -25,6 +25,7 @@ import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
+import EllipsisMeasure from './EllipsisMeasure';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -533,12 +534,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             title={title}
             {...textProps}
           >
-            <Ellipsis
+            <EllipsisMeasure
               enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
               text={children}
               rows={rows}
               width={ellipsisWidth}
-              fontSize={ellipsisFontSize}
+              // fontSize={ellipsisFontSize}
               onEllipsis={onJsEllipsis}
             >
               {(node, needEllipsis) => {
@@ -561,7 +562,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
                 return wrappedContext;
               }}
-            </Ellipsis>
+            </EllipsisMeasure>
           </Typography>
         </EllipsisTooltip>
       )}
