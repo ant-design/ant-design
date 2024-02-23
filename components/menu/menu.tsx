@@ -4,7 +4,6 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef as RcMenuRef } from 'rc-menu';
 import RcMenu from 'rc-menu';
-import type { RenderIconType } from 'rc-menu/lib/interface';
 import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
@@ -127,7 +126,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== Expand Icon ========================
-  let mergedExpandIcon: RenderIconType;
+  let mergedExpandIcon: MenuProps['expandIcon'];
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
   } else if (expandIcon === null || expandIcon === false) {
