@@ -43,7 +43,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | footer | 列表底部 | ReactNode | - |  |
 | grid | 列表栅格配置 | [object](#list-grid-props) | - |  |
 | header | 列表头部 | ReactNode | - |  |
-| headerStyle | 自定义列表头部的样式 | CSSProperties | - | 5.15.0 |
 | itemLayout | 设置 `List.Item` 布局，设置成 `vertical` 则竖直样式显示，默认横排 | string | - |  |
 | loading | 当卡片内容还在加载中时，可以用 `loading` 展示一个占位 | boolean \| [object](/components/spin-cn#api) ([更多](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | 加载更多 | ReactNode | - |  |
@@ -53,6 +52,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 | rowKey | 当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式 | `keyof` T \| (item: T) => `React.Key` | `"key"` |  |
 | size | list 的尺寸 | `default` \| `large` \| `small` | `default` |  |
 | split | 是否展示分割线 | boolean | true |  |
+| styles | 语义化结构 style | Record<SemanticDOM, CSSProperties | - | 5.15.0 |
 
 ### pagination
 

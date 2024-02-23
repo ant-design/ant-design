@@ -40,7 +40,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | footer | List footer renderer | ReactNode | - |  |
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | [object](#list-grid-props) | - |  |
 | header | List header renderer | ReactNode | - |  |
-| headerStyle | Custom Header style | CSSProperties | - | 5.15.0 |
 | itemLayout | The layout of list | `horizontal` \| `vertical` | `horizontal` |  |
 | loading | Shows a loading indicator while the contents of the list are being fetched | boolean \| [SpinProps](/components/spin/#api) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | Shows a load more content | ReactNode | - |  |
@@ -50,6 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | rowKey | Item's unique value, could be an Item's key which holds a unique value of type `React.Key` or function that receives Item and returns a `React.Key` | `keyof` T \| (item: T) => `React.Key` | `"key"` |  |
 | size | Size of list | `default` \| `large` \| `small` | `default` |  |
 | split | Toggles rendering of the split under the list item | boolean | true |  |
+| styles | Semantic DOM style | Record<SemanticDOM, CSSProperties | - | 5.15.0 |
 
 ### pagination
 

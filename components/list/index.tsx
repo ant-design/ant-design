@@ -59,9 +59,13 @@ export interface ListProps<T> {
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
-  headerStyle?: React.CSSProperties;
   footer?: React.ReactNode;
   locale?: ListLocale;
+
+  styles?: {
+    headerWrapper?: React.CSSProperties;
+    footerWrapper?: React.CSSProperties;
+  };
 }
 
 export interface ListLocale {
@@ -83,12 +87,12 @@ function List<T>({
   dataSource = [],
   size: customizeSize,
   header,
-  headerStyle,
   footer,
   loading = false,
   rowKey,
   renderItem,
   locale,
+  styles,
   ...rest
 }: ListProps<T>) {
   const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
@@ -290,7 +294,7 @@ function List<T>({
       <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && (
-          <div className={`${prefixCls}-header`} style={headerStyle}>
+          <div className={`${prefixCls}-header`} style={styles?.headerWrapper}>
             {header}
           </div>
         )}
@@ -298,7 +302,11 @@ function List<T>({
           {childrenContent}
           {children}
         </Spin>
-        {footer && <div className={`${prefixCls}-footer`}>{footer}</div>}
+        {footer && (
+          <div className={`${prefixCls}-footer`} style={styles?.footerWrapper}>
+            {footer}
+          </div>
+        )}
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
