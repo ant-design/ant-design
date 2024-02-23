@@ -2,25 +2,25 @@ import React from 'react';
 import type { FormInstance } from 'antd';
 import { Button, Form, Input, Space } from 'antd';
 
-const SubmitButton = ({ form }: { form: FormInstance }) => {
-  const [submittable, setSubmittable] = React.useState(false);
+interface SubmitButtonProps {
+  form: FormInstance;
+}
+
+const SubmitButton: React.FC<SubmitButtonProps> = ({ form }) => {
+  const [submitAble, setSubmitAble] = React.useState<boolean>(false);
 
   // Watch all values
   const values = Form.useWatch([], form);
 
   React.useEffect(() => {
-    form.validateFields({ validateOnly: true }).then(
-      () => {
-        setSubmittable(true);
-      },
-      () => {
-        setSubmittable(false);
-      },
-    );
+    form
+      .validateFields({ validateOnly: true })
+      .then(() => setSubmitAble(true))
+      .catch(() => setSubmitAble(false));
   }, [values]);
 
   return (
-    <Button type="primary" htmlType="submit" disabled={!submittable}>
+    <Button type="primary" htmlType="submit" disabled={!submitAble}>
       Submit
     </Button>
   );
@@ -28,7 +28,6 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-
   return (
     <Form form={form} name="validateOnly" layout="vertical" autoComplete="off">
       <Form.Item name="name" label="Name" rules={[{ required: true }]}>
