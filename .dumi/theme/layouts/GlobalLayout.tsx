@@ -112,6 +112,9 @@ const GlobalLayout: React.FC = () => {
       direction: _direction === 'rtl' ? 'rtl' : 'ltr',
       // bannerVisible: storedBannerVisibleLastTime ? !!storedBannerVisible : true,
     });
+    document
+      .querySelector('html')
+      ?.setAttribute('data-prefers-color', _theme.includes('dark') ? 'dark' : 'light');
     // Handle isMobile
     updateMobileMode();
 
