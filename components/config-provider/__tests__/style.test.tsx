@@ -589,18 +589,19 @@ describe('ConfigProvider support style and className props', () => {
         ],
       },
     ];
-    const { container } = render(
-      <ConfigProvider
-        menu={{
-          className: 'test-class',
-          expandIcon: <span className="test-cp-icon">test-cp-icon</span>,
-        }}
-      >
+    const App: React.FC<{ expand?: React.ReactNode }> = ({ expand }) => (
+      <ConfigProvider menu={{ className: 'test-class', expandIcon: expand }}>
         <Menu items={menuItems} />
-      </ConfigProvider>,
+      </ConfigProvider>
     );
-    expect(container.querySelector('.ant-menu')).toHaveClass('test-class');
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector<HTMLElement>('.ant-menu')).toHaveClass('test-class');
+    rerender(<App expand={<span className="test-cp-icon">test-cp-icon</span>} />);
     expect(container.querySelector<HTMLSpanElement>('.ant-menu .test-cp-icon')).toBeTruthy();
+    rerender(<App expand={null} />);
+    expect(container.querySelector<HTMLElement>('.ant-menu-submenu-arrow')).toBeFalsy();
+    rerender(<App expand={false} />);
+    expect(container.querySelector<HTMLElement>('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 
   it('Should Menu style works', () => {
