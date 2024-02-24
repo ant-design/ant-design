@@ -140,11 +140,11 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     if (typeof menu?.expandIcon === 'function' || isEmptyIcon(menu?.expandIcon)) {
       return menu?.expandIcon || null;
     }
-    const mergedElement = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;
-    return cloneElement(mergedElement, {
+    const mergedIcon = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;
+    return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        React.isValidElement<any>(mergedElement) ? mergedElement.props?.className : undefined,
+        React.isValidElement(mergedIcon) ? mergedIcon.props?.className : undefined,
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);
