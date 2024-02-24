@@ -8,9 +8,10 @@ import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
@@ -18,7 +19,6 @@ import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -138,7 +138,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     mergedExpandIcon = cloneElement(beClone, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        isValidElement(beClone) ? beClone.props?.className : '',
+        React.isValidElement(beClone) ? beClone.props?.className : '',
       ),
     });
   }

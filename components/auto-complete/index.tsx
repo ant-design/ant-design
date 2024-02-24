@@ -6,7 +6,6 @@ import omit from 'rc-util/lib/omit';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
 import genPurePanel from '../_util/PurePanel';
-import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -69,7 +68,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   if (
     childNodes.length === 1 &&
-    isValidElement(childNodes[0]) &&
+    React.isValidElement(childNodes[0]) &&
     !isSelectOptionOrSelectOptGroup(childNodes[0])
   ) {
     [customizeInput] = childNodes;
@@ -86,7 +85,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   } else {
     optionChildren = dataSource
       ? dataSource.map((item) => {
-          if (isValidElement(item)) {
+          if (React.isValidElement(item)) {
             return item;
           }
           switch (typeof item) {
