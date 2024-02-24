@@ -8,7 +8,7 @@ import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -144,7 +144,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return cloneElement(mergedElement, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        isValidElement<any>(mergedElement) ? mergedElement.props?.className : undefined,
+        React.isValidElement<any>(mergedElement) ? mergedElement.props?.className : undefined,
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);
