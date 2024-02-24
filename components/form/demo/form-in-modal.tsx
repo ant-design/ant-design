@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, message, Radio } from 'antd';
 
-import FormModal from './FormModal';
 import Action from './FormModal/action';
+import FormModal from './FormModal/FormModal';
 
 export const sleep = async (timeout = 0) => {
   await new Promise((resolve) => {
@@ -19,7 +19,6 @@ const CollectionCreateForm = () => {
       okText="Create"
       cancelText="Cancel"
       initialValues={{ modifier: 'public', title: 'Title' }}
-      formProps={{ form, name: 'form_in_modal', layout: 'vertical' }}
       onFinish={async (values) => {
         await sleep(300);
         if (values.modifier === 'public') {
@@ -29,6 +28,7 @@ const CollectionCreateForm = () => {
         }
         message.success(JSON.stringify(values));
       }}
+      formProps={{ form, name: 'form_in_modal', layout: 'vertical' }}
     >
       <Form.Item
         name="title"

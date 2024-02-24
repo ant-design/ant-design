@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
 export type onCancel = (e?: React.MouseEvent<HTMLElement>) => void;
 
@@ -37,25 +36,28 @@ const Action = (props: ActionProps) => {
     setOpen(!!load);
   }, [load]);
 
-  const handleOnCancel = (e?: React.MouseEvent<HTMLElement>) => {
-    onCancel?.(e);
-    setOpen(false);
-  };
-
-  return (
-    <Context.Provider
-      value={{ open, onCancel: handleOnCancel, destroyCallback: () => setLoad(undefined) }}
-    >
-      {(load || propsOpen) && children}
-    </Context.Provider>
+  const handleOnCancel = useCallback(
+    (e?: React.MouseEvent<HTMLElement>) => {
+      onCancel?.(e);
+      setOpen(false);
+    },
+    [onCancel],
   );
+  const context = useMemo<ActionContextProps>(
+    () => ({ open, onCancel: handleOnCancel, destroyCallback: () => setLoad(undefined) }),
+    [handleOnCancel, open],
+  );
+
+  return <Context.Provider value={context}>{(load || propsOpen) && children}</Context.Provider>;
 };
 
-const ContextReset = ({ children }: { children: React.ReactNode }) => (
-  <Context.Provider value={{ onCancel: () => undefined, destroyCallback: () => undefined }}>
-    {children}
-  </Context.Provider>
-);
+const ContextReset = ({ children }: { children: React.ReactNode }) => {
+  const context = useMemo<ActionContextProps>(
+    () => ({ onCancel: () => undefined, destroyCallback: () => undefined }),
+    [],
+  );
+  return <Context.Provider value={context}>{children}</Context.Provider>;
+};
 
 Action.Context = Context;
 Action.ContextReset = ContextReset;

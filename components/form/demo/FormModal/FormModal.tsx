@@ -17,17 +17,17 @@ function FormModal<T = any>(props: FormModalProps<T>) {
   const { destroyCallback, ...contextRest } = useContext(Context);
   const {
     children,
-    afterClose,
     onCancel,
     initialValues,
     onFinish,
+    okText = 'Submit',
+    cancelText = 'Cancel',
     formProps = {},
     ...rest
   } = { ...contextRest, ...props };
   const [loading, setLoading] = useState(false);
 
   const handleAfterClose = () => {
-    afterClose?.();
     destroyCallback?.();
   };
 
@@ -57,9 +57,9 @@ function FormModal<T = any>(props: FormModalProps<T>) {
       destroyOnClose
       footer={
         <>
-          <Button onClick={onCancel}>Cancel</Button>
+          <Button onClick={onCancel}>{cancelText}</Button>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Submit
+            {okText}
           </Button>
         </>
       }
