@@ -1,24 +1,55 @@
-import React, { useState } from 'react';
-import { Button, Form, Input, Modal, Radio } from 'antd';
+import React, { useState, useRef } from 'react';
+import { Button, Form, Input, Modal, Radio, type FormInstance } from 'antd';
 
 interface Values {
-  title: string;
-  description: string;
-  modifier: string;
+  title?: string;
+  description?: string;
+  modifier?: string;
 }
 
-interface CollectionCreateFormProps {
+const CollectionCreateForm = React.forwardRef<FormInstance, { initialValues: Values }>(
+  ({ initialValues }, ref) => (
+    <Form
+      ref={ref}
+      layout="vertical"
+      name="form_in_modal"
+      preserve={false}
+      initialValues={initialValues}
+    >
+      <Form.Item
+        name="title"
+        label="Title"
+        rules={[{ required: true, message: 'Please input the title of collection!' }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item name="description" label="Description">
+        <Input type="textarea" />
+      </Form.Item>
+      <Form.Item name="modifier" className="collection-create-form_last-form-item">
+        <Radio.Group>
+          <Radio value="public">Public</Radio>
+          <Radio value="private">Private</Radio>
+        </Radio.Group>
+      </Form.Item>
+    </Form>
+  ),
+);
+
+interface CollectionCreateFormModalProps {
   open: boolean;
   onCreate: (values: Values) => void;
   onCancel: () => void;
+  initialValues: Values;
 }
 
-const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
+const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = ({
   open,
   onCreate,
   onCancel,
+  initialValues,
 }) => {
-  const [form] = Form.useForm();
+  const formRef = useRef<FormInstance>(null);
   return (
     <Modal
       open={open}
@@ -26,41 +57,18 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
       okText="Create"
       cancelText="Cancel"
       onCancel={onCancel}
-      onOk={() => {
-        form
-          .validateFields()
-          .then((values) => {
-            form.resetFields();
-            onCreate(values);
-          })
-          .catch((info) => {
-            console.log('Validate Failed:', info);
-          });
+      destroyOnClose
+      onOk={async () => {
+        try {
+          const values = await formRef.current?.validateFields();
+          formRef.current?.resetFields();
+          onCreate(values);
+        } catch (error) {
+          console.log('Failed:', error);
+        }
       }}
     >
-      <Form
-        form={form}
-        layout="vertical"
-        name="form_in_modal"
-        initialValues={{ modifier: 'public' }}
-      >
-        <Form.Item
-          name="title"
-          label="Title"
-          rules={[{ required: true, message: 'Please input the title of collection!' }]}
-        >
-          <Input />
-        </Form.Item>
-        <Form.Item name="description" label="Description">
-          <Input type="textarea" />
-        </Form.Item>
-        <Form.Item name="modifier" className="collection-create-form_last-form-item">
-          <Radio.Group>
-            <Radio value="public">Public</Radio>
-            <Radio value="private">Private</Radio>
-          </Radio.Group>
-        </Form.Item>
-      </Form>
+      <CollectionCreateForm initialValues={initialValues} ref={formRef} />
     </Modal>
   );
 };
@@ -74,23 +82,17 @@ const App: React.FC = () => {
   };
 
   return (
-    <div>
-      <Button
-        type="primary"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
+    <>
+      <Button type="primary" onClick={() => setOpen(true)}>
         New Collection
       </Button>
-      <CollectionCreateForm
+      <CollectionCreateFormModal
         open={open}
         onCreate={onCreate}
-        onCancel={() => {
-          setOpen(false);
-        }}
+        onCancel={() => setOpen(false)}
+        initialValues={{ modifier: 'public' }}
       />
-    </div>
+    </>
   );
 };
 

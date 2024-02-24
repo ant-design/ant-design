@@ -7290,16 +7290,14 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 `;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
-<div>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      New Collection
-    </span>
-  </button>
-</div>
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    New Collection
+  </span>
+</button>
 `;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 2`] = `[]`;
