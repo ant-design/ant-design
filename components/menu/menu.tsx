@@ -118,7 +118,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return inlineCollapsed;
   }, [inlineCollapsed, siderCollapsed]);
 
-  const defaultMotions = {
+  const defaultMotions: MenuProps['defaultMotions'] = {
     horizontal: { motionName: `${rootPrefixCls}-slide-up` },
     inline: initCollapseMotion(rootPrefixCls),
     other: { motionName: `${rootPrefixCls}-zoom-big` },
