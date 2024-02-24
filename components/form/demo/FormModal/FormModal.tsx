@@ -3,7 +3,7 @@ import type { FormProps, ModalProps } from 'antd';
 import { Button, Form, Modal } from 'antd';
 
 import type { onCancel } from './action';
-import Action, { Context } from './action';
+import { Context, ContextReset } from './action';
 
 export interface FormModalProps<Values = any> extends ModalProps {
   children?: React.ReactNode;
@@ -65,7 +65,7 @@ function FormModal<T = any>(props: FormModalProps<T>) {
       }
       {...rest}
     >
-      <Action.ContextReset>{children}</Action.ContextReset>
+      <ContextReset>{children}</ContextReset>
     </Modal>
   );
 }

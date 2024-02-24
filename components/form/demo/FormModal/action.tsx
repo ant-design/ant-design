@@ -51,15 +51,12 @@ const Action = (props: ActionProps) => {
   return <Context.Provider value={context}>{(load || propsOpen) && children}</Context.Provider>;
 };
 
-const ContextReset = ({ children }: { children: React.ReactNode }) => {
+export const ContextReset = ({ children }: { children: React.ReactNode }) => {
   const context = useMemo<ActionContextProps>(
     () => ({ onCancel: () => undefined, destroyCallback: () => undefined }),
     [],
   );
   return <Context.Provider value={context}>{children}</Context.Provider>;
 };
-
-Action.Context = Context;
-Action.ContextReset = ContextReset;
 
 export default Action;
