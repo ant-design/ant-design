@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, message, Radio } from 'antd';
 
-import Action from './FormModal/action';
-import FormModal from './FormModal/FormModal';
-
-export const sleep = async (timeout = 0) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-};
+import FormModal, { Action } from './FormModal';
 
 const CollectionCreateForm = () => {
   const [form] = Form.useForm();
@@ -20,7 +13,10 @@ const CollectionCreateForm = () => {
       cancelText="Cancel"
       initialValues={{ modifier: 'public', title: 'Title' }}
       onFinish={async (values) => {
-        await sleep(300);
+        // mock loading
+        await new Promise((resolve) => {
+          setTimeout(resolve, 300);
+        });
         if (values.modifier === 'public') {
           message.error('Please select private');
           const error = 'error';
@@ -41,10 +37,12 @@ const CollectionCreateForm = () => {
         <Input type="textarea" />
       </Form.Item>
       <Form.Item name="modifier" className="collection-create-form_last-form-item">
-        <Radio.Group>
-          <Radio value="public">Public</Radio>
-          <Radio value="private">Private</Radio>
-        </Radio.Group>
+        <Radio.Group
+          options={[
+            { value: 'public', label: 'Public' },
+            { value: 'private', label: 'Private' },
+          ]}
+        />
       </Form.Item>
     </FormModal>
   );
