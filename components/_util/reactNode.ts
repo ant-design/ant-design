@@ -1,10 +1,9 @@
-import * as React from 'react';
+import React from 'react';
+
 import type { AnyObject } from './type';
 
-export const { isValidElement } = React;
-
 export function isFragment(child: any): boolean {
-  return child && isValidElement(child) && child.type === React.Fragment;
+  return child && React.isValidElement(child) && child.type === React.Fragment;
 }
 
 type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | void);
@@ -14,7 +13,7 @@ export function replaceElement(
   replacement: React.ReactNode,
   props?: RenderProps,
 ): React.ReactNode {
-  if (!isValidElement(element)) {
+  if (!React.isValidElement(element)) {
     return replacement;
   }
   return React.cloneElement(
