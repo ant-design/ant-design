@@ -129,7 +129,7 @@ function itemRender(currentRoute, params, items, paths) {
   return isLast ? (
     <span>{currentRoute.title}</span>
   ) : (
-    <Link to={"/" + paths.join("/")}>{currentRoute.title}</Link>
+    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
   );
 }
 
