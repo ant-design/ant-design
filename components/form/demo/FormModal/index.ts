@@ -1,4 +1,4 @@
-import Action from './action2';
+import Action from './Action';
 import FormModal from './FormModal';
 
 export { Action };
