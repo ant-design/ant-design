@@ -2,8 +2,8 @@ import React, { useContext, useState } from 'react';
 import type { FormProps, ModalProps } from 'antd';
 import { Form, Modal } from 'antd';
 
-import type { onCancel } from './action';
-import { Context, ContextReset } from './action';
+import type { onCancel } from './action2';
+import { Context, ContextReset } from './action2';
 
 export interface FormModalProps<Values = any> extends ModalProps {
   children?: React.ReactNode;
