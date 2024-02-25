@@ -10,7 +10,7 @@ export interface FormModalProps<Values = any> extends ModalProps {
   onCancel?: onCancel;
   initialValues?: FormProps<Values>['initialValues'];
   onFinish?: FormProps<Values>['onFinish'];
-  formProps?: Pick<FormProps<Values>, 'initialValues' | 'onFinish'>;
+  formProps?: Omit<FormProps<Values>, 'initialValues' | 'onFinish'>;
 }
 
 function FormModal<T = any>(props: FormModalProps<T>) {
