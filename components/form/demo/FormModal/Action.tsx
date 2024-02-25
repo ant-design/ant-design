@@ -2,12 +2,6 @@ import React, { createContext, useEffect, useMemo, useState } from 'react';
 
 export type onCancel = (e?: React.MouseEvent<HTMLElement>) => void;
 
-export interface ActionProps {
-  open?: boolean;
-  children?: React.ReactNode;
-  onCancel?: onCancel;
-}
-
 export interface ActionContextProps {
   open?: boolean;
   onCancel: onCancel;
@@ -17,6 +11,10 @@ export const Context = createContext<ActionContextProps>({
   onCancel: () => undefined,
   onDestroy: () => undefined,
 });
+
+export interface ActionProps extends Pick<ActionContextProps, 'open' | 'onCancel'> {
+  children?: React.ReactNode;
+}
 
 const Action = (props: ActionProps) => {
   const { onCancel, children, open: propsOpen } = props;
@@ -39,7 +37,7 @@ const Action = (props: ActionProps) => {
   const context = useMemo<ActionContextProps>(
     () => ({
       open,
-      onCancel: (e?: React.MouseEvent<HTMLElement>) => {
+      onCancel: (e) => {
         onCancel?.(e);
         setOpen(false);
       },
