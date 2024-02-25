@@ -11,11 +11,11 @@ export interface ActionProps {
 export interface ActionContextProps {
   open?: boolean;
   onCancel: onCancel;
-  destroyCallback: () => void;
+  onDestroy: () => void;
 }
 export const Context = createContext<ActionContextProps>({
   onCancel: () => undefined,
-  destroyCallback: () => undefined,
+  onDestroy: () => undefined,
 });
 
 const Action = (props: ActionProps) => {
@@ -43,7 +43,7 @@ const Action = (props: ActionProps) => {
         onCancel?.(e);
         setOpen(false);
       },
-      destroyCallback: () => setLoad(undefined),
+      onDestroy: () => setLoad(undefined),
     }),
     [open],
   );
@@ -53,7 +53,7 @@ const Action = (props: ActionProps) => {
 
 export const ContextReset = ({ children }: { children: React.ReactNode }) => {
   const context = useMemo<ActionContextProps>(
-    () => ({ onCancel: () => undefined, destroyCallback: () => undefined }),
+    () => ({ onCancel: () => undefined, onDestroy: () => undefined }),
     [],
   );
   return <Context.Provider value={context}>{children}</Context.Provider>;

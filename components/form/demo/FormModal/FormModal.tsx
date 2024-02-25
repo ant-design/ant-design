@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import type { FormProps, ModalProps } from 'antd';
-import { Button, Form, Modal } from 'antd';
+import { Form, Modal } from 'antd';
 
 import type { onCancel } from './action';
 import { Context, ContextReset } from './action';
@@ -14,26 +14,20 @@ export interface FormModalProps<Values = any> extends ModalProps {
 }
 
 function FormModal<T = any>(props: FormModalProps<T>) {
-  const { destroyCallback, ...contextRest } = useContext(Context);
+  const { onDestroy, ...contextRest } = useContext(Context);
   const {
     children,
     onCancel,
     initialValues,
     onFinish,
-    okText = 'Submit',
-    cancelText = 'Cancel',
     formProps = {},
     ...rest
   } = { ...contextRest, ...props };
   const [loading, setLoading] = useState(false);
 
-  const handleAfterClose = () => {
-    destroyCallback?.();
-  };
-
   const handleOnFinish = async (values: T) => {
-    setLoading(true);
     if (loading) return;
+    setLoading(true);
     try {
       await onFinish?.(values);
       onCancel?.();
@@ -52,17 +46,11 @@ function FormModal<T = any>(props: FormModalProps<T>) {
   return (
     <Modal
       modalRender={modalRender}
-      afterClose={handleAfterClose}
+      afterClose={() => onDestroy?.()}
       onCancel={onCancel}
       destroyOnClose
-      footer={
-        <>
-          <Button onClick={onCancel}>{cancelText}</Button>
-          <Button type="primary" htmlType="submit" loading={loading}>
-            {okText}
-          </Button>
-        </>
-      }
+      cancelButtonProps={{ onClick: onCancel }}
+      okButtonProps={{ htmlType: 'submit', loading }}
       {...rest}
     >
       <ContextReset>{children}</ContextReset>
