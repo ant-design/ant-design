@@ -36,7 +36,7 @@ const CollectionCreateForm = () => {
       <Form.Item name="description" label="Description">
         <Input type="textarea" />
       </Form.Item>
-      <Form.Item name="modifier" className="collection-create-form_last-form-item">
+      <Form.Item name="modifier">
         <Radio.Group
           options={[
             { value: 'public', label: 'Public' },
