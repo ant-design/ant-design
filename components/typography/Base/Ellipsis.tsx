@@ -147,7 +147,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
-  }, [width, text, rows, enabledMeasure]);
+  }, [width, text, rows, enabledMeasure, nodeList]);
 
   // Measure process
   useLayoutEffect(() => {
@@ -197,7 +197,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     }
 
     return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
-  }, [needEllipsis, ellipsisCutIndex]);
+  }, [needEllipsis, ellipsisCutIndex, nodeList]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {

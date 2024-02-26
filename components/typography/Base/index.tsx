@@ -23,12 +23,15 @@ import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
+import Copy from './CopyBtn';
+import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
+import { getNode, toList } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
-interface CopyConfig {
+export interface CopyConfig {
   text?: string;
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
@@ -102,20 +105,6 @@ function wrapperDecorations(
   wrap('i', italic);
 
   return currentContent;
-}
-
-function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
-  if (dom === true || dom === undefined) {
-    return defaultNode;
-  }
-  return dom || (needDom && defaultNode);
-}
-
-function toList<T extends any>(val: T | T[]): T[] {
-  if (val === false) {
-    return [false, false] as T[];
-  }
-  return Array.isArray(val) ? val : [val];
 }
 
 const ELLIPSIS_STR = '...';
@@ -453,32 +442,42 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return null;
     }
 
-    const { tooltips, icon } = copyConfig;
+    // const { tooltips, icon } = copyConfig;
 
-    const tooltipNodes = toList(tooltips);
-    const iconNodes = toList(icon);
+    // const tooltipNodes = toList(tooltips);
+    // const iconNodes = toList(icon);
 
-    const copyTitle = copied
-      ? getNode(tooltipNodes[1], textLocale?.copied)
-      : getNode(tooltipNodes[0], textLocale?.copy);
-    const systemStr = copied ? textLocale?.copied : textLocale?.copy;
-    const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
+    // const copyTitle = copied
+    //   ? getNode(tooltipNodes[1], textLocale?.copied)
+    //   : getNode(tooltipNodes[0], textLocale?.copy);
+    // const systemStr = copied ? textLocale?.copied : textLocale?.copy;
+    // const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
+    // return (
+    //   <Tooltip key="copy" title={copyTitle}>
+    //     <TransButton
+    //       className={classNames(`${prefixCls}-copy`, {
+    //         [`${prefixCls}-copy-success`]: copied,
+    //         [`${prefixCls}-copy-icon-only`]: children === null || children === undefined,
+    //       })}
+    //       onClick={onCopyClick}
+    //       aria-label={ariaLabel}
+    //     >
+    //       {copied
+    //         ? getNode(iconNodes[1], <CheckOutlined />, true)
+    //         : getNode(iconNodes[0], <CopyOutlined />, true)}
+    //     </TransButton>
+    //   </Tooltip>
+    // );
     return (
-      <Tooltip key="copy" title={copyTitle}>
-        <TransButton
-          className={classNames(`${prefixCls}-copy`, {
-            [`${prefixCls}-copy-success`]: copied,
-            [`${prefixCls}-copy-icon-only`]: children === null || children === undefined,
-          })}
-          onClick={onCopyClick}
-          aria-label={ariaLabel}
-        >
-          {copied
-            ? getNode(iconNodes[1], <CheckOutlined />, true)
-            : getNode(iconNodes[0], <CopyOutlined />, true)}
-        </TransButton>
-      </Tooltip>
+      <CopyBtn
+        prefixCls={prefixCls}
+        copied={copied}
+        locale={textLocale}
+        onCopy={onCopyClick}
+        iconOnly={children === null || children === undefined}
+        {...copyConfig}
+      />
     );
   };
 
