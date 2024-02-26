@@ -478,7 +478,7 @@ describe('ConfigProvider support style and className props', () => {
     ).toBeTruthy();
   });
 
-  it('Should Input className & style & classNames & styles works', () => {
+  it('Should Input className & style & classNames & styles & allowClear works', () => {
     const { container } = render(
       <ConfigProvider
         input={{
