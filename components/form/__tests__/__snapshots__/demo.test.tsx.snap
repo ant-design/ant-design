@@ -4217,16 +4217,14 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 `;
 
 exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
-<div>
-  <button
-    class="ant-btn ant-btn-primary"
-    type="button"
-  >
-    <span>
-      New Collection
-    </span>
-  </button>
-</div>
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    New Collection
+  </span>
+</button>
 `;
 
 exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `
