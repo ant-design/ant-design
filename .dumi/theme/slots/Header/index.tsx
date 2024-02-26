@@ -360,7 +360,7 @@ const Header: React.FC = () => {
           content={menu}
           trigger="click"
           open={menuVisible}
-          arrow={{ arrowPointAtCenter: true }}
+          arrow={{ pointAtCenter: true }}
           onOpenChange={onMenuVisibleChange}
         >
           <MenuOutlined className="nav-phone-icon" onClick={handleShowMenu} />

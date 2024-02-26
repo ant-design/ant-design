@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { debounce } from 'throttle-debounce';
 
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
@@ -44,13 +44,13 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
     return null;
   }
 
-  if (isValidElement(indicator)) {
+  if (React.isValidElement(indicator)) {
     return cloneElement(indicator, {
       className: classNames(indicator.props.className, dotClassName),
     });
   }
 
-  if (isValidElement(defaultIndicator)) {
+  if (React.isValidElement(defaultIndicator)) {
     return cloneElement(defaultIndicator, {
       className: classNames(defaultIndicator.props.className, dotClassName),
     });
@@ -118,7 +118,11 @@ const Spin: SpinType = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
-    warning(!tip || isNestedPattern || fullscreen, 'usage', '`tip` only work in nest or fullscreen pattern.');
+    warning(
+      !tip || isNestedPattern || fullscreen,
+      'usage',
+      '`tip` only work in nest or fullscreen pattern.',
+    );
   }
 
   const { direction, spin } = React.useContext<ConfigConsumerProps>(ConfigContext);
