@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createEvent, fireEvent, render } from '@testing-library/react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 
@@ -13,6 +13,7 @@ import theme from '../../theme';
 import type { Color } from '../color';
 import type { ColorPickerProps } from '../ColorPicker';
 import ColorPicker from '../ColorPicker';
+import { generateColor } from '../util';
 
 function doMouseMove(
   container: HTMLElement,
@@ -606,5 +607,20 @@ describe('ColorPicker', () => {
   it('Should clear show when value not set', () => {
     const { container } = render(<ColorPicker />);
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
+  });
+
+  it('When controlled, the dom display value should be correct', async () => {
+    const Demo = () => {
+      const [color, setColor] = useState<Color>();
+      useEffect(() => {
+        setColor(generateColor('red'));
+      }, []);
+      return <ColorPicker value={color} />;
+    };
+    const { container } = render(<Demo />);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-color-block-inner')).toHaveStyle({
+      background: 'rgb(255, 0, 0)',
+    });
   });
 });

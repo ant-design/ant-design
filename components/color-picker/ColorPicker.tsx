@@ -124,7 +124,19 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange: onFormatChange,
   });
 
-  const [colorCleared, setColorCleared] = useState(!value && !defaultValue);
+  const [manualCleared, setManualCleared] = useState<Boolean>();
+  const [colorCleared, setColorCleared] = useMergedState(false, {
+    defaultValue: !value && !defaultValue,
+    postState: (clear) => {
+      if (manualCleared && clear) {
+        return true;
+      }
+      if (value) {
+        return false;
+      }
+      return clear;
+    },
+  });
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -166,6 +178,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   }
 
   const handleChange = (data: Color, type?: HsbaColorType, pickColor?: boolean) => {
+    setManualCleared(false);
     let color: Color = generateColor(data);
     const isNull = value === null || (!value && defaultValue === null);
     if (colorCleared || isNull) {
@@ -192,6 +205,9 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleClear = () => {
+    // handleClear is called later than handleChange
+    setManualCleared(true);
+    setColorValue(generateColor(''));
     setColorCleared(true);
     onClear?.();
   };
