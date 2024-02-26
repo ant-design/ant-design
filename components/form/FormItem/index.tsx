@@ -11,7 +11,7 @@ import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
-import type { FormInstance } from '../Form';
+import type { FormInstance, FormProps } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
@@ -84,6 +84,7 @@ const MemoInput = React.memo(
 export interface FormItemProps<Values = any>
   extends Omit<FormItemLabelProps, 'requiredMark'>,
     FormItemInputProps,
+    Pick<FormProps, 'layout'>,
     RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
@@ -131,6 +132,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     validateTrigger,
     hidden,
     help,
+    layout,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const { name: formName } = React.useContext(FormContext);
@@ -264,7 +266,9 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, cssVarCls, rootCls, hashId)}
+        className={classNames(className, cssVarCls, rootCls, hashId, {
+          [`${prefixCls}-${layout}`]: !!layout,
+        })}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
