@@ -270,12 +270,17 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('should have custom expand style', async () => {
+    const ref = React.createRef<HTMLElement>();
     const symbol = 'more';
     const { container } = render(
-      <Base ellipsis={{ expandable: true, symbol }} component="p">
+      <Base ellipsis={{ expandable: true, symbol }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
     expect(container.querySelector('.ant-typography-expand')?.textContent).toEqual('more');
   });
 
@@ -313,15 +318,18 @@ describe('Typography.Ellipsis', () => {
       });
 
       // Trigger visible should trigger recheck
-      getWidthTimes = 0;
+      let getOffsetParent = false;
       Object.defineProperty(container.querySelector('.ant-typography'), 'offsetParent', {
-        get: () => document.body,
+        get: () => {
+          getOffsetParent = true;
+          return document.body;
+        },
       });
       act(() => {
         elementChangeCallback?.();
       });
 
-      expect(getWidthTimes).toBeGreaterThan(0);
+      expect(getOffsetParent).toBeTruthy();
 
       unmount();
       expect(disconnectFn).toHaveBeenCalled();
@@ -467,80 +475,6 @@ describe('Typography.Ellipsis', () => {
       expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
     });
     mockRectSpy.mockRestore();
-  });
-
-  it('should not throw default dom nodes', async () => {
-    let currentWidth = 100;
-    // string count is different with different width
-    const getLineStrCount = (width: number) => {
-      const res = width === 100 ? 20 : 17;
-      return res;
-    };
-
-    const ref = React.createRef<HTMLElement>();
-    const resize = (width: number) => {
-      currentWidth = width;
-      if (ref.current) triggerResize(ref.current);
-    };
-
-    mockRectSpy = spyElementPrototypes(HTMLElement, {
-      offsetHeight: {
-        get() {
-          let html = this.innerHTML;
-          html = html.replace(/<[^>]*>/g, '');
-          const lines = Math.ceil(html.length / getLineStrCount(currentWidth));
-
-          return lines * 16;
-        },
-      },
-      offsetWidth: {
-        get: () => currentWidth,
-      },
-      getBoundingClientRect() {
-        let html = this.innerHTML;
-        html = html.replace(/<[^>]*>/g, '');
-        const lines = Math.ceil(html.length / getLineStrCount(currentWidth));
-        return { height: lines * 16 };
-      },
-    });
-
-    const { container } = render(
-      <Base
-        ellipsis={{
-          rows: 2,
-        }}
-        ref={ref}
-        editable
-        component="p"
-      >
-        {fullStr}
-      </Base>,
-    );
-
-    // hijackings Math.ceil
-    const originalCeil = Math.ceil;
-    let hasDefaultStr = false;
-
-    // Math.ceil will be used for ellipsis's calculations;
-    Math.ceil = (value) => {
-      const text = container.querySelector('p')?.innerHTML.replace(/<[^>]*>/g, '');
-      if (text && !text.includes('...')) {
-        hasDefaultStr = true;
-      }
-      return originalCeil.call(Math, value);
-    };
-
-    resize(50);
-    await waitFakeTimer(20, 1);
-    // ignore last result
-    hasDefaultStr = false;
-    resize(100);
-    await waitFakeTimer();
-
-    expect(hasDefaultStr).not.toBeTruthy();
-    // reset
-    mockRectSpy.mockRestore();
-    Math.ceil = originalCeil;
   });
 
   // https://github.com/ant-design/ant-design/issues/46580

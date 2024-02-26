@@ -124,7 +124,11 @@ const STATUS_MEASURE_START = 1;
 const STATUS_MEASURE_NEED_ELLIPSIS = 2;
 const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
 
-// Measure for the final measure content
+const lineClipStyle: React.CSSProperties = {
+  display: '-webkit-box',
+  overflow: 'hidden',
+  WebkitBoxOrient: 'vertical',
+};
 
 export default function EllipsisMeasure(props: EllipsisProps) {
   const { enabledMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
@@ -201,7 +205,27 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       !ellipsisCutIndex ||
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
-      return children(nodeList, false, false);
+      const content = children(nodeList, false, false);
+
+      // Limit the max line count to avoid scrollbar blink
+      // https://github.com/ant-design/ant-design/issues/42958
+      if (
+        needEllipsis !== STATUS_MEASURE_NO_NEED_ELLIPSIS &&
+        needEllipsis !== STATUS_MEASURE_NONE
+      ) {
+        return (
+          <span
+            style={{
+              ...lineClipStyle,
+              WebkitLineClamp: rows,
+            }}
+          >
+            {content}
+          </span>
+        );
+      }
+
+      return content;
     }
 
     return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
@@ -225,10 +249,8 @@ export default function EllipsisMeasure(props: EllipsisProps) {
         <MeasureText
           style={{
             ...measureStyle,
-            display: '-webkit-box',
-            overflow: 'hidden',
+            ...lineClipStyle,
             WebkitLineClamp: rows,
-            WebkitBoxOrient: 'vertical',
           }}
           ref={needEllipsisRef}
         >
