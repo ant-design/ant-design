@@ -111,6 +111,11 @@ export interface EllipsisProps {
     canEllipsis: boolean,
   ) => React.ReactNode;
   onEllipsis: (isEllipsis: boolean) => void;
+  /**
+   * Mark for misc update. Which will not affect ellipsis content length.
+   * e.g. tooltip content update.
+   */
+  miscDeps: any[];
 }
 
 // Measure for the `text` is exceed the `rows` or not
@@ -122,7 +127,7 @@ const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
 // Measure for the final measure content
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enabledMeasure, width, text, children, rows } = props;
+  const { enabledMeasure, width, text, children, rows, miscDeps } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
@@ -197,7 +202,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     }
 
     return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
-  }, [needEllipsis, ellipsisCutIndex, nodeList]);
+  }, [needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {

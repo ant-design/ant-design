@@ -442,35 +442,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return null;
     }
 
-    // const { tooltips, icon } = copyConfig;
-
-    // const tooltipNodes = toList(tooltips);
-    // const iconNodes = toList(icon);
-
-    // const copyTitle = copied
-    //   ? getNode(tooltipNodes[1], textLocale?.copied)
-    //   : getNode(tooltipNodes[0], textLocale?.copy);
-    // const systemStr = copied ? textLocale?.copied : textLocale?.copy;
-    // const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
-
-    // return (
-    //   <Tooltip key="copy" title={copyTitle}>
-    //     <TransButton
-    //       className={classNames(`${prefixCls}-copy`, {
-    //         [`${prefixCls}-copy-success`]: copied,
-    //         [`${prefixCls}-copy-icon-only`]: children === null || children === undefined,
-    //       })}
-    //       onClick={onCopyClick}
-    //       aria-label={ariaLabel}
-    //     >
-    //       {copied
-    //         ? getNode(iconNodes[1], <CheckOutlined />, true)
-    //         : getNode(iconNodes[0], <CopyOutlined />, true)}
-    //     </TransButton>
-    //   </Tooltip>
-    // );
     return (
       <CopyBtn
+        key="copy"
         prefixCls={prefixCls}
         copied={copied}
         locale={textLocale}
@@ -536,6 +510,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               rows={rows}
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
+              miscDeps={[copied, expanded]}
             >
               {(node, needEllipsis) => {
                 let renderNode: React.ReactNode = node;
