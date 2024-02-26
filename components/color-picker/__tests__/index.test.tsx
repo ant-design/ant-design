@@ -623,4 +623,17 @@ describe('ColorPicker', () => {
       background: 'rgb(255, 0, 0)',
     });
   });
+
+  it('When controlled value changes, the dom display value should be correct 2', async () => {
+    const Demo = () => {
+      const [color, setColor] = useState<Color>(generateColor('red'));
+      useEffect(() => {
+        setColor(generateColor(''));
+      }, []);
+      return <ColorPicker value={color} />;
+    };
+    const { container } = render(<Demo />);
+    await waitFakeTimer();
+    expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
+  });
 });
