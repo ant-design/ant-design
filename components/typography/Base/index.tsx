@@ -25,7 +25,6 @@ import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import EllipsisMeasure from './EllipsisMeasure';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
@@ -289,10 +288,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
-  const [ellipsisFontSize, setEllipsisFontSize] = React.useState(0);
-  const onResize = ({ offsetWidth }: { offsetWidth: number }, element: HTMLElement) => {
+  const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
-    setEllipsisFontSize(parseInt(window.getComputedStyle?.(element).fontSize, 10) || 0);
   };
 
   // >>>>> JS Ellipsis
@@ -534,12 +531,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             title={title}
             {...textProps}
           >
-            <EllipsisMeasure
+            <Ellipsis
               enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
               text={children}
               rows={rows}
               width={ellipsisWidth}
-              // fontSize={ellipsisFontSize}
               onEllipsis={onJsEllipsis}
             >
               {(node, needEllipsis) => {
@@ -562,7 +558,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
                 return wrappedContext;
               }}
-            </EllipsisMeasure>
+            </Ellipsis>
           </Typography>
         </EllipsisTooltip>
       )}
