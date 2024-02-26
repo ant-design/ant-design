@@ -127,7 +127,7 @@ const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
 // Measure for the final measure content
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enabledMeasure, width, text, children, rows, miscDeps } = props;
+  const { enabledMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
@@ -157,12 +157,15 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // Measure process
   useLayoutEffect(() => {
     if (needEllipsis === STATUS_MEASURE_START) {
-      const isOverflow = needEllipsisRef.current?.isExceed();
+      const isOverflow = !!needEllipsisRef.current?.isExceed();
 
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
       setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
+
       // For the accuracy issue, we add 1px to the height
       setEllipsisHeight((needEllipsisRef.current?.getHeight() || 0) + 1);
+
+      onEllipsis(isOverflow);
     }
   }, [needEllipsis]);
 

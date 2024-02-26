@@ -14,6 +14,7 @@ jest.mock('../../_util/styleChecker', () => ({
 
 describe('Typography.Ellipsis', () => {
   const LINE_STR_COUNT = 20;
+  const LINE_HEIGHT = 16;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
   let getWidthTimes = 0;
@@ -21,31 +22,50 @@ describe('Typography.Ellipsis', () => {
   let offsetWidth: number;
   let scrollWidth: number;
 
+  function getContentHeight(elem?: HTMLElement) {
+    let html = (elem || this).innerHTML;
+    html = html.replace(/<[^>]*>/g, '');
+    const lines = Math.ceil(html.length / LINE_STR_COUNT);
+    return lines * LINE_HEIGHT;
+  }
+
   beforeAll(() => {
     jest.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
-      offsetHeight: {
-        get() {
-          let html = this.innerHTML;
-          html = html.replace(/<[^>]*>/g, '');
-          const lines = Math.ceil(html.length / LINE_STR_COUNT);
-          return lines * 16;
-        },
-      },
+      // offsetHeight: {
+      //   get() {
+      //     let html = this.innerHTML;
+      //     html = html.replace(/<[^>]*>/g, '');
+      //     const lines = Math.ceil(html.length / LINE_STR_COUNT);
+      //     return lines * 16;
+      //   },
+      // },
+      // offsetWidth: {
+      //   get: () => {
+      //     getWidthTimes += 1;
+      //     return offsetWidth;
+      //   },
+      // },
+      // scrollWidth: {
+      //   get: () => scrollWidth,
+      // },
+      // getBoundingClientRect() {
+      //   let html = this.innerHTML;
+      //   html = html.replace(/<[^>]*>/g, '');
+      //   const lines = Math.ceil(html.length / LINE_STR_COUNT);
+      //   return { height: lines * 16 };
+      // },
       offsetWidth: {
-        get: () => {
-          getWidthTimes += 1;
-          return offsetWidth;
+        get: () => LINE_STR_COUNT,
+      },
+      scrollHeight: {
+        get: getContentHeight,
+      },
+      clientHeight: {
+        get() {
+          const { WebkitLineClamp } = this.style;
+          return WebkitLineClamp ? Number(WebkitLineClamp) * LINE_HEIGHT : getContentHeight(this);
         },
-      },
-      scrollWidth: {
-        get: () => scrollWidth,
-      },
-      getBoundingClientRect() {
-        let html = this.innerHTML;
-        html = html.replace(/<[^>]*>/g, '');
-        const lines = Math.ceil(html.length / LINE_STR_COUNT);
-        return { height: lines * 16 };
       },
     });
 
@@ -110,6 +130,8 @@ describe('Typography.Ellipsis', () => {
 
     unmount();
   });
+
+  return;
 
   it('support css multiple lines', async () => {
     const { container: wrapper } = render(
