@@ -8105,6 +8105,339 @@ exports[`renders components/form/demo/layout-can-wrap.tsx extend context correct
 
 exports[`renders components/form/demo/layout-can-wrap.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+  id="layout-multiple"
+>
+  <div
+    class="ant-row"
+    style="margin-left: -12px; margin-right: -12px; margin-bottom: 8px;"
+  >
+    <div
+      class="ant-col ant-col-16"
+      style="padding-left: 12px; padding-right: 12px;"
+    >
+      <div
+        class="ant-flex"
+        style="gap: 8px;"
+      >
+        <div
+          class="ant-form-item ant-form-item-layout ant-form-vertical"
+          style="margin-bottom: 0px;"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+            layout="vertical"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="layout-multiple_field-0"
+                title="Field 0"
+              >
+                Field 0
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    class="ant-input ant-input-outlined"
+                    id="layout-multiple_field-0"
+                    placeholder="placeholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item ant-form-item-layout ant-form-vertical"
+          style="margin-bottom: 0px;"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+            layout="vertical"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="layout-multiple_field-1"
+                title="Field 1"
+              >
+                Field 1
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    class="ant-input ant-input-outlined"
+                    id="layout-multiple_field-1"
+                    placeholder="placeholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item ant-form-item-layout ant-form-vertical"
+          style="margin-bottom: 0px;"
+        >
+          <div
+            class="ant-row ant-form-item-row"
+            layout="vertical"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="layout-multiple_field-2"
+                title="Field 2"
+              >
+                Field 2
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    class="ant-input ant-input-outlined"
+                    id="layout-multiple_field-2"
+                    placeholder="placeholder"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8"
+      style="padding-left: 12px; padding-right: 12px; display: flex; justify-content: flex-end; align-items: flex-end;"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+      >
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="submit"
+          >
+            <span>
+              Search
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Clear
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex"
+    style="gap: 8px;"
+  >
+    <div
+      class="ant-form-item ant-form-item-layout ant-form-inline"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+        layout="inline"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="layout-multiple_fruit"
+            title="fruit"
+          >
+            fruit
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="layout-multiple_fruit"
+              >
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="Apple"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Apple
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="Orange"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Orange
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-form-item ant-form-item-layout ant-form-inline"
+    >
+      <div
+        class="ant-row ant-form-item-row"
+        layout="inline"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="layout-multiple_type"
+            title="type"
+          >
+            type
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-radio-group ant-radio-group-outline"
+                id="layout-multiple_type"
+              >
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="Option A"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Option A
+                  </span>
+                </label>
+                <label
+                  class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+                >
+                  <span
+                    class="ant-radio-button"
+                  >
+                    <input
+                      class="ant-radio-button-input"
+                      type="radio"
+                      value="Option B"
+                    />
+                    <span
+                      class="ant-radio-button-inner"
+                    />
+                  </span>
+                  <span>
+                    Option B
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`renders components/form/demo/layout-multiple.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/form/demo/nest-messages.tsx extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"

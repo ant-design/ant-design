@@ -267,6 +267,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         key="row"
         {...props}
         className={classNames(className, cssVarCls, rootCls, hashId, {
+          [`${prefixCls}-item-layout`]: !!layout,
           [`${prefixCls}-${layout}`]: !!layout,
         })}
         prefixCls={prefixCls}

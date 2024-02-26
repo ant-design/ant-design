@@ -384,7 +384,7 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls } = token;
 
   return {
-    [`${componentCls}-horizontal`]: {
+    [`${componentCls}-horizontal > ${componentCls}-item:not(${componentCls}-item-layout)`]: {
       [`${formItemCls}-label`]: {
         flexGrow: 0,
       },
@@ -413,7 +413,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls } = token;
 
   return {
-    [`${componentCls}-inline`]: {
+    [`${componentCls}-inline > ${componentCls}-item:not(${componentCls}-item-layout)`]: {
       display: 'flex',
       flexWrap: 'wrap',
 
@@ -427,7 +427,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
         },
 
         [`> ${formItemCls}-label,
-        > ${formItemCls}-control`]: {
+          > ${formItemCls}-control`]: {
           display: 'inline-block',
           verticalAlign: 'top',
         },
@@ -492,7 +492,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${componentCls}-vertical`]: {
+    [`${componentCls}-vertical > ${componentCls}-item:not(${componentCls}-item-layout)`]: {
       [formItemCls]: {
         '&-row': {
           flexDirection: 'column',

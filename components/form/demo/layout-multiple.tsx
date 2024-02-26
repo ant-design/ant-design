@@ -23,7 +23,7 @@ const getFields = () => {
 const App: React.FC = () => {
   const [form] = Form.useForm();
   return (
-    <Form form={form} name="layout-multiple" layout={false}>
+    <Form form={form} name="layout-multiple">
       <Row gutter={24} style={{ marginBottom: 8 }}>
         <Col span={16}>
           <Flex gap={8}>{getFields()}</Flex>

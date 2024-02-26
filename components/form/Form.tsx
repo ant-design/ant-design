@@ -33,7 +33,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   prefixCls?: string;
   colon?: boolean;
   name?: string;
-  layout?: FormLayout | false;
+  layout?: FormLayout;
   labelAlign?: FormLabelAlign;
   labelWrap?: boolean;
   labelCol?: ColProps;
@@ -113,8 +113,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const formClassName = classNames(
     prefixCls,
+    `${prefixCls}-${layout}`,
     {
-      [`${prefixCls}-${layout}`]: !!layout,
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${mergedSize}`]: mergedSize,
