@@ -102,6 +102,9 @@ export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' |
 
 export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
 
+export type InputConfig = ComponentStyleConfig &
+  Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
+
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
@@ -134,7 +137,7 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
+  input?: InputConfig;
   pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
   direction?: DirectionType;

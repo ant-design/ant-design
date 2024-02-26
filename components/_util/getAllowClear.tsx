@@ -9,11 +9,8 @@ const getAllowClear = (allowClear: AllowClear): AllowClear => {
   if (typeof allowClear === 'object' && allowClear?.clearIcon) {
     mergedAllowClear = allowClear;
   } else if (allowClear) {
-    mergedAllowClear = {
-      clearIcon: <CloseCircleFilled />,
-    };
+    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
-
   return mergedAllowClear;
 };
 

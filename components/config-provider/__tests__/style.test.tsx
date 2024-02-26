@@ -496,9 +496,12 @@ describe('ConfigProvider support style and className props', () => {
               color: 'black',
             },
           },
+          allowClear: {
+            clearIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
         }}
       >
-        <Input placeholder="Basic usage" prefix="￥" />
+        <Input placeholder="Basic usage" value="test" prefix="￥" />
       </ConfigProvider>,
     );
 
@@ -513,6 +516,9 @@ describe('ConfigProvider support style and className props', () => {
     const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
     expect(inputElement).toHaveClass('cp-classNames-input');
     expect(inputElement).toHaveStyle({ color: 'blue' });
+    expect(
+      container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
+    ).toBeTruthy();
   });
 
   it('Should Layout className & style works', () => {
