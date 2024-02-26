@@ -28,6 +28,7 @@ import Layout from '../../layout';
 import List from '../../list';
 import Mentions from '../../mentions';
 import Menu from '../../menu';
+import type { MenuProps } from '../../menu';
 import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';
@@ -575,24 +576,32 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
   });
 
-  it('Should Menu className works', () => {
-    const menuItems = [
+  it('Should Menu className & expandIcon works', () => {
+    const menuItems: MenuProps['items'] = [
       {
-        label: 'Test Label',
+        label: <span>Test Label</span>,
         key: 'test',
+        children: [
+          {
+            label: <span>Test Label children</span>,
+            key: 'test-children',
+          },
+        ],
       },
     ];
-    const { container } = render(
-      <ConfigProvider
-        menu={{
-          className: 'test-class',
-        }}
-      >
+    const App: React.FC<{ expand?: React.ReactNode }> = ({ expand }) => (
+      <ConfigProvider menu={{ className: 'test-class', expandIcon: expand }}>
         <Menu items={menuItems} />
-      </ConfigProvider>,
+      </ConfigProvider>
     );
-
-    expect(container.querySelector('.ant-menu')).toHaveClass('test-class');
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector<HTMLElement>('.ant-menu')).toHaveClass('test-class');
+    rerender(<App expand={<span className="test-cp-icon">test-cp-icon</span>} />);
+    expect(container.querySelector<HTMLSpanElement>('.ant-menu .test-cp-icon')).toBeTruthy();
+    rerender(<App expand={null} />);
+    expect(container.querySelector<HTMLElement>('.ant-menu-submenu-arrow')).toBeFalsy();
+    rerender(<App expand={false} />);
+    expect(container.querySelector<HTMLElement>('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 
   it('Should Menu style works', () => {
