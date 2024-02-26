@@ -122,7 +122,7 @@ Form layout component, used to implement mixed form layout.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| layout | Form layout | `horizontal` \| `vertical` \| `inline` \| `false` | `horizontal` |  |
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
 | labelWrap | whether label can be wrap | boolean | false | 4.18.0 |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#col) | - |  |

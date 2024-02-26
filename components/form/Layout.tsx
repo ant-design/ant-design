@@ -45,7 +45,13 @@ const InternalFormLayout = (props: FormLayoutProps) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const formClassName = classNames(`${prefixCls}-${layout}`, cssVarCls, rootCls, hashId, className);
+  const formClassName = classNames(
+    { [`${prefixCls}-${layout}`]: !!layout },
+    cssVarCls,
+    rootCls,
+    hashId,
+    className,
+  );
 
   const formContextValue = useMemo<FormContextProps>(
     () => ({

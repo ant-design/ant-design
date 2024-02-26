@@ -123,7 +123,7 @@ const validateMessages = {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline`\| `false` | `horizontal` |  |
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
 | labelWrap | label 标签的文本换行方式 | boolean | false |  |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid-cn#col) | - |  |
