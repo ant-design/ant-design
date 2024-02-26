@@ -105,6 +105,8 @@ export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames'
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
 
+export type TextAreaConfig = ComponentStyleConfig & Pick<InputProps, 'allowClear'>;
+
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
@@ -138,6 +140,7 @@ export interface ConfigConsumerProps {
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   input?: InputConfig;
+  textArea?: TextAreaConfig;
   pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
   direction?: DirectionType;

@@ -60,7 +60,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
-  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, textArea } = React.useContext(ConfigContext);
 
   // ===================== Size =====================
   const mergedSize = useSize(customizeSize);
@@ -96,7 +96,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
-  const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
+  const mergedAllowClear = getAllowClear(allowClear ?? textArea?.allowClear);
 
   return wrapCSSVar(
     <RcTextArea
