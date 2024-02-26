@@ -445,12 +445,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <CopyBtn
         key="copy"
+        {...copyConfig}
         prefixCls={prefixCls}
         copied={copied}
         locale={textLocale}
         onCopy={onCopyClick}
         iconOnly={children === null || children === undefined}
-        {...copyConfig}
       />
     );
   };
