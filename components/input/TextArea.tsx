@@ -51,6 +51,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     classNames: classes,
     rootClassName,
     className,
+    style,
+    styles,
     variant: customVariant,
     ...rest
   } = props;
@@ -100,12 +102,16 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   return wrapCSSVar(
     <RcTextArea
+      autoComplete={textArea?.autoComplete}
       {...rest}
+      style={{ ...textArea?.style, ...style }}
+      styles={{ ...textArea?.styles, ...styles }}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(cssVarCls, rootCls, className, rootClassName)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName, textArea?.className)}
       classNames={{
         ...classes,
+        ...textArea?.classNames,
         textarea: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -113,6 +119,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           },
           hashId,
           classes?.textarea,
+          textArea?.classNames?.textarea,
         ),
         variant: classNames(
           {

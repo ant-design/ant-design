@@ -478,7 +478,7 @@ describe('ConfigProvider support style and className props', () => {
     ).toBeTruthy();
   });
 
-  it('Should Input className & style & classNames & styles & allowClear works', () => {
+  it('Should Input autoComplete & className & style & classNames & styles & allowClear works', () => {
     const { container } = render(
       <ConfigProvider
         input={{
@@ -501,11 +501,16 @@ describe('ConfigProvider support style and className props', () => {
           },
         }}
       >
-        <Input placeholder="Basic usage" value="test" prefix="￥" />
+        <Input
+          autoComplete="test-autocomplete"
+          placeholder="Basic usage"
+          value="test"
+          prefix="￥"
+        />
       </ConfigProvider>,
     );
 
-    const wrapperElement = container.querySelector<HTMLDivElement>('.ant-input-affix-wrapper');
+    const wrapperElement = container.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper');
     expect(wrapperElement).toHaveClass('cp-input');
     expect(wrapperElement).toHaveStyle({ backgroundColor: 'red' });
 
@@ -516,6 +521,60 @@ describe('ConfigProvider support style and className props', () => {
     const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
     expect(inputElement).toHaveClass('cp-classNames-input');
     expect(inputElement).toHaveStyle({ color: 'blue' });
+    expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
+
+    expect(
+      container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
+    ).toBeTruthy();
+  });
+
+  it('Should Input.TextArea autoComplete & className & style & classNames & styles & allowClear works', () => {
+    const { container } = render(
+      <ConfigProvider
+        textArea={{
+          className: 'cp-textArea',
+          style: { backgroundColor: 'yellow' },
+          classNames: {
+            textarea: 'cp-classNames-textArea',
+            count: 'cp-classNames-count',
+          },
+          styles: {
+            textarea: {
+              color: 'blue',
+            },
+            count: {
+              color: 'red',
+            },
+          },
+          allowClear: {
+            clearIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
+        }}
+      >
+        <Input.TextArea
+          autoComplete="test-autocomplete"
+          placeholder="Basic usage"
+          value="test"
+          prefix="￥"
+          count={{ show: true }}
+        />
+      </ConfigProvider>,
+    );
+    const wrapperElement = container.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper');
+    expect(wrapperElement).toHaveClass('cp-textArea');
+    expect(wrapperElement).toHaveStyle({ backgroundColor: 'yellow' });
+
+    const inputElement = container.querySelector<HTMLTextAreaElement>('.ant-input');
+    expect(inputElement).toHaveClass('cp-classNames-textArea');
+    expect(inputElement).toHaveStyle({ color: 'blue' });
+    expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
+
+    const countElement = container.querySelector<HTMLSpanElement>(
+      '.ant-input-affix-wrapper .ant-input-data-count',
+    );
+    expect(countElement).toHaveClass('cp-classNames-count');
+    expect(countElement).toHaveStyle({ color: 'red' });
+
     expect(
       container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
     ).toBeTruthy();

@@ -10,7 +10,7 @@ import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FormProps } from '../form/Form';
-import type { InputProps } from '../input';
+import type { InputProps, TextAreaProps } from '../input';
 import type { Locale } from '../locale';
 import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
@@ -105,7 +105,8 @@ export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames'
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
 
-export type TextAreaConfig = ComponentStyleConfig & Pick<InputProps, 'allowClear'>;
+export type TextAreaConfig = ComponentStyleConfig &
+  Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
