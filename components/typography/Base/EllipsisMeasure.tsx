@@ -7,29 +7,95 @@ interface MeasureTextProps {
   children: React.ReactNode;
 }
 
-const MeasureText = React.forwardRef<HTMLSpanElement, MeasureTextProps>(
-  ({ style, children }, ref) => (
-    <span
-      aria-hidden
-      ref={ref}
-      style={{
-        position: 'fixed',
-        display: 'block',
-        left: 0,
-        top: 0,
-        // zIndex: -9999,
-        // visibility: 'hidden',
-        pointerEvents: 'none',
+interface MeasureTextRef {
+  isExceed: () => boolean;
+  getHeight: () => number;
+}
 
-        backgroundColor: 'rgba(255, 0, 0, 0.65)',
+const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
+  ({ style, children }, ref) => {
+    const spanRef = React.useRef<HTMLSpanElement>(null);
 
-        ...style,
-      }}
-    >
-      {children}
-    </span>
-  ),
+    React.useImperativeHandle(ref, () => ({
+      isExceed: () => {
+        const span = spanRef.current!;
+        return span.scrollHeight > span.clientHeight;
+      },
+      getHeight: () => spanRef.current!.clientHeight,
+    }));
+
+    return (
+      <span
+        aria-hidden
+        ref={spanRef}
+        style={{
+          position: 'fixed',
+          display: 'block',
+          left: 0,
+          top: 0,
+          // zIndex: -9999,
+          // visibility: 'hidden',
+          pointerEvents: 'none',
+
+          backgroundColor: 'rgba(255, 0, 0, 0.65)',
+
+          ...style,
+        }}
+      >
+        {children}
+      </span>
+    );
+  },
 );
+
+function cuttable(node: React.ReactElement) {
+  const type = typeof node;
+  return type === 'string' || type === 'number';
+}
+
+function getNodesLen(nodeList: React.ReactElement[]) {
+  let totalLen = 0;
+
+  nodeList.forEach((node) => {
+    if (cuttable(node)) {
+      totalLen += String(node).length;
+    } else {
+      totalLen += 1;
+    }
+  });
+
+  return totalLen;
+}
+
+function sliceNodes(nodeList: React.ReactElement[], len: number) {
+  let currLen = 0;
+  const currentNodeList: React.ReactNode[] = [];
+
+  for (let i = 0; i < nodeList.length; i += 1) {
+    // Match to return
+    if (currLen === len) {
+      return currentNodeList;
+    }
+
+    const node = nodeList[i];
+    const canCut = cuttable(node);
+    const nodeLen = canCut ? String(node).length : 1;
+    const nextLen = currLen + nodeLen;
+
+    // Exceed but current not which means we need cut this
+    // This will not happen on validate ReactElement
+    if (nextLen > len) {
+      const restLen = len - currLen;
+      currentNodeList.push(String(node).slice(0, restLen));
+      return currentNodeList;
+    }
+
+    currentNodeList.push(node);
+    currLen = nextLen;
+  }
+
+  return nodeList;
+}
 
 export interface EllipsisProps {
   enabledMeasure?: boolean;
@@ -47,28 +113,36 @@ export interface EllipsisProps {
   onEllipsis: (isEllipsis: boolean) => void;
 }
 
+// Measure for the `text` is exceed the `rows` or not
 const STATUS_MEASURE_NONE = 0;
 const STATUS_MEASURE_START = 1;
 const STATUS_MEASURE_NEED_ELLIPSIS = 2;
 const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
 
+// Measure for the final measure content
+
 export default function EllipsisMeasure(props: EllipsisProps) {
   const { enabledMeasure, width, text, children, rows } = props;
 
-  // console.log('Props:', props);
-
   const nodeList = React.useMemo(() => toArray(text), [text]);
+  const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
 
   // ========================= Full Content =========================
   const fullContent = React.useMemo(() => children(nodeList, false, false), [text]);
 
+  // ========================= Cut Content ==========================
+  const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
+  const cutMidRef = React.useRef<MeasureTextRef>(null);
+
   // ========================= NeedEllipsis =========================
-  const needEllipsisRef = React.useRef<HTMLSpanElement>(null);
+  const needEllipsisRef = React.useRef<MeasureTextRef>(null);
+
   const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
+  const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
 
   // Trigger start measure
   useLayoutEffect(() => {
-    if (enabledMeasure && width && nodeList.length) {
+    if (enabledMeasure && width && nodeLen) {
       setNeedEllipsis(STATUS_MEASURE_START);
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
@@ -78,12 +152,52 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   // Measure process
   useLayoutEffect(() => {
     if (needEllipsis === STATUS_MEASURE_START) {
-      const measureEle = needEllipsisRef.current!;
-      const isOverflow = measureEle.scrollHeight > measureEle.clientHeight;
+      const isOverflow = needEllipsisRef.current?.isExceed();
 
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
+      setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
+      // For the accuracy issue, we add 1px to the height
+      setEllipsisHeight((needEllipsisRef.current?.getHeight() || 0) + 1);
     }
   }, [needEllipsis]);
+
+  // ========================= Cut Measure ==========================
+  const cutMidIndex = ellipsisCutIndex
+    ? Math.ceil((ellipsisCutIndex[0] + ellipsisCutIndex[1]) / 2)
+    : 0;
+
+  useLayoutEffect(() => {
+    const [minIndex, maxIndex] = ellipsisCutIndex || [0, 0];
+    if (minIndex !== maxIndex) {
+      const midHeight = cutMidRef.current?.getHeight() || 0;
+
+      const isOverflow = midHeight > ellipsisHeight;
+      let targetMidIndex = cutMidIndex;
+
+      if (maxIndex - minIndex === 1) {
+        targetMidIndex = isOverflow ? minIndex : maxIndex;
+      }
+
+      if (isOverflow) {
+        setEllipsisCutIndex([minIndex, targetMidIndex]);
+      } else {
+        setEllipsisCutIndex([targetMidIndex, maxIndex]);
+      }
+    }
+  }, [ellipsisCutIndex, cutMidIndex]);
+
+  // ========================= Text Content =========================
+  const finalContent = React.useMemo(() => {
+    if (
+      needEllipsis !== STATUS_MEASURE_NEED_ELLIPSIS ||
+      !ellipsisCutIndex ||
+      ellipsisCutIndex[0] !== ellipsisCutIndex[1]
+    ) {
+      return children(nodeList, false, false);
+    }
+
+    return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
+  }, [needEllipsis, ellipsisCutIndex]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
@@ -93,11 +207,12 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     padding: 0,
   };
 
-  const mergedChildren = needEllipsis === STATUS_MEASURE_NONE ? fullContent : 'none';
-
   return (
     <>
-      {mergedChildren}
+      {/* Final show content */}
+      {finalContent}
+
+      {/* Measure if current content is exceed the rows */}
       {needEllipsis === STATUS_MEASURE_START && (
         <MeasureText
           style={{
@@ -112,6 +227,21 @@ export default function EllipsisMeasure(props: EllipsisProps) {
           {fullContent}
         </MeasureText>
       )}
+
+      {/* Real size overflow measure */}
+      {needEllipsis === STATUS_MEASURE_NEED_ELLIPSIS &&
+        ellipsisCutIndex &&
+        ellipsisCutIndex[0] !== ellipsisCutIndex[1] && (
+          <MeasureText
+            style={{
+              ...measureStyle,
+              top: 400,
+            }}
+            ref={cutMidRef}
+          >
+            {children(sliceNodes(nodeList, cutMidIndex), true, true)}
+          </MeasureText>
+        )}
     </>
   );
 }
