@@ -102,7 +102,7 @@ export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
 
 export interface CardConfig extends ComponentStyleConfig {
   classNames?: CardProps['classNames'];
-  styles: CardProps['styles'];
+  styles?: CardProps['styles'];
 }
 
 export type DrawerConfig = ComponentStyleConfig &
