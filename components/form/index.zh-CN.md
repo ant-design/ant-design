@@ -76,7 +76,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
 | labelWrap | label 标签的文本换行方式 | boolean | false | 4.18.0 |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid-cn#col) | - |  |
-| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline`\| `false` | `horizontal` |  |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |  |
 | preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | 4.4.0 |
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
@@ -116,6 +116,18 @@ const validateMessages = {
   <Form />
 </ConfigProvider>;
 ```
+
+## Form.Layout
+
+表单布局组件，用于实现表单混合布局。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |  |
+| labelWrap | label 标签的文本换行方式 | boolean | false |  |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](/components/grid-cn#col) | - |  |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置，不会作用于嵌套 Item。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid-cn#col) | - |  |
 
 ## Form.Item
 

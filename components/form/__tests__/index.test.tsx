@@ -1206,7 +1206,7 @@ describe('Form', () => {
 
   it('Form.Layout', () => {
     const App: React.FC = () => (
-      <Form noLayout>
+      <Form layout={false}>
         <Form.Layout layout="horizontal" labelCol={{ span: 8 }} wrapperCol={{ span: 16 }}>
           <Form.Item label="horizontal" name="horizontal" rules={[{ required: true }]}>
             <Input />

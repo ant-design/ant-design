@@ -75,7 +75,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
 | labelWrap | whether label can be wrap | boolean | false | 4.18.0 |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#col) | - |  |
-| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| layout | Form layout | `horizontal` \| `vertical` \| `inline` \| `false` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
@@ -115,6 +115,18 @@ const validateMessages = {
   <Form />
 </ConfigProvider>;
 ```
+
+## Form.Layout
+
+Form layout component, used to implement mixed form layout.
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
+| labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
+| labelWrap | whether label can be wrap | boolean | false | 4.18.0 |
+| labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#col) | - |  |
+| wrapperCol | The layout for input controls, same as `labelCol` | [object](/components/grid/#col) | - |  |
 
 ## Form.Item
 
