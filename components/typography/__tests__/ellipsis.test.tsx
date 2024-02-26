@@ -46,9 +46,9 @@ describe('Typography.Ellipsis', () => {
       //     return offsetWidth;
       //   },
       // },
-      // scrollWidth: {
-      //   get: () => scrollWidth,
-      // },
+      scrollWidth: {
+        get: () => scrollWidth,
+      },
       // getBoundingClientRect() {
       //   let html = this.innerHTML;
       //   html = html.replace(/<[^>]*>/g, '');
@@ -56,7 +56,7 @@ describe('Typography.Ellipsis', () => {
       //   return { height: lines * 16 };
       // },
       offsetWidth: {
-        get: () => LINE_STR_COUNT,
+        get: () => offsetWidth,
       },
       scrollHeight: {
         get: getContentHeight,
@@ -130,8 +130,6 @@ describe('Typography.Ellipsis', () => {
 
     unmount();
   });
-
-  return;
 
   it('support css multiple lines', async () => {
     const { container: wrapper } = render(
@@ -256,15 +254,19 @@ describe('Typography.Ellipsis', () => {
 
   it('should expandable work', async () => {
     const onExpand = jest.fn();
-    const { container: wrapper } = render(
-      <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
+    const ref = React.createRef<HTMLElement>();
+    const { container } = render(
+      <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable ref={ref}>
         {fullStr}
       </Base>,
     );
 
-    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    fireEvent.click(container.querySelector('.ant-typography-expand')!);
     expect(onExpand).toHaveBeenCalled();
-    expect(wrapper.querySelector('p')?.textContent).toEqual(fullStr);
+    expect(container.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
   it('should have custom expand style', async () => {
