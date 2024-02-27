@@ -141,8 +141,6 @@ describe('hooks test', () => {
         const [closable, closeIcon] = useClosable({
           closable: params[0],
           closeIcon: params[1],
-          customCloseIconRender: undefined,
-          defaultCloseIcon: undefined,
           defaultClosable: params[2],
         });
         useEffect(() => {
@@ -163,8 +161,6 @@ describe('hooks test', () => {
     const App = () => {
       const [closable, closeIcon] = useClosable({
         closable: true,
-        closeIcon: undefined,
-        customCloseIconRender: undefined,
         defaultCloseIcon: <CloseOutlined className="custom-close-icon" />,
       });
       useEffect(() => {
@@ -183,7 +179,6 @@ describe('hooks test', () => {
       );
       const [closable, closeIcon] = useClosable({
         closable: true,
-        closeIcon: undefined,
         customCloseIconRender,
       });
       useEffect(() => {
