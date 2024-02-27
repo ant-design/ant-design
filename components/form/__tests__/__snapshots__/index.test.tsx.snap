@@ -113,7 +113,6 @@ exports[`Form Form.Item layout 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      layout="horizontal"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -152,7 +151,6 @@ exports[`Form Form.Item layout 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      layout="vertical"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -191,7 +189,6 @@ exports[`Form Form.Item layout 1`] = `
   >
     <div
       class="ant-row ant-form-item-row"
-      layout="inline"
     >
       <div
         class="ant-col ant-form-item-label"

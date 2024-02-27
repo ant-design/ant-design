@@ -266,11 +266,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, cssVarCls, rootCls, hashId, {
-          [`${prefixCls}-item`]: true,
-          [`${prefixCls}-item-layout`]: !!layout,
-          [`${prefixCls}-${layout}`]: !!layout,
-        })}
+        className={classNames(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -278,6 +274,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         warnings={mergedWarnings}
         meta={meta}
         onSubItemMetaChange={onSubItemMetaChange}
+        layout={layout}
       >
         {baseChildren}
       </ItemHolder>

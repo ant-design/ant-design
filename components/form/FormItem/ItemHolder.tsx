@@ -47,6 +47,7 @@ export default function ItemHolder(props: ItemHolderProps) {
     required,
     isRequired,
     onSubItemMetaChange,
+    layout,
     ...restProps
   } = props;
 
@@ -91,7 +92,8 @@ export default function ItemHolder(props: ItemHolderProps) {
   // ======================== Render ========================
   const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
     [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
-
+    [`${prefixCls}-item-layout`]: !!layout,
+    [`${prefixCls}-${layout}`]: !!layout,
     // Status
     [`${itemPrefixCls}-has-feedback`]: mergedValidateStatus && hasFeedback,
     [`${itemPrefixCls}-has-success`]: mergedValidateStatus === 'success',
