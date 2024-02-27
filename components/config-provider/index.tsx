@@ -8,6 +8,7 @@ import warning, { WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
 import type { FormProps } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
+import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
@@ -31,7 +32,6 @@ import type {
   DrawerConfig,
   FlexConfig,
   ImageConfig,
-  InputConfig,
   MenuConfig,
   ModalConfig,
   NotificationConfig,
@@ -124,7 +124,7 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   form?: ComponentStyleConfig &
     Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
-  input?: InputConfig;
+  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
   textArea?: TextAreaConfig;
   select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
   pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;

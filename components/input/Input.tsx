@@ -172,7 +172,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const mergedAllowClear = getAllowClear(allowClear ?? input?.allowClear);
+  const mergedAllowClear = getAllowClear(allowClear);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
