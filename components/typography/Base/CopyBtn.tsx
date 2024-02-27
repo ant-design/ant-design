@@ -18,15 +18,17 @@ export interface CopyBtnProps extends CopyConfig {
 }
 
 export default function CopyBtn(props: CopyBtnProps) {
-  const { prefixCls, copied, locale, onCopy, iconOnly, tooltips, icon } = props;
+  const { prefixCls, copied, locale = {}, onCopy, iconOnly, tooltips, icon } = props;
 
   const tooltipNodes = toList(tooltips);
   const iconNodes = toList(icon);
 
+  const { copied: copiedText, copy: copyText } = locale;
+
   const copyTitle = copied
-    ? getNode(tooltipNodes[1], locale?.copied)
-    : getNode(tooltipNodes[0], locale?.copy);
-  const systemStr = copied ? locale?.copied : locale?.copy;
+    ? getNode(tooltipNodes[1], copiedText)
+    : getNode(tooltipNodes[0], copyText);
+  const systemStr = copied ? copiedText : copyText;
   const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
   return (
