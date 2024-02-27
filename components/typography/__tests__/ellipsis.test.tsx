@@ -17,14 +17,15 @@ describe('Typography.Ellipsis', () => {
   const LINE_HEIGHT = 16;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
   let mockRectSpy: ReturnType<typeof spyElementPrototypes>;
-  let getWidthTimes = 0;
   let computeSpy: jest.SpyInstance<CSSStyleDeclaration>;
   let offsetWidth: number;
   let scrollWidth: number;
 
   function getContentHeight(elem?: HTMLElement) {
+    const regex = /<[^>]*>/g;
+
     let html = (elem || this).innerHTML;
-    html = html.replace(/<[^>]*>/g, '');
+    html = html.replace(regex, '');
     const lines = Math.ceil(html.length / LINE_STR_COUNT);
     return lines * LINE_HEIGHT;
   }
@@ -32,29 +33,9 @@ describe('Typography.Ellipsis', () => {
   beforeAll(() => {
     jest.useFakeTimers();
     mockRectSpy = spyElementPrototypes(HTMLElement, {
-      // offsetHeight: {
-      //   get() {
-      //     let html = this.innerHTML;
-      //     html = html.replace(/<[^>]*>/g, '');
-      //     const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      //     return lines * 16;
-      //   },
-      // },
-      // offsetWidth: {
-      //   get: () => {
-      //     getWidthTimes += 1;
-      //     return offsetWidth;
-      //   },
-      // },
       scrollWidth: {
         get: () => scrollWidth,
       },
-      // getBoundingClientRect() {
-      //   let html = this.innerHTML;
-      //   html = html.replace(/<[^>]*>/g, '');
-      //   const lines = Math.ceil(html.length / LINE_STR_COUNT);
-      //   return { height: lines * 16 };
-      // },
       offsetWidth: {
         get: () => offsetWidth,
       },
@@ -81,7 +62,6 @@ describe('Typography.Ellipsis', () => {
 
   afterEach(() => {
     errorSpy.mockReset();
-    getWidthTimes = 0;
   });
 
   afterAll(() => {
