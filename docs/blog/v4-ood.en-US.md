@@ -4,7 +4,7 @@ date: 2024-02-27
 author: zombieJ
 ---
 
-For our release schedule, the maintenance period for Ant Design v4 has officially ended. This means that we will not release any new updates or patches for v4 unless significant defects or other serious issues are discovered. We strongly recommend that users upgrade to Ant Design v5 as soon as possible.
+For our release schedule, the maintenance period for Ant Design v4 has officially ended at the end of 2023. This means that we will not release any new updates or patches for v4 unless significant defects or other serious issues are discovered. We strongly recommend that users upgrade to Ant Design v5 as soon as possible.
 
 You will get a series of benefits from upgrading to v5, including more powerful design system theme capabilities, richer component functionality, performance optimization, and more. In addition, v5 also includes many issue fixes and user experience improvements based on community feedback. We will continue to provide continuous support and updates on v5 to ensure that developers can get the best user experience.
 
