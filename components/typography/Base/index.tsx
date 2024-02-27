@@ -1,6 +1,4 @@
 import * as React from 'react';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import EditOutlined from '@ant-design/icons/EditOutlined';
 import classNames from 'classnames';
 import copy from 'copy-to-clipboard';
@@ -23,11 +21,9 @@ import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
-import Copy from './CopyBtn';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
-import { getNode, toList } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
