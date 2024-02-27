@@ -505,6 +505,11 @@ describe('ConfigProvider support style and className props', () => {
     const wrapperElement = container.querySelector<HTMLDivElement>('.ant-input-affix-wrapper');
     expect(wrapperElement).toHaveClass('cp-input');
     expect(wrapperElement).toHaveStyle({ backgroundColor: 'red' });
+
+    const prefixElement = container.querySelector<HTMLDivElement>('.ant-input-prefix');
+    expect(prefixElement).toHaveClass('cp-classNames-prefix');
+    expect(prefixElement).toHaveStyle({ color: 'black' });
+
     const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
     expect(inputElement).toHaveClass('cp-classNames-input');
     expect(inputElement).toHaveStyle({ color: 'blue' });
