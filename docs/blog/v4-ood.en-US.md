@@ -10,7 +10,7 @@ You will get a series of benefits from upgrading to v5, including more powerful 
 
 For a smooth transition to v5, we provide detailed upgrade guides and documentation. We understand that the upgrade process may involve a lot of work, so our team is also working hard to make this process as seamless and simple as possible. If you encounter any problems during the upgrade process, please feel free to submit an issue on GitHub.
 
-Please visit our official website or directly view the v5 upgrade documentation to start your upgrade journey and enjoy the latest Ant Design experience.
+Please visit our official website or view the v5 upgrade documentation directly to start your upgrade journey and enjoy the latest Ant Design experience.
 
 - [v4 to v5](https://ant.design/docs/react/migration-v5)
 - [Less variables to Component Token](https://ant.design/docs/react/migrate-less-variables)
