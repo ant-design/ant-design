@@ -3,7 +3,7 @@ import { Button, Col, Flex, Form, Input, Radio, Row, Space } from 'antd';
 
 const getFields = () => {
   const count = 3;
-  const children = [];
+  const children: React.ReactNode[] = [];
   for (let i = 0; i < count; i++) {
     children.push(
       <Form.Item
