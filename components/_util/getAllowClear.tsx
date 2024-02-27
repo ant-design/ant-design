@@ -13,6 +13,7 @@ const getAllowClear = (allowClear: AllowClear): AllowClear => {
       clearIcon: <CloseCircleFilled />,
     };
   }
+  
   return mergedAllowClear;
 };
 
