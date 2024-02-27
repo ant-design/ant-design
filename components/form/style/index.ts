@@ -384,25 +384,27 @@ const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls } = token;
 
   return {
-    [`${componentCls}-horizontal > ${componentCls}-item:not(${componentCls}-item-layout)`]: {
-      [`${formItemCls}-label`]: {
-        flexGrow: 0,
-      },
+    [`${componentCls}-horizontal`]: {
+      [`${formItemCls}:not(${formItemCls}-layout)`]: {
+        [`${formItemCls}-label`]: {
+          flexGrow: 0,
+        },
 
-      [`${formItemCls}-control`]: {
-        flex: '1 1 0',
-        // https://github.com/ant-design/ant-design/issues/32777
-        // https://github.com/ant-design/ant-design/issues/33773
-        minWidth: 0,
-      },
+        [`${formItemCls}-control`]: {
+          flex: '1 1 0',
+          // https://github.com/ant-design/ant-design/issues/32777
+          // https://github.com/ant-design/ant-design/issues/33773
+          minWidth: 0,
+        },
 
-      // Do not change this to `ant-col-24`! `-24` match all the responsive rules
-      // https://github.com/ant-design/ant-design/issues/32980
-      // https://github.com/ant-design/ant-design/issues/34903
-      // https://github.com/ant-design/ant-design/issues/44538
-      [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
-        [`& + ${formItemCls}-control`]: {
-          minWidth: 'unset',
+        // Do not change this to `ant-col-24`! `-24` match all the responsive rules
+        // https://github.com/ant-design/ant-design/issues/32980
+        // https://github.com/ant-design/ant-design/issues/34903
+        // https://github.com/ant-design/ant-design/issues/44538
+        [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
+          [`& + ${formItemCls}-control`]: {
+            minWidth: 'unset',
+          },
         },
       },
     },
@@ -413,11 +415,11 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls } = token;
 
   return {
-    [`${componentCls}-inline > ${componentCls}-item:not(${componentCls}-item-layout)`]: {
+    [`${componentCls}-inline`]: {
       display: 'flex',
       flexWrap: 'wrap',
 
-      [formItemCls]: {
+      [`${formItemCls}:not(${formItemCls}-layout)`]: {
         flex: 'none',
         marginInlineEnd: token.margin,
         marginBottom: 0,
@@ -492,8 +494,8 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${componentCls}-vertical > ${componentCls}-item:not(${componentCls}-item-layout)`]: {
-      [formItemCls]: {
+    [`${componentCls}-vertical`]: {
+      [`${formItemCls}:not(${formItemCls}-layout)`]: {
         '&-row': {
           flexDirection: 'column',
         },
