@@ -609,7 +609,7 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-clear')).toBeTruthy();
   });
 
-  it('When controlled value changes, the dom display value should be correct', async () => {
+  it('When controlled and without an initial value, then changing the controlled value to valid color should be reflected correctly on the DOM.', async () => {
     const Demo = () => {
       const [color, setColor] = useState<Color>();
       useEffect(() => {
@@ -624,7 +624,7 @@ describe('ColorPicker', () => {
     });
   });
 
-  it('When controlled value changes, the dom display value should be correct 2', async () => {
+  it('When controlled and has an initial value, then changing the controlled value to cleared color should be reflected correctly on the DOM', async () => {
     const Demo = () => {
       const [color, setColor] = useState<Color>(generateColor('red'));
       useEffect(() => {
