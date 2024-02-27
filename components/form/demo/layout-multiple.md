@@ -1,7 +1,7 @@
 ## zh-CN
 
-一个表单多种布局
+在 `Form.Item` 上单独定义 `layout`，可以做到一个表单多种布局。
 
 ## en-US
 
-Multiple layouts for a single form.
+Defining a separate `layout` on `Form.Item` can achieve multiple layouts for a single form.

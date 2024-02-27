@@ -470,10 +470,12 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+    [`${formItemCls}:not(${formItemCls}-layout)`]: {
+      [`${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+    },
     // ref: https://github.com/ant-design/ant-design/issues/45122
     [`${componentCls}:not(${componentCls}-inline)`]: {
-      [formItemCls]: {
+      [`${formItemCls}:not(${formItemCls}-layout)`]: {
         flexWrap: 'wrap',
 
         [`${formItemCls}-label, ${formItemCls}-control`]: {
@@ -496,25 +498,23 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   return {
     [`${componentCls}-vertical`]: {
       [`${formItemCls}:not(${formItemCls}-layout)`]: {
-        [`${formItemCls}`]: {
-          '&-row': {
-            flexDirection: 'column',
-          },
-
-          '&-label > label': {
-            height: 'auto',
-          },
-
-          [`${componentCls}-item-control`]: {
-            width: '100%',
-          },
+        [`${formItemCls}-row`]: {
+          flexDirection: 'column',
         },
+
+        [`${formItemCls}-label > label`]: {
+          height: 'auto',
+        },
+
+        [`${formItemCls}-control`]: {
+          width: '100%',
+        },
+
+        [`${formItemCls}-label,
+        .${rootPrefixCls}-col-24${formItemCls}-label,
+        .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
-
-    [`${componentCls}-vertical ${formItemCls}-label,
-      .${rootPrefixCls}-col-24${formItemCls}-label,
-      .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
 
     [`@media (max-width: ${unit(token.screenXSMax)})`]: [
       makeVerticalLayout(token),
@@ -527,19 +527,25 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 
     [`@media (max-width: ${unit(token.screenSMMax)})`]: {
       [componentCls]: {
-        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        [`${formItemCls}:not(${formItemCls}-layout)`]: {
+          [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        },
       },
     },
 
     [`@media (max-width: ${unit(token.screenMDMax)})`]: {
       [componentCls]: {
-        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        [`${formItemCls}:not(${formItemCls}-layout)`]: {
+          [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        },
       },
     },
 
     [`@media (max-width: ${unit(token.screenLGMax)})`]: {
       [componentCls]: {
-        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        [`${formItemCls}:not(${formItemCls}-layout)`]: {
+          [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
+        },
       },
     },
   };
