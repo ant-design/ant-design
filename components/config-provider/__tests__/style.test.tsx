@@ -499,6 +499,7 @@ describe('ConfigProvider support style and className props', () => {
           allowClear: {
             clearIcon: <span className="cp-test-icon">cp-test-icon</span>,
           },
+          autoComplete: 'test-cp-autocomplete',
         }}
       >
         <Input
@@ -522,6 +523,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(inputElement).toHaveClass('cp-classNames-input');
     expect(inputElement).toHaveStyle({ color: 'blue' });
     expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
+    expect(inputElement?.getAttribute('autocomplete')).not.toBe('test-cp-autocomplete');
     expect(
       container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
     ).toBeTruthy();
@@ -548,6 +550,7 @@ describe('ConfigProvider support style and className props', () => {
           allowClear: {
             clearIcon: <span className="cp-test-icon">cp-test-icon</span>,
           },
+          autoComplete: 'test-cp-autocomplete',
         }}
       >
         <Input.TextArea
@@ -567,6 +570,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(inputElement).toHaveClass('cp-classNames-textArea');
     expect(inputElement).toHaveStyle({ color: 'blue' });
     expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
+    expect(inputElement?.getAttribute('autocomplete')).not.toBe('test-cp-autocomplete');
 
     const countElement = container.querySelector<HTMLSpanElement>(
       '.ant-input-affix-wrapper .ant-input-data-count',
