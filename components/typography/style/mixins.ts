@@ -1,6 +1,7 @@
 /*
-.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginBottom;) {
-  margin-bottom: @headingMarginBottom;
+.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @titleMarginBottom; @titleMarginTop;) {
+  margin-bottom: @titleMarginBottom;
+  margin-top: @titleMarginTop;
   color: @headingColor;
   font-weight: @fontWeight;
   fontSize: @fontSize;
@@ -20,10 +21,11 @@ const getTitleStyle = (
   color: string,
   token: TypographyToken,
 ) => {
-  const { titleMarginBottom, fontWeightStrong } = token;
+  const { titleMarginBottom, fontWeightStrong, titleMarginTop } = token;
 
   return {
     marginBottom: titleMarginBottom,
+    marginTop: titleMarginTop,
     color,
     fontWeight: fontWeightStrong,
     fontSize,
