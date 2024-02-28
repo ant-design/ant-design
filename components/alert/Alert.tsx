@@ -42,10 +42,6 @@ export interface AlertProps {
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
-  /**
-   * Custom closeIcon
-   * @deprecated please use `closable.closeIcon` instead.
-   */
   closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -131,7 +127,6 @@ const Alert: React.FC<AlertProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Alert');
     warning.deprecated(!closeText, 'closeText', 'closable.closeIcon');
-    warning.deprecated(!closeIcon, 'closeIcon', 'closable.closeIcon');
   }
 
   const ref = React.useRef<HTMLDivElement>(null);
