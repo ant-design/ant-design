@@ -112,10 +112,7 @@ export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIc
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
 
-export interface CardConfig extends ComponentStyleConfig {
-  classNames?: CardProps['classNames'];
-  styles: CardProps['styles'];
-}
+export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
@@ -123,6 +120,18 @@ export type DrawerConfig = ComponentStyleConfig &
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
+
+export type FormConfig = ComponentStyleConfig &
+  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+
+export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+
+export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+
+export type SpaceConfig = Pick<
+  SpaceProps,
+  'size' | 'className' | 'classNames' | 'style' | 'styles'
+>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -142,17 +151,16 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
   input?: InputConfig;
   textArea?: TextAreaConfig;
-  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+  pagination?: PaginationConfig;
   locale?: Locale;
   direction?: DirectionType;
-  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
+  space?: SpaceConfig;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
-  form?: ComponentStyleConfig &
-    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+  form?: FormConfig;
   theme?: ThemeConfig;
-  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+  select?: SelectConfig;
   alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
