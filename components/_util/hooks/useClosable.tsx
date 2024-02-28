@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 export type UseClosableParams = {
   closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
@@ -39,7 +40,7 @@ function useClosable({
   if (!mergedClosable) {
     return [false, null];
   }
-  const { closeIcon: closableIcon, ...ariaProps } =
+  const { closeIcon: closableIcon, ...restProps } =
     typeof closable === 'object'
       ? closable
       : ({} as { closeIcon: React.ReactNode } & React.AriaAttributes);
@@ -52,6 +53,7 @@ function useClosable({
       ? defaultCloseIcon
       : closeIcon;
   })();
+  const ariaProps = pickAttrs(restProps, true);
 
   const plainCloseIcon = customCloseIconRender
     ? customCloseIconRender(mergedCloseIcon)

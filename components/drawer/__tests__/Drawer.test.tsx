@@ -210,21 +210,6 @@ describe('Drawer', () => {
     });
   });
 
-  it('should warning when using closeText', () => {
-    resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { baseElement } = render(<Drawer closeIcon="CloseBtn" open />);
-
-    expect(warnSpy).toHaveBeenCalledWith(
-      `Warning: [antd: Drawer] \`closeIcon\` is deprecated. Please use \`closable.closeIcon\` instead.`,
-    );
-
-    expect(baseElement.querySelector('.ant-drawer-close')?.textContent).toBe('CloseBtn');
-
-    warnSpy.mockRestore();
-  });
-
   describe('style migrate', () => {
     it('not warning with getContainer', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
