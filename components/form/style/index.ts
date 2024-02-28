@@ -513,7 +513,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
     },
 
     [`${formItemCls}:not(${formItemCls}-layout)`]: {
-      [`${formItemCls}-label,
+      [`${componentCls}-vertical ${formItemCls}-label,
       .${rootPrefixCls}-col-24${formItemCls}-label,
       .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
     },
