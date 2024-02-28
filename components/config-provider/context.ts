@@ -128,10 +128,7 @@ export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'sho
 
 export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
 
-export type SpaceConfig = Pick<
-  SpaceProps,
-  'size' | 'className' | 'classNames' | 'style' | 'styles'
->;
+export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
