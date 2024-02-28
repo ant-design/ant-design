@@ -419,17 +419,18 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
       display: 'flex',
       flexWrap: 'wrap',
 
-      [`${formItemCls}:not(${formItemCls}-layout)`]: {
+      [formItemCls]: {
         flex: 'none',
         marginInlineEnd: token.margin,
         marginBottom: 0,
-
-        '&-row': {
+      },
+      [`${formItemCls}:not(${formItemCls}-layout)`]: {
+        [`${formItemCls}-row`]: {
           flexWrap: 'nowrap',
         },
 
         [`> ${formItemCls}-label,
-          > ${formItemCls}-control`]: {
+              > ${formItemCls}-control`]: {
           display: 'inline-block',
           verticalAlign: 'top',
         },
@@ -470,14 +471,13 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${formItemCls}:not(${formItemCls}-layout)`]: {
-      [`${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-    },
+    [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
     // ref: https://github.com/ant-design/ant-design/issues/45122
     [`${componentCls}:not(${componentCls}-inline)`]: {
-      [`${formItemCls}:not(${formItemCls}-layout)`]: {
+      [formItemCls]: {
         flexWrap: 'wrap',
-
+      },
+      [`${formItemCls}:not(${formItemCls}-layout)`]: {
         [`${formItemCls}-label, ${formItemCls}-control`]: {
           // When developer pass `xs: { span }`,
           // It should follow the `xs` screen config
