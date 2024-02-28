@@ -39,6 +39,7 @@ import type {
   TableConfig,
   TabsConfig,
   TagConfig,
+  TextAreaConfig,
   Theme,
   ThemeConfig,
   TourConfig,
@@ -124,6 +125,7 @@ export interface ConfigProviderProps {
   form?: ComponentStyleConfig &
     Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
   input?: InputConfig;
+  textArea?: TextAreaConfig;
   select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
   pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
   locale?: Locale;
@@ -321,6 +323,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    textArea,
     empty,
     badge,
     radio,
@@ -405,6 +408,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    textArea,
     layout,
     list,
     mentions,
