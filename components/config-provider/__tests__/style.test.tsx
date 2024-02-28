@@ -176,6 +176,25 @@ describe('ConfigProvider support style and className props', () => {
     expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
   });
 
+  it('Should support closable', () => {
+    render(
+      <ConfigProvider
+        drawer={{
+          closable: {
+            closeIcon: <span className="cp-test-close-icon">close</span>,
+            'aria-label': 'Close Btn',
+          },
+        }}
+      >
+        <Drawer title="Test Drawer" open />
+      </ConfigProvider>,
+    );
+
+    const selectors = '.ant-drawer-content .ant-drawer-close .cp-test-close-icon';
+    expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
+    expect(document.querySelector('*[aria-label="Close Btn"]')).toBeTruthy();
+  });
+
   it('Should Drawer style works', () => {
     render(
       <ConfigProvider

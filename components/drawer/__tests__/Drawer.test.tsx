@@ -361,4 +361,20 @@ describe('Drawer', () => {
       expect(container1.outerHTML).toEqual(container2.outerHTML);
     });
   });
+  it('should support aria-* and closeIcon by closable', async () => {
+    const { baseElement } = render(
+      <Drawer
+        open
+        closable={{
+          'aria-label': 'Close',
+          closeIcon: <span className="custom-close">Close</span>,
+        }}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(baseElement.querySelector('.ant-drawer-close')).not.toBeNull();
+    expect(baseElement.querySelector('.custom-close')).not.toBeNull();
+    expect(baseElement.querySelector('*[aria-label="Close"]')).not.toBeNull();
+  });
 });

@@ -115,7 +115,7 @@ export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
 export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
