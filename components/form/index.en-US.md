@@ -19,6 +19,7 @@ High performance Form component with data scope management. Including data colle
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/control-hooks.tsx">Form methods</code>
 <code src="./demo/layout.tsx">Form Layout</code>
+<code src="./demo/layout-multiple.tsx">Form mix Layout</code>
 <code src="./demo/disabled.tsx">Form disabled</code>
 <code src="./demo/variant.tsx" version="5.13.0">Form variants</code>
 <code src="./demo/required-mark.tsx">Required style</code>
@@ -150,6 +151,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | validateTrigger | When to validate the value of children node | string \| string\[] | `onChange` |  |
 | valuePropName | Props of children node, for example, the prop of Switch or Checkbox is `checked`. This prop is an encapsulation of `getValueProps`, which will be invalid after customizing `getValueProps` | string | `value` |  |
 | wrapperCol | The layout for input controls, same as `labelCol`. You can set `wrapperCol` on Form which will not affect nest Item. If both exists, use Item first | [object](/components/grid/#col) | - |  |
+| layout | Form item layout | `horizontal` \| `vertical` \| `inline` | `horizontal` | 5.15.0 |
 
 After wrapped by `Form.Item` with `name` property, `value`(or other property defined by `valuePropName`) `onChange`(or other property defined by `trigger`) props will be added to form controls, the flow of form data will be handled by Form which will cause:
 
