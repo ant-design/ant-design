@@ -50,6 +50,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
+| size | 文本大小 | string | `default` \| `small` \| `large` \| `extraLarge` \| |  |
 
 ### Typography.Title
 
