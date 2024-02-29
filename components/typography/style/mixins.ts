@@ -248,6 +248,18 @@ export const getEllipsisStyles = (): CSSObject => ({
     whiteSpace: 'nowrap',
   },
 
+  '&-size-small': {
+    fontSize: 'var(--ant-font-size-sm)',
+  },
+
+  '&-size-large': {
+    fontSize: 'var(--ant-font-size-lg)',
+  },
+
+  '&-size-extra-large': {
+    fontSize: 'var(--ant-font-size-xl)',
+  },
+
   '&-ellipsis-single-line': {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
