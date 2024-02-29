@@ -52,7 +52,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   } = props;
 
   const itemPrefixCls = `${prefixCls}-item`;
-  const { requiredMark } = React.useContext(FormContext);
+  const { requiredMark, layout: formLayout } = React.useContext(FormContext);
 
   // ======================== Margin ========================
   const itemRef = React.useRef<HTMLDivElement>(null);
@@ -90,10 +90,8 @@ export default function ItemHolder(props: ItemHolderProps) {
   const mergedValidateStatus = getValidateState();
 
   // ======================== Render ========================
-  const itemClassName = classNames(itemPrefixCls, className, rootClassName, {
+  const itemClassName = classNames(itemPrefixCls, className, {
     [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
-    [`${prefixCls}-item-layout`]: !!layout,
-    [`${prefixCls}-${layout}`]: !!layout,
     // Status
     [`${itemPrefixCls}-has-feedback`]: mergedValidateStatus && hasFeedback,
     [`${itemPrefixCls}-has-success`]: mergedValidateStatus === 'success',
@@ -104,86 +102,88 @@ export default function ItemHolder(props: ItemHolderProps) {
   });
 
   return (
-    <div className={itemClassName} style={style} ref={itemRef}>
-      <Row
-        className={`${itemPrefixCls}-row`}
-        {...omit(restProps, [
-          '_internalItemRender' as any,
-          'colon',
-          'dependencies',
-          'extra',
-          'fieldKey',
-          'getValueFromEvent',
-          'getValueProps',
-          'htmlFor',
-          'id', // It is deprecated because `htmlFor` is its replacement.
-          'initialValue',
-          'isListField',
-          'label',
-          'labelAlign',
-          'labelCol',
-          'labelWrap',
-          'messageVariables',
-          'name',
-          'normalize',
-          'noStyle',
-          'preserve',
-          'requiredMark',
-          'rules',
-          'shouldUpdate',
-          'trigger',
-          'tooltip',
-          'validateFirst',
-          'validateTrigger',
-          'valuePropName',
-          'wrapperCol',
-          'validateDebounce',
-        ])}
-      >
-        {/* Label */}
-        <FormItemLabel
-          htmlFor={fieldId}
-          {...props}
-          requiredMark={requiredMark}
-          required={required ?? isRequired}
-          prefixCls={prefixCls}
-        />
-        {/* Input Group */}
-        <FormItemInput
-          {...props}
-          {...meta}
-          errors={debounceErrors}
-          warnings={debounceWarnings}
-          prefixCls={prefixCls}
-          status={mergedValidateStatus}
-          help={help}
-          marginBottom={marginBottom}
-          onErrorVisibleChanged={onErrorVisibleChanged}
+    <div className={classNames(rootClassName, `${prefixCls}-item-${layout || formLayout}`)}>
+      <div className={itemClassName} style={style} ref={itemRef}>
+        <Row
+          className={`${itemPrefixCls}-row`}
+          {...omit(restProps, [
+            '_internalItemRender' as any,
+            'colon',
+            'dependencies',
+            'extra',
+            'fieldKey',
+            'getValueFromEvent',
+            'getValueProps',
+            'htmlFor',
+            'id', // It is deprecated because `htmlFor` is its replacement.
+            'initialValue',
+            'isListField',
+            'label',
+            'labelAlign',
+            'labelCol',
+            'labelWrap',
+            'messageVariables',
+            'name',
+            'normalize',
+            'noStyle',
+            'preserve',
+            'requiredMark',
+            'rules',
+            'shouldUpdate',
+            'trigger',
+            'tooltip',
+            'validateFirst',
+            'validateTrigger',
+            'valuePropName',
+            'wrapperCol',
+            'validateDebounce',
+          ])}
         >
-          <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <StatusProvider
-              prefixCls={prefixCls}
-              meta={meta}
-              errors={meta.errors}
-              warnings={meta.warnings}
-              hasFeedback={hasFeedback}
-              // Already calculated
-              validateStatus={mergedValidateStatus}
-            >
-              {children}
-            </StatusProvider>
-          </NoStyleItemContext.Provider>
-        </FormItemInput>
-      </Row>
+          {/* Label */}
+          <FormItemLabel
+            htmlFor={fieldId}
+            {...props}
+            requiredMark={requiredMark}
+            required={required ?? isRequired}
+            prefixCls={prefixCls}
+          />
+          {/* Input Group */}
+          <FormItemInput
+            {...props}
+            {...meta}
+            errors={debounceErrors}
+            warnings={debounceWarnings}
+            prefixCls={prefixCls}
+            status={mergedValidateStatus}
+            help={help}
+            marginBottom={marginBottom}
+            onErrorVisibleChanged={onErrorVisibleChanged}
+          >
+            <NoStyleItemContext.Provider value={onSubItemMetaChange}>
+              <StatusProvider
+                prefixCls={prefixCls}
+                meta={meta}
+                errors={meta.errors}
+                warnings={meta.warnings}
+                hasFeedback={hasFeedback}
+                // Already calculated
+                validateStatus={mergedValidateStatus}
+              >
+                {children}
+              </StatusProvider>
+            </NoStyleItemContext.Provider>
+          </FormItemInput>
+        </Row>
 
-      {!!marginBottom && (
-        <div
-          className={`${itemPrefixCls}-margin-offset`}
-          style={{
-            marginBottom: -marginBottom,
-          }}
-        />
-      )}
+        {!!marginBottom && (
+          <div
+            className={`${itemPrefixCls}-margin-offset`}
+            style={{
+              marginBottom: -marginBottom,
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 }

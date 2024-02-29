@@ -381,30 +381,28 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 const genHorizontalStyle: GenerateStyle<FormToken> = (token) => {
-  const { componentCls, formItemCls } = token;
+  const { formItemCls } = token;
 
   return {
-    [`${componentCls}-horizontal`]: {
-      [`${formItemCls}:not(${formItemCls}-layout)`]: {
-        [`${formItemCls}-label`]: {
-          flexGrow: 0,
-        },
+    [`${formItemCls}-horizontal`]: {
+      [`${formItemCls}-label`]: {
+        flexGrow: 0,
+      },
 
-        [`${formItemCls}-control`]: {
-          flex: '1 1 0',
-          // https://github.com/ant-design/ant-design/issues/32777
-          // https://github.com/ant-design/ant-design/issues/33773
-          minWidth: 0,
-        },
+      [`${formItemCls}-control`]: {
+        flex: '1 1 0',
+        // https://github.com/ant-design/ant-design/issues/32777
+        // https://github.com/ant-design/ant-design/issues/33773
+        minWidth: 0,
+      },
 
-        // Do not change this to `ant-col-24`! `-24` match all the responsive rules
-        // https://github.com/ant-design/ant-design/issues/32980
-        // https://github.com/ant-design/ant-design/issues/34903
-        // https://github.com/ant-design/ant-design/issues/44538
-        [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
-          [`& + ${formItemCls}-control`]: {
-            minWidth: 'unset',
-          },
+      // Do not change this to `ant-col-24`! `-24` match all the responsive rules
+      // https://github.com/ant-design/ant-design/issues/32980
+      // https://github.com/ant-design/ant-design/issues/34903
+      // https://github.com/ant-design/ant-design/issues/44538
+      [`${formItemCls}-label[class$='-24'], ${formItemCls}-label[class*='-24 ']`]: {
+        [`& + ${formItemCls}-control`]: {
+          minWidth: 'unset',
         },
       },
     },
@@ -418,19 +416,19 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
     [`${componentCls}-inline`]: {
       display: 'flex',
       flexWrap: 'wrap',
-
+    },
+    [`${formItemCls}-inline`]: {
       [formItemCls]: {
         flex: 'none',
         marginInlineEnd: token.margin,
         marginBottom: 0,
-      },
-      [`${formItemCls}:not(${formItemCls}-layout)`]: {
-        [`${formItemCls}-row`]: {
+
+        '&-row': {
           flexWrap: 'nowrap',
         },
 
         [`> ${formItemCls}-label,
-              > ${formItemCls}-control`]: {
+        > ${formItemCls}-control`]: {
           display: 'inline-block',
           verticalAlign: 'top',
         },
@@ -468,16 +466,15 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
 });
 
 const makeVerticalLayout = (token: FormToken): CSSObject => {
-  const { componentCls, formItemCls, rootPrefixCls } = token;
+  const { formItemCls, rootPrefixCls } = token;
 
   return {
     [`${formItemCls} ${formItemCls}-label`]: makeVerticalLayoutLabel(token),
     // ref: https://github.com/ant-design/ant-design/issues/45122
-    [`${componentCls}:not(${componentCls}-inline)`]: {
+    [`${formItemCls}:not(${formItemCls}-inline)`]: {
       [formItemCls]: {
         flexWrap: 'wrap',
-      },
-      [`${formItemCls}:not(${formItemCls}-layout)`]: {
+
         [`${formItemCls}-label, ${formItemCls}-control`]: {
           // When developer pass `xs: { span }`,
           // It should follow the `xs` screen config
@@ -496,58 +493,50 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${componentCls}-vertical`]: {
-      [`${formItemCls}:not(${formItemCls}-layout)`]: {
-        [`${formItemCls}-row`]: {
+    [`${formItemCls}-vertical`]: {
+      [formItemCls]: {
+        '&-row': {
           flexDirection: 'column',
         },
 
-        [`${formItemCls}-label > label`]: {
+        '&-label > label': {
           height: 'auto',
         },
 
-        [`${formItemCls}-control`]: {
+        [`${componentCls}-item-control`]: {
           width: '100%',
         },
-        [`${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
-    [`.${rootPrefixCls}-col-24${formItemCls}-label,
+    [`${formItemCls}-vertical ${formItemCls}-label,
+      .${rootPrefixCls}-col-24${formItemCls}-label,
       .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
 
     [`@media (max-width: ${unit(token.screenXSMax)})`]: [
       makeVerticalLayout(token),
       {
         [componentCls]: {
-          [`${formItemCls}:not(${formItemCls}-layout)`]: {
-            [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-          },
+          [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
       },
     ],
 
     [`@media (max-width: ${unit(token.screenSMMax)})`]: {
       [componentCls]: {
-        [`${formItemCls}:not(${formItemCls}-layout)`]: {
-          [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-        },
+        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
     [`@media (max-width: ${unit(token.screenMDMax)})`]: {
       [componentCls]: {
-        [`${formItemCls}:not(${formItemCls}-layout)`]: {
-          [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-        },
+        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
     [`@media (max-width: ${unit(token.screenLGMax)})`]: {
       [componentCls]: {
-        [`${formItemCls}:not(${formItemCls}-layout)`]: {
-          [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-        },
+        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
   };

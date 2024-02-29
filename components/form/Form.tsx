@@ -144,6 +144,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       itemRef: __INTERNAL__.itemRef,
       form: wrapForm,
       feedbackIcons,
+      layout,
     }),
     [
       name,
