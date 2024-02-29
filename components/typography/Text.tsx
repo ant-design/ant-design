@@ -9,10 +9,11 @@ export interface TextProps
   extends BlockProps<'span'>,
     Omit<React.HTMLAttributes<HTMLSpanElement>, 'type' | keyof BlockProps<'span'>> {
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
+  size?: 'default' | 'small' | 'large' | 'extraLarge';
 }
 
 const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
-  { ellipsis, ...restProps },
+  { ellipsis, size, ...restProps },
   ref,
 ) => {
   const mergedEllipsis = React.useMemo(() => {
