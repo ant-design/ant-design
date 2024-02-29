@@ -12,6 +12,7 @@ export interface OverrideContextProps {
   selectable?: boolean;
   validator?: (menuProps: Pick<MenuProps, 'mode'>) => void;
   onClick?: () => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLUListElement>) => void;
   rootClassName?: string;
 }
 

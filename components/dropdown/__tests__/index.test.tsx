@@ -6,7 +6,7 @@ import Dropdown from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, sleep, waitFakeTimer } from '../../../tests/utils';
 
 let triggerProps: TriggerProps;
 
@@ -323,5 +323,111 @@ describe('Dropdown', () => {
     }
     expect(container.querySelector('.ant-dropdown-hidden')).toBeFalsy();
     jest.useRealTimers();
+  });
+
+  describe('should focus trigger after menu closes with keyboard', () => {
+    beforeEach(() => {
+      jest.useRealTimers();
+    });
+
+    it('should focus trigger after first level menu item was selected with Enter', async () => {
+      const onOpenChange = jest.fn();
+      const onTriggerFocus = jest.fn();
+      const { container } = render(
+        <Dropdown
+          onOpenChange={onOpenChange}
+          trigger={['click']}
+          autoFocus
+          menu={{
+            items: [
+              {
+                key: 2,
+                label: 'Submenu',
+                children: [
+                  {
+                    key: '1.1',
+                    label: 'Sub menu item',
+                  },
+                ],
+              },
+              {
+                label: <div className="bamboo" />,
+                key: 2,
+              },
+            ],
+          }}
+        >
+          <button type="button" data-testid="dropdown-btn" onFocus={onTriggerFocus}>
+            Click me
+          </button>
+        </Dropdown>,
+      );
+
+      const trigger = container.querySelector('[data-testid="dropdown-btn"]')!;
+
+      fireEvent.click(trigger);
+      expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+      await sleep(100);
+      expect(document.activeElement).toHaveClass('ant-dropdown-menu-submenu-title');
+
+      // click on submenu title should not move focus to trigger
+      fireEvent.keyDown(document.activeElement!, { key: 'Enter', keyCode: 13 });
+      await sleep(0);
+      expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+      expect(onTriggerFocus).not.toHaveBeenCalled();
+
+      // click on menu item should should move focus to trigger
+      fireEvent.keyDown(container.querySelector('.bamboo')!.closest('.ant-dropdown-menu-item')!, {
+        key: 'Enter',
+        keyCode: 13,
+      });
+
+      expect(onOpenChange).toHaveBeenCalledWith(false, { source: 'menu' });
+      await sleep(0);
+      expect(onTriggerFocus).toHaveBeenCalled();
+    });
+
+    it('should not focus trigger if menu is "selectable" and "multiple"', async () => {
+      const onOpenChange = jest.fn();
+      const onTriggerFocus = jest.fn();
+      const { container } = render(
+        <Dropdown
+          onOpenChange={onOpenChange}
+          trigger={['click']}
+          autoFocus
+          menu={{
+            items: [
+              {
+                key: '1',
+                label: '1st item',
+              },
+              {
+                key: '2',
+                label: '2nd item',
+              },
+            ],
+            selectable: true,
+            multiple: true,
+          }}
+        >
+          <button type="button" data-testid="dropdown-btn" onFocus={onTriggerFocus}>
+            Click me
+          </button>
+        </Dropdown>,
+      );
+
+      const trigger = container.querySelector('[data-testid="dropdown-btn"]')!;
+
+      fireEvent.click(trigger);
+      expect(onOpenChange).toHaveBeenCalledWith(true, { source: 'trigger' });
+      await sleep(100);
+      expect(document.activeElement).toHaveClass('ant-dropdown-menu-item');
+
+      // click on menu item should not move focus to trigger
+      fireEvent.keyDown(document.activeElement!, { key: 'Enter', keyCode: 13 });
+      await sleep(0);
+      expect(onOpenChange).not.toHaveBeenCalledWith(false, { source: 'menu' });
+      expect(onTriggerFocus).not.toHaveBeenCalled();
+    });
   });
 });
