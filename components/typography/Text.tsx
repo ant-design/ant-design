@@ -13,7 +13,7 @@ export interface TextProps
 }
 
 const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
-  { ellipsis, size, ...restProps },
+  { ellipsis, ...restProps },
   ref,
 ) => {
   const mergedEllipsis = React.useMemo(() => {
