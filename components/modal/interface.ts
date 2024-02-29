@@ -84,7 +84,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
   title?: React.ReactNode;
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
