@@ -90,7 +90,7 @@ export default function ItemHolder(props: ItemHolderProps) {
   const mergedValidateStatus = getValidateState();
 
   // ======================== Render ========================
-  const itemClassName = classNames(itemPrefixCls, className, {
+  const itemClassName = classNames(itemPrefixCls, {
     [`${itemPrefixCls}-with-help`]: hasHelp || debounceErrors.length || debounceWarnings.length,
     // Status
     [`${itemPrefixCls}-has-feedback`]: mergedValidateStatus && hasFeedback,
@@ -102,8 +102,11 @@ export default function ItemHolder(props: ItemHolderProps) {
   });
 
   return (
-    <div className={classNames(rootClassName, `${prefixCls}-item-${layout || formLayout}`)}>
-      <div className={itemClassName} style={style} ref={itemRef}>
+    <div
+      className={classNames(rootClassName, className, `${prefixCls}-item-${layout || formLayout}`)}
+      style={style}
+    >
+      <div className={itemClassName} ref={itemRef}>
         <Row
           className={`${itemPrefixCls}-row`}
           {...omit(restProps, [

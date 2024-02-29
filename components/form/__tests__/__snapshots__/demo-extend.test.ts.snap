@@ -967,10 +967,10 @@ Array [
     </div>
     <div
       class="ant-form-item-horizontal"
+      style="box-shadow: 0 0 3px red;"
     >
       <div
         class="ant-form-item"
-        style="box-shadow: 0 0 3px red;"
       >
         <div
           class="ant-row ant-form-item-row"
@@ -1417,10 +1417,10 @@ Array [
   >
     <div
       class="ant-form-item-vertical"
+      style="box-shadow: 0 0 3px red;"
     >
       <div
         class="ant-form-item"
-        style="box-shadow: 0 0 3px red;"
       >
         <div
           class="ant-row ant-form-item-row"
@@ -2036,10 +2036,10 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
   style="max-width: 600px;"
 >
   <div
-    class="ant-form-item-horizontal"
+    class="acss-140b0ev ant-form-item-horizontal"
   >
     <div
-      class="ant-form-item acss-140b0ev ant-form-item-with-help"
+      class="ant-form-item ant-form-item-with-help"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -2106,10 +2106,10 @@ exports[`renders components/form/demo/custom-feedback-icons.tsx extend context c
     </div>
   </div>
   <div
-    class="ant-form-item-horizontal"
+    class="acss-140b0ev ant-form-item-horizontal"
   >
     <div
-      class="ant-form-item acss-140b0ev ant-form-item-with-help"
+      class="ant-form-item ant-form-item-with-help"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -8480,10 +8480,10 @@ exports[`renders components/form/demo/layout-multiple.tsx extend context correct
       >
         <div
           class="ant-form-item-vertical"
+          style="margin-bottom: 0px;"
         >
           <div
             class="ant-form-item"
-            style="margin-bottom: 0px;"
           >
             <div
               class="ant-row ant-form-item-row"
@@ -8523,10 +8523,10 @@ exports[`renders components/form/demo/layout-multiple.tsx extend context correct
         </div>
         <div
           class="ant-form-item-vertical"
+          style="margin-bottom: 0px;"
         >
           <div
             class="ant-form-item"
-            style="margin-bottom: 0px;"
           >
             <div
               class="ant-row ant-form-item-row"
@@ -8566,10 +8566,10 @@ exports[`renders components/form/demo/layout-multiple.tsx extend context correct
         </div>
         <div
           class="ant-form-item-vertical"
+          style="margin-bottom: 0px;"
         >
           <div
             class="ant-form-item"
-            style="margin-bottom: 0px;"
           >
             <div
               class="ant-row ant-form-item-row"
@@ -27760,10 +27760,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
   </div>
   <div
     class="ant-form-item-horizontal"
+    style="margin-bottom: 0px;"
   >
     <div
       class="ant-form-item"
-      style="margin-bottom: 0px;"
     >
       <div
         class="ant-row ant-form-item-row"
@@ -27789,10 +27789,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
             >
               <div
                 class="ant-form-item-horizontal"
+                style="display: inline-block; width: calc(50% - 12px);"
               >
                 <div
                   class="ant-form-item ant-form-item-with-help ant-form-item-has-error"
-                  style="display: inline-block; width: calc(50% - 12px);"
                 >
                   <div
                     class="ant-row ant-form-item-row"
@@ -28448,10 +28448,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               </span>
               <div
                 class="ant-form-item-horizontal"
+                style="display: inline-block; width: calc(50% - 12px);"
               >
                 <div
                   class="ant-form-item"
-                  style="display: inline-block; width: calc(50% - 12px);"
                 >
                   <div
                     class="ant-row ant-form-item-row"
