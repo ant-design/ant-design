@@ -22,11 +22,13 @@ export type GetProp<
 
 type ReactRefComponent<Props extends { ref?: React.Ref<any> }> = (props: Props) => React.ReactNode;
 
+interface CustomRefAttributes<T> extends React.Attributes {
+  ref?: React.Ref<T> | undefined;
+}
+
 export type GetRef<T extends ReactRefComponent<any> | React.Component<any>> =
   T extends React.Component<any>
     ? T
-    : T extends ReactRefComponent<
-          React.Attributes & Partial<Record<'ref', React.Ref<infer RefType>>>
-        >
+    : T extends ReactRefComponent<CustomRefAttributes<infer RefType>>
       ? RefType
       : never;
