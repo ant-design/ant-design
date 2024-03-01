@@ -28,6 +28,7 @@ import Layout from '../../layout';
 import List from '../../list';
 import Mentions from '../../mentions';
 import Menu from '../../menu';
+import type { MenuProps } from '../../menu';
 import message from '../../message';
 import Modal from '../../modal';
 import notification from '../../notification';
@@ -175,6 +176,25 @@ describe('ConfigProvider support style and className props', () => {
     expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
   });
 
+  it('Should support closable', () => {
+    render(
+      <ConfigProvider
+        drawer={{
+          closable: {
+            closeIcon: <span className="cp-test-close-icon">close</span>,
+            'aria-label': 'Close Btn',
+          },
+        }}
+      >
+        <Drawer title="Test Drawer" open />
+      </ConfigProvider>,
+    );
+
+    const selectors = '.ant-drawer-content .ant-drawer-close .cp-test-close-icon';
+    expect(document.querySelector<HTMLSpanElement>(selectors)).toBeTruthy();
+    expect(document.querySelector('*[aria-label="Close Btn"]')).toBeTruthy();
+  });
+
   it('Should Drawer style works', () => {
     render(
       <ConfigProvider
@@ -273,7 +293,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
   });
 
-  it('Should Collapse className works', () => {
+  it('Should Collapse className & expandIcon works', () => {
     const items = [
       {
         key: '1',
@@ -285,13 +305,14 @@ describe('ConfigProvider support style and className props', () => {
       <ConfigProvider
         collapse={{
           className: 'test-class',
+          expandIcon: (props) => <span className="cp-test-icon">{props.isActive}</span>,
         }}
       >
         <Collapse items={items} />
       </ConfigProvider>,
     );
-
     expect(container.querySelector('.ant-collapse')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.cp-test-icon')).toBeTruthy();
   });
 
   it('Should Collapse style works', () => {
@@ -476,7 +497,7 @@ describe('ConfigProvider support style and className props', () => {
     ).toBeTruthy();
   });
 
-  it('Should Input className & style & classNames & styles works', () => {
+  it('Should Input className & style & classNames & styles & autoComplete & allowClear works', () => {
     const { container } = render(
       <ConfigProvider
         input={{
@@ -494,13 +515,22 @@ describe('ConfigProvider support style and className props', () => {
               color: 'black',
             },
           },
+          allowClear: {
+            clearIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
+          autoComplete: 'test-cp-autocomplete',
         }}
       >
-        <Input placeholder="Basic usage" prefix="￥" />
+        <Input
+          autoComplete="test-autocomplete"
+          placeholder="Basic usage"
+          value="test"
+          prefix="￥"
+        />
       </ConfigProvider>,
     );
 
-    const wrapperElement = container.querySelector<HTMLDivElement>('.ant-input-affix-wrapper');
+    const wrapperElement = container.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper');
     expect(wrapperElement).toHaveClass('cp-input');
     expect(wrapperElement).toHaveStyle({ backgroundColor: 'red' });
 
@@ -511,6 +541,65 @@ describe('ConfigProvider support style and className props', () => {
     const inputElement = container.querySelector<HTMLDivElement>('.ant-input');
     expect(inputElement).toHaveClass('cp-classNames-input');
     expect(inputElement).toHaveStyle({ color: 'blue' });
+    expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
+    expect(inputElement?.getAttribute('autocomplete')).not.toBe('test-cp-autocomplete');
+    expect(
+      container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
+    ).toBeTruthy();
+  });
+
+  it('Should Input.TextArea autoComplete & className & style & classNames & styles & allowClear works', () => {
+    const { container } = render(
+      <ConfigProvider
+        textArea={{
+          className: 'cp-textArea',
+          style: { backgroundColor: 'yellow' },
+          classNames: {
+            textarea: 'cp-classNames-textArea',
+            count: 'cp-classNames-count',
+          },
+          styles: {
+            textarea: {
+              color: 'blue',
+            },
+            count: {
+              color: 'red',
+            },
+          },
+          allowClear: {
+            clearIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
+          autoComplete: 'test-cp-autocomplete',
+        }}
+      >
+        <Input.TextArea
+          autoComplete="test-autocomplete"
+          placeholder="Basic usage"
+          value="test"
+          prefix="￥"
+          count={{ show: true }}
+        />
+      </ConfigProvider>,
+    );
+    const wrapperElement = container.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper');
+    expect(wrapperElement).toHaveClass('cp-textArea');
+    expect(wrapperElement).toHaveStyle({ backgroundColor: 'yellow' });
+
+    const inputElement = container.querySelector<HTMLTextAreaElement>('.ant-input');
+    expect(inputElement).toHaveClass('cp-classNames-textArea');
+    expect(inputElement).toHaveStyle({ color: 'blue' });
+    expect(inputElement?.getAttribute('autocomplete')).toBe('test-autocomplete');
+    expect(inputElement?.getAttribute('autocomplete')).not.toBe('test-cp-autocomplete');
+
+    const countElement = container.querySelector<HTMLSpanElement>(
+      '.ant-input-affix-wrapper .ant-input-data-count',
+    );
+    expect(countElement).toHaveClass('cp-classNames-count');
+    expect(countElement).toHaveStyle({ color: 'red' });
+
+    expect(
+      container?.querySelector<HTMLSpanElement>('.ant-input-affix-wrapper .cp-test-icon'),
+    ).toBeTruthy();
   });
 
   it('Should Layout className & style works', () => {
@@ -574,24 +663,32 @@ describe('ConfigProvider support style and className props', () => {
     expect(container.querySelector('.ant-list')).toHaveStyle('color: red; font-size: 16px;');
   });
 
-  it('Should Menu className works', () => {
-    const menuItems = [
+  it('Should Menu className & expandIcon works', () => {
+    const menuItems: MenuProps['items'] = [
       {
-        label: 'Test Label',
+        label: <span>Test Label</span>,
         key: 'test',
+        children: [
+          {
+            label: <span>Test Label children</span>,
+            key: 'test-children',
+          },
+        ],
       },
     ];
-    const { container } = render(
-      <ConfigProvider
-        menu={{
-          className: 'test-class',
-        }}
-      >
+    const App: React.FC<{ expand?: React.ReactNode }> = ({ expand }) => (
+      <ConfigProvider menu={{ className: 'test-class', expandIcon: expand }}>
         <Menu items={menuItems} />
-      </ConfigProvider>,
+      </ConfigProvider>
     );
-
-    expect(container.querySelector('.ant-menu')).toHaveClass('test-class');
+    const { container, rerender } = render(<App />);
+    expect(container.querySelector<HTMLElement>('.ant-menu')).toHaveClass('test-class');
+    rerender(<App expand={<span className="test-cp-icon">test-cp-icon</span>} />);
+    expect(container.querySelector<HTMLSpanElement>('.ant-menu .test-cp-icon')).toBeTruthy();
+    rerender(<App expand={null} />);
+    expect(container.querySelector<HTMLElement>('.ant-menu-submenu-arrow')).toBeFalsy();
+    rerender(<App expand={false} />);
+    expect(container.querySelector<HTMLElement>('.ant-menu-submenu-arrow')).toBeFalsy();
   });
 
   it('Should Menu style works', () => {
@@ -708,18 +805,37 @@ describe('ConfigProvider support style and className props', () => {
   });
 
   it('Should Alert className works', () => {
-    const { container } = render(
+    const { container, rerender } = render(
       <ConfigProvider
         alert={{
           className: 'test-class',
           closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          closable: { 'aria-label': 'close' },
         }}
       >
-        <Alert closable message="Test Message" />
+        <Alert message="Test Message" />
       </ConfigProvider>,
     );
     expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
     expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
+    expect(container.querySelectorAll('*[aria-label="close"]')).toBeTruthy();
+    rerender(
+      <ConfigProvider
+        alert={{
+          className: 'test-class',
+          closable: {
+            'aria-label': 'close',
+            closeIcon: <span className="cp-test-icon">cp-test-icon</span>,
+          },
+        }}
+      >
+        <Alert message="Test Message" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector<HTMLDivElement>('.ant-alert')).toHaveClass('test-class');
+    expect(container.querySelector<HTMLSpanElement>('.ant-alert .cp-test-icon')).toBeTruthy();
+    expect(container.querySelectorAll('*[aria-label="close"]')).toBeTruthy();
   });
 
   it('Should Alert style works', () => {
@@ -1041,7 +1157,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(head).toHaveStyle({ color: 'red' });
   });
 
-  it('Should Tabs className & style & addIcon & moreIcon works', () => {
+  it('Should Tabs className & style & addIcon & moreIcon & removeIcon works', () => {
     const { container } = render(
       <ConfigProvider
         tabs={{
@@ -1049,9 +1165,13 @@ describe('ConfigProvider support style and className props', () => {
           style: { backgroundColor: 'red' },
           addIcon: <span className="cp-test-addIcon">cp-test-addIcon</span>,
           moreIcon: <span className="cp-test-moreIcon">cp-test-moreIcon</span>,
+          removeIcon: <span className="cp-test-removeIcon">cp-test-removeIcon</span>,
         }}
       >
-        <Tabs items={[]} type="editable-card" />
+        <Tabs
+          type="editable-card"
+          items={[{ key: '1', label: <span>tab</span>, children: <span>children</span> }]}
+        />
       </ConfigProvider>,
     );
     const element = container.querySelector<HTMLDivElement>('.ant-tabs');
@@ -1059,6 +1179,7 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ backgroundColor: 'red' });
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-addIcon')).toBeTruthy();
     expect(element?.querySelector<HTMLSpanElement>('.cp-test-moreIcon')).toBeTruthy();
+    expect(element?.querySelector<HTMLSpanElement>('.cp-test-removeIcon')).toBeTruthy();
   });
 
   it('Should TimePicker className works', () => {
