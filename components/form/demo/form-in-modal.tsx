@@ -91,10 +91,12 @@ const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = ({
 };
 
 const App: React.FC = () => {
+  const [formValues, setFormValues] = useState<Values>();
   const [open, setOpen] = useState(false);
 
-  const onCreate = (values: any) => {
+  const onCreate = (values: Values) => {
     console.log('Received values of form: ', values);
+    setFormValues(values);
     setOpen(false);
   };
 
@@ -103,6 +105,7 @@ const App: React.FC = () => {
       <Button type="primary" onClick={() => setOpen(true)}>
         New Collection
       </Button>
+      <pre>{JSON.stringify(formValues, null, 2)}</pre>
       <CollectionCreateFormModal
         open={open}
         onCreate={onCreate}
