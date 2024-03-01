@@ -132,11 +132,11 @@
     "rc-cascader": "~3.21.2",
     "rc-checkbox": "~3.1.0",
     "rc-collapse": "~3.7.2",
-    "rc-dialog": "~9.3.4",
+    "rc-dialog": "~9.4.0",
     "rc-drawer": "~7.1.0",
     "rc-dropdown": "~4.1.0",
     "rc-field-form": "~1.41.0",
-    "rc-image": "~7.5.1",
+    "rc-image": "~7.6.0",
     "rc-input": "~1.4.3",
     "rc-input-number": "~9.0.0",
     "rc-mentions": "~2.10.1",
@@ -353,7 +353,7 @@
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "380 KiB"
+      "limit": "381 KiB"
     }
   ],
   "title": "Ant Design",
