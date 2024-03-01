@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Form, Input, Modal, Radio, type FormInstance } from 'antd';
 
 interface Values {
@@ -7,15 +7,21 @@ interface Values {
   modifier?: string;
 }
 
-const CollectionCreateForm = React.forwardRef<FormInstance, { initialValues: Values }>(
-  ({ initialValues }, ref) => (
-    <Form
-      ref={ref}
-      layout="vertical"
-      name="form_in_modal"
-      preserve={false}
-      initialValues={initialValues}
-    >
+interface CollectionCreateFormProps {
+  initialValues: Values;
+  onFormInstanceReady: (instance: FormInstance<Values>) => void;
+}
+
+const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
+  initialValues,
+  onFormInstanceReady,
+}) => {
+  const [form] = Form.useForm();
+  useEffect(() => {
+    onFormInstanceReady(form);
+  }, []);
+  return (
+    <Form layout="vertical" name="form_in_modal" preserve={false} initialValues={initialValues}>
       <Form.Item
         name="title"
         label="Title"
@@ -33,8 +39,8 @@ const CollectionCreateForm = React.forwardRef<FormInstance, { initialValues: Val
         </Radio.Group>
       </Form.Item>
     </Form>
-  ),
-);
+  );
+};
 
 interface CollectionCreateFormModalProps {
   open: boolean;
@@ -49,7 +55,7 @@ const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = ({
   onCancel,
   initialValues,
 }) => {
-  const formRef = useRef<FormInstance>(null);
+  const [formInstance, setFormInstance] = useState<FormInstance>();
   return (
     <Modal
       open={open}
@@ -60,15 +66,20 @@ const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = ({
       destroyOnClose
       onOk={async () => {
         try {
-          const values = await formRef.current?.validateFields();
-          formRef.current?.resetFields();
+          const values = await formInstance?.validateFields();
+          formInstance?.resetFields();
           onCreate(values);
         } catch (error) {
           console.log('Failed:', error);
         }
       }}
     >
-      <CollectionCreateForm initialValues={initialValues} ref={formRef} />
+      <CollectionCreateForm
+        initialValues={initialValues}
+        onFormInstanceReady={(instance) => {
+          setFormInstance(instance);
+        }}
+      />
     </Modal>
   );
 };
