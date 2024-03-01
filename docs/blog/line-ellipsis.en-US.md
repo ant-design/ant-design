@@ -95,4 +95,4 @@ This helps to accurately handle mixed line height scenarios:
 
 The mixed measurement method allows us to easily use the accuracy of CSS and the flexibility of JS to achieve accurate text truncation even in complex content containing images and other elements with different line heights.
 
-This refactoring will be released in `5.15.0`, stay tuned.
+This refactoring has been released in `5.15.0`, welcome to experience it.
