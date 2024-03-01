@@ -11,6 +11,9 @@ import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../form/hooks/useVariants';
 import type { TimePickerLocale } from '../../time-picker';
 
+export { PickerRef } from 'rc-picker';
+export { RangePickerRef } from 'rc-picker/es/interface';
+
 const DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;
 
 type DataPickerPlacement = (typeof DataPickerPlacements)[number];
