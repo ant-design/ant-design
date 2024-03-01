@@ -18,9 +18,9 @@ export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /**
-   * @deprecated please use `closeIcon` instead.
+   * @deprecated please use `closable.closeIcon` instead.
    * Close text to show
    */
   closeText?: React.ReactNode;
@@ -42,7 +42,6 @@ export interface AlertProps {
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
-  /** Custom closeIcon */
   closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -77,19 +76,26 @@ const IconNode: React.FC<IconNodeProps> = (props) => {
   return React.createElement(iconType, { className: `${prefixCls}-icon` });
 };
 
-interface CloseIconProps {
+type CloseIconProps = {
   isClosable: boolean;
   prefixCls: AlertProps['prefixCls'];
   closeIcon: AlertProps['closeIcon'];
   handleClose: AlertProps['onClose'];
-}
+  ariaProps: React.AriaAttributes;
+};
 
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
-  const { isClosable, prefixCls, closeIcon, handleClose } = props;
+  const { isClosable, prefixCls, closeIcon, handleClose, ariaProps } = props;
   const mergedCloseIcon =
     closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
   return isClosable ? (
-    <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
+    <button
+      type="button"
+      onClick={handleClose}
+      className={`${prefixCls}-close-icon`}
+      tabIndex={0}
+      {...ariaProps}
+    >
       {mergedCloseIcon}
     </button>
   ) : null;
@@ -120,7 +126,7 @@ const Alert: React.FC<AlertProps> = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Alert');
-    warning.deprecated(!closeText, 'closeText', 'closeIcon');
+    warning.deprecated(!closeText, 'closeText', 'closable.closeIcon');
   }
 
   const ref = React.useRef<HTMLDivElement>(null);
@@ -144,6 +150,7 @@ const Alert: React.FC<AlertProps> = (props) => {
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
+    if (typeof closable === 'object' && closable.closeIcon) return true;
     if (closeText) {
       return true;
     }
@@ -151,8 +158,12 @@ const Alert: React.FC<AlertProps> = (props) => {
       return closable;
     }
     // should be true when closeIcon is 0 or ''
-    return closeIcon !== false && closeIcon !== null && closeIcon !== undefined;
-  }, [closeText, closeIcon, closable]);
+    if (closeIcon !== false && closeIcon !== null && closeIcon !== undefined) {
+      return true;
+    }
+
+    return !!alert?.closable;
+  }, [closeText, closeIcon, closable, alert?.closable]);
 
   // banner mode defaults to Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
@@ -174,6 +185,32 @@ const Alert: React.FC<AlertProps> = (props) => {
   );
 
   const restProps = pickAttrs(otherProps, { aria: true, data: true });
+
+  const mergedCloseIcon = React.useMemo(() => {
+    if (typeof closable === 'object' && closable.closeIcon) {
+      return closable.closeIcon;
+    }
+    if (closeText) {
+      return closeText;
+    }
+    if (closeIcon !== undefined) {
+      return closeIcon;
+    }
+    if (typeof alert?.closable === 'object' && alert?.closable?.closeIcon) {
+      return alert?.closable?.closeIcon;
+    }
+    return alert?.closeIcon;
+  }, [closeIcon, closable, closeText, alert?.closeIcon]);
+
+  const mergeAriaProps = React.useMemo(() => {
+    const merged = closable ?? alert?.closable;
+    if (typeof merged === 'object') {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { closeIcon: _, ...ariaProps } = merged;
+      return ariaProps;
+    }
+    return {};
+  }, [closable, alert?.closable]);
 
   return wrapCSSVar(
     <CSSMotion
@@ -212,8 +249,9 @@ const Alert: React.FC<AlertProps> = (props) => {
           <CloseIconNode
             isClosable={isClosable}
             prefixCls={prefixCls}
-            closeIcon={closeText || (closeIcon ?? alert?.closeIcon)}
+            closeIcon={mergedCloseIcon}
             handleClose={handleClose}
+            ariaProps={mergeAriaProps}
           />
         </div>
       )}
