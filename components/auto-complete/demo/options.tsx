@@ -11,7 +11,6 @@ const App: React.FC = () => {
     } else {
       res = ['gmail.com', '163.com', 'qq.com'].map((domain,index) => ({
         value: `${value}@${domain}`,
-        key: `${value}-${domain}-${index}`,
         label: `${value}@${domain}`,
       }));
     }
