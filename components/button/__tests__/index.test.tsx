@@ -1,7 +1,8 @@
+import React, { Suspense, useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
-import React, { Suspense, useRef, useState } from 'react';
 import { act } from 'react-dom/test-utils';
+
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -433,5 +434,11 @@ describe('Button', () => {
   it('should display loading when delay is zero', () => {
     const { container } = render(<Button loading={{ delay: 0 }}>Button</Button>);
     expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/47605
+  it('Compatible with original `type` behavior', async () => {
+    const { container } = render(<Button type={'' as any} />);
+    expect(container.querySelector('.ant-btn-default')).toBeTruthy();
   });
 });

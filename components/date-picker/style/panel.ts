@@ -571,7 +571,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&::after': {
             display: 'block',
-            height: token.calc(timeColumnHeight).sub(timeCellHeight).equal(),
+            height: token.calc('100%').sub(timeCellHeight).equal(),
             content: '""',
           },
 
@@ -628,14 +628,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
             },
           },
         },
-      },
-      // https://github.com/ant-design/ant-design/issues/39227
-      [`&-datetime-panel ${componentCls}-time-panel-column:after`]: {
-        height: token
-          .calc(timeColumnHeight)
-          .sub(timeCellHeight)
-          .add(token.calc(paddingXXS).mul(2))
-          .equal(),
       },
     },
   };

@@ -96,7 +96,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const {
     loading = false,
     prefixCls: customizePrefixCls,
-    type = 'default',
+    type,
     danger,
     shape = 'default',
     size: customizeSize,
@@ -114,6 +114,10 @@ const InternalButton: React.ForwardRefRenderFunction<
     style: customStyle = {},
     ...rest
   } = props;
+
+  // https://github.com/ant-design/ant-design/issues/47605
+  // Compatible with original `type` behavior
+  const mergedType = type || 'default';
 
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
@@ -135,7 +139,8 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const buttonRef = composeRef(ref, internalRef);
 
-  const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
+  const needInserted =
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
 
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -193,7 +198,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(type)),
+      !(ghost && isUnBorderedButtonType(mergedType)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
@@ -218,10 +223,10 @@ const InternalButton: React.ForwardRefRenderFunction<
     cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
@@ -291,7 +296,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     </button>
   );
 
-  if (!isUnBorderedButtonType(type)) {
+  if (!isUnBorderedButtonType(mergedType)) {
     buttonNode = (
       <Wave component="Button" disabled={!!innerLoading}>
         {buttonNode}

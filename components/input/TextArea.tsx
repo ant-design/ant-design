@@ -1,26 +1,25 @@
 import * as React from 'react';
 import { forwardRef } from 'react';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import type { BaseInputProps } from 'rc-input/lib/interface';
 import type { TextAreaRef as RcTextAreaRef } from 'rc-textarea';
 import RcTextArea from 'rc-textarea';
 import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea/lib/interface';
 
+import getAllowClear from '../_util/getAllowClear';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import type { Variant } from '../form/hooks/useVariants';
+import useVariant from '../form/hooks/useVariants';
 import type { InputFocusOptions } from './Input';
 import { triggerFocus } from './Input';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { Variant } from '../form/hooks/useVariants';
-import useVariant from '../form/hooks/useVariants';
-import { devUseWarning } from '../_util/warning';
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix'> {
   /** @deprecated Use `variant` instead */
@@ -52,6 +51,8 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     classNames: classes,
     rootClassName,
     className,
+    style,
+    styles,
     variant: customVariant,
     ...rest
   } = props;
@@ -61,7 +62,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
     deprecated(!('bordered' in props), 'bordered', 'variant');
   }
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, textArea } = React.useContext(ConfigContext);
 
   // ===================== Size =====================
   const mergedSize = useSize(customizeSize);
@@ -91,28 +92,26 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
 
-  // Allow clear
-  let mergedAllowClear: BaseInputProps['allowClear'];
-  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
-    mergedAllowClear = allowClear;
-  } else if (allowClear) {
-    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
-  }
-
   // ===================== Style =====================
   const rootCls = useCSSVarCls(prefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const [variant, enableVariantCls] = useVariant(customVariant, bordered);
 
+  const mergedAllowClear = getAllowClear(allowClear ?? textArea?.allowClear);
+
   return wrapCSSVar(
     <RcTextArea
+      autoComplete={textArea?.autoComplete}
       {...rest}
+      style={{ ...textArea?.style, ...style }}
+      styles={{ ...textArea?.styles, ...styles }}
       disabled={mergedDisabled}
       allowClear={mergedAllowClear}
-      className={classNames(cssVarCls, rootCls, className, rootClassName)}
+      className={classNames(cssVarCls, rootCls, className, rootClassName, textArea?.className)}
       classNames={{
         ...classes,
+        ...textArea?.classNames,
         textarea: classNames(
           {
             [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -120,6 +119,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
           },
           hashId,
           classes?.textarea,
+          textArea?.classNames?.textarea,
         ),
         variant: classNames(
           {

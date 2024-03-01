@@ -53,6 +53,7 @@ const useStyle = createStyles(({ token, css, cx }) => {
       column-gap: ${token.paddingMD * 2}px;
       align-items: stretch;
       text-align: start;
+      min-height: 178px;
       > * {
         width: calc((100% - ${token.marginXXL * 2}px) / 3);
       }
