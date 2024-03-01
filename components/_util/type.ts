@@ -25,6 +25,8 @@ type ReactRefComponent<Props extends { ref?: React.Ref<any> }> = (props: Props) 
 export type GetRef<T extends ReactRefComponent<any> | React.Component<any>> =
   T extends React.Component<any>
     ? T
-    : T extends ReactRefComponent<React.RefAttributes<infer RefType>>
+    : T extends ReactRefComponent<
+          React.Attributes & Partial<Record<'ref', React.Ref<infer RefType>>>
+        >
       ? RefType
       : never;
