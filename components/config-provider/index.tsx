@@ -6,17 +6,12 @@ import { merge } from 'rc-util/lib/utils/set';
 
 import warning, { WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
-import type { FormProps } from '../form/Form';
 import ValidateMessagesContext from '../form/validateMessagesContext';
-import type { InputProps } from '../input';
 import type { Locale } from '../locale';
 import LocaleProvider, { ANT_MARK } from '../locale';
 import type { LocaleContextProps } from '../locale/context';
 import LocaleContext from '../locale/context';
 import defaultLocale from '../locale/en_US';
-import type { PaginationProps } from '../pagination';
-import type { SelectProps } from '../select';
-import type { SpaceProps } from '../space';
 import { defaultTheme, DesignTokenContext } from '../theme/context';
 import defaultSeedToken from '../theme/themes/seed';
 import type {
@@ -24,19 +19,27 @@ import type {
   BadgeConfig,
   ButtonConfig,
   CardConfig,
+  CollapseConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  FormConfig,
   ImageConfig,
+  InputConfig,
+  MenuConfig,
   ModalConfig,
   NotificationConfig,
+  PaginationConfig,
   PopupOverflow,
+  SelectConfig,
+  SpaceConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
+  TextAreaConfig,
   Theme,
   ThemeConfig,
   TourConfig,
@@ -119,16 +122,16 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  form?: ComponentStyleConfig &
-    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
-  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
-  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
-  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+  form?: FormConfig;
+  input?: InputConfig;
+  textArea?: TextAreaConfig;
+  select?: SelectConfig;
+  pagination?: PaginationConfig;
   locale?: Locale;
   componentSize?: SizeType;
   componentDisabled?: boolean;
   direction?: DirectionType;
-  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
+  space?: SpaceConfig;
   virtual?: boolean;
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean;
@@ -142,7 +145,7 @@ export interface ConfigProviderProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
   typography?: ComponentStyleConfig;
@@ -160,7 +163,7 @@ export interface ConfigProviderProps {
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
-  menu?: ComponentStyleConfig;
+  menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -319,6 +322,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    textArea,
     empty,
     badge,
     radio,
@@ -367,7 +371,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   useStyle(iconPrefixCls, csp);
 
-  const mergedTheme = useTheme(theme, parentContext.theme);
+  const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
 
   if (process.env.NODE_ENV !== 'production') {
     existThemeConfig = existThemeConfig || !!mergedTheme;
@@ -403,6 +407,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    textArea,
     layout,
     list,
     mentions,
