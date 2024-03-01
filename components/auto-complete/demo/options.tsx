@@ -10,7 +10,7 @@ const App: React.FC = () => {
       res = [];
     } else {
       res = ['gmail.com', '163.com', 'qq.com'].map((domain) => ({
-        value,
+        value: `${value}@${domain}`,
         label: `${value}@${domain}`,
       }));
     }
