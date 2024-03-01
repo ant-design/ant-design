@@ -119,7 +119,7 @@
     "@ant-design/cssinjs": "^1.18.4",
     "@ant-design/icons": "^5.3.1",
     "@ant-design/react-slick": "~1.0.2",
-    "@babel/runtime": "^7.23.9",
+    "@babel/runtime": "^7.24.0",
     "@ctrl/tinycolor": "^3.6.1",
     "@rc-component/color-picker": "~1.5.2",
     "@rc-component/mutate-observer": "^1.1.0",
