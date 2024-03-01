@@ -47,7 +47,6 @@ tag: vVERSION
 - 🐞 修复 Button 不兼容 v4 `type=''` 的问题。[#47612](https://github.com/ant-design/ant-design/pull/47612)
 - 🛠 重构 Typography 省略测量逻辑以支持动态行高的场景。[#47597](https://github.com/ant-design/ant-design/pull/47597)
 - 💄 移除 Tag 组件多余的 margin 样式。[#47504](https://github.com/ant-design/ant-design/pull/47504)
-- 💄 移除 Alert 中的非必要警告。[#47633](https://github.com/ant-design/ant-design/pull/47633)
 - 🤖 MISC：修复不能在 pnpm 配置 `hoist: false` 下编译的问题。[#47587](https://github.com/ant-design/ant-design/pull/47587)
 
 ## 5.14.2
