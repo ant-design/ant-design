@@ -21,7 +21,13 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
     onFormInstanceReady(form);
   }, []);
   return (
-    <Form layout="vertical" name="form_in_modal" preserve={false} initialValues={initialValues}>
+    <Form
+      layout="vertical"
+      form={form}
+      name="form_in_modal"
+      preserve={false}
+      initialValues={initialValues}
+    >
       <Form.Item
         name="title"
         label="Title"
