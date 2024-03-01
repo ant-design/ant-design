@@ -1,6 +1,7 @@
+import React, { useEffect } from 'react';
 import { CloseOutlined } from '@ant-design/icons';
 import { render } from '@testing-library/react';
-import React, { useEffect } from 'react';
+
 import type { UseClosableParams } from '../hooks/useClosable';
 import useClosable from '../hooks/useClosable';
 
@@ -19,7 +20,7 @@ describe('hooks test', () => {
     },
     {
       params: [undefined, undefined, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [undefined, undefined, false],
@@ -33,11 +34,11 @@ describe('hooks test', () => {
     },
     {
       params: [true, undefined, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, undefined, false],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
 
     // test case like: <Component closable={false | true} closeIcon={null | false | element} />
@@ -51,19 +52,19 @@ describe('hooks test', () => {
     },
     {
       params: [true, null, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, false, true],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, null, false],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [true, false, false],
-      res: [true, 'anticon-close'],
+      res: [true, '.anticon-close'],
     },
     {
       params: [
@@ -73,7 +74,7 @@ describe('hooks test', () => {
         </div>,
         false,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
     },
     {
       params: [false, <div key="close">close</div>, false],
@@ -97,7 +98,7 @@ describe('hooks test', () => {
         </div>,
         undefined,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
     },
     {
       params: [
@@ -107,7 +108,7 @@ describe('hooks test', () => {
         </div>,
         true,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
     },
     {
       params: [
@@ -117,7 +118,18 @@ describe('hooks test', () => {
         </div>,
         false,
       ],
-      res: [true, 'custom-close'],
+      res: [true, '.custom-close'],
+    },
+    {
+      params: [
+        {
+          closeIcon: 'Close',
+          'aria-label': 'Close Btn',
+        },
+        undefined,
+        false,
+      ],
+      res: [true, '*[aria-label="Close Btn"]'],
     },
   ];
 
@@ -126,13 +138,11 @@ describe('hooks test', () => {
       React.isValidElement(params[1]) ? 'element' : params[1]
     },defaultClosable=${params[2]}. the result should be ${res}`, () => {
       const App = () => {
-        const [closable, closeIcon] = useClosable(
-          params[0],
-          params[1],
-          undefined,
-          undefined,
-          params[2],
-        );
+        const [closable, closeIcon] = useClosable({
+          closable: params[0],
+          closeIcon: params[1],
+          defaultClosable: params[2],
+        });
         useEffect(() => {
           expect(closable).toBe(res[0]);
         }, [closable]);
@@ -142,19 +152,17 @@ describe('hooks test', () => {
       if (res[1] === '') {
         expect(container.querySelector('.anticon-close')).toBeFalsy();
       } else {
-        expect(container.querySelector(`.${res[1]}`)).toBeTruthy();
+        expect(container.querySelector(`${res[1]}`)).toBeTruthy();
       }
     });
   });
 
   it('useClosable with defaultCloseIcon', () => {
     const App = () => {
-      const [closable, closeIcon] = useClosable(
-        true,
-        undefined,
-        undefined,
-        <CloseOutlined className="custom-close-icon" />,
-      );
+      const [closable, closeIcon] = useClosable({
+        closable: true,
+        defaultCloseIcon: <CloseOutlined className="custom-close-icon" />,
+      });
       useEffect(() => {
         expect(closable).toBe(true);
       }, [closable]);
@@ -169,7 +177,10 @@ describe('hooks test', () => {
       const customCloseIconRender = (icon: React.ReactNode) => (
         <span className="custom-close-wrapper">{icon}</span>
       );
-      const [closable, closeIcon] = useClosable(true, undefined, customCloseIconRender);
+      const [closable, closeIcon] = useClosable({
+        closable: true,
+        customCloseIconRender,
+      });
       useEffect(() => {
         expect(closable).toBe(true);
       }, [closable]);
