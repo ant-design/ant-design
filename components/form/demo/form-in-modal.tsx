@@ -68,6 +68,7 @@ const CollectionCreateFormModal: React.FC<CollectionCreateFormModalProps> = ({
       title="Create a new collection"
       okText="Create"
       cancelText="Cancel"
+      okButtonProps={{ autoFocus: true }}
       onCancel={onCancel}
       destroyOnClose
       onOk={async () => {
