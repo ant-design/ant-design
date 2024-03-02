@@ -110,7 +110,7 @@ export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames'
 
 export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIcon'>;
 
-export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
+export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon' | 'closable'>;
 
 export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 

@@ -21,7 +21,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /** Advised to use closeIcon instead. */
   closeIcon?: React.ReactNode;
   /** @deprecated `visible` will be removed in next major version. */
@@ -108,9 +108,16 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     setVisible(false);
   };
 
+  const mergedContextCloseIcon = React.useMemo(() => {
+    if (typeof tag?.closable === 'object' && tag.closable.closeIcon) {
+      return tag.closable.closeIcon;
+    }
+    return tag?.closeIcon;
+  }, [tag?.closable, tag?.closeIcon]);
+
   const [, mergedCloseIcon] = useClosable({
-    closable,
-    closeIcon: closeIcon ?? tag?.closeIcon,
+    closable: closable ?? tag?.closable,
+    closeIcon: closeIcon ?? mergedContextCloseIcon,
     customCloseIconRender: (iconNode: React.ReactNode) =>
       iconNode === null ? (
         <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
