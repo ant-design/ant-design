@@ -71,11 +71,6 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
           },
         },
 
-        // ==================== Selection ====================
-        [`${componentCls}-selection-item`]: {
-          marginBlock: 0,
-        },
-
         // ====================== Input ======================
         // Input is `readonly`, which is used for a11y only
         [`${componentCls}-multiple-input`]: {
