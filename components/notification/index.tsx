@@ -31,9 +31,9 @@ type Task =
 
 type DelayTask = () => Promise<void> | void;
 
-let taskQueue: Task[] = [];
+const taskQueue: Task[] = [];
 
-let delayTaskQueue: DelayTask[] = [];
+const delayTaskQueue: DelayTask[] = [];
 
 let defaultGlobalConfig: GlobalConfigProps = {};
 
@@ -157,14 +157,12 @@ const addDelayTask = (task: () => Promise<void> | void) => {
   delayTaskQueue.push(task);
 };
 
-const delayFunction = (task: () => void, delay: number) => {
-  return new Promise<void>((resolve) => {
+const delayFunction = (task: () => void, delay: number) => new Promise<void>((resolve) => {
     setTimeout(() => {
       task();
       resolve();
     }, delay);
   });
-};
 
 function runPromiseInSequence() {
   if (delayTaskQueue.length === 0) {
