@@ -2186,9 +2186,9 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
     </span>
     <span
       class="ant-select-selection-item"
-      title="Lucy"
+      title="lucy"
     >
-      Lucy
+      lucy
     </span>
   </div>
   <span

@@ -6880,9 +6880,9 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
     </span>
     <span
       class="ant-select-selection-item"
-      title="Lucy"
+      title="lucy"
     >
-      Lucy
+      lucy
     </span>
   </div>
   <div
@@ -6901,20 +6901,18 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
           role="presentation"
         />
         <div
-          aria-label="Jack"
           aria-selected="false"
           id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
-          jack
+          Jack
         </div>
         <div
-          aria-label="Lucy"
-          aria-selected="true"
+          aria-selected="false"
           id="rc_select_TEST_OR_SSR_list_2"
           role="option"
         >
-          lucy
+          Lucy
         </div>
       </div>
       <div
@@ -6932,19 +6930,22 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
             >
               <div
                 class="ant-select-item ant-select-item-group"
-                title="Manager"
+                title="manager"
               >
-                Manager
+                <span>
+                  manager
+                </span>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
-                title="Jack"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Jack
+                  <span>
+                    Jack
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -6954,14 +6955,15 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
                 />
               </div>
               <div
-                aria-selected="true"
-                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-selected"
-                title="Lucy"
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Lucy
+                  <span>
+                    Lucy
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -6972,19 +6974,40 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
               </div>
               <div
                 class="ant-select-item ant-select-item-group"
-                title="Engineer"
+                title="engineer"
               >
-                Engineer
+                <span>
+                  engineer
+                </span>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
-                title="yiminghe"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  yiminghe
+                  <span>
+                    Chloe
+                  </span>
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  <span>
+                    Lucas
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
