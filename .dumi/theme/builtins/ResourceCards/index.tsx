@@ -15,7 +15,7 @@ const useStyle = createStyles(({ token, css }) => {
       height: 100%;
       color: inherit;
       list-style: none;
-      border: 1px solid #e6e6e6;
+      border: 1px solid ${token.colorSplit};
       border-radius: 2px;
       cursor: pointer;
       transition: box-shadow 0.3s;
@@ -47,13 +47,13 @@ const useStyle = createStyles(({ token, css }) => {
     `,
     title: css`
       margin: 16px 20px 8px;
-      color: #0d1a26;
+      opacity: 0.85;
       font-size: 20px;
       line-height: 28px;
     `,
     description: css`
       margin: 0 20px 20px;
-      color: #697b8c;
+      opacity: 0.65;
       font-size: 14px;
       line-height: 22px;
     `,
