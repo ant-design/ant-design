@@ -6,11 +6,13 @@ import type { AlertProps } from '../alert';
 import type { BadgeProps } from '../badge';
 import type { ButtonProps } from '../button';
 import type { CardProps } from '../card';
+import type { CollapseProps } from '../collapse';
 import type { DrawerProps } from '../drawer';
 import type { FlexProps } from '../flex/interface';
 import type { FormProps } from '../form/Form';
-import type { InputProps } from '../input';
+import type { InputProps, TextAreaProps } from '../input';
 import type { Locale } from '../locale';
+import type { MenuProps } from '../menu';
 import type { ModalProps } from '../modal';
 import type { ArgsProps } from '../notification/interface';
 import type { PaginationProps } from '../pagination';
@@ -82,17 +84,27 @@ export interface ImageConfig extends ComponentStyleConfig {
   preview?: Partial<Record<'closeIcon', React.ReactNode>>;
 }
 
+export type CollapseConfig = ComponentStyleConfig & Pick<CollapseProps, 'expandIcon'>;
+
+export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
+
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
   Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
 
 export type TabsConfig = ComponentStyleConfig &
-  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon'>;
+  Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon'>;
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closeIcon'>;
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon'>;
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type InputConfig = ComponentStyleConfig &
+  Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
+
+export type TextAreaConfig = ComponentStyleConfig &
+  Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type ButtonConfig = ComponentStyleConfig & Pick<ButtonProps, 'classNames' | 'styles'>;
 
@@ -100,17 +112,23 @@ export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIc
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
 
-export interface CardConfig extends ComponentStyleConfig {
-  classNames?: CardProps['classNames'];
-  styles?: CardProps['styles'];
-}
+export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>;
 
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon'>;
+
+export type FormConfig = ComponentStyleConfig &
+  Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+
+export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+
+export type SelectConfig = ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+
+export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
 export type PopupOverflow = 'viewport' | 'scroll';
 
@@ -128,18 +146,18 @@ export interface ConfigConsumerProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
-  input?: ComponentStyleConfig & Pick<InputProps, 'autoComplete' | 'classNames' | 'styles'>;
-  pagination?: ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>;
+  input?: InputConfig;
+  textArea?: TextAreaConfig;
+  pagination?: PaginationConfig;
   locale?: Locale;
   direction?: DirectionType;
-  space?: Pick<SpaceProps, 'size' | 'className' | 'classNames' | 'style' | 'styles'>;
+  space?: SpaceConfig;
   virtual?: boolean;
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
-  form?: ComponentStyleConfig &
-    Pick<FormProps, 'requiredMark' | 'colon' | 'scrollToFirstError' | 'validateMessages'>;
+  form?: FormConfig;
   theme?: ThemeConfig;
-  select?: ComponentStyleConfig & Pick<SelectProps, 'showSearch'>;
+  select?: SelectConfig;
   alert?: AlertConfig;
   anchor?: ComponentStyleConfig;
   button?: ButtonConfig;
@@ -148,7 +166,7 @@ export interface ConfigConsumerProps {
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
   cascader?: ComponentStyleConfig;
-  collapse?: ComponentStyleConfig;
+  collapse?: CollapseConfig;
   typography?: ComponentStyleConfig;
   skeleton?: ComponentStyleConfig;
   spin?: ComponentStyleConfig;
@@ -164,7 +182,7 @@ export interface ConfigConsumerProps {
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
-  menu?: ComponentStyleConfig;
+  menu?: MenuConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;

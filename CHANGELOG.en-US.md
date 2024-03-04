@@ -16,6 +16,39 @@ tag: vVERSION
 
 ---
 
+## 5.15.0
+
+`2024-03-02`
+
+- ConfigProvider
+  - 🆕 ConfigProvider support Input.TextArea `allowClear` `autoComplete` `className` `style` `classNames` `styles` props. [#47589](https://github.com/ant-design/ant-design/pull/47589)
+  - 🆕 ConfigProvider support Input `allowClear` props. [#47602](https://github.com/ant-design/ant-design/pull/47602)
+  - 🆕 ConfigProvider support Menu `expandIcon` props. [#47561](https://github.com/ant-design/ant-design/pull/47561)
+  - 🆕 ConfigProvider support Collapse `expandIcon` props. [#47473](https://github.com/ant-design/ant-design/pull/47473)
+  - 🆕 ConfigProvider support Tabs `removeIcon` props, when set `type="editable-card"`. [#47334](https://github.com/ant-design/ant-design/pull/47334)
+  - 🆕 Prefixes for CSS variables follow the `prefixCls` property of ConfigProvider by default. [#47481](https://github.com/ant-design/ant-design/pull/47481)
+  - 🤖 CardProps `styles` in ConfigProvider is set to optional. [#47601](https://github.com/ant-design/ant-design/pull/47601) [@Yawenina](https://github.com/Yawenina)
+- 🆕 Select、Checkbox、Radio、DatePicker、TreeSelect、Cascader the `focus` supports passing `options`. [#47664](https://github.com/ant-design/ant-design/pull/47664)
+- 🆕 Modal support configuring `aria-*` in `closable`. [#47650](https://github.com/ant-design/ant-design/pull/47650)
+- 🆕 Alert support configuring `aria-*` in `closable`. [#47474](https://github.com/ant-design/ant-design/pull/47474)
+- 🆕 Tabs support `removeIcon` props, when set `type="editable-card"`. [#47334](https://github.com/ant-design/ant-design/pull/47334)
+- Drawer
+  - 🆕 Drawer support configuring `aria-*` in `closable`. [#47543](https://github.com/ant-design/ant-design/pull/47543)
+  - 🆕 Drawer support passing `aria-*` attributes to panel nodes. [#47387](https://github.com/ant-design/ant-design/pull/47387)
+- Table
+  - 🆕 Table adds `filterOnClose` to specify whether to trigger filtering when the filter menu is closed. [#47451](https://github.com/ant-design/ant-design/pull/47451) [@xsjcTony](https://github.com/xsjcTony)
+  - 🆕 Table adds `components.header.table` to customize the header component when scrolling the column. [#47382](https://github.com/ant-design/ant-design/pull/47382)
+  - 🐞 Fix the issue where scroll bars would not be displayed during initial rendering under Table `sticky`. [#47382](https://github.com/ant-design/ant-design/pull/47382)
+  - 🐞 Fix the issue where the `th` element is not used in the column header when Table `column.title` is empty. [#47382](https://github.com/ant-design/ant-design/pull/47382)
+  - 🐞 Fix the issue where `prefixCls` is invalid when Table uses a virtual list. [#47639](https://github.com/ant-design/ant-design/pull/47639)
+  - 💄 Fix abnormal shadow display when Table fixed columns. [#47518](https://github.com/ant-design/ant-design/pull/47518)
+- 🐞 Fix the issue where when using DirectoryTree in Tree, pressing shift for continuous multi-selection will report an error. [#47567](https://github.com/ant-design/ant-design/pull/47567) [@wkmyws](https://github.com/wkmyws)
+- 🐞 Fix the issue where `isFieldsTouched(true)` always returns `false` when Form exists in Form.List. [#47629](https://github.com/ant-design/ant-design/pull/47629) [@lemonied](https://github.com/lemonied)
+- 🐞 Fix the issue of Button being incompatible with v4 `type=''`. [#47612](https://github.com/ant-design/ant-design/pull/47612)
+- 🛠 Refactor Typography to omit measurement logic to support dynamic row height scenarios. [#47597](https://github.com/ant-design/ant-design/pull/47597)
+- 💄 Remove redundant margin styles from Tag. [#47504](https://github.com/ant-design/ant-design/pull/47504)
+- 🤖 MISC: fix an issue that could not be compiled under pnpm configuration `hoist: false`. [#47587](https://github.com/ant-design/ant-design/pull/47587)
+
 ## 5.14.2
 
 `2024-02-23`
