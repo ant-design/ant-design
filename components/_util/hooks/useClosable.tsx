@@ -7,7 +7,7 @@ import type {
   DrawerConfig,
   ModalConfig,
   TagConfig,
-} from 'antd/es/config-provider/context';
+} from '../../config-provider/context';
 
 export type UseClosableParams = {
   closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
@@ -49,8 +49,7 @@ function useClosable({
     }
     return context?.closeIcon;
   }, [context?.closable, context?.closeIcon]);
-
-  const curCloseIcon = closeIcon ?? mergedContextCloseIcon;
+  const curCloseIcon = typeof closeIcon !== 'undefined' ? closeIcon : mergedContextCloseIcon;
   const mergedClosable = useInnerClosable(closable, curCloseIcon, defaultClosable);
 
   if (!mergedClosable) {

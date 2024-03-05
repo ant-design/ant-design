@@ -86,10 +86,11 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   }, [drawerContext?.closable, drawerContext?.closeIcon]);
 
   const [mergedClosable, mergedCloseIcon] = useClosable({
-    closable: closable ?? drawerContext?.closable,
+    closable: closable,
     closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : mergedContextCloseIcon,
     customCloseIconRender,
     defaultClosable: true,
+    context: drawerContext,
   });
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
