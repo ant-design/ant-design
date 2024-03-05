@@ -30,6 +30,7 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   props?: DivProps;
   role?: 'alert' | 'status';
 }
@@ -53,6 +54,7 @@ export interface GlobalConfigProps {
   getContainer?: () => HTMLElement | ShadowRoot;
   placement?: NotificationPlacement;
   closeIcon?: React.ReactNode;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   rtl?: boolean;
   maxCount?: number;
   props?: DivProps;
