@@ -2,7 +2,12 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
-import { AlertConfig, DrawerConfig, ModalConfig, TagConfig } from 'antd/es/config-provider/context';
+import type {
+  AlertConfig,
+  DrawerConfig,
+  ModalConfig,
+  TagConfig,
+} from 'antd/es/config-provider/context';
 
 export type UseClosableParams = {
   closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
