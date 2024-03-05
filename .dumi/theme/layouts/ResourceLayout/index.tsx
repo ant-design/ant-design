@@ -43,30 +43,6 @@ const useStyle = () => {
         box-sizing: content-box;
         min-height: 100vh;
 
-        > .markdown {
-          > p {
-            margin-bottom: 56px;
-          }
-
-          h2 {
-            margin-top: 124px;
-            font-weight: lighter;
-            font-size: 30px;
-            line-height: 38px;
-
-            &:first-child {
-              margin-top: 88px;
-            }
-          }
-
-          h3 {
-            margin-top: 56px;
-            font-weight: 400;
-            font-size: 24px;
-            line-height: 32px;
-          }
-        }
-
         @media only screen and (max-width: 767.99px) {
           & {
             article {
