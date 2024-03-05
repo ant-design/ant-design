@@ -78,16 +78,9 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     [onClose],
   );
 
-  const mergedContextCloseIcon = React.useMemo(() => {
-    if (typeof drawerContext?.closable === 'object' && drawerContext.closable.closeIcon) {
-      return drawerContext.closable.closeIcon;
-    }
-    return drawerContext?.closeIcon;
-  }, [drawerContext?.closable, drawerContext?.closeIcon]);
-
   const [mergedClosable, mergedCloseIcon] = useClosable({
     closable,
-    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : mergedContextCloseIcon,
+    closeIcon,
     customCloseIconRender,
     defaultClosable: true,
     context: drawerContext,
