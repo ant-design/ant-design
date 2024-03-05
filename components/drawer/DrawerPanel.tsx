@@ -86,7 +86,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
   }, [drawerContext?.closable, drawerContext?.closeIcon]);
 
   const [mergedClosable, mergedCloseIcon] = useClosable({
-    closable: closable,
+    closable,
     closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : mergedContextCloseIcon,
     customCloseIconRender,
     defaultClosable: true,
