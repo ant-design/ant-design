@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
+import { AlertConfig, DrawerConfig, ModalConfig, TagConfig } from 'antd/es/config-provider/context';
 
 export type UseClosableParams = {
   closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
@@ -9,6 +10,7 @@ export type UseClosableParams = {
   defaultClosable?: boolean;
   defaultCloseIcon?: ReactNode;
   customCloseIconRender?: (closeIcon: ReactNode) => ReactNode;
+  context?: TagConfig | DrawerConfig | ModalConfig | AlertConfig;
 };
 
 function useInnerClosable(
@@ -34,8 +36,17 @@ function useClosable({
   customCloseIconRender,
   defaultCloseIcon = <CloseOutlined />,
   defaultClosable = false,
+  context,
 }: UseClosableParams): [closable: boolean, closeIcon: React.ReactNode | null] {
-  const mergedClosable = useInnerClosable(closable, closeIcon, defaultClosable);
+  const mergedContextCloseIcon = React.useMemo(() => {
+    if (typeof context?.closable === 'object' && context.closable.closeIcon) {
+      return context.closable.closeIcon;
+    }
+    return context?.closeIcon;
+  }, [context?.closable, context?.closeIcon]);
+
+  const curCloseIcon = closeIcon ?? mergedContextCloseIcon;
+  const mergedClosable = useInnerClosable(closable, curCloseIcon, defaultClosable);
 
   if (!mergedClosable) {
     return [false, null];
@@ -49,9 +60,9 @@ function useClosable({
     if (typeof closable === 'object' && closableIcon !== undefined) {
       return closableIcon;
     }
-    return typeof closeIcon === 'boolean' || closeIcon === undefined || closeIcon === null
+    return typeof curCloseIcon === 'boolean' || curCloseIcon === undefined || curCloseIcon === null
       ? defaultCloseIcon
-      : closeIcon;
+      : curCloseIcon;
   })();
   const ariaProps = pickAttrs(restProps, true);
 

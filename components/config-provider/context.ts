@@ -91,7 +91,7 @@ export type MenuConfig = ComponentStyleConfig & Pick<MenuProps, 'expandIcon'>;
 export type TourConfig = Pick<TourProps, 'closeIcon'>;
 
 export type ModalConfig = ComponentStyleConfig &
-  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon'>;
+  Pick<ModalProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<TabsProps, 'indicator' | 'indicatorSize' | 'moreIcon' | 'addIcon' | 'removeIcon'>;

@@ -108,16 +108,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     setVisible(false);
   };
 
-  const mergedContextCloseIcon = React.useMemo(() => {
-    if (typeof tag?.closable === 'object' && tag.closable.closeIcon) {
-      return tag.closable.closeIcon;
-    }
-    return tag?.closeIcon;
-  }, [tag?.closable, tag?.closeIcon]);
-
   const [, mergedCloseIcon] = useClosable({
     closable: closable ?? tag?.closable,
-    closeIcon: closeIcon ?? mergedContextCloseIcon,
+    closeIcon,
     customCloseIconRender: (iconNode: React.ReactNode) =>
       iconNode === null ? (
         <CloseOutlined className={`${prefixCls}-close-icon`} onClick={handleCloseClick} />
@@ -128,6 +121,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
       ),
     defaultCloseIcon: null,
     defaultClosable: false,
+    context: tag,
   });
 
   const isNeedWave =
