@@ -934,7 +934,12 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
 };
 
 // ============================== Export ==============================
-export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boolean = true) => {
+export default (
+  prefixCls: string,
+  rootCls: string = prefixCls,
+  injectStyle: boolean = true,
+  hasExpandIcon = true,
+) => {
   const useStyle = genStyleHooks(
     'Menu',
     (token) => {
@@ -960,7 +965,7 @@ export default (prefixCls: string, rootCls: string = prefixCls, injectStyle: boo
         darkPopupBg,
       } = token;
 
-      const menuArrowSize = token.calc(fontSize).div(7).mul(5).equal();
+      const menuArrowSize = hasExpandIcon ? token.calc(fontSize).div(7).mul(5).equal() : 0;
 
       // Menu Token
       const menuToken = mergeToken<MenuToken & CssUtil>(token, {

@@ -15,7 +15,9 @@ const getVerticalInlineStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
     itemWidth,
   } = token;
 
-  const paddingWithArrow = token.calc(menuArrowSize).add(padding).add(marginXS).equal();
+  const paddingWithArrow = menuArrowSize
+    ? token.calc(menuArrowSize).add(padding).add(marginXS).equal()
+    : padding;
 
   return {
     [`${componentCls}-item`]: {

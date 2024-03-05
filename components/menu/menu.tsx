@@ -126,7 +126,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
+  // const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
   // ====================== ExpandIcon ========================
@@ -148,6 +148,13 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       ),
     });
   }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(
+    prefixCls,
+    rootCls,
+    !override,
+    mergedExpandIcon != null,
+  );
 
   // ======================== Context ==========================
   const contextValue = React.useMemo<MenuContextProps>(
