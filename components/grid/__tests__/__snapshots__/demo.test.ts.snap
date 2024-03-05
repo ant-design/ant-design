@@ -1419,9 +1419,9 @@ exports[`renders components/grid/demo/sort.tsx correctly 1`] = `
 `;
 
 exports[`renders components/grid/demo/useBreakpoint.tsx correctly 1`] = `
-Array [
-  Current break point:,
-  <!-- -->,
-   ,
-]
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  Current break point:
+</div>
 `;

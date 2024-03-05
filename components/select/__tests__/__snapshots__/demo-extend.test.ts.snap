@@ -1522,9 +1522,11 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         <span>
           <span
             class="ant-tag ant-tag-gold"
-            style="margin-right: 3px;"
+            style="margin-inline-end: 4px;"
           >
-            gold
+            <span>
+              gold
+            </span>
             <span
               aria-label="close"
               class="anticon anticon-close ant-tag-close-icon"
@@ -1556,9 +1558,11 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         <span>
           <span
             class="ant-tag ant-tag-cyan"
-            style="margin-right: 3px;"
+            style="margin-inline-end: 4px;"
           >
-            cyan
+            <span>
+              cyan
+            </span>
             <span
               aria-label="close"
               class="anticon anticon-close ant-tag-close-icon"
@@ -1657,12 +1661,13 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
               <div
                 aria-selected="true"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                title="gold"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  gold
+                  <span>
+                    gold
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -1694,34 +1699,37 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="lime"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  lime
+                  <span>
+                    lime
+                  </span>
                 </div>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
-                title="green"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  green
+                  <span>
+                    green
+                  </span>
                 </div>
               </div>
               <div
                 aria-selected="true"
                 class="ant-select-item ant-select-item-option ant-select-item-option-selected"
-                title="cyan"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  cyan
+                  <span>
+                    cyan
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
