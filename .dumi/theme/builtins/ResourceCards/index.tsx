@@ -22,6 +22,7 @@ const useStyle = createStyles(({ token, css }) => {
 
       &:hover {
         box-shadow: ${boxShadowSecondary};
+        color: inherit;
       }
     `,
     image: css`
