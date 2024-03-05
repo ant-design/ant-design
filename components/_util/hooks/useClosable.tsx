@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import React, { useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
+
 import type {
   AlertConfig,
   DrawerConfig,
@@ -73,9 +74,10 @@ function useClosable({
       : curCloseIcon;
   }, [closable, curCloseIcon, defaultCloseIcon, closableIcon]);
 
-  const ariaProps = useMemo(() => {
-    return getAriaProps(closable) ?? getAriaProps(context?.closable) ?? {};
-  }, [closable, context?.closable]);
+  const ariaProps = useMemo(
+    () => getAriaProps(closable) ?? getAriaProps(context?.closable) ?? {},
+    [closable, context?.closable],
+  );
 
   if (!mergedClosable) {
     return [false, null];
