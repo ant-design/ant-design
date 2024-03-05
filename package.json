@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.14.2",
+  "version": "5.15.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -243,7 +243,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-lodash": "^7.4.0",
     "eslint-plugin-markdown": "^3.0.1",
-    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^51.0.1",
     "fast-glob": "^3.3.2",
@@ -326,7 +326,7 @@
     "tar-fs": "^3.0.5",
     "terser": "^5.28.1",
     "tsx": "^4.7.1",
-    "typedoc": "^0.25.9",
+    "typedoc": "^0.25.10",
     "typescript": "~5.3.3",
     "vanilla-jsoneditor": "^0.22.0",
     "vanilla-tilt": "^1.8.1",
