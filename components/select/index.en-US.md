@@ -154,14 +154,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### OptGroup props
 
-| Property | Description                           | Type                    | Default | Version |
-| -------- | ------------------------------------- | ----------------------- | ------- | ------- |
-| key      | Group key                             | string                  | -       |         |
-| label    | Group label                           | string \| React.Element | -       |         |
-| className | The additional class to option       | string                  | -       |         |
-| title     | `title` attribute of Select Option   | string                  | -       |         |
-
-
+| Property  | Description                        | Type            | Default | Version |
+| --------- | ---------------------------------- | --------------- | ------- | ------- |
+| key       | Group key                          | string          | -       |         |
+| label     | Group label                        | React.ReactNode | -       |         |
+| className | The additional class to option     | string          | -       |         |
+| title     | `title` attribute of Select Option | string          | -       |         |
 
 ## Design Token
 
