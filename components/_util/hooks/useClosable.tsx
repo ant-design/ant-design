@@ -3,6 +3,8 @@ import React, { useMemo } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 
+export type ClosableType = boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+
 import type {
   AlertConfig,
   DrawerConfig,
@@ -11,7 +13,7 @@ import type {
 } from '../../config-provider/context';
 
 export type UseClosableParams = {
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  closable?: ClosableType;
   closeIcon?: ReactNode;
   defaultClosable?: boolean;
   defaultCloseIcon?: ReactNode;

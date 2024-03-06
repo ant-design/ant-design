@@ -249,6 +249,42 @@ describe('notification', () => {
     });
   });
 
+  it('support config closable', async () => {
+    notification.config({
+      closable: {
+        closeIcon: <span className="test-customize-icon" />,
+        'aria-label': 'CloseBtn',
+      },
+    });
+
+    // Global Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
+    await awaitPromise();
+
+    expect(document.querySelector('.test-customize-icon')).toBeTruthy();
+    expect(document.querySelector('*[aria-label="CloseBtn"]')).toBeTruthy();
+
+    // Notice Icon
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closable: {
+        closeIcon: <span className="replace-icon" />,
+        'aria-label': 'CloseBtn2',
+      },
+    });
+
+    expect(document.querySelector('.replace-icon')).toBeTruthy();
+    expect(document.querySelector('*[aria-label="CloseBtn2"]')).toBeTruthy();
+
+    notification.config({
+      closable: undefined,
+    });
+  });
+
   it('closeIcon should be update', async () => {
     const list = ['1', '2'];
     list.forEach((type) => {
