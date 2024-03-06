@@ -40,6 +40,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
+      marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,
@@ -55,10 +56,6 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       // RTL
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
-      },
-
-      [`&:has(+ ${componentCls})`]: {
-        marginInlineEnd: token.marginXS,
       },
 
       '&, a, a:hover': {
