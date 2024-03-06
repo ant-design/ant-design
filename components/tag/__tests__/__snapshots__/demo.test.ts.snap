@@ -134,14 +134,12 @@ Array [
 `;
 
 exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
-<div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
->
+Array [
   <span
     class="ant-tag"
   >
     Tag 1
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -150,7 +148,7 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
     >
       Link
     </a>
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -176,7 +174,7 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
         />
       </svg>
     </span>
-  </span>
+  </span>,
   <span
     class="ant-tag"
   >
@@ -205,8 +203,8 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
         </svg>
       </span>
     </span>
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders components/tag/demo/borderless.tsx correctly 1`] = `
