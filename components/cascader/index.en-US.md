@@ -89,6 +89,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
 | loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
+| optionRender | Customize the rendering dropdown options | (option: OptionType) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
 
