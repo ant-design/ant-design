@@ -494,6 +494,7 @@ exports[`renders components/notification/demo/render-panel.tsx correctly 1`] = `
       </div>
     </div>
     <a
+      aria-label="Close"
       class="ant-notification-notice-close"
       tabindex="0"
     >

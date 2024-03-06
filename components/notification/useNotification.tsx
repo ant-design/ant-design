@@ -148,6 +148,7 @@ export function useInternalNotification(
         style,
         role = 'alert',
         closeIcon,
+        closable,
         ...restConfig
       } = config;
 
@@ -178,7 +179,7 @@ export function useInternalNotification(
         ),
         style: { ...notification?.style, ...style },
         closeIcon: realCloseIcon,
-        closable: !!realCloseIcon,
+        closable: closable ?? !!realCloseIcon,
       });
     };
 
