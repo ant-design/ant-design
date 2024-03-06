@@ -16,6 +16,13 @@ tag: vVERSION
 
 ---
 
+## 5.15.1
+
+`2024-03-06`
+
+- 🐞 回滚移除 Tag 默认间距的代码。[#47736](https://github.com/ant-design/ant-design/pull/47736)
+- 🇷🇺 更新 DatePicker 的俄语文案。[#47705](https://github.com/ant-design/ant-design/pull/47705)
+
 ## 5.15.0
 
 `2024-03-02`
