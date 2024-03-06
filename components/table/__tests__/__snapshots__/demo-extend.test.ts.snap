@@ -86,20 +86,16 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <div
-                      class="ant-flex ant-flex-gap-small"
+                    <span
+                      class="ant-tag ant-tag-green"
                     >
-                      <span
-                        class="ant-tag ant-tag-green"
-                      >
-                        NICE
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-geekblue"
-                      >
-                        DEVELOPER
-                      </span>
-                    </div>
+                      NICE
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-geekblue"
+                    >
+                      DEVELOPER
+                    </span>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -148,15 +144,11 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <div
-                      class="ant-flex ant-flex-gap-small"
+                    <span
+                      class="ant-tag ant-tag-volcano"
                     >
-                      <span
-                        class="ant-tag ant-tag-volcano"
-                      >
-                        LOSER
-                      </span>
-                    </div>
+                      LOSER
+                    </span>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -205,20 +197,16 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <div
-                      class="ant-flex ant-flex-gap-small"
+                    <span
+                      class="ant-tag ant-tag-green"
                     >
-                      <span
-                        class="ant-tag ant-tag-green"
-                      >
-                        COOL
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-geekblue"
-                      >
-                        TEACHER
-                      </span>
-                    </div>
+                      COOL
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-geekblue"
+                    >
+                      TEACHER
+                    </span>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -17462,20 +17450,16 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <div
-                      class="ant-flex ant-flex-gap-small"
+                    <span
+                      class="ant-tag ant-tag-blue"
                     >
-                      <span
-                        class="ant-tag ant-tag-green"
-                      >
-                        NICE
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-geekblue"
-                      >
-                        DEVELOPER
-                      </span>
-                    </div>
+                      nice
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      developer
+                    </span>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -17527,15 +17511,11 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <div
-                      class="ant-flex ant-flex-gap-small"
+                    <span
+                      class="ant-tag ant-tag-blue"
                     >
-                      <span
-                        class="ant-tag ant-tag-volcano"
-                      >
-                        LOSER
-                      </span>
-                    </div>
+                      loser
+                    </span>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -17587,20 +17567,16 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    <div
-                      class="ant-flex ant-flex-gap-small"
+                    <span
+                      class="ant-tag ant-tag-blue"
                     >
-                      <span
-                        class="ant-tag ant-tag-green"
-                      >
-                        COOL
-                      </span>
-                      <span
-                        class="ant-tag ant-tag-geekblue"
-                      >
-                        TEACHER
-                      </span>
-                    </div>
+                      cool
+                    </span>
+                    <span
+                      class="ant-tag ant-tag-blue"
+                    >
+                      teacher
+                    </span>
                   </td>
                   <td
                     class="ant-table-cell"
@@ -22959,9 +22935,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <div
-                        class="ant-flex ant-flex-gap-small"
-                      >
+                      <span>
                         <span
                           class="ant-tag ant-tag-green"
                         >
@@ -22972,7 +22946,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                         >
                           DEVELOPER
                         </span>
-                      </div>
+                      </span>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23021,15 +22995,13 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <div
-                        class="ant-flex ant-flex-gap-small"
-                      >
+                      <span>
                         <span
                           class="ant-tag ant-tag-volcano"
                         >
                           LOSER
                         </span>
-                      </div>
+                      </span>
                     </td>
                     <td
                       class="ant-table-cell"
@@ -23078,9 +23050,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                     <td
                       class="ant-table-cell"
                     >
-                      <div
-                        class="ant-flex ant-flex-gap-small"
-                      >
+                      <span>
                         <span
                           class="ant-tag ant-tag-green"
                         >
@@ -23091,7 +23061,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                         >
                           TEACHER
                         </span>
-                      </div>
+                      </span>
                     </td>
                     <td
                       class="ant-table-cell"
