@@ -57,6 +57,10 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
         direction: 'rtl',
       },
 
+      [`&:has(+ ${componentCls})`]: {
+        marginInlineEnd: token.marginXS,
+      },
+
       '&, a, a:hover': {
         color: token.defaultColor,
       },
