@@ -326,7 +326,7 @@
     "tar-fs": "^3.0.5",
     "terser": "^5.28.1",
     "tsx": "^4.7.1",
-    "typedoc": "^0.25.10",
+    "typedoc": "^0.25.11",
     "typescript": "~5.3.3",
     "vanilla-jsoneditor": "^0.22.0",
     "vanilla-tilt": "^1.8.1",
