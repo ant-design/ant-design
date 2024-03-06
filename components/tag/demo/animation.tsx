@@ -73,7 +73,7 @@ const App: React.FC = () => {
             }
           }}
         >
-          <Flex gap="small" wrap="wrap">
+          <Flex gap="4px 0" wrap="wrap">
             {tagChild}
           </Flex>
         </TweenOneGroup>
