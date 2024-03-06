@@ -134,9 +134,9 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     if (event) {
       changeInfo.event = event;
     }
-
     if (
       !exceedMaxCount ||
+      file.status === 'removed' ||
       // We should ignore event if current file is exceed `maxCount`
       cloneList.some((f) => f.uid === file.uid)
     ) {
