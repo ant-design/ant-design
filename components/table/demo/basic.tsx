@@ -1,5 +1,5 @@
 import React from 'react';
-import { Space, Table, Tag } from 'antd';
+import { Flex, Space, Table, Tag } from 'antd';
 import type { TableProps } from 'antd';
 
 interface DataType {
@@ -32,8 +32,8 @@ const columns: TableProps<DataType>['columns'] = [
     key: 'tags',
     dataIndex: 'tags',
     render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
+      <Flex gap="small">
+        {tags.map<React.ReactNode>((tag) => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
           if (tag === 'loser') {
             color = 'volcano';
@@ -44,7 +44,7 @@ const columns: TableProps<DataType>['columns'] = [
             </Tag>
           );
         })}
-      </>
+      </Flex>
     ),
   },
   {
