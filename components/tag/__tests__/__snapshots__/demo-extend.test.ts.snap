@@ -7,7 +7,8 @@ Array [
   >
     <div>
       <div
-        class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+        class="ant-flex ant-flex-wrap-wrap"
+        style="gap: 4px 0;"
       >
         <span
           style="display: inline-block;"
@@ -214,7 +215,8 @@ exports[`renders components/tag/demo/basic.tsx extend context correctly 2`] = `[
 exports[`renders components/tag/demo/borderless.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-borderless"
@@ -284,7 +286,8 @@ Array [
     role="separator"
   />,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-processing ant-tag-borderless"
@@ -372,7 +375,8 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
   style="background-color: rgb(245, 245, 245); padding: 16px;"
 >
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-borderless"
@@ -442,7 +446,8 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
     role="separator"
   />
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-magenta ant-tag-borderless"
@@ -507,7 +512,8 @@ exports[`renders components/tag/demo/borderlessLayout.tsx extend context correct
 
 exports[`renders components/tag/demo/checkable.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center"
+  style="gap: 4px 0;"
 >
   <span>
     Categories:
@@ -550,7 +556,8 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-magenta"
@@ -619,7 +626,8 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-has-color"
@@ -653,7 +661,8 @@ exports[`renders components/tag/demo/colorful.tsx extend context correctly 2`] =
 
 exports[`renders components/tag/demo/colorful-inverse.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap: 4px 0;"
 >
   <span
     class="ant-tag ant-tag-magenta-inverse"
@@ -717,7 +726,8 @@ exports[`renders components/tag/demo/colorful-inverse.tsx extend context correct
 
 exports[`renders components/tag/demo/control.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap: 4px 0;"
 >
   <span
     class="ant-tag"
@@ -822,7 +832,8 @@ exports[`renders components/tag/demo/control.tsx extend context correctly 2`] = 
 
 exports[`renders components/tag/demo/customize.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap: 4px 0;"
 >
   <span
     class="ant-tag"
@@ -871,7 +882,8 @@ exports[`renders components/tag/demo/customize.tsx extend context correctly 2`] 
 exports[`renders components/tag/demo/draggable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag"
@@ -914,7 +926,8 @@ exports[`renders components/tag/demo/draggable.tsx extend context correctly 2`] 
 
 exports[`renders components/tag/demo/icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap: 4px 0;"
 >
   <span
     class="ant-tag ant-tag-has-color"
@@ -1042,7 +1055,8 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-success"
@@ -1081,7 +1095,8 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap: 4px 0;"
   >
     <span
       class="ant-tag ant-tag-success"
