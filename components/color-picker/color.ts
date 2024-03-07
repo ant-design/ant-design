@@ -10,7 +10,7 @@ export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(
 export interface Color
   extends Pick<
     RcColor,
-    'toHsb' | 'toHsbString' | 'toHex' | 'toHexString' | 'toRgb' | 'toRgbString'
+    'toHsb' | 'toHsbString' | 'toHex' | 'toHexString' | 'toRgb' | 'toRgbString' | 'equals'
   > {}
 
 export class ColorFactory {
@@ -48,5 +48,9 @@ export class ColorFactory {
 
   toRgbString() {
     return this.metaColor.toRgbString();
+  }
+
+  equals(color: RcColor) {
+    return this.metaColor.equals(color);
   }
 }

@@ -13,6 +13,11 @@ Array [
         style="background: rgb(22, 119, 255);"
       />
     </div>
+    <div
+      class="ant-color-picker-trigger-text"
+    >
+      #1677FF
+    </div>
   </div>,
   <div
     class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"

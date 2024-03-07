@@ -1,5 +1,5 @@
 import type { CSSProperties, FC } from 'react';
-import React, { useContext, useMemo, useRef, useState } from 'react';
+import React, { useContext, useMemo, useRef } from 'react';
 import type {
   HsbaColorType,
   ColorPickerProps as RcColorPickerProps,
@@ -32,7 +32,7 @@ import type {
   TriggerType,
 } from './interface';
 import useStyle from './style';
-import { genAlphaColor, generateColor, getAlphaColor } from './util';
+import { genAlphaColor, generateColor, getAlphaColor, isColorCleared } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -124,11 +124,11 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange: onFormatChange,
   });
 
-  const [colorCleared, setColorCleared] = useState(!value && !defaultValue);
-
+  const colorCleared = isColorCleared(colorValue);
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
-  const isAlphaColor = useMemo(() => getAlphaColor(colorValue) < 100, [colorValue]);
+  const alpha = getAlphaColor(colorValue);
+  const isAlphaColor = useMemo(() => alpha < 100, [colorValue]);
 
   // ===================== Form Status =====================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
@@ -169,9 +169,8 @@ const ColorPicker: CompoundedComponent = (props) => {
     let color: Color = generateColor(data);
     const isNull = value === null || (!value && defaultValue === null);
     if (colorCleared || isNull) {
-      setColorCleared(false);
       // ignore alpha slider
-      if (getAlphaColor(colorValue) === 0 && type !== 'alpha') {
+      if (alpha === 0 && type !== 'alpha') {
         color = genAlphaColor(color);
       }
     }
@@ -192,7 +191,6 @@ const ColorPicker: CompoundedComponent = (props) => {
   };
 
   const handleClear = () => {
-    setColorCleared(true);
     onClear?.();
   };
 

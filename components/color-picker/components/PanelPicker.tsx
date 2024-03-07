@@ -21,7 +21,6 @@ export interface PanelPickerProps
 const PanelPicker: FC = () => {
   const {
     prefixCls,
-    colorCleared,
     allowClear,
     value,
     disabledAlpha,
@@ -36,7 +35,6 @@ const PanelPicker: FC = () => {
         <ColorClear
           prefixCls={prefixCls}
           value={value}
-          colorCleared={colorCleared}
           onChange={(clearColor) => {
             onChange?.(clearColor);
             onClear?.();

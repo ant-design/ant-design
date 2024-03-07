@@ -18,3 +18,5 @@ export const genAlphaColor = (color: Color, alpha?: number) => {
   hsba.a = alpha || 1;
   return generateColor(hsba);
 };
+
+export const isColorCleared = (color: Color) => color.equals('#00000000');

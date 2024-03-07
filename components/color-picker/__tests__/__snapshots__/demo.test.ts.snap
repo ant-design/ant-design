@@ -12,6 +12,11 @@ exports[`renders components/color-picker/demo/allowClear.tsx correctly 1`] = `
       style="background:rgb(22, 119, 255)"
     />
   </div>
+  <div
+    class="ant-color-picker-trigger-text"
+  >
+    #1677FF
+  </div>
 </div>
 `;
 
