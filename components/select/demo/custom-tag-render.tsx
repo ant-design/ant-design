@@ -4,7 +4,12 @@ import type { SelectProps } from 'antd';
 
 type TagRender = SelectProps['tagRender'];
 
-const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
+const options: SelectProps['options'] = [
+  { value: 'gold' },
+  { value: 'lime' },
+  { value: 'green' },
+  { value: 'cyan' },
+];
 
 const tagRender: TagRender = (props) => {
   const { label, value, closable, onClose } = props;
