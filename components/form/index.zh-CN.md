@@ -128,7 +128,7 @@ const validateMessages = {
 | getValueFromEvent | 设置如何将 event 的值转换成字段值 | (..args: any\[]) => any | - |  |
 | getValueProps | 为子元素添加额外的属性 (不建议通过 `getValueProps` 生成动态函数 prop，请直接将其传递给子组件) | (value: any) => Record<string, any> | - | 4.2.0 |
 | hasFeedback | 配合 `validateStatus` 属性使用，展示校验状态图标，建议只配合 Input 组件使用 此外，它还可以通过 Icons 属性获取反馈图标。 | boolean \| { icons: [FeedbackIcons](#feedbackicons) } | false | icons: 5.9.0 |
-| help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode | - |  |
+| help | 提示信息，如不设置，则会根据校验规则自动生成 | ReactNode \| (params: { errors: ReactNode[], warnings: ReactNode[]}) => ReactNode | - |  |
 | hidden | 是否隐藏字段（依然会收集和校验字段） | boolean | false | 4.4.0 |
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |  |
 | initialValue | 设置子元素默认值，如果与 Form 的 `initialValues` 冲突则以 Form 为准 | string | - | 4.2.0 |
