@@ -720,9 +720,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
             class="ant-tag ant-tag-gold"
             style="margin-inline-end:4px"
           >
-            <span>
-              gold
-            </span>
+            gold
             <span
               aria-label="close"
               class="anticon anticon-close ant-tag-close-icon"
@@ -756,9 +754,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
             class="ant-tag ant-tag-cyan"
             style="margin-inline-end:4px"
           >
-            <span>
-              cyan
-            </span>
+            cyan
             <span
               aria-label="close"
               class="anticon anticon-close ant-tag-close-icon"
