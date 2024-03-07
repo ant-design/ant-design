@@ -34,7 +34,9 @@ function toErrorEntity(
 
 export interface ErrorListProps {
   fieldId?: string;
-  help?: React.ReactNode;
+  help?:
+    | React.ReactNode
+    | ((params: { errors: React.ReactNode[]; warnings: React.ReactNode[] }) => React.ReactNode);
   helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
   warnings?: React.ReactNode[];
@@ -67,7 +69,15 @@ const ErrorList: React.FC<ErrorListProps> = ({
 
   const fullKeyList = React.useMemo<ErrorEntity[]>(() => {
     if (help !== undefined && help !== null) {
-      return [toErrorEntity(help, 'help', helpStatus)];
+      return [
+        toErrorEntity(
+          typeof help === 'function'
+            ? help({ errors: debounceErrors, warnings: debounceWarnings })
+            : help,
+          'help',
+          helpStatus,
+        ),
+      ];
     }
 
     return [
