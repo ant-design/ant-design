@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Flex, Input, Tag, theme } from 'antd';
+import { Input, Tag, theme } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
 
 const App: React.FC = () => {
@@ -73,9 +73,7 @@ const App: React.FC = () => {
             }
           }}
         >
-          <Flex gap="small" wrap="wrap">
-            {tagChild}
-          </Flex>
+          {tagChild}
         </TweenOneGroup>
       </div>
       {inputVisible ? (

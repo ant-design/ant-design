@@ -1500,16 +1500,14 @@ exports[`renders components/grid/demo/sort.tsx extend context correctly 1`] = `
 exports[`renders components/grid/demo/sort.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 1`] = `
-<div
-  class="ant-flex ant-flex-wrap-wrap ant-flex-gap-small"
->
-  Current break point:
+Array [
+  Current break point: ,
   <span
     class="ant-tag ant-tag-blue"
   >
     xs
-  </span>
-</div>
+  </span>,
+]
 `;
 
 exports[`renders components/grid/demo/useBreakpoint.tsx extend context correctly 2`] = `[]`;

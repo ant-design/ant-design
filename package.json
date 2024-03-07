@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.15.0",
+  "version": "5.15.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -160,7 +160,7 @@
     "rc-tree": "~5.8.5",
     "rc-tree-select": "~5.18.0",
     "rc-upload": "~4.5.2",
-    "rc-util": "^5.38.2",
+    "rc-util": "^5.39.0",
     "scroll-into-view-if-needed": "^3.1.0",
     "throttle-debounce": "^5.0.0"
   },
@@ -210,7 +210,7 @@
     "@types/qs": "^6.9.12",
     "@types/react": "18.2.60",
     "@types/react-copy-to-clipboard": "^5.0.7",
-    "@types/react-dom": "^18.2.19",
+    "@types/react-dom": "^18.2.20",
     "@types/react-highlight-words": "^0.16.7",
     "@types/react-resizable": "^3.0.7",
     "@types/semver": "^7.5.8",
@@ -324,9 +324,9 @@
     "sylvanas": "^0.6.1",
     "tar": "^6.2.0",
     "tar-fs": "^3.0.5",
-    "terser": "^5.28.1",
+    "terser": "^5.29.1",
     "tsx": "^4.7.1",
-    "typedoc": "^0.25.10",
+    "typedoc": "^0.25.11",
     "typescript": "~5.3.3",
     "vanilla-jsoneditor": "^0.22.0",
     "vanilla-tilt": "^1.8.1",
