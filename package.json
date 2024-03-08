@@ -139,7 +139,7 @@
     "rc-image": "~7.6.0",
     "rc-input": "~1.4.3",
     "rc-input-number": "~9.0.0",
-    "rc-mentions": "~2.10.1",
+    "rc-mentions": "~2.11.1",
     "rc-menu": "~9.12.4",
     "rc-motion": "^2.9.0",
     "rc-notification": "~5.3.0",
