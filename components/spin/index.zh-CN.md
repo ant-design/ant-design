@@ -26,6 +26,7 @@ demo:
 <code src="./demo/delayAndDebounce.tsx">延迟</code>
 <code src="./demo/custom-indicator.tsx">自定义指示符</code>
 <code src="./demo/fullscreen.tsx">全屏</code>
+<code src="./demo/custom-visibility.tsx">三种背景清晰度</code>
 
 ## API
 
@@ -40,6 +41,7 @@ demo:
 | tip | 当作为包裹元素时，可以自定义描述文案 | ReactNode | - |
 | wrapperClassName | 包装器的类属性 | string | - |
 | fullscreen | 显示带有 `Spin` 组件的背景 | boolean | false | 5.11.0 |
+| visibility | 背景清晰度, 可选值为 `soft`, `default` and `heavy` | string | `default` | 5.15.1 |
 
 ### 静态方法
 

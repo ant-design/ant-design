@@ -11,6 +11,14 @@ import useStyle from './style/index';
 
 const SpinSizes = ['small', 'default', 'large'] as const;
 export type SpinSize = (typeof SpinSizes)[number];
+
+const SpinVisibilityies = ['soft', 'default', 'heavy'] as const;
+export type SpinVisibility = (typeof SpinVisibilityies)[number];
+const SpinVisibilityOpacity: Record<SpinVisibility, number> = {
+  soft: 0.9,
+  default: 0.5,
+  heavy: 0.2,
+};
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -26,6 +34,7 @@ export interface SpinProps {
   indicator?: SpinIndicator;
   children?: React.ReactNode;
   fullscreen?: boolean;
+  visibility?: SpinVisibility;
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -83,6 +92,7 @@ const Spin: SpinType = (props) => {
     style,
     children,
     fullscreen = false,
+    visibility,
     ...restProps
   } = props;
 
@@ -149,6 +159,12 @@ const Spin: SpinType = (props) => {
     [`${prefixCls}-blur`]: spinning,
   });
 
+  const containerStyle: React.CSSProperties = visibility
+    ? {
+        opacity: SpinVisibilityOpacity[visibility],
+      }
+    : {};
+
   // fix https://fb.me/react-unknown-prop
   const divProps = omit(restProps, ['indicator']);
 
@@ -176,7 +192,7 @@ const Spin: SpinType = (props) => {
         className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
       >
         {spinning && <div key="loading">{spinElement}</div>}
-        <div className={containerClassName} key="container">
+        <div className={containerClassName} style={containerStyle} key="container">
           {children}
         </div>
       </div>,

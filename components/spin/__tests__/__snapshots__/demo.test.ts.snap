@@ -54,6 +54,210 @@ exports[`renders components/spin/demo/custom-indicator.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/spin/demo/custom-visibility.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-gap-small"
+>
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div>
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text"
+          >
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              class="ant-spin-text"
+            >
+              Loading
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-spin-container ant-spin-blur"
+          style="opacity:0.9"
+        >
+          <div
+            class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+            data-show="true"
+            role="alert"
+          >
+            <div
+              class="ant-alert-content"
+            >
+              <div
+                class="ant-alert-message"
+              >
+                soft
+              </div>
+              <div
+                class="ant-alert-description"
+              >
+                description
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div>
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text"
+          >
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              class="ant-spin-text"
+            >
+              Loading
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-spin-container ant-spin-blur"
+        >
+          <div
+            class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+            data-show="true"
+            role="alert"
+          >
+            <div
+              class="ant-alert-content"
+            >
+              <div
+                class="ant-alert-message"
+              >
+                default
+              </div>
+              <div
+                class="ant-alert-description"
+              >
+                description
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-spin-nested-loading"
+      >
+        <div>
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text"
+          >
+            <span
+              class="ant-spin-dot ant-spin-dot-spin"
+            >
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+              <i
+                class="ant-spin-dot-item"
+              />
+            </span>
+            <div
+              class="ant-spin-text"
+            >
+              Loading
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-spin-container ant-spin-blur"
+          style="opacity:0.2"
+        >
+          <div
+            class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
+            data-show="true"
+            role="alert"
+          >
+            <div
+              class="ant-alert-content"
+            >
+              <div
+                class="ant-alert-message"
+              >
+                heavy
+              </div>
+              <div
+                class="ant-alert-description"
+              >
+                description
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/spin/demo/delayAndDebounce.tsx correctly 1`] = `
 Array [
   <div

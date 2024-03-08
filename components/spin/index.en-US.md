@@ -25,6 +25,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
 <code src="./demo/delayAndDebounce.tsx">Delay</code>
 <code src="./demo/custom-indicator.tsx">Custom spinning indicator</code>
 <code src="./demo/fullscreen.tsx">Fullscreen</code>
+<code src="./demo/custom-visibility.tsx">Three background clarity levels</code>
 
 ## API
 
@@ -39,6 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | tip | Customize description content when Spin has children | ReactNode | - |
 | wrapperClassName | The className of wrapper when Spin has children | string | - |
 | fullscreen | Display a backdrop with the `Spin` component | boolean | false | 5.11.0 |
+| visibility | The visibility of background, options: `soft`, `default` and `heavy` | string | `default` | 5.15.1 |
 
 ### Static Method
 
