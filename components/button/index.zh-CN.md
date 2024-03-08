@@ -38,7 +38,7 @@ group:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">按钮类型</code>
-<code src="./demo/icon.tsx">图标按钮</code>
+<code src="./demo/icon.tsx" version="5.16.0">按钮图标位置</code>
 <code src="./demo/debug-icon.tsx" debug>调试图标按钮</code>
 <code src="./demo/debug-block.tsx" debug>调试按钮block属性</code>
 <code src="./demo/size.tsx">按钮尺寸</code>
@@ -71,6 +71,7 @@ group:
 | href | 点击跳转的地址，指定此属性 button 的行为和 a 链接一致 | string | - |  |
 | htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button` |  |
 | icon | 设置按钮的图标组件 | ReactNode | - |  |
+| iconPosition | 设置按钮图标组件的位置 | `start` \| `end` | `start` | 5.16.0 |
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | false |  |
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
 | size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
