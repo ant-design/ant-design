@@ -32,7 +32,7 @@ export type LegacyButtonType = ButtonType | 'danger';
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
-  iconPosition: 'start' | 'end';
+  iconPosition?: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -243,8 +243,11 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
+  const isIconPositionEnd = iconPosition === 'end' && children && children !== 0 && iconType;
+
   const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon, {
-    [`${prefixCls}-icon-end`]: iconPosition === 'end',
+    [`${prefixCls}-icon-end`]: isIconPositionEnd,
+    [`${prefixCls}-loading-icon-end`]: innerLoading && iconPosition === 'end',
   });
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
@@ -257,7 +260,12 @@ const InternalButton: React.ForwardRefRenderFunction<
         {icon}
       </IconWrapper>
     ) : (
-      <LoadingIcon existIcon={!!icon} prefixCls={prefixCls} loading={!!innerLoading} />
+      <LoadingIcon
+        existIcon={!!icon}
+        prefixCls={prefixCls}
+        loading={!!innerLoading}
+        iconPosition={iconPosition}
+      />
     );
 
   const kids =
