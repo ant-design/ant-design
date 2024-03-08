@@ -11,7 +11,6 @@ type InnerLoadingIconProps = {
   className?: string;
   style?: React.CSSProperties;
   iconClassName?: string;
-  iconPosition?: string;
 } & Pick<ButtonProps, 'iconPosition'>;
 
 const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((props, ref) => {
