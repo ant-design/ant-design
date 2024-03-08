@@ -51,5 +51,6 @@
   "5.12.3": ["https://github.com/ant-design/ant-design/issues/46525"],
   "5.12.6": ["https://github.com/ant-design/ant-design/issues/46719"],
   "5.13.0": ["https://github.com/ant-design/ant-design/pull/46962"],
-  "5.14.0": ["https://github.com/ant-design/ant-design/issues/47354"]
+  "5.14.0": ["https://github.com/ant-design/ant-design/issues/47354"],
+  "5.15.0": ["https://github.com/ant-design/ant-design/pull/47504#issuecomment-1980459433"]
 }
