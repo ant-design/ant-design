@@ -32,6 +32,7 @@ export type LegacyButtonType = ButtonType | 'danger';
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
+  iconPosition: 'start' | 'end';
   shape?: ButtonShape;
   size?: SizeType;
   disabled?: boolean;
@@ -106,6 +107,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     rootClassName,
     children,
     icon,
+    iconPosition = 'start',
     ghost = false,
     block = false,
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
@@ -241,7 +243,9 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const fullStyle: React.CSSProperties = { ...button?.style, ...customStyle };
 
-  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon);
+  const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon, {
+    [`${prefixCls}-icon-end`]: iconPosition === 'end',
+  });
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
     ...(button?.styles?.icon || {}),
@@ -259,6 +263,18 @@ const InternalButton: React.ForwardRefRenderFunction<
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
+  const buttonContent =
+    iconPosition === 'start' ? (
+      <>
+        {iconNode}
+        {kids}
+      </>
+    ) : (
+      <>
+        {kids}
+        {iconNode}
+      </>
+    );
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
       <a
@@ -272,8 +288,7 @@ const InternalButton: React.ForwardRefRenderFunction<
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
-        {iconNode}
-        {kids}
+        {buttonContent}
       </a>,
     );
   }
@@ -288,8 +303,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       disabled={mergedDisabled}
       ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
-      {iconNode}
-      {kids}
+      {buttonContent}
 
       {/* Styles: compact */}
       {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
