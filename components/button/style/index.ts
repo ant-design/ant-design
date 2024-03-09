@@ -40,7 +40,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`${componentCls}-icon`]: {
         lineHeight: 0,
-        // icon in end
+        // iconPosition in end
         [`&-end`]: {
           marginInlineStart: token.marginXS,
         },
@@ -55,7 +55,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
         [`&${componentCls}-loading-icon, &:not(:last-child)`]: {
           marginInlineEnd: token.marginXS,
         },
-        [`&${componentCls}-loading-icon-end, &:not(:last-child)`]: {
+        [`&${componentCls}-loading-icon-end`]: {
           marginInlineStart: token.marginXS,
         },
       },
