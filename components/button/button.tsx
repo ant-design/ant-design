@@ -270,18 +270,19 @@ const InternalButton: React.ForwardRefRenderFunction<
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
-  const buttonContent =
+  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) =>
     iconPosition === 'start' ? (
       <>
-        {iconNode}
-        {kids}
+        {iconComponent}
+        {kidsComponent}
       </>
     ) : (
       <>
-        {kids}
-        {iconNode}
+        {kidsComponent}
+        {iconComponent}
       </>
     );
+
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
       <a
@@ -295,7 +296,7 @@ const InternalButton: React.ForwardRefRenderFunction<
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
         tabIndex={mergedDisabled ? -1 : 0}
       >
-        {buttonContent}
+        {genButtonContent(iconNode, kids)}
       </a>,
     );
   }
@@ -310,7 +311,7 @@ const InternalButton: React.ForwardRefRenderFunction<
       disabled={mergedDisabled}
       ref={buttonRef as React.Ref<HTMLButtonElement>}
     >
-      {buttonContent}
+      {genButtonContent(iconNode, kids)}
 
       {/* Styles: compact */}
       {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
