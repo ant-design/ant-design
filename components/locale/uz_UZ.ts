@@ -7,10 +7,10 @@ import Calendar from '../calendar/locale/uz_UZ';
 import DatePicker from '../date-picker/locale/uz_UZ';
 import TimePicker from '../time-picker/locale/uz_UZ';
 
-const typeTemplate: string = '${label} не является типом ${type}';
+const typeTemplate: string = '${label} ${type} turi emas';
 
 const localeValues: Locale = {
-  locale: 'ru',
+  locale: 'uz',
   Pagination,
   DatePicker,
   TimePicker,
