@@ -5,7 +5,7 @@ import Pagination from 'rc-pagination/lib/locale/ru_RU';
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/uz_UZ';
 import DatePicker from '../date-picker/locale/uz_UZ';
-import TimePicker from '../time-picker/locale/ru_RU';
+import TimePicker from '../time-picker/locale/uz_UZ';
 
 const typeTemplate: string = '${label} не является типом ${type}';
 
