@@ -83,6 +83,7 @@ const LoadingIcon: React.FC<LoadingIconProps> = (props) => {
           style={{ ...style, ...motionStyle }}
           ref={ref}
           iconClassName={motionCls}
+          iconPosition={iconPosition}
         />
       )}
     </CSSMotion>

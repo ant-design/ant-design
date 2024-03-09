@@ -247,7 +247,6 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const iconClasses = classNames(customClassNames?.icon, button?.classNames?.icon, {
     [`${prefixCls}-icon-end`]: isIconPositionEnd,
-    [`${prefixCls}-loading-icon-end`]: innerLoading && iconPosition === 'end',
   });
   const iconStyle: React.CSSProperties = {
     ...(styles?.icon || {}),
