@@ -1,18 +1,18 @@
 import React from 'react';
-import { Button, Checkbox, Form, Input } from 'antd';
-
-const onFinish = (values: any) => {
-  console.log('Success:', values);
-};
-
-const onFinishFailed = (errorInfo: any) => {
-  console.log('Failed:', errorInfo);
-};
+import { Button, Checkbox, Form, type FormProps, Input } from 'antd';
 
 type FieldType = {
   username?: string;
   password?: string;
   remember?: string;
+};
+
+const onFinish: FormProps<FieldType>["onFinish"] = (values) => {
+  console.log('Success:', values);
+};
+
+const onFinishFailed: FormProps<FieldType>["onFinishFailed"] = (errorInfo) => {
+  console.log('Failed:', errorInfo);
 };
 
 const App: React.FC = () => (

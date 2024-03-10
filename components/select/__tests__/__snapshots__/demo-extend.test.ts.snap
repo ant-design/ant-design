@@ -1522,7 +1522,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         <span>
           <span
             class="ant-tag ant-tag-gold"
-            style="margin-right: 3px;"
+            style="margin-inline-end: 4px;"
           >
             gold
             <span
@@ -1556,7 +1556,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         <span>
           <span
             class="ant-tag ant-tag-cyan"
-            style="margin-right: 3px;"
+            style="margin-inline-end: 4px;"
           >
             cyan
             <span
