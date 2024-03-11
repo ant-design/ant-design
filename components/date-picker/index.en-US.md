@@ -66,7 +66,7 @@ If there are special needs (only modifying single component language), Please us
 
 <!-- prettier-ignore -->
 :::warning
-When use with Nextjs App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
+When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
 :::
 
 ```jsx
