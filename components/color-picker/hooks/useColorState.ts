@@ -10,7 +10,7 @@ function hasValue(value?: ColorValueType) {
 const useColorState = (
   defaultStateValue: ColorValueType,
   option: { defaultValue?: ColorValueType; value?: ColorValueType },
-): readonly [Color, React.Dispatch<React.SetStateAction<Color>>] => {
+) => {
   const { defaultValue, value } = option;
   const [colorValue, setColorValue] = useState<Color>(() => {
     let mergeState: ColorValueType | undefined;

@@ -11,7 +11,7 @@ import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
 import type { Color } from '../color';
-import type { ColorPickerProps } from '../ColorPicker';
+import type { ColorPickerProps } from '../interface';
 import ColorPicker from '../ColorPicker';
 import { generateColor } from '../util';
 

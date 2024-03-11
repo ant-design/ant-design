@@ -1,6 +1,8 @@
-import type { ReactNode } from 'react';
-import type { ColorPickerProps } from './ColorPicker';
+import type { CSSProperties, FC, ReactNode } from 'react';
 import type { Color } from './color';
+import type { ColorPickerProps as RcColorPickerProps } from '@rc-component/color-picker';
+import type { SizeType } from '../config-provider/SizeContext';
+import type { PopoverProps } from '../popover';
 
 export enum ColorFormat {
   hex = 'hex',
@@ -32,7 +34,6 @@ export interface ColorPickerBaseProps {
   prefixCls: string;
   format?: keyof typeof ColorFormat;
   allowClear?: boolean;
-  colorCleared?: boolean;
   disabled?: boolean;
   disabledAlpha?: boolean;
   presets?: PresetsItem[];
@@ -42,3 +43,36 @@ export interface ColorPickerBaseProps {
 }
 
 export type ColorValueType = Color | string | null;
+
+export type ColorPickerProps = Omit<
+  RcColorPickerProps,
+  'onChange' | 'value' | 'defaultValue' | 'panelRender' | 'disabledAlpha' | 'onChangeComplete'
+> & {
+  value?: ColorValueType;
+  defaultValue?: ColorValueType;
+  children?: React.ReactNode;
+  open?: boolean;
+  disabled?: boolean;
+  placement?: TriggerPlacement;
+  trigger?: TriggerType;
+  format?: keyof typeof ColorFormat;
+  defaultFormat?: keyof typeof ColorFormat;
+  allowClear?: boolean;
+  presets?: PresetsItem[];
+  arrow?: boolean | { pointAtCenter: boolean };
+  panelRender?: (
+    panel: React.ReactNode,
+    extra: { components: { Picker: FC; Presets: FC } },
+  ) => React.ReactNode;
+  showText?: boolean | ((color: Color) => React.ReactNode);
+  size?: SizeType;
+  styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
+  rootClassName?: string;
+  disabledAlpha?: boolean;
+  [key: `data-${string}`]: string;
+  onOpenChange?: (open: boolean) => void;
+  onFormatChange?: (format: ColorFormat) => void;
+  onChange?: (value: Color, hex: string) => void;
+  onClear?: () => void;
+  onChangeComplete?: (value: Color) => void;
+} & Pick<PopoverProps, 'getPopupContainer' | 'autoAdjustOverflow' | 'destroyTooltipOnHide'>;

@@ -2,14 +2,13 @@ import { ColorBlock } from '@rc-component/color-picker';
 import classNames from 'classnames';
 import type { CSSProperties, MouseEventHandler } from 'react';
 import React, { forwardRef, useMemo } from 'react';
-import type { ColorPickerProps } from '../ColorPicker';
-import type { ColorPickerBaseProps } from '../interface';
+import type { ColorPickerProps, ColorPickerBaseProps } from '../interface';
 import { getAlphaColor } from '../util';
 import ColorClear from './ColorClear';
 
-interface colorTriggerProps
-  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'colorCleared' | 'disabled' | 'format'> {
-  color: Exclude<ColorPickerBaseProps['color'], undefined>;
+export interface ColorTriggerProps
+  extends Pick<ColorPickerBaseProps, 'prefixCls' | 'disabled' | 'format'> {
+  color: NonNullable<ColorPickerBaseProps['color']>;
   open?: boolean;
   showText?: ColorPickerProps['showText'];
   className?: string;
@@ -19,19 +18,18 @@ interface colorTriggerProps
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
 }
 
-const ColorTrigger = forwardRef<HTMLDivElement, colorTriggerProps>((props, ref) => {
-  const { color, prefixCls, open, colorCleared, disabled, format, className, showText, ...rest } =
-    props;
+const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) => {
+  const { color, prefixCls, open, disabled, format, className, showText, ...rest } = props;
   const colorTriggerPrefixCls = `${prefixCls}-trigger`;
 
   const containerNode = useMemo<React.ReactNode>(
     () =>
-      colorCleared ? (
+      color.cleared ? (
         <ColorClear prefixCls={prefixCls} />
       ) : (
         <ColorBlock prefixCls={prefixCls} color={color.toRgbString()} />
       ),
-    [color, colorCleared, prefixCls],
+    [color, prefixCls],
   );
 
   const genColorString = () => {
