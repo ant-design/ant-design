@@ -1883,7 +1883,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -4368,7 +4368,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell"
                     />
                     <th
@@ -5667,7 +5667,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -9146,7 +9146,7 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
@@ -12938,6 +12938,347 @@ exports[`renders components/table/demo/fixed-columns-header.tsx extend context c
 `;
 
 exports[`renders components/table/demo/fixed-columns-header.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered ant-table-fixed-column ant-table-fixed-column-gapped ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+            style="overflow-x: auto; overflow-y: hidden;"
+          >
+            <table
+              style="width: 1300px; min-width: 100%; table-layout: fixed;"
+            >
+              <colgroup>
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  style="width: 100px;"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col />
+                <col
+                  style="width: 90px;"
+                />
+                <col
+                  style="width: 90px;"
+                />
+                <col
+                  style="width: 90px;"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position: sticky; left: 0px;"
+                  >
+                    Full Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    scope="col"
+                    style="position: sticky; left: 0px;"
+                  >
+                    Column 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 2
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 3
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 4
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 5
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 6
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 7
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Column 8
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
+                    style="position: sticky; right: 0px;"
+                  >
+                    Action 1
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Action 2
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    scope="col"
+                    style="position: sticky; right: 0px;"
+                  >
+                    Action 3
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height: 0px; font-size: 0px;"
+                >
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                  <td
+                    style="padding: 0px; border: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position: sticky; left: 0px;"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position: sticky; left: 0px;"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York Park
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position: sticky; right: 0px;"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position: sticky; right: 0px;"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/fixed-gapped-columns.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/fixed-header.tsx extend context correctly 1`] = `
 <div
@@ -17110,14 +17451,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      nice
+                      NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      developer
+                      DEVELOPER
                     </span>
                   </td>
                   <td
@@ -17171,9 +17512,9 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-volcano"
                     >
-                      loser
+                      LOSER
                     </span>
                   </td>
                   <td
@@ -17227,14 +17568,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      cool
+                      COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      teacher
+                      TEACHER
                     </span>
                   </td>
                   <td
@@ -18620,7 +18961,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -18955,7 +19296,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -19941,7 +20282,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -20927,7 +21268,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -21930,7 +22271,7 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                   >
                     Name
                   </th>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th

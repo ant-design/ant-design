@@ -11,7 +11,7 @@ const imgStyle: React.CSSProperties = {
 };
 
 const App: React.FC = () => (
-  <Card hoverable style={cardStyle} bodyStyle={{ padding: 0, overflow: 'hidden' }}>
+  <Card hoverable style={cardStyle} styles={{ body: { padding: 0, overflow: 'hidden' } }}>
     <Flex justify="space-between">
       <img
         alt="avatar"

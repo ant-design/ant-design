@@ -2,8 +2,8 @@
 category: Components
 group: Data Entry
 title: Select
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*zo76T7KQx2UAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5oPiTqPxGAUAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*qGSbQJ0POEsAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a6ggRInInJ4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -15,6 +15,26 @@ Select component to select value from options.
 - A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.
 - Utilizing [Radio](/components/radio/) is recommended when there are fewer total options (less than 5).
 - You probably need [AutoComplete](/components/auto-complete/) if you're looking for an input box that can be typed or selected.
+
+### Usage upgrade after 5.11.0
+
+<!-- prettier-ignore -->
+:::info
+After version 5.11.0, we provide a simpler usage `<Select options={[...]} />` with better performance and potential of writing simpler code style in your applications.
+Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 6.0.
+:::
+
+```jsx
+// works when >=5.11.0, recommended ✅
+return <Select options={[{ value: 'sample', label: <span>sample</span> }]} />;
+
+// works when <5.11.0, deprecated when >=5.11.0 🙅🏻‍♀️
+return (
+  <Select onChange={onChange}>
+    <Select.Option value="sample">Sample</Select.Option>
+  </Select>
+);
+```
 
 ## Examples
 
@@ -134,10 +154,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### OptGroup props
 
-| Property | Description | Type                    | Default | Version |
-| -------- | ----------- | ----------------------- | ------- | ------- |
-| key      | Group key   | string                  | -       |         |
-| label    | Group label | string \| React.Element | -       |         |
+| Property  | Description                        | Type            | Default | Version |
+| --------- | ---------------------------------- | --------------- | ------- | ------- |
+| key       | Group key                          | string          | -       |         |
+| label     | Group label                        | React.ReactNode | -       |         |
+| className | The additional class to option     | string          | -       |         |
+| title     | `title` attribute of Select Option | string          | -       |         |
 
 ## Design Token
 

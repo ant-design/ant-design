@@ -215,7 +215,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
 const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as (<Values = any>(
   props: React.PropsWithChildren<FormProps<Values>> & React.RefAttributes<FormInstance<Values>>,
-) => React.ReactElement) & { displayName?: string };
+) => React.ReactElement) &
+  Pick<React.FC, 'displayName'>;
 
 if (process.env.NODE_ENV !== 'production') {
   Form.displayName = 'Form';

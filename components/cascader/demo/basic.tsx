@@ -42,7 +42,7 @@ const options: Option[] = [
   },
 ];
 
-const onChange = (value: string[]) => {
+const onChange = (value: (string | number)[]) => {
   console.log(value);
 };
 

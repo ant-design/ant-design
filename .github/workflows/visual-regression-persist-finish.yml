@@ -21,7 +21,7 @@ jobs:
       build-failure: ${{ steps.persist_start_job_status.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         id: persist_start_job_status
         with:
           script: |
@@ -65,7 +65,7 @@ jobs:
 
       # We need get persist key first
       - name: Download Visual Regression Ref
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -78,7 +78,7 @@ jobs:
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v3
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}

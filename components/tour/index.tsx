@@ -1,5 +1,5 @@
-import React, { useContext, useMemo } from 'react';
-import RCTour from '@rc-component/tour';
+import React, { useContext } from 'react';
+import RCTour, { type TourProps as RcTourProps } from '@rc-component/tour';
 import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -8,7 +8,7 @@ import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
-import type { TourProps, TourStepProps } from './interface';
+import type { TourProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -22,14 +22,15 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
     indicatorsRender,
     steps,
+    closeIcon,
     ...restProps
   } = props;
-  const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('tour', customizePrefixCls);
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const [, token] = useToken();
 
-  const mergedSteps = useMemo(
+  const mergedSteps = React.useMemo<TourProps['steps']>(
     () =>
       steps?.map((step) => ({
         ...step,
@@ -58,7 +59,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
   );
 
-  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
+  const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => (
     <TourPanel
       type={type}
       stepProps={stepProps}
@@ -74,6 +75,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
+        closeIcon={closeIcon ?? tour?.closeIcon}
         zIndex={zIndex}
         rootClassName={customClassName}
         prefixCls={prefixCls}

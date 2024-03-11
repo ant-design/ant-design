@@ -357,7 +357,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    const nestDesc = container.querySelectorAll('.ant-descriptions')?.[1];
+    const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
     const view = nestDesc.querySelector('.ant-descriptions-view');
     expect(getComputedStyle(view!).border).toBeFalsy();
   });
@@ -376,5 +376,23 @@ describe('Descriptions', () => {
       expect.anything(),
       expect.anything(),
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/47151
+  it('should has .ant-descriptions-item-content className when children is falsy', () => {
+    const wrapper = render(
+      <Descriptions
+        bordered
+        items={[
+          {
+            key: '1',
+            label: null,
+            children: null,
+          },
+        ]}
+      />,
+    );
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-label')).toHaveLength(1);
+    expect(wrapper.container.querySelectorAll('.ant-descriptions-item-content')).toHaveLength(1);
   });
 });

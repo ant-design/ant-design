@@ -1,9 +1,9 @@
 import React from 'react';
-import { Divider, Space, Tag } from 'antd';
+import { Divider, Flex, Tag } from 'antd';
 
 const App: React.FC = () => (
   <>
-    <Space size={[0, 'small']} wrap>
+    <Flex gap="4px 0" wrap="wrap">
       <Tag bordered={false}>Tag 1</Tag>
       <Tag bordered={false}>Tag 2</Tag>
       <Tag bordered={false} closable>
@@ -12,9 +12,9 @@ const App: React.FC = () => (
       <Tag bordered={false} closable>
         Tag 4
       </Tag>
-    </Space>
+    </Flex>
     <Divider />
-    <Space size={[0, 'small']} wrap>
+    <Flex gap="4px 0" wrap="wrap">
       <Tag bordered={false} color="processing">
         processing
       </Tag>
@@ -60,7 +60,7 @@ const App: React.FC = () => (
       <Tag bordered={false} color="purple">
         purple
       </Tag>
-    </Space>
+    </Flex>
   </>
 );
 

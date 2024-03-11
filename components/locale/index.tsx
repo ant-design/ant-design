@@ -34,7 +34,6 @@ export interface Locale {
   Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
   global?: Record<string, any>;
-  PageHeader?: { back: string };
   Icon?: Record<string, any>;
   Text?: {
     edit?: any;

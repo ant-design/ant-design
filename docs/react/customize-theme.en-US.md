@@ -12,12 +12,12 @@ In version 5.0, we provide a new way to customize themes. Different from the les
 
 1. Switching theme dynamically；
 2. Multiple themes；
-3. Customizing theme variables for some component；
+3. Customizing theme variables for some components；
 4. ...
 
 ## Basic Usage
 
-In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components. You can pass `theme` to `ConfigProvider`` to customize theme. After migrate to V5, theme of V5 will be applied by default
+In version 5.0 we call the smallest element that affects the theme **Design Token**. By modifying the Design Token, we can present various themes or components. You can pass `theme` to `ConfigProvider` to customize theme. After migrate to V5, theme of V5 will be applied by default.
 
 <!-- prettier-ignore -->
 :::warning

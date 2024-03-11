@@ -29,6 +29,16 @@ const GlobalDemoStyles: React.FC = () => {
           border-radius: ${token.borderRadiusLG}px;
           transition: all 0.2s;
 
+          &.code-box-simplify {
+            border-radius: 0;
+            margin-bottom: 0;
+
+            .code-box-demo {
+              padding: 0;
+              border-bottom: 0;
+            }
+          }
+
           .code-box-title {
             &,
             a {
@@ -210,7 +220,6 @@ const GlobalDemoStyles: React.FC = () => {
 
           .highlight-wrapper {
             display: none;
-            overflow: auto;
             border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
 
             &-expand {

@@ -7,20 +7,20 @@ import {
   MinusCircleOutlined,
   SyncOutlined,
 } from '@ant-design/icons';
-import { Divider, Space, Tag } from 'antd';
+import { Divider, Flex, Tag } from 'antd';
 
 const App: React.FC = () => (
   <>
     <Divider orientation="left">Without icon</Divider>
-    <Space size={[0, 8]} wrap>
+    <Flex gap="4px 0" wrap="wrap">
       <Tag color="success">success</Tag>
       <Tag color="processing">processing</Tag>
       <Tag color="error">error</Tag>
       <Tag color="warning">warning</Tag>
       <Tag color="default">default</Tag>
-    </Space>
+    </Flex>
     <Divider orientation="left">With icon</Divider>
-    <Space size={[0, 8]} wrap>
+    <Flex gap="4px 0" wrap="wrap">
       <Tag icon={<CheckCircleOutlined />} color="success">
         success
       </Tag>
@@ -39,7 +39,7 @@ const App: React.FC = () => (
       <Tag icon={<MinusCircleOutlined />} color="default">
         stop
       </Tag>
-    </Space>
+    </Flex>
   </>
 );
 
