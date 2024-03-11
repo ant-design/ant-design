@@ -271,7 +271,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
   const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) =>
-    iconPosition === 'start' ? (
+    iconPosition === 'start' && direction !== 'rtl' ? (
       <>
         {iconComponent}
         {kidsComponent}
