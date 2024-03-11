@@ -22,6 +22,7 @@ tag: vVERSION
 
 - 🛠 Adjust the closing trigger of Tour, Dropdown, Menu, Tabs, Mentions, Picker, Select, TreeSelect, Cascader, Tooltip, and Popover pop-ups from `click` to `mouseDown` to uniformly solve some event timing issues related to pop-up interactions. [#47775](https://github.com/ant-design/ant-design/pull/47775)
 - 🐞 Fix Descriptions extra padding of items. [#47737](https://github.com/ant-design/ant-design/pull/47737)
+- 🐞 Fix Anchor wrong active status when bounds value is 0. [#47795](https://github.com/ant-design/ant-design/pull/47795)[@winchesHe](https://github.com/winchesHe)
 - 💄 Fix ColorPicker clear icon hover style. [#47761](https://github.com/ant-design/ant-design/pull/47761)
 - 🇷🇺 Improve DatePicker ru_RU locale. [#47768](https://github.com/ant-design/ant-design/pull/47768) [@AlexeyTeterin](https://github.com/AlexeyTeterin)
 
