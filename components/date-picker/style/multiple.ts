@@ -12,7 +12,8 @@ const genSize = (token: PickerToken, suffix?: string): CSSInterpolation => {
   const height = token.calc(fontHeight).add(2).equal();
   const restHeight = () => calc(selectHeight).sub(height).sub(calc(lineWidth).mul(2));
 
-  const paddingTop = token.max(restHeight().div(2).sub(FIXED_ITEM_MARGIN).equal(), 0);
+  const paddingBase = token.max(restHeight().div(2).equal(), 0);
+  const paddingTop = token.max(token.calc(paddingBase).sub(FIXED_ITEM_MARGIN).equal(), 0);
   const paddingBottom = token.max(
     restHeight()
       .sub(paddingTop)
@@ -27,7 +28,7 @@ const genSize = (token: PickerToken, suffix?: string): CSSInterpolation => {
       [`${componentCls}-multiple${suffixCls}`]: {
         paddingTop,
         paddingBottom,
-        paddingInlineStart: paddingTop,
+        paddingInlineStart: paddingBase,
         minHeight: controlHeight,
       },
     },
