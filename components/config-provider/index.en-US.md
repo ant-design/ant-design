@@ -107,7 +107,7 @@ const {
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: { count?: string, indicator?: string }, styles?: { count?: React.CSSProperties, indicator?: React.CSSProperties } } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: { icon: string }, styles?: { icon: React.CSSProperties } } | - | 5.6.0 |
-| card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
+| card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#api), styles?: [CardProps\["styles"\]](/components/card#api), bordered?: boolean } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | carousel | Set Carousel common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | cascader | Set Cascader common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

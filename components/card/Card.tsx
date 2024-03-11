@@ -103,7 +103,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     bodyStyle = {},
     title,
     loading,
-    bordered = true,
     size: customizeSize,
     type,
     cover,
@@ -121,6 +120,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   } = props;
 
   const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
+
+  const bordered = card?.bordered ?? true;
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
