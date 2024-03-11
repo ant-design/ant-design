@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |
-| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
+| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
