@@ -121,7 +121,7 @@
     "@ant-design/react-slick": "~1.0.2",
     "@babel/runtime": "^7.24.0",
     "@ctrl/tinycolor": "^3.6.1",
-    "@rc-component/color-picker": "~1.5.2",
+    "@rc-component/color-picker": "~1.5.3",
     "@rc-component/mutate-observer": "^1.1.0",
     "@rc-component/tour": "~1.14.2",
     "@rc-component/trigger": "^2.0.0",
