@@ -1,11 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
-import { Input, Space, Tag, theme, Tooltip } from 'antd';
+import { Flex, Input, Tag, theme, Tooltip } from 'antd';
+
+const tagInputStyle: React.CSSProperties = {
+  width: 64,
+  height: 22,
+  marginInlineEnd: 8,
+  verticalAlign: 'top',
+};
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
-  const [tags, setTags] = useState(['Unremovable', 'Tag 2', 'Tag 3']);
+  const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const [editInputIndex, setEditInputIndex] = useState(-1);
@@ -57,13 +64,6 @@ const App: React.FC = () => {
     setEditInputValue('');
   };
 
-  const tagInputStyle: React.CSSProperties = {
-    width: 64,
-    height: 22,
-    marginInlineEnd: 8,
-    verticalAlign: 'top',
-  };
-
   const tagPlusStyle: React.CSSProperties = {
     height: 22,
     background: token.colorBgContainer,
@@ -71,8 +71,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Space size={[0, 8]} wrap>
-      {tags.map((tag, index) => {
+    <Flex gap="4px 0" wrap="wrap">
+      {tags.map<React.ReactNode>((tag, index) => {
         if (editInputIndex === index) {
           return (
             <Input
@@ -132,7 +132,7 @@ const App: React.FC = () => {
           New Tag
         </Tag>
       )}
-    </Space>
+    </Flex>
   );
 };
 

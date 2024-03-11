@@ -1881,7 +1881,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -3826,7 +3826,7 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell"
                   />
                   <th
@@ -5105,7 +5105,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -7873,7 +7873,7 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
                 class="ant-table-thead"
               >
                 <tr>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th
@@ -14018,14 +14018,14 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      nice
+                      NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      developer
+                      DEVELOPER
                     </span>
                   </td>
                   <td
@@ -14081,9 +14081,9 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-volcano"
                     >
-                      loser
+                      LOSER
                     </span>
                   </td>
                   <td
@@ -14139,14 +14139,14 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      cool
+                      COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      teacher
+                      TEACHER
                     </span>
                   </td>
                   <td
@@ -15368,7 +15368,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -15701,7 +15701,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -16360,7 +16360,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -17019,7 +17019,7 @@ Array [
                   class="ant-table-thead"
                 >
                   <tr>
-                    <td
+                    <th
                       class="ant-table-cell ant-table-row-expand-icon-cell"
                     />
                     <th
@@ -17693,7 +17693,7 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
                   >
                     Name
                   </th>
-                  <td
+                  <th
                     class="ant-table-cell ant-table-row-expand-icon-cell"
                   />
                   <th

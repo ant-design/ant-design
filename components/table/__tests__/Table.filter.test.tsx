@@ -2886,4 +2886,23 @@ describe('Table.filter', () => {
     // User opens filter Dropdown.
     fireEvent.click(container.querySelector('.ant-dropdown-trigger.ant-table-filter-trigger')!);
   });
+
+  it('should not fire change event when dropdown dismisses if filterOnClose is false', () => {
+    const handleChange = jest.fn();
+    const { container } = render(
+      createTable({
+        onChange: handleChange,
+        columns: [
+          {
+            ...column,
+            filterOnClose: false,
+          },
+        ],
+      }),
+    );
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger')!);
+    expect(handleChange).not.toHaveBeenCalled();
+  });
 });

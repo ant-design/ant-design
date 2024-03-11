@@ -130,996 +130,51 @@ Array [
 `;
 
 exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;row-gap:8px"
->
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-    >
-      Tag 1
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-    >
-      <a
-        href="https://github.com/ant-design/ant-design/issues/1862"
-      >
-        Link
-      </a>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-    >
-      Prevent Default
-      <span
-        aria-label="close"
-        class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-    >
-      Tag 2
-      <span
-        class="ant-tag-close-icon"
-      >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders components/tag/demo/borderless.tsx correctly 1`] = `
-Array [
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
-    style="flex-wrap:wrap"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 1
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 2
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 3
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tag-close-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 4
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tag-close-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>,
-  <div
-    class="ant-divider ant-divider-horizontal"
-    role="separator"
-  />,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
-    style="flex-wrap:wrap"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-processing ant-tag-borderless"
-      >
-        processing
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-success ant-tag-borderless"
-      >
-        success
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-error ant-tag-borderless"
-      >
-        error
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-warning ant-tag-borderless"
-      >
-        warning
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-magenta ant-tag-borderless"
-      >
-        magenta
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-red ant-tag-borderless"
-      >
-        red
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-volcano ant-tag-borderless"
-      >
-        volcano
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-orange ant-tag-borderless"
-      >
-        orange
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-gold ant-tag-borderless"
-      >
-        gold
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-lime ant-tag-borderless"
-      >
-        lime
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-green ant-tag-borderless"
-      >
-        green
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-cyan ant-tag-borderless"
-      >
-        cyan
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-blue ant-tag-borderless"
-      >
-        blue
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-geekblue ant-tag-borderless"
-      >
-        geekblue
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-purple ant-tag-borderless"
-      >
-        purple
-      </span>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
-<div
-  style="background-color:#f5f5f5;padding:16px"
->
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
-    style="flex-wrap:wrap"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 1
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 2
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 3
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tag-close-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-borderless"
-      >
-        Tag 4
-        <span
-          aria-label="close"
-          class="anticon anticon-close ant-tag-close-icon"
-          role="img"
-          tabindex="-1"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-divider ant-divider-horizontal"
-    role="separator"
-  />
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small"
-    style="flex-wrap:wrap"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-magenta ant-tag-borderless"
-      >
-        magenta
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-red ant-tag-borderless"
-      >
-        red
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-volcano ant-tag-borderless"
-      >
-        volcano
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-orange ant-tag-borderless"
-      >
-        orange
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-gold ant-tag-borderless"
-      >
-        gold
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-lime ant-tag-borderless"
-      >
-        lime
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-green ant-tag-borderless"
-      >
-        green
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-cyan ant-tag-borderless"
-      >
-        cyan
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-blue ant-tag-borderless"
-      >
-        blue
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-geekblue ant-tag-borderless"
-      >
-        geekblue
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-purple ant-tag-borderless"
-      >
-        purple
-      </span>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders components/tag/demo/checkable.tsx correctly 1`] = `
-Array [
-  <span
-    style="margin-right:8px"
-  >
-    Categories:
-  </span>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;row-gap:8px"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-checkable"
-      >
-        Movies
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
-      >
-        Books
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-checkable"
-      >
-        Music
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-checkable"
-      >
-        Sports
-      </span>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders components/tag/demo/colorful.tsx correctly 1`] = `
-Array [
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
-    role="separator"
-  >
-    <span
-      class="ant-divider-inner-text"
-    >
-      Presets
-    </span>
-  </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;row-gap:8px"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-magenta"
-      >
-        magenta
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-red"
-      >
-        red
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-volcano"
-      >
-        volcano
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-orange"
-      >
-        orange
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-gold"
-      >
-        gold
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-lime"
-      >
-        lime
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-green"
-      >
-        green
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-cyan"
-      >
-        cyan
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-blue"
-      >
-        blue
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-geekblue"
-      >
-        geekblue
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-purple"
-      >
-        purple
-      </span>
-    </div>
-  </div>,
-  <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
-    role="separator"
-  >
-    <span
-      class="ant-divider-inner-text"
-    >
-      Custom
-    </span>
-  </div>,
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;row-gap:8px"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-has-color"
-        style="background-color:#f50"
-      >
-        #f50
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-has-color"
-        style="background-color:#2db7f5"
-      >
-        #2db7f5
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-has-color"
-        style="background-color:#87d068"
-      >
-        #87d068
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <span
-        class="ant-tag ant-tag-has-color"
-        style="background-color:#108ee9"
-      >
-        #108ee9
-      </span>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;row-gap:8px"
->
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-magenta-inverse"
-    >
-      magenta
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-red-inverse"
-    >
-      red
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-volcano-inverse"
-    >
-      volcano
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-orange-inverse"
-    >
-      orange
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-gold-inverse"
-    >
-      gold
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-lime-inverse"
-    >
-      lime
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-green-inverse"
-    >
-      green
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-cyan-inverse"
-    >
-      cyan
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-blue-inverse"
-    >
-      blue
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-geekblue-inverse"
-    >
-      geekblue
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag ant-tag-purple-inverse"
-    >
-      purple
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders components/tag/demo/control.tsx correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;row-gap:8px"
->
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-      style="user-select:none"
-    >
-      <span>
-        Unremovable
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-      style="user-select:none"
-    >
-      <span>
-        Tag 2
-      </span>
-      <span
-        aria-label="close"
-        class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-      style="user-select:none"
-    >
-      <span>
-        Tag 3
-      </span>
-      <span
-        aria-label="close"
-        class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="close"
-          fill="currentColor"
-          fill-rule="evenodd"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <span
-      class="ant-tag"
-      style="height:22px;background:#ffffff;border-style:dashed"
-    >
-      <span
-        aria-label="plus"
-        class="anticon anticon-plus"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="plus"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-          />
-          <path
-            d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
-          />
-        </svg>
-      </span>
-      <span>
-        New Tag
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
 Array [
   <span
     class="ant-tag"
   >
-    Tag1
-    <span
-      class="ant-tag-close-icon"
+    Tag 1
+  </span>,
+  <span
+    class="ant-tag"
+  >
+    <a
+      href="https://github.com/ant-design/ant-design/issues/1862"
     >
-      关 闭
+      Link
+    </a>
+  </span>,
+  <span
+    class="ant-tag"
+  >
+    Prevent Default
+    <span
+      aria-label="close"
+      class="anticon anticon-close ant-tag-close-icon"
+      role="img"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="close"
+        fill="currentColor"
+        fill-rule="evenodd"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+        />
+      </svg>
     </span>
   </span>,
   <span
     class="ant-tag"
   >
-    Tag2
+    Tag 2
     <span
       class="ant-tag-close-icon"
     >
@@ -1148,158 +203,798 @@ Array [
 ]
 `;
 
-exports[`renders components/tag/demo/draggable.tsx correctly 1`] = `
+exports[`renders components/tag/demo/borderless.tsx correctly 1`] = `
 Array [
+  <div
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
+  >
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 1
+    </span>
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 2
+    </span>
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 3
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 4
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />,
+  <div
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
+  >
+    <span
+      class="ant-tag ant-tag-processing ant-tag-borderless"
+    >
+      processing
+    </span>
+    <span
+      class="ant-tag ant-tag-success ant-tag-borderless"
+    >
+      success
+    </span>
+    <span
+      class="ant-tag ant-tag-error ant-tag-borderless"
+    >
+      error
+    </span>
+    <span
+      class="ant-tag ant-tag-warning ant-tag-borderless"
+    >
+      warning
+    </span>
+    <span
+      class="ant-tag ant-tag-magenta ant-tag-borderless"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-red ant-tag-borderless"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-volcano ant-tag-borderless"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-orange ant-tag-borderless"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-gold ant-tag-borderless"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-lime ant-tag-borderless"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-green ant-tag-borderless"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-cyan ant-tag-borderless"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-blue ant-tag-borderless"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-geekblue ant-tag-borderless"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-purple ant-tag-borderless"
+    >
+      purple
+    </span>
+  </div>,
+]
+`;
+
+exports[`renders components/tag/demo/borderlessLayout.tsx correctly 1`] = `
+<div
+  style="background-color:#f5f5f5;padding:16px"
+>
+  <div
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
+  >
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 1
+    </span>
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 2
+    </span>
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 3
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-borderless"
+    >
+      Tag 4
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-tag-close-icon"
+        role="img"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-divider ant-divider-horizontal"
+    role="separator"
+  />
+  <div
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
+  >
+    <span
+      class="ant-tag ant-tag-magenta ant-tag-borderless"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-red ant-tag-borderless"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-volcano ant-tag-borderless"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-orange ant-tag-borderless"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-gold ant-tag-borderless"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-lime ant-tag-borderless"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-green ant-tag-borderless"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-cyan ant-tag-borderless"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-blue ant-tag-borderless"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-geekblue ant-tag-borderless"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-purple ant-tag-borderless"
+    >
+      purple
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/tag/demo/checkable.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap ant-flex-align-center"
+  style="gap:4px 0"
+>
+  <span>
+    Categories:
+  </span>
+  <span
+    class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
+  >
+    Movies
+  </span>
+  <span
+    class="ant-tag ant-tag-checkable"
+  >
+    Books
+  </span>
+  <span
+    class="ant-tag ant-tag-checkable"
+  >
+    Music
+  </span>
+  <span
+    class="ant-tag ant-tag-checkable"
+  >
+    Sports
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/colorful.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Presets
+    </span>
+  </div>,
+  <div
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
+  >
+    <span
+      class="ant-tag ant-tag-magenta"
+    >
+      magenta
+    </span>
+    <span
+      class="ant-tag ant-tag-red"
+    >
+      red
+    </span>
+    <span
+      class="ant-tag ant-tag-volcano"
+    >
+      volcano
+    </span>
+    <span
+      class="ant-tag ant-tag-orange"
+    >
+      orange
+    </span>
+    <span
+      class="ant-tag ant-tag-gold"
+    >
+      gold
+    </span>
+    <span
+      class="ant-tag ant-tag-lime"
+    >
+      lime
+    </span>
+    <span
+      class="ant-tag ant-tag-green"
+    >
+      green
+    </span>
+    <span
+      class="ant-tag ant-tag-cyan"
+    >
+      cyan
+    </span>
+    <span
+      class="ant-tag ant-tag-blue"
+    >
+      blue
+    </span>
+    <span
+      class="ant-tag ant-tag-geekblue"
+    >
+      geekblue
+    </span>
+    <span
+      class="ant-tag ant-tag-purple"
+    >
+      purple
+    </span>
+  </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+  </div>,
+  <div
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
+  >
+    <span
+      class="ant-tag ant-tag-has-color"
+      style="background-color:#f50"
+    >
+      #f50
+    </span>
+    <span
+      class="ant-tag ant-tag-has-color"
+      style="background-color:#2db7f5"
+    >
+      #2db7f5
+    </span>
+    <span
+      class="ant-tag ant-tag-has-color"
+      style="background-color:#87d068"
+    >
+      #87d068
+    </span>
+    <span
+      class="ant-tag ant-tag-has-color"
+      style="background-color:#108ee9"
+    >
+      #108ee9
+    </span>
+  </div>,
+]
+`;
+
+exports[`renders components/tag/demo/colorful-inverse.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap:4px 0"
+>
+  <span
+    class="ant-tag ant-tag-magenta-inverse"
+  >
+    magenta
+  </span>
+  <span
+    class="ant-tag ant-tag-red-inverse"
+  >
+    red
+  </span>
+  <span
+    class="ant-tag ant-tag-volcano-inverse"
+  >
+    volcano
+  </span>
+  <span
+    class="ant-tag ant-tag-orange-inverse"
+  >
+    orange
+  </span>
+  <span
+    class="ant-tag ant-tag-gold-inverse"
+  >
+    gold
+  </span>
+  <span
+    class="ant-tag ant-tag-lime-inverse"
+  >
+    lime
+  </span>
+  <span
+    class="ant-tag ant-tag-green-inverse"
+  >
+    green
+  </span>
+  <span
+    class="ant-tag ant-tag-cyan-inverse"
+  >
+    cyan
+  </span>
+  <span
+    class="ant-tag ant-tag-blue-inverse"
+  >
+    blue
+  </span>
+  <span
+    class="ant-tag ant-tag-geekblue-inverse"
+  >
+    geekblue
+  </span>
+  <span
+    class="ant-tag ant-tag-purple-inverse"
+  >
+    purple
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/control.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap:4px 0"
+>
+  <span
+    class="ant-tag"
+    style="user-select:none"
+  >
+    <span>
+      Unremovable
+    </span>
+  </span>
+  <span
+    class="ant-tag"
+    style="user-select:none"
+  >
+    <span>
+      Tag 2
+    </span>
+    <span
+      aria-label="close"
+      class="anticon anticon-close ant-tag-close-icon"
+      role="img"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="close"
+        fill="currentColor"
+        fill-rule="evenodd"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+        />
+      </svg>
+    </span>
+  </span>
+  <span
+    class="ant-tag"
+    style="user-select:none"
+  >
+    <span>
+      Tag 3
+    </span>
+    <span
+      aria-label="close"
+      class="anticon anticon-close ant-tag-close-icon"
+      role="img"
+      tabindex="-1"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="close"
+        fill="currentColor"
+        fill-rule="evenodd"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+        />
+      </svg>
+    </span>
+  </span>
+  <span
+    class="ant-tag"
+    style="height:22px;background:#ffffff;border-style:dashed"
+  >
+    <span
+      aria-label="plus"
+      class="anticon anticon-plus"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="plus"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+        />
+      </svg>
+    </span>
+    <span>
+      New Tag
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap:4px 0"
+>
+  <span
+    class="ant-tag"
+  >
+    Tag1
+    <span
+      class="ant-tag-close-icon"
+    >
+      关 闭
+    </span>
+  </span>
+  <span
+    class="ant-tag"
+  >
+    Tag2
+    <span
+      class="ant-tag-close-icon"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
+      </span>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/tag/demo/draggable.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap:4px 0"
+>
   <span
     class="ant-tag"
     style="cursor:move;transition:unset"
   >
     Tag 1
-  </span>,
+  </span>
   <span
     class="ant-tag"
     style="cursor:move;transition:unset"
   >
     Tag 2
-  </span>,
+  </span>
   <span
     class="ant-tag"
     style="cursor:move;transition:unset"
   >
     Tag 3
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`renders components/tag/demo/icon.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center"
-  style="flex-wrap:wrap;row-gap:8px"
+  class="ant-flex ant-flex-wrap-wrap"
+  style="gap:4px 0"
 >
-  <div
-    class="ant-space-item"
+  <span
+    class="ant-tag ant-tag-has-color"
+    style="background-color:#55acee"
   >
     <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#55acee"
+      aria-label="twitter"
+      class="anticon anticon-twitter"
+      role="img"
     >
-      <span
-        aria-label="twitter"
-        class="anticon anticon-twitter"
-        role="img"
+      <svg
+        aria-hidden="true"
+        data-icon="twitter"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="twitter"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M928 254.3c-30.6 13.2-63.9 22.7-98.2 26.4a170.1 170.1 0 0075-94 336.64 336.64 0 01-108.2 41.2A170.1 170.1 0 00672 174c-94.5 0-170.5 76.6-170.5 170.6 0 13.2 1.6 26.4 4.2 39.1-141.5-7.4-267.7-75-351.6-178.5a169.32 169.32 0 00-23.2 86.1c0 59.2 30.1 111.4 76 142.1a172 172 0 01-77.1-21.7v2.1c0 82.9 58.6 151.6 136.7 167.4a180.6 180.6 0 01-44.9 5.8c-11.1 0-21.6-1.1-32.2-2.6C211 652 273.9 701.1 348.8 702.7c-58.6 45.9-132 72.9-211.7 72.9-14.3 0-27.5-.5-41.2-2.1C171.5 822 261.2 850 357.8 850 671.4 850 843 590.2 843 364.7c0-7.4 0-14.8-.5-22.2 33.2-24.3 62.3-54.4 85.5-88.2z"
-          />
-        </svg>
-      </span>
-      <span>
-        Twitter
-      </span>
+        <path
+          d="M928 254.3c-30.6 13.2-63.9 22.7-98.2 26.4a170.1 170.1 0 0075-94 336.64 336.64 0 01-108.2 41.2A170.1 170.1 0 00672 174c-94.5 0-170.5 76.6-170.5 170.6 0 13.2 1.6 26.4 4.2 39.1-141.5-7.4-267.7-75-351.6-178.5a169.32 169.32 0 00-23.2 86.1c0 59.2 30.1 111.4 76 142.1a172 172 0 01-77.1-21.7v2.1c0 82.9 58.6 151.6 136.7 167.4a180.6 180.6 0 01-44.9 5.8c-11.1 0-21.6-1.1-32.2-2.6C211 652 273.9 701.1 348.8 702.7c-58.6 45.9-132 72.9-211.7 72.9-14.3 0-27.5-.5-41.2-2.1C171.5 822 261.2 850 357.8 850 671.4 850 843 590.2 843 364.7c0-7.4 0-14.8-.5-22.2 33.2-24.3 62.3-54.4 85.5-88.2z"
+        />
+      </svg>
     </span>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Twitter
+    </span>
+  </span>
+  <span
+    class="ant-tag ant-tag-has-color"
+    style="background-color:#cd201f"
   >
     <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#cd201f"
+      aria-label="youtube"
+      class="anticon anticon-youtube"
+      role="img"
     >
-      <span
-        aria-label="youtube"
-        class="anticon anticon-youtube"
-        role="img"
+      <svg
+        aria-hidden="true"
+        data-icon="youtube"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="youtube"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M960 509.2c0-2.2 0-4.7-.1-7.6-.1-8.1-.3-17.2-.5-26.9-.8-27.9-2.2-55.7-4.4-81.9-3-36.1-7.4-66.2-13.4-88.8a139.52 139.52 0 00-98.3-98.5c-28.3-7.6-83.7-12.3-161.7-15.2-37.1-1.4-76.8-2.3-116.5-2.8-13.9-.2-26.8-.3-38.4-.4h-29.4c-11.6.1-24.5.2-38.4.4-39.7.5-79.4 1.4-116.5 2.8-78 3-133.5 7.7-161.7 15.2A139.35 139.35 0 0082.4 304C76.3 326.6 72 356.7 69 392.8c-2.2 26.2-3.6 54-4.4 81.9-.3 9.7-.4 18.8-.5 26.9 0 2.9-.1 5.4-.1 7.6v5.6c0 2.2 0 4.7.1 7.6.1 8.1.3 17.2.5 26.9.8 27.9 2.2 55.7 4.4 81.9 3 36.1 7.4 66.2 13.4 88.8 12.8 47.9 50.4 85.7 98.3 98.5 28.2 7.6 83.7 12.3 161.7 15.2 37.1 1.4 76.8 2.3 116.5 2.8 13.9.2 26.8.3 38.4.4h29.4c11.6-.1 24.5-.2 38.4-.4 39.7-.5 79.4-1.4 116.5-2.8 78-3 133.5-7.7 161.7-15.2 47.9-12.8 85.5-50.5 98.3-98.5 6.1-22.6 10.4-52.7 13.4-88.8 2.2-26.2 3.6-54 4.4-81.9.3-9.7.4-18.8.5-26.9 0-2.9.1-5.4.1-7.6v-5.6zm-72 5.2c0 2.1 0 4.4-.1 7.1-.1 7.8-.3 16.4-.5 25.7-.7 26.6-2.1 53.2-4.2 77.9-2.7 32.2-6.5 58.6-11.2 76.3-6.2 23.1-24.4 41.4-47.4 47.5-21 5.6-73.9 10.1-145.8 12.8-36.4 1.4-75.6 2.3-114.7 2.8-13.7.2-26.4.3-37.8.3h-28.6l-37.8-.3c-39.1-.5-78.2-1.4-114.7-2.8-71.9-2.8-124.9-7.2-145.8-12.8-23-6.2-41.2-24.4-47.4-47.5-4.7-17.7-8.5-44.1-11.2-76.3-2.1-24.7-3.4-51.3-4.2-77.9-.3-9.3-.4-18-.5-25.7 0-2.7-.1-5.1-.1-7.1v-4.8c0-2.1 0-4.4.1-7.1.1-7.8.3-16.4.5-25.7.7-26.6 2.1-53.2 4.2-77.9 2.7-32.2 6.5-58.6 11.2-76.3 6.2-23.1 24.4-41.4 47.4-47.5 21-5.6 73.9-10.1 145.8-12.8 36.4-1.4 75.6-2.3 114.7-2.8 13.7-.2 26.4-.3 37.8-.3h28.6l37.8.3c39.1.5 78.2 1.4 114.7 2.8 71.9 2.8 124.9 7.2 145.8 12.8 23 6.2 41.2 24.4 47.4 47.5 4.7 17.7 8.5 44.1 11.2 76.3 2.1 24.7 3.4 51.3 4.2 77.9.3 9.3.4 18 .5 25.7 0 2.7.1 5.1.1 7.1v4.8zM423 646l232-135-232-133z"
-          />
-        </svg>
-      </span>
-      <span>
-        Youtube
-      </span>
+        <path
+          d="M960 509.2c0-2.2 0-4.7-.1-7.6-.1-8.1-.3-17.2-.5-26.9-.8-27.9-2.2-55.7-4.4-81.9-3-36.1-7.4-66.2-13.4-88.8a139.52 139.52 0 00-98.3-98.5c-28.3-7.6-83.7-12.3-161.7-15.2-37.1-1.4-76.8-2.3-116.5-2.8-13.9-.2-26.8-.3-38.4-.4h-29.4c-11.6.1-24.5.2-38.4.4-39.7.5-79.4 1.4-116.5 2.8-78 3-133.5 7.7-161.7 15.2A139.35 139.35 0 0082.4 304C76.3 326.6 72 356.7 69 392.8c-2.2 26.2-3.6 54-4.4 81.9-.3 9.7-.4 18.8-.5 26.9 0 2.9-.1 5.4-.1 7.6v5.6c0 2.2 0 4.7.1 7.6.1 8.1.3 17.2.5 26.9.8 27.9 2.2 55.7 4.4 81.9 3 36.1 7.4 66.2 13.4 88.8 12.8 47.9 50.4 85.7 98.3 98.5 28.2 7.6 83.7 12.3 161.7 15.2 37.1 1.4 76.8 2.3 116.5 2.8 13.9.2 26.8.3 38.4.4h29.4c11.6-.1 24.5-.2 38.4-.4 39.7-.5 79.4-1.4 116.5-2.8 78-3 133.5-7.7 161.7-15.2 47.9-12.8 85.5-50.5 98.3-98.5 6.1-22.6 10.4-52.7 13.4-88.8 2.2-26.2 3.6-54 4.4-81.9.3-9.7.4-18.8.5-26.9 0-2.9.1-5.4.1-7.6v-5.6zm-72 5.2c0 2.1 0 4.4-.1 7.1-.1 7.8-.3 16.4-.5 25.7-.7 26.6-2.1 53.2-4.2 77.9-2.7 32.2-6.5 58.6-11.2 76.3-6.2 23.1-24.4 41.4-47.4 47.5-21 5.6-73.9 10.1-145.8 12.8-36.4 1.4-75.6 2.3-114.7 2.8-13.7.2-26.4.3-37.8.3h-28.6l-37.8-.3c-39.1-.5-78.2-1.4-114.7-2.8-71.9-2.8-124.9-7.2-145.8-12.8-23-6.2-41.2-24.4-47.4-47.5-4.7-17.7-8.5-44.1-11.2-76.3-2.1-24.7-3.4-51.3-4.2-77.9-.3-9.3-.4-18-.5-25.7 0-2.7-.1-5.1-.1-7.1v-4.8c0-2.1 0-4.4.1-7.1.1-7.8.3-16.4.5-25.7.7-26.6 2.1-53.2 4.2-77.9 2.7-32.2 6.5-58.6 11.2-76.3 6.2-23.1 24.4-41.4 47.4-47.5 21-5.6 73.9-10.1 145.8-12.8 36.4-1.4 75.6-2.3 114.7-2.8 13.7-.2 26.4-.3 37.8-.3h28.6l37.8.3c39.1.5 78.2 1.4 114.7 2.8 71.9 2.8 124.9 7.2 145.8 12.8 23 6.2 41.2 24.4 47.4 47.5 4.7 17.7 8.5 44.1 11.2 76.3 2.1 24.7 3.4 51.3 4.2 77.9.3 9.3.4 18 .5 25.7 0 2.7.1 5.1.1 7.1v4.8zM423 646l232-135-232-133z"
+        />
+      </svg>
     </span>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Youtube
+    </span>
+  </span>
+  <span
+    class="ant-tag ant-tag-has-color"
+    style="background-color:#3b5999"
   >
     <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#3b5999"
+      aria-label="facebook"
+      class="anticon anticon-facebook"
+      role="img"
     >
-      <span
-        aria-label="facebook"
-        class="anticon anticon-facebook"
-        role="img"
+      <svg
+        aria-hidden="true"
+        data-icon="facebook"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="facebook"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-32 736H663.9V602.2h104l15.6-120.7H663.9v-77.1c0-35 9.7-58.8 59.8-58.8h63.9v-108c-11.1-1.5-49-4.8-93.2-4.8-92.2 0-155.3 56.3-155.3 159.6v89H434.9v120.7h104.3V848H176V176h672v672z"
-          />
-        </svg>
-      </span>
-      <span>
-        Facebook
-      </span>
+        <path
+          d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-32 736H663.9V602.2h104l15.6-120.7H663.9v-77.1c0-35 9.7-58.8 59.8-58.8h63.9v-108c-11.1-1.5-49-4.8-93.2-4.8-92.2 0-155.3 56.3-155.3 159.6v89H434.9v120.7h104.3V848H176V176h672v672z"
+        />
+      </svg>
     </span>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Facebook
+    </span>
+  </span>
+  <span
+    class="ant-tag ant-tag-has-color"
+    style="background-color:#55acee"
   >
     <span
-      class="ant-tag ant-tag-has-color"
-      style="background-color:#55acee"
+      aria-label="linkedin"
+      class="anticon anticon-linkedin"
+      role="img"
     >
-      <span
-        aria-label="linkedin"
-        class="anticon anticon-linkedin"
-        role="img"
+      <svg
+        aria-hidden="true"
+        data-icon="linkedin"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="linkedin"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M847.7 112H176.3c-35.5 0-64.3 28.8-64.3 64.3v671.4c0 35.5 28.8 64.3 64.3 64.3h671.4c35.5 0 64.3-28.8 64.3-64.3V176.3c0-35.5-28.8-64.3-64.3-64.3zm0 736c-447.8-.1-671.7-.2-671.7-.3.1-447.8.2-671.7.3-671.7 447.8.1 671.7.2 671.7.3-.1 447.8-.2 671.7-.3 671.7zM230.6 411.9h118.7v381.8H230.6zm59.4-52.2c37.9 0 68.8-30.8 68.8-68.8a68.8 68.8 0 10-137.6 0c-.1 38 30.7 68.8 68.8 68.8zm252.3 245.1c0-49.8 9.5-98 71.2-98 60.8 0 61.7 56.9 61.7 101.2v185.7h118.6V584.3c0-102.8-22.2-181.9-142.3-181.9-57.7 0-96.4 31.7-112.3 61.7h-1.6v-52.2H423.7v381.8h118.6V604.8z"
-          />
-        </svg>
-      </span>
-      <span>
-        LinkedIn
-      </span>
+        <path
+          d="M847.7 112H176.3c-35.5 0-64.3 28.8-64.3 64.3v671.4c0 35.5 28.8 64.3 64.3 64.3h671.4c35.5 0 64.3-28.8 64.3-64.3V176.3c0-35.5-28.8-64.3-64.3-64.3zm0 736c-447.8-.1-671.7-.2-671.7-.3.1-447.8.2-671.7.3-671.7 447.8.1 671.7.2 671.7.3-.1 447.8-.2 671.7-.3 671.7zM230.6 411.9h118.7v381.8H230.6zm59.4-52.2c37.9 0 68.8-30.8 68.8-68.8a68.8 68.8 0 10-137.6 0c-.1 38 30.7 68.8 68.8 68.8zm252.3 245.1c0-49.8 9.5-98 71.2-98 60.8 0 61.7 56.9 61.7 101.2v185.7h118.6V584.3c0-102.8-22.2-181.9-142.3-181.9-57.7 0-96.4 31.7-112.3 61.7h-1.6v-52.2H423.7v381.8h118.6V604.8z"
+        />
+      </svg>
     </span>
-  </div>
+    <span>
+      LinkedIn
+    </span>
+  </span>
 </div>
 `;
 
@@ -1316,54 +1011,34 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;row-gap:8px"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
   >
-    <div
-      class="ant-space-item"
+    <span
+      class="ant-tag ant-tag-success"
     >
-      <span
-        class="ant-tag ant-tag-success"
-      >
-        success
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
+      success
+    </span>
+    <span
+      class="ant-tag ant-tag-processing"
     >
-      <span
-        class="ant-tag ant-tag-processing"
-      >
-        processing
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
+      processing
+    </span>
+    <span
+      class="ant-tag ant-tag-error"
     >
-      <span
-        class="ant-tag ant-tag-error"
-      >
-        error
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
+      error
+    </span>
+    <span
+      class="ant-tag ant-tag-warning"
     >
-      <span
-        class="ant-tag ant-tag-warning"
-      >
-        warning
-      </span>
-    </div>
-    <div
-      class="ant-space-item"
+      warning
+    </span>
+    <span
+      class="ant-tag ant-tag-default"
     >
-      <span
-        class="ant-tag ant-tag-default"
-      >
-        default
-      </span>
-    </div>
+      default
+    </span>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
@@ -1376,202 +1051,178 @@ Array [
     </span>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap:wrap;row-gap:8px"
+    class="ant-flex ant-flex-wrap-wrap"
+    style="gap:4px 0"
   >
-    <div
-      class="ant-space-item"
+    <span
+      class="ant-tag ant-tag-success"
     >
       <span
-        class="ant-tag ant-tag-success"
+        aria-label="check-circle"
+        class="anticon anticon-check-circle"
+        role="img"
       >
-        <span
-          aria-label="check-circle"
-          class="anticon anticon-check-circle"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="check-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-          </svg>
-        </span>
-        <span>
-          success
-        </span>
+          <path
+            d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
       </span>
-    </div>
-    <div
-      class="ant-space-item"
+      <span>
+        success
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-processing"
     >
       <span
-        class="ant-tag ant-tag-processing"
+        aria-label="sync"
+        class="anticon anticon-sync anticon-spin"
+        role="img"
       >
-        <span
-          aria-label="sync"
-          class="anticon anticon-sync anticon-spin"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="sync"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="sync"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
-            />
-          </svg>
-        </span>
-        <span>
-          processing
-        </span>
+          <path
+            d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"
+          />
+        </svg>
       </span>
-    </div>
-    <div
-      class="ant-space-item"
+      <span>
+        processing
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-error"
     >
       <span
-        class="ant-tag ant-tag-error"
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
       >
-        <span
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="close-circle"
+          fill="currentColor"
+          fill-rule="evenodd"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close-circle"
-            fill="currentColor"
-            fill-rule="evenodd"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
-            />
-          </svg>
-        </span>
-        <span>
-          error
-        </span>
+          <path
+            d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm0 76c-205.4 0-372 166.6-372 372s166.6 372 372 372 372-166.6 372-372-166.6-372-372-372zm128.01 198.83c.03 0 .05.01.09.06l45.02 45.01a.2.2 0 01.05.09.12.12 0 010 .07c0 .02-.01.04-.05.08L557.25 512l127.87 127.86a.27.27 0 01.05.06v.02a.12.12 0 010 .07c0 .03-.01.05-.05.09l-45.02 45.02a.2.2 0 01-.09.05.12.12 0 01-.07 0c-.02 0-.04-.01-.08-.05L512 557.25 384.14 685.12c-.04.04-.06.05-.08.05a.12.12 0 01-.07 0c-.03 0-.05-.01-.09-.05l-45.02-45.02a.2.2 0 01-.05-.09.12.12 0 010-.07c0-.02.01-.04.06-.08L466.75 512 338.88 384.14a.27.27 0 01-.05-.06l-.01-.02a.12.12 0 010-.07c0-.03.01-.05.05-.09l45.02-45.02a.2.2 0 01.09-.05.12.12 0 01.07 0c.02 0 .04.01.08.06L512 466.75l127.86-127.86c.04-.05.06-.06.08-.06a.12.12 0 01.07 0z"
+          />
+        </svg>
       </span>
-    </div>
-    <div
-      class="ant-space-item"
+      <span>
+        error
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-warning"
     >
       <span
-        class="ant-tag ant-tag-warning"
+        aria-label="exclamation-circle"
+        class="anticon anticon-exclamation-circle"
+        role="img"
       >
-        <span
-          aria-label="exclamation-circle"
-          class="anticon anticon-exclamation-circle"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="exclamation-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="exclamation-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
-            />
-          </svg>
-        </span>
-        <span>
-          warning
-        </span>
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+          />
+        </svg>
       </span>
-    </div>
-    <div
-      class="ant-space-item"
+      <span>
+        warning
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-default"
     >
       <span
-        class="ant-tag ant-tag-default"
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
       >
-        <span
-          aria-label="clock-circle"
-          class="anticon anticon-clock-circle"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="clock-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="clock-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-            <path
-              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-            />
-          </svg>
-        </span>
-        <span>
-          waiting
-        </span>
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+          <path
+            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+          />
+        </svg>
       </span>
-    </div>
-    <div
-      class="ant-space-item"
+      <span>
+        waiting
+      </span>
+    </span>
+    <span
+      class="ant-tag ant-tag-default"
     >
       <span
-        class="ant-tag ant-tag-default"
+        aria-label="minus-circle"
+        class="anticon anticon-minus-circle"
+        role="img"
       >
-        <span
-          aria-label="minus-circle"
-          class="anticon anticon-minus-circle"
-          role="img"
+        <svg
+          aria-hidden="true"
+          data-icon="minus-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="minus-circle"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
-            />
-            <path
-              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-            />
-          </svg>
-        </span>
-        <span>
-          stop
-        </span>
+          <path
+            d="M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"
+          />
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
       </span>
-    </div>
+      <span>
+        stop
+      </span>
+    </span>
   </div>,
 ]
 `;

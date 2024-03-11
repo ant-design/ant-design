@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
-import { Space, Tag } from 'antd';
-
-const { CheckableTag } = Tag;
+import React from 'react';
+import { Flex, Tag } from 'antd';
 
 const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
 const App: React.FC = () => {
-  const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
-
+  const [selectedTags, setSelectedTags] = React.useState<string[]>(['Movies']);
   const handleChange = (tag: string, checked: boolean) => {
     const nextSelectedTags = checked
       ? [...selectedTags, tag]
@@ -17,20 +14,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <>
-      <span style={{ marginRight: 8 }}>Categories:</span>
-      <Space size={[0, 8]} wrap>
-        {tagsData.map((tag) => (
-          <CheckableTag
-            key={tag}
-            checked={selectedTags.includes(tag)}
-            onChange={(checked) => handleChange(tag, checked)}
-          >
-            {tag}
-          </CheckableTag>
-        ))}
-      </Space>
-    </>
+    <Flex gap="4px 0" wrap="wrap" align="center">
+      <span>Categories:</span>
+      {tagsData.map<React.ReactNode>((tag) => (
+        <Tag.CheckableTag
+          key={tag}
+          checked={selectedTags.includes(tag)}
+          onChange={(checked) => handleChange(tag, checked)}
+        >
+          {tag}
+        </Tag.CheckableTag>
+      ))}
+    </Flex>
   );
 };
 
