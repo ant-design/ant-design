@@ -1157,47 +1157,60 @@ exports[`renders components/button/demo/ghost.tsx extend context correctly 2`] =
 exports[`renders components/button/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
   >
-    <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    <div
+      class="ant-space-item"
     >
-      <span
-        class="ant-radio-button ant-radio-button-checked"
-      >
-        <input
-          checked=""
-          class="ant-radio-button-input"
-          type="radio"
-          value="start"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        start
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper"
+      iconPosition
+    </div>
+    <div
+      class="ant-space-item"
     >
-      <span
-        class="ant-radio-button"
+      <div
+        class="ant-radio-group ant-radio-group-outline"
       >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="end"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-      <span>
-        end
-      </span>
-    </label>
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        >
+          <span
+            class="ant-radio-button ant-radio-button-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              type="radio"
+              value="start"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            start
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper"
+        >
+          <span
+            class="ant-radio-button"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+              value="end"
+            />
+            <span
+              class="ant-radio-button-inner"
+            />
+          </span>
+          <span>
+            end
+          </span>
+        </label>
+      </div>
+    </div>
   </div>,
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left ant-divider-plain"
