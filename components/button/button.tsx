@@ -270,18 +270,17 @@ const InternalButton: React.ForwardRefRenderFunction<
   const kids =
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
-  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) =>
-    iconPosition === 'start' && direction !== 'rtl' ? (
+  const genButtonContent = (iconComponent: React.ReactNode, kidsComponent: React.ReactNode) => {
+    const isRTL = direction === 'rtl';
+    const iconFirst = (iconPosition === 'start' && !isRTL) || (iconPosition === 'end' && isRTL);
+
+    return (
       <>
-        {iconComponent}
-        {kidsComponent}
-      </>
-    ) : (
-      <>
-        {kidsComponent}
-        {iconComponent}
+        {iconFirst ? iconComponent : kidsComponent}
+        {iconFirst ? kidsComponent : iconComponent}
       </>
     );
+  };
 
   if (linkButtonRestProps.href !== undefined) {
     return wrapCSSVar(
