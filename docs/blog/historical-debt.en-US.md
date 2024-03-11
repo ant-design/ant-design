@@ -80,4 +80,4 @@ We can continue to be compatible with previous usage in this way. It is still a 
 
 ## Summary
 
-API design is a difficult problem. As the iteration of technology stack and components themselves. Some designs will gradually decay, and API upgrades themselves are also painful for developers. We hope that through this article, you can understand our design ideas and some problems in the upgrade process. If you have any suggestions or ideas, welcome to discuss on Github.
+API design is a difficult problem. As the iteration of technology stack and components themselves. Some designs will gradually decay, and API upgrades themselves are also painful for developers. We hope that through this article, you can understand our design ideas and some problems in the upgrade process. If you have any suggestions or ideas, welcome to discuss on GitHub.
