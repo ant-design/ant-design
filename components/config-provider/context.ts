@@ -112,7 +112,8 @@ export type NotificationConfig = ComponentStyleConfig & Pick<ArgsProps, 'closeIc
 
 export type TagConfig = ComponentStyleConfig & Pick<TagProps, 'closeIcon'>;
 
-export type CardConfig = ComponentStyleConfig & Pick<CardProps, 'classNames' | 'styles'>;
+export type CardConfig = ComponentStyleConfig &
+  Pick<CardProps, 'classNames' | 'styles' | 'bordered'>;
 
 export type DrawerConfig = ComponentStyleConfig &
   Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable'>;
