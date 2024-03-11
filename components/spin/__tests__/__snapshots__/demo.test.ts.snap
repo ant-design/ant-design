@@ -97,8 +97,7 @@ exports[`renders components/spin/demo/custom-visibility.tsx correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-spin-container ant-spin-blur"
-          style="opacity:0.9"
+          class="ant-spin-container ant-spin-blur ant-spin-blur-soft"
         >
           <div
             class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
@@ -228,8 +227,7 @@ exports[`renders components/spin/demo/custom-visibility.tsx correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-spin-container ant-spin-blur"
-          style="opacity:0.2"
+          class="ant-spin-container ant-spin-blur ant-spin-blur-heavy"
         >
           <div
             class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon"
