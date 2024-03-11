@@ -62,7 +62,7 @@ Next, we choose to put it in ConfigProvider. ConfigProvider is a global configur
 
 Click to [view ConfigProvider demo](/components/config-provider#config-provider-demo-wave).
 
-`showEffect` method will tell you the DOM node that needs to generate the effect. This node has been encapsulated and will always correspond to the correct element (for example, Button is itself, and Radio will find the circle shape dom from `label`). And tell you which component it is and which Design Token the current node belongs to:
+`showEffect` method will tell you the DOM node that needs to generate the effect. This node has been encapsulated and will always correspond to the correct element (for example, Button is itself, and Radio will find the circle shape DOM from `label`). And tell you which component it is and which Design Token the current node belongs to:
 
 ```tsx
 type ShowEffect = (target: HTMLElement, info: { component: string; token: GlobalToken }) => void;
