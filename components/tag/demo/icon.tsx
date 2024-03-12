@@ -8,7 +8,7 @@ import {
 import { Flex, Tag } from 'antd';
 
 const App: React.FC = () => (
-  <Flex gap="small" wrap="wrap">
+  <Flex gap="4px 0" wrap="wrap">
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter
     </Tag>
