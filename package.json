@@ -208,7 +208,7 @@
     "@types/prismjs": "^1.26.3",
     "@types/progress": "^2.0.7",
     "@types/qs": "^6.9.12",
-    "@types/react": "18.2.60",
+    "@types/react": "18.2.65",
     "@types/react-copy-to-clipboard": "^5.0.7",
     "@types/react-dom": "^18.2.21",
     "@types/react-highlight-words": "^0.16.7",
