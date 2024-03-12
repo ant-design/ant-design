@@ -98,7 +98,7 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
 }
 
 export interface EllipsisProps {
-  enabledMeasure?: boolean;
+  enableMeasure?: boolean;
   text?: React.ReactNode;
   width: number;
   // fontSize: number;
@@ -131,7 +131,7 @@ const lineClipStyle: React.CSSProperties = {
 };
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enabledMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
+  const { enableMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
@@ -151,12 +151,12 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
   // Trigger start measure
   useLayoutEffect(() => {
-    if (enabledMeasure && width && nodeLen) {
+    if (enableMeasure && width && nodeLen) {
       setNeedEllipsis(STATUS_MEASURE_START);
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
-  }, [width, text, rows, enabledMeasure, nodeList]);
+  }, [width, text, rows, enableMeasure, nodeList]);
 
   // Measure process
   useLayoutEffect(() => {
