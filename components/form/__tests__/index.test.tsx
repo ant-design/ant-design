@@ -635,6 +635,21 @@ describe('Form', () => {
     expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('bamboo');
   });
 
+  it('should render help when render type', async () => {
+    const App: React.FC = () => {
+      return (
+        <Form>
+          <Form.Item label="hello" help={() => 'bamboo'}>
+            <Input />
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const { container } = render(<App />);
+    expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('bamboo');
+  });
+
   it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
     render(
       <Form>
