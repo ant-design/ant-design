@@ -96,7 +96,7 @@ const InternalButton: React.ForwardRefRenderFunction<
   const {
     loading = false,
     prefixCls: customizePrefixCls,
-    type = 'default',
+    type,
     danger,
     shape = 'default',
     size: customizeSize,
@@ -115,10 +115,14 @@ const InternalButton: React.ForwardRefRenderFunction<
     ...rest
   } = props;
 
+  // https://github.com/ant-design/ant-design/issues/47605
+  // Compatible with original `type` behavior
+  const mergedType = type || 'default';
+
   const { getPrefixCls, autoInsertSpaceInButton, direction, button } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const disabled = useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
@@ -135,7 +139,8 @@ const InternalButton: React.ForwardRefRenderFunction<
 
   const buttonRef = composeRef(ref, internalRef);
 
-  const needInserted = Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
+  const needInserted =
+    Children.count(children) === 1 && !icon && !isUnBorderedButtonType(mergedType);
 
   useEffect(() => {
     let delayTimer: ReturnType<typeof setTimeout> | null = null;
@@ -193,7 +198,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
 
     warning(
-      !(ghost && isUnBorderedButtonType(type)),
+      !(ghost && isUnBorderedButtonType(mergedType)),
       'usage',
       "`link` or `text` button can't be a `ghost` button.",
     );
@@ -215,12 +220,13 @@ const InternalButton: React.ForwardRefRenderFunction<
   const classes = classNames(
     prefixCls,
     hashId,
+    cssVarCls,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
-      [`${prefixCls}-${type}`]: type,
+      [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(mergedType),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace && !innerLoading,
       [`${prefixCls}-block`]: block,
@@ -254,15 +260,17 @@ const InternalButton: React.ForwardRefRenderFunction<
     children || children === 0 ? spaceChildren(children, needInserted && autoInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
-    return wrapSSR(
+    return wrapCSSVar(
       <a
         {...linkButtonRestProps}
         className={classNames(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
+        href={mergedDisabled ? undefined : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
         ref={buttonRef as React.Ref<HTMLAnchorElement>}
+        tabIndex={mergedDisabled ? -1 : 0}
       >
         {iconNode}
         {kids}
@@ -284,11 +292,11 @@ const InternalButton: React.ForwardRefRenderFunction<
       {kids}
 
       {/* Styles: compact */}
-      {compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
+      {!!compactItemClassnames && <CompactCmp key="compact" prefixCls={prefixCls} />}
     </button>
   );
 
-  if (!isUnBorderedButtonType(type)) {
+  if (!isUnBorderedButtonType(mergedType)) {
     buttonNode = (
       <Wave component="Button" disabled={!!innerLoading}>
         {buttonNode}
@@ -296,7 +304,7 @@ const InternalButton: React.ForwardRefRenderFunction<
     );
   }
 
-  return wrapSSR(buttonNode);
+  return wrapCSSVar(buttonNode);
 };
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(

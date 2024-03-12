@@ -5,6 +5,7 @@ import type { PickType } from 'rc-cascader/lib/Panel';
 
 import type { CascaderProps } from '.';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useColumnIcons from './hooks/useColumnIcons';
@@ -15,7 +16,7 @@ export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootC
 
 export type CascaderPanelProps = Pick<CascaderProps, PanelPickType>;
 
-export default function CascaderPanel(props: CascaderPanelProps) {
+const CascaderPanel: React.FC<CascaderPanelProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -31,7 +32,8 @@ export default function CascaderPanel(props: CascaderPanelProps) {
     direction,
   );
 
-  const [, hashId] = useStyle(cascaderPrefixCls);
+  const rootCls = useCSSVarCls(cascaderPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(cascaderPrefixCls, rootCls);
   usePanelStyle(cascaderPrefixCls);
 
   const isRtl = mergedDirection === 'rtl';
@@ -49,16 +51,18 @@ export default function CascaderPanel(props: CascaderPanelProps) {
 
   // ==================== Render =====================
 
-  return (
+  return wrapCSSVar(
     <Panel
       {...props}
       checkable={checkable}
       prefixCls={cascaderPrefixCls}
-      className={classNames(className, hashId, rootClassName)}
+      className={classNames(className, hashId, rootClassName, cssVarCls, rootCls)}
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
       loadingIcon={loadingIcon}
-    />
+    />,
   );
-}
+};
+
+export default CascaderPanel;

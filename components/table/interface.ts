@@ -17,13 +17,11 @@ import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import type { InternalTableProps, TableProps } from './InternalTable';
 
 export type RefTable = <RecordType extends AnyObject = AnyObject>(
-  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<Reference> },
+  props: React.PropsWithChildren<TableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
 export type RefInternalTable = <RecordType extends AnyObject = AnyObject>(
-  props: React.PropsWithChildren<InternalTableProps<RecordType>> & {
-    ref?: React.Ref<Reference>;
-  },
+  props: React.PropsWithChildren<InternalTableProps<RecordType>> & React.RefAttributes<Reference>,
 ) => React.ReactElement;
 
 export { ExpandableConfig, GetRowKey };
@@ -61,7 +59,7 @@ export interface TableLocale {
 export type SortOrder = 'descend' | 'ascend' | null;
 
 const TableActions = ['paginate', 'sort', 'filter'] as const;
-export type TableAction = typeof TableActions[number];
+export type TableAction = (typeof TableActions)[number];
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -131,6 +129,7 @@ export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, '
   filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
+  filterOnClose?: boolean;
   filterMultiple?: boolean;
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;

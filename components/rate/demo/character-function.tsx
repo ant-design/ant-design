@@ -1,6 +1,6 @@
 import React from 'react';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
-import { Rate } from 'antd';
+import { Flex, Rate } from 'antd';
 
 const customIcons: Record<number, React.ReactNode> = {
   1: <FrownOutlined />,
@@ -11,11 +11,10 @@ const customIcons: Record<number, React.ReactNode> = {
 };
 
 const App: React.FC = () => (
-  <>
-    <Rate defaultValue={2} character={({ index }: { index: number }) => index + 1} />
-    <br />
-    <Rate defaultValue={3} character={({ index }: { index: number }) => customIcons[index + 1]} />
-  </>
+  <Flex gap="middle" vertical>
+    <Rate defaultValue={2} character={({ index = 0 }) => index + 1} />
+    <Rate defaultValue={3} character={({ index = 0 }) => customIcons[index + 1]} />
+  </Flex>
 );
 
 export default App;

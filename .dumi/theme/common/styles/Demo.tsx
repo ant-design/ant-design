@@ -22,12 +22,22 @@ const GlobalDemoStyles: React.FC = () => {
         .code-box {
           position: relative;
           display: inline-block;
-          width: 100%;
+          width: calc(100% - ${token.lineWidth * 2}px);
           margin: 0 0 16px;
           background-color: ${token.colorBgContainer};
           border: 1px solid ${token.colorSplit};
-          border-radius: ${token.borderRadius}px;
+          border-radius: ${token.borderRadiusLG}px;
           transition: all 0.2s;
+
+          &.code-box-simplify {
+            border-radius: 0;
+            margin-bottom: 0;
+
+            .code-box-demo {
+              padding: 0;
+              border-bottom: 0;
+            }
+          }
 
           .code-box-title {
             &,
@@ -39,7 +49,7 @@ const GlobalDemoStyles: React.FC = () => {
 
           .code-box-demo {
             background-color: ${token.colorBgContainer};
-            border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
+            border-radius: ${token.borderRadiusLG}px ${token.borderRadiusLG}px 0 0;
             > .demo {
               overflow: auto;
             }
@@ -84,10 +94,6 @@ const GlobalDemoStyles: React.FC = () => {
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
             margin-inline-start: 16px;
-
-            ${antCls}-row-rtl & {
-              border-radius: ${token.borderRadius}px 0 0 ${token.borderRadius}px;
-            }
 
             a,
             a:hover {
@@ -214,7 +220,6 @@ const GlobalDemoStyles: React.FC = () => {
 
           .highlight-wrapper {
             display: none;
-            overflow: auto;
             border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
 
             &-expand {

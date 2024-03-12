@@ -1,7 +1,8 @@
 import Pagination from 'rc-pagination/lib/locale/ms_MY';
+
+import type { Locale } from '.';
 import Calendar from '../calendar/locale/ms_MY';
 import DatePicker from '../date-picker/locale/ms_MY';
-import type { Locale } from '.';
 import TimePicker from '../time-picker/locale/ms_MY';
 
 const localeValues: Locale = {
@@ -12,9 +13,6 @@ const localeValues: Locale = {
   Calendar,
   global: {
     placeholder: 'Sila pilih',
-  },
-  PageHeader: {
-    back: 'Kembali',
   },
   Text: {
     edit: 'Sunting',

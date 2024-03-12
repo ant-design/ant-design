@@ -508,11 +508,7 @@ exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend contex
 </div>
 `;
 
-exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 2`] = `
-[
-  "Warning: [antd: Tooltip] \`arrowPointAtCenter\` is deprecated. Please use \`arrow={{ pointAtCenter: true }}\` instead.",
-]
-`;
+exports[`renders components/tooltip/demo/arrow-point-at-center.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/tooltip/demo/auto-adjust-overflow.tsx extend context correctly 1`] = `
 <div
@@ -1368,7 +1364,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <input
-      class="ant-input ant-input-disabled"
+      class="ant-input ant-input-disabled ant-input-outlined"
       disabled=""
       placeholder="disabled"
       type="text"
@@ -1398,7 +1394,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-input-number ant-input-number-disabled"
+      class="ant-input-number ant-input-number-outlined ant-input-number-disabled"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -1534,7 +1530,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
+      class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
         class="ant-select-selector"
@@ -1566,7 +1562,7 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
       </div>
       <div
         class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1120;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150;"
       >
         <div>
           <div

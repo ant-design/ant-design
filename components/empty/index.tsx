@@ -45,7 +45,7 @@ const Empty: CompoundedComponent = ({
   const { getPrefixCls, direction, empty } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const [locale] = useLocale('Empty');
 
@@ -60,10 +60,11 @@ const Empty: CompoundedComponent = ({
     imageNode = image;
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={classNames(
         hashId,
+        cssVarCls,
         prefixCls,
         empty?.className,
         {

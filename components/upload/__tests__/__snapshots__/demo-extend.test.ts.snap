@@ -10,15 +10,16 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -46,7 +47,7 @@ Array [
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </span>,
@@ -58,15 +59,16 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -94,7 +96,7 @@ Array [
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </span>,
@@ -112,8 +114,6 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -170,8 +170,6 @@ exports[`renders components/upload/demo/component-token.tsx extend context corre
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -470,8 +468,6 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -534,7 +530,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
       >
         <span
           class="ant-upload ant-upload-disabled"
-          role="button"
         >
           <input
             accept=""
@@ -561,7 +556,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
       >
         <span
           class="ant-upload ant-upload-disabled"
-          role="button"
         >
           <input
             accept=""
@@ -810,34 +804,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             </span>
             <span
               class="ant-upload-list-item-actions"
-            >
-              <a
-                rel="noopener noreferrer"
-                style="pointer-events: none; opacity: 0.5;"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-            </span>
+            />
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
@@ -864,7 +831,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         >
           <span
             class="ant-upload ant-upload-disabled"
-            role="button"
           >
             <input
               accept=""
@@ -872,7 +838,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               style="display: none;"
               type="file"
             />
-            <div>
+            <button
+              style="border: 0px; background: none;"
+              type="button"
+            >
               <span
                 aria-label="plus"
                 class="anticon anticon-plus"
@@ -900,7 +869,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               >
                 Upload
               </div>
-            </div>
+            </button>
           </span>
         </div>
       </div>
@@ -1109,34 +1078,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
             </span>
             <span
               class="ant-upload-list-item-actions"
-            >
-              <a
-                rel="noopener noreferrer"
-                style="pointer-events: none; opacity: 0.5;"
-                target="_blank"
-                title="Preview file"
-              >
-                <span
-                  aria-label="eye"
-                  class="anticon anticon-eye"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="eye"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                    />
-                  </svg>
-                </span>
-              </a>
-            </span>
+            />
           </div>
           <div
             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-placement-top"
@@ -1163,7 +1105,6 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         >
           <span
             class="ant-upload ant-upload-disabled"
-            role="button"
           >
             <input
               accept=""
@@ -1171,7 +1112,10 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               style="display: none;"
               type="file"
             />
-            <div>
+            <button
+              style="border: 0px; background: none;"
+              type="button"
+            >
               <span
                 aria-label="plus"
                 class="anticon anticon-plus"
@@ -1199,7 +1143,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
               >
                 Upload
               </div>
-            </div>
+            </button>
           </span>
         </div>
       </div>
@@ -1282,8 +1226,6 @@ exports[`renders components/upload/demo/defaultFileList.tsx extend context corre
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -1582,8 +1524,6 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -1708,8 +1648,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -2504,32 +2442,6 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         <span
           class="ant-upload-list-item-actions"
         >
-          <a
-            rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
-            target="_blank"
-            title="Preview file"
-          >
-            <span
-              aria-label="eye"
-              class="anticon anticon-eye"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="eye"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                />
-              </svg>
-            </span>
-          </a>
           <button
             class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
@@ -2637,32 +2549,6 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         <span
           class="ant-upload-list-item-actions"
         >
-          <a
-            rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
-            target="_blank"
-            title="Preview file"
-          >
-            <span
-              aria-label="eye"
-              class="anticon anticon-eye"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="eye"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                />
-              </svg>
-            </span>
-          </a>
           <button
             class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
@@ -2762,32 +2648,6 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
         <span
           class="ant-upload-list-item-actions"
         >
-          <a
-            rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
-            target="_blank"
-            title="Preview file"
-          >
-            <span
-              aria-label="eye"
-              class="anticon anticon-eye"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="eye"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                />
-              </svg>
-            </span>
-          </a>
           <button
             class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
@@ -2845,15 +2705,16 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -2881,7 +2742,7 @@ exports[`renders components/upload/demo/file-type.tsx extend context correctly 1
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </div>
@@ -2899,8 +2760,6 @@ exports[`renders components/upload/demo/fileList.tsx extend context correctly 1`
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -3040,8 +2899,6 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
       >
         <span
           class="ant-upload"
-          role="button"
-          tabindex="0"
         >
           <input
             accept=""
@@ -3097,8 +2954,6 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
       >
         <span
           class="ant-upload"
-          role="button"
-          tabindex="0"
         >
           <input
             accept=""
@@ -3589,32 +3444,6 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
         <span
           class="ant-upload-list-item-actions"
         >
-          <a
-            rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
-            target="_blank"
-            title="Preview file"
-          >
-            <span
-              aria-label="eye"
-              class="anticon anticon-eye"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="eye"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                />
-              </svg>
-            </span>
-          </a>
           <button
             class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
@@ -3672,15 +3501,16 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -3708,7 +3538,7 @@ exports[`renders components/upload/demo/picture-card.tsx extend context correctl
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </div>
@@ -3890,32 +3720,6 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
         <span
           class="ant-upload-list-item-actions"
         >
-          <a
-            rel="noopener noreferrer"
-            style="pointer-events: none; opacity: 0.5;"
-            target="_blank"
-            title="Preview file"
-          >
-            <span
-              aria-label="eye"
-              class="anticon anticon-eye"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="eye"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 000 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
-                />
-              </svg>
-            </span>
-          </a>
           <button
             class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
@@ -3973,15 +3777,16 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
           style="display: none;"
           type="file"
         />
-        <div>
+        <button
+          style="border: 0px; background: none;"
+          type="button"
+        >
           <span
             aria-label="plus"
             class="anticon anticon-plus"
@@ -4009,7 +3814,7 @@ exports[`renders components/upload/demo/picture-circle.tsx extend context correc
           >
             Upload
           </div>
-        </div>
+        </button>
       </span>
     </div>
   </div>
@@ -4028,8 +3833,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -4325,8 +4128,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -4626,8 +4427,6 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -4684,8 +4483,6 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -4742,8 +4539,6 @@ exports[`renders components/upload/demo/upload-custom-action-icon.tsx extend con
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -5061,8 +4856,6 @@ Array [
     >
       <span
         class="ant-upload"
-        role="button"
-        tabindex="0"
       >
         <input
           accept=""
@@ -5130,8 +4923,6 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
   >
     <span
       class="ant-upload"
-      role="button"
-      tabindex="0"
     >
       <input
         accept=""
@@ -5217,8 +5008,6 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
               >
                 <span
                   class="ant-upload"
-                  role="button"
-                  tabindex="0"
                 >
                   <input
                     accept=""

@@ -13,7 +13,11 @@ tag: New
 
 Components that can convert text into QR codes, and support custom color and logo. Available since `antd@5.1.0`.
 
-<Alert message="If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels. You can configure the QR code to be larger through size, or shorten the link through short link services."></Alert>
+<!-- prettier-ignore -->
+:::info
+If the QR code cannot be scanned for identification, it may be because the link address is too long, which leads to too dense pixels.
+You can configure the QR code to be larger through size, or shorten the link through short link services.
+:::
 
 ## When To Use
 
@@ -43,13 +47,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | value | scanned text | string | - |
 | type | render type | `canvas \| svg ` | `canvas` | 5.6.0 |
 | icon | include image url (only image link are supported) | string | - |
-| size | QRCode size | number | 128 |
+| size | QRCode size | number | 160 |
 | iconSize | include image size | number | 32 |
 | color | QRCode Color | string | `#000` |
 | bgColor | QRCode Background Color | string | `transparent` | 5.5.0 |
 | bordered | Whether has border style | boolean | `true` |
 | errorLevel | Error Code Level | `'L' \| 'M' \| 'Q' \| 'H' ` | `M` |
-| status | QRCode status | `active \| expired \| loading ` | `active` |
+| status | QRCode status | `active \| expired \| loading \| scanned` | `active` | scanned: 5.13.0 |
 | onRefresh | callback | `() => void` | - |
 
 ## Design Token

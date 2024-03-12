@@ -73,7 +73,7 @@ export interface TransferLocale {
   removeCurrent?: string;
 }
 
-export interface TransferProps<RecordType> {
+export interface TransferProps<RecordType = any> {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -151,7 +151,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('transfer', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -411,6 +411,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
@@ -419,7 +420,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
-  return wrapSSR(
+  const mergedSelectionsIcon = selectionsIcon ?? transfer?.selectionsIcon;
+
+  return wrapCSSVar(
     <div className={cls} style={{ ...transfer?.style, ...style }}>
       <List<KeyWise<RecordType>>
         prefixCls={`${prefixCls}-list`}
@@ -442,7 +445,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
-        selectionsIcon={selectionsIcon}
+        selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
       <Operation
@@ -481,7 +484,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}
         pagination={mergedPagination}
-        selectionsIcon={selectionsIcon}
+        selectionsIcon={mergedSelectionsIcon}
         {...listLocale}
       />
     </div>,

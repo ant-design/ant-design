@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Button, ConfigProvider, Drawer, Space } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
-import type { DrawerClassNames, DrawerStyles } from '../DrawerPanel';
+import type { DrawerClassNames, DrawerStyles } from 'antd/es/drawer/DrawerPanel';
 
 const useStyle = createStyles(({ token }) => ({
   'my-drawer-body': {
-    background: token['blue-1'],
+    background: token.blue1,
   },
   'my-drawer-mask': {
     boxShadow: `inset 0 0 15px #fff`,

@@ -1,7 +1,7 @@
 import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
+import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
@@ -171,7 +171,7 @@ const Overview: React.FC = () => {
               }
             }}
             onKeyDown={onKeyDown}
-            bordered={false}
+            variant="borderless"
             suffix={<SearchOutlined />}
             style={{ fontSize: searchBarAffixed ? fontSizeXL - 2 : fontSizeXL }}
           />
@@ -191,10 +191,10 @@ const Overview: React.FC = () => {
             return components?.length ? (
               <div key={group?.title}>
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
-                  <Space align="center">
+                  <Flex gap="small" align="center">
                     <span style={{ fontSize: 24 }}>{group?.title}</span>
                     <Tag style={{ display: 'block' }}>{components.length}</Tag>
-                  </Space>
+                  </Flex>
                 </Title>
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {

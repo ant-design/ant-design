@@ -1,5 +1,8 @@
-import message, { actWrapper } from '..';
+import React from 'react';
+
+import message, { actDestroy, actWrapper } from '..';
 import { act } from '../../../tests/utils';
+import App from '../../app';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -26,10 +29,8 @@ describe('message.config', () => {
     message.config({
       top: 100,
     });
-
     message.info('whatever');
     await awaitPromise();
-
     expect(document.querySelector('.ant-message')).toHaveStyle({
       top: '100px',
     });
@@ -217,5 +218,102 @@ describe('message.config', () => {
 
     removeContainer1();
     removeContainer2();
+    message.config({ getContainer: undefined });
+  });
+  it('should be able to config holderRender', async () => {
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => (
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
+          {children}
+        </ConfigProvider>
+      ),
+    });
+
+    message.info('last');
+    await awaitPromise();
+
+    expect(document.querySelectorAll('.ant-message')).toHaveLength(0);
+    expect(document.querySelectorAll('.anticon-info-circle')).toHaveLength(0);
+    expect(document.querySelectorAll('.test-message')).toHaveLength(1);
+    expect(document.querySelectorAll('.icon-info-circle')).toHaveLength(1);
+    ConfigProvider.config({ holderRender: undefined });
+  });
+  it('should be able to config holderRender config rtl', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ rtl: true });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ rtl: false });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelector('.ant-message-rtl')).toBeFalsy();
+
+    message.config({ rtl: undefined });
+    ConfigProvider.config({ holderRender: undefined });
+  });
+
+  it('should be able to config holderRender and static config', async () => {
+    // level 1
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({ prefixCls: 'prefix-1' });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-1-message')).toHaveLength(1);
+
+    // level 2
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      prefixCls: 'prefix-1',
+      holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
+    });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-2-message')).toHaveLength(1);
+
+    // level 3
+    document.body.innerHTML = '';
+    actDestroy();
+    message.config({ prefixCls: 'prefix-3-message' });
+    message.info('last');
+    await awaitPromise();
+    expect(document.querySelectorAll('.prefix-3-message')).toHaveLength(1);
+
+    // clear config
+    message.config({ prefixCls: '' });
+    ConfigProvider.config({ prefixCls: '', iconPrefixCls: '', holderRender: undefined });
+  });
+  it('should be able to config holderRender use App', async () => {
+    document.body.innerHTML = '';
+    actDestroy();
+    ConfigProvider.config({
+      holderRender: (children) => <App message={{ maxCount: 1 }}>{children}</App>,
+    });
+
+    message.info('last');
+    message.info('last');
+    await awaitPromise();
+    const noticeWithoutLeaving = Array.from(
+      document.querySelectorAll('.ant-message-notice-wrapper'),
+    ).filter((ele) => !ele.classList.contains('ant-message-move-up-leave'));
+
+    expect(noticeWithoutLeaving).toHaveLength(1);
+    ConfigProvider.config({ holderRender: undefined });
   });
 });

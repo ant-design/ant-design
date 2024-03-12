@@ -193,12 +193,14 @@ pnpm --package=@ant-design/codemod-v5 dlx antd5-codemod src
 
 ```js
 const { theme } = require('antd/lib');
-const { convertLegacyToken } = require('@ant-design/compatible/lib');
+const { convertLegacyToken, defaultTheme } = require('@ant-design/compatible/lib');
 
 const { defaultAlgorithm, defaultSeed } = theme;
 
-const mapToken = defaultAlgorithm(defaultSeed);
-const v4Token = convertLegacyToken(mapToken);
+const mapV5Token = defaultAlgorithm(defaultSeed);
+const v5Vars = convertLegacyToken(mapV5Token);
+const mapV4Token = theme.getDesignToken(defaultTheme);
+const v4Vars = convertLegacyToken(mapV4Token);
 
 // Webpack Config
 module.exports = {
@@ -206,7 +208,7 @@ module.exports = {
   loader: 'less-loader',
   options: {
     lessOptions: {
-      modifyVars: v4Token,
+      modifyVars: v5Vars, // or v4Vars
     },
   },
 };
@@ -257,6 +259,8 @@ export default {
 +   dayjs.locale('zh-cn');
 ```
 
+🚨 需要注意 day.js 通过插件系统拓展功能。如果你发现原本 moment.js 的功能在 day.js 中无法使用，请查阅 [day.js 官方文档](https://day.js.org/docs/en/plugin/plugin)。
+
 如果你暂时不想替换 day.js，也可以使用 `@ant-design/moment-webpack-plugin` 插件将 day.js 替换回 moment.js：
 
 ```bash
@@ -273,7 +277,7 @@ module.exports = {
 };
 ```
 
-### 使用 V4 主题包 <Badge>Updated</Badge>
+### 使用 V4 主题包
 
 如果你不希望样式在升级后发生变化，我们在兼容包中提供了完整的 V4 主题，可以还原到 V4 的样式。
 

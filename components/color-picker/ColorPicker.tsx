@@ -12,12 +12,13 @@ import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider/context';
 import { ConfigContext } from '../config-provider/context';
+import DisabledContext from '../config-provider/DisabledContext';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
-import { useToken } from '../theme/internal';
 import type { Color } from './color';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
@@ -30,9 +31,8 @@ import type {
   TriggerPlacement,
   TriggerType,
 } from './interface';
-import useStyle from './style/index';
-import { customizePrefixCls, genAlphaColor, generateColor, getAlphaColor } from './util';
-import { useZIndex } from '../_util/hooks/useZIndex';
+import useStyle from './style';
+import { genAlphaColor, generateColor, getAlphaColor } from './util';
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -91,6 +91,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     size: customizeSize,
     rootClassName,
+    prefixCls: customizePrefixCls,
     styles,
     disabledAlpha = false,
     onFormatChange,
@@ -105,16 +106,16 @@ const ColorPicker: CompoundedComponent = (props) => {
   } = props;
 
   const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled ?? contextDisabled;
 
-  const [, token] = useToken();
-
-  const [colorValue, setColorValue] = useColorState(token.colorPrimary, {
+  const [colorValue, setColorValue] = useColorState('', {
     value,
     defaultValue,
   });
   const [popupOpen, setPopupOpen] = useMergedState(false, {
     value: open,
-    postState: (openData) => !disabled && openData,
+    postState: (openData) => !mergedDisabled && openData,
     onChange: onOpenChange,
   });
   const [formatValue, setFormatValue] = useMergedState(format, {
@@ -123,7 +124,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     onChange: onFormatChange,
   });
 
-  const [colorCleared, setColorCleared] = useState(false);
+  const [colorCleared, setColorCleared] = useState(!value && !defaultValue);
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
 
@@ -134,9 +135,10 @@ const ColorPicker: CompoundedComponent = (props) => {
 
   // ===================== Style =====================
   const mergedSize = useSize(customizeSize);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergeRootCls = classNames(rootClassName, rtlCls);
+  const mergeRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergeCls = classNames(
     getStatusClassNames(prefixCls, contextStatus),
     {
@@ -148,7 +150,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     className,
     hashId,
   );
-  const mergePopupCls = classNames(prefixCls, rtlCls);
+  const mergePopupCls = classNames(prefixCls, mergeRootCls);
 
   const popupAllowCloseRef = useRef(true);
 
@@ -220,7 +222,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     color: colorValue,
     allowClear,
     colorCleared,
-    disabled,
+    disabled: mergedDisabled,
     disabledAlpha,
     presets,
     panelRender,
@@ -232,14 +234,13 @@ const ColorPicker: CompoundedComponent = (props) => {
   const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
 
   // ============================ zIndex ============================
-  const [zIndex] = useZIndex('ColorPicker');
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Popover
       style={styles?.popup}
       overlayInnerStyle={styles?.popupOverlayInner}
       onOpenChange={(visible) => {
-        if (popupAllowCloseRef.current && !disabled) {
+        if (popupAllowCloseRef.current && !mergedDisabled) {
           setPopupOpen(visible);
         }
       }}
@@ -254,7 +255,6 @@ const ColorPicker: CompoundedComponent = (props) => {
         </NoFormStyle>
       }
       overlayClassName={mergePopupCls}
-      zIndex={zIndex}
       {...popoverProps}
     >
       {children || (
@@ -264,7 +264,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           style={mergedStyle}
           color={value ? generateColor(value) : colorValue}
           prefixCls={prefixCls}
-          disabled={disabled}
+          disabled={mergedDisabled}
           colorCleared={colorCleared}
           showText={showText}
           format={formatValue}

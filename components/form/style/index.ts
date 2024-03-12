@@ -1,10 +1,11 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
 import { genCollapseMotion, zoomIn } from '../../style/motion';
-import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
 import genFormValidateMotionStyle from './explain';
 
@@ -71,11 +72,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
     fontSize: token.fontSizeLG,
     lineHeight: 'inherit',
     border: 0,
-    borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
-  },
-
-  label: {
-    fontSize: token.fontSize,
+    borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
   },
 
   'input[type="search"]': {
@@ -107,7 +104,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
   input[type='radio']:focus,
   input[type='checkbox']:focus`]: {
     outline: 0,
-    boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
+    boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.controlOutline}`,
   },
 
   // Adjust output element
@@ -223,7 +220,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 
         '&-wrap': {
           overflow: 'unset',
-          lineHeight: `${token.lineHeight} - 0.25em`,
+          lineHeight: token.lineHeight,
           whiteSpace: 'unset',
         },
 
@@ -515,7 +512,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
       .${rootPrefixCls}-col-24${formItemCls}-label,
       .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
 
-    [`@media (max-width: ${token.screenXSMax}px)`]: [
+    [`@media (max-width: ${unit(token.screenXSMax)})`]: [
       makeVerticalLayout(token),
       {
         [componentCls]: {
@@ -524,19 +521,19 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
       },
     ],
 
-    [`@media (max-width: ${token.screenSMMax}px)`]: {
+    [`@media (max-width: ${unit(token.screenSMMax)})`]: {
       [componentCls]: {
         [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
-    [`@media (max-width: ${token.screenMDMax}px)`]: {
+    [`@media (max-width: ${unit(token.screenMDMax)})`]: {
       [componentCls]: {
         [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
 
-    [`@media (max-width: ${token.screenLGMax}px)`]: {
+    [`@media (max-width: ${unit(token.screenLGMax)})`]: {
       [componentCls]: {
         [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
@@ -545,6 +542,18 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
 };
 
 // ============================== Export ==============================
+export const prepareComponentToken: GetDefaultToken<'Form'> = (token) => ({
+  labelRequiredMarkColor: token.colorError,
+  labelColor: token.colorTextHeading,
+  labelFontSize: token.fontSize,
+  labelHeight: token.controlHeight,
+  labelColonMarginInlineStart: token.marginXXS / 2,
+  labelColonMarginInlineEnd: token.marginXS,
+  itemMarginBottom: token.marginLG,
+  verticalLabelPadding: `0 0 ${token.paddingXS}px`,
+  verticalLabelMargin: 0,
+});
+
 export const prepareToken: (
   token: Parameters<GenStyleFn<'Form'>>[0],
   rootPrefixCls: string,
@@ -557,7 +566,7 @@ export const prepareToken: (
   return formToken;
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Form',
   (token, { rootPrefixCls }) => {
     const formToken = prepareToken(token, rootPrefixCls);
@@ -573,17 +582,7 @@ export default genComponentStyleHook(
       zoomIn,
     ];
   },
-  (token) => ({
-    labelRequiredMarkColor: token.colorError,
-    labelColor: token.colorTextHeading,
-    labelFontSize: token.fontSize,
-    labelHeight: token.controlHeight,
-    labelColonMarginInlineStart: token.marginXXS / 2,
-    labelColonMarginInlineEnd: token.marginXS,
-    itemMarginBottom: token.marginLG,
-    verticalLabelPadding: `0 0 ${token.paddingXS}px`,
-    verticalLabelMargin: 0,
-  }),
+  prepareComponentToken,
   {
     // Let From style before the Grid
     // ref https://github.com/ant-design/ant-design/issues/44386

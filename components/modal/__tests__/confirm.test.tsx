@@ -468,6 +468,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.custom-modal-wrap')).toHaveLength(1);
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
+    expect($$('.ant-btn')).toHaveLength(2);
   });
 
   it('should be Modal.confirm without mask', async () => {
@@ -876,5 +877,81 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     expect(document.querySelector('.custom-footer-ele')).toBeTruthy();
+  });
+  it('should be able to config holderRender', async () => {
+    ConfigProvider.config({
+      holderRender: (children) => (
+        <ConfigProvider prefixCls="test" iconPrefixCls="icon">
+          {children}
+        </ConfigProvider>
+      ),
+    });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.ant-modal-root')).toHaveLength(0);
+    expect(document.querySelectorAll('.anticon-exclamation-circle')).toHaveLength(0);
+    expect(document.querySelectorAll('.test-modal-root')).toHaveLength(1);
+    expect(document.querySelectorAll('.icon-exclamation-circle')).toHaveLength(1);
+    ConfigProvider.config({ holderRender: undefined });
+  });
+  it('should be able to config holderRender config rtl', async () => {
+    document.body.innerHTML = '';
+    ConfigProvider.config({
+      holderRender: (children) => <ConfigProvider direction="rtl">{children}</ConfigProvider>,
+    });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-confirm-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    Modal.confirm({ content: 'hai', direction: 'rtl' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-confirm-rtl')).toBeTruthy();
+
+    document.body.innerHTML = '';
+    Modal.confirm({ content: 'hai', direction: 'ltr' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-modal-confirm-rtl')).toBeFalsy();
+    ConfigProvider.config({ holderRender: undefined });
+  });
+  it('should be able to config holderRender and static config', async () => {
+    // level 1
+    ConfigProvider.config({ prefixCls: 'prefix-1' });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.prefix-1-modal-root')).toHaveLength(1);
+    expect($$('.prefix-1-btn')).toHaveLength(2);
+    // level 2
+    document.body.innerHTML = '';
+    ConfigProvider.config({
+      prefixCls: 'prefix-1',
+      holderRender: (children) => <ConfigProvider prefixCls="prefix-2">{children}</ConfigProvider>,
+    });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.prefix-2-modal-root')).toHaveLength(1);
+    expect($$('.prefix-2-btn')).toHaveLength(2);
+    // level 3
+    document.body.innerHTML = '';
+    Modal.config({ rootPrefixCls: 'prefix-3' });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelectorAll('.prefix-3-modal-root')).toHaveLength(1);
+    expect(document.querySelectorAll('.prefix-3-btn')).toHaveLength(2);
+    // clear
+    Modal.config({ rootPrefixCls: '' });
+    ConfigProvider.config({ prefixCls: '', holderRender: undefined });
+  });
+  it('should be able to config holderRender antd locale', async () => {
+    document.body.innerHTML = '';
+    ConfigProvider.config({
+      holderRender: (children) => (
+        <ConfigProvider locale={{ Modal: { okText: 'test' } } as any}>{children}</ConfigProvider>
+      ),
+    });
+    Modal.confirm({ content: 'hai' });
+    await waitFakeTimer();
+    expect(document.querySelector('.ant-btn-primary')?.textContent).toBe('test');
+    ConfigProvider.config({ holderRender: undefined });
   });
 });

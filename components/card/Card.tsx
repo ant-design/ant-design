@@ -1,7 +1,9 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import type { Tab } from 'rc-tabs/lib/interface';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
+import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
 import Skeleton from '../skeleton';
@@ -25,7 +27,9 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   title?: React.ReactNode;
   extra?: React.ReactNode;
   bordered?: boolean;
+  /** @deprecated Please use `styles.header` instead */
   headStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
@@ -44,16 +48,49 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
+  classNames?: {
+    header?: string;
+    body?: string;
+    extra?: string;
+    title?: string;
+    actions?: string;
+    cover?: string;
+  };
+  styles?: {
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    title?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    cover?: React.CSSProperties;
+  };
 }
 
-function getAction(actions: React.ReactNode[]): React.ReactNode[] {
-  return actions.map<React.ReactNode>((action, index) => (
-    // eslint-disable-next-line react/no-array-index-key
-    <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-      <span>{action}</span>
-    </li>
-  ));
-}
+type CardClassNamesModule = keyof Exclude<CardProps['classNames'], undefined>;
+type CardStylesModule = keyof Exclude<CardProps['styles'], undefined>;
+
+const ActionNode: React.FC<{
+  actionClasses: string;
+  actions: React.ReactNode[];
+  actionStyle: React.CSSProperties;
+}> = (props) => {
+  const { actionClasses, actions = [], actionStyle } = props;
+  return (
+    <ul className={actionClasses} style={actionStyle}>
+      {actions.map<React.ReactNode>((action, index) => {
+        // Move this out since eslint not allow index key
+        // And eslint-disable makes conflict with rollup
+        // ref https://github.com/ant-design/ant-design/issues/46022
+        const key = `action-${index}`;
+        return (
+          <li style={{ width: `${100 / actions.length}%` }} key={key}>
+            <span>{action}</span>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const {
@@ -78,14 +115,35 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     tabBarExtraContent,
     hoverable,
     tabProps = {},
+    classNames: customClassNames,
+    styles: customStyles,
     ...others
   } = props;
 
   const { getPrefixCls, direction, card } = React.useContext(ConfigContext);
 
+  // =================Warning===================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Card');
+    [
+      ['headStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+  }
+
   const onTabChange = (key: string) => {
     props.onTabChange?.(key);
   };
+
+  const moduleClass = (moduleName: CardClassNamesModule) =>
+    classNames(card?.classNames?.[moduleName], customClassNames?.[moduleName]);
+
+  const moduleStyle = (moduleName: CardStylesModule) => ({
+    ...card?.styles?.[moduleName],
+    ...customStyles?.[moduleName],
+  });
 
   const isContainGrid = React.useMemo<boolean>(() => {
     let containGrid = false;
@@ -98,7 +156,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   }, [children]);
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const loadingBlock = (
     <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
@@ -128,25 +186,56 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     />
   ) : null;
   if (title || extra || tabs) {
+    const headClasses = classNames(`${prefixCls}-head`, moduleClass('header'));
+    const titleClasses = classNames(`${prefixCls}-head-title`, moduleClass('title'));
+    const extraClasses = classNames(`${prefixCls}-extra`, moduleClass('extra'));
+    const mergedHeadStyle: React.CSSProperties = {
+      ...headStyle,
+      ...moduleStyle('header'),
+    };
     head = (
-      <div className={`${prefixCls}-head`} style={headStyle}>
+      <div className={headClasses} style={mergedHeadStyle}>
         <div className={`${prefixCls}-head-wrapper`}>
-          {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
-          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          {title && (
+            <div className={titleClasses} style={moduleStyle('title')}>
+              {title}
+            </div>
+          )}
+          {extra && (
+            <div className={extraClasses} style={moduleStyle('extra')}>
+              {extra}
+            </div>
+          )}
         </div>
         {tabs}
       </div>
     );
   }
-  const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
+  const coverClasses = classNames(`${prefixCls}-cover`, moduleClass('cover'));
+  const coverDom = cover ? (
+    <div className={coverClasses} style={moduleStyle('cover')}>
+      {cover}
+    </div>
+  ) : null;
+  const bodyClasses = classNames(`${prefixCls}-body`, moduleClass('body'));
+  const mergedBodyStyle: React.CSSProperties = {
+    ...bodyStyle,
+    ...moduleStyle('body'),
+  };
   const body = (
-    <div className={`${prefixCls}-body`} style={bodyStyle}>
+    <div className={bodyClasses} style={mergedBodyStyle}>
       {loading ? loadingBlock : children}
     </div>
   );
+
+  const actionClasses = classNames(`${prefixCls}-actions`, moduleClass('actions'));
   const actionDom =
     actions && actions.length ? (
-      <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
+      <ActionNode
+        actionClasses={actionClasses}
+        actionStyle={moduleStyle('actions')}
+        actions={actions}
+      />
     ) : null;
 
   const divProps = omit(others, ['onTabChange']);
@@ -167,11 +256,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...card?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div ref={ref} {...divProps} className={classString} style={mergedStyle}>
       {head}
       {coverDom}

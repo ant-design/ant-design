@@ -1,12 +1,11 @@
 import type React from 'react';
-import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { unit, type CSSInterpolation } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 
 import { resetComponent } from '../../style';
-import type { GlobalToken } from '../../theme';
 import type { FullToken } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
-import { TinyColor } from '@ctrl/tinycolor';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
+import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   /**
@@ -24,7 +23,7 @@ export interface ComponentToken {
 export interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
   tagLineHeight: React.CSSProperties['lineHeight'];
-  tagIconSize: number;
+  tagIconSize: number | string;
   tagPaddingHorizontal: number;
   tagBorderlessBg: string;
 }
@@ -32,23 +31,23 @@ export interface TagToken extends FullToken<'Tag'> {
 // ============================== Styles ==============================
 
 const genBaseStyle = (token: TagToken): CSSInterpolation => {
-  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls } = token;
-  const paddingInline = tagPaddingHorizontal - lineWidth;
-  const iconMarginInline = paddingXXS - lineWidth;
-
+  const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
+  const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
+  const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
   return {
     // Result
     [componentCls]: {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
+      // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,
       lineHeight: token.tagLineHeight,
       whiteSpace: 'nowrap',
       background: token.defaultBg,
-      border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: token.borderRadiusSM,
       opacity: 1,
       transition: `all ${token.motionDurationMid}`,
@@ -66,8 +65,8 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
       [`${componentCls}-close-icon`]: {
         marginInlineStart: iconMarginInline,
-        color: token.colorTextDescription,
         fontSize: token.tagIconSize,
+        color: token.colorTextDescription,
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
 
@@ -128,34 +127,30 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
-  const { lineWidth, fontSizeIcon } = token;
-
+  const { lineWidth, fontSizeIcon, calc } = token;
   const tagFontSize = token.fontSizeSM;
-  const tagLineHeight = `${token.lineHeightSM * tagFontSize}px`;
-
   const tagToken = mergeToken<TagToken>(token, {
     tagFontSize,
-    tagLineHeight,
-    tagIconSize: fontSizeIcon - 2 * lineWidth, // Tag icon is much smaller
+    tagLineHeight: unit(calc(token.lineHeightSM).mul(tagFontSize).equal()),
+    tagIconSize: calc(fontSizeIcon).sub(calc(lineWidth).mul(2)).equal(), // Tag icon is much smaller
     tagPaddingHorizontal: 8, // Fixed padding.
-    tagBorderlessBg: token.colorFillTertiary,
+    tagBorderlessBg: token.defaultBg,
   });
   return tagToken;
 };
 
-export const prepareCommonToken: (token: GlobalToken) => ComponentToken = (token) => ({
+export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => ({
   defaultBg: new TinyColor(token.colorFillQuaternary)
     .onBackground(token.colorBgContainer)
     .toHexString(),
   defaultColor: token.colorText,
 });
 
-export default genComponentStyleHook(
+export default genStyleHooks<'Tag'>(
   'Tag',
   (token) => {
     const tagToken = prepareToken(token);
-
     return genBaseStyle(tagToken);
   },
-  prepareCommonToken,
+  prepareComponentToken,
 );

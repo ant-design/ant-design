@@ -1,22 +1,15 @@
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
-import ConfigProvider, { ConfigContext } from '../config-provider';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-export function withPureRenderTheme(Component: any) {
-  return function PureRenderThemeComponent(props: any) {
-    return (
-      <ConfigProvider
-        theme={{
-          token: {
-            motion: false,
-            zIndexPopupBase: 0,
-          },
-        }}
-      >
-        <Component {...props} />
-      </ConfigProvider>
-    );
-  };
+import ConfigProvider, { ConfigContext } from '../config-provider';
+import type { AnyObject } from './type';
+
+export function withPureRenderTheme<T extends AnyObject = AnyObject>(Component: React.FC<T>) {
+  return (props: T) => (
+    <ConfigProvider theme={{ token: { motion: false, zIndexPopupBase: 0 } }}>
+      <Component {...props} />
+    </ConfigProvider>
+  );
 }
 
 export interface BaseProps {
@@ -25,15 +18,15 @@ export interface BaseProps {
 }
 
 /* istanbul ignore next */
-export default function genPurePanel<ComponentProps extends BaseProps>(
+const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
   Component: any,
   defaultPrefixCls?: string,
   getDropdownCls?: null | ((prefixCls: string) => string),
   postProps?: (props: ComponentProps) => ComponentProps,
-) {
-  type WrapProps = Omit<ComponentProps, 'open' | 'visible'> & { open?: boolean };
+) => {
+  type WrapProps = ComponentProps & AnyObject;
 
-  function PurePanel(props: WrapProps) {
+  const PurePanel: React.FC<WrapProps> = (props) => {
     const { prefixCls: customizePrefixCls, style } = props;
 
     const holderRef = React.useRef<HTMLDivElement>(null);
@@ -88,22 +81,21 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
     };
 
     if (postProps) {
-      mergedProps = postProps(mergedProps as ComponentProps);
+      mergedProps = postProps(mergedProps);
     }
-
+    const mergedStyle: React.CSSProperties = {
+      paddingBottom: popupHeight,
+      position: 'relative',
+      minWidth: popupWidth,
+    };
     return (
-      <div
-        ref={holderRef}
-        style={{
-          paddingBottom: popupHeight,
-          position: 'relative',
-          minWidth: popupWidth,
-        }}
-      >
+      <div ref={holderRef} style={mergedStyle}>
         <Component {...mergedProps} />
       </div>
     );
-  }
+  };
 
-  return withPureRenderTheme(PurePanel);
-}
+  return withPureRenderTheme<AnyObject>(PurePanel);
+};
+
+export default genPurePanel;

@@ -15,7 +15,7 @@ import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
-import { cloneElement, isFragment, isValidElement } from '../_util/reactNode';
+import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -266,7 +266,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
 
   // ============================= Render =============================
   const child =
-    isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
+    React.isValidElement(children) && !isFragment(children) ? children : <span>{children}</span>;
   const childProps = child.props;
   const childCls =
     !childProps.className || typeof childProps.className === 'string'
@@ -274,7 +274,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
       : childProps.className;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, !injectFromPopover);
 
   // Color
   const colorInfo = parseColor(prefixCls, color);
@@ -292,6 +292,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     colorInfo.className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   // ============================ zIndex ============================
@@ -300,7 +301,7 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
   const content = (
     <RcTooltip
       {...otherProps}
-      zIndex={injectFromPopover ? otherProps.zIndex : zIndex}
+      zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
       mouseEnterDelay={mouseEnterDelay}
@@ -327,7 +328,9 @@ const Tooltip = React.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     </RcTooltip>
   );
 
-  return wrapSSR(<zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>);
+  return wrapCSSVar(
+    <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>,
+  );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
 > & {

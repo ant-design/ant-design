@@ -1,7 +1,9 @@
+import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import React from 'react';
+
 import ConfigProvider from '..';
+import { render } from '../../../tests/utils';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
 import AutoComplete from '../../auto-complete';
@@ -16,6 +18,7 @@ import Carousel from '../../carousel';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
+import ColorPicker from '../../color-picker';
 import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
@@ -39,7 +42,6 @@ import Select from '../../select';
 import Skeleton from '../../skeleton';
 import type { SliderTooltipProps } from '../../slider';
 import Slider from '../../slider';
-import { render } from '../../../tests/utils';
 import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
@@ -79,9 +81,7 @@ describe('ConfigProvider', () => {
         // configProvider
         it('configProvider', () => {
           const { container } = render(
-            <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
-              {renderComponent({})}
-            </ConfigProvider>,
+            <ConfigProvider prefixCls="config">{renderComponent({})}</ConfigProvider>,
           );
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
@@ -233,6 +233,9 @@ describe('ConfigProvider', () => {
       </Collapse>
     ));
 
+    // ColorPicker
+    testPair('ColorPicker', (props) => <ColorPicker {...props} />);
+
     // DatePicker
     describe('DatePicker', () => {
       testPair('DatePicker', (props) => (
@@ -350,7 +353,7 @@ describe('ConfigProvider', () => {
           <List.Item {...props}>
             <List.Item.Meta
               {...props}
-              avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+              avatar={<Avatar src="https://api.dicebear.com/7.x/miniavs/svg?seed=9" />}
               title="Ant Design"
               description="Ant Design, a design language for background applications, is refined by Ant UED Team"
             />

@@ -59,7 +59,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 
 ### ItemType
 
-> type ItemType = [RouteItemType](#RouteItemType) | [SeparatorType](#SeparatorType)
+> type ItemType = Omit<[RouteItemType](#RouteItemType), 'title' | 'path'> | [SeparatorType](#SeparatorType)
 
 ### RouteItemType
 
@@ -96,11 +96,11 @@ import { Link } from 'react-router';
 
 const items = [
   {
-    path: 'index',
+    path: '/index',
     title: 'home',
   },
   {
-    path: 'first',
+    path: '/first',
     title: 'first',
     children: [
       {
@@ -118,13 +118,19 @@ const items = [
     ],
   },
   {
-    path: 'second',
+    path: '/second',
     title: 'second',
   },
 ];
-function itemRender(item, params, items, paths) {
-  const last = items.indexOf(item) === items.length - 1;
-  return last ? <span>{item.title}</span> : <Link to={paths.join('/')}>{item.title}</Link>;
+
+function itemRender(currentRoute, params, items, paths) {
+  const isLast = currentRoute?.path === items[items.length - 1]?.path;
+
+  return isLast ? (
+    <span>{currentRoute.title}</span>
+  ) : (
+    <Link to={`/${paths.join("/")}`}>{currentRoute.title}</Link>
+  );
 }
 
 return <Breadcrumb itemRender={itemRender} items={items} />;

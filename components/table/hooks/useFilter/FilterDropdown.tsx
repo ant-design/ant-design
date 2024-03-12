@@ -124,6 +124,7 @@ export interface FilterDropdownProps<RecordType> {
   dropdownPrefixCls: string;
   column: ColumnType<RecordType>;
   filterState?: FilterState<RecordType>;
+  filterOnClose: boolean;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
   filterSearch?: FilterSearchType<ColumnFilterItem | TreeColumnFilterItem>;
@@ -133,6 +134,7 @@ export interface FilterDropdownProps<RecordType> {
   locale: TableLocale;
   getPopupContainer?: GetPopupContainer;
   filterResetToDefaultFilteredValue?: boolean;
+  rootClassName?: string;
 }
 
 function wrapStringListType(keys?: FilterKey) {
@@ -146,6 +148,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     column,
     dropdownPrefixCls,
     columnKey,
+    filterOnClose,
     filterMultiple,
     filterMode = 'menu',
     filterSearch = false,
@@ -154,6 +157,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     locale,
     children,
     getPopupContainer,
+    rootClassName,
   } = props;
 
   const {
@@ -304,8 +308,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
       triggerVisible(newVisible);
 
-      // Default will filter when closed
-      if (!newVisible && !column.filterDropdown) {
+      if (!newVisible && !column.filterDropdown && filterOnClose) {
         onConfirm();
       }
     }
@@ -524,6 +527,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onOpenChange={onVisibleChange}
         getPopupContainer={getPopupContainer}
         placement={direction === 'rtl' ? 'bottomLeft' : 'bottomRight'}
+        rootClassName={rootClassName}
       >
         <span
           role="button"

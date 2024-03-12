@@ -4,18 +4,18 @@ import type { TooltipProps } from '../../tooltip';
 
 export interface EllipsisTooltipProps {
   tooltipProps?: TooltipProps;
-  enabledEllipsis: boolean;
+  enableEllipsis: boolean;
   isEllipsis?: boolean;
   children: React.ReactElement;
 }
 
 const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
-  enabledEllipsis,
+  enableEllipsis,
   isEllipsis,
   children,
   tooltipProps,
 }) => {
-  if (!tooltipProps?.title || !enabledEllipsis) {
+  if (!tooltipProps?.title || !enableEllipsis) {
     return children;
   }
 

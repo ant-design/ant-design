@@ -26,12 +26,12 @@ type ResponsiveLike<T> = {
 type Gap = number | undefined;
 export type Gutter = number | undefined | Partial<Record<Breakpoint, number>>;
 
-type ResponsiveAligns = ResponsiveLike<typeof RowAligns[number]>;
-type ResponsiveJustify = ResponsiveLike<typeof RowJustify[number]>;
+type ResponsiveAligns = ResponsiveLike<(typeof RowAligns)[number]>;
+type ResponsiveJustify = ResponsiveLike<(typeof RowJustify)[number]>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: typeof RowAligns[number] | ResponsiveAligns;
-  justify?: typeof RowJustify[number] | ResponsiveJustify;
+  align?: (typeof RowAligns)[number] | ResponsiveAligns;
+  justify?: (typeof RowJustify)[number] | ResponsiveJustify;
   prefixCls?: string;
   wrap?: boolean;
 }
@@ -146,7 +146,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
-  const [wrapSSR, hashId] = useRowStyle(prefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useRowStyle(prefixCls);
+
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,
@@ -158,6 +160,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     },
     className,
     hashId,
+    cssVarCls,
   );
 
   // Add gutter related style
@@ -169,18 +172,18 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginRight = horizontalGutter;
   }
 
-  [, rowStyle.rowGap] = gutters;
-
   // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
   // So we deconstruct "gutters" variable here.
   const [gutterH, gutterV] = gutters;
+
+  rowStyle.rowGap = gutterV;
 
   const rowContext = React.useMemo<RowContextState>(
     () => ({ gutter: [gutterH, gutterV] as [number, number], wrap }),
     [gutterH, gutterV, wrap],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RowContext.Provider value={rowContext}>
       <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}

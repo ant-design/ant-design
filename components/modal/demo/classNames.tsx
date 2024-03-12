@@ -4,7 +4,7 @@ import { createStyles, useTheme } from 'antd-style';
 
 const useStyle = createStyles(({ token }) => ({
   'my-modal-body': {
-    background: token['blue-1'],
+    background: token.blue1,
     padding: token.paddingSM,
   },
   'my-modal-mask': {

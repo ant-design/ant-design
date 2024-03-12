@@ -81,7 +81,9 @@ export interface SliderSingleProps extends SliderBaseProps {
   value?: number;
   defaultValue?: number;
   onChange?: (value: number) => void;
+  /** @deprecated Please use `onChangeComplete` instead */
   onAfterChange?: (value: number) => void;
+  onChangeComplete?: (value: number) => void;
   /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.track` instead */
@@ -95,7 +97,9 @@ export interface SliderRangeProps extends SliderBaseProps {
   value?: number[];
   defaultValue?: number[];
   onChange?: (value: number[]) => void;
+  /** @deprecated Please use `onChangeComplete` instead */
   onAfterChange?: (value: number[]) => void;
+  onChangeComplete?: (value: number[]) => void;
   /** @deprecated Please use `styles.handle` instead */
   handleStyle?: React.CSSProperties[];
   /** @deprecated Please use `styles.track` instead */
@@ -158,7 +162,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const prefixCls = getPrefixCls('slider', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const cls = classNames(
     className,
@@ -168,6 +172,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     hashId,
+    cssVarCls,
   );
 
   // make reverse default on rtl direction
@@ -255,7 +260,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   const mergedStyle: React.CSSProperties = { ...slider?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcSlider
       {...restProps}
       step={restProps.step}

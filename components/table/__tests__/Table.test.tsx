@@ -413,4 +413,68 @@ describe('Table', () => {
     expect(tblRef.current?.nativeElement).toBe(wrapDom);
     expect(tblRef.current?.scrollTo instanceof Function).toBeTruthy();
   });
+
+  it('support hidden columns', () => {
+    const columns = [
+      {
+        key: 1,
+        title: 'title1',
+      },
+      {
+        key: 2,
+        title: 'title2',
+        hidden: true,
+      },
+      {
+        key: 3,
+        title: 'title3',
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+
+    expect(container.querySelectorAll('.ant-table-thead th')[1].innerHTML).toEqual('title3');
+    expect(container.querySelectorAll('.ant-table-thead th')).toHaveLength(2);
+  });
+
+  it('support hidden columns in Group table head', () => {
+    const columns = [
+      {
+        key: '1',
+        title: 'title1',
+      },
+      {
+        key: '2',
+        title: 'title2',
+        hidden: true,
+        children: [
+          { key: '2-1', title: 'title2-1' },
+          { key: '2-2', title: 'title2-2' },
+          { key: '2-3', title: 'title2-3' },
+        ],
+      },
+      {
+        key: '3',
+        title: 'title3',
+        children: [
+          { key: '3-1', title: 'title3-1', hidden: true },
+          { key: '3-2', title: 'title3-2' },
+          { key: '3-3', title: 'title3-3', hidden: true },
+        ],
+      },
+    ];
+    const { container } = render(<Table columns={columns} />);
+
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th')[1].innerHTML,
+    ).toEqual('title3');
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[0].querySelectorAll('th'),
+    ).toHaveLength(2);
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th')[0].innerHTML,
+    ).toEqual('title3-2');
+    expect(
+      container.querySelectorAll('.ant-table-thead tr')[1].querySelectorAll('th'),
+    ).toHaveLength(1);
+  });
 });
