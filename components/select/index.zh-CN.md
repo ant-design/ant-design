@@ -155,10 +155,12 @@ return (
 
 ### OptGroup props
 
-| 参数  | 说明 | 类型                    | 默认值 | 版本 |
-| ----- | ---- | ----------------------- | ------ | ---- |
-| key   | Key  | string                  | -      |      |
-| label | 组名 | string \| React.Element | -      |      |
+| 参数      | 说明                    | 类型            | 默认值 | 版本 |
+| --------- | ----------------------- | --------------- | ------ | ---- |
+| key       | Key                     | string          | -      |      |
+| label     | 组名                    | React.ReactNode | -      |      |
+| className | Option 器类名           | string          | -      |      |
+| title     | 选项上的原生 title 提示 | string          | -      |      |
 
 ## 主题变量（Design Token）
 

@@ -30,10 +30,6 @@ const useStyle = createStyles(({ token, css }) => {
         }
       }
 
-      ${antCls}-tabs-nav::before {
-        display: none;
-      }
-
       table {
         width: 100%;
         table-layout: fixed;
@@ -121,6 +117,8 @@ const Articles: React.FC<{ data: Partial<SiteData> }> = ({ data }) => {
 
   return (
     <Tabs
+      centered
+      size="large"
       items={yearList.map((year) => ({
         key: year,
         label: `${year}${isZhCN ? ' 年' : ''}`,
