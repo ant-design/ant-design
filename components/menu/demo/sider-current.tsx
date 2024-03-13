@@ -22,37 +22,48 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('Navigation One', 'sub1', <MailOutlined />, [
-    getItem('Option 1', '1'),
-    getItem('Option 2', '2'),
-    getItem('Option 3', '3'),
-    getItem('Option 4', '4'),
+  getItem('Navigation One', '1', <MailOutlined />, [
+    getItem('Option 1', '11'),
+    getItem('Option 2', '12'),
+    getItem('Option 3', '13'),
+    getItem('Option 4', '14'),
   ]),
-  getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-    getItem('Option 5', '5'),
-    getItem('Option 6', '6'),
-    getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
+  getItem('Navigation Two', '2', <AppstoreOutlined />, [
+    getItem('Option 1', '21'),
+    getItem('Option 2', '22'),
+    getItem('Submenu', '23', null, [getItem('Option 1', '231'), getItem('Option 2', '232')]),
+    getItem('Submenu 2', '24', null, [getItem('Option 1', '241'), getItem('Option 2', '242')]),
   ]),
-  getItem('Navigation Three', 'sub4', <SettingOutlined />, [
-    getItem('Option 9', '9'),
-    getItem('Option 10', '10'),
-    getItem('Option 11', '11'),
-    getItem('Option 12', '12'),
+  getItem('Navigation Three', '3', <SettingOutlined />, [
+    getItem('Option 1', '31'),
+    getItem('Option 2', '32'),
+    getItem('Option 3', '33'),
+    getItem('Option 4', '34'),
   ]),
 ];
 
-// submenu keys of first level
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
-
 const App: React.FC = () => {
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState(['2', '23']);
+  const [selectedKeys, setSelectedKeys] = useState(['231']);
 
   const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
-      setOpenKeys(keys);
+    const countData: Record<number, number> = {};
+    let repeatIndex: number[] = [];
+    keys.forEach((item, index) => {
+      if (countData[item.length] !== undefined) {
+        repeatIndex = [countData[item.length], index];
+      }
+      countData[item.length] = index;
+    });
+    if (repeatIndex.length) {
+      const [oldIndex, newIndex] = repeatIndex;
+      setOpenKeys(
+        keys
+          .map((item, index) => (index === oldIndex ? keys[newIndex] : item))
+          .filter((_, index) => index !== newIndex),
+      );
     } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+      setOpenKeys(openKeys);
     }
   };
 
@@ -60,7 +71,9 @@ const App: React.FC = () => {
     <Menu
       mode="inline"
       openKeys={openKeys}
+      selectedKeys={selectedKeys}
       onOpenChange={onOpenChange}
+      onSelect={(info) => setSelectedKeys([info.key])}
       style={{ width: 256 }}
       items={items}
     />
