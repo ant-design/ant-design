@@ -53,29 +53,14 @@ function getAriaProps(closable: UseClosableParams['closable']) {
   return null;
 }
 
-function getCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
-  if (closeIcon === false) {
-    return null;
-  }
-  if (closeIcon === true) {
-    return defaultCloseIcon;
-  }
-  return closeIcon;
-}
-
-function getCloseIconByClosable(
-  closable: ClosableType | undefined,
-  closeIcon: ReactNode,
-  defaultCloseIcon: ReactNode,
-  preset: boolean,
-) {
+function getCloseIconByClosable(closable: ClosableType | undefined, closeIcon: ReactNode) {
   if (typeof closable === 'object' && closable.closeIcon) {
-    return getCloseIcon(closable.closeIcon, defaultCloseIcon);
+    return closable.closeIcon;
   }
   if (closable === false) {
     return null;
   }
-  return preset ? getCloseIcon(closeIcon, defaultCloseIcon) : closeIcon;
+  return closeIcon;
 }
 
 function useClosable({
@@ -86,13 +71,8 @@ function useClosable({
   defaultClosable = false,
   context,
 }: UseClosableParams): [closable: boolean, closeIcon: React.ReactNode | null] {
-  const contextCloseIcon = getCloseIconByClosable(
-    context?.closable,
-    context?.closeIcon,
-    defaultCloseIcon,
-    true,
-  );
-  const propCloseIcon = getCloseIconByClosable(closable, closeIcon, defaultCloseIcon, false);
+  const contextCloseIcon = getCloseIconByClosable(context?.closable, context?.closeIcon);
+  const propCloseIcon = getCloseIconByClosable(closable, closeIcon);
 
   const curCloseIcon = typeof propCloseIcon !== 'undefined' ? propCloseIcon : contextCloseIcon;
 
