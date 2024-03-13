@@ -81,7 +81,7 @@ describe('hooks test', () => {
       res: [false, ''],
     },
 
-    // test case like: <Component closeIcon={null | false | element} />
+    // test case like: <Component closeIcon={null | false | element | true} />
     {
       params: [undefined, null, undefined],
       res: [false, ''],
