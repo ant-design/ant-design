@@ -8,9 +8,10 @@ import { useEvent } from 'rc-util';
 import omit from 'rc-util/lib/omit';
 
 import initCollapseMotion from '../_util/motion';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
@@ -18,7 +19,10 @@ import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+
+function isEmptyIcon(icon?: React.ReactNode) {
+  return icon === null || icon === false;
+}
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -114,7 +118,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     return inlineCollapsed;
   }, [inlineCollapsed, siderCollapsed]);
 
-  const defaultMotions = {
+  const defaultMotions: MenuProps['defaultMotions'] = {
     horizontal: { motionName: `${rootPrefixCls}-slide-up` },
     inline: initCollapseMotion(rootPrefixCls),
     other: { motionName: `${rootPrefixCls}-zoom-big` },
@@ -125,23 +129,25 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, menu?.className, className);
 
-  // ====================== Expand Icon ========================
-  let mergedExpandIcon: MenuProps['expandIcon'];
-  if (typeof expandIcon === 'function') {
-    mergedExpandIcon = expandIcon;
-  } else if (expandIcon === null || expandIcon === false) {
-    mergedExpandIcon = null;
-  } else if (overrideObj.expandIcon === null || overrideObj.expandIcon === false) {
-    mergedExpandIcon = null;
-  } else {
-    const beClone: React.ReactNode = (expandIcon ?? overrideObj.expandIcon) as React.ReactNode;
-    mergedExpandIcon = cloneElement(beClone, {
+  // ====================== ExpandIcon ========================
+  const mergedExpandIcon = React.useMemo<MenuProps['expandIcon']>(() => {
+    if (typeof expandIcon === 'function' || isEmptyIcon(expandIcon)) {
+      return expandIcon || null;
+    }
+    if (typeof overrideObj.expandIcon === 'function' || isEmptyIcon(overrideObj.expandIcon)) {
+      return overrideObj.expandIcon || null;
+    }
+    if (typeof menu?.expandIcon === 'function' || isEmptyIcon(menu?.expandIcon)) {
+      return menu?.expandIcon || null;
+    }
+    const mergedIcon = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;
+    return cloneElement(mergedIcon, {
       className: classNames(
         `${prefixCls}-submenu-expand-icon`,
-        isValidElement(beClone) ? beClone.props?.className : '',
+        React.isValidElement(mergedIcon) ? mergedIcon.props?.className : undefined,
       ),
     });
-  }
+  }, [expandIcon, overrideObj?.expandIcon, menu?.expandIcon, prefixCls]);
 
   // ======================== Context ==========================
   const contextValue = React.useMemo<MenuContextProps>(

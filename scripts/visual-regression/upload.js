@@ -101,10 +101,14 @@ async function uploadFile(client, filePath, refValue) {
   console.log('Uploading file: %s', filePath);
   try {
     const targetFilePath = path.relative(process.cwd(), filePath);
-    const r1 = await client.put(`${refValue}/${targetFilePath}`, filePath, { headers });
+    const r1 = await client.put(`${refValue}/${targetFilePath}`, filePath, {
+      headers,
+      timeout: 60000 * 2,
+    });
     console.log('Uploading file successfully: %s', r1.name);
   } catch (err) {
     console.error('Uploading file failed: %s', err);
+    throw err;
   }
 }
 

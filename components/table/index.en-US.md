@@ -193,6 +193,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
+| filterOnClose | Whether to trigger filter when the filter menu closes | boolean | true | 5.15.0 |
 | filterMultiple | Whether multiple filters can be selected | boolean | true |  |
 | filterMode | To specify the filter interface | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | Whether to be searchable for filter menu | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
-
 import useClosable from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 
@@ -30,7 +29,7 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 
@@ -79,13 +78,19 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     [onClose],
   );
 
-  const [mergedClosable, mergedCloseIcon] = useClosable(
-    closable,
-    typeof closeIcon !== 'undefined' ? closeIcon : drawerContext?.closeIcon,
+  const mergedContextCloseIcon = React.useMemo(() => {
+    if (typeof drawerContext?.closable === 'object' && drawerContext.closable.closeIcon) {
+      return drawerContext.closable.closeIcon;
+    }
+    return drawerContext?.closeIcon;
+  }, [drawerContext?.closable, drawerContext?.closeIcon]);
+
+  const [mergedClosable, mergedCloseIcon] = useClosable({
+    closable: closable ?? drawerContext?.closable,
+    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : mergedContextCloseIcon,
     customCloseIconRender,
-    undefined,
-    true,
-  );
+    defaultClosable: true,
+  });
 
   const headerNode = React.useMemo<React.ReactNode>(() => {
     if (!title && !mergedClosable) {

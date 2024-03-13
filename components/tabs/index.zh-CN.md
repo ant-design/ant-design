@@ -50,14 +50,15 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | activeKey | 当前激活 tab 面板的 key | string | - |  |
-| addIcon | 自定义添加按钮 | ReactNode | - | 4.4.0 |
+| addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<PlusOutlined />` | 4.4.0 |
 | animated | 是否使用动画切换 Tabs | boolean\| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | 标签居中展示 | boolean | false | 4.4.0 |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板` |  |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false |  |
 | indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | 配置选项卡内容 | [TabItemType](#tabitemtype) | [] | 4.23.0 |
-| moreIcon | 自定义折叠 icon | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
+| moreIcon | 自定义折叠 icon | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
+| removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | 更多菜单的 `className` | string | - | 4.21.0 |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | 大小，提供 `large` `middle` 和 `small` 三种大小 | string | `middle` |  |

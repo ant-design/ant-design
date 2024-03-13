@@ -63,6 +63,9 @@ const useStyle = createStyles(({ token }) => {
   const { borderRadius } = token;
   return {
     codeHideBtn: css`
+      position: sticky;
+      bottom: 0;
+      z-index: 1;
       width: 100%;
       height: 40px;
       display: flex;
@@ -432,6 +435,40 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 </Tooltip>
               </form>
             ) : null}
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  track({ type: 'stackblitz', demo: asset.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
+                    openFile: [`demo.${suffix}`],
+                  });
+                }}
+              >
+                <ThunderboltOutlined
+                  className="code-box-stackblitz"
+                  style={{ transform: 'scale(1.2)' }}
+                />
+              </span>
+            </Tooltip>
+            <form
+              className="code-box-code-action"
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              ref={codepenIconRef}
+              onClick={() => {
+                track({ type: 'codepen', demo: asset.id });
+                codepenIconRef.current?.submit();
+              }}
+            >
+              <ClientOnly>
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              </ClientOnly>
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <CodePenIcon className="code-box-codepen" />
+              </Tooltip>
+            </form>
             <form
               className="code-box-code-action"
               action="https://codesandbox.io/api/v1/sandboxes/define"
@@ -452,37 +489,6 @@ createRoot(document.getElementById('container')).render(<Demo />);
                 <CodeSandboxIcon className="code-box-codesandbox" />
               </Tooltip>
             </form>
-            <form
-              className="code-box-code-action"
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              ref={codepenIconRef}
-              onClick={() => {
-                track({ type: 'codepen', demo: asset.id });
-                codepenIconRef.current?.submit();
-              }}
-            >
-              <ClientOnly>
-                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              </ClientOnly>
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <CodePenIcon className="code-box-codepen" />
-              </Tooltip>
-            </form>
-            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
-              <span
-                className="code-box-code-action"
-                onClick={() => {
-                  track({ type: 'stackblitz', demo: asset.id });
-                  stackblitzSdk.openProject(stackblitzPrefillConfig, {
-                    openFile: [`demo.${suffix}`],
-                  });
-                }}
-              >
-                <ThunderboltOutlined className="code-box-stackblitz" />
-              </span>
-            </Tooltip>
             <Tooltip title={<FormattedMessage id="app.demo.separate" />}>
               <a
                 className="code-box-code-action"

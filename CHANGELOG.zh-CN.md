@@ -16,6 +16,80 @@ tag: vVERSION
 
 ---
 
+## 5.15.2
+
+`2024-03-11`
+
+- 🛠 调整 Tour、Dropdown、Menu、Tabs、Mentions、Picker、Select、TreeSelect、Cascader、Tooltip、Popover 弹层点击外部的关闭时机，从 `click` 调整至 `mouseDown` 以统一解决一些与弹窗相关交互中的事件时序问题。[#47775](https://github.com/ant-design/ant-design/pull/47775)
+- 🐞 修复 Descriptions 内容区域额外的边距问题。[#47737](https://github.com/ant-design/ant-design/pull/47737)
+- 🐞 修复 Anchor 界限值为 0 时 active 状态错误的问题。[#47795](https://github.com/ant-design/ant-design/pull/47795)[@winchesHe](https://github.com/winchesHe)
+- 💄 给 ColorPicker 清除按钮补上鼠标 hover 反馈样式。[#47761](https://github.com/ant-design/ant-design/pull/47761)
+- 🇷🇺 更新 DatePicker 的俄语文案。[#47768](https://github.com/ant-design/ant-design/pull/47768) [@AlexeyTeterin](https://github.com/AlexeyTeterin)
+
+## 5.15.1
+
+`2024-03-06`
+
+- 🐞 回滚移除 Tag 默认间距的代码。[#47736](https://github.com/ant-design/ant-design/pull/47736)
+- 🇷🇺 更新 DatePicker 的俄语文案。[#47705](https://github.com/ant-design/ant-design/pull/47705)
+
+## 5.15.0
+
+`2024-03-02`
+
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 Input.TextArea 组件 `allowClear`、`autoComplete`、`className`、`style`、`classNames`、`styles` 属性。[#47589](https://github.com/ant-design/ant-design/pull/47589)
+  - 🆕 ConfigProvider 支持 Input 组件 `allowClear` 属性。[#47602](https://github.com/ant-design/ant-design/pull/47602)
+  - 🆕 ConfigProvider 支持 Menu 组件 `expandIcon` 属性。[#47561](https://github.com/ant-design/ant-design/pull/47561)
+  - 🆕 ConfigProvider 支持 Collapse 组件 `expandIcon` 属性。[#47473](https://github.com/ant-design/ant-design/pull/47473)
+  - 🆕 ConfigProvider 支持 Tabs `removeIcon` 属性, 在设置 `type="editable-card"` 时有效。[#47334](https://github.com/ant-design/ant-design/pull/47334)
+  - 🆕 CSS 变量的前缀默认跟随 ConfigProvider 的 `prefixCls` 属性。[#47481](https://github.com/ant-design/ant-design/pull/47481)
+  - 🤖 ConfigProvider 中 CardProps `styles` 设为可选。[#47601](https://github.com/ant-design/ant-design/pull/47601) [@Yawenina](https://github.com/Yawenina)
+- 🆕 Select、Checkbox、Radio、DatePicker、TreeSelect、Cascader 支持 `focus` 功能支持传递 `options`。[#47664](https://github.com/ant-design/ant-design/pull/47664)
+- 🆕 Modal 支持在 `closable` 中配置 `aria-*`。[#47650](https://github.com/ant-design/ant-design/pull/47650)
+- 🆕 Alert 支持在 `closable` 中配置 `aria-*`。[#47474](https://github.com/ant-design/ant-design/pull/47474)
+- 🆕 Tabs 组件支持 `removeIcon` 属性，在设置 `type="editable-card"` 时有效。[#47334](https://github.com/ant-design/ant-design/pull/47334)
+- Drawer
+  - 🆕 Drawer 支持在 `closable` 中配置 `aria-*`。[#47543](https://github.com/ant-design/ant-design/pull/47543)
+  - 🆕 Drawer 支持传递 `aria-*` 属性给 panel 节点。[#47387](https://github.com/ant-design/ant-design/pull/47387)
+- Table
+  - 🆕 Table 新增 `filterOnClose` 用于指定是否在筛选菜单关闭时触发筛选。[#47451](https://github.com/ant-design/ant-design/pull/47451) [@xsjcTony](https://github.com/xsjcTony)
+  - 🆕 Table 新增 `components.header.table` 以自定义滚动列时的标题组件。[#47382](https://github.com/ant-design/ant-design/pull/47382)
+  - 🐞 修复 Table `sticky` 下，初次渲染不会显示滚动条的问题。[#47382](https://github.com/ant-design/ant-design/pull/47382)
+  - 🐞 修复 Table `column.title` 为空时列头没有使用 `th` 元素的问题。[#47382](https://github.com/ant-design/ant-design/pull/47382)
+  - 🐞 修复 Table 使用虚拟列表时 `prefixCls` 无效的问题。[#47639](https://github.com/ant-design/ant-design/pull/47639)
+  - 💄 修复 Table 固定列时阴影展示异常的问题。[#47518](https://github.com/ant-design/ant-design/pull/47518)
+- 🐞 修复 Tree 使用 DirectoryTree 时，按住 shift 连续多选报错的问题。[#47567](https://github.com/ant-design/ant-design/pull/47567) [@wkmyws](https://github.com/wkmyws)
+- 🐞 修复 Form 存在 Form.List 时，`isFieldsTouched(true)` 始终会返回 `false` 的问题。[#47629](https://github.com/ant-design/ant-design/pull/47629) [@lemonied](https://github.com/lemonied)
+- 🐞 修复 Button 不兼容 v4 `type=''` 的问题。[#47612](https://github.com/ant-design/ant-design/pull/47612)
+- 🛠 重构 Typography 省略测量逻辑以支持动态行高的场景。[#47597](https://github.com/ant-design/ant-design/pull/47597)
+- 💄 移除 Tag 组件多余的 margin 样式。[#47504](https://github.com/ant-design/ant-design/pull/47504)
+- 🤖 杂项：修复不能在 pnpm 配置 `hoist: false` 下编译的问题。[#47587](https://github.com/ant-design/ant-design/pull/47587)
+
+## 5.14.2
+
+`2024-02-23`
+
+- 🐞 修复 DatePicker.RangePicker 的时间列有时不会滚动到正确位置的问题。[#47542](https://github.com/ant-design/ant-design/pull/47542)
+- 🐞 修复 Modal 在打开期间会触发其他鼠标事件的问题。[#47508](https://github.com/ant-design/ant-design/pull/47508) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Avatar.Group 的 tooltip 存在多余 dom 残留的问题。[#47478](https://github.com/ant-design/ant-design/pull/47478)
+- 💄 修复 Progress 组件多余的 `margin` 样式。[#47493](https://github.com/ant-design/ant-design/pull/47493) [@li-jia-nan](https://github.com/li-jia-nan)
+- 💄 修复 Table 滚动条在暗黑模式下的颜色。[#47487](https://github.com/ant-design/ant-design/pull/47487) [@wkmyws](https://github.com/wkmyws)
+- 💄 修复 Layout 内容字体在暗黑模式下的颜色。[#47441](https://github.com/ant-design/ant-design/pull/47441) [@nova1751](https://github.com/nova1751)
+- 💄 修复 Menu 组件在水平暗黑模式下自定义 `darkItemSelectedColor` 和 `darkItemSelectedBg` token 不生效的问题。[#47463](https://github.com/ant-design/ant-design/pull/47463) [@gandavarapurajasekhar](https://github.com/gandavarapurajasekhar)
+
+## 5.14.1
+
+`2024-02-13`
+
+- 🐞 修复 Steps `type="inline"` 时鼠标无法 hover 到正确的步骤上的问题。[#47406](https://github.com/ant-design/ant-design/pull/47406)
+- 🐞 修复 DatePicker 与 TimePicker 弹出面板箭头没有考虑面板本身圆角的问题。[#47389](https://github.com/ant-design/ant-design/pull/47389)
+- 🐞 修复 Dropdown `menu.items` 为空时依然显示的问题。[#47375](https://github.com/ant-design/ant-design/pull/47375)
+- 🐞 修复 Tag 无边框模式没有正确使用 `defaultBg` 组件 token 的问题。[#47372](https://github.com/ant-design/ant-design/pull/47372) [@MadCcc](https://github.com/MadCcc)
+- 🐞 杂项：修复主题 `inherit` 配置会隔断 `hashed` 和 `cssVar` 配置的问题。[#47360](https://github.com/ant-design/ant-design/pull/47360) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Calendar 在切换年月时，面板没有跟着切换的问题。[#47361](https://github.com/ant-design/ant-design/pull/47361)
+- 💄 修复 Table 在虚拟模式下子表格的样式问题。[#47333](https://github.com/ant-design/ant-design/pull/47333) [@Enigama](https://github.com/Enigama)
+
 ## 5.14.0
 
 `2024-02-04`

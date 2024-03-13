@@ -31,6 +31,7 @@ export interface TabsProps extends Omit<RcTabsProps, 'editable'> {
   hideAdd?: boolean;
   centered?: boolean;
   addIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode;
   onEdit?: (e: React.MouseEvent | React.KeyboardEvent | string, action: 'add' | 'remove') => void;
   children?: React.ReactNode;
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
@@ -47,6 +48,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
     hideAdd,
     centered,
     addIcon,
+    removeIcon,
     moreIcon,
     popupClassName,
     children,
@@ -69,7 +71,7 @@ const Tabs: React.FC<TabsProps> & { TabPane: typeof TabPane } = (props) => {
       onEdit: (editType, { key, event }) => {
         onEdit?.(editType === 'add' ? event : key!, editType);
       },
-      removeIcon: <CloseOutlined />,
+      removeIcon: removeIcon ?? tabs?.removeIcon ?? <CloseOutlined />,
       addIcon: (addIcon ?? tabs?.addIcon) || <PlusOutlined />,
       showAdd: hideAdd !== true,
     };

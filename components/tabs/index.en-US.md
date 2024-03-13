@@ -48,14 +48,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |  |
-| addIcon | Customize add icon | ReactNode | - | 4.4.0 |
+| addIcon | Customize add icon, only works with `type="editable-card"` | ReactNode | `<PlusOutlined />` | 4.4.0 |
 | animated | Whether to change tabs with animation. | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
-| moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
+| moreIcon | The custom icon of ellipsis | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
+| removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` |  |
