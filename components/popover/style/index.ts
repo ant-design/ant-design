@@ -123,6 +123,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         [`${componentCls}-inner-content`]: {
           color: popoverColor,
           padding: innerContentPadding,
+          wordWrap: 'break-word',
         },
       },
     },
