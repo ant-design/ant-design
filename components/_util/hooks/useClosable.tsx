@@ -67,7 +67,7 @@ function getCloseIconByClosable(
   closable: ClosableType | undefined,
   closeIcon: ReactNode,
   defaultCloseIcon: ReactNode,
-  preset = true,
+  preset: boolean,
 ) {
   if (typeof closable === 'object' && closable.closeIcon) {
     return getCloseIcon(closable.closeIcon, defaultCloseIcon);

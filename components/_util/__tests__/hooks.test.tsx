@@ -91,6 +91,10 @@ describe('hooks test', () => {
       res: [false, ''],
     },
     {
+      params: [undefined, true, undefined],
+      res: [true, '.anticon-close'],
+    },
+    {
       params: [
         undefined,
         <div className="custom-close" key="close">
