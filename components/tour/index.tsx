@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import RCTour from '@rc-component/tour';
+import RCTour, { type TourProps as RcTourProps } from '@rc-component/tour';
 import classNames from 'classnames';
 
 import { useZIndex } from '../_util/hooks/useZIndex';
@@ -8,7 +8,7 @@ import zIndexContext from '../_util/zindexContext';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { useToken } from '../theme/internal';
-import type { TourProps, TourStepProps } from './interface';
+import type { TourProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
@@ -22,6 +22,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
     indicatorsRender,
     steps,
+    closeIcon,
     ...restProps
   } = props;
   const { getPrefixCls, direction, tour } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -58,12 +59,11 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     rootClassName,
   );
 
-  const mergedRenderPanel = (stepProps: TourStepProps, stepCurrent: number): React.ReactNode => (
+  const mergedRenderPanel: RcTourProps['renderPanel'] = (stepProps, stepCurrent) => (
     <TourPanel
       type={type}
       stepProps={stepProps}
       current={stepCurrent}
-      closeIcon={tour?.closeIcon}
       indicatorsRender={indicatorsRender}
     />
   );
@@ -75,6 +75,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     <zIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
+        closeIcon={closeIcon ?? tour?.closeIcon}
         zIndex={zIndex}
         rootClassName={customClassName}
         prefixCls={prefixCls}

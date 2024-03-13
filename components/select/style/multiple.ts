@@ -6,7 +6,7 @@ import { mergeToken, type AliasToken } from '../../theme/internal';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 import type { SelectToken } from './token';
 
-const FIXED_ITEM_MARGIN = 2;
+export const FIXED_ITEM_MARGIN = 2;
 
 type SelectItemToken = Pick<
   SelectToken,

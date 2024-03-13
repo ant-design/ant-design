@@ -718,7 +718,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
         <span>
           <span
             class="ant-tag ant-tag-gold"
-            style="margin-right:3px"
+            style="margin-inline-end:4px"
           >
             gold
             <span
@@ -752,7 +752,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
         <span>
           <span
             class="ant-tag ant-tag-cyan"
-            style="margin-right:3px"
+            style="margin-inline-end:4px"
           >
             cyan
             <span

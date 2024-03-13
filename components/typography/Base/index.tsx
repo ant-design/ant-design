@@ -472,7 +472,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       {(resizeRef: React.RefObject<HTMLElement>) => (
         <EllipsisTooltip
           tooltipProps={tooltipProps}
-          enabledEllipsis={mergedEnableEllipsis}
+          enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
         >
           <Typography
@@ -501,7 +501,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             {...textProps}
           >
             <Ellipsis
-              enabledMeasure={mergedEnableEllipsis && !cssEllipsis}
+              enableMeasure={mergedEnableEllipsis && !cssEllipsis}
               text={children}
               rows={rows}
               width={ellipsisWidth}

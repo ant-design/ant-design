@@ -10,7 +10,7 @@ It's easier to find out the problem with the dependencies own by ourselves. But 
 
 ### Confirm information
 
-We have added a [template site](https://new-issue.ant.design/) for Github issue. Developers will see the following form when submitting issues, and developers will be asked to fill in the relevant information as completely as possible:
+We have added a [template site](https://new-issue.ant.design/) for GitHub issue. Developers will see the following form when submitting issues, and developers will be asked to fill in the relevant information as completely as possible:
 
 ![Issue Helper](https://user-images.githubusercontent.com/5378891/231633510-2e7c7819-12c2-4153-b3c8-4d5576116a08.png)
 
@@ -26,7 +26,7 @@ Then through the issue description, you can determine the approximate package an
 
 ![Publish Time](https://user-images.githubusercontent.com/5378891/231636272-e423301a-f8df-407e-8d4e-a49e219631e4.png)
 
-When we find relevant updates, we will install the previous version for comparison to see if the build was successful. After checking one by one, we can determine which version the problem is, and we will also raise an issue for the corresponding Github (of course, if there is already one, just +1). At the same time, we also need to send a patch version to temporarily lock the corresponding version and remove it after the next update.
+When we find relevant updates, we will install the previous version for comparison to see if the build was successful. After checking one by one, we can determine which version the problem is, and we will also raise an issue for the corresponding GitHub (of course, if there is already one, just +1). At the same time, we also need to send a patch version to temporarily lock the corresponding version and remove it after the next update.
 
 ### Schedule build
 
