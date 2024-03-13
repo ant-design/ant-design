@@ -21,21 +21,29 @@ export type UseClosableParams = {
   context?: TagConfig | DrawerConfig | ModalConfig | AlertConfig;
 };
 
+function getMergedCloseIcon(closeIcon: ReactNode, defaultCloseIcon: ReactNode) {
+  return typeof closeIcon === 'boolean' || closeIcon === undefined || closeIcon === null
+    ? defaultCloseIcon
+    : closeIcon;
+}
+
 function useInnerClosable(
   closable?: UseClosableParams['closable'],
   closeIcon?: ReactNode,
   defaultClosable?: boolean,
+  defaultCloseIcon?: ReactNode,
 ) {
   if (typeof closable === 'boolean') {
-    return closable;
+    return [closable, closable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
   }
   if (typeof closable === 'object') {
-    return true;
+    return [true, getMergedCloseIcon(closeIcon, defaultCloseIcon)];
   }
   if (closeIcon === undefined) {
-    return !!defaultClosable;
+    return [!!defaultClosable, defaultClosable ? defaultCloseIcon : null];
   }
-  return closeIcon !== false && closeIcon !== null;
+  const curClosable = closeIcon !== false && closeIcon !== null;
+  return [curClosable, curClosable ? getMergedCloseIcon(closeIcon, defaultCloseIcon) : null];
 }
 
 function getAriaProps(closable: UseClosableParams['closable']) {
@@ -88,13 +96,12 @@ function useClosable({
 
   const curCloseIcon = typeof propCloseIcon !== 'undefined' ? propCloseIcon : contextCloseIcon;
 
-  const mergedClosable = useInnerClosable(closable, curCloseIcon, defaultClosable);
-
-  const mergedCloseIcon: ReactNode = useMemo(() => {
-    return typeof curCloseIcon === 'boolean' || curCloseIcon === undefined || curCloseIcon === null
-      ? defaultCloseIcon
-      : curCloseIcon;
-  }, [curCloseIcon, defaultCloseIcon]);
+  const [mergedClosable, mergedCloseIcon] = useInnerClosable(
+    closable,
+    curCloseIcon,
+    defaultClosable,
+    defaultCloseIcon,
+  );
 
   const ariaProps = useMemo(
     () => getAriaProps(closable) ?? getAriaProps(context?.closable) ?? {},
