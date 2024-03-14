@@ -225,7 +225,7 @@ message/notification/Modal.confirm 等静态方法不同于 `<Button />` 的渲�
 
 ## CSS-in-JS 如何与 Shadow DOM 一同使用？
 
-请参考文档 [Shadow Dom 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
+请参考文档 [Shadow DOM 场景](/docs/react/compatible-style-cn#shadow-dom-场景) 内容。
 
 ## 如何关闭组件动画
 
