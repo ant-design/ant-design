@@ -80,6 +80,7 @@ import 'dayjs/locale/zh-cn';
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
+// Make sure you import the relevant dayjs file as well, otherwise the locale won't change for all texts (e.g. range picker months)
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 
