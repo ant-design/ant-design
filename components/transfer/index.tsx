@@ -17,7 +17,7 @@ import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import useData from './hooks/useData';
 import useSelection from './hooks/useSelection';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { TransferCustomListBodyProps, TransferListProps } from './list';
 import List from './list';
 import Operation from './operation';
@@ -27,8 +27,6 @@ import useStyle from './style';
 export type { TransferListProps } from './list';
 export type { TransferOperationProps } from './operation';
 export type { TransferSearchProps } from './search';
-
-export type TransferKey = React.Key;
 
 export type TransferDirection = 'left' | 'right';
 

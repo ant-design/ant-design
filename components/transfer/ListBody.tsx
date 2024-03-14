@@ -2,9 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import type { KeyWiseTransferItem, TransferKey } from '.';
+import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
 

@@ -13,10 +13,9 @@ import type {
   RenderResultObject,
   SelectAllLabel,
   TransferDirection,
-  TransferKey,
   TransferLocale,
 } from './index';
-import type { PaginationType } from './interface';
+import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
 import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';

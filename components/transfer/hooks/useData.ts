@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import type { KeyWise, TransferKey, TransferProps } from '..';
+import type { KeyWise, TransferProps } from '..';
 import { groupKeysMap } from '../../_util/transKeys';
 import type { AnyObject } from '../../_util/type';
+import type { TransferKey } from '../interface';
 
 const useData = <RecordType extends AnyObject>(
   dataSource?: RecordType[],
