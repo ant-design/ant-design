@@ -81,6 +81,7 @@ import 'dayjs/locale/zh-cn';
 
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
+// 确保还导入相关的 dayjs 文件，否则所有文本的区域设置都不会更改（例如范围选择器月份）
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 
