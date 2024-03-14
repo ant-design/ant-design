@@ -1,15 +1,10 @@
 import React from 'react';
-import type { DatePickerProps } from 'antd';
 import { ConfigProvider, DatePicker, Divider, Flex, Space, TimePicker } from 'antd';
 import dayjs from 'dayjs';
 
 /** Test usage. Do not use in your production. */
 
 const { RangePicker } = DatePicker;
-
-const onChange: DatePickerProps['onChange'] = (date, dateString) => {
-  console.log(date, dateString);
-};
 
 const App: React.FC = () => (
   <>
@@ -40,17 +35,25 @@ const App: React.FC = () => (
             { label: 'Last Week', value: dayjs().add(-7, 'd') },
             { label: 'Last Month', value: dayjs().add(-1, 'month') },
           ]}
-          onChange={onChange}
         />
         <RangePicker />
-        <TimePicker onChange={onChange} />
-        <DatePicker onChange={onChange} picker="month" />
+        <TimePicker />
+        <DatePicker picker="month" />
       </Space>
     </ConfigProvider>
 
     <Divider />
 
-    <ConfigProvider theme={{ token: { controlHeightSM: 32, controlHeight: 40 } }}>
+    <ConfigProvider
+      theme={{
+        components: {
+          DatePicker: {
+            controlHeightSM: 32,
+            controlHeight: 40,
+          },
+        },
+      }}
+    >
       <Flex vertical gap={8}>
         <DatePicker multiple size="small" />
         <DatePicker multiple />

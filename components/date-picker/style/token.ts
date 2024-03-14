@@ -142,6 +142,8 @@ export const initPanelComponentToken = (token: GlobalToken): PanelComponentToken
   const { colorBgContainerDisabled, controlHeight, controlHeightSM, controlHeightLG, paddingXXS } =
     token;
 
+  console.log('??!!!', controlHeightLG, paddingXXS * 2);
+
   return {
     cellHoverBg: token.controlItemBgHover,
     cellActiveWithRangeBg: token.controlItemBgActive,
