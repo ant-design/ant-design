@@ -13,6 +13,7 @@ import type {
   RenderResultObject,
   SelectAllLabel,
   TransferDirection,
+  TransferKey,
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
@@ -50,11 +51,15 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   dataSource: RecordType[];
   filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean;
   style?: React.CSSProperties;
-  checkedKeys: string[];
+  checkedKeys: TransferKey[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onItemSelect: (key: string, check: boolean, e?: React.MouseEvent<Element, MouseEvent>) => void;
-  onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
-  onItemRemove?: (keys: string[]) => void;
+  onItemSelect: (
+    key: TransferKey,
+    check: boolean,
+    e?: React.MouseEvent<Element, MouseEvent>,
+  ) => void;
+  onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void;
+  onItemRemove?: (keys: TransferKey[]) => void;
   handleClear: () => void;
   /** Render item */
   render?: (item: RecordType) => RenderResult;
