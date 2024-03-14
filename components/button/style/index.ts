@@ -342,14 +342,16 @@ const genLinkButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
 
 // Type: Text
 const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => ({
+  color: token.textColor,
+
   ...genHoverActiveButtonStyle(
     token.componentCls,
     {
-      color: token.colorText,
+      color: token.textHoverColor,
       background: token.textHoverBg,
     },
     {
-      color: token.colorText,
+      color: token.textActiveColor,
       background: token.colorBgTextActive,
     },
   ),
