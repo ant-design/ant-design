@@ -50,7 +50,7 @@ v5 use `rootClassName` & `rootStyle` to config wrapper style instead of `classNa
 | --- | --- | --- | --- | --- |
 | autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
-| className | Config Drawer Panel className. Use `rootClassName` if want to config top dom style | string | - |  |
+| className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
 | classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
 | closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
