@@ -22,14 +22,14 @@ import { NoCompactStyle, useCompactItemContext } from '../../space/Compact';
 import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getPlaceholder, transPlacement2DropdownAlign, useIcons } from '../util';
-import type { PickerProps, PickerPropsWithMultiple } from './interface';
+import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
 import useComponents from './useComponents';
 
 export default function generatePicker<DateType extends AnyObject>(
   generateConfig: GenerateConfig<DateType>,
 ) {
   type DatePickerProps = PickerProps<DateType>;
-  type TimePickerProps = Omit<PickerProps<DateType>, 'picker' | 'showTime'>;
+  type TimePickerProps = GenericTimePickerProps<DateType>;
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
@@ -204,8 +204,8 @@ export default function generatePicker<DateType extends AnyObject>(
   const WeekPicker = getPicker<Omit<DatePickerProps, 'picker'>>('week', 'WeekPicker');
   const MonthPicker = getPicker<Omit<DatePickerProps, 'picker'>>('month', 'MonthPicker');
   const YearPicker = getPicker<Omit<DatePickerProps, 'picker'>>('year', 'YearPicker');
+  const QuarterPicker = getPicker<Omit<DatePickerProps, 'picker'>>('quarter', 'QuarterPicker');
   const TimePicker = getPicker<Omit<TimePickerProps, 'picker'>>('time', 'TimePicker');
-  const QuarterPicker = getPicker<Omit<TimePickerProps, 'picker'>>('quarter', 'QuarterPicker');
 
   return { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker };
 }
