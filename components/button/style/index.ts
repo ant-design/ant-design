@@ -229,6 +229,7 @@ const genTextLinkButtonStyle = (
   activeStyle: CSSObject,
 ) => ({
   [`&${token.componentCls}-${variant}`]: {
+    color: token.textColor,
     boxShadow: 'none',
 
     ...genVariantButtonStyle(token, hoverStyle, activeStyle, variant),
@@ -286,11 +287,11 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
     token,
     'text',
     {
-      color: token.colorText,
+      color: token.textHoverColor,
       background: token.textHoverBg,
     },
     {
-      color: token.colorText,
+      color: token.textActiveColor,
       background: token.colorBgTextActive,
     },
   ),
