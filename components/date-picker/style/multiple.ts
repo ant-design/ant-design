@@ -30,6 +30,11 @@ const genSize = (token: PickerToken, suffix?: string): CSSInterpolation => {
         paddingBottom,
         paddingInlineStart: paddingBase,
         minHeight: controlHeight,
+
+        // Override the `genSelectionStyle`
+        [`&${componentCls} ${componentCls}-selector:after`]: {
+          display: 'none',
+        },
       },
     },
   ];

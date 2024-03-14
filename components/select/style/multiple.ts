@@ -20,6 +20,42 @@ type SelectItemToken = Pick<
   | 'inputPaddingHorizontalBase'
 >;
 
+/**
+ * Get multiple selector needed style. The calculation:
+ * Border:                    ╔════════════════╗                 ┬
+ * Padding:                   ║                ║                 │
+ *                            ╟────────────────╢     ┬           │
+ * Item Margin:               ║                ║     │           │
+ *                            ║  ┌──────────┐  ║     │           │
+ * Item(multipleItemHeight):  ║  │   Item   │  ║  Overflow  Selector(ControlHeight)
+ *                            ║  └──────────┘  ║     │           │
+ * Item Margin:               ║                ║     │           │
+ *                            ╟────────────────╢     ┴           │
+ * Padding:                   ║                ║                 │
+ * Border:                    ╚════════════════╝                 ┴
+ */
+export const getMultipleSelectorStyle = (
+  token: SelectToken,
+): [containerStyle: CSSObject, itemStyle: CSSObject] => {
+  const { multipleItemHeight, paddingXXS, lineWidth } = token;
+
+  const basePadding = token.max(token.calc(paddingXXS).sub(lineWidth).equal(), 0);
+  const containerPadding = token.max(token.calc(basePadding).sub(FIXED_ITEM_MARGIN).equal(), 0);
+
+  // Container
+  const containerStyle: CSSObject = {
+    padding: containerPadding,
+  };
+
+  // Item
+  const itemStyle: CSSObject = {
+    lineHeight: unit(multipleItemHeight),
+    marginBlock: FIXED_ITEM_MARGIN,
+  };
+
+  return [containerStyle, itemStyle];
+};
+
 const getSelectItemStyle = (token: SelectItemToken): number | string => {
   const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
   const selectItemDist = token
@@ -241,7 +277,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
 
   const smallToken = mergeToken<SelectToken>(token, {
     selectHeight: token.controlHeightSM,
-    multipleSelectItemHeight: token.controlHeightXS,
+    multipleSelectItemHeight: token.multipleItemHeightSM,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });
