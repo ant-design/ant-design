@@ -53,6 +53,7 @@ export default function generatePicker<DateType extends AnyObject>(
         disabled: customDisabled,
         status: customStatus,
         variant: customVariant,
+        onCalendarChange,
         ...restProps
       } = props;
 
@@ -83,6 +84,18 @@ export default function generatePicker<DateType extends AnyObject>(
 
       const rootPrefixCls = getPrefixCls();
 
+      // ==================== Legacy =====================
+      const { onSelect, multiple } = restProps as TimePickerProps;
+      const hasLegacyOnSelect = onSelect && picker === 'time' && !multiple;
+
+      const onInternalCalendarChange: typeof onCalendarChange = (date, dateStr, info) => {
+        onCalendarChange?.(date, dateStr, info);
+
+        if (hasLegacyOnSelect) {
+          onSelect(date as any);
+        }
+      };
+
       // =================== Warning =====================
       if (process.env.NODE_ENV !== 'production') {
         const warning = devUseWarning(displayName! || 'DatePicker');
@@ -96,6 +109,8 @@ export default function generatePicker<DateType extends AnyObject>(
         warning.deprecated(!dropdownClassName, 'dropdownClassName', 'popupClassName');
 
         warning.deprecated(!('bordered' in props), 'bordered', 'variant');
+
+        warning.deprecated(!hasLegacyOnSelect, 'onSelect', 'onCalendarChange');
       }
 
       // ===================== Icon =====================
@@ -141,6 +156,7 @@ export default function generatePicker<DateType extends AnyObject>(
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
             transitionName={`${rootPrefixCls}-slide-up`}
             picker={picker}
+            onCalendarChange={onInternalCalendarChange}
             {...additionalProps}
             {...restProps}
             locale={locale!.lang}
