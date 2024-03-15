@@ -39,6 +39,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
           [actionsCls]: {
             whiteSpace: 'nowrap',
+
             [actionCls]: {
               opacity: 0,
             },
