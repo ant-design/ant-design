@@ -6,6 +6,7 @@ import RcCollapse from 'rc-collapse';
 import type { CSSMotionProps } from 'rc-motion';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
+import pickAttrs from 'rc-util/lib/pickAttrs';
 
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
@@ -71,7 +72,6 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPosition = 'start',
     children,
     expandIcon,
-    ...otherProps
   } = props;
 
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
@@ -157,6 +157,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   return wrapCSSVar(
     <RcCollapse
+      {...pickAttrs(props, { aria: true, data: true })}
       ref={ref}
       openMotion={openMotion}
       {...omit(props, ['rootClassName'])}
@@ -164,7 +165,6 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...collapse?.style, ...style }}
-      {...otherProps}
     >
       {items}
     </RcCollapse>,
