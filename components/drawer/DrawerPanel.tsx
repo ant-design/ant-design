@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import type { DrawerProps as RCDrawerProps } from 'rc-drawer';
-import useClosable from '../_util/hooks/useClosable';
+import useClosable, { type ClosableType } from '../_util/hooks/useClosable';
 import { ConfigContext } from '../config-provider';
 
 export interface DrawerClassNames extends NonNullable<RCDrawerProps['classNames']> {
@@ -29,7 +29,7 @@ export interface DrawerPanelProps {
    *
    * `<Drawer closeIcon={false} />`
    */
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  closable?: ClosableType;
   closeIcon?: React.ReactNode;
   onClose?: RCDrawerProps['onClose'];
 

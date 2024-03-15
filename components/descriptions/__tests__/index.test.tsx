@@ -357,7 +357,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    const nestDesc = container.querySelectorAll('.ant-descriptions')?.[1];
+    const nestDesc = container.querySelectorAll('.ant-descriptions')[1];
     const view = nestDesc.querySelector('.ant-descriptions-view');
     expect(getComputedStyle(view!).border).toBeFalsy();
   });

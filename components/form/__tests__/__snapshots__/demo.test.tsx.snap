@@ -4217,7 +4217,7 @@ exports[`renders components/form/demo/form-context.tsx correctly 1`] = `
 `;
 
 exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -4225,8 +4225,9 @@ exports[`renders components/form/demo/form-in-modal.tsx correctly 1`] = `
     <span>
       New Collection
     </span>
-  </button>
-</div>
+  </button>,
+  <pre />,
+]
 `;
 
 exports[`renders components/form/demo/form-item-path.tsx correctly 1`] = `

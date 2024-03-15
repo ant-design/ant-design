@@ -7290,7 +7290,7 @@ exports[`renders components/form/demo/form-context.tsx extend context correctly 
 `;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 1`] = `
-<div>
+Array [
   <button
     class="ant-btn ant-btn-primary"
     type="button"
@@ -7298,8 +7298,9 @@ exports[`renders components/form/demo/form-in-modal.tsx extend context correctly
     <span>
       New Collection
     </span>
-  </button>
-</div>
+  </button>,
+  <pre />,
+]
 `;
 
 exports[`renders components/form/demo/form-in-modal.tsx extend context correctly 2`] = `[]`;

@@ -17451,14 +17451,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      nice
+                      NICE
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      developer
+                      DEVELOPER
                     </span>
                   </td>
                   <td
@@ -17512,9 +17512,9 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-volcano"
                     >
-                      loser
+                      LOSER
                     </span>
                   </td>
                   <td
@@ -17568,14 +17568,14 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-green"
                     >
-                      cool
+                      COOL
                     </span>
                     <span
-                      class="ant-tag ant-tag-blue"
+                      class="ant-tag ant-tag-geekblue"
                     >
-                      teacher
+                      TEACHER
                     </span>
                   </td>
                   <td
