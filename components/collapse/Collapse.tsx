@@ -71,6 +71,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPosition = 'start',
     children,
     expandIcon,
+    ...otherProps
   } = props;
 
   const mergedSize = useSize((ctx) => customizeSize ?? ctx ?? 'middle');
@@ -163,6 +164,7 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
       prefixCls={prefixCls}
       className={collapseClassName}
       style={{ ...collapse?.style, ...style }}
+      {...otherProps}
     >
       {items}
     </RcCollapse>,

@@ -253,4 +253,14 @@ describe('Collapse', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should pass data-* attributes', () => {
+    const { getByTestId } = render(
+      <Collapse data-testid="test-id" data-id="12345">
+        <Collapse.Panel header="header" key="1" />
+      </Collapse>,
+    );
+    const container = getByTestId('test-id');
+    expect(container).toHaveAttribute('data-id', '12345');
+  });
 });
