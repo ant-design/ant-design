@@ -242,7 +242,7 @@
     "eslint-plugin-jest": "^27.9.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-lodash": "^7.4.0",
-    "eslint-plugin-markdown": "^4.0.1",
+    "eslint-plugin-markdown": "^3.0.1",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unicorn": "^51.0.1",
