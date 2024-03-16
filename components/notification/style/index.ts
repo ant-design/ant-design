@@ -78,11 +78,6 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       wordWrap: 'break-word',
     },
 
-    [`${componentCls}-close-icon`]: {
-      fontSize,
-      cursor: 'pointer',
-    },
-
     [`${noticeCls}-message`]: {
       marginBottom: token.marginXS,
       color: colorTextHeading,
@@ -153,7 +148,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       },
 
       '&:active': {
-        backgroundColor: token.colorBgTextHover,
+        backgroundColor: token.colorBgTextActive,
       },
 
       ...genFocusStyle(token),
