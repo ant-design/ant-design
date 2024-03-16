@@ -138,11 +138,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 ### ellipsis
 
-配置 `defaultExpanded` 或 `expanded` 启用收起功能，在 `5.16.0` 新增
-
     {
       rows: number,
       expandable: boolean,
+      collapsible:boolean,
       defaultExpanded: boolean,
       expanded: boolean,
       suffix: string,
@@ -160,9 +159,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
 | symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
-| collapse | 自定义收起描述文案 | ReactNode | `收起` |  |
-| defaultExpanded | 默认展开或收起 | boolean |  |  |
-| expanded | 展开或收起 | boolean |  |  |
+| collapse | 自定义收起描述文案 | ReactNode | `收起` | 5.16.0 |
+| defaultExpanded | 默认展开或收起 | boolean |  | 5.16.0 |
+| expanded | 展开或收起 | boolean |  | 5.16.0 |
 | tooltip | 省略时，展示提示信息 | ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开或收起时的回调 | function(event, { expanded: boolean }) | - |  |

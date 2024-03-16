@@ -12,6 +12,7 @@ const App = () => {
         ellipsis={{
           rows: 2,
           expandable: true,
+          collapsible: true,
           expanded,
           onExpand: (_, info) => setExpanded(info.expanded),
         }}

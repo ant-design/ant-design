@@ -249,10 +249,15 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
-  it('should expanded work', async () => {
+  it('should collapsible work', async () => {
     const { container: wrapper } = render(
       <Base
-        ellipsis={{ expandable: true, symbol: 'aaa', collapse: 'bbb', defaultExpanded: true }}
+        ellipsis={{
+          expandable: true,
+          collapsible: true,
+          symbol: 'aaa',
+          collapse: 'bbb',
+        }}
         component="p"
       >
         {fullStr}

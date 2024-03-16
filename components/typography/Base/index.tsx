@@ -53,6 +53,7 @@ interface EditConfig {
 export interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
+  collapsible?: boolean;
   suffix?: string;
   symbol?: React.ReactNode;
   collapse?: React.ReactNode;
@@ -223,13 +224,13 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
+    collapsible: false,
     symbol: textLocale?.expand,
     collapse: textLocale.collapse,
   });
-  const [expanded, setExpanded] = useMergedState(false, {
+  const [expanded, setExpanded] = useMergedState(ellipsisConfig.defaultExpanded, {
     value: ellipsisConfig.expanded,
   });
-  const hasExpanded = 'expanded' in ellipsisConfig || 'defaultExpanded' in ellipsisConfig;
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
 
@@ -397,7 +398,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const { expandable, symbol, collapse } = ellipsisConfig;
 
     if (!expandable) return null;
-    if (expanded && !hasExpanded) return null;
+    if (expanded && !ellipsisConfig.collapsible) return null;
 
     return (
       <a
@@ -454,7 +455,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderOperations = (renderExpanded: boolean) => [
-    (renderExpanded || hasExpanded) && renderExpand(),
+    (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
