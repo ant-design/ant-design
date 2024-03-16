@@ -61,6 +61,7 @@ import 'dayjs/locale/tr';
 import 'dayjs/locale/uk';
 import 'dayjs/locale/ur';
 import 'dayjs/locale/vi';
+import 'dayjs/locale/uz-latn';
 import 'dayjs/locale/zh-cn';
 import 'dayjs/locale/zh-hk';
 import 'dayjs/locale/zh-tw';
@@ -151,6 +152,7 @@ import zhCN from '../../locale/zh_CN';
 import zhHK from '../../locale/zh_HK';
 import zhTW from '../../locale/zh_TW';
 import myMM from '../../locale/my_MM';
+import uzUZ from '../../locale/uz_UZ';
 
 dayjs.extend(preParsePostFormat);
 
@@ -224,6 +226,7 @@ const locales = [
   zhTW,
   urPK,
   myMM,
+  uzUZ,
 ];
 
 const { Option } = Select;
