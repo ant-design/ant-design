@@ -59,7 +59,6 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         '> table': {
           tableLayout: 'auto',
-          borderCollapse: 'collapse',
         },
         [`${componentCls}-row`]: {
           borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
@@ -140,6 +139,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         table: {
           width: '100%',
           tableLayout: 'fixed',
+          borderCollapse: 'collapse',
         },
       },
       [`${componentCls}-row`]: {
@@ -155,7 +155,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
-        textAlign: `start`,
+        textAlign: 'start',
 
         '&::after': {
           content: '":"',

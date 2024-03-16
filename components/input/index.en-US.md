@@ -107,7 +107,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | boolean \| ReactNode | false |
+| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -138,21 +138,11 @@ Supports all props of `Input`.
 
 #### Input
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| input | `input` element | 5.4.0 |
-| prefix | Wrapper of prefix | 5.4.0 |
-| suffix | Wrapper of suffix | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| textarea | `textarea` element | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -93,14 +93,22 @@ async function uploadFile(client, filePath, refValue) {
     // https://help.aliyun.com/zh/oss/developer-reference/prevent-objects-from-being-overwritten-by-objects-that-have-the-same-names-3
     'x-oss-forbid-overwrite': 'false',
   };
+  // Set content-type to allow individual preview of images
+  if (path.extname(filePath) === '.png') {
+    headers['Content-Type'] = 'image/png';
+  }
 
   console.log('Uploading file: %s', filePath);
   try {
     const targetFilePath = path.relative(process.cwd(), filePath);
-    const r1 = await client.put(`${refValue}/${targetFilePath}`, filePath, { headers });
+    const r1 = await client.put(`${refValue}/${targetFilePath}`, filePath, {
+      headers,
+      timeout: 60000 * 2,
+    });
     console.log('Uploading file successfully: %s', r1.name);
   } catch (err) {
     console.error('Uploading file failed: %s', err);
+    throw err;
   }
 }
 

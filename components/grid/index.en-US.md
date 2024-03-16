@@ -45,6 +45,7 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 <code src="./demo/flex-order.tsx">Order</code>
 <code src="./demo/flex-stretch.tsx">Flex Stretch</code>
 <code src="./demo/responsive.tsx">Responsive</code>
+<code src="./demo/responsive-flex.tsx" version="5.14.0">Flex Responsive</code>
 <code src="./demo/responsive-more.tsx">More responsive</code>
 <code src="./demo/playground.tsx">Playground</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>

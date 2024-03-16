@@ -65,7 +65,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
         keyEntities,
       );
     } else {
-      initExpandedKeys = (props.expandedKeys || defaultExpandedKeys)!;
+      initExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
     }
     return initExpandedKeys;
   };

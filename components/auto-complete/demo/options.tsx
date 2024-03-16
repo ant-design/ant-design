@@ -1,22 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { AutoComplete } from 'antd';
+import type { DefaultOptionType } from 'antd/es/select';
 
 const App: React.FC = () => {
-  const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
-
+  const [options, setOptions] = React.useState<DefaultOptionType[]>([]);
   const handleSearch = (value: string) => {
-    let res: { value: string; label: string }[] = [];
-    if (!value || value.indexOf('@') >= 0) {
-      res = [];
-    } else {
-      res = ['gmail.com', '163.com', 'qq.com'].map((domain) => ({
-        value,
+    setOptions(() => {
+      if (!value || value.includes('@')) {
+        return [];
+      }
+      return ['gmail.com', '163.com', 'qq.com'].map<DefaultOptionType>((domain) => ({
         label: `${value}@${domain}`,
+        value: `${value}@${domain}`,
       }));
-    }
-    setOptions(res);
+    });
   };
-
   return (
     <AutoComplete
       style={{ width: 200 }}

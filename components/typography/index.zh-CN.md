@@ -126,7 +126,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | editing | 控制是否是编辑中状态 | boolean | false |  |
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
-| tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
+| tooltip | 自定义提示文本，为 false 时关闭 | ReactNode | `编辑` | 4.6.0 |
 | text | 显式地指定编辑文案，为空时将隐式地使用 children | string | - | 4.24.0 |
 | onChange | 文本域编辑时触发 | function(value: string) | - |  |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
@@ -153,7 +153,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
 | symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
-| tooltip | 省略时，展示提示信息 | boolean \| ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
+| tooltip | 省略时，展示提示信息 | ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开时的回调 | function(event) | - |  |
 

@@ -179,12 +179,14 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => 
   ...genHoverActiveButtonStyle(
     token.componentCls,
     {
-      color: token.colorPrimaryHover,
-      borderColor: token.colorPrimaryHover,
+      color: token.defaultHoverColor,
+      borderColor: token.defaultHoverBorderColor,
+      background: token.defaultHoverBg,
     },
     {
-      color: token.colorPrimaryActive,
-      borderColor: token.colorPrimaryActive,
+      color: token.defaultActiveColor,
+      borderColor: token.defaultActiveBorderColor,
+      background: token.defaultActiveBg,
     },
   ),
 

@@ -6,7 +6,7 @@ import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { ComponentStyleConfig } from '../config-provider/context';
+import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import type {
@@ -32,7 +32,7 @@ type HolderProps = NotificationConfig & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  notification?: ComponentStyleConfig;
+  notification?: CPNotificationConfig;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -64,6 +64,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
     stack,
+    duration,
   } = props;
   const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
   const [, token] = useToken();
@@ -87,7 +88,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     motion: getNotificationMotion,
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
-    duration: DEFAULT_DURATION,
+    duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
@@ -103,11 +104,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   });
 
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({
-    ...api,
-    prefixCls,
-    notification,
-  }));
+  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
 
   return holder;
 });
@@ -154,7 +151,10 @@ export function useInternalNotification(
         ...restConfig
       } = config;
 
-      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
+      const realCloseIcon = getCloseIcon(
+        noticePrefixCls,
+        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+      );
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"

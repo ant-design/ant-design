@@ -25,6 +25,7 @@ demo:
 <code src="./demo/digit.tsx">高精度小数</code>
 <code src="./demo/formatter.tsx">格式化展示</code>
 <code src="./demo/keyboard.tsx">键盘行为</code>
+<code src="./demo/change-on-wheel.tsx" version="5.14.0">鼠标滚轮</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
@@ -44,6 +45,7 @@ demo:
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - | 4.17.0 |
 | autoFocus | 自动获取焦点 | boolean | false | - |
 | changeOnBlur | 是否在失去焦点时，触发 `onChange` 事件（例如值超出范围时，重新限制回范围并触发事件） | boolean | true | 5.11.0 |
+| changeOnWheel | 允许鼠标滚轮改变数值 | boolean | - | 5.14.0 |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | 小数点 | string | - | - |
 | placeholder | 占位符 | string | - |  |

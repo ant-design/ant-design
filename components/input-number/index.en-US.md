@@ -24,6 +24,7 @@ When a numeric value needs to be provided.
 <code src="./demo/digit.tsx">High precision decimals</code>
 <code src="./demo/formatter.tsx">Formatter</code>
 <code src="./demo/keyboard.tsx">Keyboard</code>
+<code src="./demo/change-on-wheel.tsx" version="5.14.0">Wheel</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | autoFocus | If get focus when component mounted | boolean | false | - |
 | changeOnBlur | Trigger `onChange` when blur. e.g. reset value in range by blur | boolean | true | 5.11.0 |
+| changeOnWheel | Allow control with mouse wheel | boolean | - | 5.14.0 |
 | controls | Whether to show `+-` controls, or set custom arrows icon | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 4.19.0 |
 | decimalSeparator | Decimal separator | string | - | - |
 | placeholder | placeholder | string | - |  |

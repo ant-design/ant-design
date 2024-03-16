@@ -19,7 +19,7 @@ export interface ModalProps extends ModalCommonProps {
   /** The modal dialog's title */
   title?: React.ReactNode;
   /** Whether a close (x) button is visible on top right of the modal dialog or not. Recommend to use closeIcon instead. */
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
@@ -84,7 +84,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
   title?: React.ReactNode;
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;

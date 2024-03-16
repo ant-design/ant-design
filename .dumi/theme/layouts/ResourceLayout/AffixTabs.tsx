@@ -1,8 +1,9 @@
-import { createStyles } from 'antd-style';
-import throttle from 'lodash/throttle';
 import * as React from 'react';
-import classNames from 'classnames';
 import { Tabs } from 'antd';
+import { createStyles } from 'antd-style';
+import classNames from 'classnames';
+import throttle from 'lodash/throttle';
+
 import scrollTo from '../../../../components/_util/scrollTo';
 
 const listenerEvents = ['scroll', 'resize'] as const;
@@ -16,13 +17,15 @@ const useStyle = createStyles(({ token, css }) => {
       top: 0;
       right: 0;
       left: 0;
-      z-index: 11;
+      z-index: 1001;
       padding: 0 40px;
       background: #fff;
       box-shadow: ${boxShadowSecondary};
       transform: translate3d(0, -100%, 0);
       opacity: 0;
-      transition: opacity 0.3s, transform 0.3s;
+      transition:
+        opacity 0.3s,
+        transform 0.3s;
 
       ${antCls}-tabs {
         max-width: 1208px;
@@ -73,7 +76,8 @@ const AffixTabs: React.FC = () => {
   }
 
   React.useEffect(() => {
-    idsRef.current = Array.from(document.querySelectorAll('h2[id]')).map(({ id }) => id);
+    const nodeList = document.querySelectorAll<HTMLHeadingElement>('h2[id]');
+    idsRef.current = Array.from(nodeList).map<string>(({ id }) => id);
     setLoaded(true);
   }, []);
 
@@ -118,6 +122,8 @@ const AffixTabs: React.FC = () => {
     <div className={classNames(affixTabs, fixedId && affixTabsFixed)} ref={containerRef}>
       <Tabs
         activeKey={fixedId}
+        centered
+        size="large"
         onChange={scrollToId}
         items={idsRef.current.map((id) => ({
           key: id,

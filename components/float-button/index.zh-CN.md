@@ -3,8 +3,8 @@ category: Components
 group: 通用
 subtitle: 悬浮按钮
 title: FloatButton
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HS-wTIIwu0kAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a0hwTY_rOSUAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tXAoQqyr-ioAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*hSAwR7cnabwAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 tag: New
@@ -60,6 +60,7 @@ tag: New
 | shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` |  |
 | trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - |  |
 | open | 受控展开，需配合 trigger 一起使用 | boolean | - |  |
+| closeIcon | 自定义关闭按钮 | React.ReactNode | `<CloseOutlined />` |  |
 | onOpenChange | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) => void | - |  |
 
 ### FloatButton.BackTop

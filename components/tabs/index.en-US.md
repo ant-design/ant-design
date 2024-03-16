@@ -48,14 +48,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key | string | - |  |
-| addIcon | Customize add icon | ReactNode | - | 4.4.0 |
+| addIcon | Customize add icon, only works with `type="editable-card"` | ReactNode | `<PlusOutlined />` | 4.4.0 |
 | animated | Whether to change tabs with animation. | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } |  |
 | centered | Centers tabs | boolean | false | 4.4.0 |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | - |  |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false |  |
 | indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align: `start` \| `center` \| `end`; } | - | 5.13.0 |
 | items | Configure tab content | [TabItemType](#tabitemtype) | [] | 4.23.0 |
-| moreIcon | The custom icon of ellipsis | ReactNode | &lt;EllipsisOutlined /> | 4.14.0 |
+| moreIcon | The custom icon of ellipsis | ReactNode | `<EllipsisOutlined />` | 4.14.0 |
+| removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | popupClassName | `className` for more dropdown. | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
 | size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` |  |
@@ -65,10 +66,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
 | destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
-| onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
-| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void | - |  |
-| onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
-| onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
+| onChange | Callback executed when active tab is changed | (activeKey: string) => void | - |  |
+| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action) => void | - |  |
+| onTabClick | Callback executed when tab is clicked | (key: string, event: MouseEvent) => void | - |  |
+| onTabScroll | Trigger when tab scroll | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - | 4.3.0 |
 
 More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
@@ -76,7 +77,7 @@ More option at [rc-tabs tabs](https://github.com/react-component/tabs#tabs)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | - |  |
+| closeIcon | Customize close icon in TabPane's head. Only works while `type="editable-card"`. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | - |  |
 | destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false | 5.11.0 |
 | disabled | Set TabPane disabled | boolean | false |  |
 | forceRender | Forced render of content in tabs, not lazy render after clicking on tabs | boolean | false |  |

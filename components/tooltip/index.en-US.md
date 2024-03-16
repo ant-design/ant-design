@@ -2,8 +2,8 @@
 category: Components
 group: Data Display
 title: Tooltip
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3u9eSZO_4c0AAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gwrhTozoTC4AAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -68,6 +68,10 @@ The following APIs are shared by Tooltip, Popconfirm, Popover.
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 
 ## FAQ
+
+### Why does the warning findDOMNode is deprecated some times appear in strict mode?
+
+This is due to the implementation of `rc-trigger`. `rc-trigger` forces children to accept ref, otherwise it will fall back to findDOMNode, so children need to be native html tags. If not, you need to use `React.forwardRef` transparently passes `ref` to native html tags.
 
 ### Why sometime not work on HOC?
 

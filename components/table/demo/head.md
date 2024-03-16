@@ -1,6 +1,6 @@
 ## zh-CN
 
-对某一列数据进行筛选，使用列的 `filters` 属性来指定需要筛选菜单的列，`onFilter` 用于筛选当前数据，`filterMultiple` 用于指定多选和单选。
+对某一列数据进行筛选，使用列的 `filters` 属性来指定需要筛选菜单的列，`onFilter` 用于筛选当前数据，`filterMultiple` 用于指定多选和单选，`filterOnClose` 用于指定是否在筛选菜单关闭时触发筛选。
 
 使用 `defaultFilteredValue` 属性，设置列的默认筛选项。
 
@@ -14,7 +14,7 @@
 
 ## en-US
 
-Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
+Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection, `filterOnClose` to specify whether to trigger filter when the filter menu closes.
 
 Use `defaultFilteredValue` to make a column filtered by default.
 

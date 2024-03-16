@@ -80,7 +80,12 @@ function injectFilter<RecordType>(
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
     const columnPos = getColumnPos(index, pos);
-    const { filterMultiple = true, filterMode, filterSearch } = column as ColumnType<RecordType>;
+    const {
+      filterOnClose = true,
+      filterMultiple = true,
+      filterMode,
+      filterSearch,
+    } = column as ColumnType<RecordType>;
 
     let newColumn: ColumnsType<RecordType>[number] = column;
 
@@ -98,6 +103,7 @@ function injectFilter<RecordType>(
             column={newColumn}
             columnKey={columnKey}
             filterState={filterState}
+            filterOnClose={filterOnClose}
             filterMultiple={filterMultiple}
             filterMode={filterMode}
             filterSearch={filterSearch}
@@ -157,6 +163,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
 export function getFilterData<RecordType>(
   data: RecordType[],
   filterStates: FilterState<RecordType>[],
+  childrenColumnName: string,
 ) {
   return filterStates.reduce((currentData, filterState) => {
     const {
@@ -164,13 +171,28 @@ export function getFilterData<RecordType>(
       filteredKeys,
     } = filterState;
     if (onFilter && filteredKeys && filteredKeys.length) {
-      return currentData.filter((record) =>
-        filteredKeys.some((key) => {
-          const keys = flattenKeys(filters);
-          const keyIndex = keys.findIndex((k) => String(k) === String(key));
-          const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
-          return onFilter(realKey, record);
-        }),
+      return (
+        currentData
+          // shallow copy
+          .map((record) => ({ ...record }))
+          .filter((record: any) =>
+            filteredKeys.some((key) => {
+              const keys = flattenKeys(filters);
+              const keyIndex = keys.findIndex((k) => String(k) === String(key));
+              const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
+
+              // filter children
+              if (record[childrenColumnName]) {
+                record[childrenColumnName] = getFilterData(
+                  record[childrenColumnName],
+                  filterStates,
+                  childrenColumnName,
+                );
+              }
+
+              return onFilter(realKey, record);
+            }),
+          )
       );
     }
     return currentData;

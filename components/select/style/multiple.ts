@@ -1,12 +1,64 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { SelectToken } from './token';
-import { resetIcon } from '../../style';
-import { mergeToken } from '../../theme/internal';
 import { unit } from '@ant-design/cssinjs';
 
-const FIXED_ITEM_MARGIN = 2;
+import { resetIcon } from '../../style';
+import { mergeToken, type AliasToken } from '../../theme/internal';
+import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import type { SelectToken } from './token';
 
-const getSelectItemStyle = (token: SelectToken): number | string => {
+export const FIXED_ITEM_MARGIN = 2;
+
+type SelectItemToken = Pick<
+  SelectToken,
+  | 'multipleSelectItemHeight'
+  | 'multipleSelectorBgDisabled'
+  | 'multipleItemColorDisabled'
+  | 'multipleItemBorderColorDisabled'
+  | 'selectHeight'
+  | 'lineWidth'
+  | 'calc'
+  | 'inputPaddingHorizontalBase'
+>;
+
+/**
+ * Get multiple selector needed style. The calculation:
+ *
+ * ContainerPadding = BasePadding - ItemMargin
+ *
+ * Border:                    ╔═══════════════════════════╗                 ┬
+ * ContainerPadding:          ║                           ║                 │
+ *                            ╟───────────────────────────╢     ┬           │
+ * Item Margin:               ║                           ║     │           │
+ *                            ║             ┌──────────┐  ║     │           │
+ * Item(multipleItemHeight):  ║ BasePadding │   Item   │  ║  Overflow  Container(ControlHeight)
+ *                            ║             └──────────┘  ║     │           │
+ * Item Margin:               ║                           ║     │           │
+ *                            ╟───────────────────────────╢     ┴           │
+ * ContainerPadding:          ║                           ║                 │
+ * Border:                    ╚═══════════════════════════╝                 ┴
+ */
+export const getMultipleSelectorUnit = (
+  token: Pick<
+    SelectToken,
+    'max' | 'calc' | 'multipleSelectItemHeight' | 'paddingXXS' | 'lineWidth'
+  >,
+) => {
+  const { multipleSelectItemHeight, paddingXXS, lineWidth } = token;
+
+  const basePadding = token.max(token.calc(paddingXXS).sub(lineWidth).equal(), 0);
+  const containerPadding = token.max(token.calc(basePadding).sub(FIXED_ITEM_MARGIN).equal(), 0);
+
+  return {
+    basePadding,
+    containerPadding,
+    itemHeight: unit(multipleSelectItemHeight),
+    itemLineHeight: unit(
+      token.calc(multipleSelectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
+    ),
+  };
+};
+
+const getSelectItemStyle = (token: SelectItemToken): number | string => {
   const { multipleSelectItemHeight, selectHeight, lineWidth } = token;
   const selectItemDist = token
     .calc(selectHeight)
@@ -17,8 +69,118 @@ const getSelectItemStyle = (token: SelectToken): number | string => {
   return selectItemDist;
 };
 
-function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { componentCls, iconCls } = token;
+/**
+ * Get the `rc-overflow` needed style.
+ * It's a share style which means not affected by `size`.
+ */
+export const genOverflowStyle = (
+  token: Pick<
+    SelectToken,
+    | 'calc'
+    | 'componentCls'
+    | 'iconCls'
+    | 'borderRadiusSM'
+    | 'motionDurationSlow'
+    | 'paddingXS'
+    | 'multipleItemColorDisabled'
+    | 'multipleItemBorderColorDisabled'
+    | 'colorIcon'
+    | 'colorIconHover'
+  >,
+): CSSObject => {
+  const {
+    componentCls,
+    iconCls,
+    borderRadiusSM,
+    motionDurationSlow,
+    paddingXS,
+    multipleItemColorDisabled,
+    multipleItemBorderColorDisabled,
+    colorIcon,
+    colorIconHover,
+  } = token;
+
+  const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
+
+  return {
+    /**
+     * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
+     * may update to redesign with its align logic.
+     */
+    // =========================== Overflow ===========================
+    [selectOverflowPrefixCls]: {
+      position: 'relative',
+      display: 'flex',
+      flex: 'auto',
+      flexWrap: 'wrap',
+      maxWidth: '100%',
+
+      '&-item': {
+        flex: 'none',
+        alignSelf: 'center',
+        maxWidth: '100%',
+        display: 'inline-flex',
+      },
+
+      // ======================== Selections ==========================
+      [`${componentCls}-selection-item`]: {
+        display: 'flex',
+        alignSelf: 'center',
+        flex: 'none',
+        boxSizing: 'border-box',
+        maxWidth: '100%',
+        marginBlock: FIXED_ITEM_MARGIN,
+        borderRadius: borderRadiusSM,
+        cursor: 'default',
+        transition: `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
+        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
+        paddingInlineStart: paddingXS,
+        paddingInlineEnd: token.calc(paddingXS).div(2).equal(),
+
+        [`${componentCls}-disabled&`]: {
+          color: multipleItemColorDisabled,
+          borderColor: multipleItemBorderColorDisabled,
+          cursor: 'not-allowed',
+        },
+
+        // It's ok not to do this, but 24px makes bottom narrow in view should adjust
+        '&-content': {
+          display: 'inline-block',
+          marginInlineEnd: token.calc(paddingXS).div(2).equal(),
+          overflow: 'hidden',
+          whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
+          textOverflow: 'ellipsis',
+        },
+
+        '&-remove': {
+          ...resetIcon(),
+
+          display: 'inline-flex',
+          alignItems: 'center',
+          color: colorIcon,
+          fontWeight: 'bold',
+          fontSize: 10,
+          lineHeight: 'inherit',
+          cursor: 'pointer',
+
+          [`> ${iconCls}`]: {
+            verticalAlign: '-0.2em',
+          },
+
+          '&:hover': {
+            color: colorIconHover,
+          },
+        },
+      },
+    },
+  };
+};
+
+const genSelectionStyle = (
+  token: TokenWithCommonCls<AliasToken> & SelectItemToken,
+  suffix?: string,
+): CSSObject => {
+  const { componentCls } = token;
 
   const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
@@ -27,29 +189,12 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
+  const multipleSelectorUnit = getMultipleSelectorUnit(token);
+
   return {
     [`${componentCls}-multiple${suffixCls}`]: {
-      fontSize: token.fontSize,
-
-      /**
-       * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
-       * may update to redesign with its align logic.
-       */
-      // =========================== Overflow ===========================
-      [selectOverflowPrefixCls]: {
-        position: 'relative',
-        display: 'flex',
-        flex: 'auto',
-        flexWrap: 'wrap',
-        maxWidth: '100%',
-
-        '&-item': {
-          flex: 'none',
-          alignSelf: 'center',
-          maxWidth: '100%',
-          display: 'inline-flex',
-        },
-      },
+      // ========================= Overflow =========================
+      ...genOverflowStyle(token),
 
       // ========================= Selector =========================
       [`${componentCls}-selector`]: {
@@ -58,13 +203,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         alignItems: 'center',
         height: '100%',
         // Multiple is little different that horizontal is follow the vertical
-        paddingInline: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
-        paddingBlock: token.calc(selectItemDist).sub(FIXED_ITEM_MARGIN).equal(),
+        paddingInline: multipleSelectorUnit.basePadding,
+        paddingBlock: multipleSelectorUnit.containerPadding,
         borderRadius: token.borderRadius,
-
-        [`${componentCls}-show-search&`]: {
-          cursor: 'text',
-        },
 
         [`${componentCls}-disabled&`]: {
           background: token.multipleSelectorBgDisabled,
@@ -81,70 +222,10 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
       },
 
-      [`
-        &${componentCls}-show-arrow ${componentCls}-selector,
-        &${componentCls}-allow-clear ${componentCls}-selector
-      `]: {
-        paddingInlineEnd: token
-          .calc(token.fontSizeIcon)
-          .add(token.controlPaddingHorizontal)
-          .equal(),
-      },
-
       // ======================== Selections ========================
       [`${componentCls}-selection-item`]: {
-        display: 'flex',
-        alignSelf: 'center',
-        flex: 'none',
-        boxSizing: 'border-box',
-        maxWidth: '100%',
-        height: selectItemHeight,
-        marginTop: FIXED_ITEM_MARGIN,
-        marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: unit(
-          token.calc(selectItemHeight).sub(token.calc(token.lineWidth).mul(2)).equal(),
-        ),
-        borderRadius: token.borderRadiusSM,
-        cursor: 'default',
-        transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
-        marginInlineEnd: token.calc(FIXED_ITEM_MARGIN).mul(2).equal(),
-        paddingInlineStart: token.paddingXS,
-        paddingInlineEnd: token.calc(token.paddingXS).div(2).equal(),
-
-        [`${componentCls}-disabled&`]: {
-          color: token.multipleItemColorDisabled,
-          borderColor: token.multipleItemBorderColorDisabled,
-          cursor: 'not-allowed',
-        },
-
-        // It's ok not to do this, but 24px makes bottom narrow in view should adjust
-        '&-content': {
-          display: 'inline-block',
-          marginInlineEnd: token.calc(token.paddingXS).div(2).equal(),
-          overflow: 'hidden',
-          whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
-          textOverflow: 'ellipsis',
-        },
-
-        '&-remove': {
-          ...resetIcon(),
-
-          display: 'inline-flex',
-          alignItems: 'center',
-          color: token.colorIcon,
-          fontWeight: 'bold',
-          fontSize: 10,
-          lineHeight: 'inherit',
-          cursor: 'pointer',
-
-          [`> ${iconCls}`]: {
-            verticalAlign: '-0.2em',
-          },
-
-          '&:hover': {
-            color: token.colorIconHover,
-          },
-        },
+        height: multipleSelectorUnit.itemHeight,
+        lineHeight: unit(multipleSelectorUnit.itemLineHeight),
       },
 
       // ========================== Input ==========================
@@ -202,6 +283,37 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
     },
   };
+};
+
+function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
+  const { componentCls } = token;
+
+  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
+
+  const rawStyle: CSSObject = {
+    [`${componentCls}-multiple${suffixCls}`]: {
+      fontSize: token.fontSize,
+
+      // ========================= Selector =========================
+      [`${componentCls}-selector`]: {
+        [`${componentCls}-show-search&`]: {
+          cursor: 'text',
+        },
+      },
+
+      [`
+        &${componentCls}-show-arrow ${componentCls}-selector,
+        &${componentCls}-allow-clear ${componentCls}-selector
+      `]: {
+        paddingInlineEnd: token
+          .calc(token.fontSizeIcon)
+          .add(token.controlPaddingHorizontal)
+          .equal(),
+      },
+    },
+  };
+
+  return [genSelectionStyle(token, suffix), rawStyle];
 }
 
 const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
@@ -209,7 +321,7 @@ const genMultipleStyle = (token: SelectToken): CSSInterpolation => {
 
   const smallToken = mergeToken<SelectToken>(token, {
     selectHeight: token.controlHeightSM,
-    multipleSelectItemHeight: token.controlHeightXS,
+    multipleSelectItemHeight: token.multipleItemHeightSM,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
   });
