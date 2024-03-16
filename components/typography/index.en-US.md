@@ -137,25 +137,33 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### ellipsis
 
-    {
+Configure `defaultExpanded` or `expanded` to enable the folding function, adding a new feature in `5.16.0`
+
+     {
       rows: number,
       expandable: boolean,
+      defaultExpanded: boolean,
+      expanded: boolean,
       suffix: string,
       symbol: ReactNode,
+      collapse: ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
-      onExpand: function(event),
+      onExpand: function(event, { expanded: boolean }),
       onEllipsis: function(ellipsis),
     }
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | expandable | Whether to be expandable | boolean | - |  |
+| collapsible | Whether to be collapsible | boolean | - |  |
+| defaultExpanded | Default expand or collapse | boolean |  |  |
+| expanded | Expand or Collapse | boolean |  |  |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
 | symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
 | tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
-| onExpand | Called when expand content | function(event) | - |  |
+| onExpand | Called when expand content | function(event, { expanded: boolean }) | - |  |
 
 ## Design Token
 
