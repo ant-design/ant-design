@@ -78,8 +78,8 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalFooterBorderColorSplit: string;
   modalFooterBorderStyle: string;
   modalFooterBorderWidth: number;
-  modalIconHoverColor: string;
   modalCloseIconColor: string;
+  modalCloseIconHoverColor: string;
   modalCloseBtnSize: number | string;
   modalConfirmIconSize: number | string;
   modalTitleHeight: number | string;
@@ -248,7 +248,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           },
 
           '&:hover': {
-            color: token.modalIconHoverColor,
+            color: token.modalCloseIconHoverColor,
             backgroundColor: token.closeBtnHoverBg,
             textDecoration: 'none',
           },
@@ -348,9 +348,9 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.lineType,
     modalFooterBorderWidth: token.lineWidth,
-    modalIconHoverColor: token.colorIconHover,
     modalCloseIconColor: token.colorIcon,
-    modalCloseBtnSize: token.fontHeight,
+    modalCloseIconHoverColor: token.colorIconHover,
+    modalCloseBtnSize: token.controlHeight,
     modalConfirmIconSize: token.fontHeight,
     modalTitleHeight: token.calc(token.titleFontSize).mul(token.titleLineHeight).equal(),
   });

@@ -20,6 +20,10 @@ export interface ComponentToken {
    * @descEN Horizontal padding of footer
    */
   footerPaddingInline: number;
+  /** @internal */
+  closeBtnHoverBg: string;
+  /** @internal */
+  closeBtnActiveBg: string;
 }
 
 export interface DrawerToken extends FullToken<'Drawer'> {}
@@ -27,6 +31,7 @@ export interface DrawerToken extends FullToken<'Drawer'> {}
 // =============================== Base ===============================
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
   const {
+    borderRadiusSM,
     componentCls,
     zIndexPopup,
     colorBgMask,
@@ -40,9 +45,12 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     lineWidth,
     lineType,
     colorSplit,
-    marginSM,
+    marginXXS,
     colorIcon,
     colorIconHover,
+    closeBtnHoverBg,
+    closeBtnActiveBg,
+    controlHeight,
     colorText,
     fontWeightStrong,
     footerPaddingBlock,
@@ -167,8 +175,12 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       },
 
       [`${componentCls}-close`]: {
-        display: 'inline-block',
-        marginInlineEnd: marginSM,
+        display: 'inline-flex',
+        width: controlHeight,
+        height: controlHeight,
+        borderRadius: borderRadiusSM,
+        justifyContent: 'center',
+        marginInlineEnd: marginXXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
@@ -181,8 +193,16 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         border: 0,
         outline: 0,
         cursor: 'pointer',
-        transition: `color ${motionDurationMid}`,
+        transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
+
+        '&:hover': {
+          backgroundColor: closeBtnHoverBg,
+        },
+
+        '&:active': {
+          backgroundColor: closeBtnActiveBg,
+        },
 
         '&:focus, &:hover': {
           color: colorIconHover,
@@ -227,6 +247,8 @@ export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase,
   footerPaddingBlock: token.paddingXS,
   footerPaddingInline: token.padding,
+  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
+  closeBtnActiveBg: token.wireframe ? 'transparent' : token.colorFillContentHover,
 });
 
 // ============================== Export ==============================
