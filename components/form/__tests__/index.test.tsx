@@ -127,7 +127,7 @@ describe('Form', () => {
 
           try {
             await form.validateFields();
-          } catch (err) {
+          } catch {
             // do nothing
           }
         };
@@ -1777,7 +1777,9 @@ describe('Form', () => {
       const form = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
-        if (!trigger) return;
+        if (!trigger) {
+          return;
+        }
         form.current?.validateFields();
       }, [trigger]);
 
@@ -1885,7 +1887,9 @@ describe('Form', () => {
       const form = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
-        if (!trigger) return;
+        if (!trigger) {
+          return;
+        }
         form.current?.validateFields();
       }, [trigger]);
 

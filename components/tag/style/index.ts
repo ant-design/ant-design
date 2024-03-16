@@ -40,6 +40,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
       ...resetComponent(token),
       display: 'inline-block',
       height: 'auto',
+      // https://github.com/ant-design/ant-design/pull/47504
       marginInlineEnd: token.marginXS,
       paddingInline,
       fontSize: token.tagFontSize,

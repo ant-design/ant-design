@@ -1,11 +1,11 @@
 import React from 'react';
-import { Divider, Space, Tag, theme } from 'antd';
+import { Divider, Flex, Tag, theme } from 'antd';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
   return (
-    <div style={{ backgroundColor: token.colorBgLayout, padding: 16 }}>
-      <Space size={[0, 'small']} wrap>
+    <div style={{ backgroundColor: token.colorBgLayout, padding: token.padding }}>
+      <Flex gap="4px 0" wrap="wrap">
         <Tag bordered={false}>Tag 1</Tag>
         <Tag bordered={false}>Tag 2</Tag>
         <Tag bordered={false} closable>
@@ -14,9 +14,9 @@ const App: React.FC = () => {
         <Tag bordered={false} closable>
           Tag 4
         </Tag>
-      </Space>
+      </Flex>
       <Divider />
-      <Space size={[0, 'small']} wrap>
+      <Flex gap="4px 0" wrap="wrap">
         <Tag bordered={false} color="magenta">
           magenta
         </Tag>
@@ -50,7 +50,7 @@ const App: React.FC = () => {
         <Tag bordered={false} color="purple">
           purple
         </Tag>
-      </Space>
+      </Flex>
     </div>
   );
 };

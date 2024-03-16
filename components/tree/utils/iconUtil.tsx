@@ -1,11 +1,12 @@
+import * as React from 'react';
 import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import classNames from 'classnames';
-import * as React from 'react';
-import { cloneElement, isValidElement } from '../../_util/reactNode';
+
+import { cloneElement } from '../../_util/reactNode';
 import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
 
 interface SwitcherIconProps {
@@ -38,7 +39,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
         typeof showLeafIcon === 'function' ? showLeafIcon(treeNodeProps) : showLeafIcon;
       const leafCls = `${prefixCls}-switcher-line-custom-icon`;
 
-      if (isValidElement(leafIcon)) {
+      if (React.isValidElement(leafIcon)) {
         return cloneElement(leafIcon, {
           className: classNames(leafIcon.props.className || '', leafCls),
         });
@@ -58,7 +59,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   const switcher = typeof switcherIcon === 'function' ? switcherIcon(treeNodeProps) : switcherIcon;
 
-  if (isValidElement(switcher)) {
+  if (React.isValidElement(switcher)) {
     return cloneElement(switcher, {
       className: classNames(switcher.props.className || '', switcherCls),
     });

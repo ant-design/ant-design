@@ -17,7 +17,7 @@ const useStyle = createStyles(({ token, css }) => {
       top: 0;
       right: 0;
       left: 0;
-      z-index: 11;
+      z-index: 1001;
       padding: 0 40px;
       background: #fff;
       box-shadow: ${boxShadowSecondary};
@@ -122,6 +122,8 @@ const AffixTabs: React.FC = () => {
     <div className={classNames(affixTabs, fixedId && affixTabsFixed)} ref={containerRef}>
       <Tabs
         activeKey={fixedId}
+        centered
+        size="large"
         onChange={scrollToId}
         items={idsRef.current.map((id) => ({
           key: id,

@@ -161,7 +161,7 @@ useMergedInsertionEffect(() => {
 经过这样的修改后，我们发现 React 17 的 CI 挂了。在检查后，发现 `useLayoutEffect` 就会出现时序问题：
 
 ```tsx
-// Some logic measure dom size
+// Some logic measure DOM size
 useLayoutEffect(() => {
   // This is not correct since style is not applied
   const { clientHeight } = nodeRef.current;

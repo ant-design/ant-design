@@ -269,6 +269,64 @@ describe('ConfigProvider.Theme', () => {
       });
     });
 
+    it('prefix follow prefixCls by default', () => {
+      const { container } = render(
+        <>
+          <ConfigProvider prefixCls="foo" theme={{ cssVar: { key: 'foo' }, hashed: true }}>
+            <Button className="button-foo">Button</Button>
+          </ConfigProvider>
+          <ConfigProvider prefixCls="bar">
+            <ConfigProvider theme={{ cssVar: { key: 'bar' }, hashed: true }}>
+              <Button className="button-bar">Button</Button>
+            </ConfigProvider>
+          </ConfigProvider>
+          <ConfigProvider prefixCls="apple">
+            <ConfigProvider prefixCls="banana" theme={{ cssVar: { key: 'banana' }, hashed: true }}>
+              <Button className="button-banana">Button</Button>
+            </ConfigProvider>
+          </ConfigProvider>
+          <ConfigProvider
+            prefixCls="apple"
+            theme={{ cssVar: { key: 'apple', prefix: 'cat' }, hashed: true }}
+          >
+            <Button className="button-cat">Button</Button>
+          </ConfigProvider>
+        </>,
+      );
+
+      const fooBtn = container.querySelector('.button-foo')!;
+      expect(fooBtn).toHaveClass('foo');
+      expect(fooBtn).toHaveStyle({
+        '--foo-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--foo-button-default-shadow)',
+        'border-radius': 'var(--foo-border-radius)',
+      });
+
+      const barBtn = container.querySelector('.button-bar')!;
+      expect(barBtn).toHaveClass('bar');
+      expect(barBtn).toHaveStyle({
+        '--bar-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--bar-button-default-shadow)',
+        'border-radius': 'var(--bar-border-radius)',
+      });
+
+      const bananaBtn = container.querySelector('.button-banana')!;
+      expect(bananaBtn).toHaveClass('banana');
+      expect(bananaBtn).toHaveStyle({
+        '--banana-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--banana-button-default-shadow)',
+        'border-radius': 'var(--banana-border-radius)',
+      });
+
+      const catBtn = container.querySelector('.button-cat')!;
+      expect(catBtn).toHaveClass('apple');
+      expect(catBtn).toHaveStyle({
+        '--cat-color-text': 'rgba(0, 0, 0, 0.88)',
+        boxShadow: 'var(--cat-button-default-shadow)',
+        'border-radius': 'var(--cat-border-radius)',
+      });
+    });
+
     it('component token should work', () => {
       const { container } = render(
         <ConfigProvider
