@@ -48,7 +48,7 @@ describe('Radio Group', () => {
     const radios = container.querySelectorAll('input');
 
     // controlled component
-    rerender(<RadioGroupByOptions value="A" onChange={onChange} />);
+    rerender(<RadioGroupComponent value="A" onChange={onChange} />);
     fireEvent.click(radios[1]);
     expect(onChange.mock.calls.length).toBe(1);
   });
