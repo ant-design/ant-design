@@ -35,6 +35,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     colorBgElevated,
     motionDurationSlow,
     motionDurationMid,
+    paddingXS,
     padding,
     paddingLG,
     fontSizeLG,
@@ -42,16 +43,16 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     lineWidth,
     lineType,
     colorSplit,
-    marginXXS,
+    marginXS,
     colorIcon,
     colorIconHover,
     colorBgTextHover,
     colorBgTextActive,
-    controlHeight,
     colorText,
     fontWeightStrong,
     footerPaddingBlock,
     footerPaddingInline,
+    calc,
   } = token;
 
   const wrapperCls = `${componentCls}-content-wrapper`;
@@ -173,12 +174,12 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
 
       [`${componentCls}-close`]: {
         display: 'inline-flex',
-        width: controlHeight,
-        height: controlHeight,
+        width: calc(fontSizeLG).add(paddingXS).equal(),
+        height: calc(fontSizeLG).add(paddingXS).equal(),
         borderRadius: borderRadiusSM,
         justifyContent: 'center',
         alignItems: 'center',
-        marginInlineEnd: marginXXS,
+        marginInlineEnd: marginXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
         fontSize: fontSizeLG,
