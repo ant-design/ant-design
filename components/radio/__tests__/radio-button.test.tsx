@@ -37,7 +37,7 @@ describe('Radio Button', () => {
 describe('Radio Group', () => {
   const RadioGroupComponent = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
     return (
-      <Radio.Group {...props}>
+      <Radio.Group {...props} ref={ref}>
         <Radio value="A">A</Radio>
         <Radio value="B">B</Radio>
         <Radio value="C">C</Radio>
