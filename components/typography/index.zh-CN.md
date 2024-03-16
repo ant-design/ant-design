@@ -24,6 +24,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/editable.tsx">可编辑</code>
 <code src="./demo/copyable.tsx">可复制</code>
 <code src="./demo/ellipsis.tsx">省略号</code>
+<code src="./demo/ellipsis-controlled.tsx">受控省略号</code>
 <code src="./demo/ellipsis-middle.tsx">省略中间</code>
 <code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
 <code src="./demo/suffix.tsx">后缀</code>

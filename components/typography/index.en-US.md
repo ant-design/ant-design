@@ -23,6 +23,7 @@ Basic text writing, including headings, body text, lists, and more.
 <code src="./demo/editable.tsx">Editable</code>
 <code src="./demo/copyable.tsx">Copyable</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
+<code src="./demo/ellipsis-controlled.tsx">Controlled ellipsis</code>
 <code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
 <code src="./demo/ellipsis-debug.tsx" debug>Ellipsis Debug</code>
 <code src="./demo/suffix.tsx">suffix</code>

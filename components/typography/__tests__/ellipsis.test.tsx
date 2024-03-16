@@ -249,24 +249,24 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
-  it('should expandable = collapsible work', async () => {
-    const { container: wrapper } = render(
-      <Base
-        ellipsis={{ expandable: 'collapsible', symbol: (expanded) => (expanded ? 'aaa' : 'bbb') }}
-        component="p"
-      >
-        {fullStr}
-      </Base>,
-    );
-    // 初始化
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...aaa`);
-    // 展开
-    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}bbb`);
-    // 收起
-    fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...aaa`);
-  });
+  // it('should expandable = collapsible work', async () => {
+  //   const { container: wrapper } = render(
+  //     <Base
+  //       ellipsis={{ expandable: 'collapsible', symbol: (expanded) => (expanded ? 'aaa' : 'bbb') }}
+  //       component="p"
+  //     >
+  //       {fullStr}
+  //     </Base>,
+  //   );
+  //   // 初始化
+  //   expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...aaa`);
+  //   // 展开
+  //   fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+  //   expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}bbb`);
+  //   // 收起
+  //   fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
+  //   expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}...aaa`);
+  // });
 
   it('should have custom expand style', async () => {
     const ref = React.createRef<HTMLElement>();

@@ -53,11 +53,14 @@ interface EditConfig {
 export interface EllipsisConfig {
   rows?: number;
   expandable?: boolean | 'collapsible';
-  symbol?: React.ReactNode | ((expanded: boolean) => React.ReactNode);
+  symbol?: React.ReactNode;
   suffix?: string;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode | TooltipProps;
+  defaultValue?: boolean;
+  value?: boolean;
+  onChange?: (value?: boolean) => void;
 }
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
@@ -393,11 +396,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
     let expandContent: React.ReactNode;
     if (symbol) {
-      if (typeof symbol === 'function') {
-        expandContent = symbol(renderExpanded);
-      } else {
-        expandContent = symbol;
-      }
+      expandContent = symbol;
     } else {
       expandContent = renderExpanded ? textLocale?.expand : textLocale.collapse;
     }
