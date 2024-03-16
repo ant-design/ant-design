@@ -20,6 +20,7 @@ tag: vVERSION
 
 `2024-03-17`
 
+- 💄 Unify Modal, Drawer, notification and Tour close button style.
 - 🐞 Fix Badge and text node align issue under Space. [#47908](https://github.com/ant-design/ant-design/pull/47908)
 - 💄 Fix Upload file list actions wrap style. [#47898](https://github.com/ant-design/ant-design/pull/47898)
 - 🐞 Fix Typography config the `ellipsis.symbol` exceed the single line height will make ellipsis rows not correct issue. [#47889](https://github.com/ant-design/ant-design/pull/47889)
