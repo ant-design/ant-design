@@ -18,7 +18,9 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
     [componentCls]: {
       outline: 'none',
       position: 'relative',
-      display: 'inline-block',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       fontWeight,
       whiteSpace: 'nowrap',
       textAlign: 'center',
