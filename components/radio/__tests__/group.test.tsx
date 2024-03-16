@@ -5,7 +5,7 @@ import Radio from '..';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Group', () => {
-  function RadioGroupComponent(props?: RadioGroupProps) {
+  const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => {
     return (
       <Radio.Group {...props}>
         <Radio value="A">A</Radio>
@@ -13,16 +13,16 @@ describe('Radio Group', () => {
         <Radio value="C">C</Radio>
       </Radio.Group>
     );
-  }
+  };
 
-  function RadioGroupByOptions(props?: RadioGroupProps) {
+  const RadioGroupByOptions = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
     const options = [
       { label: 'A', value: 'A' },
       { label: 'B', value: 'B' },
       { label: 'C', value: 'C' },
     ];
-    return <Radio.Group {...props} options={options} />;
-  }
+    return <Radio.Group {...props} options={options} ref={ref} />;
+  });
 
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();
@@ -117,26 +117,17 @@ describe('Radio Group', () => {
   it("won't fire change events when value not changes", () => {
     const onChange = jest.fn();
 
-    const { container, rerender } = render(
-      createRadioGroup({
-        onChange,
-      }),
-    );
+    const { container, rerender } = render(<RadioGroupComponent onChange={onChange} />);
     const radios = container.querySelectorAll('input');
 
     // controlled component
-    rerender(
-      createRadioGroup({
-        onChange,
-        value: 'A',
-      }),
-    );
+    rerender(<RadioGroupComponent value="A" onChange={onChange} />);
     fireEvent.click(radios[0]);
     expect(onChange.mock.calls.length).toBe(0);
   });
 
   it('optional should correct render', () => {
-    const { container } = render(createRadioGroupByOption());
+    const { container } = render(<RadioGroupByOptions />);
     const radios = container.querySelectorAll('input');
 
     expect(radios.length).toBe(3);
@@ -144,7 +135,7 @@ describe('Radio Group', () => {
 
   it('all children should have a name property', () => {
     const GROUP_NAME = 'GROUP_NAME';
-    const { container } = render(createRadioGroup({ name: GROUP_NAME }));
+    const { container } = render(<RadioGroupComponent name={GROUP_NAME} />);
 
     container.querySelectorAll<HTMLInputElement>('input[type="radio"]').forEach((el) => {
       expect(el.name).toEqual(GROUP_NAME);
@@ -163,11 +154,11 @@ describe('Radio Group', () => {
   it('should forward ref', () => {
     let radioGroupRef: HTMLDivElement;
     const { container } = render(
-      createRadioGroupByOption({
-        ref(ref: HTMLDivElement) {
+      <RadioGroupByOptions
+        ref={(ref: HTMLDivElement) => {
           radioGroupRef = ref;
-        },
-      }),
+        }}
+      />,
     );
 
     expect(radioGroupRef!).toBe(container.querySelector<HTMLDivElement>('.ant-radio-group'));
@@ -175,10 +166,7 @@ describe('Radio Group', () => {
 
   it('should support data-* or aria-* props', () => {
     const { container } = render(
-      createRadioGroup({
-        'data-radio-group-id': 'radio-group-id',
-        'aria-label': 'radio-group',
-      } as RadioGroupProps),
+      <RadioGroupComponent data-radio-group-id="radio-group-id" aria-label="radio-group" />,
     );
     expect((container.firstChild as HTMLDivElement)?.getAttribute('data-radio-group-id')).toBe(
       'radio-group-id',
