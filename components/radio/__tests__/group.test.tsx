@@ -5,7 +5,7 @@ import Radio from '..';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Group', () => {
-  function createRadioGroup(props?: RadioGroupProps) {
+  function RadioGroupComponent(props?: RadioGroupProps) {
     return (
       <Radio.Group {...props}>
         <Radio value="A">A</Radio>
@@ -15,7 +15,7 @@ describe('Radio Group', () => {
     );
   }
 
-  function createRadioGroupByOption(props?: RadioGroupProps) {
+  function RadioGroupByOptions(props?: RadioGroupProps) {
     const options = [
       { label: 'A', value: 'A' },
       { label: 'B', value: 'B' },
@@ -44,20 +44,11 @@ describe('Radio Group', () => {
   it('fire change events when value changes', () => {
     const onChange = jest.fn();
 
-    const { container, rerender } = render(
-      createRadioGroup({
-        onChange,
-      }),
-    );
+    const { container, rerender } = render(<RadioGroupComponent onChange={onChange} />);
     const radios = container.querySelectorAll('input');
 
     // controlled component
-    rerender(
-      createRadioGroup({
-        onChange,
-        value: 'A',
-      }),
-    );
+    rerender(<RadioGroupByOptions value="A" onChange={onChange} />);
     fireEvent.click(radios[1]);
     expect(onChange.mock.calls.length).toBe(1);
   });
