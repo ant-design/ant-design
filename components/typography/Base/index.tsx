@@ -452,7 +452,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = () => [renderExpand(), renderEdit(), renderCopy()];
+  const renderOperations = (renderExpanded: boolean) => [
+    renderExpanded && renderExpand(),
+    renderEdit(),
+    renderCopy(),
+  ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
@@ -461,7 +465,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(),
+    renderOperations(needEllipsis),
   ];
 
   return (
