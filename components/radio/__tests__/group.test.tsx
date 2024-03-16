@@ -1,4 +1,3 @@
-import type { RefAttributes } from 'react';
 import React from 'react';
 
 import type { RadioGroupProps } from '..';
@@ -6,7 +5,7 @@ import Radio from '..';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Group', () => {
-  function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
+  function createRadioGroup(props?: RadioGroupProps) {
     return (
       <Radio.Group {...props}>
         <Radio value="A">A</Radio>
@@ -16,7 +15,7 @@ describe('Radio Group', () => {
     );
   }
 
-  function createRadioGroupByOption(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
+  function createRadioGroupByOption(props?: RadioGroupProps) {
     const options = [
       { label: 'A', value: 'A' },
       { label: 'B', value: 'B' },

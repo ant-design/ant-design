@@ -1,4 +1,3 @@
-import type { RefAttributes } from 'react';
 import React from 'react';
 import type { RadioGroupProps } from '..';
 import Radio, { Button } from '..';
@@ -36,7 +35,7 @@ describe('Radio Button', () => {
 });
 
 describe('Radio Group', () => {
-  function createRadioGroup(props?: RadioGroupProps & RefAttributes<HTMLDivElement>) {
+  function createRadioGroup(props?: RadioGroupProps) {
     return (
       <Radio.Group {...props}>
         <Button value="A">A</Button>
