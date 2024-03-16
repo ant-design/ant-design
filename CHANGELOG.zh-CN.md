@@ -26,7 +26,7 @@ tag: vVERSION
 - 🐞 修复 Typography 配置的 `ellipsis.symbol` 超出单行高度时，省略行数不正确的问题。[#47889](https://github.com/ant-design/ant-design/pull/47889)
 - 🐞 修复 DatePicker 配置自定义 `controlHeight` 时展示高度不正确的问题。[#47874](https://github.com/ant-design/ant-design/pull/47874)
 - 🐞 修复 DatePicker 设置 `multiple` 多选换行时行与行之间没有间隙的问题。[#47821](https://github.com/ant-design/ant-design/pull/47821)
-- 🐞 TimePicker 警告并兼容 `onSelect`，该 API 在 v4 中已移除但是在英文文档中被遗留。[#47878](https://github.com/ant-design/ant-design/pull/47878)
+- 💄 调深 Empty 文本色彩使其更清晰可读一些。[#47268](https://github.com/ant-design/ant-design/pull/47268) [@evgmol](https://github.com/evgmol)
 
 ## 5.15.2
 

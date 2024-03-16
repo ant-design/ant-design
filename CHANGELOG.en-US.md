@@ -27,6 +27,7 @@ tag: vVERSION
 - 🐞 Fix DatePicker component height not correct when customize `controlHeight`. [#47874](https://github.com/ant-design/ant-design/pull/47874)
 - 🐞 Fix DatePicker with `multiple` selector collapse for cross the line. [#47821](https://github.com/ant-design/ant-design/pull/47821)
 - 🐞 TimePicker revert and add warning for `onSelect` API which is already removed in v4 but not update in English documentation. [#47878](https://github.com/ant-design/ant-design/pull/47878)
+- 💄 Darken the Empty text color to make it readable. [#47268](https://github.com/ant-design/ant-design/pull/47268) [@evgmol](https://github.com/evgmol)
 
 ## 5.15.2
 
