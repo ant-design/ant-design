@@ -11,8 +11,8 @@ import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import theme from '../../theme';
 import type { Color } from '../color';
-import type { ColorPickerProps, ColorValueType } from '../interface';
 import ColorPicker from '../ColorPicker';
+import type { ColorPickerProps, ColorValueType } from '../interface';
 import { generateColor } from '../util';
 
 function doMouseMove(
@@ -611,6 +611,7 @@ describe('ColorPicker', () => {
 
   it('When controlled and without an initial value, then changing the controlled value to valid color should be reflected correctly on the DOM.', async () => {
     const Demo = () => {
+      // FIXME: How to cover '', null/undefined, generateColor('') at the same time?
       const [color, setColor] = useState<ColorValueType>();
       useEffect(() => {
         setColor(generateColor('red'));
@@ -628,6 +629,7 @@ describe('ColorPicker', () => {
     const Demo = () => {
       const [color, setColor] = useState<ColorValueType>(generateColor('red'));
       useEffect(() => {
+        // FIXME: How to cover '', null/undefined, generateColor('') at the same time?
         setColor('');
       }, []);
       return <ColorPicker value={color} />;
