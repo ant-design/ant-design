@@ -155,7 +155,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | expandable | 是否可展开 | boolean | - |  |
-| collapsible | 是否可收起 | boolean | - |  |
+| collapsible | 是否可收起 | boolean | - | 5.16.0 |
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
 | symbol | 自定义展开描述文案 | ReactNode | `展开` |  |
