@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks/useZIndex';
-import { resetComponent } from '../../style';
+import { resetComponent, genFocusStyle } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genNotificationPlacementStyle from './placement';
@@ -151,6 +151,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
         color: token.colorIconHover,
         backgroundColor: token.colorBgTextHover,
       },
+
+      '&:active': {
+        backgroundColor: token.colorBgTextHover,
+      },
+
+      ...genFocusStyle(token),
     },
 
     [`${noticeCls}-btn`]: {

@@ -1,6 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { resetComponent } from '../../style';
+import { resetComponent, genFocusStyle } from '../../style';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
 import getArrowStyle, {
   getArrowOffsetToken,
@@ -129,6 +129,12 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
               color: token.colorIconHover,
               backgroundColor: token.colorBgTextHover,
             },
+
+            '&:active': {
+              backgroundColor: token.colorBgTextActive,
+            },
+
+            ...genFocusStyle(token),
           },
 
           [`${componentCls}-cover`]: {

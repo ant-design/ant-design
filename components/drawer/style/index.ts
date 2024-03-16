@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 
+import { genFocusStyle } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genMotionStyle from './motion';
@@ -188,23 +189,21 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         textDecoration: 'none',
         background: 'transparent',
         border: 0,
-        outline: 0,
         cursor: 'pointer',
         transition: `all ${motionDurationMid}`,
         textRendering: 'auto',
 
         '&:hover': {
+          color: colorIconHover,
           backgroundColor: colorBgTextHover,
+          textDecoration: 'none',
         },
 
         '&:active': {
           backgroundColor: colorBgTextActive,
         },
 
-        '&:focus, &:hover': {
-          color: colorIconHover,
-          textDecoration: 'none',
-        },
+        ...genFocusStyle(token),
       },
 
       [`${componentCls}-title`]: {
