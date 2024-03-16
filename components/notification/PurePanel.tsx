@@ -27,13 +27,7 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
   if (closeIcon === null || closeIcon === false) {
     return null;
   }
-  return (
-    closeIcon || (
-      <span className={`${prefixCls}-close-x`}>
-        <CloseOutlined className={`${prefixCls}-close-icon`} />
-      </span>
-    )
-  );
+  return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
 }
 
 export interface PureContentProps {
