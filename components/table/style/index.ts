@@ -176,19 +176,6 @@ export interface ComponentToken {
    * @descEN Border radius of sticky scrollbar
    */
   stickyScrollBarBorderRadius: number;
-
-  /** @internal */
-  expandIconMarginTop: number;
-  /** @internal */
-  expandIconHalfInner: number;
-  /** @internal */
-  expandIconSize: number;
-  /** @internal */
-  expandIconScale: number;
-  /** @internal */
-  headerIconColor: string;
-  /** @internal */
-  headerIconHoverColor: string;
 }
 
 export interface TableToken extends FullToken<'Table'> {
@@ -236,6 +223,19 @@ export interface TableToken extends FullToken<'Table'> {
   tableScrollThumbBg: string;
   tableScrollThumbBgHover: string;
   tableScrollBg: string;
+
+  /** @internal */
+  expandIconMarginTop: number;
+  /** @internal */
+  expandIconHalfInner: number;
+  /** @internal */
+  expandIconSize: number;
+  /** @internal */
+  expandIconScale: number;
+  /** @internal */
+  headerIconColor: string;
+  /** @internal */
+  headerIconHoverColor: string;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {

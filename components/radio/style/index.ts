@@ -78,16 +78,15 @@ export interface ComponentToken {
    * @descEN Margin right of Radio button
    */
   wrapperMarginInlineEnd: number;
-
-  /** @internal */
-  radioColor: string;
-  /** @internal */
-  radioBgColor: string;
 }
 
 interface RadioToken extends FullToken<'Radio'> {
   radioFocusShadow: string;
   radioButtonFocusShadow: string;
+  /** @internal */
+  radioColor: string;
+  /** @internal */
+  radioBgColor: string;
 }
 
 // ============================== Styles ==============================

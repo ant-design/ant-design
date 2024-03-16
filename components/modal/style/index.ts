@@ -41,7 +41,19 @@ export interface ComponentToken {
    * @descEN Background color of footer
    */
   footerBg: string;
+}
 
+export interface ModalToken extends FullToken<'Modal'> {
+  // Custom token here
+  modalHeaderHeight: number | string;
+  modalFooterBorderColorSplit: string;
+  modalFooterBorderStyle: string;
+  modalFooterBorderWidth: number;
+  modalIconHoverColor: string;
+  modalCloseIconColor: string;
+  modalCloseBtnSize: number | string;
+  modalConfirmIconSize: number | string;
+  modalTitleHeight: number | string;
   /** @internal */
   closeBtnHoverBg: string;
   /** @internal */
@@ -70,19 +82,6 @@ export interface ComponentToken {
   confirmIconMarginInlineEnd: string | number;
   /** @internal */
   confirmBtnsMarginTop: string | number;
-}
-
-export interface ModalToken extends FullToken<'Modal'> {
-  // Custom token here
-  modalHeaderHeight: number | string;
-  modalFooterBorderColorSplit: string;
-  modalFooterBorderStyle: string;
-  modalFooterBorderWidth: number;
-  modalIconHoverColor: string;
-  modalCloseIconColor: string;
-  modalCloseBtnSize: number | string;
-  modalConfirmIconSize: number | string;
-  modalTitleHeight: number | string;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {

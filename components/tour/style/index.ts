@@ -33,8 +33,6 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
    * @descEN Hover background color of next button in primary type
    */
   primaryNextBtnHoverBg: string;
-  /** @internal */
-  closeBtnHoverBg: string;
 }
 
 interface TourToken extends FullToken<'Tour'> {
@@ -42,6 +40,8 @@ interface TourToken extends FullToken<'Tour'> {
   indicatorWidth: number;
   indicatorHeight: number;
   tourBorderRadius: number;
+  /** @internal */
+  closeBtnHoverBg: string;
 }
 
 // =============================== Base ===============================

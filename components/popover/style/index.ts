@@ -35,6 +35,11 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
    * @descEN z-index of Popover
    */
   zIndexPopup: number;
+}
+
+export type PopoverToken = FullToken<'Popover'> & {
+  popoverBg: string;
+  popoverColor: string;
   /** @internal */
   innerPadding: number;
   /** @internal */
@@ -45,11 +50,6 @@ export interface ComponentToken extends ArrowToken, ArrowOffsetToken {
   titleBorderBottom: string;
   /** @internal */
   innerContentPadding: number | string;
-}
-
-export type PopoverToken = FullToken<'Popover'> & {
-  popoverBg: string;
-  popoverColor: string;
 };
 
 const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {

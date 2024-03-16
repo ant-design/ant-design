@@ -365,8 +365,6 @@ export interface ComponentToken {
    * @descEN Background of active danger menu item in dark mode
    */
   darkDangerItemActiveBg: string;
-  /** @internal */
-  itemWidth: string;
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
@@ -375,6 +373,8 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuArrowOffset: number | string;
   menuSubMenuBg: string;
   darkPopupBg: string;
+  /** @internal */
+  itemWidth: string;
 }
 
 const genMenuItemStyle = (token: MenuToken): CSSObject => {

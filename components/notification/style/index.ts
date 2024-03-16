@@ -21,8 +21,6 @@ export interface ComponentToken {
    * @descEN Width of Notification
    */
   width: number;
-  /** @internal */
-  closeBtnHoverBg: string;
 }
 
 export interface NotificationToken extends FullToken<'Notification'> {
@@ -36,6 +34,8 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMarginBottom: number;
   notificationMarginEdge: number;
   notificationStackLayer: number;
+  /** @internal */
+  closeBtnHoverBg: string;
 }
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
