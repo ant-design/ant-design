@@ -50,6 +50,22 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
 
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return wrapCSSVar(
     <Tooltip
       placement={placement}
@@ -61,6 +77,8 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
+      visible={visible}
+      onVisibleChange={setVisible}
       overlay={
         title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
       }

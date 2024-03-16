@@ -94,4 +94,18 @@ describe('Popover', () => {
       render(<InternalPanelDoNotUseOrYouWillBeFired content={null} title={null} trigger="click" />);
     }).not.toThrow();
   });
+
+  it('should hide overlay when press esc key', () => {
+    const ref = React.createRef<TooltipRef>();
+    const { container } = render(
+      <Popover ref={ref} content="console.log('hello world')" title="code" trigger="click">
+        <span>show me your code</span>
+      </Popover>,
+    );
+
+    fireEvent.click(container.querySelector('span')!);
+    expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+    fireEvent.keyDown(document, { key: 'Escape', code: 'Escape' });
+    expect(container.querySelector('.ant-popover-inner-content')).toBeTruthy();
+  });
 });
