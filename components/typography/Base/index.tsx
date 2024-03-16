@@ -396,8 +396,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const { expandable, symbol, collapse } = ellipsisConfig;
 
     if (!expandable) return null;
-
-    if (!collapse && !expanded) return null;
+    if (expanded && !('expanded' in ellipsisConfig)) return null;
 
     return (
       <a
