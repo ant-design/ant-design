@@ -16,6 +16,17 @@ tag: vVERSION
 
 ---
 
+## 5.15.3
+
+`2024-03-17`
+
+- 🐞 修复 Badge 和文本元素在 Space 下排版不对齐的问题。[#47908](https://github.com/ant-design/ant-design/pull/47908)
+- 💄 修复 Upload 列表行动点换行的问题。[#47898](https://github.com/ant-design/ant-design/pull/47898)
+- 🐞 修复 Typography 配置的 `ellipsis.symbol` 超出单行高度时，省略行数不正确的问题。[#47889](https://github.com/ant-design/ant-design/pull/47889)
+- 🐞 修复 DatePicker 配置自定义 `controlHeight` 时，展示高度不正确的问题。[#47874](https://github.com/ant-design/ant-design/pull/47874)
+- 🐞 TimePicker 警告并兼容 `onSelect`，该 API 在 v4 中已移除但是在英文文档中被遗留。[#47878](https://github.com/ant-design/ant-design/pull/47878)
+- 🐞 修复 DatePicker 设置 `multiple` 多选换行时，行与行之间没有间隙的问题。[#47821](https://github.com/ant-design/ant-design/pull/47821)
+
 ## 5.15.2
 
 `2024-03-11`

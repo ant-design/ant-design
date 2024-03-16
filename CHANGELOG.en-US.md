@@ -16,6 +16,17 @@ tag: vVERSION
 
 ---
 
+## 5.15.3
+
+`2024-03-17`
+
+- 🐞 Fix Badge and text node align issue under Space. [#47908](https://github.com/ant-design/ant-design/pull/47908)
+- 💄 Fix Upload file list actions wrap style. [#47898](https://github.com/ant-design/ant-design/pull/47898)
+- 🐞 Fix Typography config the `ellipsis.symbol` exceed the single line height will make ellipsis rows not correct issue. [#47889](https://github.com/ant-design/ant-design/pull/47889)
+- 🐞 Fix DatePicker component height not correct when customize `controlHeight`. [#47874](https://github.com/ant-design/ant-design/pull/47874)
+- 🐞 TimePicker warning and compatible with `onSelect` API which is already removed in v4 but not update in en version doc. [#47878](https://github.com/ant-design/ant-design/pull/47878)
+- 🐞 Fix DatePicker with `multiple` selector collapse for cross the line. [#47821](https://github.com/ant-design/ant-design/pull/47821)
+
 ## 5.15.2
 
 `2024-03-11`
