@@ -20,10 +20,6 @@ export interface ComponentToken {
    * @descEN Horizontal padding of footer
    */
   footerPaddingInline: number;
-  /** @internal */
-  closeBtnHoverBg: string;
-  /** @internal */
-  closeBtnActiveBg: string;
 }
 
 export interface DrawerToken extends FullToken<'Drawer'> {}
@@ -48,8 +44,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
     marginXXS,
     colorIcon,
     colorIconHover,
-    closeBtnHoverBg,
-    closeBtnActiveBg,
+    colorBgTextHover,
+    colorBgTextActive,
     controlHeight,
     colorText,
     fontWeightStrong,
@@ -180,6 +176,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         height: controlHeight,
         borderRadius: borderRadiusSM,
         justifyContent: 'center',
+        alignItems: 'center',
         marginInlineEnd: marginXXS,
         color: colorIcon,
         fontWeight: fontWeightStrong,
@@ -197,11 +194,11 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         textRendering: 'auto',
 
         '&:hover': {
-          backgroundColor: closeBtnHoverBg,
+          backgroundColor: colorBgTextHover,
         },
 
         '&:active': {
-          backgroundColor: closeBtnActiveBg,
+          backgroundColor: colorBgTextActive,
         },
 
         '&:focus, &:hover': {
@@ -247,8 +244,6 @@ export const prepareComponentToken: GetDefaultToken<'Drawer'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase,
   footerPaddingBlock: token.paddingXS,
   footerPaddingInline: token.padding,
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
-  closeBtnActiveBg: token.wireframe ? 'transparent' : token.colorFillContentHover,
 });
 
 // ============================== Export ==============================

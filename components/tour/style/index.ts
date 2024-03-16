@@ -33,8 +33,6 @@ export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
    * @descEN Hover background color of next button in primary type
    */
   primaryNextBtnHoverBg: string;
-  /** @internal */
-  closeBtnHoverBg: string;
 }
 
 interface TourToken extends FullToken<'Tour'> {
@@ -129,7 +127,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
             '&:hover': {
               color: token.colorIconHover,
-              backgroundColor: token.closeBtnHoverBg,
+              backgroundColor: token.colorBgTextHover,
             },
           },
 
@@ -271,7 +269,6 @@ export const prepareComponentToken: GetDefaultToken<'Tour'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
   closeBtnSize: token.fontSize * token.lineHeight,
   primaryPrevBtnBg: new TinyColor(token.colorTextLightSolid).setAlpha(0.15).toRgbString(),
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
   primaryNextBtnHoverBg: new TinyColor(token.colorBgTextHover)
     .onBackground(token.colorWhite)
     .toRgbString(),

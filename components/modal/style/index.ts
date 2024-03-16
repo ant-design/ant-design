@@ -43,10 +43,6 @@ export interface ComponentToken {
   footerBg: string;
 
   /** @internal */
-  closeBtnHoverBg: string;
-  /** @internal */
-  closeBtnActiveBg: string;
-  /** @internal */
   contentPadding: number | string;
   /** @internal */
   headerPadding: string | number;
@@ -249,12 +245,12 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
 
           '&:hover': {
             color: token.modalCloseIconHoverColor,
-            backgroundColor: token.closeBtnHoverBg,
+            backgroundColor: token.colorBgTextHover,
             textDecoration: 'none',
           },
 
           '&:active': {
-            backgroundColor: token.closeBtnActiveBg,
+            backgroundColor: token.colorBgTextActive,
           },
 
           ...genFocusStyle(token),
@@ -367,8 +363,6 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   titleColor: token.colorTextHeading,
 
   // internal
-  closeBtnHoverBg: token.wireframe ? 'transparent' : token.colorFillContent,
-  closeBtnActiveBg: token.wireframe ? 'transparent' : token.colorFillContentHover,
   contentPadding: token.wireframe
     ? 0
     : `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
