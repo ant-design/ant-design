@@ -2,14 +2,21 @@ import React, { useState } from 'react';
 import { Switch, Typography } from 'antd';
 
 const App = () => {
-  const [expandable, setExpandable] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <>
-      <Switch checked={expandable} onChange={() => setExpandable((c) => !c)} />
+      <Switch checked={expanded} onChange={() => setExpanded((c) => !c)} />
 
-      {/* <Typography.Paragraph ellipsis={ellipsis ? { rows: 2, expandable: 'collapsible' } : false}> */}
-      <Typography.Paragraph ellipsis={{ rows: 2, expandable: 'collapsible' }}>
+      <Typography.Paragraph
+        ellipsis={{
+          rows: 2,
+          expandable: true,
+          collapsible: true,
+          expanded,
+          onExpand: (_, info) => setExpanded(info.expanded),
+        }}
+      >
         Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant
         Design, a design language for background applications, is refined by Ant UED Team. Ant

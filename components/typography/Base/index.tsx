@@ -52,15 +52,16 @@ interface EditConfig {
 
 export interface EllipsisConfig {
   rows?: number;
-  expandable?: boolean | 'collapsible';
-  symbol?: React.ReactNode;
+  expandable?: boolean;
+  collapsible?: boolean;
   suffix?: string;
-  onExpand?: React.MouseEventHandler<HTMLElement>;
+  symbol?: React.ReactNode;
+  collapse?: React.ReactNode;
+  defaultExpanded?: boolean;
+  expanded?: boolean;
+  onExpand?: (e: React.MouseEvent<HTMLElement, MouseEvent>, info: { expanded: boolean }) => void;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode | TooltipProps;
-  defaultValue?: boolean;
-  value?: boolean;
-  onChange?: (value?: boolean) => void;
 }
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
@@ -218,12 +219,17 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [isLineClampSupport, setIsLineClampSupport] = React.useState(false);
   const [isTextOverflowSupport, setIsTextOverflowSupport] = React.useState(false);
 
-  const [expanded, setExpanded] = React.useState(false);
   const [isJsEllipsis, setIsJsEllipsis] = React.useState(false);
   const [isNativeEllipsis, setIsNativeEllipsis] = React.useState(false);
   const [isNativeVisible, setIsNativeVisible] = React.useState(true);
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
+    collapsible: false,
+    symbol: textLocale?.expand,
+    collapse: textLocale.collapse,
+  });
+  const [expanded, setExpanded] = useMergedState(ellipsisConfig.defaultExpanded, {
+    value: ellipsisConfig.expanded,
   });
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
@@ -270,9 +276,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
 
   // >>>>> Expand
-  const onExpandClick: React.MouseEventHandler<HTMLElement> = (e) => {
-    setExpanded(!expanded);
-    ellipsisConfig.onExpand?.(e);
+  const onExpandClick: EllipsisConfig['onExpand'] = (e, info) => {
+    setExpanded(info.expanded);
+    ellipsisConfig.onExpand?.(e, info);
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
@@ -389,26 +395,19 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = () => {
-    const renderExpanded = !expanded;
-    const { expandable, symbol } = ellipsisConfig;
-    if (!expandable) return null;
-    if (expandable !== 'collapsible' && !renderExpanded) return null;
+    const { expandable, symbol, collapse } = ellipsisConfig;
 
-    let expandContent: React.ReactNode;
-    if (symbol) {
-      expandContent = symbol;
-    } else {
-      expandContent = renderExpanded ? textLocale?.expand : textLocale.collapse;
-    }
+    if (!expandable) return null;
+    if (expanded && !ellipsisConfig.collapsible) return null;
 
     return (
       <a
         key="expand"
-        className={`${prefixCls}-${renderExpanded ? 'expand' : 'collapse'}`}
-        onClick={onExpandClick}
-        aria-label={renderExpanded ? textLocale?.expand : textLocale?.collapse}
+        className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
+        onClick={(e) => onExpandClick(e, { expanded: !expanded })}
+        aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
-        {expandContent}
+        {expanded ? collapse : symbol}
       </a>
     );
   };
@@ -455,7 +454,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = () => [renderExpand(), renderEdit(), renderCopy()];
+  const renderOperations = (renderExpanded: boolean) => [
+    (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
+    renderEdit(),
+    renderCopy(),
+  ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
     needEllipsis && (
@@ -464,7 +467,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(),
+    renderOperations(needEllipsis),
   ];
 
   return (
