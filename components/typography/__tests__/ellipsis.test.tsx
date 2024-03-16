@@ -249,6 +249,24 @@ describe('Typography.Ellipsis', () => {
     expect(container.querySelector('p')?.textContent).toEqual(fullStr);
   });
 
+  it('should expanded work', async () => {
+    const { container: wrapper } = render(
+      <Base
+        ellipsis={{ expandable: true, symbol: 'aaa', collapse: 'bbb', defaultExpanded: true }}
+        component="p"
+      >
+        {fullStr}
+      </Base>,
+    );
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}aaa`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}bbb`);
+
+    fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}aaa`);
+  });
+
   it('should have custom expand style', async () => {
     const ref = React.createRef<HTMLElement>();
     const symbol = 'more';

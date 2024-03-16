@@ -1520,6 +1520,45 @@ Array [
 
 exports[`renders components/typography/demo/ellipsis.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/typography/demo/ellipsis-controlled.tsx extend context correctly 1`] = `
+Array [
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      />
+      <span
+        class="ant-switch-inner-unchecked"
+      />
+    </span>
+  </button>,
+  <div
+    aria-label="Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team."
+    class="ant-typography ant-typography-ellipsis"
+  >
+    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
+    <a
+      aria-label="Expand"
+      class="ant-typography-expand"
+    >
+      Expand
+    </a>
+  </div>,
+]
+`;
+
+exports[`renders components/typography/demo/ellipsis-controlled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/ellipsis-debug.tsx extend context correctly 1`] = `
 Array [
   <button

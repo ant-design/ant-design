@@ -229,6 +229,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [expanded, setExpanded] = useMergedState(false, {
     value: ellipsisConfig.expanded,
   });
+  const hasExpanded = 'expanded' in ellipsisConfig || 'defaultExpanded' in ellipsisConfig;
 
   const mergedEnableEllipsis = enableEllipsis && !expanded;
 
@@ -396,7 +397,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     const { expandable, symbol, collapse } = ellipsisConfig;
 
     if (!expandable) return null;
-    if (expanded && !('expanded' in ellipsisConfig)) return null;
+    if (expanded && !hasExpanded) return null;
 
     return (
       <a
@@ -453,7 +454,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderOperations = (renderExpanded: boolean) => [
-    renderExpanded && renderExpand(),
+    (renderExpanded || hasExpanded) && renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
