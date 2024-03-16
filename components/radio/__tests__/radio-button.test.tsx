@@ -35,15 +35,13 @@ describe('Radio Button', () => {
 });
 
 describe('Radio Group', () => {
-  const RadioGroupComponent = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
-    return (
-      <Radio.Group {...props} ref={ref}>
-        <Radio value="A">A</Radio>
-        <Radio value="B">B</Radio>
-        <Radio value="C">C</Radio>
-      </Radio.Group>
-    );
-  });
+  const RadioGroupComponent = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => (
+    <Radio.Group {...props} ref={ref}>
+      <Radio value="A">A</Radio>
+      <Radio value="B">B</Radio>
+      <Radio value="C">C</Radio>
+    </Radio.Group>
+  ));
 
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();

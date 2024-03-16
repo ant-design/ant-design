@@ -5,15 +5,13 @@ import Radio from '..';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Group', () => {
-  const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => {
-    return (
-      <Radio.Group {...props}>
-        <Radio value="A">A</Radio>
-        <Radio value="B">B</Radio>
-        <Radio value="C">C</Radio>
-      </Radio.Group>
-    );
-  };
+  const RadioGroupComponent: React.FC<RadioGroupProps> = (props) => (
+    <Radio.Group {...props}>
+      <Radio value="A">A</Radio>
+      <Radio value="B">B</Radio>
+      <Radio value="C">C</Radio>
+    </Radio.Group>
+  );
 
   const RadioGroupByOptions = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
     const options = [
