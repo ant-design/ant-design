@@ -1,10 +1,6 @@
 name: DingTalk Test
 
-# on: [push, pull_request]
-
-on:
-  discussion:
-    types: [created, edited, locked, unlocked]
+on: [push, pull_request]
 
 jobs:
   build:
