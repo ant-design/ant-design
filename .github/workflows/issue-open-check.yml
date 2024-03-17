@@ -100,6 +100,6 @@ jobs:
             ${{ secrets.DINGDING_BOT_TOKEN }}
             ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了 issue：${{ github.event.issue.title }} ${{ github.event.issue.html_url }}'
-          notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue：[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr />'
+          notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue\n[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr />'
           notify_footer: '> 💬 欢迎前往 GitHub 进行讨论，社区可能需要你的帮助。'
           at_all: false # whether to ding everybody
