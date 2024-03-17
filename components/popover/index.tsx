@@ -10,6 +10,7 @@ import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
+import KeyCode from 'rc-util/lib/KeyCode';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -49,6 +50,20 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
+  const [visible, setVisible] = React.useState(props.open ?? props.visible);
+
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.keyCode === KeyCode.ESC) {
+      setVisible(false);
+    }
+  };
+
+  React.useEffect(() => {
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, []);
 
   return wrapCSSVar(
     <Tooltip
@@ -61,6 +76,8 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
+      visible={visible}
+      onVisibleChange={setVisible}
       overlay={
         title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
       }
