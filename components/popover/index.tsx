@@ -56,11 +56,11 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
-  const [visible, setVisible] = React.useState(props.open ?? props.visible);
+  const [open, setOpen] = React.useState(props.open ?? props.visible);
 
   const onKeyDown = (e: KeyboardEvent) => {
     if (e.keyCode === KeyCode.ESC) {
-      setVisible(false);
+      setOpen(false);
     }
   };
 
@@ -82,8 +82,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       prefixCls={prefixCls}
       overlayClassName={overlayCls}
       ref={ref}
-      visible={visible}
-      onVisibleChange={setVisible}
+      open={open}
       overlay={
         title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
       }
