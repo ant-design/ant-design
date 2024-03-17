@@ -10,6 +10,8 @@ import Tooltip from '../tooltip';
 import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
+import KeyCode from 'rc-util/lib/KeyCode';
+import { cloneElement } from '../_util/reactNode';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -52,17 +54,16 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   const [visible, setVisible] = React.useState(false);
 
+  const onKeyDown = (e: KeyboardEvent) => {
+    if (e.keyCode === KeyCode.ESC) {
+      setVisible(false);
+    }
+  };
+
   React.useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setVisible(false);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-
+    window.addEventListener('keydown', onKeyDown);
     return () => {
-      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keydown', onKeyDown);
     };
   }, []);
 
