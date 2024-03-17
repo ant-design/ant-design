@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Slider, Switch, Typography } from 'antd';
+import { Button, Slider, Switch, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;
 
@@ -78,7 +78,14 @@ const App: React.FC = () => {
         </Text>
       </div>
 
-      <Typography.Paragraph style={{ width: 300 }} ellipsis={{ rows: 3 }}>
+      <Typography.Paragraph
+        style={{ width: 300 }}
+        ellipsis={{
+          rows: 3,
+          expandable: true,
+          symbol: <Button>Open</Button>,
+        }}
+      >
         {templateStr.slice(0, 60)}
         <span style={{ fontSize: '5em' }}>ANTD</span>
         {templateStr.slice(60)}
