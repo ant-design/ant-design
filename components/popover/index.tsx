@@ -11,7 +11,6 @@ import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { cloneElement } from '../_util/reactNode';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
