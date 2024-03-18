@@ -105,12 +105,11 @@ export interface EllipsisProps {
   rows: number;
   children: (
     cutChildren: React.ReactNode[],
-    /** Tell current `cutChildren` is in ellipsis */
-    inEllipsis: boolean,
     /** Tell current `text` is exceed the `rows` which can be ellipsis */
     canEllipsis: boolean,
   ) => React.ReactNode;
   onEllipsis: (isEllipsis: boolean) => void;
+  expanded: boolean;
   /**
    * Mark for misc update. Which will not affect ellipsis content length.
    * e.g. tooltip content update.
@@ -131,14 +130,14 @@ const lineClipStyle: React.CSSProperties = {
 };
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enableMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
+  const { enableMeasure, width, text, children, rows, expanded, miscDeps, onEllipsis } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
 
   // ========================= Full Content =========================
   // Used for measure only, which means it's always render as no need ellipsis
-  const fullContent = React.useMemo(() => children(nodeList, false, false), [text]);
+  const fullContent = React.useMemo(() => children(nodeList, false), [text]);
 
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
@@ -221,7 +220,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       !ellipsisCutIndex ||
       ellipsisCutIndex[0] !== ellipsisCutIndex[1]
     ) {
-      const content = children(nodeList, false, false);
+      const content = children(nodeList, false);
 
       // Limit the max line count to avoid scrollbar blink
       // https://github.com/ant-design/ant-design/issues/42958
@@ -244,8 +243,8 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       return content;
     }
 
-    return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, canEllipsis);
-  }, [needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
+    return children(expanded ? nodeList : sliceNodes(nodeList, ellipsisCutIndex[0]), canEllipsis);
+  }, [expanded, needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
 
   // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
@@ -296,7 +295,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             }}
             ref={symbolRowEllipsisRef}
           >
-            {children([], true, true)}
+            {children([], true)}
           </MeasureText>
         </>
       )}
@@ -312,7 +311,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
             }}
             ref={cutMidRef}
           >
-            {children(sliceNodes(nodeList, cutMidIndex), true, true)}
+            {children(sliceNodes(nodeList, cutMidIndex), true)}
           </MeasureText>
         )}
     </>
