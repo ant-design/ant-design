@@ -11,6 +11,7 @@ import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { cloneElement } from '../_util/reactNode';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -38,6 +39,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
     overlayClassName,
     placement = 'top',
     trigger = 'hover',
+    children,
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     overlayStyle = {},
@@ -52,18 +54,13 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
   const [open, setOpen] = React.useState(props.open ?? props.visible);
 
-  const onKeyDown = (e: KeyboardEvent) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.keyCode === KeyCode.ESC) {
+      console.log('esc');
+
       setOpen(false);
     }
   };
-
-  React.useEffect(() => {
-    window.addEventListener('keydown', onKeyDown);
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, []);
 
   return wrapCSSVar(
     <Tooltip
@@ -82,7 +79,16 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       }
       transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       data-popover-inject
-    />,
+    >
+      {cloneElement(children, {
+        onKeyDown: (e: React.KeyboardEvent<any>) => {
+          if (React.isValidElement(children)) {
+            children?.props.onKeyDown?.(e);
+          }
+          onKeyDown(e);
+        },
+      })}
+    </Tooltip>,
   );
 }) as React.ForwardRefExoticComponent<
   React.PropsWithoutRef<PopoverProps> & React.RefAttributes<unknown>
