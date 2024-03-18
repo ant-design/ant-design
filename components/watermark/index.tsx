@@ -183,16 +183,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
           gapY,
         );
 
-        // Update if needed
-        setWatermarkInfo((prev) => {
-          const [prevNextClips, prevClipWidth] = prev || [];
-
-          if (prevNextClips !== nextClips || prevClipWidth !== clipWidth) {
-            return [nextClips, clipWidth];
-          }
-
-          return prev;
-        });
+        setWatermarkInfo([nextClips, clipWidth]);
       };
 
       if (image) {
