@@ -137,6 +137,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
 
   // ========================= Full Content =========================
+  // Used for measure only, which means it's always render as no need ellipsis
   const fullContent = React.useMemo(() => children(nodeList, false, false), [text]);
 
   // ========================= Cut Content ==========================
@@ -150,6 +151,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
   const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
   const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
 
+  const [canEllipsis, setCanEllipsis] = React.useState(false);
   const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
   const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
 
@@ -169,6 +171,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
 
       setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
       setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
+      setCanEllipsis(isOverflow);
 
       // Get the basic height of ellipsis rows
       const baseRowsEllipsisHeight = needEllipsisRef.current?.getHeight() || 0;
@@ -241,7 +244,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
       return content;
     }
 
-    return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
+    return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, canEllipsis);
   }, [needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
 
   // ============================ Render ============================

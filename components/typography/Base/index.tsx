@@ -55,8 +55,7 @@ export interface EllipsisConfig {
   expandable?: boolean;
   collapsible?: boolean;
   suffix?: string;
-  symbol?: React.ReactNode;
-  collapse?: React.ReactNode;
+  symbol?: React.ReactNode | ((expanded: boolean) => React.ReactNode);
   defaultExpanded?: boolean;
   expanded?: boolean;
   onExpand?: (e: React.MouseEvent<HTMLElement, MouseEvent>, info: { expanded: boolean }) => void;
@@ -225,10 +224,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const [enableEllipsis, ellipsisConfig] = useMergedConfig<EllipsisConfig>(ellipsis, {
     expandable: false,
     collapsible: false,
-    symbol: textLocale?.expand,
-    collapse: textLocale.collapse,
+    symbol: (isExpanded) => (isExpanded ? textLocale?.collapse : textLocale?.expand),
   });
-  const [expanded, setExpanded] = useMergedState(ellipsisConfig.defaultExpanded, {
+  const [expanded, setExpanded] = useMergedState(ellipsisConfig.defaultExpanded || false, {
     value: ellipsisConfig.expanded,
   });
 
@@ -395,7 +393,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   // >>>>>>>>>>> Typography
   // Expand
   const renderExpand = () => {
-    const { expandable, symbol, collapse } = ellipsisConfig;
+    const { expandable, symbol } = ellipsisConfig;
 
     if (!expandable) return null;
     if (expanded && !ellipsisConfig.collapsible) return null;
@@ -407,7 +405,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onClick={(e) => onExpandClick(e, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
-        {expanded ? collapse : symbol}
+        {typeof symbol === 'function' ? symbol(expanded) : symbol}
       </a>
     );
   };
@@ -454,20 +452,21 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (renderExpanded: boolean) => [
-    (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
+  const renderOperations = (renderExpanded: boolean, canEllipsis: boolean) => [
+    // (renderExpanded || ellipsisConfig.collapsible) && renderExpand(),
+    canEllipsis && renderExpand(),
     renderEdit(),
     renderCopy(),
   ];
 
-  const renderEllipsis = (needEllipsis: boolean) => [
+  const renderEllipsis = (needEllipsis: boolean, canEllipsis: boolean) => [
     needEllipsis && (
       <span aria-hidden key="ellipsis">
         {ELLIPSIS_STR}
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(needEllipsis),
+    renderOperations(needEllipsis, canEllipsis),
   ];
 
   return (
@@ -511,7 +510,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               onEllipsis={onJsEllipsis}
               miscDeps={[copied, expanded]}
             >
-              {(node, needEllipsis) => {
+              {(node, needEllipsis, canEllipsis) => {
                 let renderNode: React.ReactNode = node;
                 if (node.length && needEllipsis && topAriaLabel) {
                   renderNode = (
@@ -525,7 +524,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                   props,
                   <>
                     {renderNode}
-                    {renderEllipsis(needEllipsis)}
+                    {renderEllipsis(needEllipsis, canEllipsis)}
                   </>,
                 );
 
