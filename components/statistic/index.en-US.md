@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | prefix | The prefix node of value | ReactNode | - |  |
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
-| value | Set target countdown time | number \| dayjs | - |  |
+| value | Set target countdown time | number | - |  |
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |
