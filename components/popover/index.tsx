@@ -12,6 +12,8 @@ import PurePanel from './PurePanel';
 import useStyle from './style';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { cloneElement } from '../_util/reactNode';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { set } from 'lodash';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -56,8 +58,6 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.keyCode === KeyCode.ESC) {
-      console.log('esc');
-
       setOpen(false);
     }
   };
@@ -74,6 +74,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       overlayClassName={overlayCls}
       ref={ref}
       open={open}
+      onOpenChange={setOpen}
       overlay={
         title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
       }

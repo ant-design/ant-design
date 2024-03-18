@@ -78,12 +78,6 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
     props.onCancel?.call(this, e);
   };
 
-  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    if (e.keyCode === KeyCode.ESC && open) {
-      settingOpen(false, e);
-    }
-  };
-
   const onInternalOpenChange = (value: boolean) => {
     const { disabled = false } = props;
     if (disabled) {
@@ -119,14 +113,7 @@ const Popconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props, ref) =>
       }
       data-popover-inject
     >
-      {cloneElement(children, {
-        onKeyDown: (e: React.KeyboardEvent<any>) => {
-          if (React.isValidElement(children)) {
-            children?.props.onKeyDown?.(e);
-          }
-          onKeyDown(e);
-        },
-      })}
+      {children}
     </Popover>,
   );
 }) as React.ForwardRefExoticComponent<
