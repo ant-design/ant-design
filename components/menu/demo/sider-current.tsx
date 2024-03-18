@@ -74,7 +74,7 @@ const App: React.FC = () => {
       mode="inline"
       openKeys={openKeys}
       selectedKeys={selectedKeys}
-      onOpenChange={(openKeys) => onOpenChange(openKeys)}
+      onOpenChange={(openKeys) => onOpenChange(openKeys as string[])}
       onSelect={(info) => setSelectedKeys([info.key])}
       style={{ width: 256 }}
       items={items}
