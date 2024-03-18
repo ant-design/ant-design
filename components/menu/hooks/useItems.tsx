@@ -14,6 +14,7 @@ export interface MenuItemType extends RcMenuItemType {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;
+  key: string;
 }
 
 export interface SubMenuType<T extends MenuItemType = MenuItemType>
@@ -26,12 +27,12 @@ export interface SubMenuType<T extends MenuItemType = MenuItemType>
 export interface MenuItemGroupType<T extends MenuItemType = MenuItemType>
   extends Omit<RcMenuItemGroupType, 'children'> {
   children?: ItemType<T>[];
-  key?: React.Key;
+  key?: string;
 }
 
 export interface MenuDividerType extends RcMenuDividerType {
   dashed?: boolean;
-  key?: React.Key;
+  key?: string;
 }
 
 export type ItemType<T extends MenuItemType = MenuItemType> =

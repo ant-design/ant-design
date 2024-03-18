@@ -170,7 +170,7 @@ describe('Dropdown', () => {
               children: [
                 {
                   label: '1',
-                  key: 1,
+                  key: "1",
                 },
               ],
             },
@@ -275,7 +275,7 @@ describe('Dropdown', () => {
           items: [
             {
               label: <div className="bamboo" />,
-              key: 1,
+              key: "1",
             },
           ],
         }}
@@ -297,8 +297,8 @@ describe('Dropdown', () => {
           selectable: true,
           multiple: true,
           items: [
-            { label: '1', key: 1 },
-            { label: '2', key: 2 },
+            { label: '1', key: "1" },
+            { label: '2', key: "2" },
           ],
         }}
       >

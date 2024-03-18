@@ -81,7 +81,7 @@ function renderFilterItems({
 
     if (filter.children) {
       return {
-        key: key || index,
+        key: key || `${index}`,
         label: filter.text,
         popupClassName: `${prefixCls}-dropdown-submenu`,
         children: renderFilterItems({
@@ -98,7 +98,7 @@ function renderFilterItems({
     const Component = filterMultiple ? Checkbox : Radio;
 
     const item = {
-      key: filter.value !== undefined ? key : index,
+      key: filter.value !== undefined ? key : `${index}`,
       label: (
         <>
           <Component checked={filteredKeys.includes(key)} />

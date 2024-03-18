@@ -16,7 +16,7 @@ import useItemRender from './useItemRender';
 import useItems from './useItems';
 
 export interface BreadcrumbItemType {
-  key?: React.Key;
+  key?: string;
   /**
    * Different with `path`. Directly set the link of this item.
    */

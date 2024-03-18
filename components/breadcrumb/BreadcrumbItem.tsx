@@ -15,7 +15,7 @@ export interface SeparatorType {
 
 type MenuType = NonNullable<DropdownProps['menu']>;
 interface MenuItem {
-  key?: React.Key;
+  key?: string;
   title?: React.ReactNode;
   label?: React.ReactNode;
   path?: string;
@@ -67,7 +67,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
 
             return {
               ...itemProps,
-              key: key ?? index,
+              key: key ?? `${index}`,
               label: mergedLabel as string,
             };
           }),
