@@ -1,35 +1,30 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
-import { FIXED_ITEM_MARGIN, genSelectionStyle } from '../../select/style/multiple';
+import { genOverflowStyle, getMultipleSelectorUnit } from '../../select/style/multiple';
 import { mergeToken, type GenerateStyle } from '../../theme/internal';
 import type { PickerToken } from './token';
 
 const genSize = (token: PickerToken, suffix?: string): CSSInterpolation => {
-  const { componentCls, selectHeight, fontHeight, lineWidth, controlHeight, calc } = token;
+  const { componentCls, controlHeight } = token;
 
   const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
-  const height = token.calc(fontHeight).add(2).equal();
-  const restHeight = () => calc(selectHeight).sub(height).sub(calc(lineWidth).mul(2));
-
-  const paddingBase = token.max(restHeight().div(2).equal(), 0);
-  const paddingTop = token.max(token.calc(paddingBase).sub(FIXED_ITEM_MARGIN).equal(), 0);
-  const paddingBottom = token.max(
-    restHeight()
-      .sub(paddingTop)
-      .sub(FIXED_ITEM_MARGIN * 2)
-      .equal(),
-    0,
-  );
+  const multipleSelectorUnit = getMultipleSelectorUnit(token);
 
   return [
-    genSelectionStyle(token, suffix),
+    // genSelectionStyle(token, suffix),
     {
       [`${componentCls}-multiple${suffixCls}`]: {
-        paddingTop,
-        paddingBottom,
-        paddingInlineStart: paddingBase,
+        paddingBlock: multipleSelectorUnit.containerPadding,
+        paddingInlineStart: multipleSelectorUnit.basePadding,
         minHeight: controlHeight,
+
+        // ======================== Selections ========================
+        [`${componentCls}-selection-item`]: {
+          height: multipleSelectorUnit.itemHeight,
+          lineHeight: unit(multipleSelectorUnit.itemLineHeight),
+        },
       },
     },
   ];
@@ -41,7 +36,7 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
   const smallToken = mergeToken<PickerToken>(token, {
     fontHeight: token.fontSize,
     selectHeight: token.controlHeightSM,
-    multipleSelectItemHeight: token.controlHeightXS,
+    multipleSelectItemHeight: token.multipleItemHeightSM,
     borderRadius: token.borderRadiusSM,
     borderRadiusSM: token.borderRadiusXS,
     controlHeight: token.controlHeightSM,
@@ -66,7 +61,6 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
     genSize(largeToken, 'large'),
 
     // ====================== Selection ======================
-    genSelectionStyle(token),
     {
       [`${componentCls}${componentCls}-multiple`]: {
         width: '100%',
@@ -80,6 +74,9 @@ const genPickerMultipleStyle: GenerateStyle<PickerToken> = (token) => {
             margin: 0,
           },
         },
+
+        // ===================== Overflow ====================
+        ...genOverflowStyle(token),
 
         // ====================== Input ======================
         // Input is `readonly`, which is used for a11y only

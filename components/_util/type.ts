@@ -20,7 +20,9 @@ export type GetProp<
   PropName extends keyof GetProps<T>,
 > = NonNullable<GetProps<T>[PropName]>;
 
-type ReactRefComponent<Props extends { ref?: React.Ref<any> }> = (props: Props) => React.ReactNode;
+type ReactRefComponent<Props extends { ref?: React.Ref<any> | string }> = (
+  props: Props,
+) => React.ReactNode;
 
 export type GetRef<T extends ReactRefComponent<any> | React.Component<any>> =
   T extends React.Component<any>

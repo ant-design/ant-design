@@ -122,12 +122,12 @@ export interface ComponentToken {
   paddingBlock: CSSProperties['paddingBlock'];
   /**
    * @desc 大号按钮纵向内间距
-   * @descEN Horizontal padding of large button
+   * @descEN Vertical padding of large button
    */
   paddingBlockLG: CSSProperties['paddingBlock'];
   /**
    * @desc 小号按钮纵向内间距
-   * @descEN Horizontal padding of small button
+   * @descEN Vertical padding of small button
    */
   paddingBlockSM: CSSProperties['paddingBlock'];
   /**
