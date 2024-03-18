@@ -1919,7 +1919,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
+    class="ant-typography ant-typography-ellipsis"
     style="width: 300px;"
   >
     In the process of internal desktop applications development,
