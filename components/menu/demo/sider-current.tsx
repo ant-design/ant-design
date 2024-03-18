@@ -63,7 +63,7 @@ const App: React.FC = () => {
           .filter((_, index) => index !== newIndex),
       );
     } else {
-      setOpenKeys(openKeys);
+      setOpenKeys(keys);
     }
   };
 
