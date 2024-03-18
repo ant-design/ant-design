@@ -11,6 +11,7 @@ import PurePanel from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { cloneElement } from '../_util/reactNode';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -58,18 +59,13 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
   const [open, setOpen] = React.useState(props.open ?? props.visible);
 
-  const onKeyDown = (e: KeyboardEvent) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.keyCode === KeyCode.ESC) {
+      console.log('esc');
+
       setOpen(false);
     }
   };
-
-  React.useEffect(() => {
-    window.addEventListener('keydown', onKeyDown);
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, []);
 
   return wrapCSSVar(
     <Tooltip
