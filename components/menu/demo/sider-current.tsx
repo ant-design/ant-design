@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
@@ -46,24 +47,25 @@ const App: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['2', '23']);
   const [selectedKeys, setSelectedKeys] = useState(['231']);
 
-  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+  const onOpenChange = (openKeys: string[]) => {
     const countData: Record<number, number> = {};
     let repeatIndex: number[] = [];
-    keys.forEach((item, index) => {
-      if (countData[item.length] !== undefined) {
-        repeatIndex = [countData[item.length], index];
+    openKeys.forEach((item, index) => {
+      const { length } = item;
+      if (countData[length] !== undefined) {
+        repeatIndex = [countData[length], index];
       }
-      countData[item.length] = index;
+      countData[length] = index;
     });
     if (repeatIndex.length) {
       const [oldIndex, newIndex] = repeatIndex;
       setOpenKeys(
-        keys
-          .map((item, index) => (index === oldIndex ? keys[newIndex] : item))
+        openKeys
+          .map((item, index) => (index === oldIndex ? openKeys[newIndex] : item))
           .filter((_, index) => index !== newIndex),
       );
     } else {
-      setOpenKeys(keys);
+      setOpenKeys(openKeys);
     }
   };
 
@@ -72,7 +74,7 @@ const App: React.FC = () => {
       mode="inline"
       openKeys={openKeys}
       selectedKeys={selectedKeys}
-      onOpenChange={onOpenChange}
+      onOpenChange={(openKeys) => onOpenChange(openKeys)}
       onSelect={(info) => setSelectedKeys([info.key])}
       style={{ width: 256 }}
       items={items}
