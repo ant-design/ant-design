@@ -58,6 +58,7 @@ return (
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
 <code src="./demo/custom-tag-render.tsx">Custom Tag Render</code>
+<code src="./demo/custom-label-render.tsx">Custom selectd Label render</code>
 <code src="./demo/responsive.tsx">Responsive maxTagCount</code>
 <code src="./demo/big-data.tsx">Big Data</code>
 <code src="./demo/status.tsx">Status</code>
@@ -117,6 +118,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
+| labelRender | Customize selected label render | (label: ReactNode) => ReactNode | - | 5.15.0 |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string\[] | - |  |
 | value | Current selected option (considered as a immutable array) | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
@@ -154,10 +156,12 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### OptGroup props
 
-| Property | Description | Type                    | Default | Version |
-| -------- | ----------- | ----------------------- | ------- | ------- |
-| key      | Group key   | string                  | -       |         |
-| label    | Group label | string \| React.Element | -       |         |
+| Property  | Description                        | Type            | Default | Version |
+| --------- | ---------------------------------- | --------------- | ------- | ------- |
+| key       | Group key                          | string          | -       |         |
+| label     | Group label                        | React.ReactNode | -       |         |
+| className | The additional class to option     | string          | -       |         |
+| title     | `title` attribute of Select Option | string          | -       |         |
 
 ## Design Token
 

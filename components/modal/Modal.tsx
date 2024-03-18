@@ -106,13 +106,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
   );
 
-  const [mergedClosable, mergedCloseIcon] = useClosable(
+  const [mergedClosable, mergedCloseIcon] = useClosable({
     closable,
-    typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
-    (icon) => renderCloseIcon(prefixCls, icon),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
-  );
+    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
+    customCloseIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+    defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    defaultClosable: true,
+  });
 
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`

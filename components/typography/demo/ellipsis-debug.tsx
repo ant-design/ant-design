@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Slider, Switch, Typography } from 'antd';
+import { Button, Slider, Switch, Typography } from 'antd';
 
 const { Text, Paragraph } = Typography;
+
+const templateStr =
+  'In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.';
 
 const App: React.FC = () => {
   const [rows, setRows] = useState(1);
@@ -44,25 +47,19 @@ const App: React.FC = () => {
       )}
 
       <Text style={{ maxWidth: 400, fontSize: 24 }} copyable ellipsis>
-        In the process of internal desktop applications development, many different design specs and
-        implementations would be involved, which might cause designers and developers difficulties
-        and duplication and reduce the efficiency of development.
+        {templateStr}
       </Text>
 
       <br />
 
       <Text style={{ maxWidth: 400, fontSize: 12 }} copyable ellipsis>
-        In the process of internal desktop applications development, many different design specs and
-        implementations would be involved, which might cause designers and developers difficulties
-        and duplication and reduce the efficiency of development.
+        {templateStr}
       </Text>
 
       <br />
 
       <Text style={{ width: 400, fontSize: 24 }} copyable ellipsis>
-        In the process of internal desktop applications development, many different design specs and
-        implementations would be involved, which might cause designers and developers difficulties
-        and duplication and reduce the efficiency of development.
+        {templateStr}
       </Text>
 
       <br />
@@ -80,6 +77,19 @@ const App: React.FC = () => {
           默认display none 样式的超长文字， 悬停tooltip失效了
         </Text>
       </div>
+
+      <Typography.Paragraph
+        style={{ width: 300 }}
+        ellipsis={{
+          rows: 3,
+          expandable: true,
+          symbol: <Button>Open</Button>,
+        }}
+      >
+        {templateStr.slice(0, 60)}
+        <span style={{ fontSize: '5em' }}>ANTD</span>
+        {templateStr.slice(60)}
+      </Typography.Paragraph>
     </>
   );
 };

@@ -1504,6 +1504,187 @@ exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context 
 
 exports[`renders components/select/demo/custom-dropdown-menu.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/select/demo/custom-label-render.tsx extend context correctly 1`] = `
+<div
+  class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
+  style="width: 100%;"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span
+      class="ant-select-selection-search"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        aria-owns="rc_select_TEST_OR_SSR_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
+        readonly=""
+        role="combobox"
+        style="opacity: 0;"
+        type="search"
+        unselectable="on"
+        value=""
+      />
+    </span>
+    <span
+      class="ant-select-selection-item"
+    >
+      <span>
+        当前 value 没有对应的选项
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        id="rc_select_TEST_OR_SSR_list"
+        role="listbox"
+        style="height: 0px; width: 0px; overflow: hidden;"
+      >
+        <div
+          aria-label="gold"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_0"
+          role="option"
+        >
+          gold
+        </div>
+        <div
+          aria-label="lime"
+          aria-selected="false"
+          id="rc_select_TEST_OR_SSR_list_1"
+          role="option"
+        >
+          lime
+        </div>
+      </div>
+      <div
+        class="rc-virtual-list"
+        style="position: relative;"
+      >
+        <div
+          class="rc-virtual-list-holder"
+          style="max-height: 256px; overflow-y: auto;"
+        >
+          <div>
+            <div
+              class="rc-virtual-list-holder-inner"
+              style="display: flex; flex-direction: column;"
+            >
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                title="gold"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  gold
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="lime"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  lime
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="green"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  green
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option"
+                title="cyan"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  cyan
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select: none;"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down ant-select-suffix"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/select/demo/custom-label-render.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 1`] = `
 <div
   class="ant-select ant-select-outlined ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -1522,7 +1703,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         <span>
           <span
             class="ant-tag ant-tag-gold"
-            style="margin-right: 3px;"
+            style="margin-inline-end: 4px;"
           >
             gold
             <span
@@ -1556,7 +1737,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx extend context cor
         <span>
           <span
             class="ant-tag ant-tag-cyan"
-            style="margin-right: 3px;"
+            style="margin-inline-end: 4px;"
           >
             cyan
             <span
@@ -6880,9 +7061,9 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
     </span>
     <span
       class="ant-select-selection-item"
-      title="Lucy"
+      title="lucy"
     >
-      Lucy
+      lucy
     </span>
   </div>
   <div
@@ -6901,20 +7082,18 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
           role="presentation"
         />
         <div
-          aria-label="Jack"
           aria-selected="false"
           id="rc_select_TEST_OR_SSR_list_1"
           role="option"
         >
-          jack
+          Jack
         </div>
         <div
-          aria-label="Lucy"
-          aria-selected="true"
+          aria-selected="false"
           id="rc_select_TEST_OR_SSR_list_2"
           role="option"
         >
-          lucy
+          Lucy
         </div>
       </div>
       <div
@@ -6932,19 +7111,22 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
             >
               <div
                 class="ant-select-item ant-select-item-group"
-                title="Manager"
+                title="manager"
               >
-                Manager
+                <span>
+                  manager
+                </span>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
-                title="Jack"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Jack
+                  <span>
+                    Jack
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -6954,14 +7136,15 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
                 />
               </div>
               <div
-                aria-selected="true"
-                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-selected"
-                title="Lucy"
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  Lucy
+                  <span>
+                    Lucy
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"
@@ -6972,19 +7155,40 @@ exports[`renders components/select/demo/optgroup.tsx extend context correctly 1`
               </div>
               <div
                 class="ant-select-item ant-select-item-group"
-                title="Engineer"
+                title="engineer"
               >
-                Engineer
+                <span>
+                  engineer
+                </span>
               </div>
               <div
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
-                title="yiminghe"
               >
                 <div
                   class="ant-select-item-option-content"
                 >
-                  yiminghe
+                  <span>
+                    Chloe
+                  </span>
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select: none;"
+                  unselectable="on"
+                />
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  <span>
+                    Lucas
+                  </span>
                 </div>
                 <span
                   aria-hidden="true"

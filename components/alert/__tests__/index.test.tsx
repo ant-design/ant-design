@@ -193,18 +193,4 @@ describe('Alert', () => {
 
     warnSpy.mockRestore();
   });
-  it('should warning when using closeIcon', () => {
-    resetWarned();
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(<Alert closeIcon="close" />);
-
-    expect(warnSpy).toHaveBeenCalledWith(
-      `Warning: [antd: Alert] \`closeIcon\` is deprecated. Please use \`closable.closeIcon\` instead.`,
-    );
-
-    expect(container.querySelector('.ant-alert-close-icon')?.textContent).toBe('close');
-
-    warnSpy.mockRestore();
-  });
 });

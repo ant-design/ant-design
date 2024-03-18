@@ -6,7 +6,7 @@ import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
 import useState from 'rc-util/lib/hooks/useState';
 import { supportRef } from 'rc-util/lib/ref';
 
-import { cloneElement, isValidElement } from '../../_util/reactNode';
+import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
@@ -358,7 +358,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
             'usage',
             'Must set `name` or use a render function when `dependencies` is set.',
           );
-        } else if (isValidElement(mergedChildren)) {
+        } else if (React.isValidElement(mergedChildren)) {
           warning(
             mergedChildren.props.defaultValue === undefined,
             'usage',

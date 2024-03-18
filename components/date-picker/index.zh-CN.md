@@ -20,6 +20,7 @@ demo:
 <code src="./demo/basic.tsx">基本</code>
 <code src="./demo/range-picker.tsx">范围选择器</code>
 <code src="./demo/multiple.tsx" version="5.14.0">多选</code>
+<code src="./demo/multiple-debug.tsx" debug>多选 Debug</code>
 <code src="./demo/needConfirm.tsx" version="5.14.0">选择确认</code>
 <code src="./demo/switchable.tsx">切换不同的选择器</code>
 <code src="./demo/format.tsx">日期格式</code>
@@ -67,7 +68,7 @@ demo:
 
 <!-- prettier-ignore -->
 :::warning
-在搭配 Nextjs 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
+在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
 :::
 
 ```jsx
@@ -80,6 +81,7 @@ import 'dayjs/locale/zh-cn';
 
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
+// 确保还导入相关的 dayjs 文件，否则所有文本的区域设置都不会更改（例如范围选择器月份）
 import locale from 'antd/locale/zh_CN';
 import dayjs from 'dayjs';
 

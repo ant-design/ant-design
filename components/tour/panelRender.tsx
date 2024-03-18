@@ -3,7 +3,6 @@ import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 
-import useClosable from '../_util/hooks/useClosable';
 import type { ButtonProps } from '../button';
 import Button from '../button';
 import { useLocale } from '../locale';
@@ -15,17 +14,18 @@ function isValidNode(node: ReactNode): boolean {
 }
 
 interface TourPanelProps {
-  stepProps: TourStepProps;
+  stepProps: Omit<TourStepProps, 'closable'> & {
+    closable?: Exclude<TourStepProps['closable'], boolean>;
+  };
   current: number;
   type: TourStepProps['type'];
   indicatorsRender?: TourStepProps['indicatorsRender'];
-  closeIcon?: ReactNode;
 }
 
 // Due to the independent design of Panel, it will be too coupled to put in rc-tour,
 // so a set of Panel logic is implemented separately in antd.
 const TourPanel: React.FC<TourPanelProps> = (props) => {
-  const { stepProps, current, type, closeIcon, indicatorsRender } = props;
+  const { stepProps, current, type, indicatorsRender } = props;
   const {
     prefixCls,
     total = 1,
@@ -39,26 +39,24 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     nextButtonProps,
     prevButtonProps,
     type: stepType,
-    closeIcon: stepCloseIcon,
+    closable,
   } = stepProps;
 
   const mergedType = stepType ?? type;
 
-  const mergedCloseIcon = stepCloseIcon ?? closeIcon;
+  const mergedCloseIcon = React.useMemo(() => {
+    let defaultCloseIcon: React.ReactNode = <CloseOutlined className={`${prefixCls}-close-icon`} />;
 
-  const mergedClosable = mergedCloseIcon !== false && mergedCloseIcon !== null;
+    if (closable && closable.closeIcon) {
+      defaultCloseIcon = closable.closeIcon;
+    }
 
-  const [closable, mergedDisplayCloseIcon] = useClosable(
-    mergedClosable,
-    mergedCloseIcon,
-    (icon) => (
-      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-        {icon}
-      </span>
-    ),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
-  );
+    return (
+      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
+        {defaultCloseIcon}
+      </button>
+    );
+  }, [closable]);
 
   const isLastStep = current === total - 1;
 
@@ -118,7 +116,7 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
   return (
     <div className={`${prefixCls}-content`}>
       <div className={`${prefixCls}-inner`}>
-        {closable && mergedDisplayCloseIcon}
+        {closable && mergedCloseIcon}
         {coverNode}
         {headerNode}
         {descriptionNode}

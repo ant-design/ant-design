@@ -13,12 +13,13 @@ import { replaceElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import type { ClosableType } from '../_util/hooks/useClosable';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
   /** Whether Alert can be closed */
-  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
+  closable?: ClosableType;
   /**
    * @deprecated please use `closable.closeIcon` instead.
    * Close text to show
@@ -42,10 +43,6 @@ export interface AlertProps {
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
-  /**
-   * Custom closeIcon
-   * @deprecated please use `closable.closeIcon` instead.
-   */
   closeIcon?: React.ReactNode;
   action?: React.ReactNode;
   onMouseEnter?: React.MouseEventHandler<HTMLDivElement>;
@@ -131,7 +128,6 @@ const Alert: React.FC<AlertProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Alert');
     warning.deprecated(!closeText, 'closeText', 'closable.closeIcon');
-    warning.deprecated(!closeIcon, 'closeIcon', 'closable.closeIcon');
   }
 
   const ref = React.useRef<HTMLDivElement>(null);

@@ -1,16 +1,52 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
-import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
-export interface EllipsisProps {
-  enabledMeasure?: boolean;
-  text?: React.ReactNode;
-  width: number;
-  fontSize: number;
-  rows: number;
-  children: (cutChildren: React.ReactNode[], needEllipsis: boolean) => React.ReactNode;
-  onEllipsis: (isEllipsis: boolean) => void;
+interface MeasureTextProps {
+  style?: React.CSSProperties;
+  children: React.ReactNode;
 }
+
+interface MeasureTextRef {
+  isExceed: () => boolean;
+  getHeight: () => number;
+}
+
+const MeasureText = React.forwardRef<MeasureTextRef, MeasureTextProps>(
+  ({ style, children }, ref) => {
+    const spanRef = React.useRef<HTMLSpanElement>(null);
+
+    React.useImperativeHandle(ref, () => ({
+      isExceed: () => {
+        const span = spanRef.current!;
+        return span.scrollHeight > span.clientHeight;
+      },
+      getHeight: () => spanRef.current!.clientHeight,
+    }));
+
+    return (
+      <span
+        aria-hidden
+        ref={spanRef}
+        style={{
+          position: 'fixed',
+          display: 'block',
+          left: 0,
+          top: 0,
+          // zIndex: -9999,
+          // visibility: 'hidden',
+          pointerEvents: 'none',
+
+          backgroundColor: 'rgba(255, 0, 0, 0.65)',
+
+          ...style,
+        }}
+      >
+        {children}
+      </span>
+    );
+  },
+);
 
 function cuttable(node: React.ReactElement) {
   const type = typeof node;
@@ -61,112 +97,154 @@ function sliceNodes(nodeList: React.ReactElement[], len: number) {
   return nodeList;
 }
 
-const NONE = 0;
-const PREPARE = 1;
-const WALKING = 2;
-const DONE_WITH_ELLIPSIS = 3;
-const DONE_WITHOUT_ELLIPSIS = 4;
+export interface EllipsisProps {
+  enableMeasure?: boolean;
+  text?: React.ReactNode;
+  width: number;
+  // fontSize: number;
+  rows: number;
+  children: (
+    cutChildren: React.ReactNode[],
+    /** Tell current `cutChildren` is in ellipsis */
+    inEllipsis: boolean,
+    /** Tell current `text` is exceed the `rows` which can be ellipsis */
+    canEllipsis: boolean,
+  ) => React.ReactNode;
+  onEllipsis: (isEllipsis: boolean) => void;
+  /**
+   * Mark for misc update. Which will not affect ellipsis content length.
+   * e.g. tooltip content update.
+   */
+  miscDeps: any[];
+}
 
-type WalkingState =
-  | typeof NONE
-  | typeof PREPARE
-  | typeof WALKING
-  | typeof DONE_WITH_ELLIPSIS
-  | typeof DONE_WITHOUT_ELLIPSIS;
+// Measure for the `text` is exceed the `rows` or not
+const STATUS_MEASURE_NONE = 0;
+const STATUS_MEASURE_START = 1;
+const STATUS_MEASURE_NEED_ELLIPSIS = 2;
+const STATUS_MEASURE_NO_NEED_ELLIPSIS = 3;
 
-const Ellipsis: React.FC<EllipsisProps> = ({
-  enabledMeasure,
-  children,
-  text,
-  width,
-  fontSize,
-  rows,
-  onEllipsis,
-}) => {
-  const [[startLen, midLen, endLen], setCutLength] = React.useState<
-    [startLen: number, midLen: number, endLen: number]
-  >([0, 0, 0]);
-  // record last done with ellipsis width
-  const [lastLen, setLastLen] = React.useState(0);
-  const [walkingState, setWalkingState] = React.useState<WalkingState>(NONE);
+const lineClipStyle: React.CSSProperties = {
+  display: '-webkit-box',
+  overflow: 'hidden',
+  WebkitBoxOrient: 'vertical',
+};
 
-  const [singleRowHeight, setSingleRowHeight] = React.useState(0);
-
-  const singleRowRef = React.useRef<HTMLElement>(null);
-  const midRowRef = React.useRef<HTMLElement>(null);
+export default function EllipsisMeasure(props: EllipsisProps) {
+  const { enableMeasure, width, text, children, rows, miscDeps, onEllipsis } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
-  const totalLen = React.useMemo(() => getNodesLen(nodeList), [nodeList]);
+  const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
 
-  const mergedChildren = React.useMemo(() => {
-    if (!enabledMeasure || walkingState !== DONE_WITH_ELLIPSIS) {
-      // if has lastLen, use it as temporary width to avoid lots of text to squeeze space.
-      if (lastLen && walkingState !== DONE_WITHOUT_ELLIPSIS && enabledMeasure)
-        return children(sliceNodes(nodeList, lastLen), lastLen < totalLen);
+  // ========================= Full Content =========================
+  const fullContent = React.useMemo(() => children(nodeList, false, false), [text]);
 
-      return children(nodeList, false);
+  // ========================= Cut Content ==========================
+  const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
+  const cutMidRef = React.useRef<MeasureTextRef>(null);
+
+  // ========================= NeedEllipsis =========================
+  const needEllipsisRef = React.useRef<MeasureTextRef>(null);
+
+  // Measure for `rows-1` height, to avoid operation exceed the line height
+  const descRowsEllipsisRef = React.useRef<MeasureTextRef>(null);
+  const symbolRowEllipsisRef = React.useRef<MeasureTextRef>(null);
+
+  const [needEllipsis, setNeedEllipsis] = React.useState(STATUS_MEASURE_NONE);
+  const [ellipsisHeight, setEllipsisHeight] = React.useState(0);
+
+  // Trigger start measure
+  useLayoutEffect(() => {
+    if (enableMeasure && width && nodeLen) {
+      setNeedEllipsis(STATUS_MEASURE_START);
+    } else {
+      setNeedEllipsis(STATUS_MEASURE_NONE);
     }
+  }, [width, text, rows, enableMeasure, nodeList]);
 
-    return children(sliceNodes(nodeList, midLen), midLen < totalLen);
-  }, [enabledMeasure, walkingState, children, nodeList, midLen, totalLen]);
+  // Measure process
+  useLayoutEffect(() => {
+    if (needEllipsis === STATUS_MEASURE_START) {
+      const isOverflow = !!needEllipsisRef.current?.isExceed();
 
-  // ======================== Walk ========================
-  useIsomorphicLayoutEffect(() => {
-    if (enabledMeasure && width && fontSize && totalLen) {
-      setWalkingState(PREPARE);
-      setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
+      setNeedEllipsis(isOverflow ? STATUS_MEASURE_NEED_ELLIPSIS : STATUS_MEASURE_NO_NEED_ELLIPSIS);
+      setEllipsisCutIndex(isOverflow ? [0, nodeLen] : null);
+
+      // Get the basic height of ellipsis rows
+      const baseRowsEllipsisHeight = needEllipsisRef.current?.getHeight() || 0;
+
+      // Get the height of `rows - 1` + symbol height
+      const descRowsEllipsisHeight = rows === 1 ? 0 : descRowsEllipsisRef.current?.getHeight() || 0;
+      const symbolRowEllipsisHeight = symbolRowEllipsisRef.current?.getHeight() || 0;
+      const rowsWithEllipsisHeight = descRowsEllipsisHeight + symbolRowEllipsisHeight;
+
+      const maxRowsHeight = Math.max(baseRowsEllipsisHeight, rowsWithEllipsisHeight);
+
+      setEllipsisHeight(maxRowsHeight + 1);
+
+      onEllipsis(isOverflow);
     }
-  }, [enabledMeasure, width, fontSize, text, totalLen, rows]);
+  }, [needEllipsis]);
 
-  useIsomorphicLayoutEffect(() => {
-    if (walkingState === PREPARE) {
-      setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
-    }
-  }, [walkingState]);
+  // ========================= Cut Measure ==========================
+  const cutMidIndex = ellipsisCutIndex
+    ? Math.ceil((ellipsisCutIndex[0] + ellipsisCutIndex[1]) / 2)
+    : 0;
 
-  useIsomorphicLayoutEffect(() => {
-    if (singleRowHeight) {
-      if (walkingState === PREPARE) {
-        // Ignore if position is enough
-        const midHeight = midRowRef.current?.offsetHeight || 0;
-        const maxHeight = rows * singleRowHeight;
+  useLayoutEffect(() => {
+    const [minIndex, maxIndex] = ellipsisCutIndex || [0, 0];
+    if (minIndex !== maxIndex) {
+      const midHeight = cutMidRef.current?.getHeight() || 0;
 
-        if (midHeight <= maxHeight) {
-          setWalkingState(DONE_WITHOUT_ELLIPSIS);
-          onEllipsis(false);
-        } else {
-          setWalkingState(WALKING);
-        }
-      } else if (walkingState === WALKING) {
-        if (startLen !== endLen) {
-          const midHeight = midRowRef.current?.offsetHeight || 0;
-          const maxHeight = rows * singleRowHeight;
+      const isOverflow = midHeight > ellipsisHeight;
+      let targetMidIndex = cutMidIndex;
 
-          let nextStartLen = startLen;
-          let nextEndLen = endLen;
+      if (maxIndex - minIndex === 1) {
+        targetMidIndex = isOverflow ? minIndex : maxIndex;
+      }
 
-          // We reach the last round
-          if (startLen === endLen - 1) {
-            nextEndLen = startLen;
-          } else if (midHeight <= maxHeight) {
-            nextStartLen = midLen;
-          } else {
-            nextEndLen = midLen;
-          }
-
-          const nextMidLen = Math.ceil((nextStartLen + nextEndLen) / 2);
-
-          setCutLength([nextStartLen, nextMidLen, nextEndLen]);
-        } else {
-          setWalkingState(DONE_WITH_ELLIPSIS);
-          setLastLen(midLen);
-          onEllipsis(true);
-        }
+      if (isOverflow) {
+        setEllipsisCutIndex([minIndex, targetMidIndex]);
+      } else {
+        setEllipsisCutIndex([targetMidIndex, maxIndex]);
       }
     }
-  }, [walkingState, startLen, endLen, rows, singleRowHeight]);
+  }, [ellipsisCutIndex, cutMidIndex]);
 
-  // ======================= Render =======================
+  // ========================= Text Content =========================
+  const finalContent = React.useMemo(() => {
+    if (
+      needEllipsis !== STATUS_MEASURE_NEED_ELLIPSIS ||
+      !ellipsisCutIndex ||
+      ellipsisCutIndex[0] !== ellipsisCutIndex[1]
+    ) {
+      const content = children(nodeList, false, false);
+
+      // Limit the max line count to avoid scrollbar blink
+      // https://github.com/ant-design/ant-design/issues/42958
+      if (
+        needEllipsis !== STATUS_MEASURE_NO_NEED_ELLIPSIS &&
+        needEllipsis !== STATUS_MEASURE_NONE
+      ) {
+        return (
+          <span
+            style={{
+              ...lineClipStyle,
+              WebkitLineClamp: rows,
+            }}
+          >
+            {content}
+          </span>
+        );
+      }
+
+      return content;
+    }
+
+    return children(sliceNodes(nodeList, ellipsisCutIndex[0]), true, true);
+  }, [needEllipsis, ellipsisCutIndex, nodeList, ...miscDeps]);
+
+  // ============================ Render ============================
   const measureStyle: React.CSSProperties = {
     width,
     whiteSpace: 'normal',
@@ -174,58 +252,66 @@ const Ellipsis: React.FC<EllipsisProps> = ({
     padding: 0,
   };
 
-  const renderMeasure = (
-    content: React.ReactNode,
-    ref: React.Ref<HTMLElement>,
-    style: React.CSSProperties,
-  ) => (
-    <span
-      aria-hidden
-      ref={ref}
-      style={{
-        position: 'fixed',
-        display: 'block',
-        left: 0,
-        top: 0,
-        zIndex: -9999,
-        visibility: 'hidden',
-        pointerEvents: 'none',
-        fontSize: Math.ceil(fontSize / 2) * 2,
-        ...style,
-      }}
-    >
-      {content}
-    </span>
-  );
-
-  const renderMeasureSlice = (len: number, ref: React.Ref<HTMLElement>) => {
-    const sliceNodeList = sliceNodes(nodeList, len);
-
-    return renderMeasure(children(sliceNodeList, true), ref, measureStyle);
-  };
-
   return (
     <>
-      {mergedChildren}
-      {/* Measure usage */}
-      {enabledMeasure &&
-        walkingState !== DONE_WITH_ELLIPSIS &&
-        walkingState !== DONE_WITHOUT_ELLIPSIS && (
-          <>
-            {/* `l` for top & `g` for bottom measure */}
-            {renderMeasure('lg', singleRowRef, { wordBreak: 'keep-all', whiteSpace: 'nowrap' })}
-            {/* {renderMeasureSlice(midLen, midRowRef)} */}
-            {walkingState === PREPARE
-              ? renderMeasure(children(nodeList, false), midRowRef, measureStyle)
-              : renderMeasureSlice(midLen, midRowRef)}
-          </>
+      {/* Final show content */}
+      {finalContent}
+
+      {/* Measure if current content is exceed the rows */}
+      {needEllipsis === STATUS_MEASURE_START && (
+        <>
+          {/** With `rows` */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+              WebkitLineClamp: rows,
+            }}
+            ref={needEllipsisRef}
+          >
+            {fullContent}
+          </MeasureText>
+
+          {/** With `rows - 1` */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+              WebkitLineClamp: rows - 1,
+            }}
+            ref={descRowsEllipsisRef}
+          >
+            {fullContent}
+          </MeasureText>
+
+          {/** With `rows - 1` */}
+          <MeasureText
+            style={{
+              ...measureStyle,
+              ...lineClipStyle,
+              WebkitLineClamp: 1,
+            }}
+            ref={symbolRowEllipsisRef}
+          >
+            {children([], true, true)}
+          </MeasureText>
+        </>
+      )}
+
+      {/* Real size overflow measure */}
+      {needEllipsis === STATUS_MEASURE_NEED_ELLIPSIS &&
+        ellipsisCutIndex &&
+        ellipsisCutIndex[0] !== ellipsisCutIndex[1] && (
+          <MeasureText
+            style={{
+              ...measureStyle,
+              top: 400,
+            }}
+            ref={cutMidRef}
+          >
+            {children(sliceNodes(nodeList, cutMidIndex), true, true)}
+          </MeasureText>
         )}
     </>
   );
-};
-
-if (process.env.NODE_ENV !== 'production') {
-  Ellipsis.displayName = 'Ellipsis';
 }
-
-export default Ellipsis;

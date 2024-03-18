@@ -5,7 +5,7 @@ order: 2
 title: FAQ
 ---
 
-Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common github issues.
+Here are the frequently asked questions about Ant Design and antd that you should look up before you ask in the community or create a new issue. We also maintain a [FAQ issues label](http://u.ant.design/faq) for common GitHub issues.
 
 ---
 
@@ -53,12 +53,12 @@ While you can override a component's style, we don't recommend doing so. antd is
 
 ## How to avoid breaking change when update version?
 
-antd will avoid breaking change in minor & patch version. You can safe do follow things:
+antd will avoid breaking change in minor & patch version. You can safely do the following things:
 
 - Official demo usage
 - FAQ suggestion. Including codesandbox sample, marked as FAQ issue
 
-And which you should avoid to do:
+And which you should avoid doing:
 
 - Bug as feature. It will break in any other case (e.g. Use div as Tabs children)
 - Use magic code to realize requirement but which can be realized with normal API
