@@ -139,29 +139,25 @@ Common props ref：[Common props](/docs/react/common-props)
 
      {
       rows: number,
-      expandable: boolean,
-      collapsible:boolean,
-      defaultExpanded: boolean,
-      expanded: boolean,
+      expandable: boolean | 'collapsible',
       suffix: string,
       symbol: ReactNode,
-      collapse: ReactNode,
       tooltip: boolean | ReactNode | TooltipProps,
+      defaultExpanded: boolean,
+      expanded: boolean,
       onExpand: function(event, { expanded: boolean }),
       onEllipsis: function(ellipsis),
     }
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| expandable | Whether to be expandable | boolean | - |  |
-| collapsible | Whether to be collapsible | boolean | - | 5.16.0 |
+| --- | --- | --- | --- | --- | --- |
+| expandable | Whether to be expandable | boolean\'collapsible' |  | - | 5.16.0 |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
-| symbol | Custom description of ellipsis | ReactNode | `Expand` |  |
-| collapse | Custom description of collapse | ReactNode | `Collapse` | 5.16.0 |
+| symbol | Custom description of ellipsis | ReactNode \| ((expanded: boolean) => ReactNode) | `Expand` `Collapse` |  |
+| tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | defaultExpanded | Default expand or collapse | boolean |  | 5.16.0 |
 | expanded | Expand or Collapse | boolean |  | 5.16.0 |
-| tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event, { expanded: boolean }) | - |  |
 

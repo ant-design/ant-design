@@ -253,10 +253,8 @@ describe('Typography.Ellipsis', () => {
     const { container: wrapper } = render(
       <Base
         ellipsis={{
-          expandable: true,
-          collapsible: true,
-          symbol: 'aaa',
-          collapse: 'bbb',
+          expandable: 'collapsible',
+          symbol: (expanded) => (expanded ? 'bbb' : 'aaa'),
         }}
         component="p"
       >
