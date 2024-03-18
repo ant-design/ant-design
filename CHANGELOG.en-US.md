@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 4.24.16
+
+`2024-03-18`
+
+- 🐞 Fix Select that scrollbar is not displayed when there are few options. [#47050](https://github.com/ant-design/ant-design/pull/47050)
+- 🐞 Fix Transfer cannot invert current page correctly. [#47134](https://github.com/ant-design/ant-design/pull/47134) [@linxianxi](https://github.com/linxianxi)
+- 🐞 Fix that clicking Form tooltip icon should not trigger Switch. [#46159](https://github.com/ant-design/ant-design/pull/46159) [@Wxh16144](https://github.com/Wxh16144)
+
 ## 4.24.15
 
 `2023-11-21`
