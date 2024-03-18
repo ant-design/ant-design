@@ -52,9 +52,9 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     }
 
     return (
-      <span onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
+      <button type="button" onClick={onClose} className={`${prefixCls}-close`}>
         {defaultCloseIcon}
-      </span>
+      </button>
     );
   }, [closable]);
 
