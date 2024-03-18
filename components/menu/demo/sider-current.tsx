@@ -32,8 +32,16 @@ const items: MenuItem[] = [
   getItem('Navigation Two', '2', <AppstoreOutlined />, [
     getItem('Option 1', '21'),
     getItem('Option 2', '22'),
-    getItem('Submenu', '23', null, [getItem('Option 1', '231'), getItem('Option 2', '232')]),
-    getItem('Submenu 2', '24', null, [getItem('Option 1', '241'), getItem('Option 2', '242')]),
+    getItem('Submenu', '23', null, [
+      getItem('Option 1', '231'),
+      getItem('Option 2', '232'),
+      getItem('Option 3', '233'),
+    ]),
+    getItem('Submenu 2', '24', null, [
+      getItem('Option 1', '241'),
+      getItem('Option 2', '242'),
+      getItem('Option 3', '243'),
+    ]),
   ]),
   getItem('Navigation Three', '3', <SettingOutlined />, [
     getItem('Option 1', '31'),
