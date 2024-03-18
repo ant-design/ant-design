@@ -53,7 +53,6 @@ const items: MenuItem[] = [
 
 const App: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['2', '23']);
-  const [selectedKeys, setSelectedKeys] = useState(['231']);
 
   const onOpenChange = (openKeys: string[]) => {
     const countData: Record<number, number> = {};
@@ -80,10 +79,9 @@ const App: React.FC = () => {
   return (
     <Menu
       mode="inline"
+      defaultSelectedKeys={['231']}
       openKeys={openKeys}
-      selectedKeys={selectedKeys}
       onOpenChange={(openKeys) => onOpenChange(openKeys as string[])}
-      onSelect={(info) => setSelectedKeys([info.key])}
       style={{ width: 256 }}
       items={items}
     />
