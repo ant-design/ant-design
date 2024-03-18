@@ -150,8 +150,8 @@ Common props ref：[Common props](/docs/react/common-props)
     }
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- | --- |
-| expandable | Whether to be expandable | boolean\'collapsible' |  | - | 5.16.0 |
+| --- | --- | --- | --- | --- |
+| expandable | Whether to be expandable | boolean \| 'collapsible' | - | 5.16.0 |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
 | symbol | Custom description of ellipsis | ReactNode \| ((expanded: boolean) => ReactNode) | `Expand` `Collapse` |  |
