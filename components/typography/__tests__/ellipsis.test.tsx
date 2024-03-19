@@ -250,24 +250,31 @@ describe('Typography.Ellipsis', () => {
   });
 
   it('should collapsible work', async () => {
+    const ref = React.createRef<HTMLElement>();
+
     const { container: wrapper } = render(
       <Base
         ellipsis={{
           expandable: 'collapsible',
-          symbol: (expanded) => (expanded ? 'bbb' : 'aaa'),
+          symbol: (expanded) => (expanded ? 'CloseIt' : 'OpenIt'),
         }}
         component="p"
+        ref={ref}
       >
         {fullStr}
       </Base>,
     );
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}aaa`);
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
 
     fireEvent.click(wrapper.querySelector('.ant-typography-expand')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}bbb`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}CloseIt`);
 
     fireEvent.click(wrapper.querySelector('.ant-typography-collapse')!);
-    expect(wrapper.querySelector('p')?.textContent).toEqual(`${fullStr}aaa`);
+    expect(wrapper.querySelector('p')?.textContent).toEqual(`Bamboo is L...OpenIt`);
   });
 
   it('should have custom expand style', async () => {
