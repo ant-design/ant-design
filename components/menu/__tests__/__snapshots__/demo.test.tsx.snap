@@ -2120,6 +2120,18 @@ Array [
                 Option 2
               </span>
             </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              role="menuitem"
+              style="padding-left:72px"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
+              </span>
+            </li>
           </ul>
         </li>
         <li

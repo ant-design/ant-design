@@ -6363,6 +6363,36 @@ Array [
                     />
                   </div>
                 </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-233"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 3
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
               </ul>
             </div>
             <ul
@@ -6412,6 +6442,36 @@ Array [
                   class="ant-menu-title-content"
                 >
                   Option 2
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-233"
+                role="menuitem"
+                style="padding-left: 72px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 3
                 </span>
               </li>
               <div
@@ -6507,6 +6567,36 @@ Array [
                     class="ant-menu-title-content"
                   >
                     Option 2
+                  </span>
+                </li>
+                <div
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                >
+                  <div
+                    class="ant-tooltip-arrow"
+                    style="position: absolute; top: 0px; left: 0px;"
+                  />
+                  <div
+                    class="ant-tooltip-content"
+                  >
+                    <div
+                      class="ant-tooltip-inner"
+                      role="tooltip"
+                    />
+                  </div>
+                </div>
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="rc-menu-uuid-test-243"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 3
                   </span>
                 </li>
                 <div
@@ -6690,6 +6780,36 @@ Array [
                   />
                 </div>
               </div>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-233"
+                role="menuitem"
+                style="padding-left: 72px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 3
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
             </ul>
           </div>
           <ul
@@ -6739,6 +6859,36 @@ Array [
                 class="ant-menu-title-content"
               >
                 Option 2
+              </span>
+            </li>
+            <div
+              class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+              style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+            >
+              <div
+                class="ant-tooltip-arrow"
+                style="position: absolute; top: 0px; left: 0px;"
+              />
+              <div
+                class="ant-tooltip-content"
+              >
+                <div
+                  class="ant-tooltip-inner"
+                  role="tooltip"
+                />
+              </div>
+            </div>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-233"
+              role="menuitem"
+              style="padding-left: 72px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Option 3
               </span>
             </li>
             <div
@@ -6834,6 +6984,36 @@ Array [
                   class="ant-menu-title-content"
                 >
                   Option 2
+                </span>
+              </li>
+              <div
+                class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+              >
+                <div
+                  class="ant-tooltip-arrow"
+                  style="position: absolute; top: 0px; left: 0px;"
+                />
+                <div
+                  class="ant-tooltip-content"
+                >
+                  <div
+                    class="ant-tooltip-inner"
+                    role="tooltip"
+                  />
+                </div>
+              </div>
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-243"
+                role="menuitem"
+                style="padding-left: 72px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 3
                 </span>
               </li>
               <div
@@ -7038,6 +7218,40 @@ Array [
     aria-hidden="true"
     style="display: none;"
   >
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+    >
+      <div
+        class="ant-tooltip-arrow"
+        style="position: absolute; top: 0px; left: 0px;"
+      />
+      <div
+        class="ant-tooltip-content"
+      >
+        <div
+          class="ant-tooltip-inner"
+          role="tooltip"
+        />
+      </div>
+    </div>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-menu-inline-collapsed-tooltip ant-tooltip-placement-right"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
