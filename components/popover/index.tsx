@@ -58,15 +58,15 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
     value: props.open ?? props.visible,
   });
 
+  const settingOpen = (value: boolean) => {
+    setOpen(value, true);
+    onOpenChange?.(value);
+  };
+
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.keyCode === KeyCode.ESC) {
       settingOpen(false);
     }
-  };
-
-  const settingOpen = (value: boolean) => {
-    setOpen(value, true);
-    onOpenChange?.(value);
   };
 
   const onInternalOpenChange = (value: boolean) => {
