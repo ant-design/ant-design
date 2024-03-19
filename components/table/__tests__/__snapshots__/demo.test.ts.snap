@@ -13204,7 +13204,7 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
                     tabindex="0"
                   >
                     <div
-                      class="ant-table-column-sorters"
+                      class="ant-table-column-sorters ant-table-column-sorters-tooltip-target-sorter"
                     >
                       <span
                         class="ant-table-column-title"
