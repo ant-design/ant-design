@@ -1,20 +1,25 @@
-import * as React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-
+import * as React from 'react';
+import { useMemo } from 'react';
 import { useToken } from '../theme/internal';
 
 const Simple: React.FC = () => {
   const [, token] = useToken();
 
-  const borderColor = new TinyColor(token.colorFill)
-    .onBackground(token.colorBgContainer)
-    .toHexShortString();
-  const shadowColor = new TinyColor(token.colorFillTertiary)
-    .onBackground(token.colorBgContainer)
-    .toHexShortString();
-  const contentColor = new TinyColor(token.colorFillQuaternary)
-    .onBackground(token.colorBgContainer)
-    .toHexShortString();
+  const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token;
+
+  const { borderColor, shadowColor, contentColor } = useMemo(
+    () => ({
+      borderColor: new TinyColor(colorFill).onBackground(colorBgContainer).toHexShortString(),
+      shadowColor: new TinyColor(colorFillTertiary)
+        .onBackground(colorBgContainer)
+        .toHexShortString(),
+      contentColor: new TinyColor(colorFillQuaternary)
+        .onBackground(colorBgContainer)
+        .toHexShortString(),
+    }),
+    [colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer],
+  );
 
   return (
     <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
