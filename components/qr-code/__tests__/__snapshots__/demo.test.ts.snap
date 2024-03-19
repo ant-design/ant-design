@@ -1,12 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders components/qr-code/demo/Popover.tsx correctly 1`] = `
-<img
-  alt="icon"
-  height="100"
-  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-  width="100"
-/>
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Hover me
+  </span>
+</button>
 `;
 
 exports[`renders components/qr-code/demo/base.tsx correctly 1`] = `

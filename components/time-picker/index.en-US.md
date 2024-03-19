@@ -79,9 +79,9 @@ dayjs.extend(customParseFormat)
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [dayjs](http://day.js.org/) | - |  |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
+| onCalendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`\|`end` }) | - |  |
 | onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
-| onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |
 
 #### DisabledTime
 
