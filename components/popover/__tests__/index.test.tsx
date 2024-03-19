@@ -11,11 +11,6 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanelDoNotUseOrYouWillBe
 describe('Popover', () => {
   mountTest(Popover);
 
-  const eventObject = expect.objectContaining({
-    target: expect.anything(),
-    preventDefault: expect.any(Function),
-  });
-
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
     const { container } = render(
@@ -104,15 +99,21 @@ describe('Popover', () => {
     const onOpenChange = jest.fn((e?: any) => {
       e?.persist?.();
     });
+    const content = (
+      <div>
+        <p>Content</p>
+        <p>Content</p>
+      </div>
+    );
     const wrapper = render(
-      <Popover title="title" mouseEnterDelay={0} mouseLeaveDelay={0} onOpenChange={onOpenChange}>
+      <Popover content={content} title="Title" trigger="click" onOpenChange={onOpenChange}>
         <span>Delete</span>
       </Popover>,
     );
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
     fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 });
