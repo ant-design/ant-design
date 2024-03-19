@@ -17,7 +17,7 @@ Keep consistent height with other components.
 ```jsx
 import { Button, Input, Select, Segmented } from 'antd';
 
-export default () => (
+const Demo = () => (
   <>
     <div>
       <Segmented style={{ marginRight: 6 }} size="large" options={['Daily', 'Weekly', 'Monthly']} />
@@ -37,4 +37,6 @@ export default () => (
     </div>
   </>
 );
+
+export default Demo;
 ```
