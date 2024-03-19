@@ -26,6 +26,7 @@ import type {
   DirectionType,
   DrawerConfig,
   FlexConfig,
+  FloatButtonGroupConfig,
   FormConfig,
   ImageConfig,
   InputConfig,
@@ -164,6 +165,7 @@ export interface ConfigProviderProps {
   slider?: ComponentStyleConfig;
   breadcrumb?: ComponentStyleConfig;
   menu?: MenuConfig;
+  floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: ComponentStyleConfig;
   descriptions?: ComponentStyleConfig;
   empty?: ComponentStyleConfig;
@@ -348,6 +350,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    floatButtonGroup,
   } = props;
 
   // =================================== Context ===================================
@@ -443,6 +446,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     dropdown,
     warning: warningConfig,
     tour,
+    floatButtonGroup,
   };
 
   const config: ConfigConsumerProps = {
