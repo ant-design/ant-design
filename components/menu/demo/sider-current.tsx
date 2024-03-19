@@ -51,18 +51,39 @@ const items: MenuItem[] = [
   ]),
 ];
 
+interface LevelKeysProps {
+  key?: string;
+  children?: LevelKeysProps[];
+}
+const getLevelKeys = (items: LevelKeysProps[]) => {
+  const key: Record<string, number> = {};
+  const func = (items: LevelKeysProps[], level = 1) => {
+    items.forEach((item) => {
+      if (item.key) {
+        key[item.key] = level;
+      }
+      if (item.children) {
+        return func(item.children, level + 1);
+      }
+    });
+  };
+  func(items);
+  return key;
+};
+const levelKeys = getLevelKeys(items as LevelKeysProps[]);
+
 const App: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['2', '23']);
 
   const onOpenChange = (openKeys: string[]) => {
     const countData: Record<number, number> = {};
     let repeatIndex: number[] = [];
-    openKeys.forEach((item, index) => {
-      const { length } = item;
-      if (countData[length] !== undefined) {
-        repeatIndex = [countData[length], index];
+    openKeys.forEach((key, index) => {
+      const level = levelKeys[key];
+      if (countData[level] !== undefined) {
+        repeatIndex = [countData[level], index];
       }
-      countData[length] = index;
+      countData[level] = index;
     });
     if (repeatIndex.length) {
       const [oldIndex, newIndex] = repeatIndex;
