@@ -1,10 +1,10 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import DefaultEmptyImg from './empty';
 import SimpleEmptyImg from './simple';
-
 import useStyle from './style';
 
 const defaultEmptyImg = <DefaultEmptyImg />;
@@ -52,13 +52,7 @@ const Empty: CompoundedComponent = ({
   const des = typeof description !== 'undefined' ? description : locale?.description;
   const alt = typeof des === 'string' ? des : 'empty';
 
-  let imageNode: React.ReactNode = null;
-
-  if (typeof image === 'string') {
-    imageNode = <img alt={alt} src={image} />;
-  } else {
-    imageNode = image;
-  }
+  const imageNode = typeof image === 'string' ? <img alt={alt} src={image} /> : image;
 
   return wrapCSSVar(
     <div
