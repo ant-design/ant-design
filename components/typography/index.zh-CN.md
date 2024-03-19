@@ -24,7 +24,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/editable.tsx">可编辑</code>
 <code src="./demo/copyable.tsx">可复制</code>
 <code src="./demo/ellipsis.tsx">省略号</code>
-<code src="./demo/ellipsis-controlled.tsx">受控省略号</code>
+<code src="./demo/ellipsis-controlled.tsx" version="5.16.0">受控省略展开/收起</code>
 <code src="./demo/ellipsis-middle.tsx">省略中间</code>
 <code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
 <code src="./demo/suffix.tsx">后缀</code>
@@ -138,21 +138,28 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 ### ellipsis
 
-    {
-      rows: number,
-      expandable: boolean | 'collapsible',
-      suffix: string,
-      symbol: ReactNode | ((expanded: boolean) => ReactNode),
-      tooltip: boolean | ReactNode | TooltipProps,
-      defaultExpanded: boolean,
-      expanded: boolean,
-      onExpand: function(event, { expanded: boolean }),
-      onEllipsis: function(ellipsis),
-    }
+```tsx
+interface EllipsisConfig {
+  rows: number;
+  /** `5.16.0` 新增 `collapsible` */
+  expandable: boolean | 'collapsible';
+  suffix: string;
+  /** `5.16.0` 新增渲染函数 */
+  symbol: ReactNode | ((expanded: boolean) => ReactNode);
+  tooltip: boolean | ReactNode | TooltipProps;
+  /** `5.16.0` 新增 */
+  defaultExpanded: boolean;
+  /** `5.16.0` 新增 */
+  expanded: boolean;
+  /** `5.16.0` 新增 `info` */
+  onExpand: (event: MouseEvent, info: { expanded: boolean }) => void;
+  onEllipsis: (ellipsis: boolean) => void;
+}
+```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| expandable | 是否可展开 | boolean \| 'collapsible' | - | 5.16.0 |
+| expandable | 是否可展开 | boolean \| 'collapsible' | - | `collapsible`: 5.16.0 |
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
 | symbol | 自定义展开描述文案 | ReactNode \| ((expanded: boolean) => ReactNode) | `展开` `收起` |  |
@@ -160,7 +167,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | defaultExpanded | 默认展开或收起 | boolean |  | 5.16.0 |
 | expanded | 展开或收起 | boolean |  | 5.16.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
-| onExpand | 点击展开或收起时的回调 | function(event, { expanded: boolean }) | - |  |
+| onExpand | 点击展开或收起时的回调 | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
 
 ## 主题变量（Design Token）
 
