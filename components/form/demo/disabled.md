@@ -124,5 +124,5 @@ const FormDisabledDemo = () => {
   );
 };
 
-export default () => <FormDisabledDemo />;
+export default FormDisabledDemo;
 ```

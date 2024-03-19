@@ -16,7 +16,7 @@ Disabled Segmented.
 ```jsx
 import { Segmented } from 'antd';
 
-export default () => (
+const Demo = () => (
   <>
     <Segmented options={['Map', 'Transit', 'Satellite']} disabled />
     <br />
@@ -31,4 +31,6 @@ export default () => (
     />
   </>
 );
+
+export default Demo;
 ```

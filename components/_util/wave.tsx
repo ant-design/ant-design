@@ -22,7 +22,7 @@ function getValidateContainer(nodeRoot: Node): Element {
   }
 
   return Array.from(nodeRoot.childNodes).find(
-    ele => ele?.nodeType === Node.ELEMENT_NODE,
+    (ele) => ele?.nodeType === Node.ELEMENT_NODE,
   ) as Element;
 }
 
@@ -115,19 +115,17 @@ class Wave extends React.Component<WaveProps> {
 
       styleForPseudo = updateCSS(
         `
-      [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls(
-          '',
-        )}-click-animating-node {
+      [${getPrefixCls('')}-click-animating-without-extra-node='true']::after, .${getPrefixCls('')}-click-animating-node {
         --antd-wave-shadow-color: ${waveColor};
       }`,
         'antd-wave',
         { csp: this.csp, attachTo: nodeBody },
-      );
+      ) as HTMLStyleElement;
     }
     if (insertExtraNode) {
       node.appendChild(extraNode);
     }
-    ['transition', 'animation'].forEach(name => {
+    ['transition', 'animation'].forEach((name) => {
       node.addEventListener(`${name}start`, this.onTransitionStart);
       node.addEventListener(`${name}end`, this.onTransitionEnd);
     });
@@ -213,7 +211,7 @@ class Wave extends React.Component<WaveProps> {
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
-    ['transition', 'animation'].forEach(name => {
+    ['transition', 'animation'].forEach((name) => {
       node.removeEventListener(`${name}start`, this.onTransitionStart);
       node.removeEventListener(`${name}end`, this.onTransitionEnd);
     });

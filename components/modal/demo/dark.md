@@ -297,7 +297,7 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
   </Transfer>
 );
 
-export default () => {
+const Demo = () => {
   const [open, setOpen] = useState(false);
   const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState([]);
@@ -574,6 +574,8 @@ export default () => {
     </>
   );
 };
+
+export default Demo;
 ```
 
 <style>

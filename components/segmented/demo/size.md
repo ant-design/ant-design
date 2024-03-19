@@ -16,7 +16,7 @@ There are three sizes of an Segmented: `large` (40px), `default` (32px) and `sma
 ```jsx
 import { Segmented } from 'antd';
 
-export default () => (
+const Demo = () => (
   <>
     <Segmented size="large" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
     <br />
@@ -25,4 +25,6 @@ export default () => (
     <Segmented size="small" options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
   </>
 );
+
+export default Demo;
 ```

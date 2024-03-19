@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.24.15",
+  "version": "4.24.16",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -143,7 +143,7 @@
     "rc-progress": "~3.4.2",
     "rc-rate": "~2.9.3",
     "rc-resize-observer": "^1.3.1",
-    "rc-segmented": "~2.1.2",
+    "rc-segmented": "~2.3.0",
     "rc-select": "~14.1.18",
     "rc-slider": "~10.0.1",
     "rc-steps": "~5.0.0",

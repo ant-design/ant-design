@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.24.16
+
+`2024-03-18`
+
+- 🐞 修复 Select 组件在选项较少时不显示滚动条的问题。[#47050](https://github.com/ant-design/ant-design/pull/47050)
+- 🐞 修复 Transfer 反选当页错误的问题。[#47134](https://github.com/ant-design/ant-design/pull/47134) [@linxianxi](https://github.com/linxianxi)
+- 🐞 修复点击 Form `tooltip` 图标会触发 Switch 切换的问题。[#46159](https://github.com/ant-design/ant-design/pull/46159) [@Wxh16144](https://github.com/Wxh16144)
+- 🐞 修复 Segmented `options` 内 `className` 会覆盖组件自带 `className` 的问题。[rc-segmented#175](https://github.com/react-component/segmented/pull/175/) [@stoil-terziev](https://github.com/stoil-terziev)
+
 ## 4.24.15
 
 `2023-11-21`
