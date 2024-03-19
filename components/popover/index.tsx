@@ -12,6 +12,7 @@ import PurePanel from './PurePanel';
 import useStyle from './style';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { cloneElement } from '../_util/reactNode';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -42,6 +43,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
     children,
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
+    onOpenChange,
     overlayStyle = {},
     ...otherProps
   } = props;
@@ -52,12 +54,23 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
-  const [open, setOpen] = React.useState(props.open ?? props.visible);
+  const [open, setOpen] = useMergedState(false, {
+    value: props.open ?? props.visible,
+  });
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.keyCode === KeyCode.ESC) {
-      setOpen(false);
+      settingOpen(false);
     }
+  };
+
+  const settingOpen = (value: boolean) => {
+    setOpen(value, true);
+    onOpenChange?.(value);
+  };
+
+  const onInternalOpenChange = (value: boolean) => {
+    settingOpen(value);
   };
 
   return wrapCSSVar(
@@ -72,7 +85,7 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
       overlayClassName={overlayCls}
       ref={ref}
       open={open}
-      onOpenChange={setOpen}
+      onOpenChange={onInternalOpenChange}
       overlay={
         title || content ? <Overlay prefixCls={prefixCls} title={title} content={content} /> : null
       }
