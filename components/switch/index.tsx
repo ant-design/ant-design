@@ -3,12 +3,12 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RcSwitch from 'rc-switch';
 
-import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (
@@ -24,6 +24,16 @@ export interface SwitchProps {
   rootClassName?: string;
   checked?: boolean;
   defaultChecked?: boolean;
+  /**
+   * Alias for `checked`.
+   * @since 5.12.0
+   */
+  value?: boolean;
+  /**
+   * Alias for `defaultChecked`.
+   * @since 5.12.0
+   */
+  defaultValue?: boolean;
   onChange?: SwitchChangeEventHandler;
   onClick?: SwitchClickEventHandler;
   checkedChildren?: React.ReactNode;
@@ -53,18 +63,18 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
     className,
     rootClassName,
     style,
+    checked: checkedProp,
+    value,
+    defaultChecked: defaultCheckedProp,
+    defaultValue,
+    onChange,
     ...restProps
   } = props;
 
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Switch');
-
-    warning(
-      'checked' in props || !('value' in props),
-      'usage',
-      '`value` is not a valid prop, do you mean `checked`?',
-    );
-  }
+  const [checked, setChecked] = useMergedState<boolean>(false, {
+    value: checkedProp ?? value,
+    defaultValue: defaultCheckedProp ?? defaultValue,
+  });
 
   const { getPrefixCls, direction, switch: SWITCH } = React.useContext(ConfigContext);
 
@@ -81,7 +91,7 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
   );
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedSize = useSize(customizeSize);
 
@@ -95,14 +105,22 @@ const Switch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => 
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...SWITCH?.style, ...style };
 
-  return wrapSSR(
+  const changeHandler: SwitchChangeEventHandler = (...args) => {
+    setChecked(args[0]);
+    onChange?.(...args);
+  };
+
+  return wrapCSSVar(
     <Wave component="Switch">
       <RcSwitch
         {...restProps}
+        checked={checked}
+        onChange={changeHandler}
         prefixCls={prefixCls}
         className={classes}
         style={mergedStyle}

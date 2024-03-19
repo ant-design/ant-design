@@ -13,10 +13,10 @@ describe('Grid.Server', () => {
       </Row>,
     );
 
-    expect((container.querySelector('.ant-row') as HTMLElement)?.style.marginLeft).toBe('-4px');
-    expect((container.querySelector('.ant-row') as HTMLElement)?.style.marginRight).toBe('-4px');
-    expect((container.querySelector('.ant-row') as HTMLElement)?.style.marginTop).toBe('');
-    expect((container.querySelector('.ant-row') as HTMLElement)?.style.marginBottom).toBe('');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginLeft).toBe('-4px');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginRight).toBe('-4px');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginTop).toBe('');
+    expect(container.querySelector<HTMLElement>('.ant-row')?.style.marginBottom).toBe('');
 
     expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingLeft).toBe('4px');
     expect((container.querySelector('.ant-col') as HTMLElement)?.style.paddingRight).toBe('4px');

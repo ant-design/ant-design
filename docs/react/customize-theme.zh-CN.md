@@ -4,7 +4,6 @@ group:
   order: 1
 order: 0
 title: 定制主题
-tag: Updated
 ---
 
 Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务和品牌上多样化的视觉需求，包括但不限于全局样式（主色、圆角、边框）和指定组件的视觉定制。
@@ -18,7 +17,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ## 配置主题
 
-在 5.0 版本中我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。在升级 v5 后，将默认使用 v5 的主题.
+在 5.0 版本中我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。在升级 v5 后，将默认使用 v5 的主题。
 
 <!-- prettier-ignore -->
 :::warning
@@ -30,7 +29,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ### 修改主题变量
 
-通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量成为 Seed Token。
+通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量称为 Seed Token。
 
 ```sandpack
 const sandpackConfig = {
@@ -170,47 +169,41 @@ antd 默认内置了一些组件交互动效让企业级页面更加富有细节
 
 ```sandpack
 import React from 'react';
-import { Switch, ConfigProvider, Space, Checkbox, Radio, Row, Col } from 'antd';
+import { Checkbox, Col, ConfigProvider, Flex, Radio, Row, Switch } from 'antd';
 
-export default () => {
-  const [checked, setChecked] = React.useState(false);
-
+const App: React.FC = () => {
+  const [checked, setChecked] = React.useState<boolean>(false);
+  const timerRef = React.useRef<ReturnType<typeof setInterval>>();
   React.useEffect(() => {
-    const id = setInterval(() => {
+    timerRef.current = setInterval(() => {
       setChecked((prev) => !prev);
-    }, 1000);
-
+    }, 500);
     return () => {
-      clearInterval(id);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
   }, []);
 
   const nodes = (
-    <Space>
+    <Flex gap="small">
       <Checkbox checked={checked}>Checkbox</Checkbox>
       <Radio checked={checked}>Radio</Radio>
       <Switch checked={checked} />
-    </Space>
+    </Flex>
   );
 
   return (
     <Row gutter={[24, 24]}>
       <Col span={24}>{nodes}</Col>
-
       <Col span={24}>
-        <ConfigProvider
-          theme={{
-            token: {
-              motion: false,
-            },
-          }}
-        >
-          {nodes}
-        </ConfigProvider>
+        <ConfigProvider theme={{ token: { motion: false } }}>{nodes}</ConfigProvider>
       </Col>
     </Row>
   );
 };
+
+export default App;
 ```
 
 ## 进阶使用
@@ -329,9 +322,9 @@ const globalToken = getDesignToken();
 `getDesignToken` 和 ConfigProvider 一样，支持传入 `theme` 属性，用于获取指定主题的 Design Token。
 
 ```tsx
-import { createRoot } from 'react-dom/client';
 import type { ThemeConfig } from 'antd';
 import { theme } from 'antd';
+import { createRoot } from 'react-dom/client';
 
 const { getDesignToken, useToken } = theme;
 
@@ -377,7 +370,7 @@ createRoot(document.getElementById('#app')).render(
 
 我们提供了帮助用户调试主题的工具：[主题编辑器](/theme-editor-cn)
 
-你可以使用此工具自由地修改 Design Token，以达到您对主题的期望。
+你可以使用此工具自由地修改 Design Token，以达到你对主题的期望。
 
 ## 基本概念
 

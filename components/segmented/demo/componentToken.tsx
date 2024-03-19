@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider, Segmented } from 'antd';
 
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -19,3 +19,5 @@ export default () => (
     <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
   </ConfigProvider>
 );
+
+export default Demo;

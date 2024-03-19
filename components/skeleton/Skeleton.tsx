@@ -103,7 +103,7 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
 
   const { getPrefixCls, direction, skeleton } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -172,16 +172,17 @@ const Skeleton: React.FC<SkeletonProps> & CompoundedComponent = (props) => {
       className,
       rootClassName,
       hashId,
+      cssVarCls,
     );
 
-    return wrapSSR(
+    return wrapCSSVar(
       <div className={cls} style={{ ...skeleton?.style, ...style }}>
         {avatarNode}
         {contentNode}
       </div>,
     );
   }
-  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
+  return children ?? null;
 };
 
 Skeleton.Button = SkeletonButton;

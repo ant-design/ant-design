@@ -87,7 +87,9 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>树形数据省略情况测试</code>
 <code src="./demo/fixed-header.tsx">固定表头</code>
 <code src="./demo/fixed-columns.tsx">固定列</code>
+<code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">堆叠固定列</code>
 <code src="./demo/fixed-columns-header.tsx">固定头和列</code>
+<code src="./demo/hidden-columns.tsx">隐藏列</code>
 <code src="./demo/grouping-columns.tsx">表头分组</code>
 <code src="./demo/edit-cell.tsx">可编辑单元格</code>
 <code src="./demo/edit-row.tsx">可编辑行</code>
@@ -143,6 +145,13 @@ const columns = [
 | onRow | 设置行属性 | function(record, index) | - |  |
 | virtual | 支持虚拟列表 | boolean | - | 5.9.0 |
 
+### Table ref
+
+| 参数 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| nativeElement | 最外层 div 元素 | HTMLDivElement | 5.11.0 |
+| scrollTo | 滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`） | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
+
 #### onRow 用法
 
 适用于 `onRow` `onHeaderRow` `onCell` `onHeaderCell`。
@@ -170,7 +179,6 @@ const columns = [
 
 列描述数据对象，是 columns 中的一项，Column 使用相同的 API。
 
-<!-- prettier-ignore -->
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |  |
@@ -186,11 +194,12 @@ const columns = [
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
+| filterOnClose | 是否在筛选菜单关闭时触发筛选 | boolean | true | 5.15.0 |
 | filterMultiple | 是否多选 | boolean | true |  |
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | 筛选菜单项是否可搜索 | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
 | filters | 表头的筛选菜单项 | object\[] | - |  |
-| fixed | （IE 下无效）列是否固定，可选 true (等效于 left) `left` `right` | boolean \| string | false |  |
+| fixed | （IE 下无效）列是否固定，可选 `true` (等效于 `left`) `left` `right` | boolean \| string | false |  |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引 | function(text, record, index) {} | - |  |
 | responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | 4.2.0 |
@@ -198,14 +207,15 @@ const columns = [
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | 4.3.0 |
 | showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip-cn/#api) | true |  |
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] |  |
-| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | function \| boolean \| { compare: function, multiple: number } | - |  |
+| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。需要服务端排序可设为 `true`（单列排序） 或 `{ multiple: number }`（多列排序） | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string \| number | - |  |
+| hidden | 隐藏列 | boolean | false | 5.13.0 |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - |  |
-| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |  |
+| onFilterDropdownOpenChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |  |
 | onHeaderCell | 设置头部单元格属性 | function(column) | - |  |
 
 ### ColumnGroup
@@ -240,7 +250,7 @@ const columns = [
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): ReactNode | - |  |
 | expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): ReactNode | - |  |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false |  |
-| fixed | 控制展开图标是否固定，可选 true `left` `right` | boolean \| string | false | 4.16.0 |
+| fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | 4.16.0 |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | rowExpandable | 设置是否允许行展开 | (record) => boolean | - |  |
 | showExpandColumn | 设置是否展示行展开列 | boolean | true | 4.18.0 |
@@ -254,7 +264,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | checkStrictly | checkable 状态下节点选择完全受控（父子数据选中状态不再关联） | boolean | true | 4.4.0 |
-| columnTitle | 自定义列表选择框标题 | ReactNode | - |  |
+| columnTitle | 自定义列表选择框标题 | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | 自定义列表选择框宽度 | string \| number | `32px` |  |
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | function(record) | - |  |
@@ -278,7 +288,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - |
-| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
+| x | 设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | string \| number \| true | - |
 | y | 设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值 | string \| number | - |
 
 ### selection
@@ -377,3 +387,7 @@ return <Table rowKey={(record) => record.uid} />;
 ### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
 
 自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowselection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。
+
+### 为什么 components.body.wrapper 在 virtual 开启时会报错？
+
+因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。

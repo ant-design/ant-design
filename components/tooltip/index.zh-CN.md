@@ -3,8 +3,8 @@ category: Components
 subtitle: 文字提示
 group: 数据展示
 title: Tooltip
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3u9eSZO_4c0AAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gwrhTozoTC4AAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*9LKlRbWytugAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bCbPTJ7LQngAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -29,7 +29,8 @@ demo:
 <code src="./demo/colorful.tsx">多彩文字提示</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
-<code src="./demo/disabled.tsx" debug>禁用</code>
+<code src="./demo/disabled.tsx">禁用</code>
+<code src="./demo/disabled-children.tsx" debug>禁用子元素</code>
 
 ## API
 
@@ -51,6 +52,7 @@ demo:
 | color | 背景颜色 | string | - | 4.3.0 |
 | defaultOpen | 默认是否显隐 | boolean | false | 4.23.0 |
 | destroyTooltipOnHide | 关闭后是否销毁 Tooltip | boolean | false |  |
+| fresh | 默认情况下，Tooltip 在关闭时会缓存内容。设置该属性后会始终保持更新 | boolean | false | 5.10.0 |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | (triggerNode: HTMLElement) => HTMLElement | () => document.body |  |
 | mouseEnterDelay | 鼠标移入后延时多少才显示 Tooltip，单位：秒 | number | 0.1 |  |
 | mouseLeaveDelay | 鼠标移出后延时多少才隐藏 Tooltip，单位：秒 | number | 0.1 |  |
@@ -69,6 +71,10 @@ demo:
 
 ## FAQ
 
+### 为何在严格模式中有时候会出现 findDOMNode is deprecated 这个警告？
+
+这是由于 `rc-trigger` 的实现方式导致的，`rc-trigger` 强制要求 children 能够接受 ref，否则就会 fallback 到 findDOMNode，所以 children 需要是原生 html 标签，如果不是，则需要使用 `React.forwardRef` 把 `ref` 透传到原生 html 标签。
+
 ### 为何有时候 HOC 组件无法生效？
 
 请确保 `Tooltip` 的子元素能接受 `onMouseEnter`、`onMouseLeave`、`onPointerEnter`、`onPointerLeave`、`onFocus`、`onClick` 事件。
@@ -80,3 +86,26 @@ demo:
 <img alt="shift" height="200" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sxaTTJjLtIMAAAAAAAAAAAAADrJ8AQ/original" />
 
 当设置为边缘对齐方向如 `topLeft` `bottomRight` 等，则会仅做翻转而不做位移。
+
+### 为何 Tooltip 的内容在关闭时不会更新？
+
+Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁：
+
+```jsx
+// `title` 不会因为 `user` 置空而闪烁置空
+<Tooltip open={user} title={user?.name} />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*KVx7QLOYwVsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>
+
+如果需要在关闭时也更新内容，可以设置 `fresh` 属性（例如 [#44830](https://github.com/ant-design/ant-design/issues/44830) 中的场景）：
+
+```jsx
+<Tooltip open={user} title={user?.name} fresh />
+```
+
+<div>
+<img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
+</div>

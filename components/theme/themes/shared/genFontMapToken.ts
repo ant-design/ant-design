@@ -6,10 +6,17 @@ const genFontMapToken = (fontSize: number): FontMapToken => {
   const fontSizes = fontSizePairs.map((pair) => pair.size);
   const lineHeights = fontSizePairs.map((pair) => pair.lineHeight);
 
+  const fontSizeMD = fontSizes[1];
+  const fontSizeSM = fontSizes[0];
+  const fontSizeLG = fontSizes[2];
+  const lineHeight = lineHeights[1];
+  const lineHeightSM = lineHeights[0];
+  const lineHeightLG = lineHeights[2];
+
   return {
-    fontSizeSM: fontSizes[0],
-    fontSize: fontSizes[1],
-    fontSizeLG: fontSizes[2],
+    fontSizeSM,
+    fontSize: fontSizeMD,
+    fontSizeLG,
     fontSizeXL: fontSizes[3],
 
     fontSizeHeading1: fontSizes[6],
@@ -18,9 +25,13 @@ const genFontMapToken = (fontSize: number): FontMapToken => {
     fontSizeHeading4: fontSizes[3],
     fontSizeHeading5: fontSizes[2],
 
-    lineHeight: lineHeights[1],
-    lineHeightLG: lineHeights[2],
-    lineHeightSM: lineHeights[0],
+    lineHeight,
+    lineHeightLG,
+    lineHeightSM,
+
+    fontHeight: Math.round(lineHeight * fontSizeMD),
+    fontHeightLG: Math.round(lineHeightLG * fontSizeLG),
+    fontHeightSM: Math.round(lineHeightSM * fontSizeSM),
 
     lineHeightHeading1: lineHeights[6],
     lineHeightHeading2: lineHeights[5],

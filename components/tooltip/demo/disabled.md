@@ -1,7 +1,7 @@
 ## zh-CN
 
-Disabled 子元素。
+通过设置 `title=""` 可以禁用 Tooltip。
 
 ## en-US
 
-Disabled wrapper.
+The Tooltip can be disabled by setting `title=""`.

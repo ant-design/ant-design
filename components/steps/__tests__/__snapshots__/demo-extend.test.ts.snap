@@ -1573,7 +1573,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=0"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
                   />
                 </span>
               </div>
@@ -1780,7 +1780,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
                   />
                 </span>
               </div>
@@ -1987,7 +1987,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=2"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
                   />
                 </span>
               </div>
@@ -2194,7 +2194,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
                   class="ant-avatar ant-avatar-circle ant-avatar-image"
                 >
                   <img
-                    src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=3"
+                    src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
                   />
                 </span>
               </div>

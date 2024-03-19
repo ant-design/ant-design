@@ -1,15 +1,15 @@
 import React, { useMemo, useState } from 'react';
 import { Input, Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import type { TreeDataNode } from 'antd';
 
 const { Search } = Input;
 
 const x = 3;
 const y = 2;
 const z = 1;
-const defaultData: DataNode[] = [];
+const defaultData: TreeDataNode[] = [];
 
-const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) => {
+const generateData = (_level: number, _preKey?: React.Key, _tns?: TreeDataNode[]) => {
   const preKey = _preKey || '0';
   const tns = _tns || defaultData;
 
@@ -33,7 +33,7 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) =>
 generateData(z);
 
 const dataList: { key: React.Key; title: string }[] = [];
-const generateList = (data: DataNode[]) => {
+const generateList = (data: TreeDataNode[]) => {
   for (let i = 0; i < data.length; i++) {
     const node = data[i];
     const { key } = node;
@@ -45,7 +45,7 @@ const generateList = (data: DataNode[]) => {
 };
 generateList(defaultData);
 
-const getParentKey = (key: React.Key, tree: DataNode[]): React.Key => {
+const getParentKey = (key: React.Key, tree: TreeDataNode[]): React.Key => {
   let parentKey: React.Key;
   for (let i = 0; i < tree.length; i++) {
     const node = tree[i];
@@ -86,7 +86,7 @@ const App: React.FC = () => {
   };
 
   const treeData = useMemo(() => {
-    const loop = (data: DataNode[]): DataNode[] =>
+    const loop = (data: TreeDataNode[]): TreeDataNode[] =>
       data.map((item) => {
         const strTitle = item.title as string;
         const index = strTitle.indexOf(searchValue);

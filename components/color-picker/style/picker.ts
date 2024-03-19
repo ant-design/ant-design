@@ -1,4 +1,5 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { unit, type CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import { getTransBg } from './color-block';
 import type { ColorPickerToken } from './index';
@@ -21,7 +22,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-select`]: {
       [`${componentCls}-palette`]: {
-        minHeight: controlHeightLG * 4,
+        minHeight: token.calc(controlHeightLG).mul(4).equal(),
         overflow: 'hidden',
         borderRadius: borderRadiusSM,
       },
@@ -37,7 +38,7 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     [`${componentCls}-handler`]: {
       width: colorPickerHandlerSize,
       height: colorPickerHandlerSize,
-      border: `${lineWidthBold}px solid ${colorBgElevated}`,
+      border: `${unit(lineWidthBold)} solid ${colorBgElevated}`,
       position: 'relative',
       borderRadius: '50%',
       cursor: 'pointer',
@@ -49,15 +50,15 @@ const genPickerStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     },
 
     [`${componentCls}-slider`]: {
-      borderRadius: colorPickerSliderHeight / 2,
+      borderRadius: token.calc(colorPickerSliderHeight).div(2).equal(),
       [`${componentCls}-palette`]: {
         height: colorPickerSliderHeight,
       },
       [`${componentCls}-gradient`]: {
-        borderRadius: colorPickerSliderHeight / 2,
+        borderRadius: token.calc(colorPickerSliderHeight).div(2).equal(),
         boxShadow: colorPickerInsetShadow,
       },
-      '&-alpha': getTransBg(`${colorPickerSliderHeight}px`, token.colorFillSecondary),
+      '&-alpha': getTransBg(`${unit(colorPickerSliderHeight)}`, token.colorFillSecondary),
       '&-hue': { marginBottom: marginSM },
     },
 

@@ -25,6 +25,7 @@ describe('Theme', () => {
     );
     delete token._hashId;
     delete token._tokenKey;
+    delete token._themeKey;
     return token;
   };
 
@@ -36,6 +37,7 @@ describe('Theme', () => {
     expect(result.current!.token).toEqual(
       expect.objectContaining({
         colorPrimary: '#1677ff',
+        'blue-6': '#1677ff',
       }),
     );
   });

@@ -1,8 +1,7 @@
 ---
 group:
-  title: 其他
-  order: 0
-order: 0
+  title: 进阶使用
+order: 6
 title: 通用属性
 ---
 

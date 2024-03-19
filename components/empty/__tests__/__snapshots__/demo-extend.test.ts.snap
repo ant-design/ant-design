@@ -122,7 +122,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -136,7 +136,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -232,7 +231,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-tree-select ant-select-outlined ant-select-single ant-select-show-arrow"
         style="width: 200px;"
       >
         <div
@@ -246,7 +245,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -341,7 +339,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+        class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
         style="width: 200px;"
       >
         <div
@@ -355,7 +353,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"

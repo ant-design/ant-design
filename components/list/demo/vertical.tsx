@@ -5,7 +5,7 @@ import { Avatar, List, Space } from 'antd';
 const data = Array.from({ length: 23 }).map((_, i) => ({
   href: 'https://ant.design',
   title: `ant design part ${i}`,
-  avatar: `https://xsgames.co/randomusers/avatar.php?g=pixel&key=${i}`,
+  avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
   description:
     'Ant Design, a design language for background applications, is refined by Ant UED Team.',
   content:

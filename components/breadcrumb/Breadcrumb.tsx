@@ -93,8 +93,9 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
   const { getPrefixCls, direction, breadcrumb } = React.useContext(ConfigContext);
 
   let crumbs: React.ReactNode;
+
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedItems = useItems(items, legacyRoutes);
 
@@ -212,11 +213,12 @@ const Breadcrumb = <T extends AnyObject = AnyObject>(props: BreadcrumbProps<T>) 
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = { ...breadcrumb?.style, ...style };
 
-  return wrapSSR(
+  return wrapCSSVar(
     <nav className={breadcrumbClassName} style={mergedStyle} {...restProps}>
       <ol>{crumbs}</ol>
     </nav>,

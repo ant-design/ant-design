@@ -131,7 +131,7 @@ Array [
   <div>
     scaleStep:
     <div
-      class="ant-input-number"
+      class="ant-input-number ant-input-number-outlined"
     >
       <div
         class="ant-input-number-handler-wrap"
@@ -348,6 +348,19 @@ exports[`renders components/image/demo/imageRender.tsx extend context correctly 
 `;
 
 exports[`renders components/image/demo/imageRender.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/image/demo/nested.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn ant-btn-default"
+  type="button"
+>
+  <span>
+    showModal
+  </span>
+</button>
+`;
+
+exports[`renders components/image/demo/nested.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/placeholder.tsx extend context correctly 1`] = `
 <div

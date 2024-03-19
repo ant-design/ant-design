@@ -12,6 +12,7 @@ import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -39,6 +40,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     rootClassName,
     children,
     style,
+    title,
     ...restProps
   } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -47,7 +49,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const prefixCls = isButtonType ? `${radioPrefixCls}-button` : radioPrefixCls;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(radioPrefixCls);
+  const rootCls = useCSSVarCls(radioPrefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(radioPrefixCls, rootCls);
 
   const radioProps: RadioProps = { ...restProps };
 
@@ -74,9 +77,11 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     className,
     rootClassName,
     hashId,
+    cssVarCls,
+    rootCls,
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Wave component="Radio" disabled={radioProps.disabled}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label
@@ -84,6 +89,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         style={{ ...radio?.style, ...style }}
         onMouseEnter={props.onMouseEnter}
         onMouseLeave={props.onMouseLeave}
+        title={title}
       >
         <RcCheckbox
           {...radioProps}

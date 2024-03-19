@@ -1,14 +1,14 @@
+import * as React from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import BarsOutlined from '@ant-design/icons/BarsOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
-import { useContext, useEffect, useRef, useState } from 'react';
 
 import isNumeric from '../_util/isNumeric';
 import { ConfigContext } from '../config-provider';
-import { LayoutContext } from './layout';
+import { LayoutContext } from './context';
 
 const dimensionMaxMap = {
   xs: '479.98px',
@@ -117,7 +117,7 @@ const Sider = React.forwardRef<HTMLDivElement, SiderProps>((props, ref) => {
     if (typeof window !== 'undefined') {
       const { matchMedia } = window;
       if (matchMedia! && breakpoint && breakpoint in dimensionMaxMap) {
-        mql = matchMedia(`(max-width: ${dimensionMaxMap[breakpoint]})`);
+        mql = matchMedia(`screen and (max-width: ${dimensionMaxMap[breakpoint]})`);
         try {
           mql.addEventListener('change', responsiveHandler);
         } catch (error) {

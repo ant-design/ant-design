@@ -5,6 +5,7 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 // CSSINJS
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 import TimelineItemList from './TimelineItemList';
@@ -41,14 +42,15 @@ const Timeline: CompoundedComponent = (props) => {
   }
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergedItems: TimelineItemProps[] = useItems(items, children);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <TimelineItemList
       {...restProps}
-      className={classNames(timeline?.className, className)}
+      className={classNames(timeline?.className, className, cssVarCls, rootCls)}
       style={{ ...timeline?.style, ...style }}
       prefixCls={prefixCls}
       direction={direction}

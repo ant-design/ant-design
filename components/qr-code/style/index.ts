@@ -1,16 +1,19 @@
+import { unit } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
+
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {}
 
 interface QRCodeToken extends FullToken<'QRCode'> {
-  QRCodeExpiredTextColor: string;
+  QRCodeTextColor: string;
   QRCodeMaskBackgroundColor: string;
 }
 
 const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, lineWidth, lineType, colorSplit } = token;
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -20,11 +23,10 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
       padding: token.paddingSM,
       backgroundColor: token.colorWhite,
       borderRadius: token.borderRadiusLG,
-      border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      border: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
       position: 'relative',
-      width: '100%',
-      height: '100%',
       overflow: 'hidden',
+
       [`& > ${componentCls}-mask`]: {
         position: 'absolute',
         insetBlockStart: 0,
@@ -40,10 +42,17 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
         lineHeight: token.lineHeight,
         background: token.QRCodeMaskBackgroundColor,
         textAlign: 'center',
-        [`& > ${componentCls}-expired`]: {
-          color: token.QRCodeExpiredTextColor,
+        [`& > ${componentCls}-expired, & > ${componentCls}-scanned`]: {
+          color: token.QRCodeTextColor,
         },
       },
+
+      '> canvas': {
+        alignSelf: 'stretch',
+        flex: 'auto',
+        minWidth: 0,
+      },
+
       '&-icon': {
         marginBlockEnd: token.marginXS,
         fontSize: token.controlHeight,
@@ -55,11 +64,18 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   };
 };
 
-export default genComponentStyleHook<'QRCode'>('QRCode', (token) =>
-  genQRCodeStyle(
-    mergeToken<QRCodeToken>(token, {
-      QRCodeExpiredTextColor: 'rgba(0, 0, 0, 0.88)',
-      QRCodeMaskBackgroundColor: 'rgba(255, 255, 255, 0.96)',
-    }),
-  ),
+export const prepareComponentToken: GetDefaultToken<'QRCode'> = (token) => ({
+  QRCodeMaskBackgroundColor: new TinyColor(token.colorBgContainer).setAlpha(0.96).toRgbString(),
+});
+
+export default genStyleHooks<'QRCode'>(
+  'QRCode',
+  (token) => {
+    const mergedToken = mergeToken<QRCodeToken>(token, {
+      QRCodeTextColor: token.colorText,
+    });
+
+    return genQRCodeStyle(mergedToken);
+  },
+  prepareComponentToken,
 );

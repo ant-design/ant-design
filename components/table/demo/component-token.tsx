@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import type { RadioChangeEvent } from 'antd';
-import { Form, Radio, Space, Switch, Table, ConfigProvider } from 'antd';
-import type { SizeType } from 'antd/es/config-provider/SizeContext';
-import type { ColumnsType, TableProps } from 'antd/es/table';
-import type { ExpandableConfig, TableRowSelection } from 'antd/es/table/interface';
+import type { ConfigProviderProps, GetProp, RadioChangeEvent, TableProps } from 'antd';
+import { ConfigProvider, Form, Radio, Space, Switch, Table } from 'antd';
+
+type SizeType = ConfigProviderProps['componentSize'];
+type ColumnsType<T extends object> = GetProp<TableProps<T>, 'columns'>;
+type TablePagination = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
+type TablePaginationPosition = NonNullable<TablePagination['position']>[number];
+type ExpandableConfig<T extends object> = GetProp<TableProps<T>, 'expandable'>;
+type TableRowSelection<T extends object> = GetProp<TableProps<T>, 'rowSelection'>;
 
 interface DataType {
   key: number;
@@ -13,14 +17,6 @@ interface DataType {
   address: string;
   description: string;
 }
-
-type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
 
 const columns: ColumnsType<DataType> = [
   {
@@ -89,11 +85,11 @@ const App: React.FC = () => {
   );
   const [showTitle, setShowTitle] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
-  const [showfooter, setShowFooter] = useState(true);
+  const [showFooter, setShowFooter] = useState(true);
   const [rowSelection, setRowSelection] = useState<TableRowSelection<DataType> | undefined>({});
   const [hasData, setHasData] = useState(true);
   const [tableLayout, setTableLayout] = useState();
-  const [top, setTop] = useState<TablePaginationPosition | 'none'>('none');
+  const [top, setTop] = useState<TablePaginationPosition>('none');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
   const [ellipsis, setEllipsis] = useState(false);
   const [yScroll, setYScroll] = useState(false);
@@ -172,7 +168,7 @@ const App: React.FC = () => {
     expandable,
     title: showTitle ? defaultTitle : undefined,
     showHeader,
-    footer: showfooter ? defaultFooter : undefined,
+    footer: showFooter ? defaultFooter : undefined,
     rowSelection,
     scroll,
     tableLayout,
@@ -198,7 +194,7 @@ const App: React.FC = () => {
           <Switch checked={showHeader} onChange={handleHeaderChange} />
         </Form.Item>
         <Form.Item label="Footer">
-          <Switch checked={showfooter} onChange={handleFooterChange} />
+          <Switch checked={showFooter} onChange={handleFooterChange} />
         </Form.Item>
         <Form.Item label="Expandable">
           <Switch checked={!!expandable} onChange={handleExpandChange} />
@@ -300,7 +296,7 @@ const App: React.FC = () => {
       >
         <Table
           {...tableProps}
-          pagination={{ position: [top as TablePaginationPosition, bottom] }}
+          pagination={{ position: [top, bottom] }}
           columns={tableColumns}
           dataSource={hasData ? data : []}
           scroll={scroll}

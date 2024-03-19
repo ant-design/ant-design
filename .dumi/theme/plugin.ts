@@ -155,18 +155,18 @@ const RoutesPlugin = (api: IApi) => {
         // 2. 提取每个样式到独立 css 文件
         styles.forEach((result) => {
           api.logger.event(
-            `${chalk.yellow(file.path)} include ${chalk.blue`[${result.key}]`} ${chalk.yellow(
-              result.ids.length,
+            `${chalk.yellow(file.path)} include ${chalk.blue`[${result!.key}]`} ${chalk.yellow(
+              result!.ids.length,
             )} styles`,
           );
 
-          const cssFile = writeCSSFile(result.key, result.ids.join(''), result.css);
+          const cssFile = writeCSSFile(result!.key, result!.ids.join(''), result!.css);
 
           file.content = addLinkStyle(file.content, cssFile);
         });
 
         // Insert antd style to head
-        const matchRegex = /<style data-type="antd-cssinjs">(.*?)<\/style>/;
+        const matchRegex = /<style data-type="antd-cssinjs">([\S\s]+?)<\/style>/;
         const matchList = file.content.match(matchRegex) || [];
 
         let antdStyle = '';
@@ -179,6 +179,15 @@ const RoutesPlugin = (api: IApi) => {
         const cssFile = writeCSSFile('antd', antdStyle, antdStyle);
         file.content = addLinkStyle(file.content, cssFile, true);
 
+        // Insert antd cssVar to head
+        const cssVarMatchRegex = /<style data-type="antd-css-var"[\S\s]+?<\/style>/;
+        const cssVarMatchList = file.content.match(cssVarMatchRegex) || [];
+
+        cssVarMatchList.forEach((text) => {
+          file.content = file.content.replace(text, '');
+          file.content = file.content.replace('<head>', `<head>${text}`);
+        });
+
         return file;
       }),
   );
@@ -190,20 +199,6 @@ const RoutesPlugin = (api: IApi) => {
 
     return memo;
   });
-
-  // zombieJ: Unique CSS file is large, we move to build css for each page.
-  // See the `modifyExportHTMLFiles` above.
-
-  // generate ssr css file
-  // api.onBuildHtmlComplete(() => {
-  //   const styleCache = (global as any)?.styleCache;
-  //   const styleText = styleCache ? extractStyle(styleCache) : '';
-  //   const styleTextWithoutStyleTag = styleText
-  //     .replace(/<style\s[^>]*>/g, '')
-  //     .replace(/<\/style>/g, '');
-
-  //   fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
-  // });
 };
 
 export default RoutesPlugin;

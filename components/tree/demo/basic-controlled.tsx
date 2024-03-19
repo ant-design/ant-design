@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Tree } from 'antd';
-import type { DataNode } from 'antd/es/tree';
+import type { TreeDataNode } from 'antd';
 
-const treeData: DataNode[] = [
+const treeData: TreeDataNode[] = [
   {
     title: '0-0',
     key: '0-0',

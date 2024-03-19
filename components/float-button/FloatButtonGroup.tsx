@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useContext, useEffect, useMemo, useRef } from 'react';
+import React, { memo, useCallback, useContext, useEffect } from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import classNames from 'classnames';
@@ -10,8 +10,9 @@ import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { FloatButtonGroupProvider } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
-import type { FloatButtonGroupProps } from './interface';
+import type { FloatButtonGroupProps, FloatButtonRef } from './interface';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
   const {
@@ -32,10 +33,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
-  const groupCls = classNames(groupPrefixCls, hashId, className, {
+  const groupCls = classNames(groupPrefixCls, hashId, cssVarCls, rootCls, className, {
     [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     [`${groupPrefixCls}-${shape}`]: shape,
     [`${groupPrefixCls}-${shape}-shadow`]: !trigger,
@@ -45,10 +47,11 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
 
   const [open, setOpen] = useMergedState(false, { value: customOpen });
 
-  const floatButtonGroupRef = useRef<HTMLDivElement>(null);
-  const floatButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const floatButtonGroupRef = React.useRef<HTMLDivElement>(null);
 
-  const hoverAction = useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
+  const floatButtonRef = React.useRef<FloatButtonRef['nativeElement']>(null);
+
+  const hoverAction = React.useMemo<React.DOMAttributes<HTMLDivElement>>(() => {
     const hoverTypeAction = {
       onMouseEnter() {
         setOpen(true);
@@ -103,7 +106,7 @@ const FloatButtonGroup: React.FC<FloatButtonGroupProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <FloatButtonGroupProvider value={shape}>
       <div ref={floatButtonGroupRef} className={groupCls} style={style} {...hoverAction}>
         {trigger && ['click', 'hover'].includes(trigger) ? (

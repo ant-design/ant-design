@@ -2,7 +2,7 @@
 
 exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -15,7 +15,6 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -155,7 +154,7 @@ exports[`renders components/cascader/demo/basic.tsx extend context correctly 2`]
 
 exports[`renders components/cascader/demo/change-on-select.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -168,7 +167,6 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -306,7 +304,7 @@ exports[`renders components/cascader/demo/change-on-select.tsx extend context co
 
 exports[`renders components/cascader/demo/custom-dropdown.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -319,7 +317,6 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -471,7 +468,7 @@ exports[`renders components/cascader/demo/custom-dropdown.tsx extend context cor
 
 exports[`renders components/cascader/demo/custom-render.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -485,7 +482,6 @@ exports[`renders components/cascader/demo/custom-render.tsx extend context corre
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -763,7 +759,7 @@ exports[`renders components/cascader/demo/custom-trigger.tsx extend context corr
 
 exports[`renders components/cascader/demo/default-value.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -776,7 +772,6 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -944,7 +939,7 @@ exports[`renders components/cascader/demo/default-value.tsx extend context corre
 
 exports[`renders components/cascader/demo/disabled-option.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -957,7 +952,6 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1095,7 +1089,7 @@ exports[`renders components/cascader/demo/disabled-option.tsx extend context cor
 
 exports[`renders components/cascader/demo/fields-name.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1108,7 +1102,6 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1248,7 +1241,7 @@ exports[`renders components/cascader/demo/fields-name.tsx extend context correct
 
 exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1261,7 +1254,6 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 1`]
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1399,7 +1391,7 @@ exports[`renders components/cascader/demo/hover.tsx extend context correctly 2`]
 
 exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
     class="ant-select-selector"
@@ -1412,7 +1404,6 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 1`] 
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -1550,7 +1541,7 @@ exports[`renders components/cascader/demo/lazy.tsx extend context correctly 2`] 
 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+  class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
   style="width: 100%;"
 >
   <div
@@ -1572,7 +1563,6 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1729,6 +1719,248 @@ exports[`renders components/cascader/demo/multiple.tsx extend context correctly 
 
 exports[`renders components/cascader/demo/multiple.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/cascader/demo/panel.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-flex-start ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-cascader-panel"
+  >
+    <div
+      class="ant-cascader-menus"
+    >
+      <ul
+        class="ant-cascader-menu"
+        role="menu"
+      >
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="zhejiang"
+          role="menuitemcheckbox"
+          title="Zhejiang"
+        >
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Zhejiang
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </div>
+        </li>
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="jiangsu"
+          role="menuitemcheckbox"
+          title="Jiangsu"
+        >
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Jiangsu
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-cascader-panel"
+  >
+    <div
+      class="ant-cascader-menus"
+    >
+      <ul
+        class="ant-cascader-menu"
+        role="menu"
+      >
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="zhejiang"
+          role="menuitemcheckbox"
+          title="Zhejiang"
+        >
+          <span
+            class="ant-cascader-checkbox"
+          >
+            <span
+              class="ant-cascader-checkbox-inner"
+            />
+          </span>
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Zhejiang
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </div>
+        </li>
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          data-path-key="jiangsu"
+          role="menuitemcheckbox"
+          title="Jiangsu"
+        >
+          <span
+            class="ant-cascader-checkbox"
+          >
+            <span
+              class="ant-cascader-checkbox-inner"
+            />
+          </span>
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            Jiangsu
+          </div>
+          <div
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    class="ant-cascader-panel ant-cascader-panel-empty"
+  >
+    <div
+      class="ant-empty ant-empty-normal ant-empty-small"
+    >
+      <div
+        class="ant-empty-image"
+      >
+        <svg
+          height="41"
+          viewBox="0 0 64 41"
+          width="64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+            transform="translate(0 1)"
+          >
+            <ellipse
+              cx="32"
+              cy="33"
+              fill="#f5f5f5"
+              rx="32"
+              ry="7"
+            />
+            <g
+              fill-rule="nonzero"
+              stroke="#d9d9d9"
+            >
+              <path
+                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+              />
+              <path
+                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                fill="#fafafa"
+              />
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div
+        class="ant-empty-description"
+      >
+        No data
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/cascader/demo/panel.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/cascader/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1815,7 +2047,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -1828,7 +2060,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -1972,7 +2203,7 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
   style="padding-bottom: 0px; position: relative; min-width: 0;"
 >
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
     style="margin: 0px;"
   >
     <div
@@ -1986,7 +2217,6 @@ exports[`renders components/cascader/demo/render-panel.tsx extend context correc
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="true"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2135,7 +2365,7 @@ If you used to conditionally omit it with %s={condition && value}, pass %s={cond
 
 exports[`renders components/cascader/demo/search.tsx extend context correctly 1`] = `
 <div
-  class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+  class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
 >
   <div
     class="ant-select-selector"
@@ -2148,7 +2378,6 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 1`
         aria-controls="rc_select_TEST_OR_SSR_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-label="Search"
         aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
@@ -2286,7 +2515,7 @@ exports[`renders components/cascader/demo/search.tsx extend context correctly 2`
 exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     style="width: 100%;"
   >
     <div
@@ -2324,7 +2553,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2504,7 +2732,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     style="width: 100%;"
   >
     <div
@@ -2542,7 +2770,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2727,7 +2954,7 @@ exports[`renders components/cascader/demo/showCheckedStrategy.tsx extend context
 exports[`renders components/cascader/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-lg ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-lg ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2740,7 +2967,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -2875,7 +3101,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -2888,7 +3114,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3023,7 +3248,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-sm ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3036,7 +3261,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3183,7 +3407,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-status-error ant-select-single ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3196,7 +3420,6 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -3319,7 +3542,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-select ant-cascader ant-select-status-warning ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
+      class="ant-select ant-cascader ant-select-outlined ant-select-status-warning ant-select-multiple ant-select-allow-clear ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -3340,7 +3563,6 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
                 aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-label="Search"
                 aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
@@ -3474,7 +3696,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 2`
 exports[`renders components/cascader/demo/suffix.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3487,7 +3709,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3624,7 +3845,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3637,7 +3858,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3756,7 +3976,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3769,7 +3989,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
@@ -3906,7 +4125,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+    class="ant-select ant-cascader ant-select-outlined ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
       class="ant-select-selector"
@@ -3919,7 +4138,6 @@ Array [
           aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-label="Search"
           aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"

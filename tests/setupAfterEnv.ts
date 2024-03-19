@@ -8,13 +8,11 @@ import { defaultConfig } from '../components/theme/internal';
 defaultConfig.hashed = false;
 
 if (process.env.LIB_DIR === 'dist') {
-  jest.mock('../dist/antd', () => {
-    const antd = jest.requireActual('../dist/antd');
-    antd.theme.defaultConfig.hashed = false;
-
-    return antd;
-  });
+  jest.mock('antd', () => jest.requireActual('../dist/antd'));
+} else if (process.env.LIB_DIR === 'dist-min') {
+  jest.mock('antd', () => jest.requireActual('../dist/antd.min'));
 } else if (process.env.LIB_DIR === 'es') {
+  jest.mock('antd', () => jest.requireActual('../es'));
   jest.mock('../es/theme/internal', () => {
     const esTheme = jest.requireActual('../es/theme/internal');
     if (esTheme.defaultConfig) {

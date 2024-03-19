@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Transfer } from 'antd';
-import type { TransferDirection } from 'antd/es/transfer';
+import type { TransferProps } from 'antd';
 
 interface RecordType {
   key: string;
@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
 
-  const onChange = (nextTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
+  const onChange: TransferProps['onChange'] = (nextTargetKeys, direction, moveKeys) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
     console.log('moveKeys:', moveKeys);
@@ -33,7 +33,7 @@ const App: React.FC = () => {
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  const onScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
+  const onScroll: TransferProps['onScroll'] = (direction, e) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
   };

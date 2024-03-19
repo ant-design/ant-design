@@ -856,7 +856,7 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
           class="ant-avatar ant-avatar-circle ant-avatar-image"
         >
           <img
-            src="https://xsgames.co/randomusers/avatar.php?g=pixel"
+            src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
           />
         </span>
       </div>
@@ -1124,7 +1124,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large ant-card-head-tabs"
+        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs"
       >
         <div
           class="ant-tabs-nav"

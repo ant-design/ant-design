@@ -2,7 +2,7 @@ const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
 
 // jest config for image snapshots
 module.exports = {
-  setupFiles: ['./tests/setup.js'],
+  setupFiles: ['./tests/setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   transform: {
@@ -19,5 +19,5 @@ module.exports = {
     },
   },
   preset: 'jest-puppeteer',
-  testTimeout: 10000,
+  testTimeout: 20000,
 };

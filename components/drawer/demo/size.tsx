@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Space } from 'antd';
-import type { DrawerProps } from 'antd/es/drawer';
+import type { DrawerProps } from 'antd';
 
 const App: React.FC = () => {
   const [open, setOpen] = useState(false);

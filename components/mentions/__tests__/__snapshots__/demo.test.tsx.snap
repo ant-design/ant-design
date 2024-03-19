@@ -1,8 +1,149 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders components/mentions/demo/allowClear.tsx correctly 1`] = `
+Array [
+  <span
+    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+  >
+    <div
+      class="ant-mentions"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        hello world
+      </textarea>
+    </div>
+    <span
+      class="ant-mentions-suffix"
+    >
+      <span
+        class="ant-mentions-clear-icon"
+        role="button"
+        tabindex="-1"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+  </span>,
+  <br />,
+  <br />,
+  <span
+    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+  >
+    <div
+      class="ant-mentions"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        hello world
+      </textarea>
+    </div>
+    <span
+      class="ant-mentions-suffix"
+    >
+      <span
+        class="ant-mentions-clear-icon"
+        role="button"
+        tabindex="-1"
+      >
+        <span
+          aria-label="close-square"
+          class="anticon anticon-close-square"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-square"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 112c17.7 0 32 14.3 32 32v736c0 17.7-14.3 32-32 32H144c-17.7 0-32-14.3-32-32V144c0-17.7 14.3-32 32-32zM639.98 338.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+  </span>,
+  <br />,
+  <br />,
+  <span
+    class="ant-mentions-affix-wrapper ant-mentions-outlined"
+  >
+    <div
+      class="ant-mentions"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="3"
+      >
+        hello world
+      </textarea>
+    </div>
+    <span
+      class="ant-mentions-suffix"
+    >
+      <span
+        class="ant-mentions-clear-icon"
+        role="button"
+        tabindex="-1"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            fill-rule="evenodd"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+  </span>,
+]
+`;
+
 exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width:100%"
 >
   <textarea
@@ -14,7 +155,7 @@ exports[`renders components/mentions/demo/async.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width:100%"
 >
   <textarea
@@ -26,7 +167,7 @@ exports[`renders components/mentions/demo/autoSize.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width:100%"
 >
   <textarea
@@ -43,7 +184,7 @@ exports[`renders components/mentions/demo/component-token.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-mentions"
+    class="ant-mentions ant-mentions-outlined"
     style="width:100%;margin:0"
   >
     <textarea
@@ -87,7 +228,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions"
+              class="ant-mentions ant-mentions-outlined"
             >
               <textarea
                 class="rc-textarea"
@@ -127,7 +268,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-mentions"
+              class="ant-mentions ant-mentions-outlined"
             >
               <textarea
                 aria-required="true"
@@ -196,7 +337,7 @@ exports[`renders components/mentions/demo/form.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width:100%"
 >
   <textarea
@@ -208,7 +349,7 @@ exports[`renders components/mentions/demo/placement.tsx correctly 1`] = `
 
 exports[`renders components/mentions/demo/prefix.tsx correctly 1`] = `
 <div
-  class="ant-mentions"
+  class="ant-mentions ant-mentions-outlined"
   style="width:100%"
 >
   <textarea
@@ -225,19 +366,18 @@ Array [
     style="margin-bottom:10px"
   >
     <div
-      class="ant-mentions ant-mentions-disabled"
+      class="ant-mentions ant-mentions-disabled ant-mentions-outlined"
       style="width:100%"
     >
       <textarea
-        class="rc-textarea rc-textarea-disabled"
-        disabled=""
+        class="rc-textarea"
         placeholder="this is disabled Mentions"
         rows="1"
       />
     </div>
   </div>,
   <div
-    class="ant-mentions"
+    class="ant-mentions ant-mentions-outlined"
     style="width:100%"
   >
     <textarea
@@ -255,7 +395,7 @@ exports[`renders components/mentions/demo/render-panel.tsx correctly 1`] = `
   style="padding-bottom:0;position:relative;min-width:0"
 >
   <div
-    class="ant-mentions"
+    class="ant-mentions ant-mentions-outlined"
     style="width:100%;margin:0"
   >
     <textarea
@@ -276,7 +416,7 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-status-error"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-error"
     >
       <textarea
         class="rc-textarea"
@@ -290,7 +430,7 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-mentions ant-mentions-status-warning"
+      class="ant-mentions ant-mentions-outlined ant-mentions-status-warning"
     >
       <textarea
         class="rc-textarea"
@@ -299,6 +439,41 @@ exports[`renders components/mentions/demo/status.tsx correctly 1`] = `
         @afc163
       </textarea>
     </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/mentions/demo/variant.tsx correctly 1`] = `
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  style="gap:12px"
+>
+  <div
+    class="ant-mentions ant-mentions-outlined"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Outlined"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-filled"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Filled"
+      rows="1"
+    />
+  </div>
+  <div
+    class="ant-mentions ant-mentions-borderless"
+  >
+    <textarea
+      class="rc-textarea"
+      placeholder="Borderless"
+      rows="1"
+    />
   </div>
 </div>
 `;

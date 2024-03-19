@@ -32,6 +32,6 @@ export interface QRCodeProps extends QRProps {
   iconSize?: number;
   bordered?: boolean;
   errorLevel?: 'L' | 'M' | 'Q' | 'H';
-  status?: 'active' | 'expired' | 'loading';
+  status?: 'active' | 'expired' | 'loading' | 'scanned';
   onRefresh?: () => void;
 }

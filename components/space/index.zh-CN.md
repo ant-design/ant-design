@@ -17,6 +17,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 - 可以设置各种水平对齐方式。
 - 需要表单组件之间紧凑连接且合并边框时，使用 Space.Compact（自 `antd@4.24.0` 版本开始提供该组件）。
 
+### 与 Flex 组件的区别
+
+- Space 为内联元素提供间距，其本身会为每一个子元素添加包裹元素用于内联对齐。适用于行、列中多个子元素的等距排列。
+- Flex 为块级元素提供间距，其本身不会添加包裹元素。适用于垂直或水平方向上的子元素布局，并提供了更多的灵活性和控制能力。
+
 ## 代码演示
 
 <!-- prettier-ignore -->
@@ -43,9 +48,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 对齐方式 | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
+| classNames | 语义化 className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | direction | 间距方向 | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | 间距大小 | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | 设置拆分 | ReactNode | - | 4.7.0 |
+| styles | 语义化 style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | wrap | 是否自动换行，仅在 `horizontal` 时有效 | boolean | false | 4.9.0 |
 
 ### Size
@@ -63,6 +70,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect
@@ -73,12 +81,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | direction | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-### `styles` 和 `classNames` 属性
+## Semantic DOM
 
-<!-- prettier-ignore -->
-| 名称 | 说明  | 版本  |
-| ---- | --------------------- | ----- |
-| item | 设置 `Space` 包裹的子组件 | 5.6.0 |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -6,9 +7,8 @@ import {
   PieChartOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import React, { useState } from 'react';
 import type { MenuProps } from 'antd';
-import { ConfigProvider, Menu, Space } from 'antd';
+import { ConfigProvider, Menu, Space, theme } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -117,9 +117,34 @@ const App: React.FC = () => {
     <Space direction="vertical">
       <ConfigProvider
         theme={{
+          algorithm: [theme.darkAlgorithm],
+          components: {
+            Menu: {
+              popupBg: 'yellow',
+              darkPopupBg: 'red',
+            },
+          },
+        }}
+      >
+        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+        <Menu
+          defaultSelectedKeys={['1']}
+          defaultOpenKeys={['sub1']}
+          mode="inline"
+          theme="dark"
+          inlineCollapsed
+          items={items2}
+          style={{
+            width: 56,
+          }}
+        />
+      </ConfigProvider>
+      <ConfigProvider
+        theme={{
           components: {
             Menu: {
               horizontalItemBorderRadius: 6,
+              popupBg: 'red',
               horizontalItemHoverBg: '#f5f5f5',
             },
           },

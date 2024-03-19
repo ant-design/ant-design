@@ -1,11 +1,37 @@
 import React from 'react';
+import type { SelectProps } from 'antd';
 import { Select, Space } from 'antd';
-
-const { Option } = Select;
 
 const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
+
+const options: SelectProps['options'] = [
+  {
+    label: 'China',
+    value: 'china',
+    emoji: '🇨🇳',
+    desc: 'China (中国)',
+  },
+  {
+    label: 'USA',
+    value: 'usa',
+    emoji: '🇺🇸',
+    desc: 'USA (美国)',
+  },
+  {
+    label: 'Japan',
+    value: 'japan',
+    emoji: '🇯🇵',
+    desc: 'Japan (日本)',
+  },
+  {
+    label: 'Korea',
+    value: 'korea',
+    emoji: '🇰🇷',
+    desc: 'Korea (韩国)',
+  },
+];
 
 const App: React.FC = () => (
   <Select
@@ -15,40 +41,16 @@ const App: React.FC = () => (
     defaultValue={['china']}
     onChange={handleChange}
     optionLabelProp="label"
-  >
-    <Option value="china" label="China">
+    options={options}
+    optionRender={(option) => (
       <Space>
-        <span role="img" aria-label="China">
-          🇨🇳
+        <span role="img" aria-label={option.data.label}>
+          {option.data.emoji}
         </span>
-        China (中国)
+        {option.data.desc}
       </Space>
-    </Option>
-    <Option value="usa" label="USA">
-      <Space>
-        <span role="img" aria-label="USA">
-          🇺🇸
-        </span>
-        USA (美国)
-      </Space>
-    </Option>
-    <Option value="japan" label="Japan">
-      <Space>
-        <span role="img" aria-label="Japan">
-          🇯🇵
-        </span>
-        Japan (日本)
-      </Space>
-    </Option>
-    <Option value="korea" label="Korea">
-      <Space>
-        <span role="img" aria-label="Korea">
-          🇰🇷
-        </span>
-        Korea (韩国)
-      </Space>
-    </Option>
-  </Select>
+    )}
+  />
 );
 
 export default App;

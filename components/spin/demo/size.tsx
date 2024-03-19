@@ -1,12 +1,12 @@
 import React from 'react';
-import { Space, Spin } from 'antd';
+import { Flex, Spin } from 'antd';
 
 const App: React.FC = () => (
-  <Space size="middle">
+  <Flex align="center" gap="middle">
     <Spin size="small" />
     <Spin />
     <Spin size="large" />
-  </Space>
+  </Flex>
 );
 
 export default App;

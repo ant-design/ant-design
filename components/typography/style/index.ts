@@ -1,6 +1,6 @@
 import { operationUnit } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks } from '../../theme/internal';
 import {
   getCopyableStyles,
   getEditableStyles,
@@ -129,12 +129,14 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'Typography'> = () => ({
+  titleMarginTop: '1.2em',
+  titleMarginBottom: '0.5em',
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Typography',
   (token) => [genTypographyStyle(token)],
-  () => ({
-    titleMarginTop: '1.2em',
-    titleMarginBottom: '0.5em',
-  }),
+  prepareComponentToken,
 );

@@ -86,7 +86,9 @@ const columns = [
 <code src="./demo/tree-table-ellipsis.tsx" debug>Tree data ellipsis debug demo</code>
 <code src="./demo/fixed-header.tsx">Fixed Header</code>
 <code src="./demo/fixed-columns.tsx">Fixed Columns</code>
+<code src="./demo/fixed-gapped-columns.tsx" version="5.14.0">Stack Fixed Columns</code>
 <code src="./demo/fixed-columns-header.tsx">Fixed Columns and Header</code>
+<code src="./demo/hidden-columns.tsx">Hidden Columns</code>
 <code src="./demo/grouping-columns.tsx">Grouping table head</code>
 <code src="./demo/edit-cell.tsx">Editable Cells</code>
 <code src="./demo/edit-row.tsx">Editable Rows</code>
@@ -142,6 +144,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | onRow | Set props on per row | function(record, index) | - |  |
 | virtual | Support virtual list | boolean | - | 5.9.0 |
 
+### Table ref
+
+| Property | Description | Type | Version |
+| --- | --- | --- | --- |
+| nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey` | (config: { index?: number, key?: React.Key, top?: number }) => void | 5.11.0 |
+
 #### onRow usage
 
 Same as `onRow` `onHeaderRow` `onCell` `onHeaderCell`
@@ -184,6 +193,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filtered | Whether the `dataSource` is filtered | boolean | false |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
 | filterIcon | Customized filter icon | ReactNode \| (filtered: boolean) => ReactNode | - |  |
+| filterOnClose | Whether to trigger filter when the filter menu closes | boolean | true | 5.15.0 |
 | filterMultiple | Whether multiple filters can be selected | boolean | true |  |
 | filterMode | To specify the filter interface | 'menu' \| 'tree' | 'menu' | 4.17.0 |
 | filterSearch | Whether to be searchable for filter menu | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
@@ -196,11 +206,12 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | 4.3.0 |
 | showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) | true |  |
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] |  |
-| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | function \| boolean \| { compare: function, multiple: number } | - |  |
+| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| { compare: function, multiple: number } | - |  |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - |  |
 | sortIcon | Customized sort icon | (props: { sortOrder }) => ReactNode | - | 5.6.0 |
 | title | Title of this column | ReactNode \| ({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - |  |
+| hidden | Hidden this column | boolean | false | 5.13.0 |
 | onCell | Set props on per cell | function(record, rowIndex) | - |  |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - |  |
 | onFilterDropdownOpenChange | Callback executed when `filterDropdownOpen` is changed | function(visible) {} | - |  |
@@ -252,7 +263,7 @@ Properties for row selection.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | checkStrictly | Check table row precisely; parent row and children rows are not associated | boolean | true | 4.4.0 |
-| columnTitle | Set the title of the selection column | ReactNode | - |  |
+| columnTitle | Set the title of the selection column | ReactNode \| (originalNode: ReactNode) => ReactNode | - |  |
 | columnWidth | Set the width of the selection column | string \| number | `32px` |  |
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | function(record) | - |  |
@@ -376,3 +387,7 @@ Fixed column use `z-index` to make it over other columns. You will find sometime
 ### How to custom render Table Checkbox（For example, adding Tooltip）?
 
 Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowselection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
+
+### Why does components.body.wrapper report an error when virtual is enabled?
+
+Because virtual table needs to get its ref to do some calculations, so you need to use `React.forwardRef` wrapper and pass the ref to the dom

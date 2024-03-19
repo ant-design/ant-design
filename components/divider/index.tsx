@@ -35,7 +35,8 @@ const Divider: React.FC<DividerProps> = (props) => {
     ...restProps
   } = props;
   const prefixCls = getPrefixCls('divider', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
   const hasChildren = !!children;
@@ -45,6 +46,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     prefixCls,
     divider?.className,
     hashId,
+    cssVarCls,
     `${prefixCls}-${type}`,
     {
       [`${prefixCls}-with-text`]: hasChildren,
@@ -85,7 +87,7 @@ const Divider: React.FC<DividerProps> = (props) => {
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     <div
       className={classString}
       style={{ ...divider?.style, ...style }}

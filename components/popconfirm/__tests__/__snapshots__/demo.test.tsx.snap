@@ -81,12 +81,15 @@ exports[`renders components/popconfirm/demo/locale.tsx correctly 1`] = `
 `;
 
 exports[`renders components/popconfirm/demo/placement.tsx correctly 1`] = `
-Array [
+<div
+  class="demo"
+>
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-inline-start:80px;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -95,6 +98,7 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -103,18 +107,20 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
         TR
       </span>
     </button>
-  </div>,
+  </div>
   <div
-    style="width:70px;float:left"
+    style="width:80px;float:inline-start"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -123,6 +129,7 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -131,18 +138,20 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
         LB
       </span>
     </button>
-  </div>,
+  </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width:80px;margin-inline-start:344px"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -151,6 +160,7 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -159,18 +169,20 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
         RB
       </span>
     </button>
-  </div>,
+  </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-inline-start:80px;clear:both;white-space:nowrap"
   >
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -179,6 +191,7 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
@@ -187,14 +200,15 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-default"
+      style="width:80px;margin:4px"
       type="button"
     >
       <span>
         BR
       </span>
     </button>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/popconfirm/demo/promise.tsx correctly 1`] = `

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Checkbox } from 'antd';
-import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { CheckboxProps } from 'antd';
 
-const onChange = (e: CheckboxChangeEvent) => {
+const onChange: CheckboxProps['onChange'] = (e) => {
   console.log(`checked = ${e.target.checked}`);
 };
 

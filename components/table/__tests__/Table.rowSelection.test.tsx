@@ -1,8 +1,9 @@
 import React from 'react';
+
 import type { TableProps } from '..';
 import Table from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
+import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
@@ -293,7 +294,45 @@ describe('Table.rowSelection', () => {
     ]);
   });
 
-  it('reset last select key after performing select and bulk operations', async () => {
+  it('reset last select key after deselect', async () => {
+    jest.useFakeTimers();
+    const onChange = jest.fn();
+
+    const { container } = render(
+      createTable({
+        checkbox: true,
+        rowSelection: {
+          selections: [Table.SELECTION_NONE],
+          onChange: (keys) => onChange(keys),
+        },
+      } as TableProps<any>),
+    );
+
+    const last = () => {
+      const elements = container.querySelectorAll('td input');
+      return elements[elements.length - 1];
+    };
+
+    const first = () => {
+      const elements = container.querySelectorAll('td input');
+      return elements[0];
+    };
+
+    fireEvent.click(first());
+    expect(onChange).toHaveBeenLastCalledWith([0]);
+    fireEvent.click(last());
+    expect(onChange).toHaveBeenLastCalledWith([0, 3]);
+    fireEvent.click(last());
+    expect(onChange).toHaveBeenLastCalledWith([0]);
+    fireEvent.click(last(), {
+      shiftKey: true,
+    });
+    expect(onChange).toHaveBeenLastCalledWith([0, 3]);
+
+    jest.useRealTimers();
+  });
+
+  it('reset last select key after bulk operations', async () => {
     jest.useFakeTimers();
     const onChange = jest.fn();
 
@@ -339,16 +378,6 @@ describe('Table.rowSelection', () => {
       shiftKey: true,
     });
     expect(onChange).toHaveBeenLastCalledWith([0]);
-
-    // Reset last select key when deselect
-    fireEvent.click(last());
-    expect(onChange).toHaveBeenLastCalledWith([0, 3]);
-    fireEvent.click(first());
-    expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent.click(first(), {
-      shiftKey: true,
-    });
-    expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger')!);
@@ -858,6 +887,33 @@ describe('Table.rowSelection', () => {
       />,
     );
     expect(container.querySelector('thead tr th')?.textContent).toBe('单选');
+  });
+
+  it('columnTitle for rowSelection to be renderProps', () => {
+    const { container } = render(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          columnTitle: (originalNode) =>
+            React.cloneElement(originalNode as any, {
+              'data-testid': 'selection-checkbox',
+              children: '多选',
+            }),
+        }}
+      />,
+    );
+
+    expect(container.querySelector('thead tr th')?.textContent).toBe('多选');
+    expect(container.querySelector('thead tr th input')?.getAttribute('data-testid')).toBe(
+      'selection-checkbox',
+    );
+
+    fireEvent.click(container.querySelector('thead tr th input')!);
+    container.querySelectorAll('.ant-checkbox').forEach((checkbox) => {
+      expect(checkbox.querySelector('input')?.checked).toBe(true);
+      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
+    });
   });
 
   // https://github.com/ant-design/ant-design/issues/11384

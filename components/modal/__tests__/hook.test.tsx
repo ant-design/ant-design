@@ -35,6 +35,7 @@ describe('Modal.hook', () => {
           <Button
             onClick={() => {
               instance = modal.confirm({
+                zIndex: 903,
                 content: (
                   <Context.Consumer>
                     {(name) => <div className="test-hook">{name}</div>}
@@ -54,6 +55,10 @@ describe('Modal.hook', () => {
     expect(document.body.querySelectorAll('.test-hook')[0].textContent).toBe('bamboo');
     expect(document.body.querySelectorAll('.ant-btn').length).toBeTruthy();
     expect(document.body.querySelectorAll('.ant-modal-body').length).toBeTruthy();
+
+    expect(document.querySelector('.ant-modal-wrap')).toHaveStyle({
+      zIndex: '903',
+    });
 
     // Update instance
     act(() => {

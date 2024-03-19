@@ -96,4 +96,14 @@ describe('InputNumber', () => {
         ?.className.includes('ant-input-number-out-of-range'),
     ).toBe(true);
   });
+
+  it('deprecate bordered', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const { container } = render(<InputNumber bordered={false} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: InputNumber] `bordered` is deprecated. Please use `variant` instead.',
+    );
+    expect(container.querySelector('.ant-input-number-borderless')).toBeTruthy();
+    errorSpy.mockRestore();
+  });
 });

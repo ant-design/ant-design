@@ -34,7 +34,7 @@ title: 空状态
   </div>
 </div>
 
-### Do&Don’t
+### Do & Don’t
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Bh_yRKPOByUAAAAAAAAAAABkARQnAQ" alt="正确示范" description="展示明确空状态提示。">
@@ -51,7 +51,7 @@ title: 空状态
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UyVCTaiJ3icAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-一般来说，新用户希望空状态具有帮助说明和推荐操作。首次使用应用或功能场景的空状态非常有用，因为它向用户展示了该功能和流程，并且可以帮助用户快速上手。为了帮助首次使用新用户，空状态可以使用功能引导、帮助文档等方式填充原本为空的页面。
+一般来说，新用户希望空状态具有帮助说明和推荐操作。首次使用应用或功能场景的空状态非常有用，因为它向用户展示了该功能和流程，并且可以帮助用户快速上手。为了帮助首次使用的新用户，空状态可以使用功能引导、帮助文档等方式填充原本为空的页面。
 
 #### 使用引导变形
 

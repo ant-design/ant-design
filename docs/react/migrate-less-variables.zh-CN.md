@@ -7,7 +7,10 @@ title: 从 Less 变量到 Design Token
 
 本文档包含了所有 4.x 版本中组件相关的 less 变量与 5.x 版本的 Component Token 的对照关系。如果你是从 4.x 版本升级到 5.x 版本，可以通过这份对照表快速找到对应的 Component Token。
 
-<Alert message="注意：仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。"></Alert>
+<!-- prettier-ignore -->
+:::info{title=注意}
+仍有部分变量没有对应的 Component Token，这些变量在 5.x 版本中已被废弃。
+:::
 
 ## 如何配置 Component Token
 
@@ -15,10 +18,6 @@ title: 从 Less 变量到 Design Token
 
 ```tsx
 import React from 'react';
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
-import { Checkbox, ConfigProvider, Radio } from 'antd';
-
 import { Checkbox, ConfigProvider, Radio } from 'antd';
 
 const App: React.FC = () => (
@@ -46,7 +45,7 @@ export default App;
 
 ## 组件变量
 
-## Alert 警告提示
+### Alert 警告提示
 
 <!-- prettier-ignore -->
 | Less 变量 | Component Token | 备注 |

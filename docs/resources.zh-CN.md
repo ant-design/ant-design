@@ -15,7 +15,7 @@ toc: false
 - Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.5.0.Beta.sketch
+  - https://github.com/ant-design/ant-design/releases/download/5.13.3/AntDesign5.0_UI.KIT_202401.sketch
   - 官方
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
@@ -162,6 +162,23 @@ toc: false
 - 岗位职责：
   - 负责 Ant Design 前端基础设施研发。
   - 负责中后台设计/前端工具体系建设。
+
+### Node.js 工程师
+
+简历请投递：zhubin.gzb@antgroup.com
+
+> 注明简历来自 ant.design 官网
+
+- 岗位级别：P5/P6/P7/P8
+- 岗位地点：杭州/上海
+- 岗位要求：
+  - 在 Node.js 技术栈持续耕耘，情有独钟。
+  - 热爱开源。
+  - 坚持和善于用技术和工具解决其他问题。
+  - 丰富的 Node.js 研发经验。
+- 岗位职责：
+  - 负责 Node.js 前端基础设施研发。
+  - 负责大前端工具体系建设。
 
 ### ADI（Artificial Design Intelligence） 工程师
 

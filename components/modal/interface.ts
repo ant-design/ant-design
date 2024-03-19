@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import type { DialogProps } from 'rc-dialog';
 
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
@@ -7,7 +8,10 @@ export type ModalFooterRender = (
   originNode: React.ReactNode,
   extra: { OkBtn: FC; CancelBtn: FC },
 ) => React.ReactNode;
-export interface ModalProps {
+interface ModalCommonProps {
+  styles?: Omit<NonNullable<DialogProps['styles']>, 'wrapper'>;
+}
+export interface ModalProps extends ModalCommonProps {
   /** Whether the modal dialog is visible or not */
   open?: boolean;
   /** Whether to apply loading visual effect for OK button or not */
@@ -15,7 +19,7 @@ export interface ModalProps {
   /** The modal dialog's title */
   title?: React.ReactNode;
   /** Whether a close (x) button is visible on top right of the modal dialog or not. Recommend to use closeIcon instead. */
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
@@ -48,15 +52,18 @@ export interface ModalProps {
   transitionName?: string;
   className?: string;
   rootClassName?: string;
+  classNames?: NonNullable<DialogProps['classNames']>;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
   mask?: boolean;
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
-  closeIcon?: boolean | React.ReactNode;
+  closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
   children?: React.ReactNode;
@@ -69,7 +76,7 @@ export interface ModalProps {
 
 type getContainerFunc = () => HTMLElement;
 
-export interface ModalFuncProps {
+export interface ModalFuncProps extends ModalCommonProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
@@ -77,7 +84,7 @@ export interface ModalFuncProps {
   /** @deprecated Please use `open` instead. */
   visible?: boolean;
   title?: React.ReactNode;
-  closable?: boolean;
+  closable?: boolean | ({ closeIcon?: React.ReactNode } & React.AriaAttributes);
   content?: React.ReactNode;
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
@@ -97,6 +104,7 @@ export interface ModalFuncProps {
   okCancel?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
+  /** @deprecated Please use `styles.mask` instead */
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
@@ -105,6 +113,7 @@ export interface ModalFuncProps {
   transitionName?: string;
   maskTransitionName?: string;
   direction?: DirectionType;
+  /** @deprecated Please use `styles.body` instead */
   bodyStyle?: React.CSSProperties;
   closeIcon?: React.ReactNode;
   footer?: ModalProps['footer'];

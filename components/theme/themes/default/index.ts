@@ -25,13 +25,16 @@ export default function derivative(token: SeedToken): MapToken {
         return prev;
       }, {}) as ColorPalettes & LegacyColorPalettes;
     })
-    .reduce((prev, cur) => {
-      prev = {
-        ...prev,
-        ...cur,
-      };
-      return prev;
-    }, {} as ColorPalettes & LegacyColorPalettes);
+    .reduce(
+      (prev, cur) => {
+        prev = {
+          ...prev,
+          ...cur,
+        };
+        return prev;
+      },
+      {} as ColorPalettes & LegacyColorPalettes,
+    );
 
   return {
     ...token,

@@ -20,6 +20,8 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic usage</code>
 <code src="./demo/size.tsx">Three sizes of Input</code>
+<code src="./demo/variant.tsx" version="5.13.0">Variants</code>
+<code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/addon.tsx">Pre / Post tab</code>
 <code src="./demo/compact-style.tsx">Compact Style</code>
 <code src="./demo/group.tsx" debug>Input Group</code>
@@ -32,9 +34,8 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 <code src="./demo/password-input.tsx">Password box</code>
 <code src="./demo/allowClear.tsx">With clear icon</code>
 <code src="./demo/show-count.tsx">With character counting</code>
-<code src="./demo/textarea-show-count.tsx">Textarea with character counting</code>
+<code src="./demo/advance-count.tsx" version=">= 5.10.0">Custom count logic</code>
 <code src="./demo/status.tsx">Status</code>
-<code src="./demo/borderless.tsx">Borderless</code>
 <code src="./demo/focus.tsx">Focus</code>
 <code src="./demo/borderless-debug.tsx" debug>Style Debug</code>
 <code src="./demo/align.tsx" debug>Text Align</code>
@@ -53,20 +54,21 @@ Common props ref：[Common props](/docs/react/common-props)
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
 | allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
-| bordered | Whether has border style | boolean | true | 4.5.0 |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#input-1), string> | - | 5.4.0 |
+| count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
 | defaultValue | The initial input content | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
 | id | The ID for input | string | - |  |
 | maxLength | The maximum number of characters in Input | number | - |  |
+| prefix | The prefix icon for the Input | ReactNode | - |  |
 | showCount | Whether to show character count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Semantic DOM style | Record<[SemanticDOM](#input-1), CSSProperties> | - | 5.4.0 |
-| prefix | The prefix icon for the Input | ReactNode | - |  |
 | size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` | `outlined` | 5.13.0 |
 | onChange | Callback when user input | function(e) | - |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
 
@@ -74,21 +76,30 @@ Common props ref：[Common props](/docs/react/common-props)
 
 The rest of the props of Input are exactly the same as the original [input](https://reactjs.org/docs/dom-elements.html#all-supported-html-attributes).
 
+#### CountConfig
+
+```tsx
+interface CountConfig {
+  // Max character count. Different from the native `maxLength`, it will be marked warning but not truncated
+  max?: number;
+  // Custom character count, for example, the standard emoji length is greater than 1, you can customize the counting strategy to change it to 1
+  strategy?: (value: string) => number;
+  // Same as `showCount`
+  show?: boolean | ((args: { value: string; count: number; maxLength?: number }) => ReactNode);
+  // Custom clipping logic when the number of characters exceeds `count.max`, no clipping when not configured
+  exceedFormatter?: (value: string, config: { max: number }) => string;
+}
+```
+
 ### Input.TextArea
+
+Same as Input, and more:
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
-| autoSize | Height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
-| bordered | Whether has border style | boolean | true | 4.5.0 |
+| autoSize | Height auto size feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | classNames | Semantic DOM class | Record<[SemanticDOM](#inputtextarea-1), string> | - | 5.4.0 |
-| defaultValue | The initial input content | string | - |  |
-| maxLength | The maximum number of characters in TextArea | number | - | 4.7.0 |
-| showCount | Whether to show character count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => string } | false | 4.7.0 formatter: 4.10.0 info.value: 4.23.0 |
 | styles | Semantic DOM style | Record<[SemanticDOM](#inputtextarea-1), CSSProperties> | - | 5.4.0 |
-| value | The input content value | string | - |  |
-| onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - |  |
-| onResize | The callback function that is triggered when resize | function({ width, height }) | - |  |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
@@ -96,7 +107,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | boolean \| ReactNode | false |
+| enterButton | Whether to show an enter button after input. This property conflicts with the `addonAfter` property | ReactNode | false |
 | loading | Search box with loading | boolean | false |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |
 
@@ -114,7 +125,7 @@ Supports all props of `Input`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | visible | Whether the password is show or hide | boolean | false | 4.24.0 |
-| onVisibleChange | Callback executed when visibility of the password is changed | boolean | - | 4.24.0 |
+| onVisibleChange | Callback executed when visibility of the password is changed | (visible) => void | - | 4.24.0 |
 
 #### Input Methods
 
@@ -127,21 +138,11 @@ Supports all props of `Input`.
 
 #### Input
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| input | `input` element | 5.4.0 |
-| prefix | Wrapper of prefix | 5.4.0 |
-| suffix | Wrapper of suffix | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_input.tsx" simplify="true"></code>
 
 #### Input.TextArea
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| --- | --- | --- |
-| textarea | `textarea` element | 5.4.0 |
-| count | Text count element | 5.4.0 |
+<code src="./demo/_semantic_textarea.tsx" simplify="true"></code>
 
 ## Design Token
 

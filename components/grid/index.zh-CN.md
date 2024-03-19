@@ -44,6 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAA
 <code src="./demo/flex-order.tsx">排序</code>
 <code src="./demo/flex-stretch.tsx">Flex 填充</code>
 <code src="./demo/responsive.tsx">响应式布局</code>
+<code src="./demo/responsive-flex.tsx" version="5.14.0">Flex 响应式布局</code>
 <code src="./demo/responsive-more.tsx">其他属性的响应式</code>
 <code src="./demo/playground.tsx">栅格配置器</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>

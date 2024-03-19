@@ -69,6 +69,9 @@ const App: React.FC = () => {
         activeTabKey={activeTabKey2}
         tabBarExtraContent={<a href="#">More</a>}
         onTabChange={onTab2Change}
+        tabProps={{
+          size: 'middle',
+        }}
       >
         {contentListNoTitle[activeTabKey2]}
       </Card>

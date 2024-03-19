@@ -2,8 +2,8 @@
 group: Feedback
 category: Components
 title: Modal
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fBrgSJBmavgAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Z9vzQZAdJDQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WtgsSLPa1Z4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -14,7 +14,7 @@ Modal dialogs.
 
 When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information.
 
-Additionally, if you need show a simple confirmation dialog, you can use [`App.useApp`](/components/app/) hooks.
+Additionally, if you need to show a simple confirmation dialog, you can use [`App.useApp`](/components/app/) hooks.
 
 ## Examples
 
@@ -33,7 +33,9 @@ Additionally, if you need show a simple confirmation dialog, you can use [`App.u
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/static-info.tsx">Static Method</code>
 <code src="./demo/confirm.tsx">Static confirmation</code>
+<code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
+<code src="./demo/nested.tsx" debug>Nested Modal</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>Control modal's animation origin position</code>
 <code src="./demo/wireframe.tsx" debug>Wireframe</code>
@@ -46,11 +48,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - |  |
-| bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  |  |
+| classNames | Config Modal build-in module's className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
+| styles | Config Modal build-in module's style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties;` | - | 5.10.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button | ReactNode | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
-| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false |  |
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
@@ -60,7 +63,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
-| maskStyle | Style for modal's mask element | CSSProperties |  |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |
@@ -97,12 +99,12 @@ The items listed above are all functions, expecting a settings object as paramet
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - | 4.9.0 |
 | autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
-| bodyStyle | Body style for modal body element. Such as height, padding etc | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
 | className | The className of container | string | - |  |
-| closeIcon | Custom close icon. 5.7.0: close button will be hidden when setting to `null` or `false` | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean | false | 4.9.0 |
+| closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
 | footer | Footer content, set as `footer: null` when you don't need default buttons | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
@@ -110,7 +112,6 @@ The items listed above are all functions, expecting a settings object as paramet
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not. | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
-| maskStyle | Style for modal's mask element | object | {} |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
 | okType | Button `type` of the OK button | string | `primary` |  |
@@ -188,6 +189,10 @@ const confirmed = await modal.confirm({ ... });
 | --- | --- | --- | --- |
 | originNode | default node | React.ReactNode                   | -      |
 | extra      | extended options | { OkBtn: FC; CancelBtn: FC } | -      |
+
+### `styles` and `classNames` attribute
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

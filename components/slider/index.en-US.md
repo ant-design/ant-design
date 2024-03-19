@@ -27,6 +27,7 @@ To input a value in a range.
 <code src="./demo/show-tooltip.tsx">Control visible of ToolTip</code>
 <code src="./demo/reverse.tsx">Reverse</code>
 <code src="./demo/draggableTrack.tsx">Draggable track</code>
+<code src="./demo/multiple.tsx">Multiple handles</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -37,6 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | autoAdjustOverflow | Whether to automatically adjust the popup position | boolean | true | 5.8.0 |
 | autoFocus | Whether get focus when component mounted | boolean | false |  |
+| classNames | Semantic structure className | [Record<SemanticDOM, string>](#semantic-dom) | - | 5.10.0 |
 | defaultValue | The default value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | 0 \| \[0, 0] |  |
 | disabled | If true, the slider will not be intractable | boolean | false |  |
 | keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ |
@@ -48,14 +50,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | range | Dual thumb mode | boolean | false |  |
 | reverse | Reverse the component | boolean | false |  |
 | step | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When `marks` no null, `step` can be null | number \| null | 1 |  |
+| styles | Semantic structure style | [Record<SemanticDOM, React.CSSProperties>](#semantic-dom) | - | 5.10.0 |
 | tooltip | The tooltip relate props | [tooltip](#tooltip) | - | 4.23.0 |
 | value | The value of slider. When `range` is false, use number, otherwise, use \[number, number] | number \| \[number, number] | - |  |
 | vertical | If true, the slider will be vertical | boolean | false |  |
-| onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
+| onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
-| trackStyle | The style of slider track (the active range) | CSSProperties | - |  |
-| railStyle | The style of slider rail (the background) | CSSProperties | - |  |
-| handleStyle | The style of slider handle | CSSProperties | - |  |
 
 ### range
 
@@ -78,6 +78,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -1,5 +1,6 @@
-import classNames from 'classnames';
 import * as React from 'react';
+import classNames from 'classnames';
+
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
@@ -44,12 +45,12 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const overlayCls = classNames(overlayClassName, hashId);
+  const overlayCls = classNames(overlayClassName, hashId, cssVarCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <Tooltip
       placement={placement}
       trigger={trigger}

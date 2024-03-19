@@ -4,7 +4,6 @@ import { MenuOutlined } from '@ant-design/icons';
 import { createStyles, css } from 'antd-style';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import type { SharedProps } from './interface';
 import useLocale from '../../../hooks/useLocale';
@@ -170,7 +169,6 @@ export default ({
       onClick: onDirectionChange,
       key: 'switch-direction',
     },
-    ...getEcosystemGroup(),
   ];
 
   if (isMobile) {
@@ -215,7 +213,8 @@ export default ({
           label: (
             <Link
               to={utils.getLocalizedPathname(
-                blogList.sort((a, b) => (a.frontmatter.date > b.frontmatter.date ? -1 : 1))[0].link,
+                blogList.sort((a, b) => (a.frontmatter?.date > b.frontmatter?.date ? -1 : 1))[0]
+                  .link,
                 isZhCN,
                 search,
               )}

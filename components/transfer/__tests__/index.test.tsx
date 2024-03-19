@@ -1,6 +1,7 @@
+import React, { useCallback, useEffect, useState } from 'react';
 import { fireEvent, render, waitFor } from '@testing-library/react';
 import type { DefaultRecordType } from 'rc-table/lib/interface';
-import React, { useCallback, useEffect, useState } from 'react';
+
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -149,6 +150,92 @@ describe('Transfer', () => {
     );
     getByText('b').click();
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
+  });
+
+  it('multiple select/deselect by hold down the shift key', () => {
+    const handleSelectChange = jest.fn();
+    const { getByText } = render(
+      <Transfer
+        dataSource={[
+          { key: 'a', title: 'a' },
+          { key: 'b', title: 'b' },
+          { key: 'c', title: 'c' },
+        ]}
+        onSelectChange={handleSelectChange}
+        render={(item) => item.title}
+      />,
+    );
+
+    fireEvent.click(getByText('a'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], []);
+
+    fireEvent.click(getByText('c'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'b', 'c'], []);
+
+    fireEvent.click(getByText('b'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], []);
+  });
+
+  it('multiple select targetKeys by hold down the shift key', () => {
+    const handleSelectChange = jest.fn();
+    const { getByText } = render(
+      <Transfer
+        dataSource={[
+          { key: 'a', title: 'a' },
+          { key: 'b', title: 'b' },
+          { key: 'c', title: 'c' },
+        ]}
+        targetKeys={['a', 'b', 'c']}
+        onSelectChange={handleSelectChange}
+        render={(item) => item.title}
+      />,
+    );
+
+    fireEvent.click(getByText('a'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['a']);
+
+    fireEvent.click(getByText('c'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['a', 'b', 'c']);
+
+    fireEvent.click(getByText('b'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith([], ['a']);
+  });
+
+  it('reset last select key after deselect', () => {
+    const handleSelectChange = jest.fn();
+    const { getByText } = render(
+      <Transfer
+        dataSource={[
+          { key: 'a', title: 'a' },
+          { key: 'b', title: 'b' },
+          { key: 'c', title: 'c' },
+          { key: 'd', title: 'd' },
+        ]}
+        onSelectChange={handleSelectChange}
+        render={(item) => item.title}
+      />,
+    );
+
+    fireEvent.click(getByText('a'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], []);
+    fireEvent.click(getByText('c'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'b', 'c'], []);
+    fireEvent.click(getByText('c'));
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'b'], []);
+    fireEvent.click(getByText('d'), {
+      shiftKey: true,
+    });
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'b', 'd'], []);
   });
 
   it('should not check checkbox when component disabled', () => {

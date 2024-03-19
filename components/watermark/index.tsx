@@ -18,11 +18,12 @@ export interface WatermarkProps {
   image?: string;
   content?: string | string[];
   font?: {
-    color?: string;
+    color?: CanvasFillStrokeStyles['fillStyle'];
     fontSize?: number | string;
     fontWeight?: 'normal' | 'light' | 'weight' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
     fontFamily?: string;
+    textAlign?: CanvasTextAlign;
   };
   style?: React.CSSProperties;
   className?: string;
@@ -30,6 +31,7 @@ export interface WatermarkProps {
   gap?: [number, number];
   offset?: [number, number];
   children?: React.ReactNode;
+  inherit?: boolean;
 }
 
 /**
@@ -39,6 +41,9 @@ export interface WatermarkProps {
 function getSizeDiff<T>(prev: Set<T>, next: Set<T>) {
   return prev.size === next.size ? prev : next;
 }
+
+const DEFAULT_GAP_X = 100;
+const DEFAULT_GAP_Y = 100;
 
 const Watermark: React.FC<WatermarkProps> = (props) => {
   const {
@@ -56,9 +61,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     style,
     className,
     rootClassName,
-    gap = [100, 100],
+    gap = [DEFAULT_GAP_X, DEFAULT_GAP_Y],
     offset,
     children,
+    inherit = true,
   } = props;
   const [, token] = useToken();
   const {
@@ -67,9 +73,10 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     fontWeight = 'normal',
     fontStyle = 'normal',
     fontFamily = 'sans-serif',
+    textAlign = 'center',
   } = font;
 
-  const [gapX, gapY] = gap;
+  const [gapX = DEFAULT_GAP_X, gapY = DEFAULT_GAP_Y] = gap;
   const gapXCenter = gapX / 2;
   const gapYCenter = gapY / 2;
   const offsetLeft = offset?.[0] ?? gapXCenter;
@@ -170,6 +177,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
             fontStyle,
             fontWeight,
             fontFamily,
+            textAlign,
           },
           gapX,
           gapY,
@@ -232,6 +240,7 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
     fontWeight,
     fontStyle,
     fontFamily,
+    textAlign,
     gapX,
     gapY,
     offsetLeft,
@@ -263,13 +272,19 @@ const Watermark: React.FC<WatermarkProps> = (props) => {
   );
 
   // ============================= Render =============================
+  const childNode = inherit ? (
+    <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+  ) : (
+    children
+  );
+
   return (
     <div
       ref={setContainer}
       className={classNames(className, rootClassName)}
       style={{ position: 'relative', ...style }}
     >
-      <WatermarkContext.Provider value={watermarkContext}>{children}</WatermarkContext.Provider>
+      {childNode}
     </div>
   );
 };

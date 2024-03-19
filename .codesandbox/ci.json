@@ -1,4 +1,5 @@
 {
-  "sandboxes": ["antd-reproduction-template-y9vgcf"],
-  "node": "14"
+  "installCommand": "npm-install",
+  "sandboxes": ["antd-reproduction-template-forked-jyh2k9"],
+  "node": "18"
 }

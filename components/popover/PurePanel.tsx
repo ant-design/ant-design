@@ -1,18 +1,20 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import { Popup } from 'rc-tooltip';
-import * as React from 'react';
-import type { PopoverProps } from '.';
-import { ConfigContext } from '../config-provider';
 
+import type { PopoverProps } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
+import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
 export const getOverlay = (
-  prefixCls: string,
+  prefixCls?: string,
   title?: PopoverProps['title'],
   content?: PopoverProps['content'],
 ) => {
-  if (!title && !content) return undefined;
+  if (!title && !content) {
+    return null;
+  }
   return (
     <>
       {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
@@ -54,20 +56,27 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
     >
       <div className={`${prefixCls}-arrow`} />
       <Popup {...props} className={hashId} prefixCls={prefixCls}>
-        {children || getOverlay(prefixCls!, title, content)}
+        {children || getOverlay(prefixCls, title, content)}
       </Popup>
     </div>
   );
 };
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
-  const { prefixCls: customizePrefixCls, ...restProps } = props;
+  const { prefixCls: customizePrefixCls, className, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
-  return wrapSSR(<RawPurePanel {...restProps} prefixCls={prefixCls} hashId={hashId} />);
+  return wrapCSSVar(
+    <RawPurePanel
+      {...restProps}
+      prefixCls={prefixCls}
+      hashId={hashId}
+      className={classNames(className, cssVarCls)}
+    />,
+  );
 };
 
 export default PurePanel;

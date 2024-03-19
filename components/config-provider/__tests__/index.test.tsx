@@ -3,6 +3,7 @@ import { SmileOutlined } from '@ant-design/icons';
 
 import type { ConfigConsumerProps, RenderEmptyHandler } from '..';
 import ConfigProvider, { ConfigContext } from '..';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
@@ -123,5 +124,18 @@ describe('ConfigProvider', () => {
 
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
+  });
+
+  it('warning support filter level', () => {
+    resetWarned();
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
+
+    render(<ConfigProvider dropdownMatchSelectWidth warning={{ strict: false }} />);
+    expect(errSpy).not.toHaveBeenCalled();
+    expect(warnSpy).toHaveBeenCalled();
+
+    errSpy.mockRestore();
+    warnSpy.mockRestore();
   });
 });

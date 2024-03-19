@@ -13,7 +13,7 @@ Please ref [`@ant-design/cssinjs`](https://github.com/ant-design/cssinjs#stylepr
 
 ## Compatible adjustment
 
-Ant Design default using CSS-in-JS with `:where` Selector to reduce priority to avoid user additional adjust style cost when updating. If you want to support old browser (or some other CSS framework selector priority conflict like TailwindCSS), you can use `@ant-design/cssinjs` to adjust this behavior (Please note keep version align with antd):
+The CSS-in-JS feature of Ant Design uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers (or encounter priority conflicts like TailwindCSS), you can use `@ant-design/cssinjs` to disable the default lowering of specificity (please ensure version consistency with antd).
 
 ```tsx
 import { StyleProvider } from '@ant-design/cssinjs';
@@ -56,7 +56,7 @@ Raise priority through plugin:
 To unify LTR and RTL styles, Ant Design uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider` of `@ant-design/cssinjs`:
 
 ```tsx
-import { StyleProvider, legacyLogicalPropertiesTransformer } from '@ant-design/cssinjs';
+import { legacyLogicalPropertiesTransformer, StyleProvider } from '@ant-design/cssinjs';
 
 // `transformers` provides a way to transform CSS properties
 export default () => (
@@ -83,7 +83,7 @@ When toggled, styles will downgrade CSS logical properties:
 In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.
 
 ```tsx
-import { StyleProvider, px2remTransformer } from '@ant-design/cssinjs';
+import { px2remTransformer, StyleProvider } from '@ant-design/cssinjs';
 
 const px2rem = px2remTransformer({
   rootValue: 32, // 32px = 1rem; @default 16

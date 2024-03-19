@@ -1,7 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -16,10 +17,10 @@ type BackTopToken = FullToken<'BackTop'> & {
   backTopSize: number;
 
   // Position
-  backTopBlockEnd: number;
-  backTopInlineEnd: number;
-  backTopInlineEndMD: number;
-  backTopInlineEndXS: number;
+  backTopBlockEnd: number | string;
+  backTopInlineEnd: number | string;
+  backTopInlineEndMD: number | string;
+  backTopInlineEndXS: number | string;
 };
 
 // ============================== Shared ==============================
@@ -61,34 +62,35 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
       // change to .backtop .backtop-icon
       [`${componentCls}-icon`]: {
         fontSize: backTopFontSize,
-        lineHeight: `${backTopSize}px`,
+        lineHeight: unit(backTopSize),
       },
     },
   };
 };
 
 const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => {
-  const { componentCls } = token;
-
+  const { componentCls, screenMD, screenXS, backTopInlineEndMD, backTopInlineEndXS } = token;
   return {
-    [`@media (max-width: ${token.screenMD}px)`]: {
+    [`@media (max-width: ${unit(screenMD)})`]: {
       [componentCls]: {
-        insetInlineEnd: token.backTopInlineEndMD,
+        insetInlineEnd: backTopInlineEndMD,
       },
     },
-
-    [`@media (max-width: ${token.screenXS}px)`]: {
+    [`@media (max-width: ${unit(screenXS)})`]: {
       [componentCls]: {
-        insetInlineEnd: token.backTopInlineEndXS,
+        insetInlineEnd: backTopInlineEndXS,
       },
     },
   };
 };
 
-// ============================== Export ==============================
-export default genComponentStyleHook<'BackTop'>(
-  'BackTop',
+export const prepareComponentToken: GetDefaultToken<'BackTop'> = (token) => ({
+  zIndexPopup: token.zIndexBase + 10,
+});
 
+// ============================== Export ==============================
+export default genStyleHooks(
+  'BackTop',
   (token) => {
     const {
       fontSizeHeading3,
@@ -96,23 +98,20 @@ export default genComponentStyleHook<'BackTop'>(
       colorTextLightSolid,
       colorText,
       controlHeightLG,
+      calc,
     } = token;
-
     const backTopToken = mergeToken<BackTopToken>(token, {
       backTopBackground: colorTextDescription,
       backTopColor: colorTextLightSolid,
       backTopHoverBackground: colorText,
       backTopFontSize: fontSizeHeading3,
       backTopSize: controlHeightLG,
-
-      backTopBlockEnd: controlHeightLG * 1.25,
-      backTopInlineEnd: controlHeightLG * 2.5,
-      backTopInlineEndMD: controlHeightLG * 1.5,
-      backTopInlineEndXS: controlHeightLG * 0.5,
+      backTopBlockEnd: calc(controlHeightLG).mul(1.25).equal(),
+      backTopInlineEnd: calc(controlHeightLG).mul(2.5).equal(),
+      backTopInlineEndMD: calc(controlHeightLG).mul(1.5).equal(),
+      backTopInlineEndXS: calc(controlHeightLG).mul(0.5).equal(),
     });
     return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
   },
-  (token) => ({
-    zIndexPopup: token.zIndexBase + 10,
-  }),
+  prepareComponentToken,
 );

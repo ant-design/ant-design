@@ -1,7 +1,6 @@
 import type { CSSProperties } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import type { IntlShape } from 'react-intl';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
@@ -28,21 +27,23 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-const options = (intl: IntlShape): SegmentedProps['options'] => [
+const options = (
+  formatMessage: (values: Record<string, string>) => React.ReactNode,
+): SegmentedProps['options'] => [
   {
     value: ThemeType.Outlined,
     icon: <Icon component={OutlinedIcon} />,
-    label: intl.formatMessage({ id: 'app.docs.components.icon.outlined' }),
+    label: formatMessage({ id: 'app.docs.components.icon.outlined' }),
   },
   {
     value: ThemeType.Filled,
     icon: <Icon component={FilledIcon} />,
-    label: intl.formatMessage({ id: 'app.docs.components.icon.filled' }),
+    label: formatMessage({ id: 'app.docs.components.icon.filled' }),
   },
   {
     value: ThemeType.TwoTone,
     icon: <Icon component={TwoToneIcon} />,
-    label: intl.formatMessage({ id: 'app.docs.components.icon.two-tone' }),
+    label: formatMessage({ id: 'app.docs.components.icon.two-tone' }),
   },
 ];
 
@@ -66,7 +67,7 @@ const IconSearch: React.FC = () => {
     setDisplayState((prevState) => ({ ...prevState, searchKey: e.target.value }));
   }, 300);
 
-  const handleChangeTheme = useCallback((value) => {
+  const handleChangeTheme = useCallback((value: ThemeType) => {
     setDisplayState((prevState) => ({ ...prevState, theme: value as ThemeType }));
   }, []);
 
@@ -111,7 +112,7 @@ const IconSearch: React.FC = () => {
     return categoriesResult.length ? categoriesResult : <Empty style={{ margin: '2em 0' }} />;
   }, [displayState.searchKey, displayState.theme]);
 
-  const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
+  const [searchBarAffixed, setSearchBarAffixed] = useState<boolean | undefined>(false);
   const { borderRadius, colorBgContainer, anchorTop } = token;
 
   const affixedStyle: CSSProperties = {
@@ -129,7 +130,7 @@ const IconSearch: React.FC = () => {
           <Segmented
             size="large"
             value={displayState.theme}
-            options={options(intl)}
+            options={options(intl.formatMessage)}
             onChange={handleChangeTheme}
           />
           <Input.Search

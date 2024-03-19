@@ -478,7 +478,9 @@ Array [
 `;
 
 exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -559,10 +561,9 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
+  </div>
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -642,10 +643,9 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
+  </div>
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
@@ -728,12 +728,14 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-radio-group ant-radio-group-solid"
   >
@@ -814,10 +816,9 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
+  </div>
   <div
     class="ant-radio-group ant-radio-group-solid"
-    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper"
@@ -897,8 +898,8 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
@@ -1263,6 +1264,7 @@ Array [
     </label>
     <label
       class="ant-radio-button-wrapper"
+      title="Orange"
     >
       <span
         class="ant-radio-button"
@@ -1438,7 +1440,9 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx correctly 1`] = 
 `;
 
 exports[`renders components/radio/demo/size.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large"
   >
@@ -1519,10 +1523,9 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
+  </div>
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1601,10 +1604,9 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
+  </div>
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
-    style="margin-top:16px"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1683,8 +1685,8 @@ Array [
         Chengdu
       </span>
     </label>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders components/radio/demo/wireframe.tsx correctly 1`] = `

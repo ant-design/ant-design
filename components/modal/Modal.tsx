@@ -4,10 +4,13 @@ import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 
 import useClosable from '../_util/hooks/useClosable';
+import { useZIndex } from '../_util/hooks/useZIndex';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
+import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
 import { usePanelRef } from '../watermark/context';
@@ -57,7 +60,13 @@ const Modal: React.FC<ModalProps> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
-    warning.deprecated(!('visible' in props), 'visible', 'open');
+    [
+      ['visible', 'open'],
+      ['bodyStyle', 'styles.body'],
+      ['maskStyle', 'styles.mask'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
   }
 
   const {
@@ -77,13 +86,16 @@ const Modal: React.FC<ModalProps> = (props) => {
 
     width = 520,
     footer,
+    classNames: modalClassNames,
+    styles: modalStyles,
     ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
@@ -93,42 +105,57 @@ const Modal: React.FC<ModalProps> = (props) => {
   const dialogFooter = footer !== null && (
     <Footer {...props} onOk={handleOk} onCancel={handleCancel} />
   );
-  const [mergedClosable, mergedCloseIcon] = useClosable(
+
+  const [mergedClosable, mergedCloseIcon] = useClosable({
     closable,
-    closeIcon,
-    (icon) => renderCloseIcon(prefixCls, icon),
-    <CloseOutlined className={`${prefixCls}-close-icon`} />,
-    true,
-  );
+    closeIcon: typeof closeIcon !== 'undefined' ? closeIcon : modal?.closeIcon,
+    customCloseIconRender: (icon) => renderCloseIcon(prefixCls, icon),
+    defaultCloseIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
+    defaultClosable: true,
+  });
 
   // ============================ Refs ============================
   // Select `ant-modal-content` by `panelRef`
   const panelRef = usePanelRef(`.${prefixCls}-content`);
 
+  // ============================ zIndex ============================
+  const [zIndex, contextZIndex] = useZIndex('Modal', restProps.zIndex);
+
   // =========================== Render ===========================
-  return wrapSSR(
+  return wrapCSSVar(
     <NoCompactStyle>
       <NoFormStyle status override>
-        <Dialog
-          width={width}
-          {...restProps}
-          getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
-          prefixCls={prefixCls}
-          rootClassName={classNames(hashId, rootClassName)}
-          wrapClassName={wrapClassNameExtended}
-          footer={dialogFooter}
-          visible={open ?? visible}
-          mousePosition={restProps.mousePosition ?? mousePosition}
-          onClose={handleCancel}
-          closable={mergedClosable}
-          closeIcon={mergedCloseIcon}
-          focusTriggerAfterClose={focusTriggerAfterClose}
-          transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-          maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-          className={classNames(hashId, className, modal?.className)}
-          style={{ ...modal?.style, ...style }}
-          panelRef={panelRef}
-        />
+        <zIndexContext.Provider value={contextZIndex}>
+          <Dialog
+            width={width}
+            {...restProps}
+            zIndex={zIndex}
+            getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+            prefixCls={prefixCls}
+            rootClassName={classNames(hashId, rootClassName, cssVarCls, rootCls)}
+            footer={dialogFooter}
+            visible={open ?? visible}
+            mousePosition={restProps.mousePosition ?? mousePosition}
+            onClose={handleCancel}
+            closable={mergedClosable}
+            closeIcon={mergedCloseIcon}
+            focusTriggerAfterClose={focusTriggerAfterClose}
+            transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+            maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+            className={classNames(hashId, className, modal?.className)}
+            style={{ ...modal?.style, ...style }}
+            classNames={{
+              ...modal?.classNames,
+              ...modalClassNames,
+              wrapper: classNames(wrapClassNameExtended, modalClassNames?.wrapper),
+            }}
+            styles={{
+              ...modal?.styles,
+              ...modalStyles,
+            }}
+            panelRef={panelRef}
+          />
+        </zIndexContext.Provider>
       </NoFormStyle>
     </NoCompactStyle>,
   );

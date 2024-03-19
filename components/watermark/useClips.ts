@@ -48,12 +48,12 @@ export default function useClips() {
       ctx.drawImage(content, 0, 0, contentWidth, contentHeight);
     } else {
       // Text
-      const { color, fontSize, fontStyle, fontWeight, fontFamily } = font;
+      const { color, fontSize, fontStyle, fontWeight, fontFamily, textAlign } = font;
       const mergedFontSize = Number(fontSize) * ratio;
 
       ctx.font = `${fontStyle} normal ${fontWeight} ${mergedFontSize}px/${height}px ${fontFamily}`;
       ctx.fillStyle = color;
-      ctx.textAlign = 'center';
+      ctx.textAlign = textAlign;
       ctx.textBaseline = 'top';
       const contents = Array.isArray(content) ? content : [content];
       contents?.forEach((item, index) => {

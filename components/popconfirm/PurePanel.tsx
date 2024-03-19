@@ -73,7 +73,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
       <div className={`${prefixCls}-buttons`}>
         {showCancel && (
           <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText ?? contextLocale?.cancelText}
+            {cancelText || contextLocale?.cancelText}
           </Button>
         )}
         <ActionButton
@@ -88,7 +88,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
           quitOnNullishReturnValue
           emitEvent
         >
-          {okText ?? contextLocale?.okText}
+          {okText || contextLocale?.okText}
         </ActionButton>
       </div>
     </div>
@@ -108,9 +108,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
-  const [wrapSSR] = useStyle(prefixCls);
+  const [wrapCSSVar] = useStyle(prefixCls);
 
-  return wrapSSR(
+  return wrapCSSVar(
     <PopoverPurePanel
       placement={placement}
       className={classNames(prefixCls, className)}

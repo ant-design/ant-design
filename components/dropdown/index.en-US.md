@@ -2,8 +2,8 @@
 category: Components
 group: Navigation
 title: Dropdown
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*mBBcQ6goljkAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5qm4S4Zgh2QAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*gTBySYX11WcAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*k619RJ_7bKEAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -27,6 +27,7 @@ When there are more than a few options to choose from, you can wrap them in a `D
 <code src="./demo/dropdown-button.tsx">Button with dropdown menu</code>
 <code src="./demo/custom-dropdown.tsx">Custom dropdown</code>
 <code src="./demo/sub-menu.tsx">Cascading menu</code>
+<code src="./demo/sub-menu-debug.tsx" debug>Cascading menu</code>
 <code src="./demo/overlay-open.tsx">The way of hiding menu.</code>
 <code src="./demo/context-menu.tsx">Context Menu</code>
 <code src="./demo/loading.tsx">Loading</code>
@@ -56,7 +57,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | string | `bottomLeft` |  |
 | trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | Array&lt;`click`\|`hover`\|`contextMenu`> | \[`hover`] |  |
 | open | Whether the dropdown menu is currently open. Use `visible` under 4.23.0 ([why?](/docs/react/faq#why-open)) | boolean | - | 4.23.0 |
-| onOpenChange | Called when the open state is changed. Not trigger when hidden by click item. Use `onVisibleChange` under 4.23.0 ([why?](/docs/react/faq#why-open)) | (open: boolean) => void | - | 4.23.0 |
+| onOpenChange | Called when the open state is changed. Not trigger when hidden by click item. Use `onVisibleChange` under 4.23.0 ([why?](/docs/react/faq#why-open)) | (open: boolean, info: { source: 'trigger' \| 'menu' }) => void | - | `info.source`: 5.11.0 |
 
 ### Dropdown.Button
 

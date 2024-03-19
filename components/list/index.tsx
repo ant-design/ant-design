@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-// eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import extendsObject from '../_util/extendsObject';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -7,14 +6,13 @@ import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { Row } from '../grid';
+import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import Item from './Item';
-
-// CSSINJS
 import { ListContext } from './context';
 import useStyle from './style';
 import useSize from '../config-provider/hooks/useSize';
@@ -27,7 +25,7 @@ export type ColumnCount = number;
 export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export interface ListGridType {
-  gutter?: number;
+  gutter?: RowProps['gutter'];
   column?: ColumnCount;
   xs?: ColumnCount;
   sm?: ColumnCount;
@@ -143,7 +141,7 @@ function List<T>({
   const prefixCls = getPrefixCls('list', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
 
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
@@ -185,6 +183,7 @@ function List<T>({
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const paginationProps = extendsObject<PaginationConfig>(
@@ -284,7 +283,7 @@ function List<T>({
     [JSON.stringify(grid), itemLayout],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <ListContext.Provider value={contextValue}>
       <div style={{ ...list?.style, ...style }} className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}

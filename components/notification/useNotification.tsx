@@ -1,15 +1,14 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
 import type { FC, PropsWithChildren } from 'react';
 import classNames from 'classnames';
 import { NotificationProvider, useNotification as useRcNotification } from 'rc-notification';
-import type {
-  NotificationAPI,
-  NotificationConfig as RcNotificationConfig,
-} from 'rc-notification/lib';
+import type { NotificationAPI, NotificationConfig as RcNotificationConfig } from 'rc-notification';
 
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import type { ComponentStyleConfig } from '../config-provider/context';
+import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
   NotificationConfig,
@@ -33,15 +32,16 @@ type HolderProps = NotificationConfig & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
-  notification?: ComponentStyleConfig;
+  notification?: CPNotificationConfig;
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
-  const [, hashId] = useStyle(prefixCls);
-  return (
-    <NotificationProvider classNames={{ list: hashId, notice: hashId }}>
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  return wrapCSSVar(
+    <NotificationProvider classNames={{ list: classNames(hashId, cssVarCls, rootCls) }}>
       {children}
-    </NotificationProvider>
+    </NotificationProvider>,
   );
 };
 
@@ -63,8 +63,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     rtl,
     onAllRemoved,
+    stack,
+    duration,
   } = props;
-  const { getPrefixCls, getPopupContainer, notification } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, notification, direction } = useContext(ConfigContext);
+  const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
@@ -72,7 +75,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl });
+  const getClassName = () => classNames({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -85,19 +88,23 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     motion: getNotificationMotion,
     closable: true,
     closeIcon: getCloseIcon(prefixCls),
-    duration: DEFAULT_DURATION,
+    duration: duration ?? DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
     renderNotifications,
+    stack:
+      stack === false
+        ? false
+        : {
+            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
+            offset: 8,
+            gap: token.margin,
+          },
   });
 
   // ================================ Ref ================================
-  React.useImperativeHandle(ref, () => ({
-    ...api,
-    prefixCls,
-    notification,
-  }));
+  React.useImperativeHandle(ref, () => ({ ...api, prefixCls, notification }));
 
   return holder;
 });
@@ -144,7 +151,10 @@ export function useInternalNotification(
         ...restConfig
       } = config;
 
-      const realCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
+      const realCloseIcon = getCloseIcon(
+        noticePrefixCls,
+        typeof closeIcon !== 'undefined' ? closeIcon : notification?.closeIcon,
+      );
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"

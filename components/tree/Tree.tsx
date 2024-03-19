@@ -12,6 +12,7 @@ import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 import dropIndicatorRender from './utils/dropIndicator';
 import SwitcherIconCom from './utils/iconUtil';
+import { useToken } from '../theme/internal';
 
 export type SwitcherIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
 export type TreeLeafIcon = React.ReactNode | ((props: AntTreeNodeProps) => React.ReactNode);
@@ -193,7 +194,10 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     dropIndicatorRender,
   };
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [, token] = useToken();
+
+  const itemHeight = token.paddingXS / 2 + (token.Tree?.titleHeight || token.controlHeightSM);
 
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {
@@ -229,9 +233,9 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     />
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <RcTree
-      itemHeight={20}
+      itemHeight={itemHeight}
       ref={ref}
       virtual={virtual}
       {...newProps}
@@ -248,6 +252,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         tree?.className,
         className,
         hashId,
+        cssVarCls,
       )}
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}

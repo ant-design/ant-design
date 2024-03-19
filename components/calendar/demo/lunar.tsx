@@ -1,4 +1,5 @@
-import dayjs, { type Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 import { Lunar, HolidayUtil } from 'lunar-typescript';
 import { createStyles } from 'antd-style';

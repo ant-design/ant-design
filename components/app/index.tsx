@@ -1,6 +1,8 @@
-import classNames from 'classnames';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
+import classNames from 'classnames';
+
+import type { AnyObject, CustomComponent } from '../_util/type';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import useMessage from '../message/useMessage';
@@ -10,17 +12,18 @@ import type { AppConfig, useAppProps } from './context';
 import AppContext, { AppConfigContext } from './context';
 import useStyle from './style';
 
-export interface AppProps extends AppConfig {
+export interface AppProps<P = AnyObject> extends AppConfig {
   style?: React.CSSProperties;
   className?: string;
   rootClassName?: string;
   prefixCls?: string;
   children?: ReactNode;
+  component?: CustomComponent<P> | false;
 }
 
 const useApp = () => React.useContext<useAppProps>(AppContext);
 
-const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
+const App: React.FC<AppProps> & { useApp: () => useAppProps } = (props) => {
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -29,11 +32,12 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
     message,
     notification,
     style,
+    component = 'div',
   } = props;
   const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
   const prefixCls = getPrefixCls('app', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-  const customClassName = classNames(hashId, prefixCls, className, rootClassName);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const customClassName = classNames(hashId, prefixCls, className, rootClassName, cssVarCls);
 
   const appConfig = useContext<AppConfig>(AppConfigContext);
 
@@ -60,15 +64,22 @@ const App: React.FC<AppProps> & { useApp: typeof useApp } = (props) => {
     [messageApi, notificationApi, ModalApi],
   );
 
-  return wrapSSR(
+  // ============================ Render ============================
+  const Component = component === false ? React.Fragment : component;
+  const rootProps: AppProps = {
+    className: customClassName,
+    style,
+  };
+
+  return wrapCSSVar(
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <div className={customClassName} style={style}>
+        <Component {...(component === false ? undefined : rootProps)}>
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
           {children}
-        </div>
+        </Component>
       </AppConfigContext.Provider>
     </AppContext.Provider>,
   );

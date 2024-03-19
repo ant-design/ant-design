@@ -13,17 +13,16 @@ import type {
   CompoundedComponent,
   FloatButtonBadgeProps,
   FloatButtonContentProps,
+  FloatButtonElement,
   FloatButtonProps,
   FloatButtonShape,
 } from './interface';
 import useStyle from './style';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 
 export const floatButtonPrefixCls = 'float-btn';
 
-const FloatButton: React.ForwardRefRenderFunction<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
-> = (props, ref) => {
+const FloatButton = React.forwardRef<FloatButtonElement, FloatButtonProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -39,12 +38,15 @@ const FloatButton: React.ForwardRefRenderFunction<
   const { getPrefixCls, direction } = useContext<ConfigConsumerProps>(ConfigContext);
   const groupShape = useContext<FloatButtonShape | undefined>(FloatButtonGroupContext);
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   const mergeShape = groupShape || shape;
 
   const classString = classNames(
     hashId,
+    cssVarCls,
+    rootCls,
     prefixCls,
     className,
     rootClassName,
@@ -94,31 +96,21 @@ const FloatButton: React.ForwardRefRenderFunction<
     );
   }
 
-  return wrapSSR(
+  return wrapCSSVar(
     props.href ? (
-      <a ref={ref as React.RefObject<HTMLAnchorElement>} {...restProps} className={classString}>
+      <a ref={ref} {...restProps} className={classString}>
         {buttonNode}
       </a>
     ) : (
-      <button
-        ref={ref as React.RefObject<HTMLButtonElement>}
-        {...restProps}
-        className={classString}
-        type="button"
-      >
+      <button ref={ref} {...restProps} className={classString} type="button">
         {buttonNode}
       </button>
     ),
   );
-};
-
-const ForwardFloatButton = React.forwardRef<
-  HTMLAnchorElement | HTMLButtonElement,
-  FloatButtonProps
->(FloatButton) as CompoundedComponent;
+}) as CompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
-  ForwardFloatButton.displayName = 'FloatButton';
+  FloatButton.displayName = 'FloatButton';
 }
 
-export default ForwardFloatButton;
+export default FloatButton;

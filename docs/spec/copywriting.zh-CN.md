@@ -70,8 +70,8 @@ title: 文案
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/zos/rmsportal/sNqQYWEJCAzCxcYCBGYD.png" alt="操作名称和目标页面的标题一致。">
 </ImagePreview>
 
-- 描述同一个事物的词汇要保持统一;
-- 上下文的语法、语种、语序要保持统一;
+- 描述同一个事物的词汇要保持统一；
+- 上下文的语法、语种、语序要保持统一；
 - 操作的名称和目标页面标题的名称保持一致。
 
 ### 重要的信息放在显著位置
@@ -85,7 +85,7 @@ title: 文案
 
 > 注：如考虑安全性问题时，隐私信息也可调整为「点击后可见」的方式。
 
-### 完整、直接得阐述信息
+### 完整、直接地阐述信息
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/ioBKvBqCNzUwQDyjMiIa.png" alt="正确示范" description="用户可以从中了解了设置后会有什么好处。">
@@ -192,7 +192,7 @@ title: 文案
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/zos/rmsportal/SiyDiAnuljqDrZgcFiXn.png" alt="正确示范" description="引导用户正确输入内容。">
-<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="错误示范" description="不能、不要、请勿都给人命令或强迫的感觉。">
+<img class="preview-img no-padding bad" src="https://gw.alipayobjects.com/zos/rmsportal/ZSgEJWJJeOYBDDsenOuS.png" alt="错误示范" description="「不能」、「不要」、「请勿」都给人命令或强迫的感觉。">
 </ImagePreview>
 
 多给用户支持与鼓励，不要命令和强迫用户。

@@ -1,16 +1,21 @@
 import classNames from 'classnames';
 import dayjs from 'dayjs';
+
 import 'dayjs/locale/zh-cn';
-import { Helmet, useOutlet } from 'dumi';
-import React, { useContext, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
-import zhCN from 'antd/es/locale/zh_CN';
+
+import React, { useContext, useEffect, useLayoutEffect, useRef } from 'react';
 import ConfigProvider from 'antd/es/config-provider';
+import zhCN from 'antd/es/locale/zh_CN';
+import { Helmet, useOutlet, useSiteData } from 'dumi';
+
 import useLocale from '../../../hooks/useLocale';
 import useLocation from '../../../hooks/useLocation';
 import GlobalStyles from '../../common/GlobalStyles';
 import Header from '../../slots/Header';
 import SiteContext from '../../slots/SiteContext';
+
 import '../../static/style';
+
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
@@ -30,10 +35,11 @@ const locales = {
 const DocLayout: React.FC = () => {
   const outlet = useOutlet();
   const location = useLocation();
-  const { pathname, search } = location;
+  const { pathname, search, hash } = location;
   const [locale, lang] = useLocale(locales);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const { direction } = useContext(SiteContext);
+  const { loading } = useSiteData();
 
   useLayoutEffect(() => {
     if (lang === 'cn') {
@@ -52,13 +58,21 @@ const DocLayout: React.FC = () => {
     }
   }, []);
 
+  // handle hash change or visit page hash from Link component, and jump after async chunk loaded
+  useEffect(() => {
+    const id = hash.replace('#', '');
+    if (id) {
+      document.getElementById(decodeURIComponent(id))?.scrollIntoView();
+    }
+  }, [loading, hash]);
+
   useEffect(() => {
     if (typeof (window as any).ga !== 'undefined') {
       (window as any).ga('send', 'pageview', pathname + search);
     }
   }, [location]);
 
-  const content = useMemo(() => {
+  const content = React.useMemo<React.ReactNode>(() => {
     if (
       ['', '/'].some((path) => path === pathname) ||
       ['/index'].some((path) => pathname.startsWith(path))

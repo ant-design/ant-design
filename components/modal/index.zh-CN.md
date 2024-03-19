@@ -3,8 +3,8 @@ group: 反馈
 category: Components
 subtitle: 对话框
 title: Modal
-cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wM3qQ5XrhlcAAAAAAAAAAAAADrJ8AQ/original
-coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fBrgSJBmavgAAAAAAAAAAAAADrJ8AQ/original
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Z9vzQZAdJDQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WtgsSLPa1Z4AAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
@@ -34,7 +34,9 @@ demo:
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/static-info.tsx">静态方法</code>
 <code src="./demo/confirm.tsx">静态确认对话框</code>
+<code src="./demo/classNames.tsx">自定义内部模块 className</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
+<code src="./demo/nested.tsx" debug>嵌套弹框</code>
 <code src="./demo/render-panel.tsx" debug>\_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/custom-mouse-position.tsx" debug>控制弹框动画原点</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
@@ -47,11 +49,12 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - |  |
-| bodyStyle | Modal body 样式 | CSSProperties |  |  |
+| classNames | 配置弹窗内置模块的 className | `header?: string; body?: string; footer?: string; mask?: string; wrapper?: string;` | - |  |
+| styles | 配置弹窗内置模块的 style | `header?: CSSProperties; body?: CSSProperties; footer?: CSSProperties; mask?: CSSProperties;` | - | 5.10.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 取消按钮文字 | ReactNode | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | &lt;CloseOutlined /> |  |
 | confirmLoading | 确定按钮 loading | boolean | false |  |
 | destroyOnClose | 关闭时销毁 Modal 里的子元素 | boolean | false |  |
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | 4.9.0 |
@@ -61,7 +64,6 @@ demo:
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
-| maskStyle | 遮罩样式 | CSSProperties |  |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | ReactNode | `确定` |  |
@@ -98,12 +100,12 @@ demo:
 | --- | --- | --- | --- | --- |
 | afterClose | Modal 完全关闭后的回调 | function | - | 4.9.0 |
 | autoFocusButton | 指定自动获得焦点的按钮 | null \| `ok` \| `cancel` | `ok` |  |
-| bodyStyle | Modal body 样式 | CSSProperties |  | 4.8.0 |
 | cancelButtonProps | cancel 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | cancelText | 设置 Modal.confirm 取消按钮文字 | string | `取消` |  |
 | centered | 垂直居中展示 Modal | boolean | false |  |
 | className | 容器类名 | string | - |  |
-| closeIcon | 自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | boolean \| ReactNode | &lt;CloseOutlined /> |  |
+| closable | 是否显示右上角的关闭按钮 | boolean | true | 4.9.0 |
+| closeIcon | 自定义关闭图标 | ReactNode | undefined | 4.9.0 |
 | content | 内容 | ReactNode | - |  |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer: null` | (params:[footerRenderParams](/components/modal-cn#footerrenderparams))=> React.ReactNode \| React.ReactNode | - | 5.9.0 |
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
@@ -111,7 +113,6 @@ demo:
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | mask | 是否展示遮罩 | boolean | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
-| maskStyle | 遮罩样式 | object | {} |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |
@@ -189,6 +190,10 @@ const confirmed = await modal.confirm({ ... });
 | --- | --- | --- | --- |
 | originNode | 默认节点 | React.ReactNode                   | -      |
 | extra      | 扩展选项 | { OkBtn: FC; CancelBtn: FC } | -      |
+
+### `styles` and `classNames` 属性
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）
 

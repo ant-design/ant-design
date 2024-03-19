@@ -63,6 +63,7 @@ const CustomTheme = () => {
       <Suspense fallback={<Skeleton style={{ margin: 24 }} />}>
         <ThemeEditor
           advanced
+          hideAdvancedSwitcher
           theme={{ name: 'Custom Theme', key: 'test', config: theme }}
           style={{ height: 'calc(100vh - 64px)' }}
           onThemeChange={(newTheme) => {

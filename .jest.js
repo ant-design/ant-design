@@ -1,4 +1,11 @@
-const compileModules = ['react-sticky-box', 'rc-tween-one', '@babel', '@ant-design', 'countup.js'];
+const compileModules = [
+  'react-sticky-box',
+  'rc-tween-one',
+  '@babel',
+  '@ant-design',
+  'countup.js',
+  '.pnpm',
+];
 
 const ignoreList = [];
 
@@ -12,11 +19,11 @@ const ignoreList = [];
 const transformIgnorePatterns = [
   // Ignore modules without es dir.
   // Update: @babel/runtime should also be transformed
-  `/node_modules/(?!${ignoreList.join('|')})[^/]+?/(?!(es)/)`,
+  `[/\\\\]node_modules[/\\\\](?!${ignoreList.join('|')})[^/\\\\]+?[/\\\\](?!(es)[/\\\\])`,
 ];
 
 function getTestRegex(libDir) {
-  if (['dist', 'lib', 'es'].includes(libDir)) {
+  if (['dist', 'lib', 'es', 'dist-min'].includes(libDir)) {
     return 'demo\\.test\\.(j|t)sx?$';
   }
   return '.*\\.test\\.(j|t)sx?$';
@@ -25,7 +32,7 @@ function getTestRegex(libDir) {
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
-  setupFiles: ['./tests/setup.js', 'jest-canvas-mock'],
+  setupFiles: ['./tests/setup.ts', 'jest-canvas-mock'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],

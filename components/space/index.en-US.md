@@ -13,6 +13,11 @@ Set components spacing.
 - Avoid components clinging together and set a unified space.
 - Use Space.Compact when child form components are compactly connected and the border is collapsed (After version `antd@4.24.0` Supported).
 
+### Difference with Flex component
+
+- Space is used to set the spacing between inline elements. It will add a wrapper element for each child element for inline alignment. Suitable for equidistant arrangement of multiple child elements in rows and columns.
+- Flex is used to set the layout of block-level elements. It does not add a wrapper element. Suitable for layout of child elements in vertical or horizontal direction, and provides more flexibility and control.
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -37,9 +42,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | Align items | `start` \| `end` \|`center` \|`baseline` | - | 4.2.0 |
+| classNames | Semantic className | [Record<SemanticDOM, string>](#semantic-dom) | - |  |
 | direction | The space direction | `vertical` \| `horizontal` | `horizontal` | 4.1.0 |
 | size | The space size | [Size](#size) \| [Size\[\]](#size) | `small` | 4.1.0 \| Array: 4.9.0 |
 | split | Set split | ReactNode | - | 4.7.0 |
+| styles | Semantic style | [Record<SemanticDOM, CSSProperties>](#semantic-dom) | - |  |
 | wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
 
 ### Size
@@ -55,6 +62,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 - Cascader
 - DatePicker
 - Input/Input.Search
+- InputNumber
 - Select
 - TimePicker
 - TreeSelect
@@ -65,12 +73,9 @@ Use Space.Compact when child form components are compactly connected and the bor
 | direction | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 
-### `styles` and `classNames` attribute
+## Semantic DOM
 
-<!-- prettier-ignore -->
-| Property | Description | Version |
-| -------- | ------------------------- | ------- |
-| item     | set `Space` child element | 5.6.0   |
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

@@ -36,8 +36,8 @@ export interface CommonMapToken extends StyleMapToken {
 
 export interface MapToken
   extends SeedToken,
-    LegacyColorPalettes,
     ColorPalettes,
+    LegacyColorPalettes,
     ColorMapToken,
     SizeMapToken,
     HeightMapToken,

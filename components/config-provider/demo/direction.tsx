@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   DownloadOutlined,
   LeftOutlined,
@@ -7,8 +8,7 @@ import {
   SearchOutlined as SearchIcon,
   SmileOutlined,
 } from '@ant-design/icons';
-import React, { useState } from 'react';
-import type { RadioChangeEvent } from 'antd';
+import type { ConfigProviderProps, RadioChangeEvent } from 'antd';
 import {
   Badge,
   Button,
@@ -30,7 +30,8 @@ import {
   Tree,
   TreeSelect,
 } from 'antd';
-import type { DirectionType } from 'antd/es/config-provider';
+
+type DirectionType = ConfigProviderProps['direction'];
 
 const InputGroup = Input.Group;
 const ButtonGroup = Button.Group;

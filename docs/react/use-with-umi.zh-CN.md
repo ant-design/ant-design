@@ -5,9 +5,9 @@ order: 2
 title: 在 Umi 中使用
 ---
 
-在真实项目开发中，除了 Ant Design 这样的 UI 库，你可能会还会需要构建工具、路由方案、CSS 方案、数据流方案、请求库和请求方案、国际化方案、权限方案、Icons 方案，等等，才能完成一个完整的项目。我们基于业务场景的场景，推出了基于 React 的企业级应用框架 [Umi](https://umijs.org/)，推荐你在项目中使用。
+在真实项目开发中，除了 Ant Design 这样的 UI 库，你可能会还会需要构建工具、路由方案、CSS 方案、数据流方案、请求库和请求方案、国际化方案、权限方案、Icons 方案等等，才能完成一个完整的项目。我们基于业务场景，推出了基于 React 的企业级应用框架 [Umi](https://umijs.org/)，推荐你在项目中使用。
 
-Umi，中文发音为「乌米」，是可扩展的企业级前端应用框架，也是蚂蚁集团的底层前端框架，已直接或间接地服务了 10000+ 应用。Umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。然后配以生命周期完善的插件体系，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。
+Umi，中文发音为「乌米」，是可扩展的企业级前端应用框架，也是蚂蚁集团的底层前端框架，已直接或间接地服务了 10000+ 应用。Umi 以路由为基础，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。然后配以生命周期完善的插件体系，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。
 
 本文会引导你使用 Umi、Ant Design 和 [Ant Design Pro](https://pro.ant.design/) 从 0 开始创建一个简单应用。
 
@@ -20,7 +20,7 @@ $ mkdir myapp && cd myapp
 $ pnpm create umi
 ```
 
-> 如果你使用 npm，可执行  `npm create umi`，效果一致；如果你使用 yarn，可执行  `yarn create umi`，效果也一致；如果你使用 bun，那说明你是个非常潮的人，可执行 `bunx create-umi`（注意，create 和 umi 之间有个 `-`）。
+> 如果你使用 npm，可执行  `npm create umi`，效果一致；如果你使用 yarn，可执行  `yarn create umi`，效果也一致；如果你使用 bun，那说明你是个非常潮的人，可执行 `bunx create-umi`（注意，`create` 和 `umi` 之间有个 `-`）。
 
 这里选「Simple App」，因为我们要从 “0” 开始。
 
@@ -50,7 +50,7 @@ $ pnpm create umi
 ❯   taobao
 ```
 
-然后工具会自动安装依赖，并执行 umi 的初始化脚本。
+然后工具会自动安装依赖，并执行 Umi 的初始化脚本。
 
 在启动项目之前，我们再安装一些本教程会用到的依赖。
 
@@ -76,7 +76,7 @@ ready - ║  > Network: http://*********:8000                  ║
         ╚════════════════════════════════════════════════════╝
 ```
 
-跟着提示点击命令行里的 Url，会自动打开浏览器。如果顺利，你会看到如下界面。
+跟着提示点击命令行里的 url，会自动打开浏览器。如果顺利，你会看到如下界面。
 
 ![](https://img.alicdn.com/imgextra/i2/O1CN01hWo9eO1ji9BZ1YHju_!!6000000004581-2-tps-774-928.png)
 
@@ -126,13 +126,13 @@ export default defineConfig({
 
 ## 实现 Product UI 组件
 
-随着应用的发展，你会需要在多个页面分享 UI 元素 (或在一个页面使用多次)，在 Umi 里你可以把这部分抽成 component 。我们来编写一个 ProductList component，这样就能在不同的地方显示产品列表了。
+随着应用的发展，你会需要在多个页面分享 UI 元素（或在一个页面使用多次），在 Umi 里你可以把这部分抽成 component 。我们来编写一个 ProductList 组件，这样就能在不同的地方显示产品列表了。
 
 新建 `src/components/ProductList.tsx` 文件，内容如下。
 
 ```tsx
-import { Button, Popconfirm, Table } from 'antd';
 import React from 'react';
+import { Button, Popconfirm, Table } from 'antd';
 
 const ProductList: React.FC<{ products: { name: string }[]; onDelete: (id: string) => void }> = ({
   onDelete,
@@ -162,7 +162,7 @@ export default ProductList;
 
 ## 准备 Mock 数据
 
-假设我们已经和后端约定好了 API 接口，那现在就可以使用 Mock 数据来在本地模拟出 API 应该要返回的数据，这样一来前后端开发就可以同时进行，不会因为后端 API 还在开发而导致前端的工作被阻塞。Umi 提供了开箱即用的 [Mock 功能](https://umijs.org/docs/guides/mock)，能够用方便简单的方式来完成 Mock 数据的设置。
+假设我们已经和后端约定好了 API 接口，那现在就可以使用 Mock 数据来在本地模拟出 API 应该返回的数据，这样一来前后端开发就可以同时进行，不会因为后端 API 还在开发而导致前端的工作被阻塞。Umi 提供了开箱即用的 [Mock 功能](https://umijs.org/docs/guides/mock)，能够用方便简单的方式来完成 Mock 数据的设置。
 
 创建 `mock` 目录，并在此目录下新增 `products.ts` 文件，内容如下。
 
@@ -221,11 +221,12 @@ export default defineConfig({
 再编辑 `src/pages/products.tsx`，内容如下。
 
 ```tsx
-import ProductList from '@/components/ProductList';
-import axios from 'axios';
 import React from 'react';
+import axios from 'axios';
 import { useMutation, useQuery, useQueryClient } from 'umi';
+
 import styles from './products.less';
+import ProductList from '@/components/ProductList';
 
 export default function Page() {
   const queryClient = useQueryClient();
@@ -265,7 +266,7 @@ export default function Page() {
 
 ## ProLayout
 
-一个标准的中后台页面，一般都需要一个布局，这个布局很多时候都是高度雷同的，[ProLayout](https://procomponents.ant.design/components/layout/) 封装了常用的菜单，面包屑，页头等功能，提供了一个不依赖的框架且开箱即用的高级布局组件。并且支持  `side`, `mix`, `top`  三种模式，更是内置了菜单选中，菜单生成面包屑，自动设置页面标题的逻辑。
+一个标准的中后台页面，一般都需要一个布局，这个布局很多时候都是高度雷同的，[ProLayout](https://procomponents.ant.design/components/layout/) 封装了常用的菜单、面包屑、页头等功能，提供了一个不依赖的框架且开箱即用的高级布局组件。并且支持  `side`, `mix`, `top`  三种模式，更是内置了菜单选中、菜单生成面包屑、自动设置页面标题的逻辑。
 
 先修改配置，为每个路由新增 name 字段，用于给 ProLayout 做菜单渲染使用。
 
@@ -321,9 +322,9 @@ export default function Layout() {
 }
 ```
 
-这里先用 umi 的 `useAppData` 拿到全局客户端路由 `clientRoutes`，这是一份嵌套结构的路由表，我们把 `clientRoutes[0]` 传给 ProLayout；再通过 `useLocation()` 拿到 location 信息，也传给 ProLayout 来决定哪个菜单应该高亮；同时我们希望点击菜单时做路由跳转，需要定制 ProLayout 的 menuItemRender 方法。
+这里先用 Umi 的 `useAppData` 拿到全局客户端路由 `clientRoutes`，这是一份嵌套结构的路由表，我们把 `clientRoutes[0]` 传给 ProLayout；再通过 `useLocation()` 拿到 location 信息，也传给 ProLayout 来决定哪个菜单应该高亮；同时我们希望点击菜单时做路由跳转，需要定制 ProLayout 的 `menuItemRender` 方法。
 
-聪明的你可能已经发现 `src/layouts/index.less` 已经没地方引用他了，为了保持项目文件的整洁，可以选择删掉他。
+聪明的你可能已经发现 `src/layouts/index.less` 已经不再被引用了。为了保持项目文件的整洁，可以选择将其删除。
 
 此时浏览器会自动刷新，如果顺利，你会看到如下界面。
 
@@ -348,14 +349,14 @@ info  - File sizes after gzip:
 event - Build index.html
 ```
 
-构建会打包所有的资源，包含 JavaScript, CSS, Web Fonts, 图片, Html 等。你可以在  `dist/`  目录下找到这些文件。
+构建会打包所有的资源，包含 JavaScript, CSS, Web Fonts, 图片, HTML 等。你可以在  `dist/`  目录下找到这些文件。
 
 ## 下一步
 
 我们已经完成了一个简单应用，你可能还有很多疑问，比如：
 
 - 如何统一处理出错？
-- 如何处理更多路由，比如动态路由，嵌套路由，权限路由等？
+- 如何处理更多路由，比如动态路由、嵌套路由、权限路由等？
 - 如何使用数据流方案？
 - 如何修改 webpack 配置或切换到 vite 构建模式？
 - 等等

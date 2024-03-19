@@ -51,7 +51,7 @@ const ColorInput: FC<ColorInputProps> = (props) => {
     <div className={`${colorInputPrefixCls}-container`}>
       <Select
         value={colorFormat}
-        bordered={false}
+        variant="borderless"
         getPopupContainer={(current) => current}
         popupMatchSelectWidth={68}
         placement="bottomRight"

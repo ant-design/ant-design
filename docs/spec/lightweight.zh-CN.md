@@ -5,9 +5,9 @@ order: 7
 title: 简化交互
 ---
 
-根据费茨法则（Fitts's Law）所描述的，如果用户鼠标移动距离越少、对象相对目标越大，那么用户越容易操作。通过运用上下文工具（即：放在内容中的操作工具），使内容和操作融合，从而简化交互。
+根据费茨法则（Fitts's Law），用户鼠标移动距离越短、对象相对目标越大，用户越容易操作。通过运用上下文工具（即：放在内容中的操作工具），使内容和操作融合，从而简化交互。
 
-> **费茨法则** ：到达目标的时间是到达目标的距离与目标大小的函数，具体：<img src="https://os.alipayobjects.com/rmsportal/wAcbQmeqTWDqsnu.png" width="150" />。其中：1.设备当前位置和目标位置的距离（D）；2.目标的大小（W）。距离越长，所用时间越长；目标越大，所用时间越短。
+> **费茨法则** ：到达目标的时间是到达目标的距离与目标大小的函数，具体：<img src="https://os.alipayobjects.com/rmsportal/wAcbQmeqTWDqsnu.png" width="150" />其中：1. D 为设备当前位置和目标位置的距离；2. W 为目标的大小。距离越长，所用时间越长；目标越大，所用时间越短。
 
 ---
 
@@ -59,6 +59,6 @@ title: 简化交互
   <img class="preview-img" alt="按钮热区示例" description="鼠标移入按钮附近，即可激活 Hover 状态。" src="https://gw.alipayobjects.com/zos/rmsportal/BlUnqNCHsgUnhnRjMTnX.png">
 </ImagePreview>
 
-当需要增强按钮的响应性时，可以通过增加用户点击热区的范围，而不是增大按钮形状，从而增强响应性，又不缺失美感。
+当需要增强按钮的响应性时，可以通过增加用户点击热区的范围，而不是增大按钮形状，来增强响应性，又不降低美感。
 
 > 注：在移动端尤其适用。

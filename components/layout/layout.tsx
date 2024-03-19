@@ -1,7 +1,10 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import * as React from 'react';
+
 import { ConfigContext } from '../config-provider';
+import { LayoutContext } from './context';
+import useHasSider from './hooks/useHasSider';
 import useStyle from './style';
 
 export interface GeneratorProps {
@@ -15,19 +18,6 @@ export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   rootClassName?: string;
   hasSider?: boolean;
 }
-
-export interface LayoutContextProps {
-  siderHook: {
-    addSider: (id: string) => void;
-    removeSider: (id: string) => void;
-  };
-}
-export const LayoutContext = React.createContext<LayoutContextProps>({
-  siderHook: {
-    addSider: () => null,
-    removeSider: () => null,
-  },
-});
 
 interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'div';
@@ -57,13 +47,18 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapSSR, hashId, cssVarCls] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
   return wrapSSR(
     <TagName
-      className={classNames(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
+      className={classNames(
+        customizePrefixCls || prefixWithSuffixCls,
+        className,
+        hashId,
+        cssVarCls,
+      )}
       ref={ref}
       {...others}
     />,
@@ -91,17 +86,20 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
   const { getPrefixCls, layout } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const mergedHasSider = useHasSider(siders, children, hasSider);
+
+  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
   const classString = classNames(
     prefixCls,
     {
-      [`${prefixCls}-has-sider`]: typeof hasSider === 'boolean' ? hasSider : siders.length > 0,
+      [`${prefixCls}-has-sider`]: mergedHasSider,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     layout?.className,
     className,
     rootClassName,
     hashId,
+    cssVarCls,
   );
 
   const contextValue = React.useMemo(
@@ -118,7 +116,7 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
     [],
   );
 
-  return wrapSSR(
+  return wrapCSSVar(
     <LayoutContext.Provider value={contextValue}>
       <Tag
         ref={ref}

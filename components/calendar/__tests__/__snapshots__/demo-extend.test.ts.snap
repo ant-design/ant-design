@@ -8,7 +8,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -21,7 +21,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -455,7 +454,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       </span>
     </div>
     <div
-      class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -468,7 +467,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -867,7 +865,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end"
+                class="ant-picker-cell"
                 title="2016-10-31"
               >
                 <div
@@ -884,7 +882,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-01"
               >
                 <div
@@ -1247,7 +1245,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2016-11-22"
               >
                 <div
@@ -1385,7 +1383,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-30"
               >
                 <div
@@ -1402,7 +1400,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start"
+                class="ant-picker-cell"
                 title="2016-12-01"
               >
                 <div
@@ -1595,7 +1593,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -1608,7 +1606,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2042,7 +2039,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -2055,7 +2052,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2454,7 +2450,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -2471,7 +2467,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -2834,7 +2830,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -2972,7 +2968,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -2989,7 +2985,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -3181,7 +3177,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -3194,7 +3190,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3628,7 +3623,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -3641,7 +3636,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -4040,7 +4034,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -4057,7 +4051,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -4420,7 +4414,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -4558,7 +4552,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -4575,7 +4569,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -4761,7 +4755,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -4774,7 +4768,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -5208,7 +5201,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-select-sm ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -5221,7 +5214,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -5620,7 +5612,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -5637,7 +5629,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -6000,7 +5992,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -6138,7 +6130,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -6155,7 +6147,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -6410,7 +6402,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-select ant-select-sm my-year-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-outlined my-year-select ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6423,7 +6415,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -6882,7 +6873,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
-            class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-outlined ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6895,7 +6886,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   aria-controls="rc_select_TEST_OR_SSR_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-label="Search"
                   aria-owns="rc_select_TEST_OR_SSR_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
@@ -7257,7 +7247,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end"
+                  class="ant-picker-cell"
                   title="2016-10-31"
                 >
                   <div
@@ -7274,7 +7264,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-01"
                 >
                   <div
@@ -7637,7 +7627,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2016-11-22"
                 >
                   <div
@@ -7775,7 +7765,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2016-11-30"
                 >
                   <div
@@ -7792,7 +7782,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2016-12-01"
                 >
                   <div
@@ -7987,7 +7977,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
     class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -8000,7 +7990,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -8434,7 +8423,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       </span>
     </div>
     <div
-      class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+      class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -8447,7 +8436,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             aria-controls="rc_select_TEST_OR_SSR_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-label="Search"
             aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -8850,7 +8838,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end"
+                class="ant-picker-cell"
                 title="2016-10-31"
               >
                 <div
@@ -8871,7 +8859,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-01"
               >
                 <div
@@ -9475,7 +9463,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2016-11-22"
               >
                 <div
@@ -9645,7 +9633,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2016-11-30"
               >
                 <div
@@ -9666,7 +9654,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-start"
+                class="ant-picker-cell"
                 title="2016-12-01"
               >
                 <div
@@ -9984,7 +9972,7 @@ Array [
       class="ant-picker-calendar-header"
     >
       <div
-        class="ant-select ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -9997,7 +9985,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -10431,7 +10418,7 @@ Array [
         </span>
       </div>
       <div
-        class="ant-select ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
+        class="ant-select ant-select-outlined ant-picker-calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
           class="ant-select-selector"
@@ -10444,7 +10431,6 @@ Array [
               aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-label="Search"
               aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -10826,7 +10812,7 @@ Array [
             <tbody>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-01"
                 >
                   <div
@@ -11240,7 +11226,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
                   title="2017-01-25"
                 >
                   <div
@@ -11344,7 +11330,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-end ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-31"
                 >
                   <div
@@ -11361,7 +11347,7 @@ Array [
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-start"
+                  class="ant-picker-cell"
                   title="2017-02-01"
                 >
                   <div

@@ -3,7 +3,7 @@ import Slider from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
 import type { TooltipProps, TooltipRef } from '../../tooltip';
@@ -37,14 +37,15 @@ describe('Slider', () => {
     jest.useRealTimers();
   });
 
-  it('should show tooltip when hovering slider handler', () => {
+  it('should show tooltip when hovering slider handler', async () => {
     const { container } = render(<Slider defaultValue={30} />);
 
     fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
 
     fireEvent.mouseLeave(container.querySelector('.ant-slider-handle')!);
-
+    await waitFakeTimer();
     expect(document.querySelector('.ant-tooltip')).toMatchSnapshot();
   });
 

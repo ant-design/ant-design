@@ -37,6 +37,7 @@ const App: React.FC = () => {
               ref={inputRef}
               value={name}
               onChange={onNameChange}
+              onKeyDown={(e) => e.stopPropagation()}
             />
             <Button type="text" icon={<PlusOutlined />} onClick={addItem}>
               Add item

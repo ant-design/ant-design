@@ -1,14 +1,12 @@
+import React, { useMemo, useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import React, { useMemo, useRef, useState } from 'react';
-import { isValidElement } from '../_util/reactNode';
+
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
 import type { MenuProps } from '../menu';
-import type { ListBodyRef, TransferListBodyProps } from './ListBody';
-import DefaultListBody, { OmitProps } from './ListBody';
 import type {
   KeyWiseTransferItem,
   RenderResult,
@@ -18,6 +16,8 @@ import type {
   TransferLocale,
 } from './index';
 import type { PaginationType } from './interface';
+import type { ListBodyRef, TransferListBodyProps } from './ListBody';
+import DefaultListBody, { OmitProps } from './ListBody';
 import Search from './search';
 
 const defaultRender = () => null;
@@ -25,7 +25,7 @@ const defaultRender = () => null;
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
   return !!(
     result &&
-    !isValidElement(result) &&
+    !React.isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
   );
 }
@@ -52,7 +52,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onItemSelect: (key: string, check: boolean) => void;
+  onItemSelect: (key: string, check: boolean, e?: React.MouseEvent<Element, MouseEvent>) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean | 'replace') => void;
   onItemRemove?: (keys: string[]) => void;
   handleClear: () => void;
@@ -75,6 +75,10 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   showRemove?: boolean;
   pagination?: PaginationType;
   selectionsIcon?: React.ReactNode;
+}
+
+export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {
+  onItemSelect: (key: string, check: boolean) => void;
 }
 
 const TransferList = <RecordType extends KeyWiseTransferItem>(
@@ -134,7 +138,12 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
   };
 
   const renderListBody = (listProps: TransferListBodyProps<RecordType>) => {
-    let bodyContent: React.ReactNode = renderList ? renderList(listProps) : null;
+    let bodyContent: React.ReactNode = renderList
+      ? renderList({
+          ...listProps,
+          onItemSelect: (key: string, check: boolean) => listProps.onItemSelect(key, check),
+        })
+      : null;
     const customize: boolean = !!bodyContent;
     if (!customize) {
       bodyContent = <DefaultListBody ref={listBodyRef} {...listProps} />;
@@ -333,22 +342,19 @@ const TransferList = <RecordType extends KeyWiseTransferItem>(
         key: 'selectInvert',
         label: selectInvert,
         onClick() {
-          const availableKeys = getEnabledItemKeys(
-            pagination
-              ? (listBodyRef.current?.items || []).map((entity) => entity.item)
-              : filteredItems,
+          const availablePageItemKeys = getEnabledItemKeys(
+            (listBodyRef.current?.items || []).map((entity) => entity.item),
           );
-          const checkedKeySet = new Set<string>(checkedKeys);
-          const newCheckedKeys: string[] = [];
-          const newUnCheckedKeys: string[] = [];
-          availableKeys.forEach((key) => {
+          const checkedKeySet = new Set(checkedKeys);
+          const newCheckedKeysSet = new Set(checkedKeySet);
+          availablePageItemKeys.forEach((key) => {
             if (checkedKeySet.has(key)) {
-              newUnCheckedKeys.push(key);
+              newCheckedKeysSet.delete(key);
             } else {
-              newCheckedKeys.push(key);
+              newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(newCheckedKeys, 'replace');
+          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
         },
       },
     ];

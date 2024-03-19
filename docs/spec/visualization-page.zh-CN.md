@@ -9,7 +9,7 @@ title: 数据可视化页
 
 ## 设计目标
 
-让使用者快速、清晰地理解数据意义，快速进行分析趋势，驱动决策。
+让使用者快速、清晰地理解数据意义，快速分析趋势，驱动决策。
 
 ---
 
@@ -39,7 +39,7 @@ title: 数据可视化页
   </div>
 </div>
 
-### Do&Don’t
+### Do & Don’t
 
 <ImagePreview>
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*D4AHQ434LjgAAAAAAAAAAABkARQnAQ" alt="正确示范">
@@ -62,7 +62,7 @@ title: 数据可视化页
 <img class="preview-img no-padding good" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ym8CSoOMN1EAAAAAAAAAAABkARQnAQ" alt="正确示范">
 </ImagePreview>
 
-善于使用筛选、过滤功能，可以让用户在观察全局的同时，还可以查看数据细节，用户在有疑问时能够快速得到方向。
+善于使用筛选、过滤功能，让用户在观察全局的同时，还可以查看数据细节，从而让用户在有疑问时能够快速找到方向。
 
 ## 典型模板
 

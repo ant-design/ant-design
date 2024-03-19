@@ -1,8 +1,8 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import { type CSSObject, unit } from '@ant-design/cssinjs';
 import type { CSSProperties } from 'react';
 import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, mergeToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
   /**
@@ -80,14 +80,14 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   } = token;
   return {
     [`${listBorderedCls}`]: {
-      border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       borderRadius: borderRadiusLG,
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
       },
 
       [`${componentCls}-pagination`]: {
-        margin: `${margin}px ${marginLG}px`,
+        margin: `${unit(margin)} ${unit(marginLG)}`,
       },
     },
     [`${listBorderedCls}${componentCls}-sm`]: {
@@ -106,7 +106,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
 const genResponsiveStyle = (token: ListToken): CSSObject => {
   const { componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
   return {
-    [`@media screen and (max-width:${screenMD})`]: {
+    [`@media screen and (max-width:${screenMD}px)`]: {
       [`${componentCls}`]: {
         [`${componentCls}-item`]: {
           [`${componentCls}-item-action`]: {
@@ -124,7 +124,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
       },
     },
 
-    [`@media screen and (max-width: ${screenSM})`]: {
+    [`@media screen and (max-width: ${screenSM}px)`]: {
       [`${componentCls}`]: {
         [`${componentCls}-item`]: {
           flexWrap: 'wrap',
@@ -144,7 +144,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
           },
 
           [`${componentCls}-item-extra`]: {
-            margin: `auto auto ${margin}px`,
+            margin: `auto auto ${unit(margin)}`,
           },
         },
       },
@@ -251,7 +251,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           },
 
           [`${componentCls}-item-meta-title`]: {
-            margin: `0 0 ${token.marginXXS}px 0`,
+            margin: `0 0 ${unit(token.marginXXS)} 0`,
             color: colorText,
             fontSize: token.fontSize,
             lineHeight: token.lineHeight,
@@ -283,7 +283,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
           [`& > li`]: {
             position: 'relative',
             display: 'inline-block',
-            padding: `0 ${paddingXS}px`,
+            padding: `0 ${unit(paddingXS)}`,
             color: colorTextDescription,
             fontSize: token.fontSize,
             lineHeight: token.lineHeight,
@@ -299,7 +299,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
             insetBlockStart: '50%',
             insetInlineEnd: 0,
             width: lineWidth,
-            height: Math.ceil(token.fontSize * token.lineHeight) - token.marginXXS * 2,
+            height: token.calc(token.fontHeight).sub(token.calc(token.marginXXS).mul(2)).equal(),
             transform: 'translateY(-50%)',
             backgroundColor: token.colorSplit,
           },
@@ -307,7 +307,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
       },
 
       [`${componentCls}-empty`]: {
-        padding: `${padding}px 0`,
+        padding: `${unit(padding)} 0`,
         color: colorTextDescription,
         fontSize: token.fontSizeSM,
         textAlign: 'center',
@@ -361,7 +361,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
         marginInlineStart: 'auto',
 
         '> li': {
-          padding: `0 ${padding}px`,
+          padding: `0 ${unit(padding)}`,
 
           [`&:first-child`]: {
             paddingInlineStart: 0,
@@ -371,7 +371,7 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     },
 
     [`${componentCls}-split ${componentCls}-item`]: {
-      borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      borderBlockEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
 
       [`&:last-child`]: {
         borderBlockEnd: 'none',
@@ -379,17 +379,17 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
     },
 
     [`${componentCls}-split ${componentCls}-header`]: {
-      borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      borderBlockEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
     },
     [`${componentCls}-split${componentCls}-empty ${componentCls}-footer`]: {
-      borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+      borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
     },
     [`${componentCls}-loading ${componentCls}-spin-nested-loading`]: {
       minHeight: controlHeight,
     },
     [`${componentCls}-split${componentCls}-something-after-last-item ${antCls}-spin-container > ${componentCls}-items > ${componentCls}-item:last-child`]:
       {
-        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
+        borderBlockEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
       },
     [`${componentCls}-lg ${componentCls}-item`]: {
       padding: itemPaddingLG,
@@ -408,8 +408,24 @@ const genBaseStyle: GenerateStyle<ListToken> = (token) => {
   };
 };
 
+export const prepareComponentToken: GetDefaultToken<'List'> = (token) => ({
+  contentWidth: 220,
+  itemPadding: `${unit(token.paddingContentVertical)} 0`,
+  itemPaddingSM: `${unit(token.paddingContentVerticalSM)} ${unit(token.paddingContentHorizontal)}`,
+  itemPaddingLG: `${unit(token.paddingContentVerticalLG)} ${unit(
+    token.paddingContentHorizontalLG,
+  )}`,
+  headerBg: 'transparent',
+  footerBg: 'transparent',
+  emptyTextPadding: token.padding,
+  metaMarginBottom: token.padding,
+  avatarMarginRight: token.padding,
+  titleMarginBottom: token.paddingSM,
+  descriptionFontSize: token.fontSize,
+});
+
 // ============================== Export ==============================
-export default genComponentStyleHook(
+export default genStyleHooks(
   'List',
   (token) => {
     const listToken = mergeToken<ListToken>(token, {
@@ -419,17 +435,5 @@ export default genComponentStyleHook(
 
     return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
   },
-  (token) => ({
-    contentWidth: 220,
-    itemPadding: `${token.paddingContentVertical}px 0`,
-    itemPaddingSM: `${token.paddingContentVerticalSM}px ${token.paddingContentHorizontal}px`,
-    itemPaddingLG: `${token.paddingContentVerticalLG}px ${token.paddingContentHorizontalLG}px`,
-    headerBg: 'transparent',
-    footerBg: 'transparent',
-    emptyTextPadding: token.padding,
-    metaMarginBottom: token.padding,
-    avatarMarginRight: token.padding,
-    titleMarginBottom: token.paddingSM,
-    descriptionFontSize: token.fontSize,
-  }),
+  prepareComponentToken,
 );

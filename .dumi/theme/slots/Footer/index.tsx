@@ -246,7 +246,7 @@ const Footer: React.FC = () => {
           en: 'JoinUs',
         }),
         LinkComponent: Link,
-      } as unknown as typeof col2['items'][number]);
+      } as unknown as (typeof col2)['items'][number]);
     }
 
     const col3 = {
@@ -361,6 +361,20 @@ const Footer: React.FC = () => {
           title: 'Kitchen',
           description: <FormattedMessage id="app.footer.kitchen" />,
           url: 'https://kitchen.alipay.com',
+          openExternal: true,
+        },
+        {
+          icon: (
+            <img
+              src="https://mdn.alipayobjects.com/huamei_j9rjmc/afts/img/A*3ittT5OEo2gAAAAAAAAAAAAADvGmAQ/original"
+              width={16}
+              height={16}
+              alt="Galacean"
+            />
+          ),
+          title: <FormattedMessage id="app.footer.galacean" />,
+          description: <FormattedMessage id="app.footer.galacean.slogan" />,
+          url: 'https://galacean.antgroup.com/',
           openExternal: true,
         },
         {

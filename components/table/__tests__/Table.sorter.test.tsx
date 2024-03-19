@@ -321,6 +321,21 @@ describe('Table.sorter', () => {
     expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
 
+    // should merge original title into showSorterTooltip object
+    rerender(
+      createTable({
+        showSorterTooltip: {
+          overlayClassName: 'custom-tooltip',
+        },
+      }),
+    );
+    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters')!);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
+    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters')!);
+
     // Root to false
     rerender(createTable({ showSorterTooltip: false }));
     act(() => {

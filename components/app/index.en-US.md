@@ -29,8 +29,8 @@ Application wrapper for some global usages.
 App provides upstream and downstream method calls through `Context`, because useApp needs to be used as a subcomponent, we recommend encapsulating App at the top level in the application.
 
 ```tsx
-import { App } from 'antd';
 import React from 'react';
+import { App } from 'antd';
 
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
@@ -102,8 +102,9 @@ export { message, modal, notification };
 
 ```tsx
 // sub page
-import { Button, Space } from 'antd';
 import React from 'react';
+import { Button, Space } from 'antd';
+
 import { message } from './store';
 
 export default () => {
@@ -129,6 +130,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| component | Config render element, if `false` will not create DOM node | ComponentType | div | 5.11.0 |
 | message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - | 5.3.0 |
 | notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - | 5.3.0 |
 

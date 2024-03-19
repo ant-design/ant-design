@@ -1,6 +1,8 @@
-import { UserOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { UserOutlined } from '@ant-design/icons';
+import { renderToString } from 'react-dom/server';
 import { act } from 'react-dom/test-utils';
+
 import Layout from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -331,5 +333,17 @@ describe('Sider', () => {
       );
       expect(ref.current instanceof HTMLElement).toBe(true);
     });
+  });
+
+  it('auto check hasSider', () => {
+    const htmlContent = renderToString(
+      <Layout>
+        <div />
+        <Sider />
+        <div />
+      </Layout>,
+    );
+
+    expect(htmlContent).toContain('ant-layout-has-sider');
   });
 });

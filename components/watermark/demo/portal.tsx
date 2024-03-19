@@ -1,34 +1,38 @@
 import React from 'react';
-import { Watermark, Modal, Drawer, Button, Space } from 'antd';
+import { Button, Drawer, Flex, Modal, Watermark } from 'antd';
 
-const placeholder = (
-  <div
-    style={{
-      height: 300,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      background: 'rgba(150, 150, 150, 0.2)',
-    }}
-  >
-    A mock height
-  </div>
-);
+const style: React.CSSProperties = {
+  height: 300,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  backgroundColor: 'rgba(150, 150, 150, 0.2)',
+};
+
+const placeholder = <div style={style}>A mock height</div>;
 
 const App: React.FC = () => {
   const [showModal, setShowModal] = React.useState(false);
   const [showDrawer, setShowDrawer] = React.useState(false);
+  const [showDrawer2, setShowDrawer2] = React.useState(false);
 
   const closeModal = () => setShowModal(false);
   const closeDrawer = () => setShowDrawer(false);
+  const closeDrawer2 = () => setShowDrawer2(false);
 
   return (
     <>
-      <Space>
-        <Button onClick={() => setShowModal(true)}>Show Modal</Button>
-        <Button onClick={() => setShowDrawer(true)}>Show Drawer</Button>
-      </Space>
-
+      <Flex gap="middle">
+        <Button type="primary" onClick={() => setShowModal(true)}>
+          Show in Modal
+        </Button>
+        <Button type="primary" onClick={() => setShowDrawer(true)}>
+          Show in Drawer
+        </Button>
+        <Button type="primary" onClick={() => setShowDrawer2(true)}>
+          Not Show in Drawer
+        </Button>
+      </Flex>
       <Watermark content="Ant Design">
         <Modal
           destroyOnClose
@@ -40,6 +44,11 @@ const App: React.FC = () => {
           {placeholder}
         </Modal>
         <Drawer destroyOnClose open={showDrawer} title="Drawer" onClose={closeDrawer}>
+          {placeholder}
+        </Drawer>
+      </Watermark>
+      <Watermark content="Ant Design" inherit={false}>
+        <Drawer destroyOnClose open={showDrawer2} title="Drawer" onClose={closeDrawer2}>
           {placeholder}
         </Drawer>
       </Watermark>

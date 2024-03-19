@@ -1,5 +1,5 @@
-import { ConfigProvider, Form, Input } from 'antd';
 import React from 'react';
+import { ConfigProvider, Form, Input } from 'antd';
 
 const App: React.FC = () => (
   <ConfigProvider

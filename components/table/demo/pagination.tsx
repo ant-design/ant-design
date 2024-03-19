@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { Radio, Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
+import type { TableProps } from 'antd';
+
+type ColumnsType<T extends object> = TableProps<T>['columns'];
+type TablePagination<T extends object> = NonNullable<Exclude<TableProps<T>['pagination'], boolean>>;
+type TablePaginationPosition = NonNullable<TablePagination<any>['position']>[number];
 
 interface DataType {
   key: string;
@@ -9,14 +13,6 @@ interface DataType {
   address: string;
   tags: string[];
 }
-
-type TablePaginationPosition =
-  | 'topLeft'
-  | 'topCenter'
-  | 'topRight'
-  | 'bottomLeft'
-  | 'bottomCenter'
-  | 'bottomRight';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },

@@ -27,7 +27,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
 
 const App: React.FC = () => {
   const {
-    token: { colorBgContainer },
+    token: { colorBgContainer, colorBgLayout, borderRadiusLG },
   } = theme.useToken();
 
   return (
@@ -39,8 +39,8 @@ const App: React.FC = () => {
             headerBg: '#1677ff',
             headerHeight: 64,
             headerPadding: `0 24px`,
-            headerColor: '#fff',
-            siderBg: '#fff',
+            headerColor: colorBgContainer,
+            siderBg: colorBgContainer,
           },
         },
       }}
@@ -71,7 +71,8 @@ const App: React.FC = () => {
                 padding: 24,
                 margin: 0,
                 minHeight: 280,
-                background: colorBgContainer,
+                background: colorBgLayout,
+                borderRadius: borderRadiusLG,
               }}
             >
               Content

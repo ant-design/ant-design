@@ -1,11 +1,9 @@
-import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
-import type { GlobalToken } from '../../theme';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
-import { genComponentStyleHook, genPresetColor, mergeToken } from '../../theme/internal';
-import type { GenStyleFn } from '../../theme/util/genComponentStyleHook';
+import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
+import type { GenStyleFn, GetDefaultToken } from '../../theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -84,10 +82,12 @@ const antNoWrapperZoomBadgeIn = new Keyframes('antNoWrapperZoomBadgeIn', {
   '0%': { transform: 'scale(0)', opacity: 0 },
   '100%': { transform: 'scale(1)' },
 });
+
 const antNoWrapperZoomBadgeOut = new Keyframes('antNoWrapperZoomBadgeOut', {
   '0%': { transform: 'scale(1)' },
   '100%': { transform: 'scale(0)', opacity: 0 },
 });
+
 const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   '0%': { transformOrigin: '50%' },
   '100%': {
@@ -96,7 +96,7 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   },
 });
 
-const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject => {
+const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -111,6 +111,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     indicatorHeight,
     indicatorHeightSM,
     marginXS,
+    calc,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
 
@@ -138,12 +139,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         color: token.badgeTextColor,
         fontWeight: textFontWeight,
         fontSize: textFontSize,
-        lineHeight: `${indicatorHeight}px`,
+        lineHeight: unit(indicatorHeight),
         whiteSpace: 'nowrap',
         textAlign: 'center',
         background: token.badgeColor,
-        borderRadius: indicatorHeight / 2,
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
+        borderRadius: calc(indicatorHeight).div(2).equal(),
+        boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
         transition: `background ${token.motionDurationMid}`,
 
         a: {
@@ -161,12 +162,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         minWidth: indicatorHeightSM,
         height: indicatorHeightSM,
         fontSize: textFontSizeSM,
-        lineHeight: `${indicatorHeightSM}px`,
-        borderRadius: indicatorHeightSM / 2,
+        lineHeight: unit(indicatorHeightSM),
+        borderRadius: calc(indicatorHeightSM).div(2).equal(),
       },
 
       [`${componentCls}-multiple-words`]: {
-        padding: `0 ${token.paddingXS}px`,
+        padding: `0 ${unit(token.paddingXS)}`,
 
         bdi: {
           unicodeBidi: 'plaintext',
@@ -180,7 +181,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         height: dotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
+        boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
       },
       [`${componentCls}-dot${numberPrefixCls}`]: {
         transition: `background ${motionDurationSlow}`,
@@ -308,13 +309,14 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             WebkitBackfaceVisibility: 'hidden',
           },
         },
-        [`${numberPrefixCls}-symbol`]: { verticalAlign: 'top' },
+        [`${numberPrefixCls}-symbol`]: {
+          verticalAlign: 'top',
+        },
       },
 
       // ====================== RTL =======================
       '&-rtl': {
         direction: 'rtl',
-
         [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
           transform: 'translate(-50%, -50%)',
         },
@@ -325,9 +327,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
 // ============================== Export ==============================
 export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
-  const { fontSize, lineHeight, lineWidth, marginXS, colorBorderBg } = token;
+  const { fontHeight, lineWidth, marginXS, colorBorderBg } = token;
 
-  const badgeFontHeight = Math.round(fontSize * lineHeight);
+  const badgeFontHeight = fontHeight;
   const badgeShadowSize = lineWidth;
   const badgeTextColor = token.colorBgContainer;
   const badgeColor = token.colorError;
@@ -351,9 +353,8 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeT
   return badgeToken;
 };
 
-export const prepareComponentToken = (token: GlobalToken) => {
+export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
   const { fontSize, lineHeight, fontSizeSM, lineWidth } = token;
-
   return {
     indicatorZIndex: 'auto',
     indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
@@ -366,12 +367,11 @@ export const prepareComponentToken = (token: GlobalToken) => {
   };
 };
 
-export default genComponentStyleHook(
+export default genStyleHooks(
   'Badge',
   (token) => {
     const badgeToken = prepareToken(token);
-
-    return [genSharedBadgeStyle(badgeToken)];
+    return genSharedBadgeStyle(badgeToken);
   },
   prepareComponentToken,
 );

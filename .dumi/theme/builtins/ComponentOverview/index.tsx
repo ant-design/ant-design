@@ -1,12 +1,13 @@
 import React, { memo, useContext, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
-import { Affix, Card, Col, Divider, Input, Row, Space, Tag, Typography } from 'antd';
+import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
 import { createStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
-import Link from '../../common/Link';
 import debounce from 'lodash/debounce';
+import scrollIntoView from 'scroll-into-view-if-needed';
 
+import Link from '../../common/Link';
 import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
@@ -43,6 +44,7 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   componentsOverviewSearch: css`
     padding: 0;
+    box-shadow: none !important;
     .anticon-search {
       color: ${token.colorTextDisabled};
     }
@@ -157,9 +159,19 @@ const Overview: React.FC = () => {
             onChange={(e) => {
               setSearch(e.target.value);
               reportSearch(e.target.value);
+              if (sectionRef.current && searchBarAffixed) {
+                scrollIntoView(sectionRef.current, {
+                  scrollMode: 'if-needed',
+                  block: 'start',
+                  behavior: (actions) =>
+                    actions.forEach(({ el, top }) => {
+                      el.scrollTop = top - 64;
+                    }),
+                });
+              }
             }}
             onKeyDown={onKeyDown}
-            bordered={false}
+            variant="borderless"
             suffix={<SearchOutlined />}
             style={{ fontSize: searchBarAffixed ? fontSizeXL - 2 : fontSizeXL }}
           />
@@ -179,10 +191,10 @@ const Overview: React.FC = () => {
             return components?.length ? (
               <div key={group?.title}>
                 <Title level={2} className={styles.componentsOverviewGroupTitle}>
-                  <Space align="center">
+                  <Flex gap="small" align="center">
                     <span style={{ fontSize: 24 }}>{group?.title}</span>
                     <Tag style={{ display: 'block' }}>{components.length}</Tag>
-                  </Space>
+                  </Flex>
                 </Title>
                 <Row gutter={[24, 24]}>
                   {components.map((component) => {
