@@ -43,7 +43,6 @@ const Popover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     overlayStyle = {},
-    onOpenChange,
     ...otherProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
