@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-shadow */
 import React, { useState } from 'react';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
@@ -55,10 +54,10 @@ interface LevelKeysProps {
   key?: string;
   children?: LevelKeysProps[];
 }
-const getLevelKeys = (items: LevelKeysProps[]) => {
+const getLevelKeys = (items1: LevelKeysProps[]) => {
   const key: Record<string, number> = {};
-  const func = (items: LevelKeysProps[], level = 1) => {
-    items.forEach((item) => {
+  const func = (items2: LevelKeysProps[], level = 1) => {
+    items2.forEach((item) => {
       if (item.key) {
         key[item.key] = level;
       }
@@ -67,13 +66,13 @@ const getLevelKeys = (items: LevelKeysProps[]) => {
       }
     });
   };
-  func(items);
+  func(items1);
   return key;
 };
 const levelKeys = getLevelKeys(items as LevelKeysProps[]);
 
 const App: React.FC = () => {
-  const [openKeys, setOpenKeys] = useState(['2', '23']);
+  const [stateOpenKeys, setStateOpenKeys] = useState(['2', '23']);
 
   const onOpenChange = (openKeys: string[]) => {
     const countData: Record<number, number> = {};
@@ -87,13 +86,13 @@ const App: React.FC = () => {
     });
     if (repeatIndex.length) {
       const [oldIndex, newIndex] = repeatIndex;
-      setOpenKeys(
+      setStateOpenKeys(
         openKeys
           .map((item, index) => (index === oldIndex ? openKeys[newIndex] : item))
           .filter((_, index) => index !== newIndex),
       );
     } else {
-      setOpenKeys(openKeys);
+      setStateOpenKeys(openKeys);
     }
   };
 
@@ -101,7 +100,7 @@ const App: React.FC = () => {
     <Menu
       mode="inline"
       defaultSelectedKeys={['231']}
-      openKeys={openKeys}
+      openKeys={stateOpenKeys}
       onOpenChange={(openKeys) => onOpenChange(openKeys as string[])}
       style={{ width: 256 }}
       items={items}
