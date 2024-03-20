@@ -7,6 +7,14 @@ jobs:
     name: image-preview-3
     runs-on: ubuntu-latest
     steps:
+      - name: cache package-lock.json
+        uses: actions/cache@v4
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: create package-lock.json
+        run: npm i --package-lock-only --ignore-scripts
       - name: checkout
         uses: actions/checkout@v4
       - name: image-preview-4
