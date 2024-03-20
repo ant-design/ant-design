@@ -20,6 +20,9 @@ async function uploadFile() {
     const r1 = await client.put(`demo/image/demo2.png`, 'demo.png', {
       headers,
       timeout: 60000 * 2,
+      meta: {
+        'x-oss-meta-Content-Disposition': 'inline',
+      },
     });
     console.log('r1', r1);
   } catch (err) {
